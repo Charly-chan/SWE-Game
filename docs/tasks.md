@@ -19,7 +19,9 @@ define the current registries and score aggregation.
 Only `visible/` is supplied to the agent. The full package, including `hidden/`,
 stays with the evaluator. Each package freezes the task requirements and evidence
 used to evaluate its submission. Use the matching dataset revision for each run; existing packages retain their
-frozen requirements.
+frozen requirements. Newly installed video-conditioned construction and porting
+packages freeze the current evaluator visual-scoring policy under `hidden/vlm/`;
+agent-visible task materials and objective checks keep their released content.
 
 Agents may choose their own files, classes, scenes, and architecture. Observable
 mechanics, progression, content, and success/failure behavior follow the task

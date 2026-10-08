@@ -10,6 +10,7 @@ answer different questions. A numerical zero alone does not identify its cause.
 | A completed probe confirms every declared scene failed to load | Candidate failure | Dependent runtime measurements cannot succeed for this submission |
 | Only one scene fails while other scenes run | Local candidate failure | Do not infer failure of every scene or unrelated probe |
 | Required input tape is absent or invalid | Candidate contract failure | The affected input-dependent requirement fails; this does not prove every game mechanic is absent |
+| Valid VLM judgment finds required achievement entirely unshown | Demonstrated-achievement score | Receives 0 with a concrete coverage explanation; this does not assert the implementation lacks the feature |
 | Timeout, missing engine, failed recorder, or missing judge response | Unmeasured evidence | Inspect the recorded cause; do not automatically convert it into a model failure |
 | Generation process exits abnormally before delivery | Generation failure, cause unresolved unless separately evidenced | Do not infer a game capability score from the exit code alone |
 | Original submission cannot be located | Unknown source state | Absence from an archive is not proof the model produced nothing |

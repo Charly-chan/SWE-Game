@@ -569,13 +569,13 @@ def _category_specs(mode: str, version: str | None = None) -> tuple[CategorySpec
             ),
             CategorySpec(
                 "visual_feedback",
-                "Visual, UI, and feedback fidelity",
+                "Visual quality",
                 15,
                 (
                     _criterion(
                         "mdva_visual_quality" if policy.mode5_mdva_domain
                         else "cross_engine_visual_feedback",
-                        "Game-rubric MDVA visual quality" if policy.mode5_mdva_domain
+                        "Game-rubric visual quality" if policy.mode5_mdva_domain
                         else "Cross-engine visual, UI, and feedback fidelity",
                         100,
                         *_item_source("unity_vlm" if policy.mode5_mdva_domain
@@ -1864,7 +1864,7 @@ def _mode5_table_summary(category_rows: Sequence[Mapping[str, Any]]) -> dict[str
             "weight": 15.0,
             "score": points("visual_feedback"),
             "sources": ["unity_vlm"],
-            "note": "Mode-5 MDVA / visual demonstration capability",
+            "note": "Mode-5 visual quality",
         },
     }
     complete = all(column["score"] is not None for column in columns.values())
@@ -2137,7 +2137,7 @@ def _score_mode5_result(result: Any, policy: RegistryPolicy) -> dict[str, Any]:
                     "failed_items": [],
                     "unmeasured_items": vlm_missing,
                     "scoring_effect": (
-                        "independent structure-15 and MDVA-15 VLM domains; evaluator gaps require retry"
+                        "independent structure and visual-quality VLM domains, 15 points each; evaluator gaps require retry"
                         if not vlm_complete else "measured"
                     ),
                 }
@@ -4442,8 +4442,7 @@ def _score_redesign_visual(card: dict[str, Any], result: Any) -> dict[str, Any]:
                             "credit": credit, "scale": "0-15", "ceiling": 15.0,
                             "weight_in_total": 15.0,
                             "earned_points": visual_points,
-                            "status": "complete" if measured else "retry_required",
-                            "variants": evidence.get("variants", {})}
+                            "status": "complete" if measured else "retry_required"}
     card["assessment_status"] = ("evaluation_incomplete" if objective_missing else
                                   "complete" if measured else "objective_only")
     card["evaluation_incomplete"] = bool(missing)
@@ -5066,7 +5065,7 @@ def headline_rule(version: str | None = None) -> str:
     if resolved in {MODE1_VLM_REGISTRY_VERSION, MODE2_VLM_REGISTRY_VERSION, MODE3_VLM_REGISTRY_VERSION}:
         return ("Fixed objective axes retain 85 points. Game-specific VLM quality contributes 15 points; "
                 "M/D/V/A internal weights are 10/18/27/45 percent. Direct per-item attainment is limited "
-                "by triggered caps; q² and q³ are diagnostics only. Missing objective or visual evidence withholds "
+                "by triggered caps, using the rubric's direct quality criteria. Missing objective or visual evidence withholds "
                 "the composite and ranking; strict completion remains independent.")
     if resolved == MODE4_F2P_P2P_REGISTRY_VERSION:
         return MODE4_F2P_P2P_HEADLINE_RULE
@@ -5075,7 +5074,7 @@ def headline_rule(version: str | None = None) -> str:
     if resolved == MODE5_MDVA_REGISTRY_VERSION:
         return (
             "Mode-5-v2 corpus-calibrated headline: Objective capability is a fixed "
-            "70-point domain. Cross-engine structure and game-rubric MDVA are "
+            "70-point domain. Cross-engine structure and game-rubric visual quality are "
             "independent 15-point VLM domains. Candidate failures score only the "
             "affected domain; missing evaluator VLM evidence requires retry without "
             "zeroing objective points or renormalising the denominator."

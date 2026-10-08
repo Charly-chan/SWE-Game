@@ -16,7 +16,7 @@ Objective 70 分
 
 VLM 30 分
   ├─ 跨引擎结构                 15
-  └─ MDVA 视觉质量              15
+  └─ 视觉质量              15
 ```
 
 Objective 和两个 VLM 域彼此独立记账，不做动态重归一化。
@@ -28,7 +28,7 @@ Objective 和两个 VLM 域彼此独立记账，不做动态重归一化。
 | 机制与需求 | 35 | `unity_mechanic_trace` |
 | 内容与素材 | 15 | `unity_structure_fidelity`（包含素材身份/内容对应） |
 | 可玩性与演示 | 35 | `causal_witness` + `unity_hidden_behavior` + `unity_runtime_stability` |
-| Mode 专属能力 | 15 | `unity_vlm`（Mode 5 MDVA） |
+| Mode 专属能力 | 15 | `unity_vlm`（Mode 5 视觉质量） |
 
 这是展示层聚合，不改变机器证据叶：稳定性仍单独保存为 10 分诊断项，素材仍在
 内容与素材列内，不会被误读成额外加分项。
@@ -38,7 +38,7 @@ Objective 和两个 VLM 域彼此独立记账，不做动态重归一化。
 ```text
 提交包 → 基础设施 gate → 静态/提交检查 → Unity VM 构建 Linux Player
        → witness + matched-null → Objective runtime suite → Objective 70
-       →（请求 VLM 时）结构 VLM 15 + MDVA 15 → 最终报告
+       →（请求 VLM 时）结构 VLM 15 + 视觉质量 15 → 最终报告
 ```
 
 基础设施失败只能产生 `infrastructure_inconclusive`，不能冒充模型 0 分。候选真实失败可以在对应域记 0 分；evaluator 没有录到、接口失败或 VLM 响应坏，则是 `inconclusive`/retry。
@@ -121,19 +121,19 @@ hidden_score = 15 × 通过场景数 / 应测场景数
 
 完整 witness 已执行但没有有效通关路径时，结构域是候选真实失败，直接记 0 且不调用 API；evaluator 没录到或 VLM provider 失败时，则是 `null`/retry。
 
-### 5.2 MDVA：15 分
+### 5.2 视觉质量：15 分
 
-MDVA 是一个 VLM 大分支，内部按四个维度加权：
+视觉质量按论文中的四个分组加权：
 
 | 维度 | VLM 内部权重 | 折算总分 |
 |---|---:|---:|
-| M：Mechanics presentation | 10% | 1.50 |
-| D：Design/content/layout | 18% | 2.70 |
-| V：Visual/UI/feedback | 27% | 4.05 |
-| A：Audiovisual polish/completeness | 45% | 6.75 |
+| 可见机制（Visible mechanics） | 10% | 1.50 |
+| 设计与内容（Design and content） | 18% | 2.70 |
+| 功能性视觉传达（Functional visual communication） | 27% | 4.05 |
+| 美术（Art） | 45% | 6.75 |
 | 合计 | 100% | 15.00 |
 
-MDVA 可以使用候选录像、参考素材、冻结 rubric、task context 和 evaluator runtime facts，但不能从像素猜测 hidden predicate 或输入因果。
+视觉质量评审可以使用候选录像、参考素材、冻结 rubric、task context 和 evaluator runtime facts，但不能从像素猜测 hidden predicate 或输入因果。
 
 ## 6. 0 分、null 和最终分
 

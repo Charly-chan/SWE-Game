@@ -184,8 +184,8 @@ this local check does not establish model availability or account balance.
 The current game rubric judge sees evaluator-recorded candidate gameplay,
 frames from the supplied GT video, and asset examples. Its groups are M 10%,
 D 18%, V 27%, and A 45% of the 15-point visual contribution. Each item uses
-continuous 0–1 attainment with applicable caps. Squared/cubic scores are
-reported only as diagnostics. Independent calibration remains pending.
+direct continuous 0–1 scores under the rubric’s full, partial, and zero-credit
+criteria, with applicable deficiency caps. Independent calibration remains pending.
 `--visual-judge local` attaches supported local diagnostics and cannot supply
 these VLM points. `GB_VISUAL_JUDGE` changes the shell default; an explicit flag
 wins.

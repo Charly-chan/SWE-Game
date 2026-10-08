@@ -13,7 +13,10 @@ The runner downloads the selected task automatically. To inspect a package:
 eval/evalsys/bin/bench gen-task --game wizard_chase --mode brief --out results/task
 ```
 
-`gen-task` installs existing release files. Choose a repair task with `--case-id`.
+`gen-task` installs existing release files. For video-conditioned construction and
+porting tasks, it then freezes the evaluator’s current visual rubric and response
+contract under `hidden/vlm/`. Record the evaluator commit and rubric version with
+the dataset revision. Choose a repair task with `--case-id`.
 Give a coding agent only `visible/`; retain the entire package for evaluation.
 The available repair IDs are listed in [`data/task-data.json`](../data/task-data.json).
 

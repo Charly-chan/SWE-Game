@@ -14,9 +14,11 @@ identify separate recordings. Gaps between clips are not game glitches.
 
 Assess all candidate segments together over each item's stated scope. Do not
 require a short feature demonstration to show every level or event in isolation.
-Do not select the best segment to ignore defects elsewhere. Missing coverage is
-unknown, whereas sufficiently observed absence of a required achievement is a
-measured shortfall. Footage cannot certify hidden code, exact input latency,
+Do not select the best segment to ignore defects elsewhere. Score demonstrated
+achievement: every applicable item receives a numeric score. Entirely unshown
+achievement receives 0; partial demonstration receives credit only for the
+achievements actually shown. Record unshown requirements in missing_evidence;
+do not describe them as observed game failures. Footage cannot certify hidden code, exact input latency,
 unseen collisions, audio, or deterministic implementation.
 
 For a Unity Mode 5 request, `runtime_facts` are evaluator-owned objective facts,
@@ -35,16 +37,48 @@ present components, shared palette or recognizable source sprite establishes
 only those particular accomplishments. Explain what the finished design achieves.
 Equivalent styles and meaningful minimal or text-only presentations can fully
 satisfy a criterion. Do not add obligations beyond its normative clauses.
-Every numeric q below 1 requires an actual observed deficiency and its normative
-clause. Do not use a sub-full score merely as a confidence discount when you list no
-deficiency. Record sampling uncertainty as an evidence limitation; if it prevents
-judging the item, use null. A brief state absent from sparse samples is not proven
-absent from the game. Facing direction and travel direction are different facts;
+For q below 1, identify the observed deficiencies and/or the required achievements
+that have not been demonstrated. Credit visible accomplishments according to their
+importance and scope; do not apply an arbitrary confidence discount or assume
+unshown accomplishments exist. Missing demonstration can justify partial credit
+without any observed deficiency. A brief state absent from sparse samples is not
+proven absent from the game, but earns no credit for that unshown state. Facing direction and travel direction are different facts;
 do not require them to coincide unless the item's normative clause says so.
 
-The host calculates scoring curves and applies severe-deficiency caps on the
-final score. Return attainment, not a pre-transformed score; do not reverse a
-curve to reach a desired grade. A cap is an upper bound, never an automatic award.
+Use the supplied rubric's scoring_policy to assess substantive completion within
+the item's full_credit, partial_credit and high_score_requirements clauses.
+Its demonstrated-achievement rule takes precedence over older item wording that
+calls missing coverage unknown or unscored: unknown is a condition's coverage
+status, never an applicable item's outcome. It adds no requirement that was not
+already in the video-grounded rubric. Partial-credit references also apply to
+unshown required relationships, without asserting that the game lacks them.
+A score near full credit requires the core relationships to be realized across
+the required scope, with only limited finishing deficiencies. A recognizable
+prototype with a missing core consequence, disconnected content or substantially
+unfinished presentation is only a partial realization of the affected item.
+One polished component cannot compensate for that item's missing core relationship.
+Explain the difference between an isolated minor flaw and a missing or broadly
+defective component. When scoring_policy supplies direct_score_references, use
+those lower direct-credit references to interpret partial attainment. They are
+not extra requirements, mandatory bins or automatic awards; choose a continuous
+value from the actual importance, scope and severity of the observed gaps. A
+functioning prototype or an implementation with important unfinished relations
+must not receive the reference values reserved for complete work. Use the current
+item ceilings, not remembered values from an older rubric. Do not invent a new
+requirement or deficiency to lower a score.
+
+For full credit, establish the actual accomplishment of each applicable high-score
+condition, not just the presence of its components or the absence of an obvious
+failure. A claim that a scene is readable, traversable or enclosed does not by
+itself establish the surface, regional, spatial or compositional relationships
+required by an art item. Identify the particular visual treatment that fulfills
+each stated relationship. The same positive fact cannot stand in for distinct
+conditions. Fully realized minimal or geometric designs can still receive 1;
+judge the stated relationships and do not invent decorative requirements.
+
+The reported attainment is the direct item score. The host only enforces declared
+severe-deficiency caps before averaging item scores. A cap is an upper bound,
+never an automatic award.
 Check every cap's exact condition. Do not replace a condition such as "primary
 action becomes secondary" with "primary action becomes completely invisible".
 Explain visible triggering facts, or which substantive element of the condition
@@ -53,7 +87,8 @@ Insufficient evidence cannot trigger a deficiency cap.
 
 Respect the task's stated freedom. A whole item may be not_applicable only when
 an exact conditional clause makes it optional and candidate evidence establishes
-that scope. An adopted mechanism whose relevant event was not filmed is unknown.
+that scope. An adopted mechanism whose relevant event was not filmed receives
+only its demonstrated credit, including 0 if none of its achievement was shown.
 For an applicable item, individual explicitly conditional high-score requirements
 may be not_applicable with their exact clause and reason. Never turn a mandatory
 requirement into an optional one.
@@ -134,6 +169,13 @@ The illustrative 0.7 is not an anchor or a default. Each high_score_requirements
 entry needs an assessment in order: supported, partial, absent, unknown or
 not_applicable. q=1 requires every applicable condition supported, at least one
 positive applicable condition, and no deficiencies or triggered caps.
+It also requires empty missing_evidence. Positive q needs candidate frames,
+concrete strengths, and at least one supported or partial condition. For an
+entirely unshown item, use q=0, empty strengths/deficiencies/deficiency_checks,
+unknown high-score checks with specific observations, and a concrete
+missing_evidence explanation. evidence_frames may be empty in this case; do not
+invent a frame showing an event. Explain the zero in score_rationale. Each cap
+still needs a check, and insufficient coverage alone never triggers it.
 
 Each deficiency needs a deficiency_checks entry citing a supplied clause_id such
 as A3.full_credit, A3.partial_credit, or A3.high.1. Each high-score check uses
@@ -142,12 +184,17 @@ GT examples in description/basis cannot become extra normative clauses. Every
 declared cap needs exactly one cap_checks entry; the triggered id set must equal
 applied_caps. Frame ids must come from the candidate index, never R/S reference ids.
 
-Set outcome explicitly to measured, not_applicable, or unknown. The host derives
+Set outcome explicitly to measured or not_applicable. The host derives
 retry_required when an answer fails validation; do not return retry_required as
 a judgment. Outcome must agree with the remaining fields.
 
-For unknown items: outcome=unknown, attainment=null, a concrete missing_evidence explanation, no
-applied caps, and an empty score_rationale. Do not make missing detail a deficiency.
+For applicable items: outcome=measured, numeric attainment in [0,1], and a
+score_rationale connecting demonstrated achievement to the number. Use
+missing_evidence for unshown required achievements even when some achievement
+earns partial credit. Keep deficiencies/deficiency_checks for actual observed
+shortfalls only; these arrays may be empty with a sub-full score. A high-score
+check may remain unknown, with an observation explaining what was not shown.
+Never use attainment=null or outcome=unknown for an applicable item.
 For not_applicable items: outcome=not_applicable, attainment=null, a valid condition_id selected only
 from response_ids.whole_item_applicability, applicability observation,
 candidate evidence_frames, empty deficiencies/applied_caps/missing_evidence/
