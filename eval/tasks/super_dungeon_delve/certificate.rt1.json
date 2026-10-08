@@ -1,0 +1,84 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "527dc4d2c052ce582e7581fb3c0079f113737a747042ca6d32c24843b8779a5a"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "super_dungeon_delve/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "56853bfbd051f59fb4ebc31644e7b3422d259b0dcbc8d19dd102ed93c4673bea",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "527dc4d2c052ce582e7581fb3c0079f113737a747042ca6d32c24843b8779a5a",
+    "task_id": "super_dungeon_delve"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "3e7ecb4348c67df2e7ebaf94bca51b0e5a306409dc50f50bd60e2ddb5582f774",
+    "source_sha256": "20d06a0d413e5e53a93f037e56c25df014eed51a49d5285c5219bfccfc7c4627"
+  },
+  "passed_route_ids": [
+    "super_dungeon_delve/L0/no_input_no_goal",
+    "super_dungeon_delve/L0/mash_no_goal",
+    "super_dungeon_delve/L5/whole_game_clear"
+  ],
+  "readings": {
+    "super_dungeon_delve/L0/mash_no_goal": {
+      "deaths": 0,
+      "frames": 3185,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 6,
+      "stop_reason": "budget_frames"
+    },
+    "super_dungeon_delve/L0/no_input_no_goal": {
+      "deaths": 0,
+      "frames": 3185,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 6,
+      "stop_reason": "budget_frames"
+    },
+    "super_dungeon_delve/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 2586,
+      "injects": 0,
+      "milestones_reached": [
+        "second_floor",
+        "fourth_floor",
+        "dungeon_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 244,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "56853bfbd051f59fb4ebc31644e7b3422d259b0dcbc8d19dd102ed93c4673bea"
+  },
+  "result": "3/3 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "44ad57ef4f774f9b60d44b5c7a972696e9246e3a67e4adf1edcf8104eed62cd2",
+  "schema_version": 2,
+  "solution_kinds": {
+    "super_dungeon_delve/L0/mash_no_goal": "tape",
+    "super_dungeon_delve/L0/no_input_no_goal": "tape",
+    "super_dungeon_delve/L5/whole_game_clear": "tape"
+  },
+  "task_id": "super_dungeon_delve",
+  "validated_at": "2026-09-09"
+}

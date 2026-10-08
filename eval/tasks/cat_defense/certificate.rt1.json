@@ -1,0 +1,120 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "harness_concessions_only",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "377c6b0295e1e80ab3312dab4080791b755444ed7bca2cc0b0fb8ddca7262b4f"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "cat_defense/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "43c91bd2746570adc005d01067cb7fbff81c61f069235ab92ac201896ec0681e",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "377c6b0295e1e80ab3312dab4080791b755444ed7bca2cc0b0fb8ddca7262b4f",
+    "task_id": "cat_defense"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "04a2dd1dde1bc2ea6aa07cd06c196d17fc44ee43beeb8fedd06fd11eb9a8e93d",
+    "source_sha256": "fe73542db78218b1e27ca294a96e76cfc7907b5317dd961d5fb780d1ef5e4889"
+  },
+  "passed_route_ids": [
+    "cat_defense/L0/no_input_no_win",
+    "cat_defense/C1/mid_front_wave_clear",
+    "cat_defense/C2/second_lane_wave_clear",
+    "cat_defense/C3/boss_wave_flag",
+    "cat_defense/L5/whole_game_clear"
+  ],
+  "readings": {
+    "cat_defense/C1/mid_front_wave_clear": {
+      "deaths": 0,
+      "frames": 3444,
+      "injects": 0,
+      "milestones_reached": [
+        "stood_on_mid_pad",
+        "stood_on_front_pad",
+        "reached_level_1_flag"
+      ],
+      "solution_kind": "tape",
+      "steps": 246,
+      "stop_reason": "scene_changed"
+    },
+    "cat_defense/C2/second_lane_wave_clear": {
+      "deaths": 0,
+      "frames": 5758,
+      "injects": 0,
+      "milestones_reached": [
+        "stood_on_mid_pad",
+        "stood_on_front_pad",
+        "reached_level_2_flag"
+      ],
+      "solution_kind": "tape",
+      "steps": 436,
+      "stop_reason": "scene_changed"
+    },
+    "cat_defense/C3/boss_wave_flag": {
+      "deaths": 1,
+      "frames": 5547,
+      "injects": 0,
+      "milestones_reached": [
+        "stood_on_mid_two_pad",
+        "stood_on_front_pad",
+        "reached_level_3_flag"
+      ],
+      "solution_kind": "tape",
+      "steps": 389,
+      "stop_reason": "goal_reached"
+    },
+    "cat_defense/L0/no_input_no_win": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "cat_defense/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 15093,
+      "injects": 0,
+      "milestones_reached": [
+        "level_1_flag_reached",
+        "entered_level_2",
+        "level_2_flag_reached",
+        "entered_level_3",
+        "level_3_flag_reached"
+      ],
+      "solution_kind": "tape",
+      "steps": 1074,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "43c91bd2746570adc005d01067cb7fbff81c61f069235ab92ac201896ec0681e"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "b248b27c4dfd621ac2cb43fc6de54d1f6ac4b536a2c4b8c2bfe9f5a34cede30e",
+  "schema_version": 2,
+  "solution_kinds": {
+    "cat_defense/C1/mid_front_wave_clear": "tape",
+    "cat_defense/C2/second_lane_wave_clear": "tape",
+    "cat_defense/C3/boss_wave_flag": "tape",
+    "cat_defense/L0/no_input_no_win": "tape",
+    "cat_defense/L5/whole_game_clear": "tape"
+  },
+  "task_id": "cat_defense",
+  "validated_at": "2026-09-09"
+}

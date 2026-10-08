@@ -1,0 +1,47 @@
+{
+  "schema": "gamebench.mode5.unity-observation-contract.v1",
+  "version": "mode5-unity-observation-v2",
+  "purpose": "Evaluator-owned observation contract for every Unity Mode-5 task",
+  "capabilities": {
+    "entity_census": "GBEntity roles and lifecycle are discovered by the injected probe",
+    "entity_geometry": "Enabled colliders are preferred; enabled renderers in the marker subtree are the deterministic fallback",
+    "role_overlap": "The probe computes player-to-role and role-to-role overlap from resolved geometry",
+    "stable_contact": "The probe resolves evaluator-owned stable entity selectors and contact state",
+    "entity_lifecycle": "The probe records appeared/disappeared marker entities",
+    "entity_state": "GBObservableState exposes standardized boolean and text fields on a GBEntity; claims require independent causal corroboration",
+    "entity_numeric_state": "GBObservableState exposes standardized finite numeric fields on a GBEntity; claims require independent causal corroboration",
+    "numeric_telemetry": "GBTelemetry values are collected as candidate signals and checked against the task contract",
+    "scene_lifecycle": "The probe records loaded scene and declared-level transitions",
+    "outcome_events": "GBOutcome events are collected as corroborating signals; Python remains authoritative"
+  },
+  "predicate_requirements": {
+    "overlap": ["entity_geometry", "role_overlap"],
+    "contact": ["entity_geometry", "stable_contact"],
+    "standing_on": ["entity_geometry", "stable_contact"],
+    "collected_all": ["entity_census"],
+    "device_present": ["entity_census"],
+    "device_state": ["entity_census", "entity_state"],
+    "device_norm_delta": ["entity_geometry", "stable_contact"],
+    "device_numeric": ["entity_census", "entity_numeric_state"],
+    "device_numeric_delta": ["entity_census", "entity_numeric_state"],
+    "count": ["entity_census"],
+    "alive": ["entity_census"],
+    "count_delta": ["entity_census", "entity_lifecycle"],
+    "numeric": ["numeric_telemetry"],
+    "numeric_delta": ["numeric_telemetry"],
+    "norm_delta": ["entity_geometry"],
+    "norm_in": ["entity_geometry"],
+    "levels_visited": ["scene_lifecycle"],
+    "whole_game_clear": ["scene_lifecycle", "outcome_events"]
+  },
+  "identity": {
+    "marker": "GBEntity role plus stableId",
+    "selector": "Evaluator-owned task selectors; no candidate-defined ordinal device namespace"
+  },
+  "trust": {
+    "probe": "authoritative observation source",
+    "candidate_entity_state": "standardized corroborating signal; never sufficient alone for score",
+    "candidate_telemetry": "corroborating signal only",
+    "candidate_outcome": "corroborating signal only"
+  }
+}

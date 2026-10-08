@@ -1,0 +1,111 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "harness_concessions_only",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "436b8b761b339c5d2d099b1738ff04d20bf54828e451232d0612e0320f3aecfc"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "dungeon_escape/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "a7cd8fed1c2642d79196fba9b1fd4b5a36ed220a67c9f01291627360b69bf5b3",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "436b8b761b339c5d2d099b1738ff04d20bf54828e451232d0612e0320f3aecfc",
+    "task_id": "dungeon_escape"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "e6c0c6359ee07848764eb7ab0782d9c5b8d862b7eebc166ce32bfd1d14533270",
+    "source_sha256": "b3fe4a34b329433c13f4dd7d2d15aaf92f28bef3db5366e1541fe83740303200"
+  },
+  "passed_route_ids": [
+    "dungeon_escape/L0/no_input_no_clear",
+    "dungeon_escape/C1/cistern_escape",
+    "dungeon_escape/C2/archive_escape",
+    "dungeon_escape/C3/sanctum_escape",
+    "dungeon_escape/L5/whole_game_clear"
+  ],
+  "readings": {
+    "dungeon_escape/C1/cistern_escape": {
+      "deaths": 0,
+      "frames": 7932,
+      "injects": 0,
+      "milestones_reached": [
+        "cistern_objective_and_stairs"
+      ],
+      "solution_kind": "tape",
+      "steps": 614,
+      "stop_reason": "scene_changed"
+    },
+    "dungeon_escape/C2/archive_escape": {
+      "deaths": 0,
+      "frames": 8034,
+      "injects": 0,
+      "milestones_reached": [
+        "archive_objective_and_stairs"
+      ],
+      "solution_kind": "tape",
+      "steps": 777,
+      "stop_reason": "scene_changed"
+    },
+    "dungeon_escape/C3/sanctum_escape": {
+      "deaths": 1,
+      "frames": 12172,
+      "injects": 0,
+      "milestones_reached": [
+        "sanctum_objective_and_stairs"
+      ],
+      "solution_kind": "tape",
+      "steps": 1266,
+      "stop_reason": "goal_reached"
+    },
+    "dungeon_escape/L0/no_input_no_clear": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "dungeon_escape/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 34681,
+      "injects": 0,
+      "milestones_reached": [
+        "entered_archive",
+        "entered_sanctum"
+      ],
+      "solution_kind": "tape",
+      "steps": 3193,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "a7cd8fed1c2642d79196fba9b1fd4b5a36ed220a67c9f01291627360b69bf5b3"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "92b246cd24194641c1be5b4bed2dad5be630db31475e2b093edd9445ac02ebdc",
+  "schema_version": 2,
+  "solution_kinds": {
+    "dungeon_escape/C1/cistern_escape": "tape",
+    "dungeon_escape/C2/archive_escape": "tape",
+    "dungeon_escape/C3/sanctum_escape": "tape",
+    "dungeon_escape/L0/no_input_no_clear": "tape",
+    "dungeon_escape/L5/whole_game_clear": "tape"
+  },
+  "task_id": "dungeon_escape",
+  "validated_at": "2026-09-09"
+}

@@ -1,0 +1,2068 @@
+{
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "driver_sha256": "7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742",
+  "endings": {
+    "defeat": "res://ui/defeat.tscn",
+    "victory": "res://ui/victory.tscn"
+  },
+  "engine": "4.5.1",
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "e5c740aab257dbf9626ffb8b0b8cc9d729731749530c6e133a1e642c70d2d840",
+    "source_sha256": "e9d823dbb3fed76e95754d2bc6f887728ee8184c2306b16c699390d5a123d9bd"
+  },
+  "levels": [
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          27.6730785369873,
+          30.7193832397461,
+          22.3414421081543
+        ],
+        "min3": [
+          -24.3916091918945,
+          -28.3491325378418,
+          -25.89772605896
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 11,
+        "alive_before": 12,
+        "attempted": true,
+        "delta": -1,
+        "detail": "one collect-and-deliver cycle on Glimmer_01: 12 alive before, 11 after",
+        "effect": {
+          "actions": [],
+          "complete_trigger": false,
+          "cycle_index": 0,
+          "kind": "target_changed",
+          "observed": true
+        },
+        "target": "Glimmer_01"
+      },
+      "cycles": [
+        {
+          "alive_after": 11,
+          "alive_before": 12,
+          "delivered": true,
+          "delta": -1,
+          "index": 0,
+          "target": "Glimmer_01"
+        },
+        {
+          "alive_after": 10,
+          "alive_before": 11,
+          "delivered": true,
+          "delta": -1,
+          "index": 1,
+          "target": "Glimmer_02"
+        },
+        {
+          "alive_after": 9,
+          "alive_before": 10,
+          "delivered": true,
+          "delta": -1,
+          "index": 2,
+          "target": "Glimmer_03"
+        },
+        {
+          "alive_after": 8,
+          "alive_before": 9,
+          "delivered": true,
+          "delta": -1,
+          "index": 3,
+          "target": "Glimmer_04"
+        },
+        {
+          "alive_after": 7,
+          "alive_before": 8,
+          "delivered": true,
+          "delta": -1,
+          "index": 4,
+          "target": "Glimmer_05"
+        },
+        {
+          "alive_after": 6,
+          "alive_before": 7,
+          "delivered": true,
+          "delta": -1,
+          "index": 5,
+          "target": "Glimmer_06"
+        },
+        {
+          "alive_after": 5,
+          "alive_before": 6,
+          "delivered": true,
+          "delta": -1,
+          "index": 6,
+          "target": "Glimmer_07"
+        },
+        {
+          "alive_after": 4,
+          "alive_before": 5,
+          "delivered": true,
+          "delta": -1,
+          "index": 7,
+          "target": "Glimmer_08"
+        },
+        {
+          "alive_after": 3,
+          "alive_before": 4,
+          "delivered": true,
+          "delta": -1,
+          "index": 8,
+          "target": "Glimmer_09"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 3,
+          "delivered": true,
+          "delta": -1,
+          "index": 9,
+          "target": "Glimmer_10"
+        },
+        {
+          "alive_after": 1,
+          "alive_before": 2,
+          "delivered": true,
+          "delta": -1,
+          "index": 10,
+          "target": "Glimmer_11"
+        },
+        {
+          "alive_after": 0,
+          "alive_before": 1,
+          "delivered": true,
+          "delta": -1,
+          "index": 11,
+          "target": "Glimmer_12"
+        }
+      ],
+      "cycles_capped": false,
+      "declared_scene": "res://world/planet_world.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "12 collect-and-deliver cycles then 120 frames on Beacon_01_Shorewake, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://world/planet_world.tscn",
+        "scene_before": "res://world/planet_world.tscn",
+        "target": "Beacon_01_Shorewake"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 12,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.538433822921445,
+              "y": 0.978302080596045
+            },
+            {
+              "valid": true,
+              "x": 0.878679810092658,
+              "y": 0.806747727737563
+            },
+            {
+              "valid": true,
+              "x": 0.350982406751011,
+              "y": 0.935651376086356
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.723279092059864
+            },
+            {
+              "valid": true,
+              "x": 0.996237080625775,
+              "y": 0.653737874050088
+            },
+            {
+              "valid": true,
+              "x": 0.877571552013011,
+              "y": 0.454896204545629
+            },
+            {
+              "valid": true,
+              "x": 0.000511120478885306,
+              "y": 0.505716869826304
+            },
+            {
+              "valid": true,
+              "x": 0.0824885149008361,
+              "y": 0.22202026522467
+            },
+            {
+              "valid": true,
+              "x": 0.726750804697868,
+              "y": 0.130533217922979
+            },
+            {
+              "valid": true,
+              "x": 0.49714441838816,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.0662693784431348,
+              "y": 0.0981394116693921
+            },
+            {
+              "valid": true,
+              "x": 0.329673295028361,
+              "y": 0.250522588554445
+            }
+          ],
+          "total": 12,
+          "world": [
+            [
+              3.64177966117859,
+              29.4377193450928,
+              -6.06963300704956
+            ],
+            [
+              21.3565807342529,
+              19.3042583465576,
+              -7.24312973022461
+            ],
+            [
+              -6.11781978607178,
+              26.9184055328369,
+              13.1533126831055
+            ],
+            [
+              -24.3916091918945,
+              14.3738899230957,
+              8.77635097503662
+            ],
+            [
+              27.4771633148193,
+              10.2661933898926,
+              6.9447774887085
+            ],
+            [
+              21.2988796234131,
+              -1.47908890247345,
+              20.4114265441895
+            ],
+            [
+              -24.3649978637695,
+              1.5228123664856,
+              17.9691867828369
+            ],
+            [
+              -20.0968704223633,
+              -15.2347249984741,
+              20.4210147857666
+            ],
+            [
+              13.4464445114136,
+              -20.638729095459,
+              19.0751895904541
+            ],
+            [
+              1.4920597076416,
+              -28.3491325378418,
+              8.95235824584961
+            ],
+            [
+              -20.9413146972656,
+              -22.5521831512451,
+              -9.34304809570312
+            ],
+            [
+              -7.22727203369141,
+              -13.5511350631714,
+              -25.89772605896
+            ]
+          ]
+        },
+        "gb_door": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_enemy": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_goal": {
+          "alive": 6,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.721457729380243,
+              "y": 0.896158321857847
+            },
+            {
+              "valid": true,
+              "x": 0.167543915532359,
+              "y": 0.823791367046323
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.550754863409159
+            },
+            {
+              "valid": true,
+              "x": 0.0204460280842972,
+              "y": 0.390941300040421
+            },
+            {
+              "valid": true,
+              "x": 0.669735062502173,
+              "y": 0.010721364010375
+            },
+            {
+              "valid": true,
+              "x": 0.0840602323539336,
+              "y": 0.0918055118109728
+            }
+          ],
+          "total": 6,
+          "world": [
+            [
+              13.170862197876,
+              24.5856094360352,
+              -8.78057479858398
+            ],
+            [
+              -15.6684875488281,
+              20.3110008239746,
+              13.6373863220215
+            ],
+            [
+              27.6730785369873,
+              4.18313980102539,
+              15.767219543457
+            ],
+            [
+              -23.3270931243896,
+              -5.25681018829346,
+              22.3414421081543
+            ],
+            [
+              10.4779376983643,
+              -27.7158374786377,
+              16.2239036560059
+            ],
+            [
+              -20.0150394439697,
+              -22.9263172149658,
+              -20.0150394439697
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_interactive": {
+          "alive": 6,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.721457729380243,
+              "y": 0.896158321857847
+            },
+            {
+              "valid": true,
+              "x": 0.167543915532359,
+              "y": 0.823791367046323
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.550754863409159
+            },
+            {
+              "valid": true,
+              "x": 0.0204460280842972,
+              "y": 0.390941300040421
+            },
+            {
+              "valid": true,
+              "x": 0.669735062502173,
+              "y": 0.010721364010375
+            },
+            {
+              "valid": true,
+              "x": 0.0840602323539336,
+              "y": 0.0918055118109728
+            }
+          ],
+          "total": 6,
+          "world": [
+            [
+              13.170862197876,
+              24.5856094360352,
+              -8.78057479858398
+            ],
+            [
+              -15.6684875488281,
+              20.3110008239746,
+              13.6373863220215
+            ],
+            [
+              27.6730785369873,
+              4.18313980102539,
+              15.767219543457
+            ],
+            [
+              -23.3270931243896,
+              -5.25681018829346,
+              22.3414421081543
+            ],
+            [
+              10.4779376983643,
+              -27.7158374786377,
+              16.2239036560059
+            ],
+            [
+              -20.0150394439697,
+              -22.9263172149658,
+              -20.0150394439697
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.486205031554692,
+              "y": 1.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.92250394821167,
+              30.7193832397461,
+              0.615002691745758
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "beacons_lit": 0.0,
+        "elapsed_time": 16.5996133333334,
+        "health": 355.242238666662,
+        "lantern_energy": 355.242238666662,
+        "progress": 0.0,
+        "timer": 16.5996133333334
+      },
+      "numeric_source": {
+        "beacons_lit": "declared",
+        "elapsed_time": "declared",
+        "health": "declared",
+        "lantern_energy": "declared",
+        "progress": "declared",
+        "timer": "declared"
+      },
+      "reached": true,
+      "scene": "res://world/planet_world.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 12,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 2.99580869841269,
+            "health": 357.004191301583,
+            "lantern_energy": 357.004191301583,
+            "progress": 0.0,
+            "timer": 2.99580869841269
+          },
+          "phase": "settle",
+          "player": [
+            0.92250394821167,
+            30.7193832397461,
+            0.615002691745758
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 12,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 3.18933333333332,
+            "health": 359.875798,
+            "lantern_energy": 359.875798,
+            "progress": 0.0,
+            "timer": 3.18933333333332
+          },
+          "phase": "pick",
+          "player": [
+            3.64177966117859,
+            29.4377193450928,
+            -6.06963300704956
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 11,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 3.46534533333332,
+            "health": 359.599786,
+            "lantern_energy": 359.599786,
+            "progress": 0.0,
+            "timer": 3.46534533333332
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 11,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 3.72752933333332,
+            "health": 359.337602,
+            "lantern_energy": 359.337602,
+            "progress": 0.0,
+            "timer": 3.72752933333332
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 11,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 3.98972933333332,
+            "health": 359.875804,
+            "lantern_energy": 359.875804,
+            "progress": 0.0,
+            "timer": 3.98972933333332
+          },
+          "phase": "pick",
+          "player": [
+            21.3565807342529,
+            19.3042583465576,
+            -7.24312973022461
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 10,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 4.26573333333333,
+            "health": 359.5998,
+            "lantern_energy": 359.5998,
+            "progress": 0.0,
+            "timer": 4.26573333333333
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 10,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 4.52792933333333,
+            "health": 359.337604,
+            "lantern_energy": 359.337604,
+            "progress": 0.0,
+            "timer": 4.52792933333333
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 10,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 4.79013133333333,
+            "health": 359.875804,
+            "lantern_energy": 359.875804,
+            "progress": 0.0,
+            "timer": 4.79013133333333
+          },
+          "phase": "pick",
+          "player": [
+            -6.11781978607178,
+            26.9184055328369,
+            13.1533126831055
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 9,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 5.06613133333333,
+            "health": 359.599804,
+            "lantern_energy": 359.599804,
+            "progress": 0.0,
+            "timer": 5.06613133333333
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 9,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 5.32828533333333,
+            "health": 359.33765,
+            "lantern_energy": 359.33765,
+            "progress": 0.0,
+            "timer": 5.32828533333333
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 9,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 5.59378933333333,
+            "health": 359.844832,
+            "lantern_energy": 359.844832,
+            "progress": 0.0,
+            "timer": 5.59378933333333
+          },
+          "phase": "pick",
+          "player": [
+            -24.3916091918945,
+            14.3738899230957,
+            8.77635097503662
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 8,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 5.8562788148148,
+            "health": 359.582342518518,
+            "lantern_energy": 359.582342518518,
+            "progress": 0.0,
+            "timer": 5.8562788148148
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 8,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 6.12857142857141,
+            "health": 359.310049904761,
+            "lantern_energy": 359.310049904761,
+            "progress": 0.0,
+            "timer": 6.12857142857141
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 8,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 6.39243399999998,
+            "health": 359.863456,
+            "lantern_energy": 359.863456,
+            "progress": 0.0,
+            "timer": 6.39243399999998
+          },
+          "phase": "pick",
+          "player": [
+            27.4771633148193,
+            10.2661933898926,
+            6.9447774887085
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 7,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 6.65910066666666,
+            "health": 359.596789333333,
+            "lantern_energy": 359.596789333333,
+            "progress": 0.0,
+            "timer": 6.65910066666666
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 7,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 6.92882333333332,
+            "health": 359.327066666667,
+            "lantern_energy": 359.327066666667,
+            "progress": 0.0,
+            "timer": 6.92882333333332
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 7,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 216,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 7.19432733333332,
+            "health": 359.844832,
+            "lantern_energy": 359.844832,
+            "progress": 0.0,
+            "timer": 7.19432733333332
+          },
+          "phase": "pick",
+          "player": [
+            21.2988796234131,
+            -1.47908890247345,
+            20.4114265441895
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 6,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 224,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 7.44200199999998,
+            "health": 359.597157333333,
+            "lantern_energy": 359.597157333333,
+            "progress": 0.0,
+            "timer": 7.44200199999998
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 6,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 232,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 7.73187599999998,
+            "health": 359.307283333333,
+            "lantern_energy": 359.307283333333,
+            "progress": 0.0,
+            "timer": 7.73187599999998
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 6,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 240,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 7.84226799999998,
+            "health": 360.0,
+            "lantern_energy": 360.0,
+            "progress": 0.0,
+            "timer": 7.84226799999998
+          },
+          "phase": "pick",
+          "player": [
+            -24.3649978637695,
+            1.5228123664856,
+            17.9691867828369
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 248,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 8.23333333333331,
+            "health": 359.608934666667,
+            "lantern_energy": 359.608934666667,
+            "progress": 0.0,
+            "timer": 8.23333333333331
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 256,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 8.52245266666666,
+            "health": 359.319815333333,
+            "lantern_energy": 359.319815333333,
+            "progress": 0.0,
+            "timer": 8.52245266666666
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 264,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 8.795842,
+            "health": 359.900425333333,
+            "lantern_energy": 359.900425333333,
+            "progress": 0.0,
+            "timer": 8.795842
+          },
+          "phase": "pick",
+          "player": [
+            -20.0968704223633,
+            -15.2347249984741,
+            20.4210147857666
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 272,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 9.044242,
+            "health": 359.652025333333,
+            "lantern_energy": 359.652025333333,
+            "progress": 0.0,
+            "timer": 9.044242
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 280,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 9.32545,
+            "health": 359.370817333333,
+            "lantern_energy": 359.370817333333,
+            "progress": 0.0,
+            "timer": 9.32545
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 288,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 9.59114876190476,
+            "health": 359.871861904762,
+            "lantern_energy": 359.871861904762,
+            "progress": 0.0,
+            "timer": 9.59114876190476
+          },
+          "phase": "pick",
+          "player": [
+            13.4464445114136,
+            -20.638729095459,
+            19.0751895904541
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 3,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 296,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 9.84761904761905,
+            "health": 359.615391619047,
+            "lantern_energy": 359.615391619047,
+            "progress": 0.0,
+            "timer": 9.84761904761905
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 3,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 304,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 10.121258,
+            "health": 359.341752666666,
+            "lantern_energy": 359.341752666666,
+            "progress": 0.0,
+            "timer": 10.121258
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 3,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 312,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 10.3987,
+            "health": 359.846766,
+            "lantern_energy": 359.846766,
+            "progress": 0.0,
+            "timer": 10.3987
+          },
+          "phase": "pick",
+          "player": [
+            1.4920597076416,
+            -28.3491325378418,
+            8.95235824584961
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 320,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 10.6461666666667,
+            "health": 359.599299333333,
+            "lantern_energy": 359.599299333333,
+            "progress": 0.0,
+            "timer": 10.6461666666667
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 328,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 10.9215086666667,
+            "health": 359.323957333333,
+            "lantern_energy": 359.323957333333,
+            "progress": 0.0,
+            "timer": 10.9215086666667
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 336,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 11.190946,
+            "health": 359.855642031746,
+            "lantern_energy": 359.855642031746,
+            "progress": 0.0,
+            "timer": 11.190946
+          },
+          "phase": "pick",
+          "player": [
+            -20.9413146972656,
+            -22.5521831512451,
+            -9.34304809570312
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 344,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 11.439356,
+            "health": 359.607232031746,
+            "lantern_energy": 359.607232031746,
+            "progress": 0.0,
+            "timer": 11.439356
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 352,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 11.73145,
+            "health": 359.315138031746,
+            "lantern_energy": 359.315138031746,
+            "progress": 0.0,
+            "timer": 11.73145
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 360,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 11.9986973333334,
+            "health": 359.843154666667,
+            "lantern_energy": 359.843154666667,
+            "progress": 0.0,
+            "timer": 11.9986973333334
+          },
+          "phase": "pick",
+          "player": [
+            -7.22727203369141,
+            -13.5511350631714,
+            -25.89772605896
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 368,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 12.233762,
+            "health": 359.60809,
+            "lantern_energy": 359.60809,
+            "progress": 0.0,
+            "timer": 12.233762
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 376,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 12.5247286666667,
+            "health": 359.317123333333,
+            "lantern_energy": 359.317123333333,
+            "progress": 0.0,
+            "timer": 12.5247286666667
+          },
+          "phase": "deliver",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 384,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 12.7899811111111,
+            "health": 359.051870888889,
+            "lantern_energy": 359.051870888889,
+            "progress": 0.0,
+            "timer": 12.7899811111111
+          },
+          "phase": "goal",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 392,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 13.05387,
+            "health": 358.787981999999,
+            "lantern_energy": 358.787981999999,
+            "progress": 0.0,
+            "timer": 13.05387
+          },
+          "phase": "goal",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 400,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 13.3316477777778,
+            "health": 358.510204222221,
+            "lantern_energy": 358.510204222221,
+            "progress": 0.0,
+            "timer": 13.3316477777778
+          },
+          "phase": "goal",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 408,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 13.5955366666667,
+            "health": 358.246315333332,
+            "lantern_energy": 358.246315333332,
+            "progress": 0.0,
+            "timer": 13.5955366666667
+          },
+          "phase": "goal",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 416,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 13.8594255555556,
+            "health": 357.982426444442,
+            "lantern_energy": 357.982426444442,
+            "progress": 0.0,
+            "timer": 13.8594255555556
+          },
+          "phase": "goal",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 424,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 14.1286918518519,
+            "health": 357.713160148146,
+            "lantern_energy": 357.713160148146,
+            "progress": 0.0,
+            "timer": 14.1286918518519
+          },
+          "phase": "goal",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 432,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 14.4,
+            "health": 357.441851999997,
+            "lantern_energy": 357.441851999997,
+            "progress": 0.0,
+            "timer": 14.4
+          },
+          "phase": "goal",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 440,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 14.6571428571429,
+            "health": 357.184709142854,
+            "lantern_energy": 357.184709142854,
+            "progress": 0.0,
+            "timer": 14.6571428571429
+          },
+          "phase": "goal",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 448,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 14.919864,
+            "health": 356.921987999996,
+            "lantern_energy": 356.921987999996,
+            "progress": 0.0,
+            "timer": 14.919864
+          },
+          "phase": "goal",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 456,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 15.1920346666667,
+            "health": 356.64981733333,
+            "lantern_energy": 356.64981733333,
+            "progress": 0.0,
+            "timer": 15.1920346666667
+          },
+          "phase": "goal",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 464,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 15.4587013333334,
+            "health": 356.383150666663,
+            "lantern_energy": 356.383150666663,
+            "progress": 0.0,
+            "timer": 15.4587013333334
+          },
+          "phase": "goal",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 472,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 15.7307173333334,
+            "health": 356.111134666663,
+            "lantern_energy": 356.111134666663,
+            "progress": 0.0,
+            "timer": 15.7307173333334
+          },
+          "phase": "goal",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 480,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 15.9927653333334,
+            "health": 355.849086666663,
+            "lantern_energy": 355.849086666663,
+            "progress": 0.0,
+            "timer": 15.9927653333334
+          },
+          "phase": "goal",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 488,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 16.2548133333334,
+            "health": 355.587038666662,
+            "lantern_energy": 355.587038666662,
+            "progress": 0.0,
+            "timer": 16.2548133333334
+          },
+          "phase": "goal",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 496,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 16.5306533333334,
+            "health": 355.311198666662,
+            "lantern_energy": 355.311198666662,
+            "progress": 0.0,
+            "timer": 16.5306533333334
+          },
+          "phase": "goal",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 6,
+            "gb_hazard": 0,
+            "gb_interactive": 6,
+            "gb_player": 1
+          },
+          "frame": 498,
+          "numeric": {
+            "beacons_lit": 0.0,
+            "elapsed_time": 16.5996133333334,
+            "health": 355.242238666662,
+            "lantern_energy": 355.242238666662,
+            "progress": 0.0,
+            "timer": 16.5996133333334
+          },
+          "phase": "goal",
+          "player": [
+            13.170862197876,
+            24.5856094360352,
+            -8.78057479858398
+          ],
+          "scene_path": "res://world/planet_world.tscn"
+        }
+      ],
+      "spawn": [
+        0.92250394821167,
+        30.7193832397461,
+        0.615002691745758
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.48620503155469214,
+        "y": 1.0
+      },
+      "stop_reason": "goal_no_transition"
+    }
+  ],
+  "liveness": [
+    {
+      "action": "gb_left",
+      "detail": "gb_left differs from the idle control on position (delta 29.33469 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_right",
+      "detail": "gb_right differs from the idle control on position (delta 15.420279 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_up",
+      "detail": "gb_up differs from the idle control on position (delta 9.219034 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_down",
+      "detail": "gb_down differs from the idle control on position (delta 38.898138 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_jump",
+      "detail": "gb_jump differs from the idle control on velocity (delta 8.916806 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "velocity"
+    },
+    {
+      "action": "gb_action",
+      "detail": "gb_action differs from the idle control on text (delta 1.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "text"
+    }
+  ],
+  "no_input_no_win": true,
+  "no_input_stop_reason": "budget_frames",
+  "notes": [
+    "liveness deadline derived from this project's own structural pass: 21.0 ms/frame median, 21.0 ms/frame worst",
+    "liveness sweep: 6 live / 0 dead against the 420-frame idle control truth/L0#idle420"
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "kindle_relay",
+  "read_failure": "",
+  "taken_at": "2026-09-10T09:19:43+00:00",
+  "version": "1"
+}

@@ -1,0 +1,118 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "ab934365a7aef361a1a950391d91c34b676c1401fc0519a5d02be38d85abfe0f"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "canopy_dash/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "a8431816ad68aa12e4f8a6fcc22eaf666caab105cfea3b783a041c3a4788ff44",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "ab934365a7aef361a1a950391d91c34b676c1401fc0519a5d02be38d85abfe0f",
+    "task_id": "canopy_dash"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "27e4a181b13b7ac43273da203844d5b1da2bfd45fe67ddf58c3fd928979592b1",
+    "source_sha256": "fcc5be148118eee19d8f42479a3d287d13e79e3a33eed84a52789fcfd654457b"
+  },
+  "passed_route_ids": [
+    "canopy_dash/L0/no_input_no_clear",
+    "canopy_dash/C1/opening_ramp_to_1000m",
+    "canopy_dash/C2/middle_ramp_1000m_to_3000m",
+    "canopy_dash/C3/late_ramp_and_finish",
+    "canopy_dash/L5/whole_game_clear"
+  ],
+  "readings": {
+    "canopy_dash/C1/opening_ramp_to_1000m": {
+      "deaths": 0,
+      "frames": 3718,
+      "injects": 0,
+      "milestones_reached": [
+        "opening_band_250m",
+        "difficulty_two_500m"
+      ],
+      "solution_kind": "tape",
+      "steps": 36,
+      "stop_reason": "ops_exhausted"
+    },
+    "canopy_dash/C2/middle_ramp_1000m_to_3000m": {
+      "deaths": 0,
+      "frames": 6673,
+      "injects": 0,
+      "milestones_reached": [
+        "difficulty_four_1500m",
+        "difficulty_five_2000m"
+      ],
+      "solution_kind": "tape",
+      "steps": 307,
+      "stop_reason": "ops_exhausted"
+    },
+    "canopy_dash/C3/late_ramp_and_finish": {
+      "deaths": 0,
+      "frames": 6371,
+      "injects": 0,
+      "milestones_reached": [
+        "difficulty_six_3250m",
+        "difficulty_seven_4500m"
+      ],
+      "solution_kind": "tape",
+      "steps": 539,
+      "stop_reason": "goal_reached"
+    },
+    "canopy_dash/L0/no_input_no_clear": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "canopy_dash/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 16800,
+      "injects": 0,
+      "milestones_reached": [
+        "opening_ramp_complete",
+        "middle_ramp_complete",
+        "late_band_entered",
+        "coin_requirement_met",
+        "challenge_distance_met",
+        "finish_platform_overlapped"
+      ],
+      "solution_kind": "tape",
+      "steps": 538,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "a8431816ad68aa12e4f8a6fcc22eaf666caab105cfea3b783a041c3a4788ff44"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "37e3a06f6ca425e2f3dc8bd170c19e9604409f91db7d05f50bafd2d1a2cff682",
+  "schema_version": 2,
+  "solution_kinds": {
+    "canopy_dash/C1/opening_ramp_to_1000m": "tape",
+    "canopy_dash/C2/middle_ramp_1000m_to_3000m": "tape",
+    "canopy_dash/C3/late_ramp_and_finish": "tape",
+    "canopy_dash/L0/no_input_no_clear": "tape",
+    "canopy_dash/L5/whole_game_clear": "tape"
+  },
+  "task_id": "canopy_dash",
+  "validated_at": "2026-09-09"
+}

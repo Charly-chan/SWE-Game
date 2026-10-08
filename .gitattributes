@@ -1,0 +1,15 @@
+# Preserve cross-platform source and evidence checksums.
+*.gd text eol=lf
+*.json text eol=lf
+*.tscn text eol=lf
+*.tres text eol=lf
+*.cfg text eol=lf
+*.godot text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+eval/harness/*.gd text eol=lf
+eval/tasks/**/*.json text eol=lf
+*.gltf -text
+*.svg -text
+*.import -text

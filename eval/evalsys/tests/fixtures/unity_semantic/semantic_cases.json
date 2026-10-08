@@ -1,0 +1,468 @@
+{
+  "cases": [
+    {
+      "id": "complete_semantics",
+      "report": {
+        "bounds": {
+          "max": {
+            "x": 10.0,
+            "y": 10.0,
+            "z": 1.0
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "deaths": 0,
+        "detail": "",
+        "device_contacts": {},
+        "device_index": {},
+        "errors": [],
+        "group_totals": {
+          "gb_collectible": 1,
+          "gb_enemy": 2,
+          "gb_player": 1
+        },
+        "injects": 0,
+        "out_of_bounds": 0,
+        "physics_frames_at_end": 40,
+        "process_frames_at_end": 40,
+        "rows": [
+          {
+            "c": [],
+            "d": {},
+            "f": 10,
+            "g": {
+              "gb_collectible": 1,
+              "gb_enemy": 2,
+              "gb_player": 1
+            },
+            "lv": 1,
+            "n": {
+              "score": 0.0
+            },
+            "o": {
+              "gb_projectile|gb_enemy": false
+            },
+            "px": 1.0,
+            "py": 2.0,
+            "pz": 0.0,
+            "s": {
+              "anim": 0,
+              "audio_events": 0,
+              "node_count": 4,
+              "numeric": {
+                "score": 0.0
+              },
+              "text": 0,
+              "visible_count": 4
+            },
+            "so": "",
+            "vx": 0.0,
+            "vy": 0.0,
+            "vz": 0.0,
+            "wgc": false
+          },
+          {
+            "c": [],
+            "d": {},
+            "f": 20,
+            "g": {
+              "gb_collectible": 1,
+              "gb_enemy": 2,
+              "gb_player": 1,
+              "gb_projectile": 1
+            },
+            "lv": 1,
+            "n": {
+              "score": 0.0
+            },
+            "o": {
+              "gb_projectile|gb_enemy": true
+            },
+            "px": 3.0,
+            "py": 2.0,
+            "pz": 0.0,
+            "s": {
+              "anim": 1,
+              "audio_events": 1,
+              "node_count": 5,
+              "numeric": {
+                "score": 0.0
+              },
+              "text": 0,
+              "visible_count": 5
+            },
+            "so": "",
+            "vx": 2.0,
+            "vy": 0.0,
+            "vz": 0.0,
+            "wgc": false
+          },
+          {
+            "c": [],
+            "d": {},
+            "f": 30,
+            "g": {
+              "gb_collectible": 0,
+              "gb_enemy": 1,
+              "gb_player": 1
+            },
+            "lv": 2,
+            "n": {
+              "score": 10.0
+            },
+            "o": {},
+            "px": 6.0,
+            "py": 2.0,
+            "pz": 0.0,
+            "s": {
+              "anim": 1,
+              "audio_events": 2,
+              "node_count": 2,
+              "numeric": {
+                "score": 10.0
+              },
+              "text": 1,
+              "visible_count": 2
+            },
+            "so": "",
+            "vx": 3.0,
+            "vy": 0.0,
+            "vz": 0.0,
+            "wgc": false
+          },
+          {
+            "c": [],
+            "d": {},
+            "f": 40,
+            "g": {
+              "gb_collectible": 0,
+              "gb_enemy": 0,
+              "gb_player": 1
+            },
+            "lv": 3,
+            "n": {
+              "score": 20.0
+            },
+            "o": {},
+            "px": 7.0,
+            "py": 2.0,
+            "pz": 0.0,
+            "s": {
+              "anim": 2,
+              "audio_events": 3,
+              "node_count": 1,
+              "numeric": {
+                "score": 20.0
+              },
+              "text": 1,
+              "visible_count": 1
+            },
+            "so": "",
+            "vx": 0.0,
+            "vy": 0.0,
+            "vz": 0.0,
+            "wgc": true
+          }
+        ],
+        "run_id": "complete_semantics/positive",
+        "schema": "gamebench.unity-semantic-report.v1",
+        "stall_frames": 0,
+        "steps": 3,
+        "stop_reason": "goal_reached",
+        "success_before_all_levels": false,
+        "turns": 1
+      },
+      "route": {
+        "budget": {
+          "frames": 120,
+          "steps": 4
+        },
+        "goal": {
+          "invariants": [
+            {
+              "name": "player_alive",
+              "predicate": "alive(gb_player)"
+            }
+          ],
+          "milestones": [
+            {
+              "name": "projectile_contact",
+              "predicate": "overlap(gb_projectile, gb_enemy)"
+            },
+            {
+              "baseline": "previous_row",
+              "name": "enemy_removed",
+              "predicate": "count_delta(gb_enemy) < 0"
+            }
+          ],
+          "observations": [
+            {
+              "name": "collected",
+              "predicate": "collected_all(gb_collectible)"
+            },
+            {
+              "name": "score_changed",
+              "predicate": "numeric_delta(score) > 0"
+            },
+            {
+              "name": "progressed",
+              "predicate": "levels_visited() >= 2"
+            },
+            {
+              "name": "moved_halfway",
+              "predicate": "norm_delta(x) >= 0.5"
+            }
+          ],
+          "predicate": "whole_game_clear()"
+        },
+        "route_id": "fixture/L5/complete",
+        "tier": 5
+      }
+    },
+    {
+      "id": "invariant_failure",
+      "report": {
+        "bounds": {
+          "max": {
+            "x": 2.0,
+            "y": 1.0,
+            "z": 1.0
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "deaths": 1,
+        "detail": "",
+        "device_contacts": {},
+        "device_index": {},
+        "errors": [],
+        "group_totals": {
+          "gb_goal": 1,
+          "gb_player": 1
+        },
+        "injects": 0,
+        "out_of_bounds": 0,
+        "physics_frames_at_end": 2,
+        "process_frames_at_end": 2,
+        "rows": [
+          {
+            "c": [],
+            "d": {},
+            "f": 1,
+            "g": {
+              "gb_goal": 1,
+              "gb_player": 1
+            },
+            "lv": 1,
+            "n": {},
+            "o": {
+              "gb_goal": false
+            },
+            "px": 0.0,
+            "py": 0.0,
+            "pz": 0.0,
+            "s": {
+              "anim": 0,
+              "audio_events": 0,
+              "node_count": 2,
+              "numeric": {},
+              "text": 0,
+              "visible_count": 2
+            },
+            "so": "",
+            "vx": 0.0,
+            "vy": 0.0,
+            "vz": 0.0,
+            "wgc": false
+          },
+          {
+            "c": [],
+            "d": {},
+            "f": 2,
+            "g": {
+              "gb_goal": 1,
+              "gb_player": 0
+            },
+            "lv": 1,
+            "n": {},
+            "o": {
+              "gb_goal": true
+            },
+            "px": 1.0,
+            "py": 0.0,
+            "pz": 0.0,
+            "s": {
+              "anim": 0,
+              "audio_events": 0,
+              "node_count": 1,
+              "numeric": {},
+              "text": 0,
+              "visible_count": 1
+            },
+            "so": "",
+            "vx": 1.0,
+            "vy": 0.0,
+            "vz": 0.0,
+            "wgc": false
+          }
+        ],
+        "run_id": "invariant_failure/negative",
+        "schema": "gamebench.unity-semantic-report.v1",
+        "stall_frames": 0,
+        "steps": 1,
+        "stop_reason": "goal_reached",
+        "success_before_all_levels": false,
+        "turns": 1
+      },
+      "route": {
+        "budget": {
+          "frames": 60,
+          "steps": 2
+        },
+        "goal": {
+          "invariants": [
+            {
+              "name": "player_alive",
+              "predicate": "alive(gb_player)"
+            }
+          ],
+          "predicate": "overlap(gb_player, gb_goal)"
+        },
+        "route_id": "fixture/L2/invariant",
+        "tier": 2
+      }
+    },
+    {
+      "id": "missing_observation_harness_stop",
+      "report": {
+        "bounds": {
+          "max": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "deaths": 0,
+        "detail": "controller timeout",
+        "device_contacts": {},
+        "device_index": {},
+        "errors": [],
+        "group_totals": {
+          "gb_player": 1
+        },
+        "injects": 0,
+        "out_of_bounds": 0,
+        "physics_frames_at_end": 1,
+        "process_frames_at_end": 1,
+        "rows": [
+          {
+            "c": [],
+            "d": {},
+            "f": 1,
+            "g": {
+              "gb_player": 1
+            },
+            "lv": 1,
+            "n": {},
+            "o": {},
+            "px": 0.0,
+            "py": 0.0,
+            "pz": 0.0,
+            "s": {
+              "anim": 0,
+              "audio_events": 0,
+              "node_count": 1,
+              "numeric": {},
+              "text": 0,
+              "visible_count": 1
+            },
+            "so": "",
+            "vx": 0.0,
+            "vy": 0.0,
+            "vz": 0.0,
+            "wgc": false
+          }
+        ],
+        "run_id": "missing/harness",
+        "schema": "gamebench.unity-semantic-report.v1",
+        "stall_frames": 0,
+        "steps": 0,
+        "stop_reason": "timeout",
+        "success_before_all_levels": false,
+        "turns": 1
+      },
+      "route": {
+        "budget": {
+          "frames": 30,
+          "steps": 1
+        },
+        "goal": {
+          "predicate": "numeric(progress) >= 1"
+        },
+        "route_id": "fixture/L1/missing",
+        "tier": 1
+      }
+    },
+    {
+      "id": "submission_stop_and_error",
+      "report": {
+        "bounds": {
+          "max": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          },
+          "min": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        },
+        "deaths": 0,
+        "detail": "",
+        "device_contacts": {},
+        "device_index": {},
+        "errors": [
+          "UnityException: observer failed"
+        ],
+        "group_totals": {},
+        "injects": 0,
+        "out_of_bounds": 0,
+        "physics_frames_at_end": 0,
+        "process_frames_at_end": 0,
+        "rows": [],
+        "run_id": "submission/error",
+        "schema": "gamebench.unity-semantic-report.v1",
+        "stall_frames": 0,
+        "steps": 0,
+        "stop_reason": "no_player",
+        "success_before_all_levels": false,
+        "turns": 1
+      },
+      "route": {
+        "budget": {
+          "frames": 30,
+          "steps": 1
+        },
+        "goal": {
+          "predicate": "overlap(gb_player, gb_goal)"
+        },
+        "route_id": "fixture/L1/submission",
+        "tier": 1
+      }
+    }
+  ],
+  "schema": "gamebench.unity-semantic-fixtures.v1"
+}

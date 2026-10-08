@@ -1,0 +1,4110 @@
+{
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "driver_sha256": "7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742",
+  "endings": {
+    "defeat": "res://ui/results_screen.tscn",
+    "victory": "res://ui/results_victory.tscn"
+  },
+  "engine": "4.5.1",
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "extended_actions": [
+      {
+        "id": "turn_left",
+        "why": "keyboard yaw is a dedicated comma key; the six verbs already spend four slots on camera-relative walk so they cannot also turn the rifle heading"
+      },
+      {
+        "id": "turn_right",
+        "why": "same yaw axis as turn_left, opposite sign; six verbs cannot name either heading"
+      },
+      {
+        "id": "emp_pulse",
+        "why": "GDD 3.5 makes the Sector 19 warden cordon the closing beat: 220 hp at 19 damage per 1.05 s, standing 4 m behind the master terminal, and inside the terminal Area3D gb_action becomes the upload hold so the rifle is unavailable there. The 5 s stun is what pays for killing it at contact range instead of walking the cordon backwards; no combination of the six verbs produces it"
+      }
+    ],
+    "interface_version": 2,
+    "normalized_sha256": "1ecd202a619cc6b21a4b3fbacb7b9fa7b5c5412ad610f8467a0ee7b8bc6473f1",
+    "source_sha256": "7c84daa2596d76969c327e46943241c84ff3f0f61a86ed2e408ed63c76ddcd3a"
+  },
+  "levels": [
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          8.60000038146973,
+          1.54943609237671,
+          28.0
+        ],
+        "min3": [
+          -8.19999980926514,
+          0.0,
+          -50.0
+        ],
+        "plane": "xz",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 4,
+        "alive_before": 5,
+        "attempted": true,
+        "delta": -1,
+        "detail": "one collect-and-deliver cycle on AmmoA: 5 alive before, 4 after",
+        "effect": {
+          "actions": [],
+          "complete_trigger": false,
+          "cycle_index": 0,
+          "kind": "target_changed",
+          "observed": true
+        },
+        "target": "AmmoA"
+      },
+      "cycles": [
+        {
+          "alive_after": 4,
+          "alive_before": 5,
+          "delivered": true,
+          "delta": -1,
+          "index": 0,
+          "target": "AmmoA"
+        },
+        {
+          "alive_after": 4,
+          "alive_before": 4,
+          "delivered": true,
+          "delta": 0,
+          "index": 1,
+          "target": "HealthA"
+        },
+        {
+          "alive_after": 3,
+          "alive_before": 4,
+          "delivered": true,
+          "delta": -1,
+          "index": 2,
+          "target": "AmmoB"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 3,
+          "delivered": true,
+          "delta": -1,
+          "index": 3,
+          "target": "ShieldA"
+        },
+        {
+          "alive_after": 1,
+          "alive_before": 2,
+          "delivered": true,
+          "delta": -1,
+          "index": 4,
+          "target": "EmpA"
+        }
+      ],
+      "cycles_capped": false,
+      "declared_scene": "res://world/level_01.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "5 collect-and-deliver cycles then 120 frames on ExtractionPad, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://world/level_01.tscn",
+        "scene_before": "res://world/level_01.tscn",
+        "target": "ExtractionPad"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.602564102564103
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              8.60000038146973,
+              0.0,
+              -3.0
+            ]
+          ]
+        },
+        "gb_collectible": {
+          "alive": 5,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.130952368112378,
+              "y": 0.897435897435897
+            },
+            {
+              "valid": true,
+              "x": 0.904761883136637,
+              "y": 0.794871794871795
+            },
+            {
+              "valid": true,
+              "x": 0.0119047504163384,
+              "y": 0.653846153846154
+            },
+            {
+              "valid": true,
+              "x": 0.845238074288617,
+              "y": 0.448717948717949
+            },
+            {
+              "valid": true,
+              "x": 0.190476176960398,
+              "y": 0.256410256410256
+            }
+          ],
+          "total": 5,
+          "world": [
+            [
+              -6.0,
+              0.0,
+              20.0
+            ],
+            [
+              7.0,
+              0.0,
+              12.0
+            ],
+            [
+              -8.0,
+              0.0,
+              1.0
+            ],
+            [
+              6.0,
+              0.0,
+              -15.0
+            ],
+            [
+              -5.0,
+              0.0,
+              -30.0
+            ]
+          ]
+        },
+        "gb_door": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.488095221200498,
+              "y": 0.153846153846154
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              0.0,
+              -38.0
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 5,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.964285691984657,
+              "y": 0.717948717948718
+            },
+            {
+              "valid": true,
+              "x": 0.325813431673806,
+              "y": 0.615384615384615
+            },
+            {
+              "valid": true,
+              "x": 0.755952361016587,
+              "y": 0.521651781522311
+            },
+            {
+              "valid": true,
+              "x": 0.00133440606555024,
+              "y": 0.371794871794872
+            },
+            {
+              "valid": true,
+              "x": 0.845238074288617,
+              "y": 0.332646027589456
+            }
+          ],
+          "total": 5,
+          "world": [
+            [
+              8.0,
+              0.0,
+              6.0
+            ],
+            [
+              -2.72633409500122,
+              1.54943609237671,
+              -2.0
+            ],
+            [
+              4.5,
+              0.0,
+              -9.31116104125977
+            ],
+            [
+              -8.17758178710938,
+              1.3633531332016,
+              -21.0
+            ],
+            [
+              6.0,
+              0.0,
+              -24.0536098480225
+            ]
+          ]
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.488095221200498,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              0.0,
+              -50.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 2,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.564102564102564
+            },
+            {
+              "valid": true,
+              "x": 0.976190442400995,
+              "y": 0.358974358974359
+            }
+          ],
+          "total": 2,
+          "world": [
+            [
+              -8.19999980926514,
+              0.0,
+              -6.0
+            ],
+            [
+              8.19999980926514,
+              0.0,
+              -22.0
+            ]
+          ]
+        },
+        "gb_interactive": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0714285592643583,
+              "y": 0.217948717948718
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              -7.0,
+              0.0,
+              -33.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.488095221200498,
+              "y": 1.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              2.269446849823e-05,
+              28.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "health": 574.0,
+        "keys_secured": 0.0,
+        "progress": 0.0,
+        "shield": 81.0
+      },
+      "numeric_source": {
+        "health": "declared",
+        "keys_secured": "declared",
+        "progress": "declared",
+        "shield": "guess"
+      },
+      "reached": true,
+      "scene": "res://world/level_01.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 5,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 120.0
+          },
+          "phase": "settle",
+          "player": [
+            0.0,
+            2.269446849823e-05,
+            28.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 4,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 120.0
+          },
+          "phase": "pick",
+          "player": [
+            -6.0,
+            0.606666684150696,
+            20.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 4,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 120.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 4,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 120.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 4,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 101.0
+          },
+          "phase": "pick",
+          "player": [
+            7.0,
+            0.800000011920929,
+            12.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 4,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 101.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 4,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 101.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 3,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 87.0
+          },
+          "phase": "pick",
+          "player": [
+            -7.9058985710144,
+            0.000239036977291107,
+            1.03057539463043
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 3,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 87.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 3,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 87.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 2,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 109.0
+          },
+          "phase": "pick",
+          "player": [
+            6.0,
+            0.386666595935822,
+            -15.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 2,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 109.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 2,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 109.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 95.0
+          },
+          "phase": "pick",
+          "player": [
+            -5.0,
+            0.486666560173035,
+            -30.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 95.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 95.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 216,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 95.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 224,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 95.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 232,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 95.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 240,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 95.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 248,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 95.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 256,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 95.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 264,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 95.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 272,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 95.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 280,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 95.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 288,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 95.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 296,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 81.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 304,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 81.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 312,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 81.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 320,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 81.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 328,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 81.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 1,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 330,
+          "numeric": {
+            "health": 574.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 81.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -50.0
+          ],
+          "scene_path": "res://world/level_01.tscn"
+        }
+      ],
+      "spawn": [
+        0.0,
+        2.269446849823e-05,
+        28.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.4880952212004977,
+        "y": 1.0
+      },
+      "stop_reason": "goal_no_transition"
+    },
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          8.80000019073486,
+          1.54943609237671,
+          28.0
+        ],
+        "min3": [
+          -9.17758178710938,
+          0.0,
+          -62.0
+        ],
+        "plane": "xz",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 5,
+        "alive_before": 6,
+        "attempted": true,
+        "delta": -1,
+        "detail": "one collect-and-deliver cycle on AmmoA: 6 alive before, 5 after",
+        "effect": {
+          "actions": [],
+          "complete_trigger": false,
+          "cycle_index": 0,
+          "kind": "target_changed",
+          "observed": true
+        },
+        "target": "AmmoA"
+      },
+      "cycles": [
+        {
+          "alive_after": 5,
+          "alive_before": 6,
+          "delivered": true,
+          "delta": -1,
+          "index": 0,
+          "target": "AmmoA"
+        },
+        {
+          "alive_after": 5,
+          "alive_before": 5,
+          "delivered": true,
+          "delta": 0,
+          "index": 1,
+          "target": "HealthA"
+        },
+        {
+          "alive_after": 4,
+          "alive_before": 5,
+          "delivered": true,
+          "delta": -1,
+          "index": 2,
+          "target": "ShieldA"
+        },
+        {
+          "alive_after": 3,
+          "alive_before": 4,
+          "delivered": true,
+          "delta": -1,
+          "index": 3,
+          "target": "AmmoB"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 3,
+          "delivered": true,
+          "delta": -1,
+          "index": 4,
+          "target": "EmpA"
+        },
+        {
+          "alive_after": 1,
+          "alive_before": 2,
+          "delivered": true,
+          "delta": -1,
+          "index": 5,
+          "target": "IntelA"
+        }
+      ],
+      "cycles_capped": false,
+      "declared_scene": "res://world/level_02.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "6 collect-and-deliver cycles then 120 frames on ExtractionPad, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://world/level_02.tscn",
+        "scene_before": "res://world/level_02.tscn",
+        "target": "ExtractionPad"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 2,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.711111111111111
+            },
+            {
+              "valid": true,
+              "x": 0.0210029133417301,
+              "y": 0.311111111111111
+            }
+          ],
+          "total": 2,
+          "world": [
+            [
+              8.80000019073486,
+              0.0,
+              2.0
+            ],
+            [
+              -8.80000019073486,
+              0.0,
+              -34.0
+            ]
+          ]
+        },
+        "gb_collectible": {
+          "alive": 6,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.176752457089361,
+              "y": 0.911111111111111
+            },
+            {
+              "valid": true,
+              "x": 0.899875289515954,
+              "y": 0.8
+            },
+            {
+              "valid": true,
+              "x": 0.0655027905621924,
+              "y": 0.622222222222222
+            },
+            {
+              "valid": true,
+              "x": 0.84425045625237,
+              "y": 0.4
+            },
+            {
+              "valid": true,
+              "x": 0.232377290352945,
+              "y": 0.288888888888889
+            },
+            {
+              "valid": true,
+              "x": 0.955500122779538,
+              "y": 0.2
+            }
+          ],
+          "total": 6,
+          "world": [
+            [
+              -6.0,
+              0.0,
+              20.0
+            ],
+            [
+              7.0,
+              0.0,
+              10.0
+            ],
+            [
+              -8.0,
+              0.0,
+              -6.0
+            ],
+            [
+              6.0,
+              0.0,
+              -26.0
+            ],
+            [
+              -5.0,
+              0.0,
+              -36.0
+            ],
+            [
+              8.0,
+              0.0,
+              -44.0
+            ]
+          ]
+        },
+        "gb_door": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.510501456670865,
+              "y": 0.0888888888888889
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              0.0,
+              -54.0
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 7,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.955500122779538,
+              "y": 0.777777777777778
+            },
+            {
+              "valid": true,
+              "x": 0.38666199384739,
+              "y": 0.688888888888889
+            },
+            {
+              "valid": true,
+              "x": 0.788625622988785,
+              "y": 0.618764872021145
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.466666666666667
+            },
+            {
+              "valid": true,
+              "x": 0.0655027905621924,
+              "y": 0.355555555555556
+            },
+            {
+              "valid": true,
+              "x": 0.84425045625237,
+              "y": 0.272777854071723
+            },
+            {
+              "valid": true,
+              "x": 0.725067677280099,
+              "y": 0.133333333333333
+            }
+          ],
+          "total": 7,
+          "world": [
+            [
+              8.0,
+              0.0,
+              8.0
+            ],
+            [
+              -2.22633409500122,
+              1.54943609237671,
+              0.0
+            ],
+            [
+              5.0,
+              0.0,
+              -6.31116151809692
+            ],
+            [
+              -9.17758178710938,
+              1.3633531332016,
+              -20.0
+            ],
+            [
+              -8.0,
+              0.0,
+              -30.0
+            ],
+            [
+              6.0,
+              0.0,
+              -37.4499931335449
+            ],
+            [
+              3.85738182067871,
+              1.48851001262665,
+              -50.0
+            ]
+          ]
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.510501456670865,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              0.0,
+              -62.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 4,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0655027905621924,
+              "y": 0.644444444444444
+            },
+            {
+              "valid": true,
+              "x": 0.955500122779538,
+              "y": 0.533333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.0655027905621924,
+              "y": 0.422222222222222
+            },
+            {
+              "valid": true,
+              "x": 0.510501456670865,
+              "y": 0.266666666666667
+            }
+          ],
+          "total": 4,
+          "world": [
+            [
+              -8.0,
+              0.0,
+              -4.0
+            ],
+            [
+              8.0,
+              0.0,
+              -14.0
+            ],
+            [
+              -8.0,
+              0.0,
+              -24.0
+            ],
+            [
+              0.0,
+              0.0,
+              -38.0
+            ]
+          ]
+        },
+        "gb_interactive": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.899875289515954,
+              "y": 0.155555555555556
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              7.0,
+              0.0,
+              -48.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.510501456670865,
+              "y": 1.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              2.269446849823e-05,
+              28.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "health": 697.0,
+        "keys_secured": 0.0,
+        "progress": 0.0,
+        "shield": 60.0
+      },
+      "numeric_source": {
+        "health": "declared",
+        "keys_secured": "declared",
+        "progress": "declared",
+        "shield": "guess"
+      },
+      "reached": true,
+      "scene": "res://world/level_02.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 6,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 120.0
+          },
+          "phase": "settle",
+          "player": [
+            0.0,
+            2.269446849823e-05,
+            28.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 5,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 109.0
+          },
+          "phase": "pick",
+          "player": [
+            -6.0,
+            0.606666684150696,
+            20.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 5,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 109.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 5,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 109.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 5,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 101.0
+          },
+          "phase": "pick",
+          "player": [
+            7.0,
+            0.800000011920929,
+            10.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 5,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 101.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 5,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 93.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 4,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 106.0
+          },
+          "phase": "pick",
+          "player": [
+            -8.0,
+            0.0007295161485672,
+            -6.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 4,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 106.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 4,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 106.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 3,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 98.0
+          },
+          "phase": "pick",
+          "player": [
+            6.0,
+            0.286666572093964,
+            -26.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 3,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 98.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 3,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 98.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 2,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 73.0
+          },
+          "phase": "pick",
+          "player": [
+            -5.0,
+            0.486666560173035,
+            -36.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 2,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 73.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 2,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 73.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 216,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 73.0
+          },
+          "phase": "pick",
+          "player": [
+            8.0,
+            0.486666560173035,
+            -44.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 224,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 73.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 232,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 73.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 240,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 73.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 248,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 65.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 256,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 65.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 264,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 65.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 272,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 65.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 280,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 65.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 288,
+          "numeric": {
+            "health": 706.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 65.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 296,
+          "numeric": {
+            "health": 697.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 304,
+          "numeric": {
+            "health": 697.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 312,
+          "numeric": {
+            "health": 697.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 320,
+          "numeric": {
+            "health": 697.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 328,
+          "numeric": {
+            "health": 697.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 336,
+          "numeric": {
+            "health": 697.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 344,
+          "numeric": {
+            "health": 697.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 352,
+          "numeric": {
+            "health": 697.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 7,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 354,
+          "numeric": {
+            "health": 697.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -62.0
+          ],
+          "scene_path": "res://world/level_02.tscn"
+        }
+      ],
+      "spawn": [
+        0.0,
+        2.269446849823e-05,
+        28.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.5105014566708653,
+        "y": 1.0
+      },
+      "stop_reason": "goal_no_transition"
+    },
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          10.8573818206787,
+          1.54943609237671,
+          28.0
+        ],
+        "min3": [
+          -9.67758178710938,
+          0.0,
+          -78.0
+        ],
+        "plane": "xz",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 6,
+        "alive_before": 7,
+        "attempted": true,
+        "delta": -1,
+        "detail": "one collect-and-deliver cycle on AmmoA: 7 alive before, 6 after",
+        "effect": {
+          "actions": [],
+          "complete_trigger": false,
+          "cycle_index": 0,
+          "kind": "target_changed",
+          "observed": true
+        },
+        "target": "AmmoA"
+      },
+      "cycles": [
+        {
+          "alive_after": 6,
+          "alive_before": 7,
+          "delivered": true,
+          "delta": -1,
+          "index": 0,
+          "target": "AmmoA"
+        },
+        {
+          "alive_after": 6,
+          "alive_before": 6,
+          "delivered": true,
+          "delta": 0,
+          "index": 1,
+          "target": "HealthA"
+        },
+        {
+          "alive_after": 5,
+          "alive_before": 6,
+          "delivered": true,
+          "delta": -1,
+          "index": 2,
+          "target": "AmmoB"
+        },
+        {
+          "alive_after": 4,
+          "alive_before": 5,
+          "delivered": true,
+          "delta": -1,
+          "index": 3,
+          "target": "ShieldA"
+        },
+        {
+          "alive_after": 3,
+          "alive_before": 4,
+          "delivered": true,
+          "delta": -1,
+          "index": 4,
+          "target": "EmpA"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 3,
+          "delivered": true,
+          "delta": -1,
+          "index": 5,
+          "target": "HealthB"
+        },
+        {
+          "alive_after": 1,
+          "alive_before": 2,
+          "delivered": true,
+          "delta": -1,
+          "index": 6,
+          "target": "IntelA"
+        }
+      ],
+      "cycles_capped": false,
+      "declared_scene": "res://world/level_03.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "7 collect-and-deliver cycles then 120 frames on ExtractionPad, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://world/level_03.tscn",
+        "scene_before": "res://world/level_03.tscn",
+        "target": "ExtractionPad"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 2,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.899810797367882,
+              "y": 0.735849056603774
+            },
+            {
+              "valid": true,
+              "x": 0.0427359703740444,
+              "y": 0.358490566037736
+            }
+          ],
+          "total": 2,
+          "world": [
+            [
+              8.80000019073486,
+              0.0,
+              0.0
+            ],
+            [
+              -8.80000019073486,
+              0.0,
+              -40.0
+            ]
+          ]
+        },
+        "gb_collectible": {
+          "alive": 7,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.179088790092358,
+              "y": 0.924528301886792
+            },
+            {
+              "valid": true,
+              "x": 0.812155409946002,
+              "y": 0.811320754716981
+            },
+            {
+              "valid": true,
+              "x": 0.0816939254994898,
+              "y": 0.660377358490566
+            },
+            {
+              "valid": true,
+              "x": 0.763457977649568,
+              "y": 0.547169811320755
+            },
+            {
+              "valid": true,
+              "x": 0.227786222388792,
+              "y": 0.415094339622642
+            },
+            {
+              "valid": true,
+              "x": 0.860852842242437,
+              "y": 0.283018867924528
+            },
+            {
+              "valid": true,
+              "x": 0.130391357795924,
+              "y": 0.169811320754717
+            }
+          ],
+          "total": 7,
+          "world": [
+            [
+              -6.0,
+              0.0,
+              20.0
+            ],
+            [
+              7.0,
+              0.0,
+              8.0
+            ],
+            [
+              -8.0,
+              0.0,
+              -8.0
+            ],
+            [
+              6.0,
+              0.0,
+              -20.0
+            ],
+            [
+              -5.0,
+              0.0,
+              -34.0
+            ],
+            [
+              8.0,
+              0.0,
+              -48.0
+            ],
+            [
+              -7.0,
+              0.0,
+              -60.0
+            ]
+          ]
+        },
+        "gb_door": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.471273383870963,
+              "y": 0.0754716981132075
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              0.0,
+              -70.0
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 9,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.860852842242437,
+              "y": 0.792452830188679
+            },
+            {
+              "valid": true,
+              "x": 0.362856630010398,
+              "y": 0.716981132075472
+            },
+            {
+              "valid": true,
+              "x": 0.714760545353134,
+              "y": 0.638573952440946
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.528301886792453
+            },
+            {
+              "valid": true,
+              "x": 0.0816939254994898,
+              "y": 0.433962264150943
+            },
+            {
+              "valid": true,
+              "x": 0.763457977649568,
+              "y": 0.401415159117501
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.264150943396226
+            },
+            {
+              "valid": true,
+              "x": 0.227786222388792,
+              "y": 0.235088312400962
+            },
+            {
+              "valid": true,
+              "x": 0.557845291320503,
+              "y": 0.129978755735001
+            }
+          ],
+          "total": 9,
+          "world": [
+            [
+              8.0,
+              0.0,
+              6.0
+            ],
+            [
+              -2.22633409500122,
+              1.54943609237671,
+              -2.0
+            ],
+            [
+              5.0,
+              0.0,
+              -10.3111610412598
+            ],
+            [
+              -9.67758178710938,
+              1.3633531332016,
+              -22.0
+            ],
+            [
+              -8.0,
+              0.0,
+              -32.0
+            ],
+            [
+              6.0,
+              0.0,
+              -35.4499931335449
+            ],
+            [
+              10.8573818206787,
+              1.48851001262665,
+              -50.0
+            ],
+            [
+              -5.0,
+              0.0,
+              -53.080638885498
+            ],
+            [
+              1.77775096893311,
+              0.0,
+              -64.2222518920898
+            ]
+          ]
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.471273383870963,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              0.0,
+              -78.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 5,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0816939254994898,
+              "y": 0.716981132075472
+            },
+            {
+              "valid": true,
+              "x": 0.860852842242437,
+              "y": 0.622641509433962
+            },
+            {
+              "valid": true,
+              "x": 0.471273383870963,
+              "y": 0.490566037735849
+            },
+            {
+              "valid": true,
+              "x": 0.0816939254994898,
+              "y": 0.320754716981132
+            },
+            {
+              "valid": true,
+              "x": 0.860852842242437,
+              "y": 0.207547169811321
+            }
+          ],
+          "total": 5,
+          "world": [
+            [
+              -8.0,
+              0.0,
+              -2.0
+            ],
+            [
+              8.0,
+              0.0,
+              -12.0
+            ],
+            [
+              0.0,
+              0.0,
+              -26.0
+            ],
+            [
+              -8.0,
+              0.0,
+              -44.0
+            ],
+            [
+              8.0,
+              0.0,
+              -56.0
+            ]
+          ]
+        },
+        "gb_interactive": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.471273383870963,
+              "y": 0.150943396226415
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              0.0,
+              -62.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.471273383870963,
+              "y": 1.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              2.269446849823e-05,
+              28.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "health": 966.0,
+        "keys_secured": 0.0,
+        "progress": 0.0,
+        "shield": 60.0
+      },
+      "numeric_source": {
+        "health": "declared",
+        "keys_secured": "declared",
+        "progress": "declared",
+        "shield": "guess"
+      },
+      "reached": true,
+      "scene": "res://world/level_03.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 7,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "health": 1018.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 120.0
+          },
+          "phase": "settle",
+          "player": [
+            0.0,
+            2.269446849823e-05,
+            28.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 6,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "health": 1018.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 120.0
+          },
+          "phase": "pick",
+          "player": [
+            -6.0,
+            0.606666684150696,
+            20.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 6,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "health": 1018.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 120.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 6,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "health": 1018.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 120.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 6,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "health": 1018.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 101.0
+          },
+          "phase": "pick",
+          "player": [
+            7.0,
+            0.800000011920929,
+            8.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 6,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "health": 1018.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 101.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 6,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "health": 1018.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 82.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 5,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "health": 1018.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 68.0
+          },
+          "phase": "pick",
+          "player": [
+            -8.0,
+            0.000937784090638161,
+            -8.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 5,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "health": 1018.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 68.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 5,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "health": 1018.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 68.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 4,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "health": 1018.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 90.0
+          },
+          "phase": "pick",
+          "player": [
+            6.0,
+            0.386666595935822,
+            -20.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 4,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "health": 1018.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 90.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 4,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "health": 1018.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 90.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 3,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "health": 1018.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 65.0
+          },
+          "phase": "pick",
+          "player": [
+            -5.0,
+            0.486666560173035,
+            -34.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 3,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "health": 1018.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 65.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 3,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "health": 1018.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 65.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 2,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 216,
+          "numeric": {
+            "health": 1018.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "pick",
+          "player": [
+            8.0,
+            0.386666595935822,
+            -48.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 2,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 224,
+          "numeric": {
+            "health": 1018.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 2,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 232,
+          "numeric": {
+            "health": 999.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 240,
+          "numeric": {
+            "health": 999.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "pick",
+          "player": [
+            -7.0,
+            0.486666560173035,
+            -60.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 248,
+          "numeric": {
+            "health": 999.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 256,
+          "numeric": {
+            "health": 999.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 264,
+          "numeric": {
+            "health": 999.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 272,
+          "numeric": {
+            "health": 999.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 280,
+          "numeric": {
+            "health": 999.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 288,
+          "numeric": {
+            "health": 999.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 296,
+          "numeric": {
+            "health": 999.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 304,
+          "numeric": {
+            "health": 999.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 312,
+          "numeric": {
+            "health": 999.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 320,
+          "numeric": {
+            "health": 966.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 328,
+          "numeric": {
+            "health": 966.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 336,
+          "numeric": {
+            "health": 966.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 344,
+          "numeric": {
+            "health": 966.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 352,
+          "numeric": {
+            "health": 966.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 360,
+          "numeric": {
+            "health": 966.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 368,
+          "numeric": {
+            "health": 966.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 376,
+          "numeric": {
+            "health": 966.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 2,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 9,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 378,
+          "numeric": {
+            "health": 966.0,
+            "keys_secured": 0.0,
+            "progress": 0.0,
+            "shield": 60.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            0.600000023841858,
+            -78.0
+          ],
+          "scene_path": "res://world/level_03.tscn"
+        }
+      ],
+      "spawn": [
+        0.0,
+        2.269446849823e-05,
+        28.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.4712733838709637,
+        "y": 1.0
+      },
+      "stop_reason": "goal_no_transition"
+    }
+  ],
+  "liveness": [
+    {
+      "action": "gb_left",
+      "detail": "gb_left differs from the idle control on position (delta 11.377391 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_right",
+      "detail": "gb_right differs from the idle control on position (delta 11.35 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_up",
+      "detail": "gb_up differs from the idle control on numeric (delta 60.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "numeric"
+    },
+    {
+      "action": "gb_down",
+      "detail": "gb_down differs from the idle control on numeric (delta 100.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "numeric"
+    },
+    {
+      "action": "gb_jump",
+      "detail": "gb_jump differs from the idle control on velocity (delta 8.2 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "velocity"
+    },
+    {
+      "action": "gb_action",
+      "detail": "gb_action differs from the idle control on numeric (delta 224.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "numeric"
+    }
+  ],
+  "no_input_no_win": true,
+  "no_input_stop_reason": "budget_frames",
+  "notes": [
+    "liveness deadline derived from this project's own structural pass: 18.9 ms/frame median, 19.0 ms/frame worst",
+    "liveness sweep: 6 live / 0 dead against the 420-frame idle control truth/L0#idle420"
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "cyber_survival",
+  "read_failure": "",
+  "taken_at": "2026-09-10T09:15:31+00:00",
+  "version": "1"
+}

@@ -1,0 +1,111 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-09-06T04:22:39+00:00",
+  "interface_requirements": {
+    "O10": {
+      "fields": [],
+      "reason": "reference has no live-mixer expectation",
+      "required": false
+    },
+    "O9": {
+      "fields": [],
+      "reason": "reference has no registered anchor expectation",
+      "required": false
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 21,
+        "gb_door": 1,
+        "gb_enemy": 13,
+        "gb_goal": 1,
+        "gb_hazard": 0,
+        "gb_interactive": 1,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          4
+        ],
+        "gb_enemy": [
+          "x",
+          5
+        ]
+      },
+      "goal_transition": "res://source/core/stage-cleared.tscn",
+      "scene": "res://source/core/main.tscn",
+      "spawn_goal_distance": 0.21750638560230337
+    }
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "super_dungeon_delve",
+  "runtime_assets": {
+    "res://assets/efx/4x4.png": "f1c076d0a7efeeb1e27d9e110210e6c276d96384e11a2da0ee1c073fbc06e054",
+    "res://assets/efx/blob.png": "c1635d30f44c71c15ac54c449d17c68ce3d2f3742203de604cd37b215d632e14",
+    "res://assets/efx/light-sm.png": "8a45549aff6843e8a7917730dfe00d09b80c31b87a6cd849842f91c29735da14",
+    "res://assets/efx/light.png": "4f220cede9f06c1e48e9cf3d760b6b0b9a42bef30e476f416e30329b91ed4ddb",
+    "res://assets/icon.png": "198364be299a958e125bbc2a3eab8aafa080fd74509272aecafda8ef7792564b",
+    "res://assets/misc/chest.png": "1550acc5b8d9cf61b89fcf367c2981a32634c64d64dfac389ce355eaa8aaddc9",
+    "res://assets/misc/coin.png": "7e5956295c3b484f1d8dc3cc4d620538fe666bd23492a329e485c2a634df5989",
+    "res://assets/misc/deco/blood.png": "d00145c09373224a6fbc08d2b58087710136c0da44092eacfc5688a0d117acf8",
+    "res://assets/misc/deco/bones.png": "95f4020f5ffb7c258a5fe13409a219f85bfc3cad11f9015a57f4e9d882612991",
+    "res://assets/misc/deco/crack.png": "8f5fcd681d9e29c14bf949ff7735ba166f2dea9ad5f2eed45eb3b792159ae42c",
+    "res://assets/misc/deco/skull.png": "f6ba7abfa884f82e7a2a86a477852bcc23a520e2d43ad00af502e27e780beaae",
+    "res://assets/misc/deco/torch_1.png": "18e004c138bae4eaf94304dcb45d0633246d98c1c486679dd6abc67d3a298b24",
+    "res://assets/misc/deco/torch_2.png": "5db76717d3e4baf80625c473de9a91b2a935dac2d2b5119b23be79da38e54820",
+    "res://assets/misc/deco/torch_3.png": "b78197a896743f5361ad271a4cbc58fcdf78bd0691ba9a9d2c8375a388d03e95",
+    "res://assets/misc/deco/torch_4.png": "011363570a0de8d802eb765bc59f963de49db773617c06ac604bee6e6ae1bf14",
+    "res://assets/misc/ladder.png": "cd155a7868cc23a92f40c253d63339b0f1eef6fbd1239c45ab40c6376be03200",
+    "res://assets/misc/potion.png": "480168633fdc03bc90a20f8a3be2d243062d0aa50c20d2172df24e51789d7b21",
+    "res://assets/music/main.ogg": "1e9f349db01d3a4da09400f02407630371cd6d186e75505c386f0fa54acb969e",
+    "res://assets/sfx/bones.wav": "09c706fd747f9dd2f754b9b16322ca6ec95bd66967084f90032be717204a9104",
+    "res://assets/sfx/coins.wav": "43f3b1fbb0bfaa504b4d6200119307f9702c150218024bd939ada1e4c2a21e7c",
+    "res://assets/sfx/death.wav": "7ec5fbb87ae73c69a0849799ebb950985cd9a68ca331d796e18cf22aac029e39",
+    "res://assets/sfx/exit.wav": "717986628193f6140f977057f13f7cf1eb48d0342931718e738332a6fdef5147",
+    "res://assets/sfx/footstep.wav": "d81084fa27c44b32a1659b396338996a22bd6d5ebd0f16079d17b11e4e17590c",
+    "res://assets/sfx/grunts.wav": "834f5750900c3c43e0fb2c428e1cf11c1de71467e61788c76b03aa7dab22365f",
+    "res://assets/sfx/heal.wav": "4ce1b59ef464635290e667508a794fbb7199ba26d8a2b72e4e2b75ad297d1896",
+    "res://assets/sfx/smack.wav": "1b73fb791f43b5216c2a969398867808970f2cd537028adcd3abed3b502df627",
+    "res://assets/sfx/squish.wav": "c8236860fdfe55d52fe9d02cdccb5df754e79f78b9c371547617f5e7007feaf8",
+    "res://assets/sfx/swipe.wav": "0afc849285499b0a3bb9f90aa5c0f3345b4d6936505a566c4ff37e323baea21a",
+    "res://assets/splash/boot.png": "56cbb43b626c09b9d39bd86c2f7de45281d5cfbfa35f3a5ef2bd00e9e4ba4e73",
+    "res://assets/sprites/monsters/orc_warrior_run_anim_f0.png": "8cb99995d7b71742e2fa15d82c6917ddf4a4e2348af058349f5875e7831cd6c0",
+    "res://assets/sprites/monsters/orc_warrior_run_anim_f1.png": "8ae4e43b1ff7d148317c19b290d5b9fff8b801d37f6da3718e5f72ea06ab3c7b",
+    "res://assets/sprites/monsters/orc_warrior_run_anim_f2.png": "27c3f49d8f64208076d3764f713c6eb7be778459c86eb9fc17b8ded7abec91e7",
+    "res://assets/sprites/monsters/orc_warrior_run_anim_f3.png": "66b94235c44d3b232a3ab02bcebbb2abc65b13aa7f5d45940dc41837a15024c0",
+    "res://assets/sprites/monsters/skelet_run_anim_f0.png": "fa8031186954f21fddea4d8a4f5addda0e55b509e195dca2467ac2e308244c1b",
+    "res://assets/sprites/monsters/skelet_run_anim_f1.png": "e4afdd25c6088ff38ef008e1c72f07ac4c5230afadc65b326c4cfea41745ec3a",
+    "res://assets/sprites/monsters/skelet_run_anim_f2.png": "a2bb8a385dc2f0d5d0252d3ca66b6747b739d9e7a6a0012e58d9d5dafa3972a4",
+    "res://assets/sprites/monsters/skelet_run_anim_f3.png": "7e429649c92a574e3737eec443f9a4c74f9d71edd7a14bc3ad2175cd5c918bf1",
+    "res://assets/sprites/monsters/swampy_run_anim_f1.png": "805080ba48835c9168ee1198fe8fc8368ba3156028189d9512938732e7ad1e38",
+    "res://assets/sprites/monsters/swampy_run_anim_f2.png": "7203f826ccd39905f0f3a1b298b2d93256a21af7e39983484b28ec1c89148c92",
+    "res://assets/sprites/monsters/swampy_run_anim_f3.png": "a7928dd15751bf16426d125c9d3cd026e6352cde5d7df896cb106d885fb8e145",
+    "res://assets/sprites/player/knight_m_hit_anim_f0.png": "b5dd6e03725558afc5114fd3f6249455b2badc3aa8eb9f550d6f55fe7f276a42",
+    "res://assets/sprites/player/knight_m_idle_anim_f0.png": "3bc779fe1a1ebf10e372c95ee925eea833aaacc0cdc9e8e413d4d0759447c3c5",
+    "res://assets/sprites/player/knight_m_idle_anim_f1.png": "0c9d01d518106c08f70c6235c53a84fcbe1c15a8784cd3d47619739ac09dd818",
+    "res://assets/sprites/player/knight_m_idle_anim_f2.png": "93e757195b063f783db68b4d687fa35d4e2753cfa15e50b02fbd4064bc0cd3a4",
+    "res://assets/sprites/player/knight_m_idle_anim_f3.png": "4e721db2f3a10856ce5aae5576679ab3b830cb7b860b5055a621f33ab2071508",
+    "res://assets/sprites/player/knight_m_run_anim_f0.png": "3e69b838027ce5016a240b989ee1de9baed5b99625c8dc31b8abc70b4bb9416b",
+    "res://assets/sprites/player/knight_m_run_anim_f1.png": "70274d218cfffb09fcf525b6e63a6baaf3363a89345dd1e9a3aadc21e9d98914",
+    "res://assets/sprites/player/knight_m_run_anim_f2.png": "21fdc8de5546f496b1157298c0e2e000289ace57faed456552559b21e4ddc2b7",
+    "res://assets/sprites/player/knight_m_run_anim_f3.png": "0f52bfa7715215dd5270febb7ba7e9ba8570b780376f68342edb9844caec80a0",
+    "res://assets/tiles/tiles.png": "147e676d7b42e55de4d782f49ccf15046f431dd8ef253762dc84f50f01a261ae",
+    "res://assets/ui/pointer.png": "3c641f9c8c3b21cc38b3dd08b6dd7c8a0430f6f6efcef5c360613c80523f8b83"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

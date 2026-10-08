@@ -1,0 +1,167 @@
+{
+  "game_id": "relic_runner",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "Pixel Crawler - Free Pack/Entities/Characters/Body_A/Animations/Carry_Idle/Carry_Idle_Down-Sheet.png",
+        "id": "S001",
+        "label": "Pixel Crawler - Free Pack/Entities/Characters/Body_A/Animations/Carry_Idle/Carry_Idle_Down-Sheet.png"
+      },
+      {
+        "asset_path": "Pixel Crawler - Free Pack/Entities/Mobs/Orc Crew/Orc/Death/Death-Sheet.png",
+        "id": "S015",
+        "label": "Pixel Crawler - Free Pack/Entities/Mobs/Orc Crew/Orc/Death/Death-Sheet.png"
+      },
+      {
+        "asset_path": "Pixel Crawler - Free Pack/Entities/Mobs/Orc Crew/Orc - Shaman/Idle/Idle-Sheet.png",
+        "id": "S022",
+        "label": "Pixel Crawler - Free Pack/Entities/Mobs/Orc Crew/Orc - Shaman/Idle/Idle-Sheet.png"
+      },
+      {
+        "asset_path": "Pixel Crawler - Free Pack/Entities/Mobs/Orc Crew/Orc - Warrior/Idle/Idle-Sheet.png",
+        "id": "S025",
+        "label": "Pixel Crawler - Free Pack/Entities/Mobs/Orc Crew/Orc - Warrior/Idle/Idle-Sheet.png"
+      },
+      {
+        "asset_path": "Pixel Crawler - Free Pack/Environment/Props/Static/Dungeon_Props.png",
+        "id": "S059",
+        "label": "Pixel Crawler - Free Pack/Environment/Props/Static/Dungeon_Props.png"
+      },
+      {
+        "asset_path": "Pixel Crawler - Free Pack/Environment/Structures/Buildings/Interior/Interior_Props_01.png",
+        "id": "S063",
+        "label": "Pixel Crawler - Free Pack/Environment/Structures/Buildings/Interior/Interior_Props_01.png"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "Pixel Crawler - Free Pack/Entities/Characters",
+        "Pixel Crawler - Free Pack/Entities/Mobs",
+        "Pixel Crawler - Free Pack/Entities/Npc's",
+        "Pixel Crawler - Free Pack/Environment/Props",
+        "Pixel Crawler - Free Pack/Environment/Structures",
+        "Pixel Crawler - Free Pack/Environment/Tilesets",
+        "Pixel Crawler - Free Pack/Icons/Resources.aseprite",
+        "Pixel Crawler - Free Pack/MockUps/Castle_Entrance.aseprite",
+        "Pixel Crawler - Free Pack/MockUps/Tavern.aseprite",
+        "Pixel Crawler - Free Pack/MockUps/Tavern.png",
+        "Pixel Crawler - Free Pack/Weapons/Bone",
+        "Pixel Crawler - Free Pack/Weapons/Hands",
+        "Pixel Crawler - Free Pack/Weapons/Wood",
+        "reference_media/assets/audio",
+        "reference_media/assets/props",
+        "reference_media/assets/sprites",
+        "reference_media/assets/tiles",
+        "reference_media/icon.png"
+      ],
+      "file_count": 425,
+      "font_files": []
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 117.55,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R008",
+        "time_s": 7.0
+      },
+      {
+        "id": "R009",
+        "time_s": 8.0
+      },
+      {
+        "id": "R016",
+        "time_s": 15.0
+      },
+      {
+        "id": "R018",
+        "time_s": 17.0
+      },
+      {
+        "id": "R026",
+        "time_s": 25.0
+      },
+      {
+        "id": "R045",
+        "time_s": 44.0
+      },
+      {
+        "id": "R053",
+        "time_s": 52.0
+      },
+      {
+        "id": "R060",
+        "time_s": 59.0
+      },
+      {
+        "id": "R086",
+        "time_s": 85.0
+      },
+      {
+        "id": "R110",
+        "time_s": 109.0
+      },
+      {
+        "id": "R114",
+        "time_s": 113.0
+      },
+      {
+        "id": "R115",
+        "time_s": 114.0
+      },
+      {
+        "id": "R119",
+        "time_s": 117.533
+      },
+      {
+        "clip": 1,
+        "id": "RD004",
+        "time_s": 23.81
+      },
+      {
+        "clip": 1,
+        "id": "RD006",
+        "time_s": 24.01
+      },
+      {
+        "clip": 1,
+        "id": "RD011",
+        "time_s": 24.51
+      },
+      {
+        "clip": 1,
+        "id": "RD015",
+        "time_s": 24.91
+      },
+      {
+        "clip": 2,
+        "id": "RD033",
+        "time_s": 59.975
+      },
+      {
+        "clip": 2,
+        "id": "RD034",
+        "time_s": 60.075
+      },
+      {
+        "clip": 2,
+        "id": "RD036",
+        "time_s": 60.275
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 1.0,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Relic Runner — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nEnter a top-down dungeon, clear a path, pick up a valuable relic that changes what you can do, and carry it safely to the destination.\n\n## Scope boundary\n\nA compact top-down action route with combat or avoidance, a carry-state trade-off, damage/failure, recovery, and delivery completion.\n\n## Creative freedom\n\nYou may choose the rooms, threats, relic limitation, route structure, and combat tuning.\n"
+}

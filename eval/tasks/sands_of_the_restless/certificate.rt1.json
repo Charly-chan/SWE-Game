@@ -1,0 +1,103 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "40edde762da475cb7b3a30e7a4a91c495a195fbe5920660e8b6784bc590ed4fd"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "sands_of_the_restless/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "caec95b48e44f3e96e0ab4ba8356b6043cfe5f77d19fe2ff5f920363dd84dea3",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "40edde762da475cb7b3a30e7a4a91c495a195fbe5920660e8b6784bc590ed4fd",
+    "task_id": "sands_of_the_restless"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "e78e14eafff3c8c0f66b963aa413c55baf04ba3619f7452cb1abcb497da1cba5",
+    "source_sha256": "7c0ced9fcca7b818a17881f2a7d8cd0b11230a05025608d464c37e17ea1cb245"
+  },
+  "passed_route_ids": [
+    "sands_of_the_restless/L0/no_input_no_clear",
+    "sands_of_the_restless/C1/necropolis_courtyard_quota",
+    "sands_of_the_restless/C2/chamber_of_ascent_quota",
+    "sands_of_the_restless/L5/whole_game_clear"
+  ],
+  "readings": {
+    "sands_of_the_restless/C1/necropolis_courtyard_quota": {
+      "deaths": 0,
+      "frames": 8079,
+      "injects": 0,
+      "milestones_reached": [
+        "courtyard_wave_2",
+        "courtyard_wave_3",
+        "courtyard_quota_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 1198,
+      "stop_reason": "scene_changed"
+    },
+    "sands_of_the_restless/C2/chamber_of_ascent_quota": {
+      "deaths": 1,
+      "frames": 6550,
+      "injects": 0,
+      "milestones_reached": [
+        "chamber_wave_7",
+        "chamber_quota_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 1370,
+      "stop_reason": "goal_reached"
+    },
+    "sands_of_the_restless/L0/no_input_no_clear": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "sands_of_the_restless/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 14641,
+      "injects": 0,
+      "milestones_reached": [
+        "courtyard_quota_cleared",
+        "entered_chamber_of_ascent",
+        "chamber_wave_7",
+        "chamber_quota_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 2571,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "caec95b48e44f3e96e0ab4ba8356b6043cfe5f77d19fe2ff5f920363dd84dea3"
+  },
+  "result": "4/4 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "768f435b3a7eed409c0ea438d25da037571718570119976075dfb8dff4b80dcf",
+  "schema_version": 2,
+  "solution_kinds": {
+    "sands_of_the_restless/C1/necropolis_courtyard_quota": "tape",
+    "sands_of_the_restless/C2/chamber_of_ascent_quota": "tape",
+    "sands_of_the_restless/L0/no_input_no_clear": "tape",
+    "sands_of_the_restless/L5/whole_game_clear": "tape"
+  },
+  "task_id": "sands_of_the_restless",
+  "validated_at": "2026-09-09"
+}

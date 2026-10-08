@@ -1,0 +1,240 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-23T10:36:38+00:00",
+  "interface_requirements": {
+    "O9": {
+      "fields": [],
+      "reason": "reference has no registered anchor expectation",
+      "required": false
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 1,
+        "gb_collectible": 6,
+        "gb_door": 2,
+        "gb_enemy": 4,
+        "gb_goal": 1,
+        "gb_hazard": 0,
+        "gb_interactive": 3,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          3
+        ],
+        "gb_door": [
+          "y",
+          1
+        ],
+        "gb_enemy": [
+          "x",
+          3
+        ],
+        "gb_interactive": [
+          "x",
+          3
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/level_01.tscn",
+      "spawn_goal_distance": 0.5211777984314515
+    },
+    {
+      "census": {
+        "gb_checkpoint": 1,
+        "gb_collectible": 7,
+        "gb_door": 2,
+        "gb_enemy": 6,
+        "gb_goal": 1,
+        "gb_hazard": 3,
+        "gb_interactive": 2,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          4
+        ],
+        "gb_door": [
+          "y",
+          1
+        ],
+        "gb_enemy": [
+          "x",
+          2
+        ],
+        "gb_hazard": [
+          "x",
+          2
+        ],
+        "gb_interactive": [
+          "x",
+          2
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/level_02.tscn",
+      "spawn_goal_distance": 0.5967562301002419
+    },
+    {
+      "census": {
+        "gb_checkpoint": 1,
+        "gb_collectible": 9,
+        "gb_door": 2,
+        "gb_enemy": 9,
+        "gb_goal": 1,
+        "gb_hazard": 4,
+        "gb_interactive": 3,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          4
+        ],
+        "gb_door": [
+          "y",
+          1
+        ],
+        "gb_enemy": [
+          "x",
+          3
+        ],
+        "gb_hazard": [
+          "x",
+          3
+        ],
+        "gb_interactive": [
+          "x",
+          3
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/level_03.tscn",
+      "spawn_goal_distance": 0.5914947797695528
+    }
+  ],
+  "probe_sha256": "7b966a24301ab4cf7b2e433dc04081d354779f93ff571a8a5e47964d894a2026",
+  "project": "tiny_rts",
+  "runtime_assets": {
+    "res://assets/art/buildings/blue_barracks.png": "8d4658300cbab598ad9a18855c48305935a95870259bbcf8d25bf2ab00f613b4",
+    "res://assets/art/buildings/blue_castle.png": "a4ec9de93fbe416359043cc6b58a32119b08c7623ef2e09b3aef9d3adf439c1b",
+    "res://assets/art/buildings/blue_house1.png": "f68fbce236ca663e2c1d86484f4617586bc99f4f9b634c493e62fa7eeece5c63",
+    "res://assets/art/buildings/blue_house2.png": "21e35d4d47e778c996cc56d95170908f663ca8858f08a6f8637fa15c1236448f",
+    "res://assets/art/buildings/blue_house3.png": "e2be60c4202ceffb55a6d06851ab6b08ffb530867e64da19ae578b09d18097fd",
+    "res://assets/art/buildings/blue_tower.png": "ac0f01128d951c9da4cfe811af175a35868b6d91cdda04fabbe9dcf909caf868",
+    "res://assets/art/buildings/neutral_monastery.png": "0ce919a31c410391639b79747c4dbaf4dccf400f69353349caefe429895e0226",
+    "res://assets/art/buildings/red_barracks.png": "a67c62165be8447e5684a972eec6f299b378fd048b2cca1175eed311a455e8c9",
+    "res://assets/art/buildings/red_castle.png": "8a78ece6e3fd7939b259aa8431b20993a096a769878757a76cd24005d245a78f",
+    "res://assets/art/buildings/red_tower.png": "58bcd35d471bbbf2e219036234a9d1837c0240e1dcfcb4b78876819cb5134233",
+    "res://assets/art/decor/bush_1.png": "38ea6583e856d4670ce43b843aaa3ef3e675b351b02353118f04b01ba3daa4eb",
+    "res://assets/art/decor/bush_2.png": "34b4312fe94ec9e8783e8782cfda26c172878155f5002727c53bc77f9a3a4ad6",
+    "res://assets/art/decor/bush_3.png": "273a528e5400257fabfa5146eee4ecdca526f2fa7ef0803382439c785886d3df",
+    "res://assets/art/decor/bush_4.png": "b5334fb3d9cc49e46b9553a8d6c197618d88ebefa025e849f31b05503684b5e5",
+    "res://assets/art/decor/cloud_1.png": "b198c32e1223899edd87df10eb3366dc445380cfd96a7625a41ee5306a7a3c65",
+    "res://assets/art/decor/cloud_3.png": "bb15d1f1750e06799f7aa6f7506c7c37c7903e88c60719843b19170820b25372",
+    "res://assets/art/decor/rock_1.png": "de9f1d954577003e278bae7ee71338c76b4799c9aabf34a002219ca2c67c7c00",
+    "res://assets/art/decor/rock_2.png": "a121425512ad1cf3a10b5731f507beed83507d2e7b5d180aa32f0d967e81299c",
+    "res://assets/art/decor/rock_3.png": "75afe7539d9fb2bff0e1eca6870e48dd0d592bcf2cc89eb929ab3a3287e7a8ef",
+    "res://assets/art/decor/rock_4.png": "a1830f25a6189e5043697004dbf1bb25f0998cf4c7346278764fb1e10a5fdb01",
+    "res://assets/art/decor/sheep_grass.png": "1a4a579eeb8d460e37a5c4188d3a428670597e89dc22aa961eb5329741b8bf22",
+    "res://assets/art/decor/sheep_idle.png": "ba3b743bdd5d851c0ebf195bc4e168729601d5598c0f4d9a1e39d5e0c778e14e",
+    "res://assets/art/decor/sheep_move.png": "1cce49d0ec1ca86d8bf68f86b30f8c7462026bb2f3070acbb723779540b04cd7",
+    "res://assets/art/decor/water_rock_1.png": "83d1a8925a9294c42bc421710d263718d958570006f43e6c7c65f4c7f5e115b4",
+    "res://assets/art/decor/water_rock_2.png": "46514c0759f84490cb517c53236f54e7306cc57a348df3c96fb32313d2001934",
+    "res://assets/art/decor/water_rock_3.png": "ad0fbdbceec0ee8ea37e545f88280fe697486e86efcdf3c4bedcf0c0cd6aeceb",
+    "res://assets/art/decor/water_rock_4.png": "592bb0f38cfe92092dc4f579cda64b066da580923a17c5f3c79662f59d199a93",
+    "res://assets/art/fx/dust_1.png": "32715925b71d3a43ab5495de47725849a3dab8fca57f0993e139e2278db9f856",
+    "res://assets/art/fx/dust_2.png": "d65da2c97e6b1413c35deecb7f7d91c7b791efde6948171a56fd560e9e2af798",
+    "res://assets/art/fx/explosion_1.png": "2753ea93daf727590df7c8a0e7c5759ada6ed185b63dee037de317ace9530509",
+    "res://assets/art/fx/explosion_2.png": "b82e686e3c8025ebb868c75686fee62605dea7e899d7a5078b0af084a46cd5b8",
+    "res://assets/art/fx/fire_large.png": "5b9f567381882bd4082f5a5ebae65d91e63f2d33417ea55ea7cf67e528ed1cce",
+    "res://assets/art/fx/fire_medium.png": "46396ab9c5e52c2120e725e9bae8f8f9628c23c766432098a699f5f6cbd4f0fc",
+    "res://assets/art/fx/fire_small.png": "0856990d6216260df7f6c9b422b9128bd242e35baaebb1ae2f2955fc336696b5",
+    "res://assets/art/fx/glow_circle.png": "925b8ac284436f74f9cadf0ecd058da1c08fba65c098e4e34fd220603022f02e",
+    "res://assets/art/fx/water_splash.png": "06743825027d551231a6de5aa700708eab5dc61dbd785314c80785ad595d7680",
+    "res://assets/art/resources/gold_stone_1.png": "df483cb036e04f1fcae32b269e2a33bdca2e4da0a5c067c4f0d44aa70140a658",
+    "res://assets/art/resources/gold_stone_1_highlight.png": "865a202136357df699d7e638680aa32af43ac839e385c9a3e7beac4621c5c465",
+    "res://assets/art/resources/gold_stone_2.png": "e17e27f15c7d1b648d4c04b2c1a7da099d78b74430252382cdb2bfde141c9109",
+    "res://assets/art/resources/gold_stone_2_highlight.png": "6d0906b9523550fab3a4b4ec38f4bee2eced649fe09d1f1e48b0447ab87bf890",
+    "res://assets/art/resources/gold_stone_3.png": "ce5b6ee38addde26d5c221dab63d3a1c7c827bacfc6c05f193563bddd18e183c",
+    "res://assets/art/resources/gold_stone_3_highlight.png": "cdab5e19aa52770f7ca0fd848c015de235d601a659efb6047a666b23b5948a29",
+    "res://assets/art/resources/gold_stone_4.png": "aad7535494c7d35becdb192c4e65cb7b617a9289641e5ad2782aa47bdf5b8c8e",
+    "res://assets/art/resources/gold_stone_4_highlight.png": "1cf96d6269e7d7caaad98c2a9910961337326c1f1d17e12b7fedb581f1b0222b",
+    "res://assets/art/resources/gold_stone_5.png": "fd4fa60362b732d974d3ad34db8cf35ff5da5ec5807ce56292f6ae9cd1acda99",
+    "res://assets/art/resources/gold_stone_5_highlight.png": "9c581c0f8bcff916568d9ca237760a573ada2726a04166ef8f472009f1a30926",
+    "res://assets/art/resources/gold_stone_6.png": "12553ffdcadb884d4e927f5205c1f6b681b1e1e1d91fa8761ba9b8451be88150",
+    "res://assets/art/resources/gold_stone_6_highlight.png": "79c0385090913af9ba5b55808794e33b3d9a818ab69a5c2b665a495664781baa",
+    "res://assets/art/resources/tree_1.png": "ee3f285f992842987df5aae0e07a364a7a535e78d605f6d469115559e87df7e5",
+    "res://assets/art/resources/tree_2.png": "62de877a4732bee98e170c1a4aac44c3bd39929205923176a4acbec812d2630a",
+    "res://assets/art/resources/tree_3.png": "e2317a54bb801e52f4c2fbfd4d9d91611036d7b001fe623a92b55539feddaae2",
+    "res://assets/art/resources/tree_4.png": "ac9094dba8939210726cbcfffec250790081e1eed998edb5e4772ed6bd31d5cc",
+    "res://assets/art/terrain/shadow_blob.png": "20094ec53d6929b18f01ea163a34955767335e4113b1c5dd33c5114a0302a27a",
+    "res://assets/art/terrain/tilemap_grass.png": "3ae8f00b92b4ecd46b63b14ad4117fdda42afcf485f340724db033f0e229be8e",
+    "res://assets/art/terrain/tilemap_scorched.png": "944f8fe48d87f60234a7eac9648e444bbecdabaabd0b478758ea45c882603503",
+    "res://assets/art/terrain/water_base.png": "5ef30a00bbff22590eabb5acabb8aca6cc415557e7ab5f60db07714f01a4dba1",
+    "res://assets/art/terrain/water_foam.png": "aba91e12e08d108ce43446a269c9fb7e05b55580872152d675f8c78f72835e37",
+    "res://assets/art/ui/avatar_02.png": "32d81381a92147a2752a2d0789630a83fa9969df51f3cb00f3df4311bbee2960",
+    "res://assets/art/ui/banner_swords.png": "8535a01acec241f8c026f0e7576edf893a318039ddc2919b66788de388709301",
+    "res://assets/art/ui/bar_big_base.png": "a1053c7b5176b80df5240d504a5d948337c3fe0ba6f4af0bb0dda0776071c0ac",
+    "res://assets/art/ui/bar_big_fill.png": "1eee58410178874f54d2a66ab77b7c66ea1670823720f9cbf115e761af8c8cf2",
+    "res://assets/art/ui/bar_small_base.png": "d5191f8a82b98e7049e379ae26f8be84cb56d1077d6ecfe36de4df0eb5e7eeb8",
+    "res://assets/art/ui/bar_small_fill.png": "06cb099925aaf847b63c068b3e002cd9b0deb324bc11afbfb80258a7d0818f3d",
+    "res://assets/art/ui/cursor_arrow.png": "835ceb9d7c564be3cde604f04733e9e08981b15bd2a6aa8eac759c22223921bd",
+    "res://assets/art/ui/icon_01.png": "2e3556418f59f7063806badc53e59a50e042f6a07b8b4c2893484c5cc06a7fce",
+    "res://assets/art/ui/icon_03.png": "87e913c8cac52427dadba7c1688da6b105eaf63437f8d1bccc3c9f33edd0658b",
+    "res://assets/art/ui/icon_04.png": "6e388d4d9d46750d21adae8718b561cfdafd47bf26d572fc6b6de11d73049da4",
+    "res://assets/art/ui/icon_05.png": "60386728a8a367f6660c25443b3df64149762dc882fc8dae881a49cde0933866",
+    "res://assets/art/ui/icon_09.png": "10cb5e7f8bcafd9950e1bfdeeeeda8a577d1bbc82b422b70f165a35064918ec0",
+    "res://assets/art/ui/panel_parchment.png": "bf585619c1ab7bf3ad42eba012aecf89d9cf90ba03cbf70e82a0971e0514df77",
+    "res://assets/art/ui/panel_wood.png": "26d48d6c831a73334095363e61a9950a80067e69f6a747d25dbbe8095d13ced7",
+    "res://assets/art/ui/ribbons_big.png": "d5463691b52e90ce8b6dfdb340aa563b1b7bfd9d697977d2cc38a2a661db0053",
+    "res://assets/art/ui/slot_regular.png": "d0c41e7710bc76ea927f462d483eea3f51ac8288bb532513040347818a7e6f86",
+    "res://assets/art/units/archer/Archer_Idle.png": "a82eaa45223c26c4c0c70f131e2ce9252f0ff774e5ceaa3c64e2e3def32e31a3",
+    "res://assets/art/units/archer/Archer_Run.png": "4a61556f5dda00a9bb571e61d5070b9f213704ba68ea724906d24bd0b5ef056c",
+    "res://assets/art/units/archer/Archer_Shoot.png": "fcaf0fb2992baa1709de88069444000ea2f7967517a42e0e7afd84da52926249",
+    "res://assets/art/units/commander/Lancer_Idle.png": "f873fb90f3d1d83cb970fda0c141125ae30dd49742240f578907f739dd951739",
+    "res://assets/art/units/commander/Lancer_Right_Attack.png": "b19bd5c1fcfbd89e033ebca9acf8d27d1f2e06f20e8365c95faf52787f5f2dda",
+    "res://assets/art/units/commander/Lancer_Run.png": "3ac7f617f06499e55d456c1943f2727e1c39e24a4121b4f66f4510988d450a41",
+    "res://assets/art/units/enemy_archer/Archer_Idle.png": "7b2cdec47a0e20a10578f8417026e7beec4fe1a6ec792f51965c73864b6c2552",
+    "res://assets/art/units/enemy_archer/Archer_Run.png": "0368a29b0f3c1692a3336e5fa3bc089ce3f7f9f2fa889cf50eb1a3b559a66982",
+    "res://assets/art/units/enemy_archer/Archer_Shoot.png": "e46cd1650d0d31605b478b0cc4206cf8dbf0519351bc518f49518f7ae259dfdd",
+    "res://assets/art/units/enemy_warrior/Warrior_Attack1.png": "05df9fa665b8c216b3852b00250a84e55d2bdffdb39349ae152f2c8766d73bb1",
+    "res://assets/art/units/enemy_warrior/Warrior_Guard.png": "5d19f204d3a799eda85da02e65542b2ac406e87cf486664d60860453e5e74163",
+    "res://assets/art/units/enemy_warrior/Warrior_Idle.png": "104bb0c113efa967b306047d29166ca7d4925366d613dd46e5b33ac44fbb1ac4",
+    "res://assets/art/units/enemy_warrior/Warrior_Run.png": "74b9d13a4b57f75a048cb42af35ef5c0a20791f67a9b03f9e93c72790dbe2948",
+    "res://assets/art/units/pawn/Pawn_Idle.png": "175027379188ef41c59301ac2d0dadf90d3a04d25eb1af8f65c1212b2fb934d6",
+    "res://assets/art/units/pawn/Pawn_Idle_Gold.png": "c1c70c9160c8bae0727e4435f8dc455e48d8320d1aa5e56da6a31a21fb07c4f7",
+    "res://assets/art/units/pawn/Pawn_Idle_Wood.png": "dea0cd42da6bf20535a412321416b97180a6561ef272d04014feeb0aeaec876a",
+    "res://assets/art/units/pawn/Pawn_Interact_Axe.png": "b09914c904f397fdddd717b76bf739489303d48acc98204b38b699095b1b82b3",
+    "res://assets/art/units/pawn/Pawn_Interact_Hammer.png": "8d7b68325f597e47de41f03d9ebac45d600c404a7ca71c852f3a8e4cd39ed9cb",
+    "res://assets/art/units/pawn/Pawn_Interact_Pickaxe.png": "e1ccaf5dbc94b657c5c1c3d63e73b7913b4030c967f1462ce54bb06a108852c9",
+    "res://assets/art/units/pawn/Pawn_Run.png": "ad825172a8bf25076f4a817e7dbf8ded33ceb297377ee76e4f2c989a684af3a5",
+    "res://assets/art/units/pawn/Pawn_Run_Gold.png": "21555ac7a375c6c0864b993d91b732828a658c755eb40bb129dabb5445497b84",
+    "res://assets/art/units/pawn/Pawn_Run_Wood.png": "b2fef719dbe457e45e24eca919874e74dae65939e7bc357d304ab2791d50a973",
+    "res://assets/art/units/warrior/Warrior_Attack1.png": "da150db2442454bd661bd8e2512dab2c7def4d9202334a06dd9d6a8edfb20fec",
+    "res://assets/art/units/warrior/Warrior_Guard.png": "6372798f44d14a89d3dc0a4f0e4e360d08cf01a7a3ac0f4e6e1a768b164ef688",
+    "res://assets/art/units/warrior/Warrior_Idle.png": "e612b408908c938999025fa05c45d81b23a31d8b68a6934072adfccf1d5d716c",
+    "res://assets/art/units/warrior/Warrior_Run.png": "01e2d075c7c45a2f9567676b0bb0808a7caf0744b927179ffe212a740e609ea1",
+    "res://assets/audio/music/theme_battle.mp3": "aa3dc59166e121cecfc2033ffc3a11ea6b74b28c8cdac492e1a6db35c5abe1fd",
+    "res://assets/audio/sfx/impactPunch_medium_000.ogg": "486988aa2d6440ffc4c62a0e8ccf3c23673ba84424bd4723378d451b7255eb5c",
+    "res://assets/fonts/KenneyFuture.ttf": "7a55b07f5968fac872648a7c5e959bd2b93e06f63153b585d56e4d5298ddff61",
+    "res://assets/fonts/KenneyFutureNarrow.ttf": "17e182587a3264dcf9e5b17c055715d5597187546ce81925c64e9184c26d597f"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

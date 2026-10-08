@@ -1,0 +1,894 @@
+{
+  "game_id": "dogwalk",
+  "mode": "brief",
+  "provided_asset_observations": [
+    {
+      "frame_ids": [
+        "S001",
+        "S002",
+        "S033",
+        "S034"
+      ],
+      "informs": [
+        "A1",
+        "A5"
+      ],
+      "observation": "Chocerome / Pinda 贴图预览与 GT 白黑长毛狗、小孩服装同族；不证明文件加载。"
+    },
+    {
+      "frame_ids": [
+        "S025",
+        "S026",
+        "S027",
+        "S028",
+        "S029",
+        "S030"
+      ],
+      "informs": [
+        "M3",
+        "A2"
+      ],
+      "observation": "树枝、拐杖、礼帽、胡萝卜鼻、网球、交通锥预览对应五件差事对象；GT 锥当帽、铲当一件，未见单独礼帽拾取。"
+    },
+    {
+      "frame_ids": [
+        "S004",
+        "S054",
+        "S055"
+      ],
+      "informs": [
+        "A3",
+        "V4",
+        "M2"
+      ],
+      "observation": "爪印按钮、Out of Time（Try Again / Back to Title）与封面 DOGWALK 与完成页卡片同族。超时页未在录像出现。"
+    }
+  ],
+  "reference_limits": [
+    "录像未展示标题页点击过程、超时失败页与 Try Again；素材 S054 有 Out of Time 卡，未展示为 unknown。",
+    "Back to Title / Continue 未被点击，功能未验证。",
+    "乱绳是否被解开未在已看全帧确认。",
+    "第一件从地面到狗/小孩手里的交接只在联系图尺度看到，密集段拍的是安放与接近网球。",
+    "无音频；素材与画面外观对应不证明文件加载。"
+  ],
+  "reference_observations": [
+    {
+      "frame_ids": [
+        "R001"
+      ],
+      "informs": [
+        "M1",
+        "M3",
+        "M4",
+        "D1",
+        "V2",
+        "V3"
+      ],
+      "observation": "STAGE SEARCH，Decorations 0/5 Carried 0，600s，指南针 Branch 30m near Shed；仍缺 Branch、Tennis Ball、Shovel、Traffic Cone、Ear Muffs。小孩与狗红绳相连，远处雪人、黑树干。"
+    },
+    {
+      "frame_ids": [
+        "R009",
+        "R025"
+      ],
+      "informs": [
+        "M2",
+        "D2",
+        "A1",
+        "A2"
+      ],
+      "observation": "STAGE CARRY，Decorations 0/5 Carried 1，585s→554s，回雪人 41m→4m。橙锥在小孩旁，狗面向物件，棚屋可见。"
+    },
+    {
+      "frame_ids": [
+        "R052"
+      ],
+      "informs": [
+        "M3",
+        "V2",
+        "A2"
+      ],
+      "observation": "STAGE SEARCH，Decorations 2/5 Carried 0，503s，Branch 28m。雪人已戴橙锥、插蓝铲、伸出枝臂。"
+    },
+    {
+      "frame_ids": [
+        "R060",
+        "R062"
+      ],
+      "informs": [
+        "M1",
+        "M2",
+        "D1",
+        "A4"
+      ],
+      "observation": "R060 SEARCH 2/5、487s、Tennis Ball 3m near Pond，绿球在地、绳拉直；R062 CARRY 2/5 Carried 1，小孩手持绿球，回雪人 42m。"
+    },
+    {
+      "frame_ids": [
+        "R086"
+      ],
+      "informs": [
+        "M1",
+        "M2",
+        "A4"
+      ],
+      "observation": "STAGE CARRY，Decorations 3/5 Carried 1，438s，红绳在雪上打成乱团，回雪人 28m。"
+    },
+    {
+      "frame_ids": [
+        "R102"
+      ],
+      "informs": [
+        "M3",
+        "D1",
+        "V1"
+      ],
+      "observation": "STAGE SEARCH，Decorations 4/5，407s，Ear Muffs 3m near Willow，黄色耳罩架与红点。"
+    },
+    {
+      "frame_ids": [
+        "R114"
+      ],
+      "informs": [
+        "M3",
+        "M4",
+        "D2",
+        "V3"
+      ],
+      "observation": "STAGE RETURN，Decorations 5/5 Carried 0，384s，Walk Chocerome to the snowman to finish the errand。雪人五件齐。"
+    },
+    {
+      "frame_ids": [
+        "R116",
+        "R119"
+      ],
+      "informs": [
+        "M4",
+        "V4",
+        "A3",
+        "A5"
+      ],
+      "observation": "R116 Snowman Ready! Continue；R119 Winter Walk Complete，Five decorations, one happy snowman.，Back to Title。"
+    },
+    {
+      "frame_ids": [
+        "RD018",
+        "RD030"
+      ],
+      "informs": [
+        "M3",
+        "A4"
+      ],
+      "observation": "RD018 第一件安到雪人顶成橙锥；RD030 狗沿爪印接近绿色网球。"
+    }
+  ],
+  "requirements": [
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R009",
+            "R060"
+          ],
+          "observation": "R001 小孩与白黑长毛狗以红绳相连，远处有雪人；R009 狗已走到棚屋旁、小孩在绳另一端；R060 狗在前、小孩在后，绳拉直，雪地上有爪印。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R086",
+            "RD030"
+          ],
+          "observation": "R086 小孩与狗之间的绳打成一团乱线；RD030 狗沿爪印接近绿色网球，绳仍连接。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "名义上有小孩和狗，但二者重叠站在雪人脚下、牵引线从不拉直，没有可感知的同行距离",
+          "id": "M1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评玩家角色与同伴能否在有界场地里连续改变位置，并且二者保持可感知的牵引或跟随关系。红绳是 GT 手段，等效牵引同权。步态循环归 A4。",
+      "evidence": {
+        "coverage": "需要看到二者位置连续变化；只拍到静止合影不足以判断牵引。",
+        "kind": "action_sequence",
+        "unit": "一段牵引行走"
+      },
+      "full_credit": "小孩与狗沿场地连续改变位置；牵引线或跟随关系可跟踪，不是二者各自瞬移。",
+      "group": "M",
+      "high_score_requirements": [
+        "小孩与狗的位置在连续帧中可跟踪，不是在地标间瞬移。",
+        "牵引或跟随关系能归因谁在前、谁在后。",
+        "绳乱线或松弛若出现，仍能认出二者属于同一对，而不是场上两个无关角色。"
+      ],
+      "id": "M1",
+      "inspired_by": [
+        "shadow-courier:M1"
+      ],
+      "partial_credit": "能走动但同伴经常与玩家脱节到无法解释，或牵引只在个别帧出现。没有冲刺本身不是缺陷。",
+      "title": "牵引同伴在场内连续改变位置",
+      "zero_credit": "充分覆盖可操作游玩后二者不能改变位置，或同伴完全不参与移动。未拍到行走过程为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R009",
+            "R025",
+            "R062"
+          ],
+          "observation": "R009 STAGE CARRY、Carried 1，橙锥在小孩身旁、狗面向物件；R025 仍 Carried 1，小孩靠近未装饰雪人；R062 Carried 1，小孩手持绿网球，Decorations 仍 2/5。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R086"
+          ],
+          "observation": "运送第三件时红绳在雪地上打成乱团，STAGE CARRY 与 Carried 1 仍在，差事没有因此结束。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "有 Carried 1，但装饰从未出现在狗嘴或小孩手里，只是计数跳变",
+          "id": "M2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评装饰是否由同伴参与拾取并进入运送态，以及失误（绳缠绕、掉落、超时等已采用者）能否回到可继续状态。未采用超时不扣分。读数是否跟上归 V2；交接动画归 A4。",
+      "evidence": {
+        "coverage": "超时页只在候选展示时评判；乱绳是否被解开未在已看全帧确认，记 unknown 而不是零分。",
+        "kind": "action_sequence",
+        "unit": "一次拾取进入运送，以及一次已采用的失误恢复"
+      },
+      "full_credit": "装饰被同伴或玩家从场地取走并进入运送；已采用的失误状态可以解除（解开乱绳、重拾或重试），差事能继续。",
+      "group": "M",
+      "high_score_requirements": [
+        "拾取后物件离开原位，并跟在同伴或玩家身上直到安放。",
+        "同伴参与至少一类拾取或运送，不是玩家单独瞬移物件。",
+        "已采用的失误能回到可继续寻回，而不是卡死。"
+      ],
+      "id": "M2",
+      "inspired_by": [
+        "magnet-dash:M3"
+      ],
+      "partial_credit": "能拾取但运送态不稳定（物件瞬移到雪人）；或有乱绳/掉落却无法回到可走状态。",
+      "title": "同伴介导拾取、运送，失误可恢复",
+      "zero_credit": "充分覆盖后装饰从不被取走，或 brief 要求的同伴介导完全不存在。未拍到拾取为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R052",
+            "R114"
+          ],
+          "observation": "R001 仍缺 Branch / Tennis Ball / Shovel / Traffic Cone / Ear Muffs 五件；R052 Decorations 2/5，雪人已戴橙锥帽、身旁插蓝铲、伸出枝臂；R114 Decorations 5/5、STAGE RETURN，雪人同时有锥帽、枝、铲、绿球与耳侧红点。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R102",
+            "RD018"
+          ],
+          "observation": "R102 柳树旁黄色耳罩架，Decorations 4/5；RD018 第一件安放后雪人顶上出现橙锥。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "Decorations 数在涨，雪人外观始终空白，五件物品从未安到展示位",
+          "id": "M3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评是否存在五件可区分的装饰，并且每一件被运回展示位后改变展示物外观。五件是 brief 保留项，不是自由。具体是锥桶/网球/铲子或别的五件同权。",
+      "evidence": {
+        "coverage": "需要看到展示物随件数变化；不要求 GT 那五个英文名。",
+        "kind": "whole_scope",
+        "unit": "五件装饰从寻找到安放"
+      },
+      "full_credit": "五件装饰外形可分；安放后展示物逐件变样，最终五件都在展示位上，而不是只改 5/5 数字。",
+      "group": "M",
+      "high_score_requirements": [
+        "五件装饰在外形上可互相区分，不是同一模型换色五次。",
+        "每安放一件，展示物能指出新添的那一件。",
+        "5/5 时展示物同时看得出五件都在，而不是被最后一件盖住。"
+      ],
+      "id": "M3",
+      "inspired_by": [
+        "magnet-dash:M3"
+      ],
+      "partial_credit": "件数不足五，或安放后展示物外观不变；或五件外形无法区分。",
+      "title": "五件不同装饰运回并安到展示位",
+      "zero_credit": "充分覆盖后没有任何装饰被安到展示位。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R114"
+          ],
+          "observation": "R001 STAGE SEARCH、Decorations 0/5、600s；R114 STAGE RETURN、Decorations 5/5 Carried 0，文案 5/5 placed. Walk Chocerome to the snowman to finish the errand。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R116",
+            "R119"
+          ],
+          "observation": "R116 Snowman Ready! Every decoration is in place. Pinda and Chocerome make a wonderful team.，Continue；R119 Winter Walk Complete，Five decorations, one happy snowman.，Back to Title。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "名义上有五件差事，但一开场就进入 Winter Walk Complete，没有寻回与安放过程",
+          "id": "M4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评是否存在开场寻回、五件完成后的终局声明与返回/重玩入口。STAGE 文案形式归 V3；完成页排版归 V4。超时失败页未拍到时不因缺失败画面归零。",
+      "evidence": {
+        "coverage": "失败/超时页只在候选展示时评判。返回按钮是否可点不从像素验证。",
+        "kind": "whole_scope",
+        "unit": "开场、五件完成、完成页与返回入口"
+      },
+      "full_credit": "开场任务、五件完成后的完成声明与返回入口按时间顺序可读；完成不是同一寻物画面循环。",
+      "group": "M",
+      "high_score_requirements": [
+        "开场、中段寻回与完成能按时间顺序读出。",
+        "完成声明出现在五件已安放之后，而不是开场就祝贺。",
+        "完成页提供返回或再走一遍的入口。"
+      ],
+      "id": "M4",
+      "inspired_by": [
+        "shadow-courier:M4"
+      ],
+      "partial_credit": "有开场和完成但没有返回入口；或完成声明出现时件数仍不足五。",
+      "title": "开场差事、完成声明与返回入口",
+      "zero_credit": "充分覆盖后只有一段寻物循环，没有任何完成声明。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R009",
+            "R060"
+          ],
+          "observation": "R001 指向 Branch 30m near Shed；R009 锥桶在棚屋旁，回雪人 41m near Willow；R060 网球在 Pond 3m，与雪人不在同一格。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R052",
+            "R102"
+          ],
+          "observation": "R052 雪人已有两件，下一件 Branch 28m near Shed；R102 Ear Muffs 3m near Willow，黄色耳罩架与雪人、棚屋分开。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "五件装饰都堆在雪人旁同一格，指南针距离始终 0m",
+          "id": "D1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评五件装饰是否分布在可感知距离的不同位置，到达前能被定位。具体地名与雪地主题是自由。雪地是否平涂归 A2。",
+      "evidence": {
+        "coverage": "比较至少三件的落点；不要求必须用 Shed/Pond/Willow 这三个词。",
+        "kind": "overview",
+        "unit": "含装饰与展示位距离的正常游玩帧"
+      },
+      "full_credit": "装饰出现在与展示位有可感知距离的不同地点；指南针或地标能指出下一件，走位改变到达代价。",
+      "group": "D",
+      "high_score_requirements": [
+        "至少三件装饰与展示位之间有可感知距离。",
+        "不同装饰落在不同地标附近，而不是同一棵树绕圈。",
+        "下一件在到达前能被定位，不是踩上去才生成。"
+      ],
+      "id": "D1",
+      "inspired_by": [
+        "shadow-courier:D1"
+      ],
+      "partial_credit": "有五件但都挤在展示位旁；或只有一件离得远、其余叠在出生点。",
+      "title": "五件装饰落在可区分的场地位置",
+      "zero_credit": "充分覆盖后装饰没有可到达的场内位置，走位不改变任何拾取可达性。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R009",
+            "R025",
+            "R052"
+          ],
+          "observation": "R009 拾锥后指向雪人 41m；R025 靠近雪人准备安放；R052 安放后重新指向 Branch 28m。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R062",
+            "R114"
+          ],
+          "observation": "R062 拾球后再次指向雪人 42m；R114 五件齐后 STAGE RETURN，仍要走回雪人 4m 收束。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "SEARCH/CARRY 只换左上标题，往返路线与地标从不改变，拾取后物件直接出现在雪人上",
+          "id": "D2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评差事是否在寻物外出与回展示位之间切换，使玩家重复使用同一场地的不同路线。STAGE 文案本身归 V3；本条只评路线组织。",
+      "evidence": {
+        "coverage": "不要求五轮往返都拍全；看见两轮切换即可判断组织。",
+        "kind": "whole_scope",
+        "unit": "至少两轮外出拾取与回运"
+      },
+      "full_credit": "每次拾取后需要走回展示位，下一次再朝新地标出发；收束段把同伴带回展示位结束。",
+      "group": "D",
+      "high_score_requirements": [
+        "拾取与安放之间有可走的回程，不是拾取瞬间完成展示。",
+        "下一轮出发方向与上一轮回程不同，能读出新地标。",
+        "收束段仍然使用展示位，而不是突然切完成页。"
+      ],
+      "id": "D2",
+      "inspired_by": [
+        "shadow-courier:D2"
+      ],
+      "partial_credit": "有寻物标题但拾取后物件自动出现在雪人上，往返被跳过。",
+      "title": "寻物、回运与收束形成往返节奏",
+      "zero_credit": "充分覆盖后没有往返，场地只被走过一次直线。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R009",
+            "R052",
+            "R102"
+          ],
+          "observation": "R009 白黑长毛狗、红帽小孩与橙锥三分；R052 雪人、蓝铲、小孩与狗轮廓分开；R102 黄耳罩架与红点、小孩、狗可分。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "狗、小孩与装饰在行为上有分工，但形体都是同色雪团，只能靠 HUD 知道谁在运东西",
+          "id": "V1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评正常游玩尺度下小孩、狗、当前装饰和雪人能否互相区分，并在到达前被定位。本游戏无敌人，不评威胁。交接动态归 A4。",
+      "evidence": {
+        "coverage": "近距拾取与雪人旁；远距色点只记限制。",
+        "kind": "overview",
+        "unit": "含同伴与装饰的正常游玩帧"
+      },
+      "full_credit": "四类对象进入画面时就能从形体区分；同屏时各自位置清楚。",
+      "group": "V",
+      "high_score_requirements": [
+        "近距能不靠文字分辨小孩、狗、当前装饰和雪人。",
+        "运送中的物件跟在携带者身上，不与地面爪印混读。",
+        "同屏多对象时每件都能单独定位。"
+      ],
+      "id": "V1",
+      "inspired_by": [
+        "shadow-courier:V4"
+      ],
+      "partial_credit": "狗与小孩对比不足；或装饰与雪地对比弱到要靠 HUD 才知道地上有东西。",
+      "title": "小孩、同伴、装饰与展示物的预读",
+      "zero_credit": "充分覆盖后无法判断谁是同伴、哪件是装饰。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R009",
+            "R060"
+          ],
+          "observation": "左上 STAGE + Decorations n/5 + Carried + 指南针句 + 秒数；右上小地图；底栏距离。R001 0/5 Carried 0、600s、Branch 30m；R009 0/5 Carried 1、585s、Snowman 41m；R060 2/5 Carried 0、487s、Tennis Ball 3m。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R052",
+            "R114"
+          ],
+          "observation": "R052 2/5 与雪人已有锥帽、铲子同帧；R114 5/5 Carried 0 与完成态雪人同帧。任务卡在左上，未挡住主体。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "世界层已出现狗叼走锥桶或雪人戴上物件，但 Decorations / Carried 持续不更新或与事件方向相反；机制后果是否存在归 M 组",
+          "id": "V2-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "左上任务卡或小地图持续挡住近距雪人或当前装饰",
+          "id": "V2-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评阶段、件数、运送态、指南针与计时是否成组可读，并与已发生的拾取/安放同向。机制后果归 M 组，本条只评读数是否跟随。不要求必须使用 Decorations/Carried/600s 这些字段。",
+      "evidence": {
+        "coverage": "开场、运送、安放与收束；不要求特定字段名。遮挡只在此记。",
+        "kind": "overview",
+        "unit": "各阶段正常游玩 HUD"
+      },
+      "full_credit": "关键读数分组稳定；拾取后运送态更新、安放后件数更新；任务卡不长期挡住雪人或装饰。",
+      "group": "V",
+      "high_score_requirements": [
+        "阶段、件数、运送态与下一目标分成稳定信息组。",
+        "拾取与安放后，对应读数在下一可读帧同向更新。",
+        "任务卡与小地图不挡住当前装饰或雪人。"
+      ],
+      "id": "V2",
+      "inspired_by": [
+        "shadow-courier:V3"
+      ],
+      "partial_credit": "读数能读但不成组；或事件后读数滞后；或卡片偶尔挡住目标。",
+      "title": "差事读数成组并与世界同步",
+      "zero_credit": "充分覆盖后没有任何可读的件数或目标信息。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R009",
+            "R052"
+          ],
+          "observation": "R001 STAGE SEARCH；R009 STAGE CARRY 与 Return to the snowman so Pinda can place what she is carrying.；R052 安放后回到 STAGE SEARCH。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R114"
+          ],
+          "observation": "R114 STAGE RETURN，Walk Chocerome to the snowman to finish the errand。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "已从寻物改为回运，但只有 Decorations 数字变化，没有 STAGE CARRY 或回雪人文案",
+          "id": "V3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评进入运送、回到寻物与收束是否有可归因的即时信号。信号形式是本条唯一计分处；差事段是否存在归 M4。",
+      "evidence": {
+        "coverage": "需要看到切换附近的帧；不要求必须用英文 STAGE 词。",
+        "kind": "overview",
+        "unit": "寻物、回运、收束各至少一次"
+      },
+      "full_credit": "寻物、回运、收束各有可辨提示，出现时机与状态改变一致。",
+      "group": "V",
+      "high_score_requirements": [
+        "三类阶段各有可归因信号，不互相复用到无法分辨。",
+        "提示出现在状态改变的同一时段。",
+        "大段提示不永久挡住下一目标。"
+      ],
+      "id": "V3",
+      "inspired_by": [
+        "magnet-dash:V2"
+      ],
+      "partial_credit": "只有部分阶段有提示，或提示与实际状态不符（未拾取却显示回运）。",
+      "title": "寻物、回运与收束的阶段信号",
+      "zero_credit": "充分覆盖阶段切换后，完全没有任何阶段提示，只能靠数字猜测。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R116",
+            "R119"
+          ],
+          "observation": "R116 奶油卡片 Snowman Ready! 与 Continue 橙按钮；R119 Winter Walk Complete，Five decorations, one happy snowman. Time to head back home.，Back to Title 橙按钮。两页标题都大于正文。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "Winter Walk Complete 有 Back to Title，但标题、五件说明与按钮同一字号挤成一块",
+          "id": "V4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评终局完成页是否能读出结果语义与下一步。超时页未拍到时只评已展示的成功页；按钮皮肤归 A3。",
+      "evidence": {
+        "coverage": "只评拍到的成功或失败页。素材里的 Out of Time 卡未在录像出现，不评作本条零分。",
+        "kind": "overview",
+        "unit": "已展示的完成页"
+      },
+      "full_credit": "完成页有结果标题、可扫读说明与返回/再走入口；标题与按钮主次可分。",
+      "group": "V",
+      "high_score_requirements": [
+        "结果标题先于说明被读到。",
+        "返回是独立按钮，不是埋在正文里的单词。",
+        "完成语义（雪人就绪或冬日散步完成）不需要靠猜测数字。"
+      ],
+      "id": "V4",
+      "inspired_by": [
+        "shadow-courier:D5"
+      ],
+      "partial_credit": "有完成字样但说明与按钮挤成一堆。",
+      "title": "完成页可读且有返回入口",
+      "zero_credit": "充分覆盖五件完成后没有完成页，或完成页没有任何返回入口。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R009",
+            "R060",
+            "R114"
+          ],
+          "observation": "R009 狗有黑耳白身与伸舌，小孩红帽紫衣；R060 小孩黄帽红衣背包，狗背对镜头仍可读出四足；R114 狗侧身、小孩站在完成态雪人旁，比例小于雪人。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "小孩和狗有独立色块，但狗没有可辨头身与绳结，小孩没有帽/衣分层，贯穿已展示差事",
+          "id": "A1-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "小孩或狗在正常尺度下被拉到半屏模糊，且贯穿已展示的寻回过程",
+          "id": "A1-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评正常游玩尺度下小孩与狗的可辨轮廓、朝向与比例。几何或素材改造同权。行走循环归 A4。不要求必须使用 Pinda/Chocerome 贴图。",
+      "evidence": {
+        "coverage": "不要求加载给定角色贴图。事件姿态归 A4。",
+        "kind": "overview",
+        "unit": "各阶段含主体的正常尺度帧"
+      },
+      "full_credit": "小孩有帽/衣分层，狗有头身与四肢轮廓；二者比例与场地协调。",
+      "group": "A",
+      "high_score_requirements": [
+        "小孩与狗在正常尺度下各有可辨轮廓与朝向。",
+        "主体与雪人、装饰的比例协调。",
+        "同一机位下二者不属于同一剪影。"
+      ],
+      "id": "A1",
+      "inspired_by": [
+        "sokoban:A2"
+      ],
+      "partial_credit": "能认出是两个角色，但朝向或分层在多段中丢失。",
+      "title": "小孩与同伴的主体形体",
+      "zero_credit": "充分覆盖后无法从场地中辨认玩家或同伴主体。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R009",
+            "R052"
+          ],
+          "observation": "R001 白雪、长阴影、黑树干、远处雪人；R009 棕色棚屋有厚度；R052 雪人、铲子与角色落在同一片带阴影的雪坡上。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S021",
+            "S023",
+            "S032"
+          ],
+          "observation": "雪地、雪人与柳树木纹预览与世界层白场、三球雪人、深色树干同族；GT 把它们当作有体积的地标，不是铺满镜头的贴纸。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "雪地被铺成无厚度的全白贴图，棚屋、柳树或雪人没有可走的地面阴影与体积",
+          "id": "A2-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "五件装饰只是与雪同色的点，没有任何锥桶、网球、铲子、树枝或耳罩形态",
+          "id": "A2-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评场地是否形成可读的地面、地标与展示位。给定雪地/棚屋纹理的整合在此评。五件分布归 D1。",
+      "evidence": {
+        "coverage": "评场所组织；不要求用完雪地/柳树贴图。",
+        "kind": "overview",
+        "unit": "场地全帧"
+      },
+      "full_credit": "地面、阴影、棚屋或树干与雪人形成可理解的场所；表面重复可以，但地标有体积。",
+      "group": "A",
+      "high_score_requirements": [
+        "地面阴影、棚屋或树干与雪人构成前中后景。",
+        "给定雪地纹理若被采用，是作为地面，而不是贴在镜头上的错透视贴图。",
+        "展示位有独立形态，能在到达前从场地认出。"
+      ],
+      "id": "A2",
+      "inspired_by": [
+        "sokoban:A2"
+      ],
+      "partial_credit": "有白地但雪人只是地面色差；或地标与透视打架。",
+      "title": "雪地差事场的场所组织",
+      "zero_credit": "充分覆盖后场地是无地标、无展示位形态的纯色空间。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R116",
+            "R119"
+          ],
+          "observation": "游玩态左上奶油矩形、右上圆框地图、底栏胶囊；R116/R119 同族奶油大卡与橙色圆角按钮，压在夜雪插画上。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S004",
+            "S054",
+            "S055"
+          ],
+          "observation": "爪印按钮、Out of Time 卡与封面 DOGWALK 字与完成页同族圆角奶油+橙按钮。Out of Time 未在录像出现。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "代表性的主要界面虽已有分组、底板或字号差，但核心信息的重要性与视觉重量长期明显相反，或主要信息组仍没有可辨阅读顺序，导致这一状态的主要编排关系实质缺失。须指出具体角色和范围；常见字体、纯文字、缺少面板或一个局部修饰问题均不触发。",
+          "id": "A3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评价差事目标/进度、交互提示与完成表达的实际视觉编排。重点是信息角色、文字/图形比例、留白与对齐、状态重点共同形成的界面设计；正确显示信息、有字号差或使用统一颜色只证明相应的局部成果。下列 GT 观察是设计作用的实例，具体颜色、字体、图标、面板和固定位置不构成复刻要求。",
+      "evidence": {
+        "coverage": "代表性正常界面与原录像覆盖的状态画面并列查看；关键文字及组间比例需要正常尺度全帧。只评价本任务已采用且已展示的组成。",
+        "kind": "overview",
+        "unit": "游玩 HUD 与完成页"
+      },
+      "full_credit": "差事目标/进度、交互提示与完成表达在正常观看尺度下按当前任务的重要性形成清楚的视觉重量和阅读顺序；主要目标或行动状态有充分强调，名称、数值、辅助说明的比例、距离和对齐体现各自语义，弱化的信息仍有适当可读性。寻找、携带、安放与最终完成根据状态用途重新组织视觉中心、疏密与留白，同时延续可辨的字体角色或图形关系。整体编排已经形成完整、合乎内容的界面，不能仅由几组标签、标题放大和配色统一来证明。纯文字可以充分完成设计；仅评价实际采用的可选读数、图标、按钮和统计，不要求另加组件、面板或独立结果屏。",
+      "group": "A",
+      "high_score_requirements": [
+        "当前携带/安放目标、收集进度与辅助操作在正常画面中的视觉重量与当前用途匹配。指出强调了谁、弱化了谁以及字号/对比/位置/留白如何共同完成这一关系；仅列出标签和分组不算完整证据。",
+        "具体信息组内部与组间的比例、对齐和疏密共同形成阅读节奏，名称、读数、说明之间的联系清楚；同一字体、同一颜色或一条底板不自动证明这些关系完成。",
+        "寻找、携带、安放与最终完成各自的视觉中心与内容相称，状态变化通过实际编排表达用途变化；保持相同颜色或把一行字放大不足以单独证明完整，但有意义的简洁文字构图可以完整成立。",
+        "字体角色、形状、边缘或强调关系在整套界面中得到有目的的运用；需要说明具体处理产生了什么视觉效果，不能用‘没冲突、可读、风格统一’替代正面完成证据。"
+      ],
+      "id": "A3",
+      "inspired_by": [
+        "strategy-skirmish:A1"
+      ],
+      "partial_credit": "按已形成和未完成的设计关系连续判断：能读到文字但关键目标/状态的视觉重量弱于装饰性标题；标签与数值或相关说明靠简单并排仍缺少有效分组与阅读顺序；主次虽然有字号差，尺度、对比或留白却未配合语义；结果内容只是换字沿用普通读数排法，没有围绕已有完成信息形成视觉中心；局部做了边框或强调色，但主要界面仍缺乏上述编排。指出具体区域、相互比较的信息角色和可见后果，不能只说普通、简陋或缺乏高级感。仅有轻微间距问题时按局部损失判断；不能把缺少图标/插画、使用常见字体、不同字体家族或极简风格本身当缺陷。某信息是否缺失或错误归功能视觉项；本项须评价已展示信息怎样被设计，不能复用同一功能缺失扣分。",
+      "title": "界面的完整视觉编排",
+      "zero_credit": "所需观察范围充分时，主要界面完全没有实际视觉编排，只有无法形成信息角色或阅读顺序的散置占位内容。已经形成有效的局部编排应给部分完成度；没有拍到状态不等于没有设计。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "RD018",
+            "RD030",
+            "R062"
+          ],
+          "observation": "RD018 雪人顶上出现橙锥，小孩仍在旁；RD030–RD036 狗沿爪印靠近绿色网球；R062 绿球已在小孩手里。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R060",
+            "R086"
+          ],
+          "observation": "R060 绳拉直、爪印成串；R086 绳变成雪地上的乱线团，不是瞬间消失。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "已采用的叼起或安放至少一类只有 Decorations 计数变化，狗嘴或雪人处没有物件交接过程",
+          "id": "A4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评已采用事件在世界层是否有过程。本条是这些事件反馈的唯一计分处。",
+      "evidence": {
+        "coverage": "依赖密集片段判断交接；只有总览抽帧时本条可为 unknown。",
+        "kind": "action_sequence",
+        "unit": "一次拾取或一次安放，以及一段行走或绳态"
+      },
+      "full_credit": "行走有爪印或位移过程；拾取让物件离开地面；安放让物件出现在雪人上；绳的拉直/乱线可跟踪。",
+      "group": "A",
+      "high_score_requirements": [
+        "拾取能在原位看到物件离开，安放能在雪人上看到新件。",
+        "行走留下爪印或等效过程，不是角色瞬移。",
+        "绳的拉直与乱线可以在连续帧中跟踪。"
+      ],
+      "id": "A4",
+      "inspired_by": [
+        "shadow-courier:A4"
+      ],
+      "partial_credit": "部分已采用事件只有计数变化，对象处没有交接。",
+      "title": "行走、叼起、安放与绳态的世界层过程",
+      "zero_credit": "充分覆盖已采用事件后，所有状态都是无过程的瞬间切换。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R009",
+            "R114",
+            "R116",
+            "R119"
+          ],
+          "observation": "游玩段是白场、圆润狗与红帽小孩；R116/R119 夜雪插画里的狗更小更棕，与游玩长毛狗不完全同模，但卡片语言仍接得上。记为风格跨度，不单独因插画换狗判零。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "代表性的正常画面中，主体、场所、效果和信息层虽各自存在，但跨部分的主要行动焦点或空间层次持续未建立：须有具体比例、明暗、遮挡或布局关系使主要行动被压成次要点或各部分无法形成同一空间的证据。配色一致不能豁免；个别装饰不足、单帧重叠或局部细节缺失不触发。",
+          "id": "A5-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评价小孩与同伴、装饰物/展示位、场地与信息层共同组成的整幅画面怎样表现与同伴共同完成五件装饰的取回与安放。本项需要跨部分构图、比例、空间与注意力层次的正面成果；能够认出同一游戏、配色一致或没有严重风格冲突只证明有限的协调。不再次评价 A1–A4 的局部制作水平，不把 GT 的具体风格和配色变成强制答案。",
+      "evidence": {
+        "coverage": "以多个独立阶段的正常全帧检查整体关系，并与原录像覆盖的状态画面比较；不以单一漂亮结果页补偿游玩画面的主要关系缺失。",
+        "kind": "whole_scope",
+        "unit": "寻回中段与完成页跨状态"
+      },
+      "full_credit": "同行主体、当前物件与返回展示位的路线在代表性画面中形成有目的的关注关系；主体所占视觉重量、场所的衬托、效果的强调和信息层的介入共同表现与同伴共同完成五件装饰的取回与安放。各部分在尺度、明暗/色彩、边缘与空间上的配合形成完整画面，能指出主体如何处于场所中、效果如何依附其对象、界面如何配合当前状态。跨已展示的阶段与结果，视觉语言通过这些关系延续并适应状态变化；统一调色、重复字体或相同像素边不能代替整体构图与氛围的完成。几何、极简、像素、混合渲染和主题变化均可完整成立，不要求增加装饰或效果种类。",
+      "group": "A",
+      "high_score_requirements": [
+        "同行主体、当前物件与返回展示位的路线的关注顺序由整幅构图、视觉重量与场景衬托共同组织，具体说明至少两个部分如何相互支持。对象存在、能定位或颜色区分开，只是这项成果的一部分。",
+        "小孩与同伴、装饰物/展示位、场地与信息层之间的尺度、明暗/色彩、边缘或空间关系共同形成与同伴共同完成五件装饰的取回与安放的表现，举出画面中实际成立的整合关系；不能仅凭共享调色或材质名称判完整。",
+        "已展示的游玩阶段与结果通过构图、强调、形态或空间关系延续同一视觉方向，并适应各状态的用途；只复用一种颜色或字体并不能单独证明整套呈现完成。"
+      ],
+      "id": "A5",
+      "inspired_by": [
+        "strategy-skirmish:A1"
+      ],
+      "partial_credit": "按尚未建立的跨部分关系及其重要性给连续分：颜色相近却只是主体、平面场地、标记和顶栏的并置，比例与明暗没有共同组织主要行动；效果、装饰或信息层的面积/对比持续压过应被关注的世界主体或目标，使行动中心退化为画面的次要点；物件、地面和效果各自可辨，却在接地、遮挡或视觉尺度上缺乏联系，整幅画面的空间表现未形成；游玩与结果只复用颜色，实际构图和强调关系没有支持其体验的延续。必须指出至少两个部分之间的可见关系与结果，不能以‘拼装感、没氛围’概括，也不能再次列角色缺细节、地面少装饰或界面字小作为独立扣分。局部轻微不协调按局部判断；不同风格、稀疏场景、明亮特效或大界面并不自动证明失败。",
+      "title": "整体构图与美术整合",
+      "zero_credit": "代表性画面中各部分没有共同形成可辨的主要行动、空间层次或整体表现方向，只有互不关联的内容并置。已形成的实际关系应保留部分完成度；不能因画风不合偏好给零分。"
+    }
+  ],
+  "rubric_version": "2026-09-19.vlm-art-relationships-v1",
+  "score_curve": {
+    "caps_scale": "final_score",
+    "exponent": 3,
+    "input": "attainment",
+    "missing_evidence": null,
+    "name": "power"
+  },
+  "self_review": {
+    "overlap": "事件唯一归属：牵引位移 → M1；同伴拾取/运送与失误恢复 → M2；五件安到展示位 → M3；开场/完成/返回是否存在 → M4；五件空间分布 → D1；寻物-回运往返组织 → D2；四类对象预读 → V1；HUD 成组与同步、遮挡 → V2；STAGE 文案 → V3；完成页组织 → V4；角色形体 → A1；场地与地标 → A2；界面皮肤 → A3；行走/交接/绳态过程 → A4；跨部分关系 → A5。跨条目双罚结论：单走廊——五件都在雪人旁只触发 D1-C1；有地标距离但拾取后物件瞬移到雪人只触发 D2-C1，D1 不因往返被跳过再扣。全平涂——雪地无厚度只归 A2-C1，D1 只比落点距离，不因材质扣。对手不竞争——本游戏无对手，M2/D2 不因此对罚。碰撞无后果——牵引无位移归 M1 零分；狗已叼走或雪人已戴帽但 Decorations/Carried 不更新只触发 V2-C1，M 组不因计数器没变扣分。段间无信号——差事段不存在归 M4；有往返但只有数字、无 STAGE/回雪人文案只触发 V3-C1。结果页无分组——标题/说明/按钮层级归 V4-C1；奶油卡片与橙按钮皮肤归 A3，同一页不两边各扣一次。",
+    "scope": "15 项（M4/D2/V4/A5）。按 brief 把同伴介导拾取安放、五件不同装饰、目标可读、失误恢复、终局完成作为必需。雪地主题、600s、地名、红绳、STAGE 英文是自由。本游戏无战斗且是单图往返，故 D 组 2 条、不写威胁 V。超时页未拍到，不因缺失败画面归零。",
+    "uncertainties": "乱绳恢复过程未拍到。超时页只在素材里。第一件拾取交接未在密集全帧确认。完成插画狗与游玩狗外形不一致，记为方向跨度而不是单独零分。未建立独立语义审查证据。未建立人工分数校准证据。",
+    "unsupported_obligations": "未要求：必须雪地、必须 600s、必须 Shed/Pond/Willow 地名、必须红绳、必须英文 STAGE 词、必须出现 Out of Time、必须使用礼帽/拐杖素材、必须 Pinda/Chocerome 这两名字、封面插画狗与游玩狗同模。GT 做法只写在 basis。"
+  },
+  "task_map": {
+    "freedom": [
+      "林间布局、装饰摆放位置、行进节奏、环境陈设与反馈呈现。",
+      "GT 的雪地、红绳、600s、Shed/Pond/Willow 地名、STAGE SEARCH/CARRY 文案是例子。"
+    ],
+    "required": [
+      "第三人称带领同伴完成紧凑差事：找到五件不同装饰，由同伴介导拾取并运回安放，完成展示。",
+      "目标可读，失误可恢复，有终局完成态。五件差事是 brief 保留项。"
+    ]
+  }
+}

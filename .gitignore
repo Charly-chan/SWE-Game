@@ -1,0 +1,12 @@
+/games/
+/results/
+/.reference-data-locks/
+/.venv/
+/.scratch/
+.gb_api.env
+.godot/
+__pycache__/
+*.pyc
+.pytest_cache/
+._*
+.DS_Store

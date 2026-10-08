@@ -1,0 +1,111 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "harness_concessions_only",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "a286762768a41eda4057837b455de07651c011a8a9cbf46031623d8660d00804"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "ninja_roguelite/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "fca7356255487d1d268372b75738e17959563c1e9ba1596873d41a72b2c313ae",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "a286762768a41eda4057837b455de07651c011a8a9cbf46031623d8660d00804",
+    "task_id": "ninja_roguelite"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "d7b267d84e6c07ff4126b63d45945eebb170274a8ff60438939c1fa138de1e7b",
+    "source_sha256": "5c1ad4152ee0dc77bbfc7fc76c0fff5c88af70be24ec8f63b85bbf727058f30a"
+  },
+  "passed_route_ids": [
+    "ninja_roguelite/L0/no_input_no_clear",
+    "ninja_roguelite/C1/outer_cloister_clear",
+    "ninja_roguelite/C2/pillar_hall_clear",
+    "ninja_roguelite/C3/inner_sanctum_clear",
+    "ninja_roguelite/L5/whole_game_clear"
+  ],
+  "readings": {
+    "ninja_roguelite/C1/outer_cloister_clear": {
+      "deaths": 1,
+      "frames": 2192,
+      "injects": 1,
+      "milestones_reached": [
+        "chamber_clear"
+      ],
+      "solution_kind": "tape",
+      "steps": 193,
+      "stop_reason": "scene_changed"
+    },
+    "ninja_roguelite/C2/pillar_hall_clear": {
+      "deaths": 1,
+      "frames": 3310,
+      "injects": 1,
+      "milestones_reached": [
+        "chamber_clear"
+      ],
+      "solution_kind": "tape",
+      "steps": 286,
+      "stop_reason": "scene_changed"
+    },
+    "ninja_roguelite/C3/inner_sanctum_clear": {
+      "deaths": 1,
+      "frames": 4744,
+      "injects": 1,
+      "milestones_reached": [
+        "final_chamber_clear"
+      ],
+      "solution_kind": "tape",
+      "steps": 409,
+      "stop_reason": "goal_reached"
+    },
+    "ninja_roguelite/L0/no_input_no_clear": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "ninja_roguelite/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 9660,
+      "injects": 0,
+      "milestones_reached": [
+        "entered_pillar_hall",
+        "entered_inner_sanctum"
+      ],
+      "solution_kind": "tape",
+      "steps": 776,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "fca7356255487d1d268372b75738e17959563c1e9ba1596873d41a72b2c313ae"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "2766816805796f3a0851d26d74fd724dab5affb297f36803e74d3e2b234ac255",
+  "schema_version": 2,
+  "solution_kinds": {
+    "ninja_roguelite/C1/outer_cloister_clear": "tape",
+    "ninja_roguelite/C2/pillar_hall_clear": "tape",
+    "ninja_roguelite/C3/inner_sanctum_clear": "tape",
+    "ninja_roguelite/L0/no_input_no_clear": "tape",
+    "ninja_roguelite/L5/whole_game_clear": "tape"
+  },
+  "task_id": "ninja_roguelite",
+  "validated_at": "2026-09-09"
+}

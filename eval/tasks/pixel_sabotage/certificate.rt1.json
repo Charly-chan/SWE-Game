@@ -1,0 +1,144 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "a1523caf98ba8bfc2c519862bddbf14d1d0ff29087993ed8c712dd402da0c983"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "pixel_sabotage/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "de768558dffd269d8c251a74ccc08b74df5ef4414be48829886c23f6e39600b9",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "a1523caf98ba8bfc2c519862bddbf14d1d0ff29087993ed8c712dd402da0c983",
+    "task_id": "pixel_sabotage"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "extended_actions": [
+      {
+        "id": "turn_left",
+        "why": "the six canonical verbs contain no turn; movement is camera-relative (player.gd builds direction from neck.global_transform.basis) and interaction is an aimed eye-height ray, so a route that cannot yaw can only ever face its spawn heading"
+      },
+      {
+        "id": "turn_right",
+        "why": "the six canonical verbs contain no turn; movement is camera-relative (player.gd builds direction from neck.global_transform.basis) and interaction is an aimed eye-height ray, so a route that cannot yaw can only ever face its spawn heading"
+      },
+      {
+        "id": "turn_up",
+        "why": "the six canonical verbs contain no pitch; the interaction ray starts level and the Virus, Keycard, Checkpoint01 and Door11Switch interaction points sit 34-55 degrees below it, so without pitch the ray misses four of the seven objectives outright"
+      },
+      {
+        "id": "turn_down",
+        "why": "the six canonical verbs contain no pitch; the interaction ray starts level and the Virus, Keycard, Checkpoint01 and Door11Switch interaction points sit 34-55 degrees below it, so without pitch the ray misses four of the seven objectives outright"
+      }
+    ],
+    "interface_version": 2,
+    "normalized_sha256": "d640b39ed60ee9a9a9f06762b50ee0f6e112abb9ed672b0cc70951b854eea902",
+    "source_sha256": "f2b3b770060e1ec2a7cee94d9bd99071fe66eaa5564d0c3bba294c3bcc7db754"
+  },
+  "passed_route_ids": [
+    "pixel_sabotage/L0/no_input_no_clear",
+    "pixel_sabotage/C1/virus_and_first_door",
+    "pixel_sabotage/C2/guarded_corridor_to_keycard",
+    "pixel_sabotage/C3/keycard_gated_door",
+    "pixel_sabotage/C4/checkpoint_switch_and_door11",
+    "pixel_sabotage/L5/whole_game_clear"
+  ],
+  "readings": {
+    "pixel_sabotage/C1/virus_and_first_door": {
+      "deaths": 0,
+      "frames": 729,
+      "injects": 0,
+      "milestones_reached": [
+        "virus_taken",
+        "door01_unlocked"
+      ],
+      "solution_kind": "tape",
+      "steps": 56,
+      "stop_reason": "ops_exhausted"
+    },
+    "pixel_sabotage/C2/guarded_corridor_to_keycard": {
+      "deaths": 0,
+      "frames": 2583,
+      "injects": 0,
+      "milestones_reached": [
+        "keycard_taken"
+      ],
+      "solution_kind": "tape",
+      "steps": 202,
+      "stop_reason": "ops_exhausted"
+    },
+    "pixel_sabotage/C3/keycard_gated_door": {
+      "deaths": 0,
+      "frames": 4863,
+      "injects": 0,
+      "milestones_reached": [
+        "door03_unlocked"
+      ],
+      "solution_kind": "tape",
+      "steps": 283,
+      "stop_reason": "ops_exhausted"
+    },
+    "pixel_sabotage/C4/checkpoint_switch_and_door11": {
+      "deaths": 0,
+      "frames": 6923,
+      "injects": 0,
+      "milestones_reached": [
+        "checkpoint_recorded",
+        "switch_thrown"
+      ],
+      "solution_kind": "tape",
+      "steps": 495,
+      "stop_reason": "ops_exhausted"
+    },
+    "pixel_sabotage/L0/no_input_no_clear": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "pixel_sabotage/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 8133,
+      "injects": 0,
+      "milestones_reached": [
+        "items_and_locks_progressed",
+        "facility_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 584,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "de768558dffd269d8c251a74ccc08b74df5ef4414be48829886c23f6e39600b9"
+  },
+  "result": "6/6 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "4e4ac47ed98c4deb41392f88a0dff70df272653078ca4bed83fcf14567704840",
+  "schema_version": 2,
+  "solution_kinds": {
+    "pixel_sabotage/C1/virus_and_first_door": "tape",
+    "pixel_sabotage/C2/guarded_corridor_to_keycard": "tape",
+    "pixel_sabotage/C3/keycard_gated_door": "tape",
+    "pixel_sabotage/C4/checkpoint_switch_and_door11": "tape",
+    "pixel_sabotage/L0/no_input_no_clear": "tape",
+    "pixel_sabotage/L5/whole_game_clear": "tape"
+  },
+  "task_id": "pixel_sabotage",
+  "validated_at": "2026-09-09"
+}

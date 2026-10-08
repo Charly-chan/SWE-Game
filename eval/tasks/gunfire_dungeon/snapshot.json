@@ -1,0 +1,4868 @@
+{
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "driver_sha256": "7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742",
+  "endings": {
+    "defeat": "res://scenes/ui/DeathScreen.tscn",
+    "victory": "res://scenes/ui/EndingScreen.tscn"
+  },
+  "engine": "4.5.1",
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "analog_axes": [
+      {
+        "id": "look_x",
+        "max": 1.0,
+        "min": -1.0,
+        "steps": 17,
+        "why": "mouse aim / camera yaw is a continuous axis; four discrete aim keys cannot hold a bearing"
+      },
+      {
+        "id": "look_y",
+        "max": 1.0,
+        "min": -1.0,
+        "steps": 17,
+        "why": "mouse aim / camera pitch; a cave exit or ADS pitch is not a button"
+      }
+    ],
+    "extended_actions": [
+      {
+        "id": "reload",
+        "why": "manual magazine reload is a distinct verb from shooting"
+      },
+      {
+        "id": "interact",
+        "why": "pickup, chest, and shop use a dedicated interact press"
+      },
+      {
+        "id": "use_prop",
+        "why": "active prop is a separate inventory verb from fire"
+      },
+      {
+        "id": "switch_weapon",
+        "why": "weapon-bag cycle is not covered by movement or shoot"
+      },
+      {
+        "id": "aim_up",
+        "why": "keyboard aim axis, extra to mouse aim, not a replacement"
+      },
+      {
+        "id": "aim_down",
+        "why": "keyboard aim axis, extra to mouse aim, not a replacement"
+      },
+      {
+        "id": "aim_left",
+        "why": "keyboard aim axis, extra to mouse aim, not a replacement"
+      },
+      {
+        "id": "aim_right",
+        "why": "keyboard aim axis, extra to mouse aim, not a replacement"
+      },
+      {
+        "id": "aim_lock",
+        "why": "snap aim to nearest enemy when a mouse pointer is absent"
+      }
+    ],
+    "interface_version": 2,
+    "normalized_sha256": "5e0541d4332e5a3d50b92b1a4590c433aa2109686d27e82e3984d757850ce681",
+    "source_sha256": "c7dd1730f71f1b3e60afaf372d2d76a2ca611e854f00a4e1aa9c951831dc7acd"
+  },
+  "levels": [
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          2048.0,
+          1600.0,
+          0.0
+        ],
+        "min3": [
+          32.0,
+          32.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 1,
+        "alive_before": 2,
+        "attempted": true,
+        "delta": -1,
+        "detail": "one collect-and-deliver cycle on GroundWeapon: 2 alive before, 1 after",
+        "effect": {
+          "actions": [
+            "interact"
+          ],
+          "complete_trigger": true,
+          "cycle_index": 0,
+          "kind": "target_changed",
+          "observed": true
+        },
+        "target": "GroundWeapon"
+      },
+      "cycles": [
+        {
+          "alive_after": 1,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": -1,
+          "index": 0,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 1,
+          "alive_before": 1,
+          "delivered": false,
+          "delta": 0,
+          "index": 1,
+          "target": "TreasureBox"
+        }
+      ],
+      "cycles_capped": false,
+      "declared_scene": "res://scenes/dungeon/level_01.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": false,
+        "changed": false,
+        "detail": "goal has prerequisite actions; evaluated by certified input-only progress routes",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "route_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://scenes/dungeon/level_01.tscn",
+        "scene_before": "res://scenes/dungeon/level_01.tscn",
+        "target": ""
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 2,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.198412698412698,
+              "y": 0.153061224489796
+            },
+            {
+              "valid": true,
+              "x": 0.857142857142857,
+              "y": 0.5
+            }
+          ],
+          "total": 2,
+          "world": [
+            [
+              432.0,
+              272.0,
+              0.0
+            ],
+            [
+              1760.0,
+              816.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_door": {
+          "alive": 32,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.301587301587302,
+              "y": 0.13265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.13265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.285714285714286
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.650793650793651,
+              "y": 0.13265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.349206349206349,
+              "y": 0.13265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.492063492063492,
+              "y": 0.285714285714286
+            },
+            {
+              "valid": true,
+              "x": 0.492063492063492,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.13265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.698412698412698,
+              "y": 0.13265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.841269841269841,
+              "y": 0.285714285714286
+            },
+            {
+              "valid": true,
+              "x": 0.841269841269841,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.301587301587302,
+              "y": 0.479591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.479591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.63265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.346938775510204
+            },
+            {
+              "valid": true,
+              "x": 0.650793650793651,
+              "y": 0.479591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.349206349206349,
+              "y": 0.479591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.492063492063492,
+              "y": 0.63265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.492063492063492,
+              "y": 0.346938775510204
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.479591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.698412698412698,
+              "y": 0.479591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.841269841269841,
+              "y": 0.63265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.841269841269841,
+              "y": 0.346938775510204
+            },
+            {
+              "valid": true,
+              "x": 0.301587301587302,
+              "y": 0.826530612244898
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.826530612244898
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.979591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.693877551020408
+            },
+            {
+              "valid": true,
+              "x": 0.682539682539683,
+              "y": 0.836734693877551
+            },
+            {
+              "valid": true,
+              "x": 0.349206349206349,
+              "y": 0.836734693877551
+            },
+            {
+              "valid": true,
+              "x": 0.507936507936508,
+              "y": 1.0
+            },
+            {
+              "valid": true,
+              "x": 0.507936507936508,
+              "y": 0.693877551020408
+            }
+          ],
+          "total": 32,
+          "world": [
+            [
+              640.0,
+              240.0,
+              0.0
+            ],
+            [
+              32.0,
+              240.0,
+              0.0
+            ],
+            [
+              320.0,
+              480.0,
+              0.0
+            ],
+            [
+              320.0,
+              32.0,
+              0.0
+            ],
+            [
+              1344.0,
+              240.0,
+              0.0
+            ],
+            [
+              736.0,
+              240.0,
+              0.0
+            ],
+            [
+              1024.0,
+              480.0,
+              0.0
+            ],
+            [
+              1024.0,
+              32.0,
+              0.0
+            ],
+            [
+              2048.0,
+              240.0,
+              0.0
+            ],
+            [
+              1440.0,
+              240.0,
+              0.0
+            ],
+            [
+              1728.0,
+              480.0,
+              0.0
+            ],
+            [
+              1728.0,
+              32.0,
+              0.0
+            ],
+            [
+              640.0,
+              784.0,
+              0.0
+            ],
+            [
+              32.0,
+              784.0,
+              0.0
+            ],
+            [
+              320.0,
+              1024.0,
+              0.0
+            ],
+            [
+              320.0,
+              576.0,
+              0.0
+            ],
+            [
+              1344.0,
+              784.0,
+              0.0
+            ],
+            [
+              736.0,
+              784.0,
+              0.0
+            ],
+            [
+              1024.0,
+              1024.0,
+              0.0
+            ],
+            [
+              1024.0,
+              576.0,
+              0.0
+            ],
+            [
+              2048.0,
+              784.0,
+              0.0
+            ],
+            [
+              1440.0,
+              784.0,
+              0.0
+            ],
+            [
+              1728.0,
+              1024.0,
+              0.0
+            ],
+            [
+              1728.0,
+              576.0,
+              0.0
+            ],
+            [
+              640.0,
+              1328.0,
+              0.0
+            ],
+            [
+              32.0,
+              1328.0,
+              0.0
+            ],
+            [
+              320.0,
+              1568.0,
+              0.0
+            ],
+            [
+              320.0,
+              1120.0,
+              0.0
+            ],
+            [
+              1408.0,
+              1344.0,
+              0.0
+            ],
+            [
+              736.0,
+              1344.0,
+              0.0
+            ],
+            [
+              1056.0,
+              1600.0,
+              0.0
+            ],
+            [
+              1056.0,
+              1120.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 11,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.486611865815662,
+              "y": 0.0311524235472387
+            },
+            {
+              "valid": true,
+              "x": 0.506868634905134,
+              "y": 0.0839381704525072
+            },
+            {
+              "valid": true,
+              "x": 0.45189945281498,
+              "y": 0.0628576862568758
+            },
+            {
+              "valid": true,
+              "x": 0.949114481608073,
+              "y": 0.23258604322161
+            },
+            {
+              "valid": true,
+              "x": 0.919806707473028,
+              "y": 0.171171305130939
+            },
+            {
+              "valid": true,
+              "x": 0.881277296278212,
+              "y": 0.110677816429917
+            },
+            {
+              "valid": true,
+              "x": 0.58745853484623,
+              "y": 0.414379820531728
+            },
+            {
+              "valid": true,
+              "x": 0.072097415015811,
+              "y": 0.917543138776507
+            },
+            {
+              "valid": true,
+              "x": 0.188571400112576,
+              "y": 0.783347616390306
+            },
+            {
+              "valid": true,
+              "x": 0.11172296130468,
+              "y": 0.74222097591478
+            },
+            {
+              "valid": true,
+              "x": 0.52172124953497,
+              "y": 0.910330246905891
+            }
+          ],
+          "total": 11,
+          "world": [
+            [
+              1013.00952148438,
+              80.8470001220703,
+              0.0
+            ],
+            [
+              1053.84716796875,
+              163.615051269531,
+              0.0
+            ],
+            [
+              943.029296875,
+              130.560852050781,
+              0.0
+            ],
+            [
+              1945.41479492188,
+              396.694915771484,
+              0.0
+            ],
+            [
+              1886.33032226562,
+              300.396606445312,
+              0.0
+            ],
+            [
+              1808.65502929688,
+              205.542816162109,
+              0.0
+            ],
+            [
+              1216.31640625,
+              681.74755859375,
+              0.0
+            ],
+            [
+              177.348388671875,
+              1470.70764160156,
+              0.0
+            ],
+            [
+              412.159942626953,
+              1260.2890625,
+              0.0
+            ],
+            [
+              257.233489990234,
+              1195.80249023438,
+              0.0
+            ],
+            [
+              1083.7900390625,
+              1459.39782714844,
+              0.0
+            ]
+          ]
+        },
+        "gb_goal": {
+          "alive": 0,
+          "normalised": [],
+          "total": 1,
+          "world": [
+            [
+              1360.0,
+              1376.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_interactive": {
+          "alive": 5,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.198412698412698,
+              "y": 0.153061224489796
+            },
+            {
+              "valid": true,
+              "x": 0.119047619047619,
+              "y": 0.512755102040816
+            },
+            {
+              "valid": true,
+              "x": 0.158730158730159,
+              "y": 0.512755102040816
+            },
+            {
+              "valid": true,
+              "x": 0.198412698412698,
+              "y": 0.512755102040816
+            },
+            {
+              "valid": true,
+              "x": 0.857142857142857,
+              "y": 0.5
+            }
+          ],
+          "total": 5,
+          "world": [
+            [
+              432.0,
+              272.0,
+              0.0
+            ],
+            [
+              272.0,
+              836.0,
+              0.0
+            ],
+            [
+              352.0,
+              836.0,
+              0.0
+            ],
+            [
+              432.0,
+              836.0,
+              0.0
+            ],
+            [
+              1760.0,
+              816.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0555555555555556,
+              "y": 0.0714285714285714
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              144.0,
+              144.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "elapsed_sec": 1.89999999999999,
+        "gold": 0.0,
+        "health": 100.0,
+        "progress": 0.0,
+        "rooms_cleared": 0.0,
+        "score": 0.0,
+        "timer": 1.89999999999999
+      },
+      "numeric_source": {
+        "elapsed_sec": "declared",
+        "gold": "declared",
+        "health": "declared",
+        "progress": "declared",
+        "rooms_cleared": "declared",
+        "score": "declared",
+        "timer": "declared"
+      },
+      "reached": true,
+      "scene": "res://scenes/dungeon/level_01.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "elapsed_sec": 1.49903688888889,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 1.49903688888889
+          },
+          "phase": "settle",
+          "player": [
+            144.0,
+            144.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "elapsed_sec": 1.59722222222222,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 1.59722222222222
+          },
+          "phase": "pick",
+          "player": [
+            432.0,
+            272.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "elapsed_sec": 1.73333333333333,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 1.73333333333333
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            816.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "elapsed_sec": 1.86428571428571,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 1.86428571428571
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            816.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_01.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 114,
+          "numeric": {
+            "elapsed_sec": 1.89999999999999,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 1.89999999999999
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            816.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_01.tscn"
+        }
+      ],
+      "spawn": [
+        144.0,
+        144.0,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.05555555555555555,
+        "y": 0.07142857142857142
+      },
+      "stop_reason": "goal_requires_route"
+    },
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          2048.0,
+          1600.0,
+          0.0
+        ],
+        "min3": [
+          32.0,
+          32.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 1,
+        "alive_before": 2,
+        "attempted": true,
+        "delta": -1,
+        "detail": "one collect-and-deliver cycle on GroundWeapon: 2 alive before, 1 after",
+        "effect": {
+          "actions": [
+            "interact"
+          ],
+          "complete_trigger": true,
+          "cycle_index": 0,
+          "kind": "target_changed",
+          "observed": true
+        },
+        "target": "GroundWeapon"
+      },
+      "cycles": [
+        {
+          "alive_after": 1,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": -1,
+          "index": 0,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 1,
+          "delivered": false,
+          "delta": 1,
+          "index": 1,
+          "target": "TreasureBox"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 2,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 3,
+          "target": "@Area2D@495"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 4,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 5,
+          "target": "@Area2D@497"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 6,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 7,
+          "target": "@Area2D@499"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 8,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 9,
+          "target": "@Area2D@501"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 10,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 11,
+          "target": "@Area2D@503"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 12,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 13,
+          "target": "@Area2D@505"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 14,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 15,
+          "target": "@Area2D@507"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 16,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 17,
+          "target": "@Area2D@509"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 18,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 19,
+          "target": "@Area2D@511"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 20,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 21,
+          "target": "@Area2D@513"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 22,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 23,
+          "target": "@Area2D@515"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 24,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 25,
+          "target": "@Area2D@517"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 26,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 27,
+          "target": "@Area2D@519"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 28,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 29,
+          "target": "@Area2D@521"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 30,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 31,
+          "target": "@Area2D@523"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 32,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 33,
+          "target": "@Area2D@525"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 34,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 35,
+          "target": "@Area2D@527"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 36,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 37,
+          "target": "@Area2D@529"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 38,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": 0,
+          "index": 39,
+          "target": "@Area2D@531"
+        }
+      ],
+      "cycles_capped": true,
+      "declared_scene": "res://scenes/dungeon/level_02.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": false,
+        "changed": false,
+        "detail": "goal has prerequisite actions; evaluated by certified input-only progress routes",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "route_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://scenes/dungeon/level_02.tscn",
+        "scene_before": "res://scenes/dungeon/level_02.tscn",
+        "target": ""
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 2,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.198412698412698,
+              "y": 0.153061224489796
+            },
+            {
+              "valid": true,
+              "x": 0.857142857142857,
+              "y": 0.5
+            }
+          ],
+          "total": 2,
+          "world": [
+            [
+              432.0,
+              272.0,
+              0.0
+            ],
+            [
+              1760.0,
+              816.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_door": {
+          "alive": 32,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.301587301587302,
+              "y": 0.13265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.13265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.285714285714286
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.650793650793651,
+              "y": 0.13265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.349206349206349,
+              "y": 0.13265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.492063492063492,
+              "y": 0.285714285714286
+            },
+            {
+              "valid": true,
+              "x": 0.492063492063492,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.13265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.698412698412698,
+              "y": 0.13265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.841269841269841,
+              "y": 0.285714285714286
+            },
+            {
+              "valid": true,
+              "x": 0.841269841269841,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.301587301587302,
+              "y": 0.479591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.479591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.63265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.346938775510204
+            },
+            {
+              "valid": true,
+              "x": 0.650793650793651,
+              "y": 0.479591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.349206349206349,
+              "y": 0.479591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.492063492063492,
+              "y": 0.63265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.492063492063492,
+              "y": 0.346938775510204
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.479591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.698412698412698,
+              "y": 0.479591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.841269841269841,
+              "y": 0.63265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.841269841269841,
+              "y": 0.346938775510204
+            },
+            {
+              "valid": true,
+              "x": 0.301587301587302,
+              "y": 0.826530612244898
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.826530612244898
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.979591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.693877551020408
+            },
+            {
+              "valid": true,
+              "x": 0.682539682539683,
+              "y": 0.836734693877551
+            },
+            {
+              "valid": true,
+              "x": 0.349206349206349,
+              "y": 0.836734693877551
+            },
+            {
+              "valid": true,
+              "x": 0.507936507936508,
+              "y": 1.0
+            },
+            {
+              "valid": true,
+              "x": 0.507936507936508,
+              "y": 0.693877551020408
+            }
+          ],
+          "total": 32,
+          "world": [
+            [
+              640.0,
+              240.0,
+              0.0
+            ],
+            [
+              32.0,
+              240.0,
+              0.0
+            ],
+            [
+              320.0,
+              480.0,
+              0.0
+            ],
+            [
+              320.0,
+              32.0,
+              0.0
+            ],
+            [
+              1344.0,
+              240.0,
+              0.0
+            ],
+            [
+              736.0,
+              240.0,
+              0.0
+            ],
+            [
+              1024.0,
+              480.0,
+              0.0
+            ],
+            [
+              1024.0,
+              32.0,
+              0.0
+            ],
+            [
+              2048.0,
+              240.0,
+              0.0
+            ],
+            [
+              1440.0,
+              240.0,
+              0.0
+            ],
+            [
+              1728.0,
+              480.0,
+              0.0
+            ],
+            [
+              1728.0,
+              32.0,
+              0.0
+            ],
+            [
+              640.0,
+              784.0,
+              0.0
+            ],
+            [
+              32.0,
+              784.0,
+              0.0
+            ],
+            [
+              320.0,
+              1024.0,
+              0.0
+            ],
+            [
+              320.0,
+              576.0,
+              0.0
+            ],
+            [
+              1344.0,
+              784.0,
+              0.0
+            ],
+            [
+              736.0,
+              784.0,
+              0.0
+            ],
+            [
+              1024.0,
+              1024.0,
+              0.0
+            ],
+            [
+              1024.0,
+              576.0,
+              0.0
+            ],
+            [
+              2048.0,
+              784.0,
+              0.0
+            ],
+            [
+              1440.0,
+              784.0,
+              0.0
+            ],
+            [
+              1728.0,
+              1024.0,
+              0.0
+            ],
+            [
+              1728.0,
+              576.0,
+              0.0
+            ],
+            [
+              640.0,
+              1328.0,
+              0.0
+            ],
+            [
+              32.0,
+              1328.0,
+              0.0
+            ],
+            [
+              320.0,
+              1568.0,
+              0.0
+            ],
+            [
+              320.0,
+              1120.0,
+              0.0
+            ],
+            [
+              1408.0,
+              1344.0,
+              0.0
+            ],
+            [
+              736.0,
+              1344.0,
+              0.0
+            ],
+            [
+              1056.0,
+              1600.0,
+              0.0
+            ],
+            [
+              1056.0,
+              1120.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 11,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.532357473222036,
+              "y": 0.217510729419942
+            },
+            {
+              "valid": true,
+              "x": 0.522574167402964,
+              "y": 0.276738050032635
+            },
+            {
+              "valid": true,
+              "x": 0.629592653304812,
+              "y": 0.107701827068718
+            },
+            {
+              "valid": true,
+              "x": 0.881463489835224,
+              "y": 0.0669147433066855
+            },
+            {
+              "valid": true,
+              "x": 0.943597399999225,
+              "y": 0.241157200871682
+            },
+            {
+              "valid": true,
+              "x": 0.751801142616877,
+              "y": 0.074398439757678
+            },
+            {
+              "valid": true,
+              "x": 0.626805986676897,
+              "y": 0.50273035010513
+            },
+            {
+              "valid": true,
+              "x": 0.132918342711434,
+              "y": 0.748992764219946
+            },
+            {
+              "valid": true,
+              "x": 0.056709781525627,
+              "y": 0.726533772994061
+            },
+            {
+              "valid": true,
+              "x": 0.197992173452226,
+              "y": 0.765486036028181
+            },
+            {
+              "valid": true,
+              "x": 0.507023705376519,
+              "y": 0.915400991634447
+            }
+          ],
+          "total": 11,
+          "world": [
+            [
+              1105.23266601562,
+              373.056823730469,
+              0.0
+            ],
+            [
+              1085.50952148438,
+              465.925262451172,
+              0.0
+            ],
+            [
+              1301.2587890625,
+              200.87646484375,
+              0.0
+            ],
+            [
+              1809.03039550781,
+              136.922317504883,
+              0.0
+            ],
+            [
+              1934.29235839844,
+              410.134490966797,
+              0.0
+            ],
+            [
+              1547.63110351562,
+              148.656753540039,
+              0.0
+            ],
+            [
+              1295.64086914062,
+              820.281188964844,
+              0.0
+            ],
+            [
+              299.96337890625,
+              1206.42065429688,
+              0.0
+            ],
+            [
+              146.326919555664,
+              1171.20495605469,
+              0.0
+            ],
+            [
+              431.152221679688,
+              1232.28210449219,
+              0.0
+            ],
+            [
+              1054.15979003906,
+              1467.34875488281,
+              0.0
+            ]
+          ]
+        },
+        "gb_goal": {
+          "alive": 0,
+          "normalised": [],
+          "total": 1,
+          "world": [
+            [
+              1360.0,
+              1376.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_interactive": {
+          "alive": 5,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.198412698412698,
+              "y": 0.153061224489796
+            },
+            {
+              "valid": true,
+              "x": 0.119047619047619,
+              "y": 0.512755102040816
+            },
+            {
+              "valid": true,
+              "x": 0.158730158730159,
+              "y": 0.512755102040816
+            },
+            {
+              "valid": true,
+              "x": 0.198412698412698,
+              "y": 0.512755102040816
+            },
+            {
+              "valid": true,
+              "x": 0.857142857142857,
+              "y": 0.5
+            }
+          ],
+          "total": 5,
+          "world": [
+            [
+              432.0,
+              272.0,
+              0.0
+            ],
+            [
+              272.0,
+              836.0,
+              0.0
+            ],
+            [
+              352.0,
+              836.0,
+              0.0
+            ],
+            [
+              432.0,
+              836.0,
+              0.0
+            ],
+            [
+              1760.0,
+              816.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0555555555555556,
+              "y": 0.0714285714285714
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              144.0,
+              144.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "elapsed_sec": 9.49879433333337,
+        "gold": 0.0,
+        "health": 100.0,
+        "progress": 0.0,
+        "rooms_cleared": 0.0,
+        "score": 0.0,
+        "timer": 9.49879433333337
+      },
+      "numeric_source": {
+        "elapsed_sec": "declared",
+        "gold": "declared",
+        "health": "declared",
+        "progress": "declared",
+        "rooms_cleared": "declared",
+        "score": "declared",
+        "timer": "declared"
+      },
+      "reached": true,
+      "scene": "res://scenes/dungeon/level_02.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "elapsed_sec": 1.49773333333333,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 1.49773333333333
+          },
+          "phase": "settle",
+          "player": [
+            144.0,
+            144.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "elapsed_sec": 1.59583333333333,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 1.59583333333333
+          },
+          "phase": "pick",
+          "player": [
+            432.0,
+            272.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "elapsed_sec": 1.73333333333333,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 1.73333333333333
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            816.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "elapsed_sec": 1.86036666666666,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 1.86036666666666
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            816.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "elapsed_sec": 1.99836466666666,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 1.99836466666666
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            844.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "elapsed_sec": 2.13291011111111,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 2.13291011111111
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            872.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "elapsed_sec": 2.26624344444445,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 2.26624344444445
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            872.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "elapsed_sec": 2.39714033333334,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 2.39714033333334
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            900.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "elapsed_sec": 2.52823133333334,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 2.52823133333334
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            928.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "elapsed_sec": 2.66623433333334,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 2.66623433333334
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            928.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "elapsed_sec": 2.79733933333334,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 2.79733933333334
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            956.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "elapsed_sec": 2.92843833333334,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 2.92843833333334
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            984.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "elapsed_sec": 3.06643333333334,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 3.06643333333334
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            984.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "elapsed_sec": 3.19753133333334,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 3.19753133333334
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1012.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "elapsed_sec": 3.32880911111112,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 3.32880911111112
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1040.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "elapsed_sec": 3.46041033333335,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 3.46041033333335
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1040.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 216,
+          "numeric": {
+            "elapsed_sec": 3.59840933333335,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 3.59840933333335
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1068.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 224,
+          "numeric": {
+            "elapsed_sec": 3.72950533333335,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 3.72950533333335
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1096.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 232,
+          "numeric": {
+            "elapsed_sec": 3.86061133333335,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 3.86061133333335
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1096.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 240,
+          "numeric": {
+            "elapsed_sec": 3.99860533333335,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 3.99860533333335
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1124.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 248,
+          "numeric": {
+            "elapsed_sec": 4.12970533333335,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 4.12970533333335
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1152.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 256,
+          "numeric": {
+            "elapsed_sec": 4.26080533333334,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 4.26080533333334
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1152.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 264,
+          "numeric": {
+            "elapsed_sec": 4.39880833333334,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 4.39880833333334
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1180.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 272,
+          "numeric": {
+            "elapsed_sec": 4.53055555555557,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 4.53055555555557
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1208.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 280,
+          "numeric": {
+            "elapsed_sec": 4.66250000000002,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 4.66250000000002
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1208.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 288,
+          "numeric": {
+            "elapsed_sec": 4.79444444444446,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 4.79444444444446
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1236.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 296,
+          "numeric": {
+            "elapsed_sec": 4.93333333333336,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 4.93333333333336
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1264.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 304,
+          "numeric": {
+            "elapsed_sec": 5.06527777777781,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 5.06527777777781
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1264.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 312,
+          "numeric": {
+            "elapsed_sec": 5.19722222222225,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 5.19722222222225
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1292.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 320,
+          "numeric": {
+            "elapsed_sec": 5.32862433333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 5.32862433333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1320.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 328,
+          "numeric": {
+            "elapsed_sec": 5.46662233333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 5.46662233333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1320.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 336,
+          "numeric": {
+            "elapsed_sec": 5.59772433333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 5.59772433333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1348.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 344,
+          "numeric": {
+            "elapsed_sec": 5.72882333333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 5.72882333333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1376.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 352,
+          "numeric": {
+            "elapsed_sec": 5.85992633333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 5.85992633333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1376.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 360,
+          "numeric": {
+            "elapsed_sec": 5.99792133333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 5.99792133333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1404.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 368,
+          "numeric": {
+            "elapsed_sec": 6.12902233333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 6.12902233333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1432.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 376,
+          "numeric": {
+            "elapsed_sec": 6.26012133333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 6.26012133333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1432.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 384,
+          "numeric": {
+            "elapsed_sec": 6.39812133333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 6.39812133333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1460.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 392,
+          "numeric": {
+            "elapsed_sec": 6.52922233333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 6.52922233333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1488.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 400,
+          "numeric": {
+            "elapsed_sec": 6.66032233333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 6.66032233333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1488.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 408,
+          "numeric": {
+            "elapsed_sec": 6.79833833333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 6.79833833333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1516.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 416,
+          "numeric": {
+            "elapsed_sec": 6.92959911111115,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 6.92959911111115
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1544.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 424,
+          "numeric": {
+            "elapsed_sec": 7.06083533333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 7.06083533333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1544.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 432,
+          "numeric": {
+            "elapsed_sec": 7.19305555555559,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 7.19305555555559
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1572.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 440,
+          "numeric": {
+            "elapsed_sec": 7.33168733333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 7.33168733333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1600.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 448,
+          "numeric": {
+            "elapsed_sec": 7.46279433333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 7.46279433333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1600.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 456,
+          "numeric": {
+            "elapsed_sec": 7.59582866666671,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 7.59582866666671
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1628.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 464,
+          "numeric": {
+            "elapsed_sec": 7.72692766666671,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 7.72692766666671
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1656.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 472,
+          "numeric": {
+            "elapsed_sec": 7.86306200000004,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 7.86306200000004
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1656.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 480,
+          "numeric": {
+            "elapsed_sec": 7.99666666666671,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 7.99666666666671
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1684.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 488,
+          "numeric": {
+            "elapsed_sec": 8.13259633333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 8.13259633333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1712.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 496,
+          "numeric": {
+            "elapsed_sec": 8.26369633333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 8.26369633333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1712.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 504,
+          "numeric": {
+            "elapsed_sec": 8.39479633333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 8.39479633333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1740.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 512,
+          "numeric": {
+            "elapsed_sec": 8.53279533333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 8.53279533333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1768.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 520,
+          "numeric": {
+            "elapsed_sec": 8.66389833333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 8.66389833333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1768.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 528,
+          "numeric": {
+            "elapsed_sec": 8.79499533333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 8.79499533333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1796.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 536,
+          "numeric": {
+            "elapsed_sec": 8.93299533333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 8.93299533333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1824.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 544,
+          "numeric": {
+            "elapsed_sec": 9.06409433333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 9.06409433333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1824.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 552,
+          "numeric": {
+            "elapsed_sec": 9.19519533333338,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 9.19519533333338
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1852.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 560,
+          "numeric": {
+            "elapsed_sec": 9.33319733333338,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 9.33319733333338
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1880.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 568,
+          "numeric": {
+            "elapsed_sec": 9.46429833333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 9.46429833333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1880.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 570,
+          "numeric": {
+            "elapsed_sec": 9.49879433333337,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 9.49879433333337
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            1880.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_02.tscn"
+        }
+      ],
+      "spawn": [
+        144.0,
+        144.0,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.05555555555555555,
+        "y": 0.07142857142857142
+      },
+      "stop_reason": "goal_requires_route"
+    },
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          2048.0,
+          1600.0,
+          0.0
+        ],
+        "min3": [
+          32.0,
+          32.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 1,
+        "alive_before": 2,
+        "attempted": true,
+        "delta": -1,
+        "detail": "one collect-and-deliver cycle on GroundWeapon: 2 alive before, 1 after",
+        "effect": {
+          "actions": [
+            "interact"
+          ],
+          "complete_trigger": true,
+          "cycle_index": 0,
+          "kind": "target_changed",
+          "observed": true
+        },
+        "target": "GroundWeapon"
+      },
+      "cycles": [
+        {
+          "alive_after": 1,
+          "alive_before": 2,
+          "delivered": false,
+          "delta": -1,
+          "index": 0,
+          "target": "GroundWeapon"
+        },
+        {
+          "alive_after": 1,
+          "alive_before": 1,
+          "delivered": false,
+          "delta": 0,
+          "index": 1,
+          "target": "TreasureBox"
+        }
+      ],
+      "cycles_capped": false,
+      "declared_scene": "res://scenes/dungeon/level_03.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": false,
+        "changed": false,
+        "detail": "goal has prerequisite actions; evaluated by certified input-only progress routes",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "route_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://scenes/dungeon/level_03.tscn",
+        "scene_before": "res://scenes/dungeon/level_03.tscn",
+        "target": ""
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 2,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.198412698412698,
+              "y": 0.153061224489796
+            },
+            {
+              "valid": true,
+              "x": 0.857142857142857,
+              "y": 0.5
+            }
+          ],
+          "total": 2,
+          "world": [
+            [
+              432.0,
+              272.0,
+              0.0
+            ],
+            [
+              1760.0,
+              816.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_door": {
+          "alive": 32,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.301587301587302,
+              "y": 0.13265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.13265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.285714285714286
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.650793650793651,
+              "y": 0.13265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.349206349206349,
+              "y": 0.13265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.492063492063492,
+              "y": 0.285714285714286
+            },
+            {
+              "valid": true,
+              "x": 0.492063492063492,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.13265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.698412698412698,
+              "y": 0.13265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.841269841269841,
+              "y": 0.285714285714286
+            },
+            {
+              "valid": true,
+              "x": 0.841269841269841,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.301587301587302,
+              "y": 0.479591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.479591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.63265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.346938775510204
+            },
+            {
+              "valid": true,
+              "x": 0.650793650793651,
+              "y": 0.479591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.349206349206349,
+              "y": 0.479591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.492063492063492,
+              "y": 0.63265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.492063492063492,
+              "y": 0.346938775510204
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.479591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.698412698412698,
+              "y": 0.479591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.841269841269841,
+              "y": 0.63265306122449
+            },
+            {
+              "valid": true,
+              "x": 0.841269841269841,
+              "y": 0.346938775510204
+            },
+            {
+              "valid": true,
+              "x": 0.301587301587302,
+              "y": 0.826530612244898
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.826530612244898
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.979591836734694
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.693877551020408
+            },
+            {
+              "valid": true,
+              "x": 0.682539682539683,
+              "y": 0.836734693877551
+            },
+            {
+              "valid": true,
+              "x": 0.349206349206349,
+              "y": 0.836734693877551
+            },
+            {
+              "valid": true,
+              "x": 0.507936507936508,
+              "y": 1.0
+            },
+            {
+              "valid": true,
+              "x": 0.507936507936508,
+              "y": 0.693877551020408
+            }
+          ],
+          "total": 32,
+          "world": [
+            [
+              640.0,
+              240.0,
+              0.0
+            ],
+            [
+              32.0,
+              240.0,
+              0.0
+            ],
+            [
+              320.0,
+              480.0,
+              0.0
+            ],
+            [
+              320.0,
+              32.0,
+              0.0
+            ],
+            [
+              1344.0,
+              240.0,
+              0.0
+            ],
+            [
+              736.0,
+              240.0,
+              0.0
+            ],
+            [
+              1024.0,
+              480.0,
+              0.0
+            ],
+            [
+              1024.0,
+              32.0,
+              0.0
+            ],
+            [
+              2048.0,
+              240.0,
+              0.0
+            ],
+            [
+              1440.0,
+              240.0,
+              0.0
+            ],
+            [
+              1728.0,
+              480.0,
+              0.0
+            ],
+            [
+              1728.0,
+              32.0,
+              0.0
+            ],
+            [
+              640.0,
+              784.0,
+              0.0
+            ],
+            [
+              32.0,
+              784.0,
+              0.0
+            ],
+            [
+              320.0,
+              1024.0,
+              0.0
+            ],
+            [
+              320.0,
+              576.0,
+              0.0
+            ],
+            [
+              1344.0,
+              784.0,
+              0.0
+            ],
+            [
+              736.0,
+              784.0,
+              0.0
+            ],
+            [
+              1024.0,
+              1024.0,
+              0.0
+            ],
+            [
+              1024.0,
+              576.0,
+              0.0
+            ],
+            [
+              2048.0,
+              784.0,
+              0.0
+            ],
+            [
+              1440.0,
+              784.0,
+              0.0
+            ],
+            [
+              1728.0,
+              1024.0,
+              0.0
+            ],
+            [
+              1728.0,
+              576.0,
+              0.0
+            ],
+            [
+              640.0,
+              1328.0,
+              0.0
+            ],
+            [
+              32.0,
+              1328.0,
+              0.0
+            ],
+            [
+              320.0,
+              1568.0,
+              0.0
+            ],
+            [
+              320.0,
+              1120.0,
+              0.0
+            ],
+            [
+              1408.0,
+              1344.0,
+              0.0
+            ],
+            [
+              736.0,
+              1344.0,
+              0.0
+            ],
+            [
+              1056.0,
+              1600.0,
+              0.0
+            ],
+            [
+              1056.0,
+              1120.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 11,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.511729951888796,
+              "y": 0.0753912244524274
+            },
+            {
+              "valid": true,
+              "x": 0.48446416097974,
+              "y": 0.276738050032635
+            },
+            {
+              "valid": true,
+              "x": 0.522009652758401,
+              "y": 0.116896240078673
+            },
+            {
+              "valid": true,
+              "x": 0.906389690580822,
+              "y": 0.187449046543666
+            },
+            {
+              "valid": true,
+              "x": 0.854650224958147,
+              "y": 0.296274730137416
+            },
+            {
+              "valid": true,
+              "x": 0.879094017876519,
+              "y": 0.276738030569894
+            },
+            {
+              "valid": true,
+              "x": 0.604089585561601,
+              "y": 0.486885498981087
+            },
+            {
+              "valid": true,
+              "x": 0.214212917146229,
+              "y": 0.833942257628149
+            },
+            {
+              "valid": true,
+              "x": 0.296093259538923,
+              "y": 0.921971457345145
+            },
+            {
+              "valid": true,
+              "x": 0.149307417491126,
+              "y": 0.74460337113361
+            },
+            {
+              "valid": true,
+              "x": 0.51494628664047,
+              "y": 0.90003336692343
+            }
+          ],
+          "total": 11,
+          "world": [
+            [
+              1063.64758300781,
+              150.213439941406,
+              0.0
+            ],
+            [
+              1008.67974853516,
+              465.925262451172,
+              0.0
+            ],
+            [
+              1084.37145996094,
+              215.293304443359,
+              0.0
+            ],
+            [
+              1859.28161621094,
+              325.920104980469,
+              0.0
+            ],
+            [
+              1754.97485351562,
+              496.558776855469,
+              0.0
+            ],
+            [
+              1804.25354003906,
+              465.925231933594,
+              0.0
+            ],
+            [
+              1249.84460449219,
+              795.436462402344,
+              0.0
+            ],
+            [
+              463.853240966797,
+              1339.62145996094,
+              0.0
+            ],
+            [
+              628.924011230469,
+              1477.65124511719,
+              0.0
+            ],
+            [
+              333.003753662109,
+              1199.5380859375,
+              0.0
+            ],
+            [
+              1070.13171386719,
+              1443.25231933594,
+              0.0
+            ]
+          ]
+        },
+        "gb_goal": {
+          "alive": 0,
+          "normalised": [],
+          "total": 1,
+          "world": [
+            [
+              1360.0,
+              1376.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_interactive": {
+          "alive": 5,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.198412698412698,
+              "y": 0.153061224489796
+            },
+            {
+              "valid": true,
+              "x": 0.119047619047619,
+              "y": 0.512755102040816
+            },
+            {
+              "valid": true,
+              "x": 0.158730158730159,
+              "y": 0.512755102040816
+            },
+            {
+              "valid": true,
+              "x": 0.198412698412698,
+              "y": 0.512755102040816
+            },
+            {
+              "valid": true,
+              "x": 0.857142857142857,
+              "y": 0.5
+            }
+          ],
+          "total": 5,
+          "world": [
+            [
+              432.0,
+              272.0,
+              0.0
+            ],
+            [
+              272.0,
+              836.0,
+              0.0
+            ],
+            [
+              352.0,
+              836.0,
+              0.0
+            ],
+            [
+              432.0,
+              836.0,
+              0.0
+            ],
+            [
+              1760.0,
+              816.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0555555555555556,
+              "y": 0.0714285714285714
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              144.0,
+              144.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "elapsed_sec": 1.89444444444444,
+        "gold": 0.0,
+        "health": 100.0,
+        "progress": 0.0,
+        "rooms_cleared": 0.0,
+        "score": 0.0,
+        "timer": 1.89444444444444
+      },
+      "numeric_source": {
+        "elapsed_sec": "declared",
+        "gold": "declared",
+        "health": "declared",
+        "progress": "declared",
+        "rooms_cleared": "declared",
+        "score": "declared",
+        "timer": "declared"
+      },
+      "reached": true,
+      "scene": "res://scenes/dungeon/level_03.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 2,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "elapsed_sec": 1.49948688888889,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 1.49948688888889
+          },
+          "phase": "settle",
+          "player": [
+            144.0,
+            144.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "elapsed_sec": 1.59718733333333,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 1.59718733333333
+          },
+          "phase": "pick",
+          "player": [
+            432.0,
+            272.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "elapsed_sec": 1.72876655555555,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 1.72876655555555
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            816.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "elapsed_sec": 1.86666666666666,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 1.86666666666666
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            816.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_03.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 32,
+            "gb_enemy": 11,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 114,
+          "numeric": {
+            "elapsed_sec": 1.89444444444444,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 1.89444444444444
+          },
+          "phase": "pick",
+          "player": [
+            1760.0,
+            816.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/level_03.tscn"
+        }
+      ],
+      "spawn": [
+        144.0,
+        144.0,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.05555555555555555,
+        "y": 0.07142857142857142
+      },
+      "stop_reason": "goal_requires_route"
+    },
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          960.0,
+          704.0,
+          0.0
+        ],
+        "min3": [
+          32.0,
+          32.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 0,
+        "alive_before": 0,
+        "attempted": false,
+        "delta": 0,
+        "detail": "this level declares no gb_collectible, so there is nothing to pick up",
+        "effect": {},
+        "target": ""
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://scenes/dungeon/FinalBoss.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": false,
+        "changed": false,
+        "detail": "goal has prerequisite actions; evaluated by certified input-only progress routes",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "route_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://scenes/dungeon/FinalBoss.tscn",
+        "scene_before": "res://scenes/dungeon/FinalBoss.tscn",
+        "target": ""
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_door": {
+          "alive": 4,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.476190476190476
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.476190476190476
+            },
+            {
+              "valid": true,
+              "x": 0.482758620689655,
+              "y": 1.0
+            },
+            {
+              "valid": true,
+              "x": 0.482758620689655,
+              "y": 0.0
+            }
+          ],
+          "total": 4,
+          "world": [
+            [
+              960.0,
+              352.0,
+              0.0
+            ],
+            [
+              32.0,
+              352.0,
+              0.0
+            ],
+            [
+              480.0,
+              704.0,
+              0.0
+            ],
+            [
+              480.0,
+              32.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.517241379310345,
+              "y": 0.523809523809524
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              512.0,
+              384.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_goal": {
+          "alive": 0,
+          "normalised": [],
+          "total": 1,
+          "world": [
+            [
+              912.0,
+              384.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_interactive": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.120689655172414,
+              "y": 0.166666666666667
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              144.0,
+              144.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "elapsed_sec": 1.49505022222222,
+        "gold": 0.0,
+        "health": 100.0,
+        "progress": 0.0,
+        "rooms_cleared": 0.0,
+        "score": 0.0,
+        "timer": 1.49505022222222
+      },
+      "numeric_source": {
+        "elapsed_sec": "declared",
+        "gold": "declared",
+        "health": "declared",
+        "progress": "declared",
+        "rooms_cleared": "declared",
+        "score": "declared",
+        "timer": "declared"
+      },
+      "reached": true,
+      "scene": "res://scenes/dungeon/FinalBoss.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 4,
+            "gb_enemy": 1,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 0,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "elapsed_sec": 1.49505022222222,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 1.49505022222222
+          },
+          "phase": "settle",
+          "player": [
+            144.0,
+            144.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/FinalBoss.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 4,
+            "gb_enemy": 1,
+            "gb_goal": 0,
+            "gb_hazard": 0,
+            "gb_interactive": 0,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "elapsed_sec": 1.49505022222222,
+            "gold": 0.0,
+            "health": 100.0,
+            "progress": 0.0,
+            "rooms_cleared": 0.0,
+            "score": 0.0,
+            "timer": 1.49505022222222
+          },
+          "phase": "settle",
+          "player": [
+            144.0,
+            144.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/dungeon/FinalBoss.tscn"
+        }
+      ],
+      "spawn": [
+        144.0,
+        144.0,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.1206896551724138,
+        "y": 0.16666666666666666
+      },
+      "stop_reason": "goal_requires_route"
+    }
+  ],
+  "liveness": [
+    {
+      "action": "gb_left",
+      "detail": "gb_left differs from the idle control on velocity (delta 200.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "velocity"
+    },
+    {
+      "action": "gb_right",
+      "detail": "gb_right differs from the idle control on position (delta 486.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_up",
+      "detail": "gb_up differs from the idle control on velocity (delta 200.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "velocity"
+    },
+    {
+      "action": "gb_down",
+      "detail": "gb_down differs from the idle control on position (delta 321.993 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_jump",
+      "detail": "gb_jump differs from the idle control on velocity (delta 499.999448 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "velocity"
+    },
+    {
+      "action": "gb_action",
+      "detail": "gb_action differs from the idle control on node_count (delta 5.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "node_count"
+    }
+  ],
+  "no_input_no_win": true,
+  "no_input_stop_reason": "budget_frames",
+  "notes": [
+    "liveness deadline derived from this project's own structural pass: 22.5 ms/frame median, 23.6 ms/frame worst",
+    "liveness sweep: 6 live / 0 dead against the 420-frame idle control truth/L0#idle420"
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "gunfire_dungeon",
+  "read_failure": "",
+  "taken_at": "2026-09-10T09:17:48+00:00",
+  "version": "1"
+}

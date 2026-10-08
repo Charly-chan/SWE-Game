@@ -1,0 +1,2324 @@
+{
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "driver_sha256": "7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742",
+  "endings": {
+    "defeat": "res://ui/stage_failed.tscn",
+    "failed": "res://ui/stage_failed.tscn",
+    "victory": "res://ui/run_complete.tscn",
+    "win": "res://ui/run_complete.tscn"
+  },
+  "engine": "4.5.1",
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "extended_actions": [
+      {
+        "id": "tool_axe",
+        "why": "Discrete axe selection (key 1); gb_action alone infers the tool from the facing tile and cannot pick the axe on a plot that also accepts a hoe or seed."
+      },
+      {
+        "id": "tool_hoe",
+        "why": "Discrete hoe selection (key 2) for tilling before planting, independent of the facing-tile inference."
+      },
+      {
+        "id": "tool_water",
+        "why": "Discrete watering-can selection (key 3) so a planted plot can be watered without re-inferring the tool."
+      },
+      {
+        "id": "tool_corn",
+        "why": "Discrete corn-seed selection (key 4); the two seed kinds are only distinguishable by explicit selection."
+      },
+      {
+        "id": "tool_tomato",
+        "why": "Discrete tomato-seed selection (key 5); the two seed kinds are only distinguishable by explicit selection."
+      }
+    ],
+    "interface_version": 2,
+    "normalized_sha256": "2bd20f0a0b73ec2a873757ba4a13c1fa818317c91d05bba4d35c0fc931ccbd5d",
+    "source_sha256": "edadc5aa8f6a809b30126efa5a7d27b58765ceb498ea395a1d8d2aafd16ad70d"
+  },
+  "levels": [
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          1472.0,
+          800.0,
+          0.0
+        ],
+        "min3": [
+          -160.0,
+          -128.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 0,
+        "alive_before": 0,
+        "attempted": false,
+        "delta": 0,
+        "detail": "this level declares no gb_collectible, so there is nothing to pick up",
+        "effect": {},
+        "target": ""
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://levels/level_farm.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "0 collect-and-deliver cycles then 120 frames on buy_station, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://levels/level_farm.tscn",
+        "scene_before": "res://levels/level_farm.tscn",
+        "target": "buy_station"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_door": {
+          "alive": 5,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.509803921568627,
+              "y": 0.362068965517241
+            },
+            {
+              "valid": true,
+              "x": 0.627450980392157,
+              "y": 0.620689655172414
+            },
+            {
+              "valid": true,
+              "x": 0.833333333333333,
+              "y": 0.448275862068966
+            },
+            {
+              "valid": true,
+              "x": 0.441176470588235,
+              "y": 0.344827586206897
+            },
+            {
+              "valid": true,
+              "x": 0.238970588235294,
+              "y": 0.396551724137931
+            }
+          ],
+          "total": 5,
+          "world": [
+            [
+              672.0,
+              208.0,
+              0.0
+            ],
+            [
+              864.0,
+              448.0,
+              0.0
+            ],
+            [
+              1200.0,
+              288.0,
+              0.0
+            ],
+            [
+              560.0,
+              192.0,
+              0.0
+            ],
+            [
+              230.0,
+              240.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.441176470588235,
+              "y": 0.46551724137931
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              560.0,
+              304.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_interactive": {
+          "alive": 8,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.509803921568627,
+              "y": 0.362068965517241
+            },
+            {
+              "valid": true,
+              "x": 0.627450980392157,
+              "y": 0.620689655172414
+            },
+            {
+              "valid": true,
+              "x": 0.833333333333333,
+              "y": 0.448275862068966
+            },
+            {
+              "valid": true,
+              "x": 0.441176470588235,
+              "y": 0.344827586206897
+            },
+            {
+              "valid": true,
+              "x": 0.441176470588235,
+              "y": 0.46551724137931
+            },
+            {
+              "valid": true,
+              "x": 0.417892156862745,
+              "y": 0.463362068965517
+            },
+            {
+              "valid": true,
+              "x": 0.241421568627451,
+              "y": 0.394396551724138
+            },
+            {
+              "valid": true,
+              "x": 0.238970588235294,
+              "y": 0.396551724137931
+            }
+          ],
+          "total": 8,
+          "world": [
+            [
+              672.0,
+              208.0,
+              0.0
+            ],
+            [
+              864.0,
+              448.0,
+              0.0
+            ],
+            [
+              1200.0,
+              288.0,
+              0.0
+            ],
+            [
+              560.0,
+              192.0,
+              0.0
+            ],
+            [
+              560.0,
+              304.0,
+              0.0
+            ],
+            [
+              522.0,
+              302.0,
+              0.0
+            ],
+            [
+              234.0,
+              238.0,
+              0.0
+            ],
+            [
+              230.0,
+              240.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.323529411764706,
+              "y": 0.379310344827586
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              368.0,
+              224.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "coins": 32.0,
+        "crop_income": 0.0,
+        "progress": 0.0,
+        "score": 0.0,
+        "total_income": 0.0
+      },
+      "numeric_source": {
+        "coins": "guess",
+        "crop_income": "declared",
+        "progress": "declared",
+        "score": "declared",
+        "total_income": "declared"
+      },
+      "reached": true,
+      "scene": "res://levels/level_farm.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 5,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "coins": 32.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "settle",
+          "player": [
+            368.0,
+            224.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_farm.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 5,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "coins": 32.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            560.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_farm.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 5,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "coins": 32.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            560.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_farm.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 5,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "coins": 32.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            560.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_farm.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 5,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "coins": 32.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            560.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_farm.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 5,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "coins": 32.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            560.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_farm.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 5,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "coins": 32.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            560.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_farm.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 5,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "coins": 32.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            560.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_farm.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 5,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "coins": 32.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            560.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_farm.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 5,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "coins": 32.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            560.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_farm.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 5,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "coins": 32.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            560.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_farm.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 5,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "coins": 32.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            560.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_farm.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 5,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "coins": 32.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            560.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_farm.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 5,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "coins": 32.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            560.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_farm.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 5,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "coins": 32.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            560.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_farm.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 5,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "coins": 32.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            560.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_farm.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 5,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 210,
+          "numeric": {
+            "coins": 32.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            560.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_farm.tscn"
+        }
+      ],
+      "spawn": [
+        368.0,
+        224.0,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.3235294117647059,
+        "y": 0.3793103448275862
+      },
+      "stop_reason": "goal_no_transition"
+    },
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          1360.0,
+          672.0,
+          0.0
+        ],
+        "min3": [
+          -176.0,
+          -128.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 0,
+        "alive_before": 0,
+        "attempted": false,
+        "delta": 0,
+        "detail": "this level declares no gb_collectible, so there is nothing to pick up",
+        "effect": {},
+        "target": ""
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://levels/level_forest.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "0 collect-and-deliver cycles then 120 frames on buy_station, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://levels/level_forest.tscn",
+        "scene_before": "res://levels/level_forest.tscn",
+        "target": "buy_station"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_door": {
+          "alive": 2,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.21875,
+              "y": 0.38
+            },
+            {
+              "valid": true,
+              "x": 0.399739583333333,
+              "y": 0.38
+            }
+          ],
+          "total": 2,
+          "world": [
+            [
+              160.0,
+              176.0,
+              0.0
+            ],
+            [
+              438.0,
+              176.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.375,
+              "y": 0.54
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              400.0,
+              304.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_interactive": {
+          "alive": 5,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.21875,
+              "y": 0.38
+            },
+            {
+              "valid": true,
+              "x": 0.40234375,
+              "y": 0.3775
+            },
+            {
+              "valid": true,
+              "x": 0.399739583333333,
+              "y": 0.38
+            },
+            {
+              "valid": true,
+              "x": 0.375,
+              "y": 0.54
+            },
+            {
+              "valid": true,
+              "x": 0.350260416666667,
+              "y": 0.5375
+            }
+          ],
+          "total": 5,
+          "world": [
+            [
+              160.0,
+              176.0,
+              0.0
+            ],
+            [
+              442.0,
+              174.0,
+              0.0
+            ],
+            [
+              438.0,
+              176.0,
+              0.0
+            ],
+            [
+              400.0,
+              304.0,
+              0.0
+            ],
+            [
+              362.0,
+              302.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.270833333333333,
+              "y": 0.44
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              240.0,
+              224.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "coins": 40.0,
+        "crop_income": 0.0,
+        "progress": 0.0,
+        "score": 0.0,
+        "total_income": 0.0
+      },
+      "numeric_source": {
+        "coins": "guess",
+        "crop_income": "declared",
+        "progress": "declared",
+        "score": "declared",
+        "total_income": "declared"
+      },
+      "reached": true,
+      "scene": "res://levels/level_forest.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 2,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "coins": 40.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "settle",
+          "player": [
+            240.0,
+            224.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_forest.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 2,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "coins": 40.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_forest.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 2,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "coins": 40.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_forest.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 2,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "coins": 40.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_forest.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 2,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "coins": 40.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_forest.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 2,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "coins": 40.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_forest.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 2,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "coins": 40.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_forest.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 2,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "coins": 40.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_forest.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 2,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "coins": 40.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_forest.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 2,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "coins": 40.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_forest.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 2,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "coins": 40.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_forest.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 2,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "coins": 40.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_forest.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 2,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "coins": 40.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_forest.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 2,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "coins": 40.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_forest.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 2,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "coins": 40.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_forest.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 2,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "coins": 40.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_forest.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 2,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 210,
+          "numeric": {
+            "coins": 40.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            275.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_forest.tscn"
+        }
+      ],
+      "spawn": [
+        240.0,
+        224.0,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.2708333333333333,
+        "y": 0.44
+      },
+      "stop_reason": "goal_no_transition"
+    },
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          1472.0,
+          800.0,
+          0.0
+        ],
+        "min3": [
+          -176.0,
+          -224.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 0,
+        "alive_before": 0,
+        "attempted": false,
+        "delta": 0,
+        "detail": "this level declares no gb_collectible, so there is nothing to pick up",
+        "effect": {},
+        "target": ""
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://levels/level_island.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "0 collect-and-deliver cycles then 120 frames on buy_station, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://levels/level_island.tscn",
+        "scene_before": "res://levels/level_island.tscn",
+        "target": "buy_station"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_door": {
+          "alive": 3,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.262135922330097,
+              "y": 0.359375
+            },
+            {
+              "valid": true,
+              "x": 0.372572815533981,
+              "y": 0.359375
+            },
+            {
+              "valid": true,
+              "x": 0.611650485436893,
+              "y": 0.59375
+            }
+          ],
+          "total": 3,
+          "world": [
+            [
+              256.0,
+              144.0,
+              0.0
+            ],
+            [
+              438.0,
+              144.0,
+              0.0
+            ],
+            [
+              832.0,
+              384.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.349514563106796,
+              "y": 0.484375
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              400.0,
+              272.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_interactive": {
+          "alive": 12,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.262135922330097,
+              "y": 0.359375
+            },
+            {
+              "valid": true,
+              "x": 0.375,
+              "y": 0.357421875
+            },
+            {
+              "valid": true,
+              "x": 0.372572815533981,
+              "y": 0.359375
+            },
+            {
+              "valid": true,
+              "x": 0.512135922330097,
+              "y": 0.408203125
+            },
+            {
+              "valid": true,
+              "x": 0.45752427184466,
+              "y": 0.416015625
+            },
+            {
+              "valid": true,
+              "x": 0.513349514563107,
+              "y": 0.546875
+            },
+            {
+              "valid": true,
+              "x": 0.349514563106796,
+              "y": 0.484375
+            },
+            {
+              "valid": true,
+              "x": 0.326456310679612,
+              "y": 0.482421875
+            },
+            {
+              "valid": true,
+              "x": 0.485436893203884,
+              "y": 0.43359375
+            },
+            {
+              "valid": true,
+              "x": 0.509708737864078,
+              "y": 0.439453125
+            },
+            {
+              "valid": true,
+              "x": 0.495145631067961,
+              "y": 0.576171875
+            },
+            {
+              "valid": true,
+              "x": 0.611650485436893,
+              "y": 0.59375
+            }
+          ],
+          "total": 12,
+          "world": [
+            [
+              256.0,
+              144.0,
+              0.0
+            ],
+            [
+              442.0,
+              142.0,
+              0.0
+            ],
+            [
+              438.0,
+              144.0,
+              0.0
+            ],
+            [
+              668.0,
+              194.0,
+              0.0
+            ],
+            [
+              578.0,
+              202.0,
+              0.0
+            ],
+            [
+              670.0,
+              336.0,
+              0.0
+            ],
+            [
+              400.0,
+              272.0,
+              0.0
+            ],
+            [
+              362.0,
+              270.0,
+              0.0
+            ],
+            [
+              624.0,
+              220.0,
+              0.0
+            ],
+            [
+              664.0,
+              226.0,
+              0.0
+            ],
+            [
+              640.0,
+              366.0,
+              0.0
+            ],
+            [
+              832.0,
+              384.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.262135922330097,
+              "y": 0.421875
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              256.0,
+              208.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "coins": 48.0,
+        "crop_income": 0.0,
+        "progress": 0.0,
+        "score": 0.0,
+        "total_income": 0.0
+      },
+      "numeric_source": {
+        "coins": "guess",
+        "crop_income": "declared",
+        "progress": "declared",
+        "score": "declared",
+        "total_income": "declared"
+      },
+      "reached": true,
+      "scene": "res://levels/level_island.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 3,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 12,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "coins": 48.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "settle",
+          "player": [
+            256.0,
+            208.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_island.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 3,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 12,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "coins": 48.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            243.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_island.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 3,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 12,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "coins": 48.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            243.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_island.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 3,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 12,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "coins": 48.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            243.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_island.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 3,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 12,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "coins": 48.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            243.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_island.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 3,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 12,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "coins": 48.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            243.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_island.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 3,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 12,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "coins": 48.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            243.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_island.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 3,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 12,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "coins": 48.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            243.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_island.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 3,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 12,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "coins": 48.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            243.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_island.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 3,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 12,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "coins": 48.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            243.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_island.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 3,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 12,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "coins": 48.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            243.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_island.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 3,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 12,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "coins": 48.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            243.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_island.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 3,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 12,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "coins": 48.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            243.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_island.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 3,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 12,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "coins": 48.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            243.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_island.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 3,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 12,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "coins": 48.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            243.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_island.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 3,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 12,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "coins": 48.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            243.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_island.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 3,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 12,
+            "gb_player": 1
+          },
+          "frame": 210,
+          "numeric": {
+            "coins": 48.0,
+            "crop_income": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "total_income": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            400.0,
+            243.0,
+            0.0
+          ],
+          "scene_path": "res://levels/level_island.tscn"
+        }
+      ],
+      "spawn": [
+        256.0,
+        208.0,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.2621359223300971,
+        "y": 0.421875
+      },
+      "stop_reason": "goal_no_transition"
+    }
+  ],
+  "liveness": [
+    {
+      "action": "gb_left",
+      "detail": "gb_left differs from the idle control on position (delta 330.749 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_right",
+      "detail": "gb_right differs from the idle control on position (delta 410.250355 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_up",
+      "detail": "gb_up differs from the idle control on position (delta 197.749 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_down",
+      "detail": "gb_down differs from the idle control on position (delta 159.249 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_jump",
+      "detail": "gb_jump is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    },
+    {
+      "action": "gb_action",
+      "detail": "gb_action is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    }
+  ],
+  "no_input_no_win": true,
+  "no_input_stop_reason": "budget_frames",
+  "notes": [
+    "liveness deadline derived from this project's own structural pass: 20.8 ms/frame median, 21.2 ms/frame worst",
+    "liveness sweep: 4 live / 2 dead against the 420-frame idle control truth/L0#idle420"
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "harvest_ledger",
+  "read_failure": "",
+  "taken_at": "2026-09-10T09:18:38+00:00",
+  "version": "1"
+}

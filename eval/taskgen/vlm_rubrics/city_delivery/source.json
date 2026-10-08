@@ -1,0 +1,230 @@
+{
+  "game_id": "city_delivery",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "reference_media/assets/vendor/kaykit_city/citybits_texture.png",
+        "id": "S002",
+        "label": "reference_media/assets/vendor/kaykit_city/citybits_texture.png"
+      },
+      {
+        "asset_path": "reference_media/assets/vendor/kenney_blocky_characters/Textures/texture-a.png",
+        "id": "S003",
+        "label": "reference_media/assets/vendor/kenney_blocky_characters/Textures/texture-a.png"
+      },
+      {
+        "asset_path": "reference_media/assets/vendor/kenney_food_kit/Textures/colormap.png",
+        "id": "S004",
+        "label": "reference_media/assets/vendor/kenney_food_kit/Textures/colormap.png"
+      },
+      {
+        "asset_path": "reference_media/assets/vendor/kenney_skybox/skybox-day.png",
+        "id": "S005",
+        "label": "reference_media/assets/vendor/kenney_skybox/skybox-day.png"
+      },
+      {
+        "asset_path": "reference_media/assets/vendor/kenney_ui/panels/green_button_rectangle_depth_flat.png",
+        "id": "S006",
+        "label": "reference_media/assets/vendor/kenney_ui/panels/green_button_rectangle_depth_flat.png"
+      },
+      {
+        "bundled_path": "media/S007.png",
+        "id": "S007",
+        "label": "KayKit_City_Builder_Bits_1.0_FREE-0.png"
+      },
+      {
+        "asset_path": "reference_media/assets/vendor/kenney_blocky_characters/Textures/texture-c.png",
+        "id": "S009",
+        "label": "reference_media/assets/vendor/kenney_blocky_characters/Textures/texture-c.png"
+      },
+      {
+        "asset_path": "reference_media/assets/vendor/kenney_skybox/skybox-morning.png",
+        "id": "S010",
+        "label": "reference_media/assets/vendor/kenney_skybox/skybox-morning.png"
+      },
+      {
+        "asset_path": "reference_media/assets/vendor/kenney_ui/panels/grey_button_rectangle_depth_flat.png",
+        "id": "S011",
+        "label": "reference_media/assets/vendor/kenney_ui/panels/grey_button_rectangle_depth_flat.png"
+      },
+      {
+        "asset_path": "reference_media/assets/vendor/kenney_blocky_characters/Textures/texture-d.png",
+        "id": "S012",
+        "label": "reference_media/assets/vendor/kenney_blocky_characters/Textures/texture-d.png"
+      },
+      {
+        "asset_path": "reference_media/assets/vendor/kenney_blocky_characters/Textures/texture-f.png",
+        "id": "S014",
+        "label": "reference_media/assets/vendor/kenney_blocky_characters/Textures/texture-f.png"
+      },
+      {
+        "asset_path": "reference_media/assets/vendor/kenney_ui/panels/yellow_button_rectangle_depth_gloss.png",
+        "id": "S019",
+        "label": "reference_media/assets/vendor/kenney_ui/panels/yellow_button_rectangle_depth_gloss.png"
+      },
+      {
+        "bundled_path": "media/S020.png",
+        "id": "S020",
+        "label": "FONT PREVIEW reference_media/assets/vendor/kenney_ui/KenneyFuture.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "reference_media/assets/vendor/kenney_ui/KenneyFuture.ttf"
+      },
+      {
+        "bundled_path": "media/S021.png",
+        "id": "S021",
+        "label": "FONT PREVIEW reference_media/assets/vendor/kenney_ui/KenneyFutureNarrow.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "reference_media/assets/vendor/kenney_ui/KenneyFutureNarrow.ttf"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "KayKit_City_Builder_Bits_1.0_FREE.zip",
+        "reference_media/assets/audio",
+        "reference_media/assets/generated",
+        "reference_media/assets/vendor"
+      ],
+      "file_count": 70,
+      "font_files": [
+        "reference_media/assets/vendor/kenney_ui/KenneyFuture.ttf",
+        "reference_media/assets/vendor/kenney_ui/KenneyFutureNarrow.ttf"
+      ]
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry. Font previews are rendered from actual supplied font files; preview wording is illustrative, not additional task requirements.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 454.7,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R003",
+        "time_s": 7.73333
+      },
+      {
+        "id": "R007",
+        "time_s": 23.2
+      },
+      {
+        "id": "R021",
+        "time_s": 77.3333
+      },
+      {
+        "id": "R022",
+        "time_s": 81.2
+      },
+      {
+        "id": "R031",
+        "time_s": 116.0
+      },
+      {
+        "id": "R032",
+        "time_s": 119.867
+      },
+      {
+        "id": "R034",
+        "time_s": 127.6
+      },
+      {
+        "id": "R043",
+        "time_s": 162.4
+      },
+      {
+        "id": "R050",
+        "time_s": 189.467
+      },
+      {
+        "id": "R057",
+        "time_s": 216.533
+      },
+      {
+        "id": "R060",
+        "time_s": 228.133
+      },
+      {
+        "id": "R082",
+        "time_s": 313.2
+      },
+      {
+        "id": "R100",
+        "time_s": 382.8
+      },
+      {
+        "id": "R114",
+        "time_s": 436.933
+      },
+      {
+        "id": "R115",
+        "time_s": 440.8
+      },
+      {
+        "id": "R116",
+        "time_s": 444.667
+      },
+      {
+        "id": "R118",
+        "time_s": 452.4
+      },
+      {
+        "id": "R119",
+        "time_s": 454.683
+      },
+      {
+        "clip": 1,
+        "id": "RD001",
+        "time_s": 90.94
+      },
+      {
+        "clip": 1,
+        "id": "RD010",
+        "time_s": 91.84
+      },
+      {
+        "clip": 1,
+        "id": "RD019",
+        "time_s": 92.74
+      },
+      {
+        "clip": 1,
+        "id": "RD020",
+        "time_s": 92.84
+      },
+      {
+        "clip": 2,
+        "id": "RD021",
+        "time_s": 227.35
+      },
+      {
+        "clip": 2,
+        "id": "RD034",
+        "time_s": 228.65
+      },
+      {
+        "clip": 2,
+        "id": "RD037",
+        "time_s": 228.95
+      },
+      {
+        "clip": 2,
+        "id": "RD040",
+        "time_s": 229.25
+      },
+      {
+        "clip": 3,
+        "id": "RD048",
+        "time_s": 364.46
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.25951176599956016,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Manifest Run — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nRead a set of delivery commitments, plan a route through a small city, drive it under time pressure, and finish the manifest.\n\n## Scope boundary\n\nA bounded 3D delivery-routing game with multiple destinations or orders, meaningful route choice, success/failure, and replay.\n\n## Creative freedom\n\nYou may choose the city topology, order rules, timing, camera options, and vehicle feel.\n"
+}

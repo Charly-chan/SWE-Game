@@ -1,0 +1,1197 @@
+{
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "driver_sha256": "7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742",
+  "endings": {
+    "defeat": "res://scenes/flow/level_failed.tscn",
+    "run_complete": "res://scenes/flow/run_complete.tscn",
+    "victory": "res://scenes/flow/level_clear.tscn"
+  },
+  "engine": "4.5.1",
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "b3976d7ab23576e1afeab1d7d278fecc80f11e52d9b1ad52315eecb1df69fa0b",
+    "source_sha256": "7cff512f51f981fd739c420f2047de13793ce54f45603d3b70fedc1a2fea7ab5"
+  },
+  "levels": [
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          38.0,
+          0.200000002980232,
+          38.0
+        ],
+        "min3": [
+          -31.5,
+          0.0,
+          -28.5
+        ],
+        "plane": "xz",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 5,
+        "alive_before": 5,
+        "attempted": true,
+        "delta": 0,
+        "detail": "one collect-and-deliver cycle on PR-tennis_ball-IMPORT: 5 alive before, 5 after",
+        "effect": {
+          "actions": [],
+          "complete_trigger": false,
+          "cycle_index": 0,
+          "kind": "target_changed",
+          "observed": false
+        },
+        "target": "PR-tennis_ball-IMPORT"
+      },
+      "cycles": [
+        {
+          "alive_after": 5,
+          "alive_before": 5,
+          "delivered": true,
+          "delta": 0,
+          "index": 0,
+          "target": "PR-tennis_ball-IMPORT"
+        },
+        {
+          "alive_after": 5,
+          "alive_before": 5,
+          "delivered": true,
+          "delta": 0,
+          "index": 1,
+          "target": "PR-traffic_cone-IMPORT"
+        },
+        {
+          "alive_after": 5,
+          "alive_before": 5,
+          "delivered": true,
+          "delta": 0,
+          "index": 2,
+          "target": "PR-shovel-IMPORT"
+        },
+        {
+          "alive_after": 5,
+          "alive_before": 5,
+          "delivered": true,
+          "delta": 0,
+          "index": 3,
+          "target": "PR-branch-IMPORT"
+        },
+        {
+          "alive_after": 5,
+          "alive_before": 5,
+          "delivered": true,
+          "delta": 0,
+          "index": 4,
+          "target": "PR-ear_muffs-IMPORT"
+        }
+      ],
+      "cycles_capped": false,
+      "declared_scene": "res://source/levels/forest_errand.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "5 collect-and-deliver cycles then 120 frames on CompletionArea, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://source/levels/forest_errand.tscn",
+        "scene_before": "res://source/levels/forest_errand.tscn",
+        "target": "CompletionArea"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 5,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.280575539568345,
+              "y": 1.0
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.458646616541353
+            },
+            {
+              "valid": true,
+              "x": 0.107913669064748,
+              "y": 0.699248120300752
+            },
+            {
+              "valid": true,
+              "x": 0.712230215827338,
+              "y": 0.0977443609022556
+            }
+          ],
+          "total": 5,
+          "world": [
+            [
+              -31.5,
+              0.0599999986588955,
+              -28.5
+            ],
+            [
+              -12.0,
+              0.0,
+              38.0
+            ],
+            [
+              38.0,
+              0.0199999995529652,
+              2.0
+            ],
+            [
+              -24.0,
+              0.0,
+              18.0
+            ],
+            [
+              18.0,
+              0.0,
+              -22.0
+            ]
+          ]
+        },
+        "gb_door": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_enemy": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.453237410071942,
+              "y": 0.428571428571429
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_interactive": {
+          "alive": 2,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.453237410071942,
+              "y": 0.428571428571429
+            },
+            {
+              "valid": true,
+              "x": 0.475779569406304,
+              "y": 0.524812031509285
+            }
+          ],
+          "total": 2,
+          "world": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.5666800737381,
+              0.000618487596511841,
+              6.40000009536743
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.499280576225665,
+              "y": 0.524812031509285
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              3.20000004768372,
+              0.200000002980232,
+              6.40000009536743
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "placed_count": 0.0,
+        "progress": 0.0,
+        "time_left": 594.500953,
+        "timer": 594.500953
+      },
+      "numeric_source": {
+        "placed_count": "declared",
+        "progress": "declared",
+        "time_left": "declared",
+        "timer": "declared"
+      },
+      "reached": true,
+      "scene": "res://source/levels/forest_errand.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 598.503496,
+            "timer": 598.503496
+          },
+          "phase": "settle",
+          "player": [
+            3.20000004768372,
+            0.200000002980232,
+            6.40000009536743
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 598.406088,
+            "timer": 598.406088
+          },
+          "phase": "pick",
+          "player": [
+            -31.5,
+            0.0600000023841858,
+            -28.5000019073486
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 598.290594,
+            "timer": 598.290594
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 598.13436,
+            "timer": 598.13436
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 598.01673,
+            "timer": 598.01673
+          },
+          "phase": "pick",
+          "player": [
+            -12.0251750946045,
+            0.241226091980934,
+            37.9793815612793
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 597.895913,
+            "timer": 597.895913
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 597.735555,
+            "timer": 597.735555
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 597.614029,
+            "timer": 597.614029
+          },
+          "phase": "pick",
+          "player": [
+            38.0,
+            0.234857827425003,
+            2.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 597.496611,
+            "timer": 597.496611
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 597.339364,
+            "timer": 597.339364
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 597.200855,
+            "timer": 597.200855
+          },
+          "phase": "pick",
+          "player": [
+            -24.0,
+            0.200000002980232,
+            18.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 597.097359,
+            "timer": 597.097359
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 596.934145,
+            "timer": 596.934145
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 596.899287,
+            "timer": 596.899287
+          },
+          "phase": "pick",
+          "player": [
+            18.0,
+            0.0799999982118607,
+            -22.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 596.693573,
+            "timer": 596.693573
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 596.53645,
+            "timer": 596.53645
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 216,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 596.405352,
+            "timer": 596.405352
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 224,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 596.267351,
+            "timer": 596.267351
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 232,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 596.136252,
+            "timer": 596.136252
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 240,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 596.005152,
+            "timer": 596.005152
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 248,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 595.867149,
+            "timer": 595.867149
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 256,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 595.736053,
+            "timer": 595.736053
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 264,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 595.604952,
+            "timer": 595.604952
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 272,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 595.466951,
+            "timer": 595.466951
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 280,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 595.335848,
+            "timer": 595.335848
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 288,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 595.204752,
+            "timer": 595.204752
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 296,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 595.06675,
+            "timer": 595.06675
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 304,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 594.935648,
+            "timer": 594.935648
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 312,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 594.804553,
+            "timer": 594.804553
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 320,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 594.673451,
+            "timer": 594.673451
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 328,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 594.535453,
+            "timer": 594.535453
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 5,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 330,
+          "numeric": {
+            "placed_count": 0.0,
+            "progress": 0.0,
+            "time_left": 594.500953,
+            "timer": 594.500953
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.60000002384186,
+            0.0
+          ],
+          "scene_path": "res://source/levels/forest_errand.tscn"
+        }
+      ],
+      "spawn": [
+        3.20000004768372,
+        0.200000002980232,
+        6.40000009536743
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.4992805762256651,
+        "y": 0.5248120315092847
+      },
+      "stop_reason": "goal_no_transition"
+    }
+  ],
+  "liveness": [
+    {
+      "action": "gb_left",
+      "detail": "gb_left differs from the idle control on position (delta 35.733382 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_right",
+      "detail": "gb_right differs from the idle control on position (delta 32.826222 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_up",
+      "detail": "gb_up differs from the idle control on position (delta 36.642199 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_down",
+      "detail": "gb_down differs from the idle control on position (delta 37.299101 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_jump",
+      "detail": "gb_jump is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    },
+    {
+      "action": "gb_action",
+      "detail": "gb_action is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    }
+  ],
+  "no_input_no_win": true,
+  "no_input_stop_reason": "budget_frames",
+  "notes": [
+    "liveness deadline derived from this project's own structural pass: 35.6 ms/frame median, 35.6 ms/frame worst",
+    "liveness sweep: 4 live / 2 dead against the 420-frame idle control truth/L0#idle420"
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "dogwalk",
+  "read_failure": "",
+  "taken_at": "2026-09-10T09:15:52+00:00",
+  "version": "1"
+}

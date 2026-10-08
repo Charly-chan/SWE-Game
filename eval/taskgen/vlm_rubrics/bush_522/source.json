@@ -1,0 +1,293 @@
+{
+  "game_id": "bush_522",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "reference_media/icon.jpg",
+        "id": "S001",
+        "label": "reference_media/icon.jpg"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "SOURCE_RIGHTS.md",
+        "supplemental/trees/tree_parts_v1.glb",
+        "reference_media/assets/audio",
+        "reference_media/assets/models",
+        "reference_media/icon.jpg"
+      ],
+      "file_count": 13,
+      "font_files": []
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 330.834,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R002",
+        "time_s": 2.81667
+      },
+      {
+        "id": "R003",
+        "time_s": 5.63333
+      },
+      {
+        "id": "R004",
+        "time_s": 8.45
+      },
+      {
+        "id": "R005",
+        "time_s": 11.2667
+      },
+      {
+        "id": "R006",
+        "time_s": 14.0833
+      },
+      {
+        "id": "R007",
+        "time_s": 16.9
+      },
+      {
+        "id": "R008",
+        "time_s": 19.7167
+      },
+      {
+        "id": "R009",
+        "time_s": 22.5333
+      },
+      {
+        "id": "R010",
+        "time_s": 25.35
+      },
+      {
+        "id": "R012",
+        "time_s": 30.9833
+      },
+      {
+        "id": "R013",
+        "time_s": 33.8
+      },
+      {
+        "id": "R015",
+        "time_s": 39.4333
+      },
+      {
+        "id": "R016",
+        "time_s": 42.25
+      },
+      {
+        "id": "R019",
+        "time_s": 50.7
+      },
+      {
+        "id": "R020",
+        "time_s": 53.5167
+      },
+      {
+        "id": "R024",
+        "time_s": 64.7833
+      },
+      {
+        "id": "R028",
+        "time_s": 76.05
+      },
+      {
+        "id": "R032",
+        "time_s": 87.3167
+      },
+      {
+        "id": "R033",
+        "time_s": 90.1333
+      },
+      {
+        "id": "R036",
+        "time_s": 98.5833
+      },
+      {
+        "id": "R040",
+        "time_s": 109.85
+      },
+      {
+        "id": "R041",
+        "time_s": 112.667
+      },
+      {
+        "id": "R045",
+        "time_s": 123.933
+      },
+      {
+        "id": "R048",
+        "time_s": 132.383
+      },
+      {
+        "id": "R050",
+        "time_s": 138.017
+      },
+      {
+        "id": "R052",
+        "time_s": 143.65
+      },
+      {
+        "id": "R053",
+        "time_s": 146.467
+      },
+      {
+        "id": "R054",
+        "time_s": 149.283
+      },
+      {
+        "id": "R055",
+        "time_s": 152.1
+      },
+      {
+        "id": "R056",
+        "time_s": 154.917
+      },
+      {
+        "id": "R057",
+        "time_s": 157.733
+      },
+      {
+        "id": "R058",
+        "time_s": 160.55
+      },
+      {
+        "id": "R059",
+        "time_s": 163.367
+      },
+      {
+        "id": "R060",
+        "time_s": 166.183
+      },
+      {
+        "id": "R063",
+        "time_s": 174.633
+      },
+      {
+        "id": "R065",
+        "time_s": 180.267
+      },
+      {
+        "id": "R072",
+        "time_s": 199.983
+      },
+      {
+        "id": "R073",
+        "time_s": 202.8
+      },
+      {
+        "id": "R078",
+        "time_s": 216.883
+      },
+      {
+        "id": "R080",
+        "time_s": 222.517
+      },
+      {
+        "id": "R090",
+        "time_s": 250.683
+      },
+      {
+        "id": "R091",
+        "time_s": 253.5
+      },
+      {
+        "id": "R100",
+        "time_s": 278.85
+      },
+      {
+        "id": "R105",
+        "time_s": 292.933
+      },
+      {
+        "id": "R109",
+        "time_s": 304.2
+      },
+      {
+        "id": "R111",
+        "time_s": 309.833
+      },
+      {
+        "id": "R112",
+        "time_s": 312.65
+      },
+      {
+        "id": "R113",
+        "time_s": 315.467
+      },
+      {
+        "id": "R114",
+        "time_s": 318.283
+      },
+      {
+        "id": "R115",
+        "time_s": 321.1
+      },
+      {
+        "id": "R116",
+        "time_s": 323.917
+      },
+      {
+        "id": "R117",
+        "time_s": 326.733
+      },
+      {
+        "id": "R118",
+        "time_s": 329.55
+      },
+      {
+        "id": "R119",
+        "time_s": 330.817
+      },
+      {
+        "clip": 1,
+        "id": "RD001",
+        "time_s": 66.1668
+      },
+      {
+        "clip": 1,
+        "id": "RD009",
+        "time_s": 66.9668
+      },
+      {
+        "clip": 1,
+        "id": "RD010",
+        "time_s": 67.0668
+      },
+      {
+        "clip": 1,
+        "id": "RD020",
+        "time_s": 68.0668
+      },
+      {
+        "clip": 3,
+        "id": "RD041",
+        "time_s": 264.6672
+      },
+      {
+        "clip": 3,
+        "id": "RD050",
+        "time_s": 265.5672
+      },
+      {
+        "clip": 3,
+        "id": "RD060",
+        "time_s": 266.5672
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.3566743442330595,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Bush 522 — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nFly a light bush plane off a home runway, manage throttle and attitude across open procedural terrain, set it down beside a distant checkpoint, and bring it home for a deliberate finish.\n\n## Scope boundary\n\nOne continuous flight course with real flight physics, a fuel and score readout, a qualifying outbound landing, a return leg, a home landing, and separate victory and crash endings.\n\n## Creative freedom\n\nYou may choose terrain dressing, instrument layout, camera framing, and audio while preserving player-controlled flight, the out-and-back objective order, and both terminal states.\n"
+}

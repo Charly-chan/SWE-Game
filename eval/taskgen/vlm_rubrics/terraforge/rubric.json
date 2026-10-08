@@ -1,0 +1,1044 @@
+{
+  "game_id": "terraforge",
+  "mode": "brief",
+  "provided_asset_observations": [
+    {
+      "frame_ids": [
+        "S001",
+        "S002",
+        "S015"
+      ],
+      "informs": [
+        "A1",
+        "A2"
+      ],
+      "observation": "给定体素图集、合金框锤、CUTTER 镐。GT 游玩持白色木柄镐，块是扁平橙/灰，不要求像素级复用图集。"
+    },
+    {
+      "frame_ids": [
+        "S008",
+        "S014",
+        "S019"
+      ],
+      "informs": [
+        "A5",
+        "V1"
+      ],
+      "observation": "给定 Kenney 方块角色群与单个角色。GT 只用远景黄色方身壳，没有这些角色模型入场。"
+    },
+    {
+      "frame_ids": [
+        "S049",
+        "S056",
+        "S057",
+        "S058"
+      ],
+      "informs": [
+        "A2",
+        "A5"
+      ],
+      "observation": "给定 Kenney 自然套等距岛、体素包图标与横版平台岛。GT 第一人称扁平橙地/白干树未采用这些展示图的卡通树与角色。"
+    },
+    {
+      "frame_ids": [
+        "S006",
+        "S012",
+        "S029",
+        "S059"
+      ],
+      "informs": [
+        "A3"
+      ],
+      "observation": "给定 UI 条、槽、准星与 Kenney Future 字体预览。GT HUD 使用圆角槽、圆环准星与等宽标题字，接近这套而不是 Kenney UI Pack 蓝白商店风。"
+    }
+  ],
+  "reference_limits": [
+    "STEP 4/7 没有单独抽到可读全帧，不能描述第四步的确切动词。",
+    "失败/死亡结局未出现；失败页是否与成功页可区分只能在候选拍到失败时评，否则 unknown。",
+    "黄壳生物只在开局林地远处出现，未见攻击、受伤或击杀过程；结果页 HUSKS FELLED 0。生物战斗不是可见义务。",
+    "extended_actions / InputMap 声明无法从像素证明，只评采集与合成/放置在画面上是否分成两套动作。",
+    "音频、真实硬度与配方表、种子随机性无法从像素证明。",
+    "R115 横幅已写 Artifact seated，左上计数仍为 0/1，以世界层黑块与结果页为准，不把该 HUD 延迟写成满分条件。",
+    "给定 Kenney 角色群、自然套、体素展示岛、UI Pack 商店风未被 GT 游玩采用，不能写成满分条件。"
+  ],
+  "reference_observations": [
+    {
+      "frame_ids": [
+        "R001"
+      ],
+      "informs": [
+        "M4",
+        "V4",
+        "A3"
+      ],
+      "observation": "黑底金标题 TERRAFORGE，副标题 Laying the crust，白色加载条，底部左键破块说明。无热键栏。"
+    },
+    {
+      "frame_ids": [
+        "R003"
+      ],
+      "informs": [
+        "M1",
+        "M4",
+        "D2",
+        "D3",
+        "V1",
+        "A2"
+      ],
+      "observation": "STEP 1/7 FELL IRONWOOD，LOG 0/3，FORGE RUN — SEED 20260812，计时 07:59，GROVE 8M，LIGHT 15/15。橙地、白干橙冠树、远景黄色方身生物，热键栏空，左下红条很短。"
+    },
+    {
+      "frame_ids": [
+        "R008"
+      ],
+      "informs": [
+        "M1",
+        "V2",
+        "A1",
+        "A4"
+      ],
+      "observation": "仍 STEP 1/7，LOG 1/3，计时 07:51，GROVE 2M，LIGHT 13/15。对准棕色块，准星带进度条，白色碎屑，热键栏 EMBERFROND。"
+    },
+    {
+      "frame_ids": [
+        "R015",
+        "R016",
+        "R018"
+      ],
+      "informs": [
+        "M2",
+        "M3",
+        "V3",
+        "D1"
+      ],
+      "observation": "R015 STEP 2/7 MILL PLANKS AND RODS，PLANK 4/4 ROD 0/4，FIELD CRAFT 木板按 K，计时 07:41。R016 STEP 3/7 RAISE A FORGE BENCH 0/1，HOLDING FORGE BENCH 按 K，计时 07:39。R018 橙地上灰块与拱门预览，计时 07:36，PEDESTAL 9M，远处仍有黄壳。"
+    },
+    {
+      "frame_ids": [
+        "R025",
+        "RD003"
+      ],
+      "informs": [
+        "M1",
+        "D2",
+        "D3",
+        "A1",
+        "A2"
+      ],
+      "observation": "STEP 5/7 MINE THE VEIN，四种矿计数全 0，计时 07:26，SHAFT 13M，LIGHT 15/15，持 CUTTER，矿道烟雾。左下红条比开局长。"
+    },
+    {
+      "frame_ids": [
+        "R035"
+      ],
+      "informs": [
+        "M2",
+        "D3",
+        "V3"
+      ],
+      "observation": "仍 STEP 5/7，EMBER 6/2 FERRITE 4/3 AURIC 1/2 PRISM 0/1，计时 07:11。FIELD CRAFT LUMENSTONE，DARK — 4 PLACES A HUSK CAN REACH YOU FROM，地上红渍。"
+    },
+    {
+      "frame_ids": [
+        "R042",
+        "R060"
+      ],
+      "informs": [
+        "M2",
+        "D1",
+        "D2",
+        "V2"
+      ],
+      "observation": "STEP 6/7 ASSEMBLE THE ARTIFACT 0/1。R042 计时 07:01，FIELD CRAFT IRONWOOD ROD，LOAM×2，PEDESTAL 42M，LIGHT 13/15。R060 计时 06:34，LIGHT 12/15，持镐打橙墙。"
+    },
+    {
+      "frame_ids": [
+        "R096",
+        "RD041"
+      ],
+      "informs": [
+        "M3",
+        "D3",
+        "V3",
+        "A4"
+      ],
+      "observation": "STEP 7/7 SEAT THE ARTIFACT 0/1，计时 05:41，TOO CLOSE — TAKE A STEP BACK，PEDESTAL 34M，LIGHT 15/15，BASALT×13，暗道浅灰地板。"
+    },
+    {
+      "frame_ids": [
+        "R115"
+      ],
+      "informs": [
+        "M3",
+        "M4",
+        "A2"
+      ],
+      "observation": "砖纹橙墙顶上黑色立方体，白字 Artifact seated 与黄字 ALL STEPS DONE，计时 05:12，PEDESTAL 3M，LIGHT 15/15。左上 HUD 仍写 ARTIFACT SEATED 0/1。"
+    },
+    {
+      "frame_ids": [
+        "R116",
+        "R119"
+      ],
+      "informs": [
+        "M4",
+        "V4",
+        "A3",
+        "A5"
+      ],
+      "observation": "黑底白勾 ARTIFACT FORGED。MODE FORGE RUN，SEED 20260812，ELAPSED 2:47，STEPS 7 OF 7，BROKEN 84，PLACED 49，HUSKS FELLED 0，IN-WORLD CLOCK DAY 1, 09:20。底栏 CHOOSE A MODE / TITLE / QUIT。无失败页。"
+    },
+    {
+      "frame_ids": [
+        "R035",
+        "R119"
+      ],
+      "informs": [
+        "D4",
+        "D3"
+      ],
+      "observation": "R035 有 husk 黑暗警告与地上红渍，R119 HUSKS FELLED 0，未拍到失败或恢复。"
+    }
+  ],
+  "requirements": [
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R003",
+            "R008"
+          ],
+          "observation": "R003 橙色地表、白干橙冠树，左上 STEP 1/7 FELL IRONWOOD、LOG 0/3，计时 07:59；R008 已对准棕色块，LOG 1/3，计时 07:51，热键栏出现橙色 EMBERFROND：伐木使计数从 0 到 1 并入库。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R025",
+            "R035",
+            "RD003"
+          ],
+          "observation": "R025 地下矿道 STEP 5/7 MINE THE VEIN，EMBER/FERRITE/AURIC/PRISM 矿计数全为 0，持 CUTTER；R035 同一步骤下 EMBER 6/2、FERRITE 4/3、AURIC 1/2：矿石计数随开采上升。RD003 黑暗矿道中准星对准墙面，手持镐。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [],
+      "description": "评玩家对准体素块做采集后，该块是否从世界层消失或换态，并反映到库存或步骤计数。破碎粒子、准星进度条的形式归 A4；读数是否跟事件同步归 V2。",
+      "evidence": {
+        "coverage": "需要看到采集前后的目标块与计数；只拍到空挥不足以判断。不推断隐藏硬度数值。",
+        "kind": "action_sequence",
+        "unit": "一次对准可采集块持续采集→该块离开原格→库存或步骤计数增加"
+      },
+      "full_credit": "对准可采集块持续采集后，该块离开原格或明显换态，同时库存或目标计数增加；一次采集只对应一块，不会无动作掉块或采空却无入库。",
+      "group": "M",
+      "high_score_requirements": [
+        "采集动作与被取走的块在连续片段中可归因，不是远处块自行消失。",
+        "被取走的块与采集动作可归因。库存数字是否跟上归 V2。",
+        "同一块被取走后原格不再保留可再采集的完整原块。"
+      ],
+      "id": "M1",
+      "inspired_by": [
+        "shadow-courier:M1"
+      ],
+      "partial_credit": "能采下一部分块，但多数对准采集后块仍在且计数不动；或计数增加却找不到被取走的块。",
+      "title": "采集使目标块离开世界并进入库存",
+      "zero_credit": "充分覆盖对准可采集块持续采集后，世界层与库存都完全没有变化。未拍到采集过程为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R008",
+            "R015"
+          ],
+          "observation": "R008 热键栏是橙色 EMBERFROND（原块）；R015 已是 STEP 2/7 MILL PLANKS AND RODS，PLANK 4/4、ROD 0/4，选中褐色 IRONWOOD PLANK，中央提示 FIELD CRAFT: IRONWOOD PLANK — LOOK AT A BLOCK, PRESS K：木板是伐木之后的新产品。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R016",
+            "R035",
+            "R042"
+          ],
+          "observation": "R016 热键栏出现拱形 FORGE BENCH，提示 HOLDING FORGE BENCH — LOOK AT A BLOCK, PRESS K；R035 选中 LUMENSTONE；R042 提示 FIELD CRAFT: IRONWOOD ROD，热键栏有 LOAM×2：工作台、照明石、木杆都不是矿石原块。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [],
+      "description": "评是否存在一套不同于采集的合成动作，产出采集得不到的中间件或工具。提示文案的形式归 V3；合成闪光归 A4。无法从像素证明 InputMap 文件，只评画面上两套动作是否分开。",
+      "evidence": {
+        "coverage": "需要看到合成前后的热键栏或库存；只看到提示文字没有新物出现时，合成本身未成立。",
+        "kind": "action_sequence",
+        "unit": "一次不同于采集的合成确认→库存出现新物品类型"
+      },
+      "full_credit": "合成动作与采集动作可区分（例如看向块再确认，而不是按住采集键）；完成后热键栏或库存出现新物品类型，该类型不是刚采下的原块。",
+      "group": "M",
+      "high_score_requirements": [
+        "合成与采集在操作与产物上可分开，不会按住采集键就产出配方成品。",
+        "至少两类中间件或工具来自合成而不是直接挖出。",
+        "新物品出现后原材料数量按配方减少或被消耗，不是无中生有堆叠。"
+      ],
+      "id": "M2",
+      "inspired_by": [
+        "magnet-dash:M2"
+      ],
+      "partial_credit": "只有一次合成产出新物，其余所谓合成只是把已有块换个名字；或合成键与采集键在画面上无法分开，但偶尔仍能出现新物。",
+      "title": "合成产生与采集不同的新物品",
+      "zero_credit": "充分覆盖所谓合成过程后，库存从未出现与原块不同的新类型，或合成与采集是同一动作的重复。未拍到合成为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R016",
+            "R018"
+          ],
+          "observation": "R016 持 FORGE BENCH、计数 0/1，面前是空的浅色地面；R018 橙色地表上已有灰色立方体，右下地面出现带拱门的灰色预览块，仍显示 FORGE BENCH 0/1、计时 07:36：放置预览与已放下的灰块都在世界层。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R096",
+            "R115"
+          ],
+          "observation": "R096 暗道中 STEP 7/7 SEAT THE ARTIFACT、ARTIFACT SEATED 0/1，提示 TOO CLOSE — TAKE A STEP BACK；R115 橙色砖纹墙上出现黑色立方体，白字 Artifact seated（局部偏暖）与黄字 ALL STEPS DONE，计时 05:12、PEDESTAL 3M：最终物进入世界层。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [],
+      "description": "评放置动作（工作台、照明、结构块或最终神器）是否在看向的位置长出新的世界层对象。预览幽灵与放置动画归 A4；提示编排归 V3。",
+      "evidence": {
+        "coverage": "需要看到放置前后的同一表面；只看到热键栏选中物不足以证明已放下。",
+        "kind": "action_sequence",
+        "unit": "一次放置确认→看向位置出现新的世界层对象"
+      },
+      "full_credit": "对准表面做放置后，该处出现原先没有的对象（台、灯、墙或最终物）；对象留在世界层，不是只改 HUD。最终目标物被安放到位后，局进入可结束状态。",
+      "group": "M",
+      "high_score_requirements": [
+        "放下的对象留在原格，走开再回头仍在。",
+        "最终目标物就位后局可以结束，而不是放下普通块就算通关。",
+        "放置位置与准星看向的表面一致，不会在无关远处刷出对象。"
+      ],
+      "id": "M3",
+      "inspired_by": [
+        "shadow-courier:M3"
+      ],
+      "partial_credit": "能放下一部分块，但关键目标物（工作台或最终物）从未进入世界层；或世界层出现新物却与放置动作对不上。",
+      "title": "放置使世界层出现新对象",
+      "zero_credit": "充分覆盖放置尝试后，世界层从未因放置增加对象。未拍到放置为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R003",
+            "R015",
+            "R016"
+          ],
+          "observation": "R001 黑底金标题 TERRAFORGE、进度条与左键破块说明；R003 已是 STEP 1/7；R015 为 STEP 2/7；R016 为 STEP 3/7：标题之后步骤编号前进。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R025",
+            "R060",
+            "R096",
+            "R115",
+            "R119"
+          ],
+          "observation": "R025 STEP 5/7 MINE THE VEIN；R060 STEP 6/7 ASSEMBLE THE ARTIFACT 0/1 计时 06:34；R096 STEP 7/7；R115 ALL STEPS DONE；R119 黑底 ARTIFACT FORGED、ELAPSED 2:47、OBJECTIVE STEPS 7 OF 7、BLOCKS BROKEN 84 / PLACED 49，底栏 CHOOSE A MODE / TITLE / QUIT。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [],
+      "description": "评一局是否从可玩开场进入多步目标，并在最终建造完成后进入与游玩画面分开的成功态。标题页若存在则须与游玩分开，未做标题页不是缺陷。失败结局未拍到为 unknown，失败/恢复路径归 D4。",
+      "evidence": {
+        "coverage": "需要开头与结尾；失败页未出现时失败子句为 unknown。",
+        "kind": "overview",
+        "unit": "开始态→步骤前进→独立成功态"
+      },
+      "full_credit": "开局即可进入可玩的采集/建造；游玩中目标分成多段可前进的步骤；完成后进入与游玩分开的成功态，不再继续同一采集循环。",
+      "group": "M",
+      "high_score_requirements": [
+        "开始态与成功态都和游玩画面可分开，不是同一帧改一行字。",
+        "步骤编号或等价阶段在局中至少前进两次，对应不同任务。",
+        "成功态给出本局已完成的依据（步骤或最终物就位），不是空白黑屏。"
+      ],
+      "id": "M4",
+      "inspired_by": [
+        "shadow-courier:M4"
+      ],
+      "partial_credit": "有步骤但从未前进，或成功态叠在未结束的游玩画面上。",
+      "title": "多步目标与成功结局",
+      "zero_credit": "充分覆盖整段游玩后没有可辨的成功态，或全程只有一个永不变化的目标。未拍到后半程为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R003",
+            "R015",
+            "R016",
+            "R025"
+          ],
+          "observation": "R003 要求伐铁木 LOG 0/3；R015 要求 mill 木板/木杆并按 K 合成；R016 改为举起并放置 FORGE BENCH；R025 改为持镐挖矿脉并点名四种矿：动作类型换了，不是同一条伐木指令。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R042",
+            "R060",
+            "R096",
+            "R115"
+          ],
+          "observation": "R042/R060 组装神器（TERRAFORGE ARTIFACT 0/1），R096 改为安放并受 TOO CLOSE 约束，R115 黑色最终物已坐在砖墙上：后半段从合成转到就位。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "合成与放置都已作为不同动作出现，但后续步骤仍可只靠重复同一种采集完成，链条没有真正换动作",
+          "id": "D1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "在合成与放置已作为不同动作出现的前提下，评多步目标是否迫使玩家改做下一件事。候选完全没有合成/放置时本条 not_applicable（由 M2/M3 归零），不再叠 cap。具体七步名与材料名自由。",
+      "evidence": {
+        "coverage": "至少三段不同步骤；只拍到单一步骤不能证明链条。",
+        "kind": "overview",
+        "unit": "相邻步骤的动作与产物对照"
+      },
+      "full_credit": "相邻步骤要求不同动作或不同产物：至少覆盖采集原材、合成中间件、放置结构/最终物三类；后一步用到前一步的产物。",
+      "group": "D",
+      "high_score_requirements": [
+        "采集、合成、放置三类动作都在局中出现，且后一步用到前一步产物。",
+        "步骤切换后玩家不能靠继续挖同一种块完成新步骤。",
+        "最终物不是开局热键栏里现成的装饰，而是链条终点。"
+      ],
+      "id": "D1",
+      "inspired_by": [
+        "strategy-skirmish:D1"
+      ],
+      "partial_credit": "只有两类动作轮换，或后一步不消耗前一步产物；步骤很多但中间几步是重复挖同一种块。",
+      "title": "配方链真正换动作而不是换标签",
+      "zero_credit": "充分覆盖后全程只有一种动作，并且没有多步目标标签。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R003",
+            "R008",
+            "R025"
+          ],
+          "observation": "R003 右上 GROVE 8M、浅橙天空与树；R008 GROVE 2M，已贴近树冠底部；R025 改为 SHAFT 13M，深灰矿道与烟雾：地表林地与地下矿道是两处场所。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R042",
+            "R060",
+            "R096",
+            "R115"
+          ],
+          "observation": "R042/R060 PEDESTAL 42M；R096 PEDESTAL 34M、暗道白地板；R115 PEDESTAL 3M、砖墙与黑块：基座距离从 42M 收到 3M，最终点不在开局树下。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "已有场所名或距离读数，但原材、矿脉与最终安放的交互仍全部发生在同一间无高差平地",
+          "id": "D2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评资源与最终建造是否分布在需要移动才能到达的不同场所，而不是堆在同一间平地。GT 的 GROVE / SHAFT / PEDESTAL 距离是例子。",
+      "evidence": {
+        "coverage": "需要地表与地下或基座方向的对照；单场所特写不能证明空间组织。",
+        "kind": "overview",
+        "unit": "至少两处场所与一次场所间移动"
+      },
+      "full_credit": "至少两处可区分场所（如地表林地与地下矿道，或矿道与最终基座方向）；场所之间要走动，距离或层标会变；最终安放点不在开局脚边。",
+      "group": "D",
+      "high_score_requirements": [
+        "不同场所的资源种类或任务不同，不是同一房间换光。",
+        "移动会改变距离或层标，场所不是背景画。",
+        "最终安放点要专门走过去，不能在开局第一格完成。"
+      ],
+      "id": "D2",
+      "inspired_by": [
+        "shadow-courier:D2"
+      ],
+      "partial_credit": "场所有色差但始终站在同一格就能采齐并完工；或只有一处真正要走，其余是贴图背景。",
+      "title": "地表、矿道与安放点分成可到达的场所",
+      "zero_credit": "充分覆盖后没有可区分的第二场所，也没有任何场所名或距离/层标。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R003",
+            "R008",
+            "R025",
+            "R060",
+            "R115"
+          ],
+          "observation": "右上计时 07:59→07:51→07:26→06:34→05:12 持续下降；R003 左下红条很短，R025 红条明显加长：时间与消耗条都在走。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R035",
+            "R096",
+            "RD041"
+          ],
+          "observation": "R035 中央黄字 FIELD CRAFT: LUMENSTONE，右侧 DARK — 4 PLACES A HUSK CAN REACH YOU FROM，地上有红渍；R096/RD041 安放时 TOO CLOSE — TAKE A STEP BACK，神器计数仍为 0/1：黑暗与过近都改写了当前动作。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "计时或消耗条会走动，但全程从未阻止或改写任何动作，读数在走却是纯装饰",
+          "id": "D3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评局中是否存在会变化并约束行动的代价（倒计时、消耗条、黑暗/生物警告、放置距离限制等）。失败/恢复路径归 D4；本条只评会变化并约束行动的代价。生物战斗可选。",
+      "evidence": {
+        "coverage": "需要跨时段对照；失败死亡未拍到，不要求失败页。",
+        "kind": "overview",
+        "unit": "一类代价读数变化 + 一次该代价改写动作"
+      },
+      "full_credit": "至少两类代价在局中数值或状态会变，并且至少一次阻止或改写当前动作（如太近不能安放、黑暗警告改变合成优先级）。",
+      "group": "D",
+      "high_score_requirements": [
+        "代价读数随游玩单向或周期变化，不是摆设。",
+        "至少一次非法或危险状态迫使改动作（后退、先照明、先补给）。",
+        "代价解除后原先被挡住的动作可以继续，而不是永远锁死。"
+      ],
+      "id": "D3",
+      "inspired_by": [
+        "magnet-dash:D3"
+      ],
+      "partial_credit": "只有一类代价会变，或代价会变但从不影响当前动作；有警告从未迫使改行为。",
+      "title": "计时、消耗与放置约束构成可见代价",
+      "zero_credit": "充分覆盖后没有任何会变化的代价，行动不受时间、消耗或位置约束。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R035",
+            "R119"
+          ],
+          "observation": "R035 地上红渍与 DARK — 4 PLACES A HUSK CAN REACH YOU FROM 表明存在 husk 威胁，但全程未拍到被击倒或计时耗尽；R119 成功页 HUSKS FELLED 0。失败/恢复路径在 GT 中未展示，候选展示时按本条评。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "名义上有生命、计时耗尽或被击倒，但耗尽后角色仍继续采集/放置，失败没有机制后果",
+          "id": "D4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评玩家进入失败、耗尽或被击倒后，是否存在可见恢复（重生、重开本局、从检查点再采集等）。GT 未展示死亡、计时耗尽或 husk 击倒，覆盖不足为 unknown；候选展示了失败则必须评。放置时 TOO CLOSE 后退是位置约束，归 D3，不代替本条。",
+      "evidence": {
+        "coverage": "GT 未覆盖；候选需看到失败发生与恢复后的可玩状态。未拍到记 unknown。",
+        "kind": "action_sequence",
+        "unit": "一次失败进入与随后恢复"
+      },
+      "full_credit": "失败或耗尽发生后，玩家能重新受控继续本局或明确重开；恢复后仍面对同一目标链，而不是卡死。",
+      "group": "D",
+      "high_score_requirements": [
+        "失败与恢复在连续片段中可归因，能看出是哪一次事件导致重开或重生。",
+        "恢复后玩家立刻能再做采集或放置，不必先过无法跳过的长过场。",
+        "若采用计时耗尽，耗尽与重开相连，而不是计时归零后仍无限采集。"
+      ],
+      "id": "D4",
+      "inspired_by": [
+        "magnet-dash:D3"
+      ],
+      "partial_credit": "有失败表现但无法再操作，或恢复后步骤/库存与失败前完全无关地跳到无法理解的状态。",
+      "title": "失败状态与恢复路径",
+      "zero_credit": "充分覆盖已展示的失败后，玩家停死在失败画面或必须结束进程才能继续。未拍到失败为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R003",
+            "R008",
+            "R015",
+            "R016"
+          ],
+          "observation": "R003 白干橙冠树 + 远景黄色方身生物；R008 热键栏橙色方块 EMBERFROND；R015 褐色板状 IRONWOOD PLANK；R016 蓝色拱门 FORGE BENCH：原块、板材、工作台外形不同。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R025",
+            "R035",
+            "R096"
+          ],
+          "observation": "R025 黑暗矿道、白柄镐 CUTTER 伸进画面；R035 俯视橙色六边形顶面、选中 LUMENSTONE；R096 暗道浅灰地板与 BASALT×13：矿道、照明石、玄武岩块可分开。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "热键栏图标能分出镐/板/台，但世界层块体完全同形，走进矿道与林地也只换了名字，只能读文字才知道当前物与场所",
+          "id": "V1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评玩家能否在读 HUD 名字之前，靠形体、颜色或持握物分辨原材、成品、工具和场所。行为差别已在 D1，这里只评预读。",
+      "evidence": {
+        "coverage": "需要世界层与热键栏；只看结果页图标不算预读。",
+        "kind": "overview",
+        "unit": "同一时段内至少三类物或两处场所的形体对照"
+      },
+      "full_credit": "原块、合成物、工具在热键栏与世界层有稳定形体差别；地表与矿道靠光照和色板可预读，不必先看文字。",
+      "group": "V",
+      "high_score_requirements": [
+        "看热键栏选中框就能预知当前是镐、板还是台，不必读完名字。",
+        "走进矿道或林地时，光照与色板先于文字说明场所。",
+        "最终物与普通结构块有形体差别，不会和土壤块认混。"
+      ],
+      "id": "V1",
+      "inspired_by": [
+        "strategy-skirmish:V1"
+      ],
+      "partial_credit": "工具可辨但所有块是同色同形；或场所可辨但物品只能靠名字。",
+      "title": "材料、工具与场所得以预读",
+      "zero_credit": "充分覆盖后材料、工具与场所在形体上完全无法区分。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R003",
+            "R008",
+            "R015",
+            "R016"
+          ],
+          "observation": "LOG 0/3→1/3 与 STEP 1/7→2/7→3/7 对齐伐木与制板；计时 07:59→07:51→07:41→07:39；R015 PEDESTAL 10M、LIGHT 13/15，R016 仍 10M。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R025",
+            "R035",
+            "R060",
+            "R096"
+          ],
+          "observation": "R025 四种矿计数全 0、SHAFT 13M、LIGHT 15/15、07:26；R035 矿计数已升、SHAFT 42M、07:11；R060 ARTIFACT 0/1、PEDESTAL 42M、LIGHT 12/15、06:34；R096 改为 STEP 7/7、05:41、PEDESTAL 34M。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "世界层已清楚显示采集或合成，对应步骤或库存读数始终不更新或与事件反向",
+          "id": "V2-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "HUD 长期挡住准星看向的目标块，使采集/放置无法对准",
+          "id": "V2-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评 HUD 上的步骤、倒计时、库存/目标计数、光照与距离是否随采集、合成、移动更新。数字是否好看归 A3；事件本身归 M。",
+      "evidence": {
+        "coverage": "需要事件前后成对读数；单帧 HUD 不能证明同步。",
+        "kind": "overview",
+        "unit": "一次采集或合成前后的 HUD 对照"
+      },
+      "full_credit": "采集后目标计数上升，合成后物品槽更新，移动后距离或层标变化，计时持续走；读数方向与刚发生的事件一致。",
+      "group": "V",
+      "high_score_requirements": [
+        "步骤、计时、库存三类读数都会在局中更新。",
+        "更新发生在对应事件的邻近帧，能对上是哪一次采集或合成。",
+        "距离与光照随移动变化，不是开局锁死。"
+      ],
+      "id": "V2",
+      "inspired_by": [
+        "shadow-courier:V2"
+      ],
+      "partial_credit": "只有一类读数会动，其余冻结；或读数会动但与事件反向、延迟到看不出对应。",
+      "title": "步骤、计时与库存读数跟随事件",
+      "zero_credit": "充分覆盖后完全没有步骤、库存或计时读数。读数存在但不同步是 cap，不是本条零分。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R015",
+            "R016",
+            "R018"
+          ],
+          "observation": "R015 持木板时写 FIELD CRAFT: IRONWOOD PLANK — LOOK AT A BLOCK, PRESS K；R016/R018 改为 HOLDING FORGE BENCH — LOOK AT A BLOCK, PRESS K：提示跟着持物换。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R035",
+            "R042",
+            "R096"
+          ],
+          "observation": "R035 FIELD CRAFT: LUMENSTONE 并带 DARK 警告；R042 FIELD CRAFT: IRONWOOD ROD；R096 TOO CLOSE — TAKE A STEP BACK：合成与非法放置是两套提示。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "提示条存在，但步骤或持物已经切换后仍固定显示上一步的文案",
+          "id": "V3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评决策点是否出现与当前持物、步骤或危害匹配的提示。提示是否好看归 A3；有没有合成/放置机制归 M2/M3。",
+      "evidence": {
+        "coverage": "需要至少两个不同决策点；标题页操作说明不算游玩提示。",
+        "kind": "overview",
+        "unit": "一次决策点提示与持物/步骤对照"
+      },
+      "full_credit": "在合成或放置决策点出现与当前持物一致的提示；非法放置或黑暗等危害有单独提示，步骤切换后提示改写，不停留在上一动作。",
+      "group": "V",
+      "high_score_requirements": [
+        "合成与放置提示点名当前持物，而不是一句通用按键。",
+        "危害提示与合成提示可同时存在且不互相覆盖到无法读。",
+        "步骤切换后旧提示消失或改写。"
+      ],
+      "id": "V3",
+      "inspired_by": [
+        "magnet-dash:V3"
+      ],
+      "partial_credit": "只有合成或只有危害有提示；或提示出现但与当前持物不符，多数决策点要靠试错。",
+      "title": "合成、放置与危害提示对准当前动作",
+      "zero_credit": "充分覆盖合成/放置决策点后，画面上完全没有任何动作或危害提示。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001"
+          ],
+          "observation": "黑底金字 TERRAFORGE，副标题 Laying the crust，白色加载条，底部说明 Hold the left mouse button to break a block：这是独立标题/加载页，不是游玩 HUD。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R116",
+            "R119"
+          ],
+          "observation": "黑底白勾、金标题 ARTIFACT FORGED，说明 The artifact is seated on the forge pedestal，表列 MODE FORGE RUN、SEED 20260812、ELAPSED 2:47、STEPS 7 OF 7、BLOCKS BROKEN 84、PLACED 49、HUSKS FELLED 0，底栏 CHOOSE A MODE / TITLE / QUIT。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "成功页离开了游玩画面，但完成声明、统计与离开入口同一字号无分组，必须逐行读完才能找到下一步",
+          "id": "V4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评成功页能否读出结束语义、本局依据和离开入口，并且不与游玩 HUD 糊成一层。若有标题/入场页，评其与游玩是否分开，未做标题页不扣本条。GT 的统计表是例子。失败页未拍到为 unknown。",
+      "evidence": {
+        "coverage": "需要开头与结尾；失败页未出现不扣分。",
+        "kind": "overview",
+        "unit": "标题页与成功页各一"
+      },
+      "full_credit": "成功页有完成声明、可核对的本局结果、以及回到标题或重开的入口，并离开第一人称游玩画面。若有标题/入场页，能读出游戏名与如何开始且与游玩分开；未做标题页时只评成功页。",
+      "group": "V",
+      "high_score_requirements": [
+        "成功页占用整页，游玩准星与热键栏不再保留；若有标题页，同样离开游玩 HUD。",
+        "结果页能读出本局为何算完成，而不是只写 Win。",
+        "离开入口可辨，至少有回到标题或重开之一。"
+      ],
+      "id": "V4",
+      "inspired_by": [
+        "shadow-courier:V4"
+      ],
+      "partial_credit": "有结果态但没有离开入口，或结果与刚完成的步骤明显对不上。未做标题页不因此记部分分。",
+      "title": "结果页能读出结束语义与离开入口",
+      "zero_credit": "充分覆盖结尾后出现了结果态，但读不出结束语义（没有完成声明也没有结果结构）。完全没有结果态归 M4。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R008",
+            "R025",
+            "R060"
+          ],
+          "observation": "R008 准星下有黑白进度条，热键栏橙色 EMBERFROND；R025/R060 右侧伸出白头木柄镐，栏内 CUTTER 黄框选中：镐在第一人称里是持久形体，不是标题装饰。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R015",
+            "R016",
+            "R096"
+          ],
+          "observation": "R015 栏内褐色板、R016 蓝色拱门台、R096 浅灰 BASALT×13：栏内物形状随步骤换，不是同一灰块复制。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "采集/放置时画面中没有任何当前工具的世界层或准星层表达（无持握物、无准星形态/进度、无工具指示），只能靠热键栏名字知道拿的是什么",
+          "id": "A1-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "持握物小到正常游玩读不出，或大到挡住准星与目标块",
+          "id": "A1-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评当前工具是否有可辨表达（持握物、准星形态/进度或工具指示任一），以及热键栏物品形体。给定 Kenney 工具图是素材，不要求原样贴上。可见的第一人称持握物是 GT 呈现选择，不是 brief 要求。",
+      "evidence": {
+        "coverage": "至少两种工具或物品；标题页工具图不能代替游玩持握。",
+        "kind": "overview",
+        "unit": "采集或放置时的持握物 + 热键栏对照"
+      },
+      "full_credit": "游玩中当前工具有可辨表达（持握物、准星形态/进度或工具指示任一），热键栏图标能对上当前选择；尺度让准星和目标块仍可读。",
+      "group": "A",
+      "high_score_requirements": [
+        "镐与非镐物品在栏内和世界层都换得过来。",
+        "持握物跟手，转向时留在画面固定侧，不是世界里漂着的装饰。",
+        "选中框、数量角标与形体在同一尺度里，不互相抢焦点。"
+      ],
+      "id": "A1",
+      "inspired_by": [
+        "strategy-skirmish:A1"
+      ],
+      "partial_credit": "热键栏有图标，当前工具只有微弱的准星或栏内变化，正常尺度几乎读不出拿的是什么；或持握物尺度过大挡住目标。",
+      "title": "第一人称持握物与热键栏物品",
+      "zero_credit": "充分覆盖采集与放置后，游玩画面里完全没有持握物或栏内物品形体。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R003",
+            "R008",
+            "R018"
+          ],
+          "observation": "R003 起伏橙地、白干橙冠树、远景黄壳；R008 树冠底部与灰色底面围成的空间；R018 橙地上灰色立方体与拱门预览：地表是可站立体素，不是天空盒。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R025",
+            "R042",
+            "R115"
+          ],
+          "observation": "R025 深灰封闭矿道与烟雾；R042 灰地、橙砖墙、大红渍与独立橙块；R115 砖纹橙墙顶上的黑块：矿道围合与玩家砖墙都在。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "有可行走地面，但是单色无限平面，没有树、矿道或墙等体素围合",
+          "id": "A2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评场所是否由可读的体素块构成林地、地下与玩家建造，而不是空天空盒或一张平面。Kenney 自然套/体素包原样铺满导致风格冲突归 A5。",
+      "evidence": {
+        "coverage": "跨场所；单块特写不能证明场所。",
+        "kind": "overview",
+        "unit": "地表、地下与一处建造体的对照"
+      },
+      "full_credit": "地表有可走的块与树或等价垂直物；地下有墙顶围合；玩家放置形成可辨结构（砖墙、柱、台），三处共用体素尺度。",
+      "group": "A",
+      "high_score_requirements": [
+        "林地与矿道的围合、光照不同，仍保持同一块尺度。",
+        "玩家放下的砖墙/台能从天然地形里认出来。",
+        "地平与天空让位给可走的块，不把场景缩成远景插画。"
+      ],
+      "id": "A2",
+      "inspired_by": [
+        "shadow-courier:A2"
+      ],
+      "partial_credit": "只有平坦地表能走，矿道或建造体缺一面；或块存在但场所之间没有围合差别。",
+      "title": "体素地表、矿道与建造体",
+      "zero_credit": "充分覆盖后没有可行走的地面或块表面，只有空背景。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R015",
+            "R025"
+          ],
+          "observation": "R001 居中金标题+白加载条；R015/R025 底栏一排圆角槽、当前槽黄框、右下 WASD 键位、左下红条、中央圆环准星：游玩 HUD 是槽和条，不是打印日志。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R119"
+          ],
+          "observation": "结果页白勾、金标题、左右对齐的统计表、三枚圆角底栏按钮 CHOOSE A MODE / TITLE / QUIT，与标题页同一黑底金标题语言。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "代表性的主要界面虽已有分组、底板或字号差，但核心信息的重要性与视觉重量长期明显相反，或主要信息组仍没有可辨阅读顺序，导致这一状态的主要编排关系实质缺失。须指出具体角色和范围；常见字体、纯文字、缺少面板或一个局部修饰问题均不触发。",
+          "id": "A3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评价物品/工具选择、瞄准、合成/进度信息与结果的实际视觉编排。重点是信息角色、文字/图形比例、留白与对齐、状态重点共同形成的界面设计；正确显示信息、有字号差或使用统一颜色只证明相应的局部成果。下列 GT 观察是设计作用的实例，具体颜色、字体、图标、面板和固定位置不构成复刻要求。",
+      "evidence": {
+        "coverage": "代表性正常界面与原录像覆盖的状态画面并列查看；关键文字及组间比例需要正常尺度全帧。只评价本任务已采用且已展示的组成。",
+        "kind": "overview",
+        "unit": "游玩 HUD 与一张整页界面"
+      },
+      "full_credit": "物品/工具选择、瞄准、合成/进度信息与结果在正常观看尺度下按当前任务的重要性形成清楚的视觉重量和阅读顺序；主要目标或行动状态有充分强调，名称、数值、辅助说明的比例、距离和对齐体现各自语义，弱化的信息仍有适当可读性。探索采集、合成建造与完成根据状态用途重新组织视觉中心、疏密与留白，同时延续可辨的字体角色或图形关系。整体编排已经形成完整、合乎内容的界面，不能仅由几组标签、标题放大和配色统一来证明。纯文字可以充分完成设计；仅评价实际采用的可选读数、图标、按钮和统计，不要求另加组件、面板或独立结果屏。",
+      "group": "A",
+      "high_score_requirements": [
+        "当前操作/持有状态、合成建造目标与辅助说明在正常画面中的视觉重量与当前用途匹配。指出强调了谁、弱化了谁以及字号/对比/位置/留白如何共同完成这一关系；仅列出标签和分组不算完整证据。",
+        "具体信息组内部与组间的比例、对齐和疏密共同形成阅读节奏，名称、读数、说明之间的联系清楚；同一字体、同一颜色或一条底板不自动证明这些关系完成。",
+        "探索采集、合成建造与完成各自的视觉中心与内容相称，状态变化通过实际编排表达用途变化；保持相同颜色或把一行字放大不足以单独证明完整，但有意义的简洁文字构图可以完整成立。",
+        "字体角色、形状、边缘或强调关系在整套界面中得到有目的的运用；需要说明具体处理产生了什么视觉效果，不能用‘没冲突、可读、风格统一’替代正面完成证据。"
+      ],
+      "id": "A3",
+      "inspired_by": [
+        "strategy-skirmish:A3"
+      ],
+      "partial_credit": "按已形成和未完成的设计关系连续判断：能读到文字但关键目标/状态的视觉重量弱于装饰性标题；标签与数值或相关说明靠简单并排仍缺少有效分组与阅读顺序；主次虽然有字号差，尺度、对比或留白却未配合语义；结果内容只是换字沿用普通读数排法，没有围绕已有完成信息形成视觉中心；局部做了边框或强调色，但主要界面仍缺乏上述编排。指出具体区域、相互比较的信息角色和可见后果，不能只说普通、简陋或缺乏高级感。仅有轻微间距问题时按局部损失判断；不能把缺少图标/插画、使用常见字体、不同字体家族或极简风格本身当缺陷。某信息是否缺失或错误归功能视觉项；本项须评价已展示信息怎样被设计，不能复用同一功能缺失扣分。",
+      "title": "界面的完整视觉编排",
+      "zero_credit": "所需观察范围充分时，主要界面完全没有实际视觉编排，只有无法形成信息角色或阅读顺序的散置占位内容。已经形成有效的局部编排应给部分完成度；没有拍到状态不等于没有设计。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R008",
+            "R025",
+            "RD003",
+            "RD031"
+          ],
+          "observation": "R008 准星带黑白横向进度条，目标块旁有白色碎屑；R025/RD003 矿道烟雾与镐头对着墙；RD031 橙墙出现褐色碎屑团：破碎绑在被打的面上。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R018",
+            "R096",
+            "RD041"
+          ],
+          "observation": "R018 地面有拱门灰色预览块；R096/RD041 过近提示出现时神器仍未坐下：放置有对准/拒绝过程，不是瞬切成功。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "采集或放置虽有闪一下或全屏特效，但过程不绑在被作用的那一块上",
+          "id": "A4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评破块、合成确认、放置是否有起止过程（进度条、碎屑、预览块），而不是对象瞬切。机制是否成立归 M1–M3。",
+      "evidence": {
+        "coverage": "需要 0.1s 级片段看进度与碎屑；只有总览抽帧时本条为 unknown，不评低。",
+        "kind": "action_sequence",
+        "unit": "一次采集或放置的密集片段"
+      },
+      "full_credit": "采集时准星或目标块有持续进度，碎屑或烟雾绑在被打的块上；放置前有预览或等价对准反馈；过程随动作结束而停。",
+      "group": "A",
+      "high_score_requirements": [
+        "采集进度在准星或目标块上能看到起止。",
+        "碎屑或烟雾出现在被打的那一块，不是屏幕中心万向特效。",
+        "放置预览或拒绝反馈与准星看向的表面对齐。"
+      ],
+      "id": "A4",
+      "inspired_by": [
+        "shadow-courier:A4"
+      ],
+      "partial_credit": "只有采集或只有放置有过程，另一类瞬切；或特效满屏，对不上被打的那一块。",
+      "title": "采集、合成与放置的世界层过程",
+      "zero_credit": "充分覆盖采集与放置后，世界层完全没有任何过程，只有对象出现/消失。未拍到连续动作为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R003",
+            "R025",
+            "R119"
+          ],
+          "observation": "林地橙地白干、矿道深灰、结果页黑底金标题与标题页同一套；没有插入资产页里的 Kenney 角色群或等距自然岛。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S008",
+            "S049",
+            "S057"
+          ],
+          "observation": "S008 是 Kenney 方块角色群，S049 等距自然套场景，S057 横版体素平台：这些原图没有出现在 R003–R119 的游玩或结果页里。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "代表性的正常画面中，主体、场所、效果和信息层虽各自存在，但跨部分的主要行动焦点或空间层次持续未建立：须有具体比例、明暗、遮挡或布局关系使主要行动被压成次要点或各部分无法形成同一空间的证据。配色一致不能豁免；个别装饰不足、单帧重叠或局部细节缺失不触发。",
+          "id": "A5-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评价持有物/行动视角、体素场所、交互对象与信息层共同组成的整幅画面怎样表现探索体素世界并通过采集合成完成建造。本项需要跨部分构图、比例、空间与注意力层次的正面成果；能够认出同一游戏、配色一致或没有严重风格冲突只证明有限的协调。不再次评价 A1–A4 的局部制作水平，不把 GT 的具体风格和配色变成强制答案。",
+      "evidence": {
+        "coverage": "以多个独立阶段的正常全帧检查整体关系，并与原录像覆盖的状态画面比较；不以单一漂亮结果页补偿游玩画面的主要关系缺失。",
+        "kind": "whole_scope",
+        "unit": "标题、一处游玩场所与结果页的对照"
+      },
+      "full_credit": "对准物件、当前建造区域与工具状态在代表性画面中形成有目的的关注关系；主体所占视觉重量、场所的衬托、效果的强调和信息层的介入共同表现探索体素世界并通过采集合成完成建造。各部分在尺度、明暗/色彩、边缘与空间上的配合形成完整画面，能指出主体如何处于场所中、效果如何依附其对象、界面如何配合当前状态。跨已展示的阶段与结果，视觉语言通过这些关系延续并适应状态变化；统一调色、重复字体或相同像素边不能代替整体构图与氛围的完成。几何、极简、像素、混合渲染和主题变化均可完整成立，不要求增加装饰或效果种类。",
+      "group": "A",
+      "high_score_requirements": [
+        "对准物件、当前建造区域与工具状态的关注顺序由整幅构图、视觉重量与场景衬托共同组织，具体说明至少两个部分如何相互支持。对象存在、能定位或颜色区分开，只是这项成果的一部分。",
+        "持有物/行动视角、体素场所、交互对象与信息层之间的尺度、明暗/色彩、边缘或空间关系共同形成探索体素世界并通过采集合成完成建造的表现，举出画面中实际成立的整合关系；不能仅凭共享调色或材质名称判完整。",
+        "已展示的游玩阶段与结果通过构图、强调、形态或空间关系延续同一视觉方向，并适应各状态的用途；只复用一种颜色或字体并不能单独证明整套呈现完成。"
+      ],
+      "id": "A5",
+      "inspired_by": [
+        "strategy-skirmish:A1"
+      ],
+      "partial_credit": "按尚未建立的跨部分关系及其重要性给连续分：颜色相近却只是主体、平面场地、标记和顶栏的并置，比例与明暗没有共同组织主要行动；效果、装饰或信息层的面积/对比持续压过应被关注的世界主体或目标，使行动中心退化为画面的次要点；物件、地面和效果各自可辨，却在接地、遮挡或视觉尺度上缺乏联系，整幅画面的空间表现未形成；游玩与结果只复用颜色，实际构图和强调关系没有支持其体验的延续。必须指出至少两个部分之间的可见关系与结果，不能以‘拼装感、没氛围’概括，也不能再次列角色缺细节、地面少装饰或界面字小作为独立扣分。局部轻微不协调按局部判断；不同风格、稀疏场景、明亮特效或大界面并不自动证明失败。",
+      "title": "整体构图与美术整合",
+      "zero_credit": "代表性画面中各部分没有共同形成可辨的主要行动、空间层次或整体表现方向，只有互不关联的内容并置。已形成的实际关系应保留部分完成度；不能因画风不合偏好给零分。"
+    }
+  ],
+  "rubric_version": "2026-09-19.vlm-art-relationships-v1",
+  "score_curve": {
+    "caps_scale": "final_score",
+    "exponent": 3,
+    "input": "attainment",
+    "missing_evidence": null,
+    "name": "power"
+  },
+  "self_review": {
+    "overlap": "事件唯一归属表：采集是否让块离开并入库 → M1；合成是否产出不同于原块的新物 → M2；放置是否在世界层长出对象 → M3；多步与成功态是否存在 → M4（标题页非必需）；步骤是否真换动作 → D1（无合成/放置则 N/A）；失败/恢复 → D4；场所是否要走着到达 → D2；代价是否变化并约束动作 → D3；材料/工具/场所形体预读 → V1；步骤/计时/库存同步与遮挡 → V2；合成/放置/危害提示是否对准当前动作 → V3；结果页组织（存在但读不出语义）→ V4；完全没有成功态 → M4；持握物形体 → A1；体素场所 → A2；界面图形语言 → A3；破块/放置过程 → A4；跨部分色板 → A5。caps 互斥：D1-C1 是已有多步标签但动作仍只有采集，D1 零分是没有多步标签；D2-C1 是已有场所/距离标签但交互仍在同一平地，D2 零分是连标签都没有；V1-C1 评形体不可预读，D1 评行为是否换；V3-C1 是提示冻结，V3 零分是完全无提示；V2-C1 是读数脱节，V2 零分是没有读数；A1-C1 是栏/标题有工具但第一人称无持握，A1 零分是栏和持握都没有；A2-C1 是有地面无围合，A2 零分是没有地面；A3-C1 是有少量槽但主体是调试字，A3 零分是没有任何槽条按钮；A4-C1 评过程不绑块，A4 零分是完全无过程；A4 与 M1/M3 不叠加（M 只问对象是否变化）。",
+    "scope": "17 项（M4/D4/V4/A5）。brief 必需含 failure/recovery，故 D 组增 D4；M 仍 4 条只写采集/合成/放置/流程。标题页不是必需，V4 条件化。",
+    "uncertainties": "STEP 4 未单独看清；R115 HUD 0/1 与横幅不一致；左下红条是饥饿还是别的消耗不能从像素定名，只按会变的代价条记。音频未覆盖。未建立独立语义审查证据。未建立人工分数校准证据。",
+    "unsupported_obligations": "未要求：七步原名、铁木/四种矿/基座距离、按 K、黄壳战斗、失败页必须出现、Kenney 角色或自然套原图、InputMap 文件字段、特定字体文件、统计必须含 HUSKS FELLED。"
+  },
+  "task_map": {
+    "freedom": [
+      "地形、配方链、资源布置、生物压力、计时与视觉风格均可自选。",
+      "GT 的七步 Forge Run、铁木/矿脉/基座、按 K 野外合成、黄壳生物只是例子；不要求复用给定 Kenney 角色包或自然套原图。",
+      "InputMap 声明与源码绑定无法从像素证明，只评画面上采集与合成/放置是否分成两套动作。"
+    ],
+    "required": [
+      "有界第一人称体素目标：在小世界里采集材料、走可见配方链、建造完成一局的物体。",
+      "采集与合成/放置必须是两套可区分的动作（brief 要求 extended action 覆盖放置或合成，且不同于采矿键）；具体配方、地形、危害与风格自由。",
+      "有库存/合成决策、危害或代价、失败/恢复、以及最终建造。失败支路 GT 未拍到，该子项未覆盖时为 unknown。"
+    ]
+  }
+}

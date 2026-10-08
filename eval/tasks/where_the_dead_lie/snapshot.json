@@ -1,0 +1,772 @@
+{
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "driver_sha256": "7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742",
+  "endings": {
+    "defeat": "res://Scenes/Flow/level_failed.tscn",
+    "run_complete": "res://Scenes/Flow/run_complete.tscn",
+    "victory": "res://Scenes/Flow/level_clear.tscn"
+  },
+  "engine": "4.5.1",
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "extended_actions": [
+      {
+        "id": "turn_left",
+        "why": "Discrete yaw control is required to face generators, chests, the door, and exit."
+      },
+      {
+        "id": "turn_right",
+        "why": "Discrete yaw control is required to face generators, chests, the door, and exit."
+      },
+      {
+        "id": "look_up",
+        "why": "Discrete pitch control is required to aim the flashlight and inspect targets."
+      },
+      {
+        "id": "look_down",
+        "why": "Discrete pitch control is required to aim the flashlight and inspect targets."
+      }
+    ],
+    "interface_version": 2,
+    "normalized_sha256": "4d257c6d6064a5fc62f2ece251c3b85699b193b4d1f844afb3874fdb1919c07c",
+    "source_sha256": "b91d105058485ead029a7fdeb611928b6ce16a9ca43f44f226d9d70c1f30939b"
+  },
+  "levels": [
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          51.0764007568359,
+          1.5,
+          12.7946996688843
+        ],
+        "min3": [
+          -16.6387996673584,
+          -0.340986013412476,
+          -29.4832000732422
+        ],
+        "plane": "xz",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 0,
+        "alive_before": 0,
+        "attempted": false,
+        "delta": 0,
+        "detail": "this level declares no gb_collectible, so there is nothing to pick up",
+        "effect": {},
+        "target": ""
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://Scenes/Levels/benchmark_catacombs.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "0 collect-and-deliver cycles then 120 frames on Goal, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://Scenes/Levels/benchmark_catacombs.tscn",
+        "scene_before": "res://Scenes/Levels/benchmark_catacombs.tscn",
+        "target": "Goal"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_door": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.245717350951138,
+              "y": 0.857718099943672
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              0.0,
+              6.77931976318359
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.245717350951138,
+              "y": 0.951863739787728
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              1.5,
+              10.7595996856689
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              51.0764007568359,
+              0.0807610005140305,
+              -29.4832000732422
+            ]
+          ]
+        },
+        "gb_interactive": {
+          "alive": 8,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.114414186564481,
+              "y": 0.501987104410487
+            },
+            {
+              "valid": true,
+              "x": 0.320286574939003,
+              "y": 0.347292566152205
+            },
+            {
+              "valid": true,
+              "x": 0.600399912490095,
+              "y": 0.469440765164508
+            },
+            {
+              "valid": true,
+              "x": 0.810692427049799,
+              "y": 0.866574978100831
+            },
+            {
+              "valid": true,
+              "x": 0.290394173983312,
+              "y": 0.834590416572236
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.607379983271974
+            },
+            {
+              "valid": true,
+              "x": 0.338991535385614,
+              "y": 0.267380839095082
+            },
+            {
+              "valid": true,
+              "x": 0.745018818094067,
+              "y": 0.851904198520644
+            }
+          ],
+          "total": 8,
+          "world": [
+            [
+              -8.89122009277344,
+              0.055782001465559,
+              -8.26023960113525
+            ],
+            [
+              5.04946994781494,
+              -0.00573159987106919,
+              -14.8003997802734
+            ],
+            [
+              24.0174007415771,
+              -0.340986013412476,
+              -9.63623046875
+            ],
+            [
+              38.2574005126953,
+              0.342236012220383,
+              7.15376996994019
+            ],
+            [
+              3.02530002593994,
+              0.499255001544952,
+              5.80152988433838
+            ],
+            [
+              -16.6387996673584,
+              -0.253093987703323,
+              -3.80445003509521
+            ],
+            [
+              6.31608009338379,
+              0.0,
+              -18.1788997650146
+            ],
+            [
+              33.8102989196777,
+              0.186874002218246,
+              6.53352022171021
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.24563365556412,
+              "y": 1.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              -0.00566744990646839,
+              0.800639569759369,
+              12.7946996688843
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "progress": 0.0,
+        "timer": 716.500079333333
+      },
+      "numeric_source": {
+        "progress": "declared",
+        "timer": "declared"
+      },
+      "reached": true,
+      "scene": "res://Scenes/Levels/benchmark_catacombs.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "progress": 0.0,
+            "timer": 718.501866666667
+          },
+          "phase": "settle",
+          "player": [
+            -0.00566744990646839,
+            0.800639569759369,
+            12.7946996688843
+          ],
+          "scene_path": "res://Scenes/Levels/benchmark_catacombs.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "progress": 0.0,
+            "timer": 718.404644444444
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.5,
+            10.7595996856689
+          ],
+          "scene_path": "res://Scenes/Levels/benchmark_catacombs.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "progress": 0.0,
+            "timer": 718.273438333333
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.5,
+            10.7595996856689
+          ],
+          "scene_path": "res://Scenes/Levels/benchmark_catacombs.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "progress": 0.0,
+            "timer": 718.135429333333
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.5,
+            10.7595996856689
+          ],
+          "scene_path": "res://Scenes/Levels/benchmark_catacombs.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "progress": 0.0,
+            "timer": 718.004336333333
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.5,
+            10.7595996856689
+          ],
+          "scene_path": "res://Scenes/Levels/benchmark_catacombs.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "progress": 0.0,
+            "timer": 717.873235333333
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.5,
+            10.7595996856689
+          ],
+          "scene_path": "res://Scenes/Levels/benchmark_catacombs.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "progress": 0.0,
+            "timer": 717.735238333333
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.5,
+            10.7595996856689
+          ],
+          "scene_path": "res://Scenes/Levels/benchmark_catacombs.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "progress": 0.0,
+            "timer": 717.604127333333
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.5,
+            10.7595996856689
+          ],
+          "scene_path": "res://Scenes/Levels/benchmark_catacombs.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "progress": 0.0,
+            "timer": 717.473036333333
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.5,
+            10.7595996856689
+          ],
+          "scene_path": "res://Scenes/Levels/benchmark_catacombs.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "progress": 0.0,
+            "timer": 717.335038333333
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.5,
+            10.7595996856689
+          ],
+          "scene_path": "res://Scenes/Levels/benchmark_catacombs.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "progress": 0.0,
+            "timer": 717.203936333333
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.5,
+            10.7595996856689
+          ],
+          "scene_path": "res://Scenes/Levels/benchmark_catacombs.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "progress": 0.0,
+            "timer": 717.072836333333
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.5,
+            10.7595996856689
+          ],
+          "scene_path": "res://Scenes/Levels/benchmark_catacombs.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "progress": 0.0,
+            "timer": 716.934838333333
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.5,
+            10.7595996856689
+          ],
+          "scene_path": "res://Scenes/Levels/benchmark_catacombs.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "progress": 0.0,
+            "timer": 716.803735333333
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.5,
+            10.7595996856689
+          ],
+          "scene_path": "res://Scenes/Levels/benchmark_catacombs.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "progress": 0.0,
+            "timer": 716.672635333333
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.5,
+            10.7595996856689
+          ],
+          "scene_path": "res://Scenes/Levels/benchmark_catacombs.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "progress": 0.0,
+            "timer": 716.534559333333
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.5,
+            10.7595996856689
+          ],
+          "scene_path": "res://Scenes/Levels/benchmark_catacombs.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 8,
+            "gb_player": 1
+          },
+          "frame": 210,
+          "numeric": {
+            "progress": 0.0,
+            "timer": 716.500079333333
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.5,
+            10.7595996856689
+          ],
+          "scene_path": "res://Scenes/Levels/benchmark_catacombs.tscn"
+        }
+      ],
+      "spawn": [
+        -0.00566744990646839,
+        0.800639569759369,
+        12.7946996688843
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.24563365556412048,
+        "y": 1.0
+      },
+      "stop_reason": "goal_no_transition"
+    }
+  ],
+  "liveness": [
+    {
+      "action": "gb_left",
+      "detail": "gb_left differs from the idle control on velocity (delta 3.316 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "velocity"
+    },
+    {
+      "action": "gb_right",
+      "detail": "gb_right differs from the idle control on velocity (delta 3.316 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "velocity"
+    },
+    {
+      "action": "gb_up",
+      "detail": "gb_up differs from the idle control on position (delta 32.788 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_down",
+      "detail": "gb_down differs from the idle control on position (delta 4.873 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_jump",
+      "detail": "gb_jump is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    },
+    {
+      "action": "gb_action",
+      "detail": "gb_action is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    }
+  ],
+  "no_input_no_win": true,
+  "no_input_stop_reason": "budget_frames",
+  "notes": [
+    "liveness deadline derived from this project's own structural pass: 25.7 ms/frame median, 25.7 ms/frame worst",
+    "liveness sweep: 4 live / 2 dead against the 420-frame idle control truth/L0#idle420"
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "where_the_dead_lie",
+  "read_failure": "",
+  "taken_at": "2026-09-10T09:24:18+00:00",
+  "version": "1"
+}

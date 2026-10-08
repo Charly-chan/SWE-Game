@@ -1,0 +1,250 @@
+{
+  "game_id": "hazard_circuit",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "reference_media/assets/sprites/player/rx9_front.png",
+        "id": "S004",
+        "label": "reference_media/assets/sprites/player/rx9_front.png"
+      },
+      {
+        "bundled_path": "media/S008.png",
+        "id": "S008",
+        "label": "kenney_background-elements-0.png"
+      },
+      {
+        "asset_path": "reference_media/assets/sprites/player/rx9_stand.png",
+        "id": "S011",
+        "label": "reference_media/assets/sprites/player/rx9_stand.png"
+      },
+      {
+        "bundled_path": "media/S015.png",
+        "id": "S015",
+        "label": "kenney_background-elements-1.png"
+      },
+      {
+        "asset_path": "reference_media/assets/sprites/ui/button.png",
+        "id": "S020",
+        "label": "reference_media/assets/sprites/ui/button.png"
+      },
+      {
+        "asset_path": "reference_media/assets/sprites/ui/button_pressed.png",
+        "id": "S032",
+        "label": "reference_media/assets/sprites/ui/button_pressed.png"
+      },
+      {
+        "asset_path": "reference_media/assets/sprites/tiles/ice_block.png",
+        "id": "S037",
+        "label": "reference_media/assets/sprites/tiles/ice_block.png"
+      },
+      {
+        "asset_path": "reference_media/assets/sprites/hazards/roller_a.png",
+        "id": "S056",
+        "label": "reference_media/assets/sprites/hazards/roller_a.png"
+      },
+      {
+        "asset_path": "reference_media/assets/sprites/hazards/roller_b.png",
+        "id": "S060",
+        "label": "reference_media/assets/sprites/hazards/roller_b.png"
+      },
+      {
+        "asset_path": "reference_media/assets/sprites/tiles/metal_mid.png",
+        "id": "S067",
+        "label": "reference_media/assets/sprites/tiles/metal_mid.png"
+      },
+      {
+        "bundled_path": "media/S073.png",
+        "id": "S073",
+        "label": "FONT PREVIEW reference_media/assets/fonts/kenney_future.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "reference_media/assets/fonts/kenney_future.ttf"
+      },
+      {
+        "bundled_path": "media/S074.png",
+        "id": "S074",
+        "label": "FONT PREVIEW reference_media/assets/fonts/kenney_future_narrow.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "reference_media/assets/fonts/kenney_future_narrow.ttf"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "kenney_background-elements.zip",
+        "kenney_jumper-pack.zip",
+        "kenney_physics-assets.zip",
+        "kenney_platformer-art-deluxe.zip",
+        "reference_media/assets/audio",
+        "reference_media/assets/fonts",
+        "reference_media/assets/sprites"
+      ],
+      "file_count": 82,
+      "font_files": [
+        "reference_media/assets/fonts/kenney_future.ttf",
+        "reference_media/assets/fonts/kenney_future_narrow.ttf"
+      ]
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry. Font previews are rendered from actual supplied font files; preview wording is illustrative, not additional task requirements.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 509.6,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R019",
+        "time_s": 78.0
+      },
+      {
+        "id": "R027",
+        "time_s": 112.667
+      },
+      {
+        "id": "R028",
+        "time_s": 117.0
+      },
+      {
+        "id": "R037",
+        "time_s": 156.0
+      },
+      {
+        "id": "R038",
+        "time_s": 160.333
+      },
+      {
+        "id": "R042",
+        "time_s": 177.667
+      },
+      {
+        "id": "R043",
+        "time_s": 182.0
+      },
+      {
+        "id": "R057",
+        "time_s": 242.667
+      },
+      {
+        "id": "R060",
+        "time_s": 255.667
+      },
+      {
+        "id": "R084",
+        "time_s": 359.667
+      },
+      {
+        "id": "R091",
+        "time_s": 390.0
+      },
+      {
+        "id": "R096",
+        "time_s": 411.667
+      },
+      {
+        "id": "R103",
+        "time_s": 442.0
+      },
+      {
+        "id": "R106",
+        "time_s": 455.0
+      },
+      {
+        "id": "R118",
+        "time_s": 507.0
+      },
+      {
+        "id": "R119",
+        "time_s": 509.583
+      },
+      {
+        "clip": 1,
+        "id": "RD001",
+        "time_s": 101.92
+      },
+      {
+        "clip": 1,
+        "id": "RD008",
+        "time_s": 102.62
+      },
+      {
+        "clip": 1,
+        "id": "RD010",
+        "time_s": 102.82
+      },
+      {
+        "clip": 1,
+        "id": "RD018",
+        "time_s": 103.62
+      },
+      {
+        "clip": 1,
+        "id": "RD019",
+        "time_s": 103.72
+      },
+      {
+        "clip": 2,
+        "id": "RD021",
+        "time_s": 254.8
+      },
+      {
+        "clip": 2,
+        "id": "RD033",
+        "time_s": 256.0
+      },
+      {
+        "clip": 2,
+        "id": "RD040",
+        "time_s": 256.7
+      },
+      {
+        "clip": 3,
+        "id": "RD041",
+        "time_s": 407.68
+      },
+      {
+        "clip": 3,
+        "id": "RD046",
+        "time_s": 408.18
+      },
+      {
+        "clip": 3,
+        "id": "RD049",
+        "time_s": 408.48
+      },
+      {
+        "clip": 3,
+        "id": "RD052",
+        "time_s": 408.78
+      },
+      {
+        "clip": 3,
+        "id": "RD053",
+        "time_s": 408.88
+      },
+      {
+        "clip": 3,
+        "id": "RD057",
+        "time_s": 409.28
+      },
+      {
+        "clip": 3,
+        "id": "RD058",
+        "time_s": 409.38
+      },
+      {
+        "clip": 3,
+        "id": "RD060",
+        "time_s": 409.58
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.2315541601255887,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Hazard Circuit — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nRead the rhythm of a machine-like obstacle course, fail cheaply, learn quickly, and chain movement through the complete circuit.\n\n## Scope boundary\n\nA bounded 2D parkour platformer with multiple hazard combinations, fast recovery, checkpoints or retries, and full-course completion.\n\n## Creative freedom\n\nYou may choose the act count, movement details, hazard timing, checkpoint spacing, and industrial presentation.\n"
+}

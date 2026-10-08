@@ -1,0 +1,398 @@
+{
+  "game_id": "shadow_walker",
+  "provided_assets": {
+    "frames": [
+      {
+        "bundled_path": "media/S001.png",
+        "description": "玩家、守卫、宝箱完整图集；最近邻放大用于查看素材结构，不代表游戏内显示比例。",
+        "id": "S001"
+      },
+      {
+        "bundled_path": "media/S002.png",
+        "description": "代表性墙体、地板、植被图集；可用选项，不要求全部使用。",
+        "id": "S002"
+      }
+    ],
+    "inventory": {
+      "audio": "provided, not assessed from silent images",
+      "characters": [
+        "player",
+        "guard_ninja_blue",
+        "slime",
+        "skeleton variants"
+      ],
+      "environment": [
+        "walls",
+        "doors",
+        "floors",
+        "vegetation",
+        "grass",
+        "fences",
+        "water"
+      ],
+      "font_files": false,
+      "objects": [
+        "chest variants",
+        "objects sheets"
+      ],
+      "ui_kit": false
+    },
+    "limitations": [
+      "No requirement to use every file or match exact pixels.",
+      "Asset availability is not candidate evidence; visual correspondence cannot establish exact file loads.",
+      "No supplied UI kit or font files; custom UI is judged by realized visual integration.",
+      "Unused animations or water/skeleton resources do not create extra requirements."
+    ],
+    "preview_scope": "Previews are selected from the same visible/assets/reference_media/assets/sprites subtree present in both evaluated task packages. The complete inventory has 58 files; previews focus on subjects and representative environment resources used in the demonstrated target.",
+    "usage_requirement": "Use the supplied material as a palette, not as evidence for mechanics."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 53.75,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R002",
+        "time_s": 1.0
+      },
+      {
+        "id": "R003",
+        "time_s": 2.0
+      },
+      {
+        "id": "R004",
+        "time_s": 3.0
+      },
+      {
+        "id": "R005",
+        "time_s": 4.0
+      },
+      {
+        "id": "R006",
+        "time_s": 5.0
+      },
+      {
+        "id": "R007",
+        "time_s": 6.0
+      },
+      {
+        "id": "R008",
+        "time_s": 7.0
+      },
+      {
+        "id": "R009",
+        "time_s": 8.0
+      },
+      {
+        "id": "R010",
+        "time_s": 9.0
+      },
+      {
+        "id": "R011",
+        "time_s": 10.0
+      },
+      {
+        "id": "R013",
+        "time_s": 12.0
+      },
+      {
+        "id": "R014",
+        "time_s": 13.0
+      },
+      {
+        "id": "R015",
+        "time_s": 14.0
+      },
+      {
+        "id": "R016",
+        "time_s": 15.0
+      },
+      {
+        "id": "R017",
+        "time_s": 16.0
+      },
+      {
+        "id": "R018",
+        "time_s": 17.0
+      },
+      {
+        "id": "R019",
+        "time_s": 18.0
+      },
+      {
+        "id": "R024",
+        "time_s": 23.0
+      },
+      {
+        "id": "R025",
+        "time_s": 24.0
+      },
+      {
+        "id": "R027",
+        "time_s": 26.0
+      },
+      {
+        "id": "R028",
+        "time_s": 27.0
+      },
+      {
+        "id": "R030",
+        "time_s": 29.0
+      },
+      {
+        "id": "R031",
+        "time_s": 30.0
+      },
+      {
+        "id": "R032",
+        "time_s": 31.0
+      },
+      {
+        "id": "R033",
+        "time_s": 32.0
+      },
+      {
+        "id": "R034",
+        "time_s": 33.0
+      },
+      {
+        "id": "R035",
+        "time_s": 34.0
+      },
+      {
+        "id": "R036",
+        "time_s": 35.0
+      },
+      {
+        "id": "R037",
+        "time_s": 36.0
+      },
+      {
+        "id": "R038",
+        "time_s": 37.0
+      },
+      {
+        "id": "R039",
+        "time_s": 38.0
+      },
+      {
+        "id": "R040",
+        "time_s": 39.0
+      },
+      {
+        "id": "R041",
+        "time_s": 40.0
+      },
+      {
+        "id": "R043",
+        "time_s": 42.0
+      },
+      {
+        "id": "R044",
+        "time_s": 43.0
+      },
+      {
+        "id": "R045",
+        "time_s": 44.0
+      },
+      {
+        "id": "R047",
+        "time_s": 46.0
+      },
+      {
+        "id": "R048",
+        "time_s": 47.0
+      },
+      {
+        "id": "R049",
+        "time_s": 48.0
+      },
+      {
+        "id": "R050",
+        "time_s": 49.0
+      },
+      {
+        "id": "R051",
+        "time_s": 50.0
+      },
+      {
+        "id": "R052",
+        "time_s": 51.0
+      },
+      {
+        "id": "R055",
+        "time_s": 53.7333
+      },
+      {
+        "id": "RD001",
+        "time_s": 2.5
+      },
+      {
+        "id": "RD004",
+        "time_s": 2.7
+      },
+      {
+        "id": "RD007",
+        "time_s": 2.9
+      },
+      {
+        "id": "RD008",
+        "time_s": 2.9667
+      },
+      {
+        "id": "RD010",
+        "time_s": 3.1
+      },
+      {
+        "id": "RD011",
+        "time_s": 3.1667
+      },
+      {
+        "id": "RD013",
+        "time_s": 3.3
+      },
+      {
+        "id": "RD016",
+        "time_s": 3.5
+      },
+      {
+        "id": "RD019",
+        "time_s": 3.7
+      },
+      {
+        "id": "RD022",
+        "time_s": 3.9
+      },
+      {
+        "id": "RD025",
+        "time_s": 4.1
+      },
+      {
+        "id": "RD028",
+        "time_s": 4.3
+      },
+      {
+        "id": "RD029",
+        "time_s": 4.3667
+      },
+      {
+        "id": "RD031",
+        "time_s": 4.5
+      },
+      {
+        "id": "RD032",
+        "time_s": 4.5667
+      },
+      {
+        "id": "RD034",
+        "time_s": 4.7
+      },
+      {
+        "id": "RD035",
+        "time_s": 4.7667
+      },
+      {
+        "id": "RD053",
+        "time_s": 5.9667
+      },
+      {
+        "id": "RD055",
+        "time_s": 6.1
+      },
+      {
+        "id": "RD056",
+        "time_s": 6.1667
+      },
+      {
+        "id": "RD070",
+        "time_s": 17.6
+      },
+      {
+        "id": "RD071",
+        "time_s": 17.6667
+      },
+      {
+        "id": "RD073",
+        "time_s": 17.8
+      },
+      {
+        "id": "RD074",
+        "time_s": 17.8667
+      },
+      {
+        "id": "RD076",
+        "time_s": 18.0
+      },
+      {
+        "id": "RD088",
+        "time_s": 18.8
+      },
+      {
+        "id": "RD091",
+        "time_s": 19.0
+      },
+      {
+        "id": "RD094",
+        "time_s": 19.2
+      },
+      {
+        "id": "RD115",
+        "time_s": 20.6
+      },
+      {
+        "id": "RD118",
+        "time_s": 20.8
+      },
+      {
+        "id": "RD121",
+        "time_s": 43.0
+      },
+      {
+        "id": "RD124",
+        "time_s": 43.2
+      },
+      {
+        "id": "RD127",
+        "time_s": 43.4
+      },
+      {
+        "id": "RD148",
+        "time_s": 44.8
+      },
+      {
+        "id": "RD151",
+        "time_s": 45.0
+      },
+      {
+        "id": "RD154",
+        "time_s": 45.2
+      },
+      {
+        "id": "RD166",
+        "time_s": 46.0
+      },
+      {
+        "id": "RD169",
+        "time_s": 46.2
+      },
+      {
+        "id": "RD175",
+        "time_s": 46.6
+      },
+      {
+        "id": "RD179",
+        "time_s": 46.8667
+      }
+    ],
+    "limitations": "No failure/retry, independent loading, input timing, hidden implementation or audio. Dense excerpts support visible motion only within their declared coverage.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 1,
+    "sampling_note": "R001-R055: full 1fps overview. RDxxx: three separate four-second excerpts sampled at roughly 10fps from retained 15fps frames (2.5–6.5s, 17–21s, 43–47s). Excerpt boundaries are not continuous game events.",
+    "scope": "The supplied video is also input to the evaluated model. It demonstrates three-level successful stealth play, guard patrol and visible vision cones, chest-objective state changes, exits, and final success. Failure/retry, independent loading, internal determinism and audio are not shown and are outside this VLM rubric."
+  },
+  "statement": "# Shadow Walker — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nObserve deterministic guard vision and patrol timing, cross when attention is elsewhere, and complete an infiltration without combat.\n\n## Scope boundary\n\nA compact top-down stealth game with three independently addressable infiltration levels, readable detection, capture/failure, retry, and final success after clearing all three levels.\n\n## Creative freedom\n\nYou may choose the floor plan, patrols, distractions, objectives, and visual readability language.\n"
+}

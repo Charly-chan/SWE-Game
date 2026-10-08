@@ -1,0 +1,79 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-09-07T11:17:30+00:00",
+  "interface_requirements": {
+    "O9": {
+      "fields": [],
+      "reason": "reference has no registered anchor expectation",
+      "required": false
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 0,
+        "gb_door": 7,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 0,
+        "gb_interactive": 1,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_door": [
+          "x",
+          4
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://source/bench/bench_level.tscn",
+      "spawn_goal_distance": 0.050868757942072226
+    }
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "dont_stop",
+  "runtime_assets": {
+    "res://assets/Sprites/1 - Fire & Bugs.png": "43ff79a1139a49cb0fa5a0a0404e5fd067d9766a728c40bbe7cfa7e4215b4d55",
+    "res://assets/Sprites/2 - Power & Electricity.png": "ea0271a72ea7f5c9bf216ece7ceb780906f3a85f48cee0bb1dfede6d663a7536",
+    "res://assets/Sprites/The Tiny Alchemist - Guns/gun2.png": "653304ecfb67b895337dd7e8e66b4701b6b45b8a603e2e4e2b6142d11f1cb4b7",
+    "res://assets/Sprites/crosshair186.png": "143099d98b4bfb55a83fce68af8db74bb22f1c5087bed24a1c7f549295be5e5f",
+    "res://assets/Sprites/item_box_no_shader.png": "66fbc25b36f5298ce76f254fc423370bd86adb62a33a8de92fc3f8d141cf879b",
+    "res://assets/Sprites/light2.png": "086857505b679ccdede704d4afe9e86a3d2a1e9361263cabd5f5406e7a264621",
+    "res://assets/Sprites/particle/effect_4.png": "b1f7c0be8403d12efe5c892338da2b701a9a3b49ccdacc283f1aca5682ac8a00",
+    "res://assets/Sprites/shell_case.png": "ca57edfe9a15c20657e9b458652a54f1fc5912d4cbc66a3886cfb7fc57b6a818",
+    "res://assets/Sprites/ui/Assets-1-恢复的_03.png": "b9a04f8bebabef7be775ed57c5f5a174da4d2ced7e4939199087adc042166160",
+    "res://assets/Sprites/ui/title.png": "cb2f9a385135a8e250b79e42c700930f2c34e8f3c7615acdaba96e18b8aa8ab0",
+    "res://assets/audio/CLOTHMvmt_Clothing Rustle Arm_01.wav": "bab268c3e1bb0c570ccc94bd10e930c20075407772796d3e0837fa513a18e914",
+    "res://assets/audio/DSGNMisc_Kill Confirm Metallic_01.wav": "9bda8b85dc7fc5a30b7a34462d1292316eff4ee0cf73c4a04fae4e7484e6c782",
+    "res://assets/audio/GUNAuto_Assault Rifle A Fire_01.wav": "ef690f7ad2b27c95f46d749a24c991d8318ca1fc7601307fc5672e483cc628cb",
+    "res://assets/audio/bgm/Cephalopod.mp3": "fa87b4b9861683585cec3e38e2f7e057f84140dc6a6ce64d630aa449171f8fe2",
+    "res://assets/audio/bullet/GUNMech_Insert Clip_01.wav": "8e25b483a617b937f980b00fbeeff88744167454160d82f9fea8c06b4cf49241",
+    "res://assets/fonts/CCOverbyteOn.ttf": "99683e298f8bc03453c0eb811334f5c8912576433453a8513d20b906158dc073",
+    "res://assets/fonts/px.ttf": "5e2d83303dbd80b116d9d51b3de0a9aa7e80d8864b78f8ed01fd12490f651fae",
+    "res://assets/game/bullets/assets/lights1.png": "531deeb373b8555175edc9d45c7e8c5f5e3ced2b3251fed3016176e23a37fff2",
+    "res://assets/game/hero/Light (1).png": "aad2b295592d39e27962be3caf3abee2f6f26319358a256fd466e3f1023d8f22",
+    "res://assets/game/hero/Tiny Alchemist Sprite Sheet 48x32.png": "e94ab67f63fb5b3b9091196b94245bec8fb36a1ca77eb024859058412fe00164",
+    "res://assets/game/hero/undead_shadow.png": "db953ed09cc7536f39faa28106fa8b480a2972384f757dc288a5ca3fd3ff386d",
+    "res://assets/game/map/Moon/tileset.png": "1b6fe89aca7a7d1f7f0f4a3ba7c60587810a98f5da7dce1c6b4bae88b96f6281",
+    "res://assets/game/map/Pre-built house 3.png": "e096a5904e8007d0fafa8a0d1d3eda79f14157e0a9fd13eaec5c178805fb452f",
+    "res://assets/game/map/next.png": "9f90f872cf19c077a675cc9e418997b88557200982c0bd1a9a2f901be74aee84",
+    "res://assets/game/map/tip.png": "43284a293f112889393f9654c5890b93c138e3ef0d8ed16af6ece62956451ad5",
+    "res://assets/game/map/top down tileset.png": "39945a02abecdb11b9b8015e67955ed0b45975c7a85eee6ea6ff1a714ea47249",
+    "res://assets/game/map/victorian tileset.png": "3d754a1d482362fe8a747bd5f87e94e73fdffd3d3b160f21e8d30fe178e41c06",
+    "res://assets/icon.svg": "da97ab7aac233047029a9fd47e915059fda75d8dd43fc15b0e71d300f4f20f0f"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

@@ -1,0 +1,66 @@
+name: Publish container images
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    tags: ["toolchain-*"]
+    paths:
+      - "docker/**"
+      - "eval/evalsys/requirements.txt"
+      - ".github/workflows/publish-container-images.yml"
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency:
+  group: publish-container-images
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          lfs: false
+          sparse-checkout: |
+            docker
+            eval/evalsys/requirements.txt
+          sparse-checkout-cone-mode: false
+
+      - name: Make room for the Unity toolchain
+        run: |
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet
+          df -h /
+
+      - name: Build toolchain images
+        run: ./docker/build.sh all
+
+      - name: Check installed tools and Godot rendering
+        run: ./docker/smoke.sh
+
+      - name: Log in to GHCR
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GHCR_USER: ${{ github.actor }}
+        run: printf '%s' "$GHCR_TOKEN" | docker login ghcr.io --username "$GHCR_USER" --password-stdin
+
+      - name: Publish images
+        env:
+          IMAGE_REPOSITORY: ghcr.io/charly-chan/swe-game
+        run: |
+          revision="${GITHUB_SHA:0:12}"
+          for tag in godot-4.5.1 unity-6000.3.23f1; do
+            docker tag "gamebench-agent:$tag" "$IMAGE_REPOSITORY:$tag-$revision"
+            docker tag "gamebench-agent:$tag" "$IMAGE_REPOSITORY:$tag"
+            docker push "$IMAGE_REPOSITORY:$tag-$revision"
+            docker push "$IMAGE_REPOSITORY:$tag"
+            printf -- '- `%s:%s` (revision tag: `%s-%s`)\n' "$IMAGE_REPOSITORY" "$tag" "$tag" "$revision" >> "$GITHUB_STEP_SUMMARY"
+          done
+
+      - name: Log out of GHCR
+        if: always()
+        run: docker logout ghcr.io

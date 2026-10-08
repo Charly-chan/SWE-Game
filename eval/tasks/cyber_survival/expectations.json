@@ -1,0 +1,185 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-23T09:50:55+00:00",
+  "interface_requirements": {
+    "O9": {
+      "fields": [],
+      "reason": "reference has no registered anchor expectation",
+      "required": false
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 1,
+        "gb_collectible": 5,
+        "gb_door": 1,
+        "gb_enemy": 5,
+        "gb_goal": 1,
+        "gb_hazard": 2,
+        "gb_interactive": 1,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          2
+        ],
+        "gb_enemy": [
+          "x",
+          4
+        ],
+        "gb_hazard": [
+          "x",
+          2
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://world/level_01.tscn",
+      "spawn_goal_distance": 1.0
+    },
+    {
+      "census": {
+        "gb_checkpoint": 2,
+        "gb_collectible": 6,
+        "gb_door": 1,
+        "gb_enemy": 7,
+        "gb_goal": 1,
+        "gb_hazard": 4,
+        "gb_interactive": 1,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "x",
+          2
+        ],
+        "gb_collectible": [
+          "x",
+          3
+        ],
+        "gb_enemy": [
+          "x",
+          4
+        ],
+        "gb_hazard": [
+          "x",
+          3
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://world/level_02.tscn",
+      "spawn_goal_distance": 1.0
+    },
+    {
+      "census": {
+        "gb_checkpoint": 2,
+        "gb_collectible": 7,
+        "gb_door": 1,
+        "gb_enemy": 9,
+        "gb_goal": 1,
+        "gb_hazard": 5,
+        "gb_interactive": 1,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "x",
+          2
+        ],
+        "gb_collectible": [
+          "x",
+          3
+        ],
+        "gb_enemy": [
+          "x",
+          5
+        ],
+        "gb_hazard": [
+          "x",
+          3
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://world/level_03.tscn",
+      "spawn_goal_distance": 1.0
+    }
+  ],
+  "probe_sha256": "7b966a24301ab4cf7b2e433dc04081d354779f93ff571a8a5e47964d894a2026",
+  "project": "cyber_survival",
+  "runtime_assets": {
+    "res://assets/vendor/junkala_music/junkala_level_2.wav": "24c5c3678b46faaf4f09399655428353e5adc7611572bc5a09cba372bd350cef",
+    "res://assets/vendor/kenney_digital_audio/laser5.ogg": "8d7b30b35112bedf4dd6f03796a5f33af85414b02947187e4063819fd80cf3e2",
+    "res://assets/vendor/kenney_digital_audio/phaserDown3.ogg": "19fd2f5bb8448e022381f1a72c36117d4adcb521ebeb697e888bfaf7945cfa56",
+    "res://assets/vendor/kenney_digital_audio/spaceTrash3.ogg": "03fd29fd857c67b4401e7ffbc321568229844a10051ae455af497b2335f37d6c",
+    "res://assets/vendor/kenney_digital_audio/zap2.ogg": "169cf3876647bae0a28a7eb3fc5b5bd573ab9efae7b56b64a8700ff9bafb3494",
+    "res://assets/vendor/kenney_particle_pack/light_01.png": "caedcc5df5bcac4470244d2520d6a64b45b20c1ccf4d918da516c55e3fa365a6",
+    "res://assets/vendor/kenney_particle_pack/magic_05.png": "92fb8c7a1d9bc14e052526c0505502c3e5b37d27502fa3d36d2c80b4565b62ef",
+    "res://assets/vendor/kenney_particle_pack/muzzle_04.png": "2acbc729b7bf38330b7e829cb0b13dcf922fec4b163f7eb2965b7b2932f89aeb",
+    "res://assets/vendor/kenney_particle_pack/smoke_01.png": "e8724c219e8d35859167fc0a7e207e13c72ccf0c29704909b9bb3d3dc71c6cf7",
+    "res://assets/vendor/kenney_racing_kit/fenceStraight.glb": "12fac1aea8f7d8d138a2a8820c7476187fb25a7c39963bfef250c2e8120fba68",
+    "res://assets/vendor/kenney_racing_kit/fenceStraight_net.png": "b607e305d22fd640184ffd5bcb8b13fb7ee356ce939ffcc7acff0ad9aa1239f4",
+    "res://assets/vendor/kenney_racing_kit/roadStraight.glb": "6b1f92e5859d417951f259e52c9c9eadad5bfceb3b545e074049bbc17d02f00d",
+    "res://assets/vendor/kenney_racing_kit/roadStraightArrow.glb": "dc09f192f3628d54d2d47477b76f6a3cbb8a965f6cc8f4a99851924858ac6049",
+    "res://assets/vendor/kenney_skybox/skybox-night.png": "2276d9e1adee0db84255fe63e13f172b338d4257e312603a3abba89b512419ba",
+    "res://assets/vendor/kenney_ui_pack/KenneyFuture.ttf": "7a55b07f5968fac872648a7c5e959bd2b93e06f63153b585d56e4d5298ddff61",
+    "res://assets/vendor/kenney_ui_pack/KenneyFutureNarrow.ttf": "17e182587a3264dcf9e5b17c055715d5597187546ce81925c64e9184c26d597f",
+    "res://assets/vendor/kenney_ui_pack/button_rectangle_depth_flat.png": "7de9ba1d4bca313fd2c02e3595f3d699c1201d84d70a3c69828e56782d585ce7",
+    "res://assets/vendor/kenney_ui_pack/button_rectangle_depth_gloss.png": "a17548efecebe7cb8bb7bc6e71510b4a9a7dbbc31accfe0a2e3e565bf58b5839",
+    "res://assets/vendor/kenney_ui_pack/grey_button_rectangle_border.png": "724fbc97079b358afb4a9a4ddf4f67486ade7fa97f7bd7d70ef8444a31b907ab",
+    "res://assets/vendor/kenney_ui_pack/input_rectangle.png": "8d8a2c63a9cfe3bcd45fbf11a9ea1e6b046df74455631f635dafd0012193a75e",
+    "res://assets/vendor/quaternius_cyberpunk/Ac Stacked.glb": "feb3799d187e0e9818647d748d52086af08f9006ddc315c2ee67935445c79ab2",
+    "res://assets/vendor/quaternius_cyberpunk/Air Conditioner-0MdE89Ijtt.glb": "c5b39a05bf2da33a79f2da1909e3163eca3e84f64184d870237b445398a1c9df",
+    "res://assets/vendor/quaternius_cyberpunk/Air Conditioner.glb": "2f5f6b5f4c1a048ab10c7c023c3a1202b3ef00907931de9e16fdb7ade6b7aba8",
+    "res://assets/vendor/quaternius_cyberpunk/Antenna-OuHQCigiUR.glb": "8229cfaaa2475fdd429c87f861bd094249747f92a0d17e9f8eac97ace47c659d",
+    "res://assets/vendor/quaternius_cyberpunk/Antenna.glb": "87e3ae767a9115d0304b6d6e45b1307c9c17f7d0db0d3dbbdc0e4b889cd9ebff",
+    "res://assets/vendor/quaternius_cyberpunk/Cable Long.glb": "b0744ac4e2ddf86ef21e4621452cea44315d23f366928de2bba9455913013513",
+    "res://assets/vendor/quaternius_cyberpunk/Cable.glb": "34811b68d70ccdf58243e1bf59b2eb82df71fcae7b1484c82477d4cc971446a4",
+    "res://assets/vendor/quaternius_cyberpunk/Collectible Board.glb": "993bc5b41986840921dcf0ca61dc334f003cf45ea13fe2a59a6116f33c9b77ca",
+    "res://assets/vendor/quaternius_cyberpunk/Collectible Gear.glb": "829ee90420dc369aa270a84a3cb80ed4a328576c5f8b276f42f4137a3fc01b8b",
+    "res://assets/vendor/quaternius_cyberpunk/Computer Large.glb": "f756f7a40d0767fc6ba64ec499e282b899ce0300213df30c75962f96eaefe5b0",
+    "res://assets/vendor/quaternius_cyberpunk/Computer.glb": "f1bbaf7d599119f401af8fdf96efd3506096cc9d087081825bcaa642a2b8acfa",
+    "res://assets/vendor/quaternius_cyberpunk/Cyberpunk Platform-J3AJSwqmBJ.glb": "87f21ec62df42bc61ce7d365fd710f074f7276c657bd9df968911834c7122e22",
+    "res://assets/vendor/quaternius_cyberpunk/Cyberpunk Platform-J3AJSwqmBJ_Texture_Sign.png": "9cf8637e787e417ea7372632459edf3f6807973470259c6fc7c6876e83e91e74",
+    "res://assets/vendor/quaternius_cyberpunk/Cyberpunk Platform-ctQ5CDmraQ.glb": "be7c7ec8b929c5bba2439a5c846b9ccba0fe127892f9381da13d0ffb6c0945a5",
+    "res://assets/vendor/quaternius_cyberpunk/Cyberpunk Platform-ctQ5CDmraQ_Texture_Sign.png": "9cf8637e787e417ea7372632459edf3f6807973470259c6fc7c6876e83e91e74",
+    "res://assets/vendor/quaternius_cyberpunk/Cyberpunk Platform-dHymLbsOMY.glb": "a15c27e769b11b34d7b441cb8b057d9f53e68cd63b65366ed4aa17eb92422834",
+    "res://assets/vendor/quaternius_cyberpunk/Cyberpunk Platform.glb": "45ed34d317157a7b4bb6221b6770038d48e923f4be76e822655ca043d5f5c011",
+    "res://assets/vendor/quaternius_cyberpunk/Cyberpunk Signs.glb": "65f98a73e1d9e8cd7d02e52019a994e18c6bdd0a6273968636ae351e98a56185",
+    "res://assets/vendor/quaternius_cyberpunk/Cyberpunk Signs_Texture_Sign.png": "9cf8637e787e417ea7372632459edf3f6807973470259c6fc7c6876e83e91e74",
+    "res://assets/vendor/quaternius_cyberpunk/Door.glb": "0b8a27b3eae479ec62e42b2c41a573937e275168b2a91998c4f0c5f6b9ebaaf1",
+    "res://assets/vendor/quaternius_cyberpunk/Lever.glb": "6c52ae98575584beb79e93d4bee91ed47cca6aac70dfc1817304b361d9fa777c",
+    "res://assets/vendor/quaternius_cyberpunk/Light Square.glb": "da9bda0c916a047f462e0c2017d6e71ac1ff101e5ed22c600fa07b849093834b",
+    "res://assets/vendor/quaternius_cyberpunk/Lootbox.glb": "89f506be7730cbc1e188aaf8fb2ddbbd4fb5ec3997423a14747c15197d388ad9",
+    "res://assets/vendor/quaternius_cyberpunk/Pickup Health.glb": "65446f5a8a9f84e265eb71323a0bb94965fde51c1dd0d53f882d13aab922360b",
+    "res://assets/vendor/quaternius_cyberpunk/Pickup Tank.glb": "c2265d71ac167eab649f7d39b0352067764ceb568369374f2c282ee5eb78d706",
+    "res://assets/vendor/quaternius_cyberpunk/Pipe.glb": "ee3099ea8f908f3d5e32e4975f8d2a663612da638afe37fb5238d4fd17b75865",
+    "res://assets/vendor/quaternius_cyberpunk/Robot Enemy Flying Gun.glb": "af82b5b458530b31ce9694cf0461649839e1e822a922203faa16f4c32c21e595",
+    "res://assets/vendor/quaternius_cyberpunk/Robot Enemy Large Gun.glb": "5c5f5b28c002592f590b23503c2cb98bf230293b165e56496d650bd6eeaafd9e",
+    "res://assets/vendor/quaternius_cyberpunk/Robot Enemy Legs Gun.glb": "fda86deed47bef0877f0e890de60c41101ca2f06937834b25110392b8b2afd7c",
+    "res://assets/vendor/quaternius_cyberpunk/Robot Enemy Legs.glb": "d5d1de1481560415c9006dd1989c2dd09ee1b59955c43bcd8d331445a5e69cb7",
+    "res://assets/vendor/quaternius_cyberpunk/Streetlight.glb": "5f733c872d67d773f55a707aaebc91763b71b3b1ec5e3f1aaa430971279c1840",
+    "res://assets/vendor/quaternius_cyberpunk/Support Short.glb": "e25536ba14866c046be2a27130ae842dad0df772983458e045a0f11d8644435d",
+    "res://assets/vendor/quaternius_cyberpunk/Support.glb": "20b0298c9cec73a586b85a9f0101d361cb8c9349dc0840a633f44a9f71d0cd3e",
+    "res://assets/vendor/quaternius_cyberpunk/TV Tower.glb": "2aad80307562183d7e214c7197e5e9422d57bc38a9ed9a0cf458879e07317f36",
+    "res://assets/vendor/quaternius_cyberpunk/TV-mBGTVozH1u.glb": "2590f8e1c487e1a683566dc592779ba91963ec9bc9ee40c3ef303497b30d2aae",
+    "res://assets/vendor/quaternius_cyberpunk/TV.glb": "f5708a8a10fbcb1c283adcaa76958bc6461348b43e52ff11889b81b0f880b33c",
+    "res://assets/vendor/quaternius_cyberpunk/Tank.glb": "46233c12177dd622e37c35e7450277e2c8c41014405448503fe81a202d202590",
+    "res://assets/vendor/quaternius_cyberpunk/Turret Cannon.glb": "1c731f445be1f70124d666a42fc70c7387de39ed7ad73b3af8604e3e79a8f4bd",
+    "res://assets/vendor/quaternius_cyberpunk/Turret Gun.glb": "1f734f4ea8a07899a32fc8afa91a888902c1a3fe8c4120bfeeefe2eaac8e79db",
+    "res://assets/vendor/quaternius_cyberpunk/Turret Teleporter.glb": "4f88b96c634ec9101a3842cc791d9cd7351e7211ad010d2bb0f7ebc61443fa83"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

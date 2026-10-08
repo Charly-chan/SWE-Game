@@ -1,0 +1,958 @@
+{
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "driver_sha256": "7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742",
+  "endings": {
+    "run_complete": "res://game_complete.tscn"
+  },
+  "engine": "4.5.1",
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "34ecc7924f8d14e0872966ac3eac9ce3f3254d3d09a7b78947e0a7fc48618bc3",
+    "source_sha256": "90ac2590d45b57879a14e971c1f0ca74e18c426f3340585acb5d6ac6fb7103c7"
+  },
+  "levels": [
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          4192.0,
+          158.0,
+          0.0
+        ],
+        "min3": [
+          -96.0,
+          -12.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 0,
+        "alive_before": 0,
+        "attempted": false,
+        "delta": 0,
+        "detail": "this level declares no gb_collectible, so there is nothing to pick up",
+        "effect": {},
+        "target": ""
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://levels/startled_hush.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": false,
+        "changed": false,
+        "detail": "goal has prerequisite actions; evaluated by certified input-only progress routes",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "route_campaign",
+          "observation_missing": false,
+          "progress_before": null
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://levels/startled_hush.tscn",
+        "scene_before": "res://levels/startled_hush.tscn",
+        "target": ""
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_door": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_enemy": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0223880597014925,
+              "y": 0.0705882352941176
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.917910447761194,
+              "y": 0.0705882352941176
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              3840.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 6,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.141791044776119,
+              "y": 0.0705882352941176
+            },
+            {
+              "valid": true,
+              "x": 0.23134328358209,
+              "y": 0.0705882352941176
+            },
+            {
+              "valid": true,
+              "x": 0.32089552238806,
+              "y": 0.0705882352941176
+            },
+            {
+              "valid": true,
+              "x": 0.395522388059701,
+              "y": 0.0705882352941176
+            },
+            {
+              "valid": true,
+              "x": 0.649253731343284,
+              "y": 0.0705882352941176
+            },
+            {
+              "valid": true,
+              "x": 0.0223880597014925,
+              "y": 0.0705882352941176
+            }
+          ],
+          "total": 6,
+          "world": [
+            [
+              512.0,
+              0.0,
+              0.0
+            ],
+            [
+              896.0,
+              0.0,
+              0.0
+            ],
+            [
+              1280.0,
+              0.0,
+              0.0
+            ],
+            [
+              1600.0,
+              0.0,
+              0.0
+            ],
+            [
+              2688.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_interactive": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0223880597014925,
+              "y": 0.0705766479758655
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              -0.0019698441028595,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "frames_elapsed": 89.0,
+        "timer": 89.0
+      },
+      "numeric_source": {
+        "frames_elapsed": "declared",
+        "timer": "declared"
+      },
+      "reached": true,
+      "scene": "res://levels/startled_hush.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 6,
+            "gb_interactive": 0,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "frames_elapsed": 89.0,
+            "timer": 89.0
+          },
+          "phase": "settle",
+          "player": [
+            0.0,
+            -0.0019698441028595,
+            0.0
+          ],
+          "scene_path": "res://levels/startled_hush.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 6,
+            "gb_interactive": 0,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "frames_elapsed": 89.0,
+            "timer": 89.0
+          },
+          "phase": "settle",
+          "player": [
+            0.0,
+            -0.0019698441028595,
+            0.0
+          ],
+          "scene_path": "res://levels/startled_hush.tscn"
+        }
+      ],
+      "spawn": [
+        0.0,
+        -0.0019698441028595,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.022388059701492536,
+        "y": 0.07057664797586553
+      },
+      "stop_reason": "goal_requires_route"
+    },
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          5472.0,
+          158.0,
+          0.0
+        ],
+        "min3": [
+          -96.0,
+          -12.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 0,
+        "alive_before": 0,
+        "attempted": false,
+        "delta": 0,
+        "detail": "this level declares no gb_collectible, so there is nothing to pick up",
+        "effect": {},
+        "target": ""
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://levels/broken_boughs.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": false,
+        "changed": false,
+        "detail": "goal has prerequisite actions; evaluated by certified input-only progress routes",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "route_campaign",
+          "observation_missing": false,
+          "progress_before": null
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://levels/broken_boughs.tscn",
+        "scene_before": "res://levels/broken_boughs.tscn",
+        "target": ""
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_door": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_enemy": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0172413793103448,
+              "y": 0.0705882352941176
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.936781609195402,
+              "y": 0.0705882352941176
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              5120.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 8,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0862068965517241,
+              "y": 0.0705882352941176
+            },
+            {
+              "valid": true,
+              "x": 0.155172413793103,
+              "y": 0.0705882352941176
+            },
+            {
+              "valid": true,
+              "x": 0.293103448275862,
+              "y": 0.0705882352941176
+            },
+            {
+              "valid": true,
+              "x": 0.350574712643678,
+              "y": 0.0705882352941176
+            },
+            {
+              "valid": true,
+              "x": 0.396551724137931,
+              "y": 0.0705882352941176
+            },
+            {
+              "valid": true,
+              "x": 0.53448275862069,
+              "y": 0.0705882352941176
+            },
+            {
+              "valid": true,
+              "x": 0.764367816091954,
+              "y": 0.0705882352941176
+            },
+            {
+              "valid": true,
+              "x": 0.0172413793103448,
+              "y": 0.0705882352941176
+            }
+          ],
+          "total": 8,
+          "world": [
+            [
+              384.0,
+              0.0,
+              0.0
+            ],
+            [
+              768.0,
+              0.0,
+              0.0
+            ],
+            [
+              1536.0,
+              0.0,
+              0.0
+            ],
+            [
+              1856.0,
+              0.0,
+              0.0
+            ],
+            [
+              2112.0,
+              0.0,
+              0.0
+            ],
+            [
+              2880.0,
+              0.0,
+              0.0
+            ],
+            [
+              4160.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_interactive": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0172413793103448,
+              "y": 0.0705766479758655
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              -0.0019698441028595,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "frames_elapsed": 89.0,
+        "timer": 89.0
+      },
+      "numeric_source": {
+        "frames_elapsed": "declared",
+        "timer": "declared"
+      },
+      "reached": true,
+      "scene": "res://levels/broken_boughs.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 8,
+            "gb_interactive": 0,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "frames_elapsed": 89.0,
+            "timer": 89.0
+          },
+          "phase": "settle",
+          "player": [
+            0.0,
+            -0.0019698441028595,
+            0.0
+          ],
+          "scene_path": "res://levels/broken_boughs.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 8,
+            "gb_interactive": 0,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "frames_elapsed": 89.0,
+            "timer": 89.0
+          },
+          "phase": "settle",
+          "player": [
+            0.0,
+            -0.0019698441028595,
+            0.0
+          ],
+          "scene_path": "res://levels/broken_boughs.tscn"
+        }
+      ],
+      "spawn": [
+        0.0,
+        -0.0019698441028595,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.017241379310344827,
+        "y": 0.07057664797586553
+      },
+      "stop_reason": "goal_requires_route"
+    },
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          6752.0,
+          158.0,
+          0.0
+        ],
+        "min3": [
+          -96.0,
+          -12.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 0,
+        "alive_before": 0,
+        "attempted": false,
+        "delta": 0,
+        "detail": "this level declares no gb_collectible, so there is nothing to pick up",
+        "effect": {},
+        "target": ""
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://levels/swarms_reach.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": false,
+        "changed": false,
+        "detail": "goal has prerequisite actions; evaluated by certified input-only progress routes",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "route_campaign",
+          "observation_missing": false,
+          "progress_before": null
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://levels/swarms_reach.tscn",
+        "scene_before": "res://levels/swarms_reach.tscn",
+        "target": ""
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_door": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_enemy": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.014018691588785,
+              "y": 0.0705882352941176
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.948598130841122,
+              "y": 0.0705882352941176
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              6400.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 9,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0700934579439252,
+              "y": 0.0705882352941176
+            },
+            {
+              "valid": true,
+              "x": 0.116822429906542,
+              "y": 0.0705882352941176
+            },
+            {
+              "valid": true,
+              "x": 0.210280373831776,
+              "y": 0.0705882352941176
+            },
+            {
+              "valid": true,
+              "x": 0.257009345794392,
+              "y": 0.0705882352941176
+            },
+            {
+              "valid": true,
+              "x": 0.350467289719626,
+              "y": 0.0705882352941176
+            },
+            {
+              "valid": true,
+              "x": 0.481308411214953,
+              "y": 0.0705882352941176
+            },
+            {
+              "valid": true,
+              "x": 0.649532710280374,
+              "y": 0.0705882352941176
+            },
+            {
+              "valid": true,
+              "x": 0.742990654205608,
+              "y": 0.0705882352941176
+            },
+            {
+              "valid": true,
+              "x": 0.014018691588785,
+              "y": 0.0705882352941176
+            }
+          ],
+          "total": 9,
+          "world": [
+            [
+              384.0,
+              0.0,
+              0.0
+            ],
+            [
+              704.0,
+              0.0,
+              0.0
+            ],
+            [
+              1344.0,
+              0.0,
+              0.0
+            ],
+            [
+              1664.0,
+              0.0,
+              0.0
+            ],
+            [
+              2304.0,
+              0.0,
+              0.0
+            ],
+            [
+              3200.0,
+              0.0,
+              0.0
+            ],
+            [
+              4352.0,
+              0.0,
+              0.0
+            ],
+            [
+              4992.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_interactive": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.014018691588785,
+              "y": 0.0705766479758655
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              -0.0019698441028595,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "frames_elapsed": 89.0,
+        "timer": 89.0
+      },
+      "numeric_source": {
+        "frames_elapsed": "declared",
+        "timer": "declared"
+      },
+      "reached": true,
+      "scene": "res://levels/swarms_reach.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 9,
+            "gb_interactive": 0,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "frames_elapsed": 89.0,
+            "timer": 89.0
+          },
+          "phase": "settle",
+          "player": [
+            0.0,
+            -0.0019698441028595,
+            0.0
+          ],
+          "scene_path": "res://levels/swarms_reach.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 9,
+            "gb_interactive": 0,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "frames_elapsed": 89.0,
+            "timer": 89.0
+          },
+          "phase": "settle",
+          "player": [
+            0.0,
+            -0.0019698441028595,
+            0.0
+          ],
+          "scene_path": "res://levels/swarms_reach.tscn"
+        }
+      ],
+      "spawn": [
+        0.0,
+        -0.0019698441028595,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.014018691588785047,
+        "y": 0.07057664797586553
+      },
+      "stop_reason": "goal_requires_route"
+    }
+  ],
+  "liveness": [
+    {
+      "action": "gb_left",
+      "detail": "gb_left differs from the idle control on velocity (delta 1184.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "velocity"
+    },
+    {
+      "action": "gb_right",
+      "detail": "gb_right differs from the idle control on position (delta 481.063 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_up",
+      "detail": "gb_up differs from the idle control on velocity (delta 576.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "velocity"
+    },
+    {
+      "action": "gb_down",
+      "detail": "gb_down is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    },
+    {
+      "action": "gb_jump",
+      "detail": "gb_jump differs from the idle control on velocity (delta 576.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "velocity"
+    },
+    {
+      "action": "gb_action",
+      "detail": "gb_action is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    }
+  ],
+  "no_input_no_win": true,
+  "no_input_stop_reason": "budget_frames",
+  "notes": [
+    "liveness deadline derived from this project's own structural pass: 22.5 ms/frame median, 25.8 ms/frame worst",
+    "liveness sweep: 4 live / 2 dead against the 420-frame idle control truth/L0#idle420"
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "hive_flight",
+  "read_failure": "",
+  "taken_at": "2026-09-10T09:19:04+00:00",
+  "version": "1"
+}

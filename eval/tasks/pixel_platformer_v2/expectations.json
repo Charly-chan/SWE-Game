@@ -1,0 +1,58 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-27T17:36:38+00:00",
+  "interface_requirements": {},
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 5,
+        "gb_door": 1,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 5,
+        "gb_interactive": 4,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "y",
+          3
+        ],
+        "gb_hazard": [
+          "x",
+          4
+        ],
+        "gb_interactive": [
+          "y",
+          3
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://scenes/main.tscn",
+      "spawn_goal_distance": 0.7701462291339549
+    }
+  ],
+  "probe_sha256": "fe750d48224bfe79a915c4057b270adbbcdbc421e5b99f56213c3b2b7f746edd",
+  "project": "pixel_platformer_v2",
+  "runtime_assets": {
+    "res://assets/generated/bg/room_a.png": "b92174a4db7356710b057980f667877795efa1c961622011cc4e02b57b122687",
+    "res://assets/generated/sfx/amb_nature.wav": "cb18e4fcf1da562034ce616c6889f0e1f8d3c3c836f2894fc355b91ee90aab38",
+    "res://assets/packs/base_characters.png": "22622d54dfc9d85346c9b75b999c8604e6eb336e42c4708bcf8b21094d8a2dad",
+    "res://assets/packs/base_tiles.png": "a3bbff36594baa36c803a67e9152a20a80f2faeb3c22ca84ac06e0a70f56553d",
+    "res://icon.svg": "4cdedbf02b29d2e21f2f7a100af4baa1256936efbc04ee937e997318e486cc1f"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

@@ -1,0 +1,1064 @@
+{
+  "routes": [
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 420,
+            "op": "wait"
+          }
+        ]
+      },
+      "budget": {
+        "frames": 420,
+        "steps": 1
+      },
+      "goal": {
+        "predicate": ""
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "hive_flight/L0/no_input_no_win",
+      "scored": false,
+      "start": {
+        "inject": {},
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 0
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "action": "gb_right",
+            "frames": 69,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 64,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 64,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 52,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 195,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 251,
+            "op": "hold"
+          },
+          {
+            "frames": 75,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 12,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 886,
+        "steps": 17
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "reached_level_1_goal",
+            "predicate": "contact(goal, 0)"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [
+        "goal#0"
+      ],
+      "route_id": "hive_flight/C1/startled_hush_clear",
+      "start": {
+        "inject": {},
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 2
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 45,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 64,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 73,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 52,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 49,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 126,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 86,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 138,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 215,
+            "op": "hold"
+          },
+          {
+            "frames": 75,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 12,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 1127,
+        "steps": 26
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "reached_level_2_goal",
+            "predicate": "contact(goal, 0)"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [
+        "goal#0"
+      ],
+      "route_id": "hive_flight/C2/broken_boughs_clear",
+      "start": {
+        "inject": {},
+        "level": 1,
+        "settle_frames": 6
+      },
+      "tier": 3
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 45,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 52,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 61,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 49,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 49,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 58,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 49,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 153,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 98,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 112,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 97,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 193,
+            "op": "hold"
+          },
+          {
+            "frames": 75,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 12,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 1366,
+        "steps": 31
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "reached_level_3_goal",
+            "predicate": "contact(goal, 0)"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [
+        "goal#0"
+      ],
+      "route_id": "hive_flight/C3/swarms_reach_clear",
+      "start": {
+        "inject": {},
+        "level": 2,
+        "settle_frames": 6
+      },
+      "tier": 4
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "action": "gb_right",
+            "frames": 69,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 64,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 64,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 52,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 195,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 251,
+            "op": "hold"
+          },
+          {
+            "frames": 75,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 12,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 45,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 64,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 73,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 52,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 49,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 126,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 86,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 138,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 215,
+            "op": "hold"
+          },
+          {
+            "frames": 75,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 12,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 45,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 52,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 61,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 49,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 49,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 58,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 49,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 153,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 98,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 112,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 97,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 193,
+            "op": "hold"
+          },
+          {
+            "frames": 75,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 12,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 5000,
+        "steps": 180
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "level_1_goal_reached",
+            "predicate": "contact(goal, 0)",
+            "required_devices": [
+              "L1/goal#0"
+            ]
+          },
+          {
+            "name": "entered_level_2",
+            "predicate": "levels_visited() >= 2",
+            "required_devices": [
+              "L1/goal#0"
+            ]
+          },
+          {
+            "name": "level_2_goal_reached",
+            "predicate": "contact(goal, 0)",
+            "required_devices": [
+              "L2/goal#0"
+            ]
+          },
+          {
+            "name": "entered_level_3",
+            "predicate": "levels_visited() >= 3",
+            "required_devices": [
+              "L2/goal#0"
+            ]
+          },
+          {
+            "name": "level_3_goal_reached",
+            "predicate": "contact(goal, 0)",
+            "required_devices": [
+              "L3/goal#0"
+            ]
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [
+        "L1/goal#0",
+        "L2/goal#0",
+        "L3/goal#0"
+      ],
+      "route_id": "hive_flight/L5/whole_game_clear",
+      "start": {
+        "inject": {},
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 5
+    }
+  ],
+  "schema_version": 2,
+  "task_id": "hive_flight"
+}

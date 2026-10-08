@@ -1,0 +1,501 @@
+{
+  "game_id": "cat_defense",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "reference_media/assets/craftpix/backgrounds/area_01.png",
+        "id": "S001",
+        "label": "reference_media/assets/craftpix/backgrounds/area_01.png"
+      },
+      {
+        "asset_path": "reference_media/assets/craftpix/cat/c1/Idle/Character1-Idle_00.png",
+        "id": "S002",
+        "label": "reference_media/assets/craftpix/cat/c1/Idle/Character1-Idle_00.png"
+      },
+      {
+        "asset_path": "reference_media/assets/craftpix/cat/c1/Shoot/Character1-Shoot_00.png",
+        "id": "S003",
+        "label": "reference_media/assets/craftpix/cat/c1/Shoot/Character1-Shoot_00.png"
+      },
+      {
+        "asset_path": "reference_media/assets/craftpix/cat/cat_idle_00.png",
+        "id": "S004",
+        "label": "reference_media/assets/craftpix/cat/cat_idle_00.png"
+      },
+      {
+        "asset_path": "reference_media/assets/kenney/ui/bar_fill_green.png",
+        "id": "S007",
+        "label": "reference_media/assets/kenney/ui/bar_fill_green.png"
+      },
+      {
+        "asset_path": "zombie_typeA_attack.png",
+        "id": "S008",
+        "label": "zombie_typeA_attack.png"
+      },
+      {
+        "asset_path": "reference_media/assets/kenney/props/flag_green.png",
+        "id": "S012",
+        "label": "reference_media/assets/kenney/props/flag_green.png"
+      },
+      {
+        "asset_path": "reference_media/assets/kenney/ui/bar_fill_yellow.png",
+        "id": "S013",
+        "label": "reference_media/assets/kenney/ui/bar_fill_yellow.png"
+      },
+      {
+        "asset_path": "reference_media/assets/kenney/props/metal_frame.png",
+        "id": "S018",
+        "label": "reference_media/assets/kenney/props/metal_frame.png"
+      },
+      {
+        "asset_path": "reference_media/assets/kenney/ui/bar_track.png",
+        "id": "S019",
+        "label": "reference_media/assets/kenney/ui/bar_track.png"
+      },
+      {
+        "asset_path": "zombie_typeB_attack.png",
+        "id": "S020",
+        "label": "zombie_typeB_attack.png"
+      },
+      {
+        "asset_path": "reference_media/assets/kenney/props/metal_post.png",
+        "id": "S024",
+        "label": "reference_media/assets/kenney/props/metal_post.png"
+      },
+      {
+        "asset_path": "reference_media/assets/kenney/ui/button_blue.png",
+        "id": "S025",
+        "label": "reference_media/assets/kenney/ui/button_blue.png"
+      },
+      {
+        "asset_path": "reference_media/assets/kenney/props/plank_brace.png",
+        "id": "S030",
+        "label": "reference_media/assets/kenney/props/plank_brace.png"
+      },
+      {
+        "asset_path": "reference_media/assets/kenney/ui/button_grey.png",
+        "id": "S031",
+        "label": "reference_media/assets/kenney/ui/button_grey.png"
+      },
+      {
+        "asset_path": "zombie_typeC_attack.png",
+        "id": "S032",
+        "label": "zombie_typeC_attack.png"
+      },
+      {
+        "asset_path": "reference_media/assets/kenney/props/plank_long.png",
+        "id": "S036",
+        "label": "reference_media/assets/kenney/props/plank_long.png"
+      },
+      {
+        "asset_path": "reference_media/assets/kenney/props/supply_crate.png",
+        "id": "S042",
+        "label": "reference_media/assets/kenney/props/supply_crate.png"
+      },
+      {
+        "asset_path": "reference_media/assets/kenney/ui/panel_grey.png",
+        "id": "S043",
+        "label": "reference_media/assets/kenney/ui/panel_grey.png"
+      },
+      {
+        "asset_path": "reference_media/assets/kenney/ui/star.png",
+        "id": "S046",
+        "label": "reference_media/assets/kenney/ui/star.png"
+      },
+      {
+        "bundled_path": "media/S061.png",
+        "id": "S061",
+        "label": "FONT PREVIEW reference_media/assets/kenney/font/KenneyFuture.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "reference_media/assets/kenney/font/KenneyFuture.ttf"
+      },
+      {
+        "bundled_path": "media/S062.png",
+        "id": "S062",
+        "label": "FONT PREVIEW reference_media/assets/kenney/font/KenneyFutureNarrow.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "reference_media/assets/kenney/font/KenneyFutureNarrow.ttf"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "SOURCE_RIGHTS.md",
+        "cat_sprite_cc0.zip",
+        "reference_media/assets/audio",
+        "reference_media/assets/craftpix",
+        "reference_media/assets/kenney",
+        "zombie_typeA_attack.png",
+        "zombie_typeA_walk.png",
+        "zombie_typeB_attack.png",
+        "zombie_typeB_walk.png",
+        "zombie_typeC_attack.png",
+        "zombie_typeC_walk.png"
+      ],
+      "file_count": 66,
+      "font_files": [
+        "reference_media/assets/kenney/font/KenneyFuture.ttf",
+        "reference_media/assets/kenney/font/KenneyFutureNarrow.ttf"
+      ]
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry. Font previews are rendered from actual supplied font files; preview wording is illustrative, not additional task requirements.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 255.667,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R002",
+        "time_s": 2.18333
+      },
+      {
+        "id": "R003",
+        "time_s": 4.36667
+      },
+      {
+        "id": "R004",
+        "time_s": 6.55
+      },
+      {
+        "id": "R006",
+        "time_s": 10.9167
+      },
+      {
+        "id": "R007",
+        "time_s": 13.1
+      },
+      {
+        "id": "R008",
+        "time_s": 15.2833
+      },
+      {
+        "id": "R009",
+        "time_s": 17.4667
+      },
+      {
+        "id": "R011",
+        "time_s": 21.8333
+      },
+      {
+        "id": "R012",
+        "time_s": 24.0167
+      },
+      {
+        "id": "R013",
+        "time_s": 26.2
+      },
+      {
+        "id": "R014",
+        "time_s": 28.3833
+      },
+      {
+        "id": "R015",
+        "time_s": 30.5667
+      },
+      {
+        "id": "R016",
+        "time_s": 32.75
+      },
+      {
+        "id": "R017",
+        "time_s": 34.9333
+      },
+      {
+        "id": "R022",
+        "time_s": 45.85
+      },
+      {
+        "id": "R023",
+        "time_s": 48.0333
+      },
+      {
+        "id": "R024",
+        "time_s": 50.2167
+      },
+      {
+        "id": "R025",
+        "time_s": 52.4
+      },
+      {
+        "id": "R026",
+        "time_s": 54.5833
+      },
+      {
+        "id": "R027",
+        "time_s": 56.7667
+      },
+      {
+        "id": "R028",
+        "time_s": 58.95
+      },
+      {
+        "id": "R031",
+        "time_s": 65.5
+      },
+      {
+        "id": "R032",
+        "time_s": 67.6833
+      },
+      {
+        "id": "R033",
+        "time_s": 69.8667
+      },
+      {
+        "id": "R043",
+        "time_s": 91.7
+      },
+      {
+        "id": "R045",
+        "time_s": 96.0667
+      },
+      {
+        "id": "R046",
+        "time_s": 98.25
+      },
+      {
+        "id": "R048",
+        "time_s": 102.617
+      },
+      {
+        "id": "R052",
+        "time_s": 111.35
+      },
+      {
+        "id": "R054",
+        "time_s": 115.717
+      },
+      {
+        "id": "R060",
+        "time_s": 128.817
+      },
+      {
+        "id": "R061",
+        "time_s": 131.0
+      },
+      {
+        "id": "R062",
+        "time_s": 133.183
+      },
+      {
+        "id": "R068",
+        "time_s": 146.283
+      },
+      {
+        "id": "R069",
+        "time_s": 148.467
+      },
+      {
+        "id": "R070",
+        "time_s": 150.65
+      },
+      {
+        "id": "R071",
+        "time_s": 152.833
+      },
+      {
+        "id": "R072",
+        "time_s": 155.017
+      },
+      {
+        "id": "R073",
+        "time_s": 157.2
+      },
+      {
+        "id": "R093",
+        "time_s": 200.867
+      },
+      {
+        "id": "R095",
+        "time_s": 205.233
+      },
+      {
+        "id": "R096",
+        "time_s": 207.417
+      },
+      {
+        "id": "R100",
+        "time_s": 216.15
+      },
+      {
+        "id": "R101",
+        "time_s": 218.333
+      },
+      {
+        "id": "R103",
+        "time_s": 222.7
+      },
+      {
+        "id": "R105",
+        "time_s": 227.067
+      },
+      {
+        "id": "R112",
+        "time_s": 242.35
+      },
+      {
+        "id": "R113",
+        "time_s": 244.533
+      },
+      {
+        "id": "R114",
+        "time_s": 246.717
+      },
+      {
+        "id": "R115",
+        "time_s": 248.9
+      },
+      {
+        "id": "R116",
+        "time_s": 251.083
+      },
+      {
+        "id": "R117",
+        "time_s": 253.267
+      },
+      {
+        "id": "R118",
+        "time_s": 255.45
+      },
+      {
+        "id": "R119",
+        "time_s": 255.65
+      },
+      {
+        "clip": 1,
+        "id": "RD001",
+        "time_s": 51.1334
+      },
+      {
+        "clip": 1,
+        "id": "RD004",
+        "time_s": 51.4334
+      },
+      {
+        "clip": 1,
+        "id": "RD008",
+        "time_s": 51.8334
+      },
+      {
+        "clip": 1,
+        "id": "RD012",
+        "time_s": 52.2334
+      },
+      {
+        "clip": 1,
+        "id": "RD013",
+        "time_s": 52.3334
+      },
+      {
+        "clip": 1,
+        "id": "RD014",
+        "time_s": 52.4334
+      },
+      {
+        "clip": 1,
+        "id": "RD015",
+        "time_s": 52.5334
+      },
+      {
+        "clip": 1,
+        "id": "RD016",
+        "time_s": 52.6334
+      },
+      {
+        "clip": 1,
+        "id": "RD017",
+        "time_s": 52.7334
+      },
+      {
+        "clip": 1,
+        "id": "RD019",
+        "time_s": 52.9334
+      },
+      {
+        "clip": 2,
+        "id": "RD021",
+        "time_s": 127.8335
+      },
+      {
+        "clip": 2,
+        "id": "RD022",
+        "time_s": 127.9335
+      },
+      {
+        "clip": 2,
+        "id": "RD023",
+        "time_s": 128.0335
+      },
+      {
+        "clip": 2,
+        "id": "RD024",
+        "time_s": 128.1335
+      },
+      {
+        "clip": 2,
+        "id": "RD025",
+        "time_s": 128.2335
+      },
+      {
+        "clip": 2,
+        "id": "RD026",
+        "time_s": 128.3335
+      },
+      {
+        "clip": 2,
+        "id": "RD027",
+        "time_s": 128.4335
+      },
+      {
+        "clip": 2,
+        "id": "RD028",
+        "time_s": 128.5335
+      },
+      {
+        "clip": 3,
+        "id": "RD041",
+        "time_s": 204.5336
+      },
+      {
+        "clip": 3,
+        "id": "RD046",
+        "time_s": 205.0336
+      },
+      {
+        "clip": 3,
+        "id": "RD048",
+        "time_s": 205.2336
+      },
+      {
+        "clip": 3,
+        "id": "RD049",
+        "time_s": 205.3336
+      },
+      {
+        "clip": 3,
+        "id": "RD050",
+        "time_s": 205.4336
+      },
+      {
+        "clip": 3,
+        "id": "RD053",
+        "time_s": 205.7336
+      },
+      {
+        "clip": 3,
+        "id": "RD054",
+        "time_s": 205.8336
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.4615378597941854,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Last Cat on the Wall — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nDefend a ruined street as a lone armed cat, make readable tactical choices under pressure, then leave the defended area through a short traversal coda.\n\n## Scope boundary\n\nA compact 2D lane-defence action game with a complete beginning, defence phase, success/failure ending, and replay path.\n\n## Creative freedom\n\nYou may choose the exact street layout, wave composition, economy numbers, feedback, and art arrangement from the supplied palette.\n"
+}

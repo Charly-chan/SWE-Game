@@ -1,0 +1,12 @@
+{
+  "schema": "gamebench.unity-negative-fixture-expectations.v1",
+  "fixtures": {
+    "positive": {"primary_item": null, "forbidden_passes": [], "expected_attribution": "pass"},
+    "auto_win": {"primary_item": "unity_auto_win_ready", "allowed_cascade": ["causal_witness", "unity_counterfactual"], "forbidden_passes": ["resolved"], "expected_attribution": "submission"},
+    "input_ignored": {"primary_item": "unity_input_dispatch", "allowed_cascade": ["unity_hidden_behavior", "unity_counterfactual"], "forbidden_passes": ["resolved"], "expected_attribution": "submission"},
+    "enemy_auto_disappears": {"primary_item": "unity_counterfactual", "allowed_cascade": ["unity_hidden_behavior"], "forbidden_passes": ["resolved"], "expected_attribution": "submission"},
+    "telemetry_fake": {"primary_item": "unity_hidden_behavior", "allowed_cascade": ["unity_source_behavior"], "forbidden_passes": ["resolved"], "expected_attribution": "submission"},
+    "witness_only": {"primary_item": "unity_hidden_behavior", "allowed_cascade": [], "forbidden_passes": ["resolved"], "expected_attribution": "submission"},
+    "visual_only": {"primary_item": "unity_hidden_behavior", "allowed_cascade": ["unity_counterfactual"], "forbidden_passes": ["resolved"], "expected_attribution": "submission"}
+  }
+}

@@ -1,0 +1,846 @@
+{
+  "game_id": "pulse_lane",
+  "mode": "brief",
+  "provided_asset_observations": [
+    {
+      "frame_ids": [
+        "S020",
+        "S022",
+        "S024",
+        "S025"
+      ],
+      "informs": [
+        "A1",
+        "A2"
+      ],
+      "observation": "蓝/绿/红/黄圆角按钮与 GT 轨上色条、判定键同类。"
+    },
+    {
+      "frame_ids": [
+        "S002",
+        "S018",
+        "S042",
+        "S005"
+      ],
+      "informs": [
+        "A2",
+        "A5"
+      ],
+      "observation": "光圈粒子与 Kenney UI 总览/Simple 样张；不要求铺成天空盒。"
+    },
+    {
+      "frame_ids": [
+        "S073",
+        "S074",
+        "S008"
+      ],
+      "informs": [
+        "A3",
+        "V2"
+      ],
+      "observation": "Kenney Future 字样与白底按钮条可用于 HUD；不强制文件对应。"
+    }
+  ],
+  "reference_limits": [
+    "录像未展示 LIFE 到 0、失败结算与 RETRY 被点击；brief 要求的 failure 在候选实际出现耗尽时才评，本片 RETRIES 0 为 unknown。",
+    "ENTER / ESC 未被点击，功能未验证。",
+    "无音频；「hear」无法从画面认证，只评可见反馈。",
+    "三关、SCROLL 倍率、四级判定名、四键 DFJK 均为 GT 例子，不是满分前提。",
+    "素材对应不证明文件加载。"
+  ],
+  "reference_observations": [
+    {
+      "frame_ids": [
+        "R001",
+        "R004",
+        "R005"
+      ],
+      "informs": [
+        "M1",
+        "M2",
+        "M3",
+        "V2",
+        "V3"
+      ],
+      "observation": "FIRST LIGHT 开局 SCORE 0 LIFE 100 NOTES 0/112 TIME -1.98；R004 MISS 1 后 LIFE 96 SCORE 1400 ACC 78.33%；R005 LIFE 97 SCORE 2400。四轨 D F J K，轨上 PERFECT ±ms。"
+    },
+    {
+      "frame_ids": [
+        "R027",
+        "R070",
+        "R071"
+      ],
+      "informs": [
+        "M4",
+        "D3",
+        "V4"
+      ],
+      "observation": "STAGE 1 RESULTS SCORE 45525 ACC 98.26% MISS 1 NOTES 112/112；STAGE 2 RESULTS SCORE 101865 ACC 100% NOTES 200/200；随后 LATTICE 开局 NOTES 0/256 TIME -1.02。"
+    },
+    {
+      "frame_ids": [
+        "R037",
+        "R056",
+        "R060"
+      ],
+      "informs": [
+        "D1",
+        "D2",
+        "A1",
+        "A4"
+      ],
+      "observation": "CROSSWIND 出现蓝/红长条与四轨同屏；R060 SCORE 68865 NOTES 145/200 SCROLL 1.40× GRID 1/2 SUSTAIN 2040。"
+    },
+    {
+      "frame_ids": [
+        "R115",
+        "R116",
+        "R119"
+      ],
+      "informs": [
+        "M4",
+        "V4",
+        "A5"
+      ],
+      "observation": "LATTICE 收束 SCORE 135505 NOTES 256/256 ACC 100%；GAME COMPLETE ALL THREE CLEARED，三关 45525 / 101865 / 135505，TOTAL SCORE 282895。"
+    },
+    {
+      "frame_ids": [
+        "RD002",
+        "RD023",
+        "RD041"
+      ],
+      "informs": [
+        "M1",
+        "A4",
+        "V3"
+      ],
+      "observation": "密集段：FIRST LIGHT 尾音符逐帧下落；CROSSWIND 红长条下滑；LATTICE 多轨同时改高度。"
+    }
+  ],
+  "requirements": [
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R004",
+            "R060",
+            "RD002",
+            "RD023"
+          ],
+          "observation": "R001 四轨 D/F/J/K、白判定线、尚无音符；R004 绿条在 F、黄条在 J 尚未贴线；R060 蓝长条压在 D 键上、黄条仍在 J 轨上方；RD002–RD023 0.1s 内黄/绿条向下靠近判定键。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "四轨都有色条，但色条直接出现在白判定键上，中间没有从轨道上方落下来的可感知距离",
+          "id": "M1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评音符是否沿分轨移向判定线，以及对应键能否在到达时被应答。判定档与分数归 M2/M3；滚动过程归 A4。",
+      "evidence": {
+        "coverage": "需要看到位移。不认证手感与音频。判定档归 M2。",
+        "kind": "action_sequence",
+        "unit": "一段音符接近判定线并被按中或错过"
+      },
+      "full_credit": "至少两条轨道上有音符从远离判定线处移近；到达时按下对应键能与该轨发生应答。",
+      "group": "M",
+      "high_score_requirements": [
+        "音符在连续帧中沿轨道改位置，不是轨间切黑。",
+        "至少两条轨在不同时刻被占用。",
+        "按键与所在轨对应，不是全局任意键消全部音符。"
+      ],
+      "id": "M1",
+      "inspired_by": [
+        "shadow-courier:M1"
+      ],
+      "partial_credit": "能按但音符几乎贴在判定线上才出现，或只能应答其中一轨。不要求必须四键。",
+      "title": "音符沿轨道落到判定线并可应答",
+      "zero_credit": "充分覆盖可操作游玩后音符不沿轨道移动，或按键与任何轨道都无关。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R004",
+            "R005",
+            "R027"
+          ],
+          "observation": "R004 左栏 PERFECT 4 GREAT 1 MISS 1，J 轨键上 PERFECT +7MS、黄条已被打；R005 PERFECT 7 GREAT 1 MISS 1；R027 结算 PERFECT 109 GREAT 1 GOOD 1 MISS 1。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "左栏有 PERFECT 与 MISS 两行，但无论提早或放过后按，这一击都记进同一行",
+          "id": "M2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评到达判定线时的应答是否分成可区分的时机档，并让该音符离开待击状态。分数/生命数字归 M3；PERFECT 飘字皮肤归 V3。",
+      "evidence": {
+        "coverage": "需要看到判定前后该音符是否还在。SCORE/LIFE 数字归 M3。",
+        "kind": "action_sequence",
+        "unit": "一次按中与一次错过（若出现）"
+      },
+      "full_credit": "按时按中记入较好档并消耗该音符；明显错过记入 miss 类且音符不再可打。档名不强制 PERFECT/GREAT。",
+      "group": "M",
+      "high_score_requirements": [
+        "按中与错过能从计数上分开。",
+        "已判定的那一枚不再停在判定键上等待再打。",
+        "长条若采用，有按住或松开的额外判定，不强制。"
+      ],
+      "id": "M2",
+      "inspired_by": [
+        "shadow-courier:M2"
+      ],
+      "partial_credit": "能消音符但只有一种结果，或 miss 后音符仍停在键上可补按。窗宽本身不是缺陷。",
+      "title": "按时应答产生判定并消耗该音符",
+      "zero_credit": "充分覆盖按键或放过后，音符与判定计数完全不变。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R004",
+            "R005",
+            "R060"
+          ],
+          "observation": "R001 SCORE 0 LIFE 100；R004 MISS 1 后 SCORE 1400 LIFE 96 ACC 78.33%；R005 SCORE 2400 LIFE 97 ACC 80.50%；R060 无 miss 时 SCORE 68865 LIFE 100 ACC 100.00%。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "左栏 MISS 已从 0 变成 1，但顶栏 SCORE 仍是 0、LIFE 仍是 100，与开局相同",
+          "id": "M3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评判定之后 SCORE 或 LIFE（或等价条）是否跟着变。读数皮肤归 A3；同步差错归 V2。",
+      "evidence": {
+        "coverage": "只评数字是否因判定而变。未拍到失败清零则不评 Game Over。",
+        "kind": "action_sequence",
+        "unit": "按中后的分数或错过后天的生命"
+      },
+      "full_credit": "按中后分数上升，或错过后生命/血条下降；两种后果有一种即满。不要求连击倍率。",
+      "group": "M",
+      "high_score_requirements": [
+        "能指出哪一次判定让 SCORE 或 LIFE 改了值。",
+        "错过与按中对读数的方向不同，或至少错过有可见代价。",
+        "不要求复制 GT 的连击 ×2.0。"
+      ],
+      "id": "M3",
+      "inspired_by": [
+        "shadow-courier:M4"
+      ],
+      "partial_credit": "只有分数涨、错过无代价，或只有生命动、分数始终 0。计分公式本身自由。",
+      "title": "判定改变分数或生命",
+      "zero_credit": "充分覆盖多次判定之后分数与生命都与开局相同。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R027",
+            "R070",
+            "R115",
+            "R116",
+            "R119"
+          ],
+          "observation": "R027 STAGE 1 RESULTS CLEARED FIRST LIGHT，SCORE 45525 NOTES 112/112，ENTER CONTINUE / ESC BACK TO MENU，RETRIES 0；R070 STAGE 2 RESULTS CROSSWIND SCORE 101865 NOTES 200/200；R115 NOTES 256/256 后 R116/R119 GAME COMPLETE ALL THREE CLEARED TOTAL SCORE 282895。未见 LIFE 到 0。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "NOTES 已到 112/112，只在判定线上方弹一句 CLEARED，没有离开四轨界面的 STAGE RESULTS 或 GAME COMPLETE",
+          "id": "M4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评有界谱面打完后是否离开游玩轨进入结算并提供继续或返回；若候选展示生命耗尽或失败，则应进入失败态并给出重试，而不是无代价接着打。本片未拍到失败，失败后果为 unknown。结算排版归 V4。",
+      "evidence": {
+        "coverage": "完成需要看到打完到结算页。失败只在候选或 GT 拍到耗尽时评分，否则 unknown。多关是自由。",
+        "kind": "action_sequence",
+        "unit": "一次谱面收束；失败仅在实际发生时评"
+      },
+      "full_credit": "NOTES 达到谱面上限后出现结算与下一步入口。若录像里生命到 0，应进入失败而非继续计分。",
+      "group": "M",
+      "high_score_requirements": [
+        "谱面打完与结算时序相连。",
+        "结算上有继续或返回入口。",
+        "若出现生命耗尽，不能无代价继续计分。"
+      ],
+      "id": "M4",
+      "inspired_by": [
+        "shadow-courier:M4"
+      ],
+      "partial_credit": "有 CLEARED 标题但无返回/继续入口，或失败后仍能无代价打完。按钮未点击不构成缺陷。",
+      "title": "谱面打完进入结算；失败则可重试",
+      "zero_credit": "充分覆盖谱面打完之后仍停在四轨游玩态、没有任何结算。未拍到失败时不因缺失败画面归零。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R004",
+            "R039",
+            "R060",
+            "RD011"
+          ],
+          "observation": "R004 绿条在 F 轨中段、黄条在 J 轨上段；R039 红长条从 K 轨上方压下；R060 黄条仍在 J 上方时 D 键已在打蓝长条；RD011 黄条从中段落到键上。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "色条会改位置，但全部贴着白判定线一排同时亮灭，轨道上半截始终空着，没有要盯的提前序列",
+          "id": "D1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评音符是否在到达前占用轨道上方，让玩家先读后按。形体能否分开归 V1；墙地是否平涂归 A2，不在此重复扣。谱面密度自由。",
+      "evidence": {
+        "coverage": "评是否造成先读后按。不要求复制 GT 的 SCROLL 1.40×。",
+        "kind": "whole_scope",
+        "unit": "含下落的一段谱"
+      },
+      "full_credit": "经常能在判定线上方看到尚未到达的音符，玩家需要等它落到键上再按。",
+      "group": "D",
+      "high_score_requirements": [
+        "能指出至少一枚在到达前已经出现在轨上。",
+        "提前量足够让人把键和轨对上。",
+        "不是只在判定键闪一下。"
+      ],
+      "id": "D1",
+      "inspired_by": [
+        "shadow-courier:D1"
+      ],
+      "partial_credit": "有下落但提前量极短，几乎到线才出现。不要求必须有长条。",
+      "title": "判定线前有要读的提前序列",
+      "zero_credit": "充分覆盖下音符只出现在判定键上，轨道上方始终空着。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R004",
+            "R037",
+            "R056",
+            "R092"
+          ],
+          "observation": "R004 F 与 J 同时有条；R037 蓝长条在 D、黄条在 K；R056 四轨同时有蓝/绿/黄/红；R092 F 短条与 K 红长条并存。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "画了 D F J K 四条色轨，但全程只有 F 列有条，其余三键从未被占用",
+          "id": "D2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评音符是否分布在可区分的列上，使按时应答变成选键。键数与谱面自由，不强制四键。判定机制归 M2。",
+      "evidence": {
+        "coverage": "比较列之间是否都有要按的音符。不要求复制 GT 的 256 注。",
+        "kind": "whole_scope",
+        "unit": "从开局到收束的分轨"
+      },
+      "full_credit": "至少两条轨在谱面中都被占用，且需要在不同键上应答，而不是同一键消全部。",
+      "group": "D",
+      "high_score_requirements": [
+        "至少两条轨有各自的音符。",
+        "同时出现的音符不总在同一列。",
+        "键位与列稳定对应。"
+      ],
+      "id": "D2",
+      "inspired_by": [
+        "shadow-courier:D3"
+      ],
+      "partial_credit": "名义上有多轨但几乎所有音符挤在一列。不要求键位数等于 GT。",
+      "title": "多轨道把应答分到不同键",
+      "zero_credit": "充分覆盖下全部音符叠在同一列，没有分轨选择。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R027",
+            "R071",
+            "R115",
+            "R116"
+          ],
+          "observation": "R001 TIME -1.98 NOTES 0/112 开局；R027 112/112 后 STAGE 1 RESULTS；R071 新谱 LATTICE NOTES 0/256 TIME -1.02；R115 256/256 后 GAME COMPLETE。后两关是 GT 例子，不是满分前提。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "顶栏曲名从 FIRST LIGHT 换成 CROSSWIND，但 NOTES 分母仍是 112，轨道图案是同一组四条色块循环",
+          "id": "D3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评节奏段是否有可打完的边界：开头倒计时或空轨、中段持续下落、打完进入结算，而不是同一小节无限循环。多曲递进、SCROLL 变化是自由，未采用不扣。",
+      "evidence": {
+        "coverage": "评是否打得完。不把未展示的失败分支当缺失的关卡。",
+        "kind": "whole_scope",
+        "unit": "整段可完成谱面"
+      },
+      "full_credit": "一段谱有可见开头与打完收束，NOTES 有上限。",
+      "group": "D",
+      "high_score_requirements": [
+        "开局能看出谱尚未开始或刚开始。",
+        "打完后不再继续刷同一段。",
+        "不要求必须三首曲。"
+      ],
+      "id": "D3",
+      "inspired_by": [
+        "shadow-courier:D3"
+      ],
+      "partial_credit": "能打但没有上限，或收束只是突然黑屏。不要求三关。",
+      "title": "有界谱面有开头与收束",
+      "zero_credit": "充分覆盖下只有无限循环的同一组音符，没有可完成的谱面。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R004",
+            "R037",
+            "R056",
+            "R060"
+          ],
+          "observation": "绿/黄/蓝/红条与四条深色轨、底部白键分开；R056 四色同时在轨上仍能对到 D F J K。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "音符有矩形，但与所在轨背景同色同宽，只有贴到白判定键上才能猜哪一列要按",
+          "id": "V1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评色条与所在轨、判定键是否在世界层能分开，而不靠把 HUD 读完。D1 评提前量是否造成先读；本条评形体能否分开。",
+      "evidence": {
+        "coverage": "只评预读。D1-C1 评有没有提前序列；本条评色条能否从轨里分开。",
+        "kind": "overview",
+        "unit": "含多轨下落的画面"
+      },
+      "full_credit": "不同轨的音符有可分辨颜色或形状，判定键与轨有边界，玩家在条还在上方时能判断要按哪一键。",
+      "group": "V",
+      "high_score_requirements": [
+        "不用读顶栏曲名也能对上键。",
+        "长条与短条能区分（若采用长条）。",
+        "判定白键与轨背景有边界。"
+      ],
+      "id": "V1",
+      "inspired_by": [
+        "shadow-courier:V4"
+      ],
+      "partial_credit": "颜色接近到几乎贴线才分得出，或长条与短条无法区分。扁平色块风格本身不是缺陷。",
+      "title": "下落音符在到达前可预读",
+      "zero_credit": "充分覆盖下无法分辨哪一条是音符、哪一条是轨道背景。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R004",
+            "R005",
+            "R060",
+            "R115"
+          ],
+          "observation": "R001 SCORE 0 LIFE 100 NOTES 0/112 JUDGED 0/112；R004 NOTES 6/112 与左栏 4+1+0+1=6、JUDGED 6/112 一致，LIFE 96；R005 LIFE 97 NOTES 10/112；R060 NOTES 145/200 与 PERFECT 145、JUDGED 145/200 一致；R115 NOTES 256/256 PERFECT 256。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "判定键上已多次亮起，NOTES 已从 0/112 往前走，但左栏 JUDGMENTS 全是 0、SCORE 仍是 0",
+          "id": "V2-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "顶栏 SCORE/LIFE 或左右 JUDGMENTS/RUN 面板挡住白判定线中心，无法同时看轨与读数",
+          "id": "V2-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评 SCORE、LIFE（若有）、NOTES、JUDGMENTS 是否稳定成组，并在判定后跟着变。机制归 M3；飘字归 V3。无生命条而只有分数 → 生命子项 not_applicable。",
+      "evidence": {
+        "coverage": "V2-C1 只在世界层已判定时触发。不要求复制 LIFE 100 文案。",
+        "kind": "whole_scope",
+        "unit": "开局、一次 miss、一次收束"
+      },
+      "full_credit": "游玩态能读分数或生命、已判定数量；判定后对应数字立刻跟上，不挡住判定线。",
+      "group": "V",
+      "high_score_requirements": [
+        "分数或生命与判定计数同时可见。",
+        "NOTES 分子与已判定次数能对上。",
+        "读数不挡住判定线。"
+      ],
+      "id": "V2",
+      "inspired_by": [
+        "shadow-courier:V3"
+      ],
+      "partial_credit": "有数字但与判定脱节，或面板挡住白键。不要求必须有 LIFE 数字。",
+      "title": "分数、生命与判定计数成组且同步",
+      "zero_credit": "充分覆盖下没有任何分数、生命或判定计数。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R004",
+            "R005",
+            "R060",
+            "RD026"
+          ],
+          "observation": "R004 J 键上方 PERFECT +7MS；R005 J 键 PERFECT -2MS 且键上有黄条；R060 D 键 PERFECT +4MS、J 键 +5MS；RD026 相邻帧里两键几乎同时出 PERFECT。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "四条轨按中都会在判定线上方显示 PERFECT，但这几个字固定停在屏幕中缝，无法看出是哪一轨被打中",
+          "id": "V3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评按中或错过时判定键附近是否出现有别于空轨的即时提示。判定是否计入归 M2。",
+      "evidence": {
+        "coverage": "只评提示是否出现在击中那几帧。音频无法从画面认证。",
+        "kind": "action_sequence",
+        "unit": "一次按中再回到空键"
+      },
+      "full_credit": "按中时该轨判定键或近旁出现判定字、闪光或等价提示，离开后恢复。",
+      "group": "V",
+      "high_score_requirements": [
+        "击中与空轨的判定线能区分。",
+        "提示出现在被按的那一轨附近。",
+        "提示是瞬时的，不是常驻顶栏。"
+      ],
+      "id": "V3",
+      "inspired_by": [
+        "shadow-courier:V2"
+      ],
+      "partial_credit": "只有一种提示常驻不跟轨，或只在收束页才列出判定。不要求必须写 ±ms。",
+      "title": "击中时判定线附近有即时反馈",
+      "zero_credit": "充分覆盖按中与错过时判定线与空打完全一样，没有任何击中提示。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R027",
+            "R070",
+            "R119"
+          ],
+          "observation": "R027 有 STAGE 1 RESULTS / CLEARED 标题、SCORE 45525 与 PERFECT 109 等分项、底部 ENTER/ESC；R070 同结构 SCORE 101865；R119 GAME COMPLETE ALL THREE CLEARED，三关分项与 TOTAL SCORE 282895、ENTER/ESC BACK TO MENU。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "STAGE RESULTS 只有一行 SCORE 数字叠在系统默认对话框里，没有 CLEARED 标题条，也没有 PERFECT/MISS 分项表",
+          "id": "V4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "在已出现结算时评标题、曲目/分数表与下一步入口的层级。无结算由 M4 计。失败页若出现用同一标准。",
+      "evidence": {
+        "coverage": "无结算时 not_applicable。ENTER 未点击，不认证功能。",
+        "kind": "overview",
+        "unit": "关卡结算与总完成页（及若出现的失败页）"
+      },
+      "full_credit": "结算有明确标题、分项结果，以及分开的继续或返回入口。",
+      "group": "V",
+      "high_score_requirements": [
+        "标题比按钮更先被读到。",
+        "能看出是打完谱面而不是通用 Pause。",
+        "继续或返回从正文里分出来。"
+      ],
+      "id": "V4",
+      "inspired_by": [
+        "shadow-courier:D5"
+      ],
+      "partial_credit": "有标题和数字但糊成一行。不要求插画。",
+      "title": "结算页标题与分项可分组",
+      "zero_credit": "充分证据下结算信息完全没有视觉中心，无法分组。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R004",
+            "R037",
+            "R060",
+            "R071"
+          ],
+          "observation": "色条有圆角块面；判定键是浅灰方；R037/R060 长条从轨上延续到键面；R071 四键全亮白、无条。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S020",
+            "S022",
+            "S024",
+            "S025"
+          ],
+          "observation": "给定蓝/绿/红/黄圆角按钮与轨上色条同类；不证明文件加载。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "给定 Kenney 彩色圆角按钮只出现在素材预览或结算装饰里，关内判定键是另一套无描边扁片，音符倒是有色条",
+          "id": "A1-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评可见的下落条与底部判定键在游玩尺度下是否有轮廓与分区。Kenney 按钮原图不能代替成品。滚动归 A4。",
+      "evidence": {
+        "coverage": "不要求写实扫描。不要求四色按钮文件一一对应。",
+        "kind": "overview",
+        "unit": "音符条与判定键"
+      },
+      "full_credit": "短条/长条有体积或明确色块边界；判定键有可按的方体，按下或击中时能与空键区分。等效造型同权。",
+      "group": "A",
+      "high_score_requirements": [
+        "判定键与轨有遮挡或前后关系，不是浮在 HUD 上的贴图。",
+        "击中时键面与空键可区分。",
+        "同一轨的短条与长条仍能认出是同类。"
+      ],
+      "id": "A1",
+      "inspired_by": [
+        "shadow-courier:A1"
+      ],
+      "partial_credit": "音符是无边界色带，或键缩成细线。结算页才出现精致按钮而关内没有，按范围扣。",
+      "title": "音符条与判定键有形体",
+      "zero_credit": "充分覆盖下既没有可跟踪的音符条，判定位置也无法从背景里分出来。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R060",
+            "R071",
+            "R115"
+          ],
+          "observation": "四条深浅不同的竖轨、贯通白判定线、底键标 D F J K；R060 出现蓝长条占用整列；暗蓝背景两侧有圆形光斑。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S002",
+            "S018",
+            "S042"
+          ],
+          "observation": "给定光圈粒子与 Kenney UI 样张；评的是游玩构图，不要求把 Simple.png 铺满。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "有四条竖带和一条白线，但白线与音符没有前后关系，色条穿过线后仍叠在键上不消失",
+          "id": "A2-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "把给定 Kenney Simple.png 或 UI 样张整幅铺成背景，音符在样张按钮上滑动，白判定线对不齐画面上的四键",
+          "id": "A2-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评轨道、判定线、键位是否组成可理解的节奏场地。布局自由；读谱归 D1。",
+      "evidence": {
+        "coverage": "不因扁平色块扣分。不要求用齐全部粒子贴图。",
+        "kind": "overview",
+        "unit": "开局轨、中段长条与收束空轨"
+      },
+      "full_credit": "有分列的轨道、一条判定线和底部键位，音符在列内移动而不是满屏乱飞。",
+      "group": "A",
+      "high_score_requirements": [
+        "能指出轨道、判定线与键位。",
+        "音符被约束在列内。",
+        "空轨与有条的轨能分开。"
+      ],
+      "id": "A2",
+      "inspired_by": [
+        "sokoban:A2"
+      ],
+      "partial_credit": "有竖带但没有判定线，或键与轨错位。扁平风格同权。",
+      "title": "分轨与判定线形成可打的场地",
+      "zero_credit": "充分覆盖下没有轨道场地，只有悬浮色块。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R004",
+            "R027"
+          ],
+          "observation": "顶栏 SCORE/COMBO/ACC/TIME 与黄字 FIRST LIGHT；左 JUDGMENTS 深底表、右 RUN 字母等级；结算页沿用同一蓝框。R004 轨上 PERFECT +7MS 小于顶栏。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S073",
+            "S074",
+            "S008"
+          ],
+          "observation": "给定 Kenney Future / Future Narrow 与白底按钮条；HUD 字形同类，不强制文件对应。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "代表性的主要界面虽已有分组、底板或字号差，但核心信息的重要性与视觉重量长期明显相反，或主要信息组仍没有可辨阅读顺序，导致这一状态的主要编排关系实质缺失。须指出具体角色和范围；常见字体、纯文字、缺少面板或一个局部修饰问题均不触发。",
+          "id": "A3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评价谱面信息、判定/成绩读数、阶段提示与结算的实际视觉编排。重点是信息角色、文字/图形比例、留白与对齐、状态重点共同形成的界面设计；正确显示信息、有字号差或使用统一颜色只证明相应的局部成果。下列 GT 观察是设计作用的实例，具体颜色、字体、图标、面板和固定位置不构成复刻要求。",
+      "evidence": {
+        "coverage": "代表性正常界面与原录像覆盖的状态画面并列查看；关键文字及组间比例需要正常尺度全帧。只评价本任务已采用且已展示的组成。",
+        "kind": "overview",
+        "unit": "游玩 HUD 与曲名"
+      },
+      "full_credit": "谱面信息、判定/成绩读数、阶段提示与结算在正常观看尺度下按当前任务的重要性形成清楚的视觉重量和阅读顺序；主要目标或行动状态有充分强调，名称、数值、辅助说明的比例、距离和对齐体现各自语义，弱化的信息仍有适当可读性。演奏、判定反馈与谱面结算根据状态用途重新组织视觉中心、疏密与留白，同时延续可辨的字体角色或图形关系。整体编排已经形成完整、合乎内容的界面，不能仅由几组标签、标题放大和配色统一来证明。纯文字可以充分完成设计；仅评价实际采用的可选读数、图标、按钮和统计，不要求另加组件、面板或独立结果屏。",
+      "group": "A",
+      "high_score_requirements": [
+        "当前判定与演奏状态、谱面进度和辅助记录在正常画面中的视觉重量与当前用途匹配。指出强调了谁、弱化了谁以及字号/对比/位置/留白如何共同完成这一关系；仅列出标签和分组不算完整证据。",
+        "具体信息组内部与组间的比例、对齐和疏密共同形成阅读节奏，名称、读数、说明之间的联系清楚；同一字体、同一颜色或一条底板不自动证明这些关系完成。",
+        "演奏、判定反馈与谱面结算各自的视觉中心与内容相称，状态变化通过实际编排表达用途变化；保持相同颜色或把一行字放大不足以单独证明完整，但有意义的简洁文字构图可以完整成立。",
+        "字体角色、形状、边缘或强调关系在整套界面中得到有目的的运用；需要说明具体处理产生了什么视觉效果，不能用‘没冲突、可读、风格统一’替代正面完成证据。"
+      ],
+      "id": "A3",
+      "inspired_by": [
+        "shadow-courier:A4"
+      ],
+      "partial_credit": "按已形成和未完成的设计关系连续判断：能读到文字但关键目标/状态的视觉重量弱于装饰性标题；标签与数值或相关说明靠简单并排仍缺少有效分组与阅读顺序；主次虽然有字号差，尺度、对比或留白却未配合语义；结果内容只是换字沿用普通读数排法，没有围绕已有完成信息形成视觉中心；局部做了边框或强调色，但主要界面仍缺乏上述编排。指出具体区域、相互比较的信息角色和可见后果，不能只说普通、简陋或缺乏高级感。仅有轻微间距问题时按局部损失判断；不能把缺少图标/插画、使用常见字体、不同字体家族或极简风格本身当缺陷。某信息是否缺失或错误归功能视觉项；本项须评价已展示信息怎样被设计，不能复用同一功能缺失扣分。",
+      "title": "界面的完整视觉编排",
+      "zero_credit": "所需观察范围充分时，主要界面完全没有实际视觉编排，只有无法形成信息角色或阅读顺序的散置占位内容。已经形成有效的局部编排应给部分完成度；没有拍到状态不等于没有设计。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "RD001",
+            "RD011",
+            "RD023",
+            "RD041",
+            "R060"
+          ],
+          "observation": "RD001–RD011 FIRST LIGHT 尾黄/绿条逐帧下移并在键上成 PERFECT；RD023 CROSSWIND 红长条在 K 轨下滑；RD041 LATTICE 多轨同时改高度；R060 D 键保持蓝条占用。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "能连续按，但 CROSSWIND 的蓝/红长条整块换高度，没有沿 D/K 轨下滑的中间帧；判定键永远同一亮度",
+          "id": "A4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评音符下移、键面点亮、长条缩短是否有可跟踪过程。机制归 M 组；飘字归 V3。",
+      "evidence": {
+        "coverage": "需要相邻或密集帧。失败闪红未拍到则不评受击动画。",
+        "kind": "action_sequence",
+        "unit": "一段下落、一次击中、一次长条（若采用）"
+      },
+      "full_credit": "音符在连续帧中沿轨下移；击中时键面或条有变化；长条若采用则有持续占用，而不是只弹字。",
+      "group": "A",
+      "high_score_requirements": [
+        "下落是连续平移，不是瞬现瞬隐。",
+        "击中时机键面或条有变化。",
+        "长条若采用，占用期间能看出仍在该轨。"
+      ],
+      "id": "A4",
+      "inspired_by": [
+        "shadow-courier:A4"
+      ],
+      "partial_credit": "音符瞬移换高度，或长条整段瞬切。不要求粒子拖尾。",
+      "title": "下落、击中与长条有世界层过程",
+      "zero_credit": "充分覆盖下所有位移都是切帧，音符与键没有任何中间过程。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R060",
+            "R027",
+            "R119"
+          ],
+          "observation": "游玩始终是暗蓝四轨与顶栏黄曲名；R027/R119 结算沿用蓝框与同一套像素字、黄 S 标。跨部分没有换成无关皮肤。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "代表性的正常画面中，主体、场所、效果和信息层虽各自存在，但跨部分的主要行动焦点或空间层次持续未建立：须有具体比例、明暗、遮挡或布局关系使主要行动被压成次要点或各部分无法形成同一空间的证据。配色一致不能豁免；个别装饰不足、单帧重叠或局部细节缺失不触发。",
+          "id": "A5-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评价音符、轨道/判定位置、效果与读数层共同组成的整幅画面怎样表现及时读取下落音符并完成有边界的谱面。本项需要跨部分构图、比例、空间与注意力层次的正面成果；能够认出同一游戏、配色一致或没有严重风格冲突只证明有限的协调。不再次评价 A1–A4 的局部制作水平，不把 GT 的具体风格和配色变成强制答案。",
+      "evidence": {
+        "coverage": "以多个独立阶段的正常全帧检查整体关系，并与原录像覆盖的状态画面比较；不以单一漂亮结果页补偿游玩画面的主要关系缺失。",
+        "kind": "whole_scope",
+        "unit": "开局、中段、结算"
+      },
+      "full_credit": "即将抵达的音符、判定位置与当前反馈在代表性画面中形成有目的的关注关系；主体所占视觉重量、场所的衬托、效果的强调和信息层的介入共同表现及时读取下落音符并完成有边界的谱面。各部分在尺度、明暗/色彩、边缘与空间上的配合形成完整画面，能指出主体如何处于场所中、效果如何依附其对象、界面如何配合当前状态。跨已展示的阶段与结果，视觉语言通过这些关系延续并适应状态变化；统一调色、重复字体或相同像素边不能代替整体构图与氛围的完成。几何、极简、像素、混合渲染和主题变化均可完整成立，不要求增加装饰或效果种类。",
+      "group": "A",
+      "high_score_requirements": [
+        "即将抵达的音符、判定位置与当前反馈的关注顺序由整幅构图、视觉重量与场景衬托共同组织，具体说明至少两个部分如何相互支持。对象存在、能定位或颜色区分开，只是这项成果的一部分。",
+        "音符、轨道/判定位置、效果与读数层之间的尺度、明暗/色彩、边缘或空间关系共同形成及时读取下落音符并完成有边界的谱面的表现，举出画面中实际成立的整合关系；不能仅凭共享调色或材质名称判完整。",
+        "已展示的游玩阶段与结果通过构图、强调、形态或空间关系延续同一视觉方向，并适应各状态的用途；只复用一种颜色或字体并不能单独证明整套呈现完成。"
+      ],
+      "id": "A5",
+      "inspired_by": [
+        "strategy-skirmish:A1"
+      ],
+      "partial_credit": "按尚未建立的跨部分关系及其重要性给连续分：颜色相近却只是主体、平面场地、标记和顶栏的并置，比例与明暗没有共同组织主要行动；效果、装饰或信息层的面积/对比持续压过应被关注的世界主体或目标，使行动中心退化为画面的次要点；物件、地面和效果各自可辨，却在接地、遮挡或视觉尺度上缺乏联系，整幅画面的空间表现未形成；游玩与结果只复用颜色，实际构图和强调关系没有支持其体验的延续。必须指出至少两个部分之间的可见关系与结果，不能以‘拼装感、没氛围’概括，也不能再次列角色缺细节、地面少装饰或界面字小作为独立扣分。局部轻微不协调按局部判断；不同风格、稀疏场景、明亮特效或大界面并不自动证明失败。",
+      "title": "整体构图与美术整合",
+      "zero_credit": "代表性画面中各部分没有共同形成可辨的主要行动、空间层次或整体表现方向，只有互不关联的内容并置。已形成的实际关系应保留部分完成度；不能因画风不合偏好给零分。"
+    }
+  ],
+  "rubric_version": "2026-09-19.vlm-art-relationships-v1",
+  "score_curve": {
+    "caps_scale": "final_score",
+    "exponent": 3,
+    "input": "attainment",
+    "missing_evidence": null,
+    "name": "power"
+  },
+  "self_review": {
+    "overlap": "事件唯一归属：音符沿轨位移并可按 → M1；判定档并消耗该音符 → M2；SCORE/LIFE 因判定而变 → M3；谱面收束进入结算、耗尽进入失败 → M4；判定线前是否有提前序列 → D1；音符是否分到不同列 → D2；谱面是否打得完 → D3；色条/轨预读 → V1；SCORE/LIFE/NOTES 同步与遮挡 → V2；轨旁 PERFECT 飘字 → V3；STAGE RESULTS / GAME COMPLETE 内部层级 → V4；条与键形体 → A1；轨道场地 → A2；游玩 HUD 皮肤 → A3；下落/击中过程 → A4；跨部分语言 → A5。跨条目双罚结论：①单列无分轨 → 只记 D2；D1 只评有没有提前序列，列少不另扣；若只有无限循环则只记 D3，D2 归 D3。②全平涂空带 → 只记 A2；D1 不因缺贴图扣。③MISS 已出现但 SCORE/LIFE 不动 → 只记 M3-C1；V2-C1 是世界层已判定而计数栏仍全 0，两者不叠。④打完无结算 → M4；有结算但灰底裸字 → V4-C1；A3 不评结算页。⑤无下落只有贴线闪一下 → M1-C1 与 D1-C1 只触发「贴线无距离」时归 M1，有移动但无提前量归 D1。⑥飘字常驻中缝 → V3-C1；判定是否计入归 M2。⑦Kenney 按钮只在预览 → A1-C2；色条与轨同色 → V1-C1。只触发其一。⑧A4-C1 只评长条瞬移与键死帧，贴线无落体归 M1-C1。⑨A5-C1 只在关内已成套而结算页断开时触发，不与 V4-C1 叠加成两次「灰底」。",
+    "scope": "16 项（M4/D3/V4/A5）。按 brief 把下落读谱、按时应答、判定、分数或生命、有界通关、失败与重试作为必需；谱面、窗宽、视听主题、多关、计分平衡自由。失败未拍到，M4 不因缺失败画面归零。",
+    "uncertainties": "GRID 1/1 与 1/2 的规则不能从像素验证。失败规则不可从本片验证。HUD 数字已用原始全帧核对两遍：R001 SCORE 0 LIFE 100 NOTES 0/112 TIME -1.98；R004 SCORE 1400 LIFE 96 ACC 78.33% MISS 1；R005 SCORE 2400 LIFE 97 ACC 80.50%；R027 SCORE 45525 ACC 98.26% GOOD 1 MISS 1（联系图曾误读 GOOD 2 MISS 0、ACC 98.28%）；R060 SCORE 68865 NOTES 145/200；R070 SCORE 101865 NOTES 200/200；R115 SCORE 135505 NOTES 256/256；R119 TOTAL SCORE 282895（联系图曾误读 202895）。未建立独立语义审查证据。未建立人工分数校准证据。",
+    "unsupported_obligations": "未要求：必须三曲、指定曲名、四级英文判定、四键、SCROLL 倍速、Kenney 字体文件、粒子拖尾、音频。GT 结算按成品门槛写，不把 GT 当唯一满分皮肤。"
+  },
+  "task_map": {
+    "freedom": [
+      "谱面内容、判定窗宽、视听主题、多关递进、计分平衡。",
+      "FIRST LIGHT / CROSSWIND / LATTICE 曲名、四键 D F J K、PERFECT 四级、SCROLL 倍率、三关结构均为 GT 例子。",
+      "只用分数或只用生命都满足「分数或生命后果」，不强制两者齐全。"
+    ],
+    "required": [
+      "小型轨道上读下落音符、按时应答、看到判定反馈、打完有界谱面。",
+      "时机判定、分数或生命后果、通关、失败与重试。",
+      "键盘节奏：音符沿轨道到达判定线。"
+    ]
+  }
+}

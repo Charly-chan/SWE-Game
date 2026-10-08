@@ -1,0 +1,88 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-23T10:43:04+00:00",
+  "interface_requirements": {
+    "O9": {
+      "fields": [],
+      "reason": "reference has no registered anchor expectation",
+      "required": false
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 0,
+        "gb_door": 0,
+        "gb_enemy": 1,
+        "gb_goal": 1,
+        "gb_hazard": 0,
+        "gb_interactive": 61,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_interactive": [
+          "x",
+          5
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://scenes/level.tscn",
+      "spawn_goal_distance": 1.0402073038315098
+    }
+  ],
+  "probe_sha256": "7b966a24301ab4cf7b2e433dc04081d354779f93ff571a8a5e47964d894a2026",
+  "project": "twin_holds",
+  "runtime_assets": {
+    "res://assets/audio/ambience.ogg": "35697cbfde073f92df06e828fe2c8676a1f98c07404193e6477ca9202213f80a",
+    "res://assets/models/buildings/blue/building_barracks_blue.gltf": "a4f3aaa7ebb33cf0d86a139941b350e580e3e1376e3ead99a5aaecb5de2f3817",
+    "res://assets/models/buildings/blue/building_castle_blue.gltf": "f23ede8641122d2226f02a5fdb4957dfedec99accf27240f07ef7fb312696759",
+    "res://assets/models/buildings/blue/building_church_blue.gltf": "ac2d9dfbdcffd1604e1522ddb26fe27c1feae2bc01bf90664c8044b22926867b",
+    "res://assets/models/buildings/blue/building_home_A_blue.gltf": "60b3568e086d586b491eed8168c46acb61bb9670fb2c296faa64929b18dfcbea",
+    "res://assets/models/buildings/blue/building_home_B_blue.gltf": "bf503f4edcd3a744a021ccdd5b9215f6c8934ef87fa44d95632cb653422797eb",
+    "res://assets/models/buildings/blue/building_lumbermill_blue.gltf": "bf6ff5811c7e4aac10dbd32d0cb26b2dda6e31b894726bf9d567371a0fb1f1b4",
+    "res://assets/models/buildings/blue/building_market_blue.gltf": "24874a4651dfff0d1aea31e15a32b9c35122958764c6f968ca55f286285ffbe9",
+    "res://assets/models/buildings/blue/building_mine_blue.gltf": "fe21db192f3ee7d40bd5f64a1d3782c6301b92a6676ca8a4d43e8c3e85ab7695",
+    "res://assets/models/buildings/blue/building_tavern_blue.gltf": "58a3573cf468f9c5f1d03a6da74fbc884f5f662ccddbfef2a10860abfe50109b",
+    "res://assets/models/buildings/blue/building_tower_base_blue.gltf": "60c9ea992b4dd584f57183a6c9b89619ff36eda2c81be71cefdb8704bdf84f4a",
+    "res://assets/models/buildings/blue/building_well_blue.gltf": "66305823322b2e6a7f1cb8d8bf0d91ed9b94b8d96f61d0f7af77bd0d09f6463e",
+    "res://assets/models/buildings/blue/building_windmill_blue.gltf": "a98412d4bcd016ce63f66b5d7193adf664867c3649829707b04586fb73e31f38",
+    "res://assets/models/buildings/blue/hexagons_medieval.png": "5301a06866ba3be68dcc14cc429bd6d0f69004b72884283715d7e233f2e9782e",
+    "res://assets/models/buildings/green/building_castle_green.gltf": "6739f651daf33b406c0abb0b91af49315059a0e70012bd01b77b30695f4bd98c",
+    "res://assets/models/buildings/green/hexagons_medieval.png": "5301a06866ba3be68dcc14cc429bd6d0f69004b72884283715d7e233f2e9782e",
+    "res://assets/models/buildings/neutral/building_dirt.gltf": "dd7d0f3e4740b0465615d69024a553f87314385998431c8555788bef354aed16",
+    "res://assets/models/buildings/neutral/hexagons_medieval.png": "5301a06866ba3be68dcc14cc429bd6d0f69004b72884283715d7e233f2e9782e",
+    "res://assets/models/nature/hexagons_medieval.png": "5301a06866ba3be68dcc14cc429bd6d0f69004b72884283715d7e233f2e9782e",
+    "res://assets/models/nature/hill_single_A.gltf": "00eb206cb0239257d05c107568bcf1fd6548d2f3da2cfb6ec8ecd41c377bbf06",
+    "res://assets/models/nature/hills_A_trees.gltf": "6e7e71bd37856c442dc7cf562a1cc1e9eb172050dc002d2d65c3fb5b90ae1d28",
+    "res://assets/models/nature/mountain_A_grass_trees.gltf": "defb29e0132afd4ec5cb33281efb890c9ed9603b5181471b31ff4f21d71c143a",
+    "res://assets/models/nature/mountain_B_grass.gltf": "4df9f7e2479b581061f3369e9da18de672e89dd896d7cb116d6078c823150afc",
+    "res://assets/models/nature/rock_single_A.gltf": "ddf307987fb18aa8e7594bb399de3943e497b50bc01aae0e7292a38418944915",
+    "res://assets/models/nature/trees_A_medium.gltf": "c330d7c775c50b7ccbc6ce7799e699fbdbbeb14a390315e85419dc0dfe5178a6",
+    "res://assets/models/nature/trees_B_small.gltf": "f9a491097a116f98a11022b1b1adb563946ba28751f9184d689a8019ef4d7e41",
+    "res://assets/models/props/flag_blue.gltf": "de33035f0e9945f8d4e6ca3242e18f4822227cc8cc3a1afd9f0d193419573f08",
+    "res://assets/models/props/flag_green.gltf": "3d3192dc48ae58179391adc15d38faadcc1680e2d6b8bab582da054cf01c82bd",
+    "res://assets/models/props/flag_red.gltf": "c1f76b1ca3d47a30a868500ecbe2844e89b75b4bebc7283f41bd37561aa58c1f",
+    "res://assets/models/props/hexagons_medieval.png": "5301a06866ba3be68dcc14cc429bd6d0f69004b72884283715d7e233f2e9782e",
+    "res://assets/models/tiles/hex_grass.gltf": "9197814431b5becf69b22bb7a20e340d63155c4aeddfb3a678c3f041ca585e41",
+    "res://assets/models/tiles/hex_water.gltf": "ccc5b423abcd43dfb562ef0fda1f518e24e0696364d6beb2f2da704da9d2acfa",
+    "res://assets/models/tiles/hexagons_medieval.png": "5301a06866ba3be68dcc14cc429bd6d0f69004b72884283715d7e233f2e9782e",
+    "res://assets/ui/button_focus.png": "f8d084a5caaae0599d0c5fbfd52385ce2932af2d1375180c5e771b0a2aa41e0a",
+    "res://assets/ui/button_normal.png": "3fc1d9bedf07da0f1a49bed143311e6edf3bebd9a937e95a6ab4b812c8448ec0",
+    "res://assets/ui/button_pressed.png": "424f7743b51666915429a32b76732aeea7079c053cabbe7874d826fed210dacc",
+    "res://assets/ui/panel_frame.png": "4239da5e604c18d0410847df936040dd821e80d85ad89efe02635d93286f5574"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

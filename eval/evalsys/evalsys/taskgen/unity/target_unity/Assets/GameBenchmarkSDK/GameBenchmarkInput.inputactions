@@ -1,0 +1,32 @@
+{
+  "name": "GameBenchmarkInput",
+  "maps": [
+    {
+      "name": "Player",
+      "id": "b91a3b7d-dff8-4598-b4b6-aeebfd74f5ed",
+      "actions": [
+        {"name":"gb_left","type":"Button","id":"24742a72-92ed-45ca-a4aa-a906f4d0f1c0","expectedControlType":"Button","processors":"","interactions":"","initialStateCheck":false},
+        {"name":"gb_right","type":"Button","id":"09db2721-69d1-4131-acce-f3467de524ea","expectedControlType":"Button","processors":"","interactions":"","initialStateCheck":false},
+        {"name":"gb_up","type":"Button","id":"721243e1-ef78-44a0-b36c-6ff6509d8d53","expectedControlType":"Button","processors":"","interactions":"","initialStateCheck":false},
+        {"name":"gb_down","type":"Button","id":"480d9ef0-81bd-4939-a6f2-d486ff825143","expectedControlType":"Button","processors":"","interactions":"","initialStateCheck":false},
+        {"name":"gb_jump","type":"Button","id":"be69ab70-651d-4cf7-81cc-0004de3788c7","expectedControlType":"Button","processors":"","interactions":"","initialStateCheck":false},
+        {"name":"gb_action","type":"Button","id":"5b332d8d-e83c-48ac-b323-3f4e46eb1ba7","expectedControlType":"Button","processors":"","interactions":"","initialStateCheck":false},
+        {"name":"gb_attack","type":"Button","id":"95cd6564-8601-41f0-bb70-a84cca474a8e","expectedControlType":"Button","processors":"","interactions":"","initialStateCheck":false},
+        {"name":"gb_dash","type":"Button","id":"08c71053-330d-4c4f-998d-d59fd8621af3","expectedControlType":"Button","processors":"","interactions":"","initialStateCheck":false}
+      ],
+      "bindings": [
+        {"name":"","id":"7be94aaa-f211-4a0d-bfd7-b938546a9d8a","path":"<Keyboard>/a","interactions":"","processors":"","groups":"Keyboard","action":"gb_left","isComposite":false,"isPartOfComposite":false},
+        {"name":"","id":"16785144-ee66-4598-bb4c-a8d98c79cd33","path":"<Keyboard>/d","interactions":"","processors":"","groups":"Keyboard","action":"gb_right","isComposite":false,"isPartOfComposite":false},
+        {"name":"","id":"5b366ae6-3d3e-4850-be33-c304e66281af","path":"<Keyboard>/w","interactions":"","processors":"","groups":"Keyboard","action":"gb_up","isComposite":false,"isPartOfComposite":false},
+        {"name":"","id":"765e8457-697a-4273-bd64-3968e359f55d","path":"<Keyboard>/s","interactions":"","processors":"","groups":"Keyboard","action":"gb_down","isComposite":false,"isPartOfComposite":false},
+        {"name":"","id":"cb2ba889-ee27-497c-8757-034cf6de42a0","path":"<Keyboard>/space","interactions":"","processors":"","groups":"Keyboard","action":"gb_jump","isComposite":false,"isPartOfComposite":false},
+        {"name":"","id":"a0d90cb4-7048-4db9-8259-86c49813a827","path":"<Keyboard>/e","interactions":"","processors":"","groups":"Keyboard","action":"gb_action","isComposite":false,"isPartOfComposite":false},
+        {"name":"","id":"ab874705-b0e6-4e3c-a154-92fb4f2a6ee2","path":"<Keyboard>/j","interactions":"","processors":"","groups":"Keyboard","action":"gb_attack","isComposite":false,"isPartOfComposite":false},
+        {"name":"","id":"d2db3253-9d2d-41c1-916f-26be22e01002","path":"<Keyboard>/leftShift","interactions":"","processors":"","groups":"Keyboard","action":"gb_dash","isComposite":false,"isPartOfComposite":false}
+      ]
+    }
+  ],
+  "controlSchemes": [
+    {"name":"Keyboard","bindingGroup":"Keyboard","devices":[{"devicePath":"<Keyboard>","isOptional":false,"isOR":false}]}
+  ]
+}

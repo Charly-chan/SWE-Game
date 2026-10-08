@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use SWE-Game, cite this repository and the exact evaluator commit and scoring registry."
+type: software
+title: SWE-Game
+authors:
+  - name: SWE-Game contributors
+repository-code: "https://github.com/Charly-chan/SWE-Game"
+abstract: "A benchmark for evaluating coding agents through game construction, completion, repair, and cross-engine porting."

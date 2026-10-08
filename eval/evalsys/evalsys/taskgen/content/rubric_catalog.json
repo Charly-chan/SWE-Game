@@ -1,0 +1,589 @@
+{
+  "3d_platformer": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 3,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_enemy", "gb_hazard", "gb_collectible", "gb_interactive", "gb_checkpoint", "gb_door", "gb_goal"],
+    "required_numeric_slots": ["progress", "health", "timer"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "cell_pickup", "claim": "Picking up a live relay cell removes it from the world collectible census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0", "when": "after the player overlaps an available relay cell"}},
+      {"id": "hostile_stomp", "claim": "A successful stomp can remove a defeatable hostile.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_enemy) < 0", "when": "after a descending player lands on a vulnerable hostile"}},
+      {"id": "beacon_delivery", "claim": "Depositing a carried cell advances relay progress.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(progress) > 0", "when": "after a carried cell is delivered to the beacon"}}
+    ]
+  },
+  "arc_wing": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 3,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_enemy", "gb_hazard", "gb_goal"],
+    "required_numeric_slots": ["health", "score"],
+    "require_failure_ending": true,
+    "genre_exemptions": {
+      "U4": "The task GDD puts the recovery gate in gb_goal and keeps it closed until the 100 s stage schedule or the boss-defeat delay; standing on gb_goal is insufficient by design (GOLD_TRIAGE #4)"
+    },
+    "mechanic_checks": [
+      {"id": "enemy_defeat", "claim": "Either weapon can remove a vulnerable hostile from the live enemy census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_enemy) < 0", "baseline": "previous_row", "when": "after sustained valid fire against a vulnerable hostile"}},
+      {"id": "player_damage", "claim": "Contact with a hostile projectile or body reduces player health.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(health) < 0", "when": "after the non-invulnerable player contacts a hostile threat", "trigger": "overlap(gb_player, gb_enemy) or overlap(gb_player, gb_hazard)"}},
+      {"id": "stage_gate", "claim": "A cleared stage is completed by entering its recovery gate, which advances the run to the next stage.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "levels_visited() >= 2", "when": "after the stage schedule or boss condition opens the recovery gate and the player enters it"}}
+    ]
+  },
+  "ballast_yard": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 3,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_interactive", "gb_hazard", "gb_goal"],
+    "required_numeric_slots": ["progress", "timer"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "committed_run_clock", "claim": "Committing the sphere starts a live timed execution phase.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(timer) > 0", "when": "after gb_action commits a valid construction"}},
+      {"id": "yard_progress", "claim": "A successful sphere run advances task progress without steering the sphere.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(progress) > 0", "when": "after the released sphere reaches the goal chute"}},
+      {"id": "three_yards", "claim": "The complete solution visits all three authored yards.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "levels_visited() >= 3", "when": "after completing the final yard"}}
+    ]
+  },
+  "canopy_dash": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 1,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_collectible", "gb_hazard", "gb_goal"],
+    "required_numeric_slots": ["progress", "score"],
+    "require_failure_ending": true,
+    "genre_exemptions": {
+      "U4": "The task gates the finish in gb_goal on the seed requirement (cross the line AND hold the required seeds; arriving short is a declared defeat), so standing on gb_goal is insufficient by design (GOLD_TRIAGE #4 shape). On this auto-runner the teleported player also dies on the next obstacle, so the observed transition is the declared failure ending (both harnesses 2026-09-03); whether the finish transitions is read by the causal witness and O7"
+    },
+    "mechanic_checks": [
+      {"id": "forward_run", "claim": "The finite run advances distance under ordinary play.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(progress) > 0", "when": "after the finite challenge has run for a nonzero interval", "requires_player_action": false, "automatic_reason": "Forward motion is automatic; player input controls lane changes and jumps, not the running clock."}},
+      {"id": "seed_pickup", "claim": "Collecting a reachable seed removes it from the live collectible census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0", "when": "after the player follows a reachable seed line"}},
+      {"id": "finite_clear", "claim": "The finite challenge has a real whole-game clear after the finish and seed requirement.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "whole_game_clear()", "when": "after reaching the finite finish with the required seed count"}}
+    ]
+  },
+  "cat_defense": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 3,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_enemy", "gb_collectible", "gb_hazard", "gb_interactive", "gb_checkpoint", "gb_goal", "gb_door"],
+    "required_numeric_slots": ["score"],
+    "require_failure_ending": true,
+    "genre_exemptions": {
+      "U4": "The task GDD puts extraction in gb_goal and forbids reaching it until the block's final wave is cleared and the barricade withdraws; standing on gb_goal is insufficient by design (GOLD_TRIAGE #4)"
+    },
+    "mechanic_checks": [
+      {"id": "hostile_defeat", "claim": "Player or turret fire can remove a hostile from the live enemy census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_enemy) < 0", "baseline": "previous_row", "when": "after valid forward fire hits a hostile until defeat"}},
+      {"id": "road_hazard_damage", "claim": "Remaining inside burning wreckage reduces player health.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(health) < 0", "when": "after the player contacts an active road hazard", "trigger": "overlap(gb_player, gb_hazard)"}},
+      {"id": "block_extraction", "claim": "After the final wave clears, physical overlap with extraction completes the block.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "overlap(gb_player, gb_goal)", "when": "after all required hostiles are cleared and the barricade withdraws"}}
+    ]
+  },
+  "city_delivery": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 3,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_collectible", "gb_interactive", "gb_goal"],
+    "required_numeric_slots": ["progress"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "parcel_load", "claim": "Loading a live parcel removes it from the world collectible census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0", "when": "after held interaction completes at the parcel's valid pickup"}},
+      {"id": "delivery_pay", "claim": "A valid unload increases the delivery score or earned-pay reading.", "measurable": false, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(score) > 0", "when": "after a carried parcel is unloaded at its matching destination"}, "reason": "The reference does not expose score or earned pay through a numeric slot. Delivery progress is measured separately; it does not prove payment."},
+      {"id": "quota_progress", "claim": "Completing a valid order advances stage progress.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(progress) > 0", "when": "after a valid delivery is finalized"}}
+    ]
+  },
+  "citycab_rush": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 3,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_interactive", "gb_hazard"],
+    "required_numeric_slots": ["progress", "timer", "score"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "fare_award", "claim": "A valid passenger drop-off increases earned fare.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(score) > 0", "when": "after the occupied taxi enters its active destination"}},
+      {"id": "quota_advance", "claim": "A completed drop-off advances the district quota.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(progress) > 0", "when": "after a passenger delivery completes"}},
+      {"id": "district_campaign", "claim": "A successful campaign visits all three districts.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "levels_visited() >= 3", "when": "after clearing the final district"}}
+    ]
+  },
+  "cyber_survival": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 3,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": ["turn_left", "turn_right", "emp_pulse"],
+    "required_extended_action_count": 2,
+    "extended_action_hints": ["a turn or aim control that is independent of walking", "a survival ability (reload, heal, or EMP) that is not the fire button"],
+    "required_groups": ["gb_player", "gb_enemy", "gb_hazard", "gb_collectible", "gb_interactive", "gb_checkpoint", "gb_door", "gb_goal"],
+    "required_numeric_slots": ["progress", "health"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "machine_defeat", "claim": "Valid combat can remove a hostile machine from the live enemy census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_enemy) < 0", "when": "after rifle fire defeats a hostile machine"}},
+      {"id": "breach_damage", "claim": "Contact with an active coolant breach reduces survivability.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(health) < 0", "when": "after the player remains in contact with a breach hazard"}},
+      {"id": "upload_progress", "claim": "Holding the context action in the terminal advances objective progress.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(progress) > 0", "when": "while gb_action is held inside the terminal interaction area"}}
+    ]
+  },
+  "deepgrid": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 6,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_enemy", "gb_door", "gb_collectible", "gb_goal"],
+    "required_numeric_slots": ["progress", "health", "score"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "enemy_destroyed", "claim": "Weapon damage can remove a hostile machine from the live enemy census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_enemy) < 0", "when": "after valid weapon use defeats a hostile machine"}},
+      {"id": "pickup_consumed", "claim": "A valid ammunition, repair, key, data, or weapon pickup leaves the live collectible census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0", "when": "after the player collects an available pickup"}},
+      {"id": "floor_advance", "claim": "Activating a satisfied floor exit advances campaign progress.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(progress) > 0", "when": "after the player activates an unlocked floor exit"}}
+    ]
+  },
+  "dungeon_escape": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 3,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_enemy", "gb_hazard", "gb_collectible", "gb_door", "gb_interactive", "gb_checkpoint", "gb_goal"],
+    "required_numeric_slots": ["progress", "health"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "key_or_relic_pickup", "claim": "Collecting a required key, relic, or heal removes it from the live collectible census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0", "when": "after the rogue overlaps an available dungeon pickup"}},
+      {"id": "hostile_defeat", "claim": "Successful melee attacks can remove a hostile creature.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_enemy) < 0", "when": "after enough valid slash contacts defeat a hostile"}},
+      {"id": "floor_exit", "claim": "A completed objective chain allows physical stair overlap to finish the floor.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "overlap(gb_player, gb_goal)", "when": "after all required gates for the floor have been resolved"}}
+    ]
+  },
+  "ember_and_tide": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 10,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": ["ember_left", "ember_right", "ember_jump", "tide_left", "tide_right", "tide_jump"],
+    "required_groups": ["gb_player", "gb_interactive", "gb_door", "gb_hazard", "gb_goal", "gb_collectible"],
+    "required_numeric_slots": ["progress"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "gem_pickup", "claim": "A valid elemental or shared gem pickup removes a live collectible.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0", "when": "after an eligible character overlaps an available gem"}},
+      {"id": "liquid_contact", "claim": "The elemental liquid grammar is represented by real player-hazard overlap.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "overlap(gb_player, gb_hazard)", "when": "when a character enters a liquid that is hazardous to that character"}},
+      {"id": "room_campaign", "claim": "A successful cooperative run visits all ten rooms.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "levels_visited() >= 10", "when": "after both characters satisfy the final dual-exit condition"}}
+    ]
+  },
+  "gentlemans_adventure": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 3,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_enemy", "gb_hazard", "gb_collectible", "gb_checkpoint", "gb_goal", "gb_interactive", "gb_door"],
+    "required_numeric_slots": ["progress", "timer", "score"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "regular_enemy_defeat", "claim": "Cane fire or a valid stomp can remove a regular enemy.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_enemy) < 0", "when": "after a vulnerable regular enemy receives enough valid damage"}},
+      {"id": "pickup_consumed", "claim": "Collecting a coin, ammunition, upgrade, or life removes the pickup from the live collectible census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0", "when": "after the player collects an available pickup"}},
+      {"id": "activated_exit", "claim": "A completed stage objective permits player overlap with its active exit.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "overlap(gb_player, gb_goal)", "when": "after the current stage objective activates the teleporter"}}
+    ]
+  },
+  "gunfire_dungeon": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 4,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": ["reload", "interact", "use_prop", "switch_weapon", "aim_up", "aim_down", "aim_left", "aim_right", "aim_lock"],
+    "required_extended_action_count": 2,
+    "extended_action_hints": ["a manual reload", "a weapon switch (both separate from the fire button)"],
+    "required_analog_axes": ["look_x", "look_y"],
+    "required_groups": ["gb_player", "gb_enemy", "gb_collectible", "gb_interactive", "gb_door", "gb_goal"],
+    "required_numeric_slots": ["progress", "health", "score"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "combat_clear", "claim": "Valid gunfire can reduce the live enemy census in a combat room.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_enemy) < 0", "when": "after a hostile receives enough valid projectile damage"}},
+      {"id": "reward_pickup", "claim": "Obtaining an available reward deactivates the pickup or increases the public score/resource balance; an interaction press may be required.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0 OR numeric_delta(score) > 0", "when": "after the player obtains an available reward"}},
+      {"id": "stage_progress", "claim": "Defeating a stage boss and entering its exit advances dungeon progress.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(progress) > 0", "when": "after the player enters the exit generated by a defeated boss"}}
+    ]
+  },
+  "harvest_ledger": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 3,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": ["tool_axe", "tool_hoe", "tool_water", "tool_corn", "tool_tomato"],
+    "required_extended_action_count": 2,
+    "extended_action_hints": ["discrete tool-selection verbs for at least two different tools, rather than one context-sensitive action"],
+    "required_groups": ["gb_player", "gb_collectible", "gb_interactive", "gb_door", "gb_goal"],
+    "required_numeric_slots": ["progress", "score"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "confirmed_sale", "claim": "A confirmed sale increases cumulative income.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(score) > 0", "when": "after the player confirms a nonempty sale at the purchase station"}},
+      {"id": "day_advance", "claim": "Completing a day advances farm-cycle progress.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(progress) > 0", "when": "after natural day end or a confirmed bed interaction"}},
+      {"id": "day_clock", "claim": "The active farm day consumes its finite time budget.", "measurable": false, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(timer) < 0", "when": "after an unpaused interval during an active day", "requires_player_action": false, "automatic_reason": "An active day's clock advances while the farmer is idle as well as while acting."}, "reason": "The reference does not expose the day clock through a numeric slot. Day completion does not establish clock direction or rate."}
+    ]
+  },
+  "hazard_circuit": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 8,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_hazard", "gb_checkpoint", "gb_goal", "gb_collectible", "gb_door", "gb_interactive"],
+    "required_numeric_slots": ["progress", "timer"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "hazard_contact", "claim": "A real lethal mechanism can overlap the player body.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "overlap(gb_player, gb_hazard)", "when": "when the player enters the active volume of a lethal mechanism"}},
+      {"id": "checkpoint_contact", "claim": "The traversal route physically reaches recoverable checkpoints.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "overlap(gb_player, gb_checkpoint)", "when": "after the player reaches a checkpoint on an ordinary route"}},
+      {"id": "level_goal", "claim": "Completing a circuit level advances to another declared level or the declared success ending.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "levels_visited() >= 2 OR whole_game_clear()", "when": "after traversing the required hazard sequence"}}
+    ]
+  },
+  "hive_flight": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 3,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_hazard", "gb_goal"],
+    "required_numeric_slots": ["timer"],
+    "require_failure_ending": false,
+    "mechanic_checks": [
+      {"id": "level_clock", "claim": "Each live chase level advances its elapsed-frame clock while unpaused.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(timer) > 0", "when": "after an unpaused interval in a live level", "requires_player_action": false, "automatic_reason": "The unpaused chase clock advances independently of movement input."}},
+      {"id": "runner_progress", "claim": "Completing a chase advances to the next declared playable level or completes the game.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "levels_visited() >= 2 OR whole_game_clear()", "when": "after a live runner completes a chase"}},
+      {"id": "safe_zone", "claim": "Winning a level requires the runner to physically reach the safe zone.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "overlap(gb_player, gb_goal)", "when": "when the living runner reaches the authored safety distance"}}
+    ]
+  },
+  "ninja_roguelite": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 3,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_enemy", "gb_hazard", "gb_collectible", "gb_door", "gb_goal", "gb_interactive"],
+    "required_numeric_slots": ["progress", "health"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "enemy_clear", "claim": "Valid combat can remove a sentry, warden, or boar from the live enemy census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_enemy) < 0", "when": "after enough valid slash damage defeats a hostile"}},
+      {"id": "scroll_pickup", "claim": "Collecting a stage scroll removes it from the live collectible census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0", "when": "after the ninja overlaps an available scroll"}},
+      {"id": "ward_exit", "claim": "After required scrolls and hostiles are cleared, the player can physically reach the exit.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "overlap(gb_player, gb_goal)", "when": "after the stage ward opens"}}
+    ]
+  },
+  "pixel_platformer": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 3,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_enemy", "gb_hazard", "gb_collectible", "gb_interactive", "gb_goal"],
+    "required_numeric_slots": ["progress", "timer"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "cell_pickup", "claim": "Collecting a voltage cell removes it from the live collectible census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0", "when": "after the player overlaps an available voltage cell"}},
+      {"id": "pig_defeat", "claim": "A basic pig is removed by one valid stomp, while a King pig requires two separated valid stomps and survives the first in a visible stagger.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_enemy) < 0", "when": "after the required one-hit basic-pig or two-hit King-pig stomp sequence completes", "required_on_witness": false, "witness_scope_reason": "A clean stage-clear witness may avoid optional pig combat. Undemonstrated combat remains missing from graded mechanic coverage.", "baseline": "previous_row", "trigger": "count(gb_enemy) > 0"}},
+      {"id": "stage_exit", "claim": "A playable phase-and-anchor route reaches the physical stage exit.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "overlap(gb_player, gb_goal)", "when": "after traversing the required phase path"}}
+    ]
+  },
+  "pixel_platformer_v2": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 1,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_hazard", "gb_collectible", "gb_door", "gb_interactive", "gb_goal"],
+    "required_numeric_slots": ["progress", "timer", "score"],
+    "require_failure_ending": false,
+    "mechanic_checks": [
+      {"id": "pickup_consumed", "claim": "Collecting an available item deactivates that pickup or increases the public collected-item score, without requiring deletion of a node.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0 OR numeric_delta(score) > 0", "when": "after the player obtains an available key or optional item"}},
+      {"id": "hazard_contact", "claim": "The room hazards use real player-hazard overlap.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "overlap(gb_player, gb_hazard)", "when": "when the player enters an active spike, liquid, or moving hazard"}},
+      {"id": "room_flag", "claim": "Reaching the room flag advances declared room progress or completes the game, including when rooms share one scene.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(progress) > 0 OR whole_game_clear()", "when": "after the required room route reaches the flag"}}
+    ]
+  },
+  "pulse_lane": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 3,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_goal", "gb_interactive"],
+    "required_numeric_slots": ["progress", "health", "score"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "correct_judgment_score", "claim": "A correctly timed lane judgment increases score.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(score) > 0", "when": "after a tap or hold is judged non-Miss"}},
+      {"id": "miss_life_cost", "claim": "A missed judged unit reduces the chart life reading.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(health) < 0", "when": "after an unjudged note passes its timing window"}},
+      {"id": "chart_progress", "claim": "Playback through a live chart advances progress independently of scroll speed.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(progress) > 0", "when": "after an unpaused interval of chart playback"}}
+    ]
+  },
+  "racing": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 2,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_goal"],
+    "required_numeric_slots": ["progress", "timer"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "ordered_race_progress", "claim": "Driving through ordered checkpoint gates advances race progress.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(progress) > 0", "when": "after the player crosses the next valid checkpoint gate"}},
+      {"id": "barrier_damage", "claim": "A sufficiently hard barrier impact increases damage and reduces the health-equivalent reading.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(health) < 0", "when": "after a barrier impact above the damage threshold"}},
+      {"id": "finish_gate", "claim": "A valid race finish requires physical passage through the ordered finish gate.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "overlap(gb_player, gb_goal)", "when": "after completing the required ordered laps"}}
+    ]
+  },
+  "relic_runner": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 3,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_enemy", "gb_collectible", "gb_interactive", "gb_door", "gb_goal"],
+    "required_numeric_slots": ["progress", "health"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "monster_defeat", "claim": "The Crush attack can remove a defeatable monster.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_enemy) < 0", "when": "after enough valid Crush contacts defeat a monster"}},
+      {"id": "carried_item_pickup", "claim": "Picking up a key or relic removes it from the live world collectible census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0", "when": "after the empty-handed player picks up an available item"}},
+      {"id": "altar_delivery", "claim": "Relic delivery requires the carrying player to reach the altar goal.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "overlap(gb_player, gb_goal)", "when": "while carrying the relic at the active altar"}}
+    ]
+  },
+  "shadow_walker": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 3,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_hazard", "gb_collectible", "gb_interactive", "gb_goal"],
+    "required_numeric_slots": ["timer"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "chest_item", "claim": "Completing the chest interaction removes the available objective item from the live collectible census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0", "when": "after the non-interruptible chest opening completes"}},
+      {"id": "capture_contact", "claim": "Physical guard or slime capture is represented by real player-hazard overlap.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "overlap(gb_player, gb_hazard)", "when": "when the player collides with a guard or the stationary slime", "required_on_witness": false, "witness_scope_reason": "Capture is a failure path that a clean escape witness can avoid. Undemonstrated capture remains missing from graded mechanic coverage."}},
+      {"id": "objective_exit", "claim": "After acquiring the item, the player must physically reach the exit.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "overlap(gb_player, gb_goal)", "when": "after the objective item has been acquired"}}
+    ]
+  },
+  "sprout_market": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 1,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_collectible", "gb_interactive", "gb_goal"],
+    "required_numeric_slots": ["progress", "score"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "stock_pickup", "claim": "Taking mature stock removes it from the live world collectible census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0", "when": "after the player collects mature available stock"}},
+      {"id": "checkout_income", "claim": "Serving a paying customer increases campaign income.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(score) > 0", "when": "after held checkout service completes for a customer carrying goods"}},
+      {"id": "shift_progress", "claim": "Meeting a shift quota reaches the declared successful shift ending.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "whole_game_clear()", "when": "after a shift reaches its required income and resolves"}}
+    ]
+  },
+  "terraforge": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 1,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": ["quick_craft", "place"],
+    "required_extended_action_count": 1,
+    "extended_action_hints": ["block placement or crafting as its own verb, distinct from mining on the action button"],
+    "required_analog_axes": ["look_y"],
+    "required_groups": ["gb_player", "gb_enemy", "gb_hazard", "gb_collectible", "gb_interactive", "gb_goal"],
+    "required_numeric_slots": ["progress", "health"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "resource_pickup", "claim": "Collecting an available dropped resource removes it from the live collectible census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0", "when": "after the player approaches and collects an available dropped resource", "baseline": "previous_row", "trigger": "count(gb_collectible) > 0"}},
+      {"id": "husk_defeat", "claim": "Valid melee attacks can remove a hostile creature.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_enemy) < 0", "when": "after enough valid close attacks defeat a hostile creature", "required_on_witness": false, "witness_scope_reason": "A clean artifact-completion witness may avoid optional Husk combat. Undemonstrated combat remains missing from graded mechanic coverage.", "baseline": "previous_row", "trigger": "count(gb_enemy) > 0"}},
+      {"id": "artifact_pedestal", "claim": "The Pedestal accepts the completed Artifact and advances the declared objective; merely standing nearby is insufficient.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(progress) > 0 OR whole_game_clear()", "when": "after the completed Artifact is used at the Pedestal"}}
+    ]
+  },
+  "tiny_rts": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 3,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": ["cmd_slot_1", "cmd_slot_2", "cmd_slot_3", "cmd_slot_4", "cmd_train_pawn", "cmd_train_warrior", "cmd_train_archer", "cmd_siege", "cmd_build_menu", "cmd_gather", "cmd_rally"],
+    "required_extended_action_count": 4,
+    "extended_action_hints": ["group or unit selection", "training a unit", "opening build or placement", "issuing an order such as attack, gather, or rally"],
+    "required_groups": ["gb_player", "gb_enemy", "gb_collectible", "gb_hazard", "gb_goal", "gb_checkpoint", "gb_door"],
+    "required_numeric_slots": ["progress", "timer", "score"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "resource_income", "claim": "Workers gather and deliver spendable resources, increasing the public score slot mapped to the resource balance; a resource node may persist across multiple deliveries.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(score) > 0", "when": "after assigned workers gather from a resource node and deliver their load, before spending the proceeds"}},
+      {"id": "hostile_or_building_defeat", "claim": "Military combat or worker siege can remove a hostile unit or destructible building.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_enemy) < 0", "when": "after a hostile target receives enough valid combat or siege damage"}},
+      {"id": "shrine_contact", "claim": "Shrine capture requires the commander to physically reach the checkpoint area.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "overlap(gb_player, gb_checkpoint)", "when": "while the commander is occupying the shrine capture area"}}
+    ]
+  },
+  "toon_shooter": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 3,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": ["aim_weapon", "reload_weapon", "sprint", "swap_weapon", "turn_left", "turn_right", "vent_heat"],
+    "required_extended_action_count": 2,
+    "extended_action_hints": ["a weapon swap", "a manual reload (both separate from the fire button)"],
+    "required_analog_axes": ["look_y"],
+    "required_groups": ["gb_player", "gb_enemy", "gb_hazard", "gb_collectible", "gb_interactive", "gb_checkpoint", "gb_door", "gb_goal"],
+    "required_numeric_slots": ["score"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "hostile_defeat", "claim": "Either weapon or a barrel blast can remove a hostile from the live enemy census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_enemy) < 0", "when": "after a hostile receives enough valid weapon or blast damage", "baseline": "previous_row", "trigger": "count(gb_enemy) > 0"}},
+      {"id": "hazard_or_blast_damage", "claim": "A mine, trap, or barrel blast can reduce player health.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(health) < 0", "when": "after the non-protected player contacts an active damaging event"}},
+      {"id": "rally_contact", "claim": "Arming a rally recovery snapshot requires physical player contact with the rally point.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "overlap(gb_player, gb_checkpoint)", "when": "when the player first reaches an unused rally point"}}
+    ]
+  },
+  "twin_holds": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 1,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_enemy", "gb_interactive", "gb_goal"],
+    "required_numeric_slots": ["progress", "score"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "economy_resolution", "claim": "A productive end-turn resolution can increase Kingdom Score.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(score) > 0", "when": "after end_turn resolves a productive player economy"}},
+      {"id": "successful_attack", "claim": "A successful strict-power attack removes an opponent building from the live enemy census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_enemy) < 0", "when": "after a legal adjacent attack resolves with attack power greater than defense"}},
+      {"id": "campaign_clear", "claim": "The three-board campaign has a real whole-game clear through threshold or Castle victory.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "whole_game_clear()", "when": "after the final board reaches a valid victory condition"}}
+    ]
+  },
+  "vaultline": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 14,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_hazard", "gb_collectible", "gb_interactive", "gb_door", "gb_goal", "gb_checkpoint"],
+    "required_numeric_slots": ["progress", "timer"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "shard_pickup", "claim": "Taking an optional shard removes it from the live collectible census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0", "when": "after the player overlaps an available shard"}},
+      {"id": "hazard_contact", "claim": "The speed route contains real player overlap with lethal hazard volumes on failure.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "overlap(gb_player, gb_hazard)", "when": "when the player enters spikes, a moving lethal body, or the failure boundary"}},
+      {"id": "level_flag", "claim": "Each level is completed by physically reaching its goal flag.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "overlap(gb_player, gb_goal)", "when": "after executing the required movement route for the level"}}
+    ]
+  },
+  "volley_break": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 3,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_enemy", "gb_goal"],
+    "required_numeric_slots": ["score"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "player_point", "claim": "Sending the ball through the opponent goal increases player score.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(score) > 0", "when": "after the ball crosses the upper goal line"}},
+      {"id": "three_courts", "claim": "A successful match campaign visits all three courts.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "levels_visited() >= 3", "when": "after winning the final court"}},
+      {"id": "match_clear", "claim": "First-to-five play produces a real whole-game clear after the final court.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "whole_game_clear()", "when": "after the player wins the final court by score"}}
+    ]
+  },
+  "dont_stop": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,"min_levels": 1, "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"], "required_extended_actions": ["aim_up", "aim_down", "aim_left", "aim_right"], "required_groups": ["gb_player", "gb_goal"], "required_numeric_slots": ["progress", "health", "score"], "require_failure_ending": true, "mechanic_checks": [{"id":"real_combat","claim":"Defeat at least one real spawned enemy with directional movement and independent aiming.","measurable":true,"source_basis":["gdd_specified","skeleton_task_specified"],"observable":{"kind":"trace_checkpoint","predicate":"numeric(score) >= 1","when":"after the first combat encounter"}},{"id":"combat_exit","claim":"Reach the exit after completing the required combat objective.","measurable":true,"source_basis":["gdd_specified","skeleton_task_specified"],"observable":{"kind":"trace_checkpoint","predicate":"whole_game_clear()","when":"after combat and entering the goal"}}]},
+  "dogwalk": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 1,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_collectible", "gb_interactive", "gb_goal"],
+    "required_numeric_slots": ["progress", "timer"],
+    "require_failure_ending": true,
+    "genre_exemptions": {
+      "U4": "The task GDD keeps the snowman completion area in gb_goal physically disarmed until all five decorations are placed by the companion; standing on gb_goal before the fifth placement is insufficient by design (GOLD_TRIAGE #4 shape), and the only failure is the 600 s timeout"
+    },
+    "mechanic_checks": [
+      {"id": "decoration_pickup", "claim": "When the companion picks up a decoration it leaves the live collectible census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0", "when": "after the leashed pair is led next to a decoration and the companion completes the pickup"}},
+      {"id": "snowman_placement", "claim": "Bringing a held decoration back to the snowman advances the placed count.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(progress) > 0", "when": "after the companion decorates the snowman with a carried item"}},
+      {"id": "errand_clear", "claim": "After the fifth placement arms the goal, the player's real overlap with it completes the run.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "whole_game_clear()", "when": "after five decorations are placed and the player body overlaps the armed completion area"}}
+    ]
+  },
+  "hurry_curry": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 1,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_collectible", "gb_interactive", "gb_hazard", "gb_goal", "gb_door"],
+    "required_numeric_slots": ["progress", "timer", "score"],
+    "require_failure_ending": true,
+    "genre_exemptions": {
+      "U4": "The task GDD makes gb_goal the customer's delivery table: the run is cleared only when the third correctly assembled dish is delivered there, so the chef merely standing on gb_goal is insufficient by design (GOLD_TRIAGE #4 shape), and failure comes only from the failed-order limit, the burn limit or the 600 s run timer"
+    },
+    "mechanic_checks": [
+      {"id": "crate_dispense", "claim": "Taking an ingredient from an untouched crate removes it from the live collectible census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0", "when": "after the chef interacts with an untouched ingredient crate with an empty hand"}},
+      {"id": "order_delivery", "claim": "Delivering the correctly assembled dish next to the seated customer advances the completed-order count.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(progress) > 0", "when": "after the chef places the dish matching the order bubble on the tile adjacent to the customer's chair"}},
+      {"id": "score_on_delivery", "claim": "Each accepted order adds its point value to the score.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(score) > 0", "when": "after a customer accepts a delivered dish"}},
+      {"id": "three_orders_clear", "claim": "Completing the third fixed order enters the level-clear ending and then the run-complete summary.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "whole_game_clear()", "when": "after the seared-steak order, the third in the fixed sequence, is delivered and accepted"}}
+    ]
+  },
+  "kindle_relay": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 1,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_collectible", "gb_goal"],
+    "required_numeric_slots": ["progress", "health", "timer"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "ordered_kindle", "claim": "Kindling the next eligible beacon with the interact action advances the lit-beacon count.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(progress) > 0", "when": "after the player kindles the first beacon in sequence"}},
+      {"id": "glimmer_pickup", "claim": "Walking into a Glimmer removes it from the live collectible census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0", "when": "after the player overlaps a reachable Glimmer"}},
+      {"id": "dawn_clear", "claim": "Kindling the sixth beacon in order reaches the real whole-game clear.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "whole_game_clear()", "when": "after the sixth beacon is kindled"}}
+    ]
+  },
+  "sands_of_the_restless": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 2,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": [],
+    "required_groups": ["gb_player", "gb_enemy", "gb_door", "gb_collectible", "gb_goal"],
+    "required_numeric_slots": ["progress", "health", "timer", "score"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "shambler_defeat", "claim": "Sustained valid pistol fire removes a Shambler from the live enemy census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_enemy) < 0", "baseline": "previous_row", "when": "after enough body or head hits land on a living Shambler"}},
+      {"id": "bounty_earned", "claim": "Every body hit, kill or headshot pays gold, so lifetime gold earned rises monotonically under real combat.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(score) > 0", "when": "after the first shot that hits a Shambler"}},
+      {"id": "jar_pickup", "claim": "Taking a canopic jar with the contextual action removes it from the live collectible census.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0", "when": "after gb_action is pressed within reach of an untaken jar once its barrier has cleared"}}
+    ]
+  },
+  "where_the_dead_lie": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 1,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": ["look_down", "look_up", "turn_left", "turn_right"],
+    "required_groups": ["gb_player", "gb_interactive", "gb_collectible", "gb_hazard", "gb_door", "gb_goal"],
+    "required_numeric_slots": ["progress", "timer"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "generators_started", "claim": "Starting two usable generators with real interact presses raises the stage progress to 2 and opens the control-panel stage.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric(progress) >= 2", "when": "after the second usable generator's start-up animation reaches its count point"}},
+      {"id": "panel_solved", "claim": "Only the combination 012 entered on the in-world panel advances the chain; a wrong code resets the digits and leaves progress unchanged.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric(progress) >= 3", "when": "after the third digit of 012 is submitted on the focused panel"}},
+      {"id": "key_pickup", "claim": "Interacting with a key spawned by an opened chest removes it from the live collectible census and raises the key count.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0", "baseline": "previous_row", "when": "after gb_action is pressed with a spawned key under the interact ray"}},
+      {"id": "exit_armed", "claim": "Collecting the second key arms the exit: progress reaches 5 and the door plays its prompt and open animations before the exit volume accepts the player.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric(progress) >= 5", "when": "after the second key is collected"}}
+    ]
+  },
+  "pixel_sabotage": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,
+    "min_levels": 1,
+    "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"],
+    "required_extended_actions": ["turn_left", "turn_right", "turn_up", "turn_down"],
+    "required_groups": ["gb_player", "gb_collectible", "gb_door", "gb_hazard", "gb_interactive", "gb_checkpoint", "gb_goal"],
+    "required_numeric_slots": ["progress", "health", "timer"],
+    "require_failure_ending": true,
+    "mechanic_checks": [
+      {"id": "virus_pickup", "claim": "Aiming at the Virus with the turn actions and pressing interact removes it from the live collectible census and advances the objective stage.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "count_delta(gb_collectible) < 0", "when": "after the player aims at the Virus and presses interact"}},
+      {"id": "door_unlock_requires_item", "claim": "The first door stays shut on an empty-inventory interact and opens only while the Virus is held, advancing the objective stage.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric_delta(progress) > 0", "when": "after the player interacts with the first door while holding the Virus"}},
+      {"id": "goal_sabotage_clear", "claim": "Passing the switch-opened third door and interacting with the Goal reaches the real whole-game clear.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "whole_game_clear()", "when": "after the Goal interaction following the third door opening"}}
+    ]
+  },
+  "bush_522": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,"min_levels": 1, "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"], "required_extended_actions": ["throttle_down", "roll_left", "roll_right", "toggle_flaps"], "required_groups": ["gb_player", "gb_checkpoint", "gb_hazard", "gb_goal"], "required_numeric_slots": ["progress", "score"], "require_failure_ending": true, "mechanic_checks": [{"id": "outbound_landing", "claim": "Fly out under real flight control, then land and stop near a qualifying remote checkpoint so the course advances to the return leg.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric(progress) >= 1", "when": "after the outbound landing"}}, {"id": "home_finish", "claim": "Fly back, land and stop at the home runway, and press the brake to finish the course.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "whole_game_clear()", "when": "after the home landing and the finish press"}}]},
+  "soccer_course": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,"min_levels": 1, "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"], "required_extended_actions": [], "required_groups": ["gb_player", "gb_enemy", "gb_goal"], "required_numeric_slots": ["progress", "score"], "require_failure_ending": true, "mechanic_checks": [{"id": "real_goal", "claim": "Win possession and put the ball into the opponent scoring area through real movement and shooting rather than a written score.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric(score) >= 1", "when": "after the first goal"}}, {"id": "full_match", "claim": "Play the complete match clock and reach the decided result.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "whole_game_clear()", "when": "after full time"}}]},
+  "super_dungeon_delve": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,"min_levels": 1, "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"], "required_extended_actions": [], "required_groups": ["gb_player", "gb_enemy", "gb_collectible", "gb_goal"], "required_numeric_slots": ["progress", "health", "score"], "require_failure_ending": true, "mechanic_checks": [{"id": "descent", "claim": "Survive a generated floor and take its exit so recorded depth advances.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric(progress) >= 1", "when": "after the first floor exit"}}, {"id": "full_delve", "claim": "Clear all four generated floors alive and reach the cleared screen.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "whole_game_clear()", "when": "after the fourth exit"}}]},
+  "wizard_chase": {
+    "max_demos": 10,
+    "max_demo_seconds": 20.0,"min_levels": 5, "required_actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action"], "required_extended_actions": [], "required_groups": ["gb_player", "gb_enemy", "gb_hazard", "gb_collectible", "gb_goal"], "required_numeric_slots": ["progress", "health", "score"], "require_failure_ending": true, "mechanic_checks": [{"id": "room_sweep", "claim": "Collect a room's complete coin set so its exit opens, then traverse the opened exit.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "numeric(progress) >= 1", "when": "after the first room clear"}}, {"id": "five_rooms", "claim": "Clear all five rooms continuously in one run and reach the cleared ending.", "measurable": true, "source_basis": ["gdd_specified", "skeleton_task_specified"], "observable": {"kind": "trace_checkpoint", "predicate": "whole_game_clear()", "when": "after the fifth room"}}]}
+}

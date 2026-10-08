@@ -1,0 +1,1071 @@
+{
+  "game_id": "toon_shooter",
+  "mode": "brief",
+  "provided_asset_observations": [
+    {
+      "frame_ids": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S007",
+        "S008",
+        "S009"
+      ],
+      "informs": [
+        "A2",
+        "A3"
+      ],
+      "observation": "素材联系图为 Kenney 天空盒、UI 按钮/面板、键盘鼠标提示与粒子，未见角色网格或红帽敌人预览；GT 角色来自游玩画面而非这些静帧。"
+    },
+    {
+      "frame_ids": [
+        "S010",
+        "S011",
+        "S012",
+        "S013",
+        "S014",
+        "S015",
+        "S016",
+        "S017",
+        "S018"
+      ],
+      "informs": [
+        "A3",
+        "V4"
+      ],
+      "observation": "灰/蓝/绿/黄/红 Kenney 矩形按钮、灰面板与滑动条，与录像 HUD 灰板及结局黄蓝按钮同族。"
+    },
+    {
+      "frame_ids": [
+        "S019",
+        "S020",
+        "S021",
+        "S022",
+        "S023",
+        "S024",
+        "S025",
+        "S026",
+        "S027",
+        "S028",
+        "S029",
+        "S030",
+        "S031"
+      ],
+      "informs": [
+        "A3",
+        "A4"
+      ],
+      "observation": "更多 UI 切片、粒子光斑与天空/地面预览；没有可直接对应绿盔角色的精灵表。"
+    },
+    {
+      "frame_ids": [
+        "S032"
+      ],
+      "informs": [
+        "A3",
+        "V4"
+      ],
+      "observation": "KenneyFuture 宽体无衬线预览，与录像 HUD 及 EXTRACTION COMPLETE 标题字样一致。"
+    }
+  ],
+  "reference_limits": [
+    "录像未展示标题页、暂停菜单与失败结局；brief 要求的失败只在候选展示时评判，未展示为 unknown。",
+    "NEW RUN / TITLE 按钮未被点击，功能未验证。",
+    "独立换弹动画（丢弹匣、拉栓）未在已看全帧中单独出现，只确认 R006→R008 当前发数 12→21、备用 100→75；补弹过程的美术形式不作为满分前提。",
+    "HEAT / OVERPRESSURE / CHAIN / CLEAN VENT / 弱点 / 油桶连锁 / RALLY / 升级是 GT 附加，未采用 → not_applicable。",
+    "三场竞技场、WAVE 4/3 越界编号、PAR 时限是 GT 设计，不要求候选复制。",
+    "无音频；素材外观对应不证明文件加载；Toon Shooter Kit 角色网格未出现在素材联系图中。"
+  ],
+  "reference_observations": [
+    {
+      "frame_ids": [
+        "R001"
+      ],
+      "informs": [
+        "M4",
+        "M2",
+        "V2",
+        "A1",
+        "A2"
+      ],
+      "observation": "开局 ARMOUR 100，CLEAR THREE PUSHES, THEN HOLD TH，WAVE 1/3 HOSTILES 0，SCORE 0，0:00 / PAR 1:10，HEAT 0，REPEATER 25/100；绿盔黄裤站在黄沙废料场中央。"
+    },
+    {
+      "frame_ids": [
+        "R003",
+        "R004",
+        "R005"
+      ],
+      "informs": [
+        "M1",
+        "M2",
+        "V2",
+        "V3",
+        "A4"
+      ],
+      "observation": "R003 WAVE 1/3 HOSTILES 2、BREACHER 4/24、HEAT 45，红帽在身后；R004 WAVE 2/3 HOSTILES 3、ARMOUR 112、SCORE 240、BREACHER 2/24；R005 CLEAN VENT +25、BREACHER 0/24、SCORE 365、ARMOUR 105。"
+    },
+    {
+      "frame_ids": [
+        "R006",
+        "R008",
+        "R010"
+      ],
+      "informs": [
+        "M2",
+        "M1",
+        "V2",
+        "V3"
+      ],
+      "observation": "R006 REPEATER 12/100；R008 枪焰、REPEATER 21/75（补弹）；R010 WAVE 2 CLEARED、HOSTILES 0、ARMOUR 84、SCORE 615、REPEATER 6/90。"
+    },
+    {
+      "frame_ids": [
+        "R012",
+        "R018"
+      ],
+      "informs": [
+        "M3",
+        "D2",
+        "V1",
+        "V3"
+      ],
+      "observation": "R012 WAVE 3/3 HOSTILES 2 RALLY，RALLY ARMED - ONE RECOVERY HELD，ARMOUR 63 SCORE 715；R018 绿垫 EXTRACTING 9.9，HOLD THE PAD FOR 12S，WAVE 4/3 HOSTILES 1，REPEATER 20/65。"
+    },
+    {
+      "frame_ids": [
+        "R047",
+        "R060",
+        "R093",
+        "R112"
+      ],
+      "informs": [
+        "M3",
+        "D1",
+        "D2",
+        "V2",
+        "A4"
+      ],
+      "observation": "R047 垫上交火 EXTRACTING 16.3 ARMOUR 24 SCORE 2199 BREACHER 5/12；R060 ARMOUR 10 SCORE 3049 BREACHER 4/12 捕兽夹；R093 SIEGE PRESSURE，REPEATER 5/0；R112 EXTRACTING 22.1 ARMOUR 31 SCORE 5874 BREACHER 2/37。"
+    },
+    {
+      "frame_ids": [
+        "R119"
+      ],
+      "informs": [
+        "M4",
+        "V4",
+        "A3",
+        "A5"
+      ],
+      "observation": "EXTRACTION COMPLETE，三星，TOTAL TIME 7:18.，SCORE 6074 KILLS 50，ARENAS CLEARED 3/3，NEW RUN / TITLE。"
+    },
+    {
+      "frame_ids": [
+        "RD001"
+      ],
+      "informs": [
+        "M1",
+        "A4",
+        "V2"
+      ],
+      "observation": "密集开火：ARMOUR 98 WAVE 2/3 HOSTILES 3 SCORE 1274 1:14 / PAR 1:36 HEAT 11 CHAIN x1 REPEATER 7/65，枪口闪光与红色 X。"
+    }
+  ],
+  "requirements": [
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R003",
+            "R005",
+            "R010"
+          ],
+          "observation": "R003 玩家身后红帽敌人，枪口有火花；R005 红帽叠在玩家身前并带红色 X；R010 同场 WAVE 2 CLEARED，画面上已无红帽，玩家绕过红色集装箱跑开。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "RD001",
+            "R008"
+          ],
+          "observation": "RD001 与 R008 均见枪口白黄闪光，玩家朝废料堆/红箱方向开火，前方有可对准的敌方位置。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "能扣动扳机，但玩家朝向锁定，红帽必须走进固定枪口才退出，无法主动转向瞄准",
+          "id": "M1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评玩家能否转向瞄准并对准敌人开火，被击中的敌人是否在世界层失去威胁（倒下、离开、不再攻击）。枪口闪光、红 X、爆裂粒子归 A4；HOSTILES / SCORE 是否跟随归 V2。",
+      "evidence": {
+        "coverage": "需要看到朝向改变与敌人世界层退出；命中闪光归 A4，HOSTILES 数字归 V2。",
+        "kind": "action_sequence",
+        "unit": "一段瞄准开火并至少打掉一名敌人"
+      },
+      "full_credit": "玩家能改变朝向并对准敌人开火；被射击的敌人在连续片段中状态改变并最终不再构成威胁，行动与后果时序一致。",
+      "group": "M",
+      "high_score_requirements": [
+        "瞄准方向可跟踪，不是只能沿一条固定轴线开火。",
+        "被击中的敌人在世界层退出或失效，而不是只改分数。",
+        "开火与敌人退出的先后顺序可对上，没有无射击的集体消失。"
+      ],
+      "id": "M1",
+      "inspired_by": [
+        "shadow-courier:M1"
+      ],
+      "partial_credit": "能移动开火，但反复出现明显射向敌人却无世界层后果，或敌人无对应地消失/穿过火线。只有一种射速本身不是缺陷。",
+      "title": "瞄准开火使敌人退出威胁",
+      "zero_credit": "充分覆盖开火过程后，场上敌人对射击完全没有世界层反应，或玩家无法移动、无法开火。未拍到开火为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R003",
+            "R005"
+          ],
+          "observation": "R001 右下 REPEATER 25/100，长管在右肩；R003/R005 右下变为 BREACHER 4/24 再 0/24，R005 身前是粗短多管枪口。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R006",
+            "R008"
+          ],
+          "observation": "R006 切回 REPEATER 12/100；R008 仍为 REPEATER 但读成 21/75：当前发数从 12 升到 21，备用从 100 降到 75，与开火消耗方向相反，是补弹。",
+          "source_id": "reference_video"
+        },
+        {
+          "quote": "covering: a weapon swap; a manual reload (both separate from the fire button)",
+          "source_id": "controls"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "右下武器名从 REPEATER 换成 BREACHER，但弹匣分母与枪管外观都不改变，只换了标签",
+          "id": "M2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评 brief 要求的两个扩展操作：切换武器后枪管或弹匣规格可辨不同；存在独立于开火的补弹，使当前发数回升。武器名与弹匣数字是否跟随事件归 V2；换弹动画形式归 A4。",
+      "evidence": {
+        "coverage": "换枪看枪管或容量规格；补弹看当前发数回升。数字是否与开火同步归 V2。",
+        "kind": "action_sequence",
+        "unit": "一次换枪与一次补弹"
+      },
+      "full_credit": "至少两种武器可切换，切换后弹匣容量或枪管外观改变；存在不依赖开火键的补弹，补弹后当前发数回升（备用弹下降或等价消耗）。",
+      "group": "M",
+      "high_score_requirements": [
+        "两种武器在容量或外形上可区分，不是同一把枪换名字。",
+        "补弹不依赖开火键，当前发数在补弹后回升。",
+        "换枪与补弹都能在普通游玩中单独触发，开局按住扩展键不会直接通关。"
+      ],
+      "id": "M2",
+      "inspired_by": [
+        "shadow-courier:M2"
+      ],
+      "partial_credit": "只能换枪不能补弹，或只能补弹不能换枪；或切换后规格完全不变。未拍到补弹过程为该子条件 unknown，不因此把已展示的换枪判零。",
+      "title": "换枪改变规格，换弹使当前发数回升",
+      "zero_credit": "充分覆盖操作后既不能切换武器，当前发数也从不在非开火情况下回升。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R018",
+            "R047",
+            "R112"
+          ],
+          "observation": "R018 玩家站在绿色地面上，顶栏 EXTRACT - HOLD THE PAD FOR 12S，横幅 EXTRACTING 9.9；R047 仍在绿垫上 EXTRACTING 16.3 且 HOLD 18S；R112 EXTRACTING 22.1、HOLD 24S，垫上仍有交火。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R119"
+          ],
+          "observation": "R119 EXTRACTION COMPLETE，ALL THREE ARENAS HELD. TOTAL TIME 7:18.，说明守垫被当作完成条件。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "EXTRACTING 或等效倒计时在走，但角色站在黄沙上、脚下没有绿色垫或等价占领区",
+          "id": "M3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评可见提取或防守目标：玩家进入目标区域后目标推进，推进满后出现完成。绿垫是否在到达前作为场所存在归 D1；EXTRACTING 横幅形式归 V3；倒计时数字是否跟随占垫归 V2。",
+      "evidence": {
+        "coverage": "需要看到占据与推进的对应；垫的到达前可见性归 D1。",
+        "kind": "action_sequence",
+        "unit": "进入目标区到目标完成的一段"
+      },
+      "full_credit": "世界层有可站入的提取或防守点；玩家占据期间目标推进，离开则中断或减速；推进完成后该目标结束（通关或解锁下一阶段）。守垫时长与提取呈现形式自由。",
+      "group": "M",
+      "high_score_requirements": [
+        "目标区是能走进去的世界层场所，不是只改一句目标文字。",
+        "占据期间推进、离开可中断，完成与占据过程对应。",
+        "提取或防守完成出现在实际占据之后，而不是跳过守点。"
+      ],
+      "id": "M3",
+      "inspired_by": [
+        "shadow-courier:M2"
+      ],
+      "partial_credit": "有垫或防守点，但站上去目标状态不变，或目标在未占据时自行完成。只有防守没有提取本身不是缺陷。",
+      "title": "占据提取或防守点直到完成",
+      "zero_credit": "充分覆盖后提取或防守目标从未因玩家占据而推进或完成。未拍到目标段为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R010",
+            "R018"
+          ],
+          "observation": "R001 开局 CLEAR THREE PUSHES, THEN HOLD TH，WAVE 1/3 HOSTILES 0，0:00 / PAR 1:10；R010 WAVE 2 CLEARED；R018 已进入 EXTRACT 守垫。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R119"
+          ],
+          "observation": "R119 EXTRACTION COMPLETE，三颗星，黄色 NEW RUN 与蓝色 TITLE 按钮。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "名义有 WAVE 1/3 到 WAVE 4/3，但数字一跳角色已站在提取垫上，中间没有清场交火",
+          "id": "M4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评流程各段是否存在：可辨开局 → 遭遇/清场段 → 成功或失败结局 → 重玩入口。波次名目与三场竞技场是自由设计；WAVE 横幅形式归 V3；结局页分组归 V4。",
+      "evidence": {
+        "coverage": "成功结局必需；失败仅在候选展示时评判。按钮点击未验证。",
+        "kind": "whole_scope",
+        "unit": "开局、遭遇中段与结局页"
+      },
+      "full_credit": "开局可辨（角色、场地、初始目标）；随后有一段实际遭遇；成功或失败结局出现在游玩之后；结局页有可辨的重玩入口。失败页未拍到不扣 GT，候选展示失败时才评。",
+      "group": "M",
+      "high_score_requirements": [
+        "开局目标与角色在第一眼可辨。",
+        "结局出现在实际遭遇之后，不是跳过射击。",
+        "通关页提供可辨的重玩入口。"
+      ],
+      "id": "M4",
+      "inspired_by": [
+        "shadow-courier:M3"
+      ],
+      "partial_credit": "有游玩但缺结局或缺重玩入口，或结局未经过遭遇直接出现。",
+      "title": "开局、遭遇段、结局与重玩",
+      "zero_credit": "充分覆盖后既没有可操作遭遇，也没有可辨的开始或结束状态。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R010",
+            "R012"
+          ],
+          "observation": "R001 黄沙地上有红集装箱、沙袋、锥桶、木托盘、铁丝网；R010 玩家贴红色集装箱侧面跑；R012 玩家沿一排红箱外侧走，左侧有油桶。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R018",
+            "R060"
+          ],
+          "observation": "R018 绿垫在玩家脚下铺开，周围仍是厂房与集装箱，不是空白触发区；R060 中场可见黄坦克、轮胎堆、捕兽夹，目标点尚未占用时场地已有体积物。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "场上已有集装箱或沙袋，但提取/防守目标在到达前没有任何世界层垫或工事，只能靠 EXTRACT 条文走到某处才刷出",
+          "id": "D1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评竞技场是否给出可走空间、可利用的掩体，以及提取或防守点在到达前已作为世界层场所存在。布局自由，不要求三场地图或多岔路。绿垫颜色可读性归 V1；占据推进归 M3。",
+      "evidence": {
+        "coverage": "至少一帧到达前能看见目标点；掩体不要求数量，评的是可利用。",
+        "kind": "overview",
+        "unit": "开局与到达目标点之前的宽景帧"
+      },
+      "full_credit": "场地有可绕行的掩体或障碍（集装箱、沙袋、围栏等任一）；提取或防守点在玩家到达前就能在世界层看见，不是走到触发文字才刷出。",
+      "group": "D",
+      "high_score_requirements": [
+        "掩体或障碍能改变走位，不是纯装饰贴边。",
+        "提取或防守点在到达前可被看见。",
+        "场地边界可读，玩家不是走在无限平地上。"
+      ],
+      "id": "D1",
+      "inspired_by": [
+        "shadow-courier:D1"
+      ],
+      "partial_credit": "有障碍但实际只能沿一条窄缝移动；或目标点只在脚底下突然出现。单场紧凑场地本身不是缺陷。",
+      "title": "废料场里的掩体与到达前可见的目标点",
+      "zero_credit": "充分覆盖后场地没有可走空间，也没有任何世界层目标点。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R003",
+            "R010",
+            "R018"
+          ],
+          "observation": "R003 WAVE 1/3 CLEAR THE YARD；R010 WAVE 2 CLEARED 后仍在清场跑图；R018 目标改为 EXTRACT - HOLD THE PAD FOR 12S，WAVE 4/3。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R093",
+            "R112"
+          ],
+          "observation": "R093 铁丝网后出现红帽，横幅 SIEGE PRESSURE - REINFORCEMENTS INBOUND；R112 守垫时红帽贴在绿垫上近身，与开局远距离清场不同。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "HUD 写了 WAVE 2/3、WAVE 3/3，但后段仍是同一批红帽走近来挨打，没有守垫、增援入场或等价的目标切换",
+          "id": "D2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评遭遇是否发展：前段清场与后段提取/防守或增援在目标上可区分。波次数、三场竞技场、敌人职业均为自由；未做多职业 → not_applicable。WAVE 数字是否跟随归 V2；横幅文案归 V3。",
+      "evidence": {
+        "coverage": "比较前段与后段的目标，不要求三场地图或多职业敌人。",
+        "kind": "overview",
+        "unit": "开局遭遇帧与后段目标帧"
+      },
+      "full_credit": "后段出现与开局不同的目标或压力（守垫、增援入场、防线收缩等任一），不是只把 WAVE 计数加一。",
+      "group": "D",
+      "high_score_requirements": [
+        "后段目标或压力与开局清场可区分。",
+        "发展发生在世界层（垫、增援、防线），不是只改 WAVE 数字。",
+        "玩家能看出此刻该清场还是该守点。"
+      ],
+      "id": "D2",
+      "inspired_by": [
+        "shadow-courier:D3"
+      ],
+      "partial_credit": "有第二段名目，但敌人走位、目标与开局无法区分。难度不必单调上升。",
+      "title": "清场压力之后出现提取或增援",
+      "zero_credit": "充分覆盖后全程只有一种遭遇，没有第二段目标或压力。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R003",
+            "R005"
+          ],
+          "observation": "R001 玩家绿 visor、黄裤、白袖；R003/R005 敌人为红帽红衣，与绿盔对比清楚，R005 红色 X 叠在红帽身上。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R018",
+            "R112"
+          ],
+          "observation": "R018/R112 提取区为亮绿色地面，与黄沙、红集装箱分离；R112 红帽站在绿垫边缘，敌我与垫三方可同时读出。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "红帽与绿盔只差帽子颜色，在红色集装箱与黄沙前无法预读谁是威胁，必须靠血条文字",
+          "id": "V1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评红帽敌人、绿盔玩家、绿色提取垫相对黄沙与红集装箱是否能预读。命中闪光归 A4；行为差异不是本条（敌人职业自由）。",
+      "evidence": {
+        "coverage": "到达前标志与敌我区分；闪光质量归 A4。",
+        "kind": "overview",
+        "unit": "含敌人与目标点的正常游玩帧"
+      },
+      "full_credit": "敌人与玩家在形体或配色上可预读；提取或防守点在到达前有世界层标志（色垫、工事、灯等）。弱点击杀圈是 GT 附加，未采用不扣。",
+      "group": "V",
+      "high_score_requirements": [
+        "敌我在交火距离即可分辨，不靠贴脸。",
+        "提取或防守点在到达前有世界层标志。",
+        "威胁、友方与场地家具不会在配色上完全混成一块。"
+      ],
+      "id": "V1",
+      "inspired_by": [
+        "strategy-skirmish:V4",
+        "shadow-courier:V3"
+      ],
+      "partial_credit": "敌我能分开但要贴脸才认得出；或垫与沙地同色，要踩上去才发现。",
+      "title": "敌我与提取垫在到达前可读",
+      "zero_credit": "充分覆盖后敌我与目标点在画面上无法分辨。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R003",
+            "R005",
+            "R006",
+            "R008"
+          ],
+          "observation": "R001 REPEATER 25/100 HEAT 0；R003 已换 BREACHER 4/24 HEAT 45 HOSTILES 2；R005 BREACHER 0/24 SCORE 365；R006 切回 REPEATER 12/100；R008 补弹后 REPEATER 21/75，枪口正在闪光。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R010",
+            "R018",
+            "R047",
+            "R112"
+          ],
+          "observation": "R010 WAVE 2 CLEARED、HOSTILES 0、ARMOUR 84、SCORE 615；R018 站垫 EXTRACTING 9.9 ARMOUR 63；R047 EXTRACTING 16.3 ARMOUR 24 SCORE 2199；R112 EXTRACTING 22.1 ARMOUR 31 SCORE 5874，倒计时随占垫上升。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R060"
+          ],
+          "observation": "R060 ARMOUR 10、WAVE 2/3 HOSTILES 2、SCORE 3049、0:32 / PAR 1:50、BREACHER 4/12，耐久已明显低于开局 100。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "世界层已出现红帽退出、换枪、占垫或受伤，但 HOSTILES / 武器名与弹匣 / EXTRACTING / ARMOUR 持续不更新或方向相反",
+          "id": "V2-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "大号准星圈或面板持续挡住脚下绿色提取垫，守垫时无法看见垫边界",
+          "id": "V2-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评候选采用的状态读数是否随世界层事件更新。本条是读数同步与界面遮挡的唯一计分处。M 组不因计数器没变扣分。HEAT / CHAIN / PAR 未采用 → not_applicable。",
+      "evidence": {
+        "coverage": "只评候选实际采用的字段；遮挡只在挡住当前目标垫时计。",
+        "kind": "action_sequence",
+        "unit": "开火/换枪/占垫/受伤与对应读数"
+      },
+      "full_credit": "开火消耗当前弹匣、换枪改武器名与容量、敌人退出后 HOSTILES 或等价计数下降、占据提取点时 EXTRACTING 或进度上升、受伤时 ARMOUR 或等价资源下降，方向与时序一致。信息层不持续挡住当前要站的垫。",
+      "group": "V",
+      "high_score_requirements": [
+        "弹匣与武器名跟随开火和换枪。",
+        "占据提取点时进度读数上升，受伤时耐久下降。",
+        "HUD 不把当前要站的垫挡住。"
+      ],
+      "id": "V2",
+      "inspired_by": [
+        "shadow-courier:V4"
+      ],
+      "partial_credit": "有读数但与世界层反复脱节（空仓仍显示满弹、垫上倒计时冻结、红帽已退出 HOSTILES 不动）。缺少某一 GT 字段本身不是缺陷。",
+      "title": "ARMOUR、WAVE、弹匣与 EXTRACTING 跟随事件",
+      "zero_credit": "充分覆盖后没有任何随事件更新的状态读数。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R005",
+            "R010",
+            "R012"
+          ],
+          "observation": "R005 中央 CLEAN VENT +25；R010 WAVE 2 CLEARED；R012 RALLY ARMED - ONE RECOVERY HELD，均叠在游玩画面上。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R018",
+            "R093"
+          ],
+          "observation": "R018 EXTRACTING 9.9；R093 SIEGE PRESSURE - REINFORCEMENTS INBOUND 红底黄字，与铁丝网后红帽同时出现。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "WAVE 2 CLEARED 或 EXTRACTING 横幅出现后一直挂到下一阶段仍不退出，阶段边界读不出来",
+          "id": "V3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评阶段切换是否有即时事件提示。流程段是否存在归 M4；读数同步归 V2。CLEAN VENT / RALLY ARMED 是 GT 附加提示，未采用不扣。",
+      "evidence": {
+        "coverage": "清场、提取、增援各看实际出现的提示；未采用的附加提示不评。",
+        "kind": "overview",
+        "unit": "阶段切换附近的帧"
+      },
+      "full_credit": "清场结束、进入提取或增援入场时，画面上出现可退出的即时提示（横幅、徽章等），出现时机与阶段边界对应。",
+      "group": "V",
+      "high_score_requirements": [
+        "阶段切换有即时提示，不必事后从 WAVE 数字反推。",
+        "提示会退出，不永久挡住视野。",
+        "提取与清场的提示语义可区分。"
+      ],
+      "id": "V3",
+      "inspired_by": [
+        "shadow-courier:V2"
+      ],
+      "partial_credit": "有提示但与阶段错位，或提示一直挂着读不出边界。",
+      "title": "清场、围攻与提取的阶段横幅",
+      "zero_credit": "充分覆盖阶段切换后，画面上没有任何即时事件提示。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R119"
+          ],
+          "observation": "R119 深绿底上灰面板，绿标题 EXTRACTION COMPLETE，三颗星，说明 ALL THREE ARENAS HELD. TOTAL TIME 7:18.；统计 SCORE 6074、KILLS 50、WEAK POINT KILLS 1、CLEAN VENTS 8、BARREL CHAINS 0、SUPPLIES TAKEN 7、RALLY BEACONS 1 TAKEN / 1 SPENT、ARENAS CLEARED 3/3、UPGRADES FIELD_PLATING, COLD_CORE, WIDE_BAND；底部黄 NEW RUN、蓝 TITLE。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "有 EXTRACTION COMPLETE 类标题和 NEW RUN 按钮，但 SCORE/KILLS 与按钮挤成一段无分组字堆，完成语义要逐行读",
+          "id": "V4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评结局页能否一眼读出完成语义并找到重玩。失败页未拍到 → 候选展示时才评，未展示 unknown。界面材质归 A3；本条只评信息组织。",
+      "evidence": {
+        "coverage": "成功页必需；失败仅在展示时评。按钮功能未点击不认证。",
+        "kind": "overview",
+        "unit": "结局页面帧"
+      },
+      "full_credit": "完成或失败语义在第一眼可辨；统计与下一步按钮分区；重玩入口视觉上可找。具体统计行（KILLS、CLEAN VENTS、三场竞技场）自由。",
+      "group": "V",
+      "high_score_requirements": [
+        "完成语义第一眼可辨，不依赖读完统计。",
+        "统计与重玩按钮分区清楚。",
+        "重玩入口在视觉上优先于次要操作。"
+      ],
+      "id": "V4",
+      "inspired_by": [
+        "shadow-courier:D5"
+      ],
+      "partial_credit": "有结局页但完成语义埋在统计行里，或重玩入口与统计混排。",
+      "title": "提取完成页的分组与重玩入口",
+      "zero_credit": "充分覆盖通关后没有结局页，也没有重玩入口。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R006",
+            "R060"
+          ],
+          "observation": "R001 绿 visor、白袖、黄裤、右肩长管；R006 背面 visor 灯与肩带清楚；R060 全身比例相对轮胎与黄坦克可读，不是色点。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R003",
+            "R047",
+            "R112"
+          ],
+          "observation": "红帽红衣敌人有四肢与武器轮廓；R047/R112 近身时仍能看出红帽与绿盔是两套形体。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "绿盔黄裤只出现在结算插图，游玩中的玩家是无 visor、无持枪姿态的胶囊人",
+          "id": "A1-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "第三人称下角色被缩放到只能看到 visor 色点，且贯穿整段废料场",
+          "id": "A1-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评正常第三人称尺度下玩家与敌人是否可辨朝向、头盔/ visor、四肢与接地。事件时的闪光归 A4；给定 Toon Shooter Kit 角色网格未出现在素材预览联系图中，不要求特定网格。",
+      "evidence": {
+        "coverage": "开局、交火与守垫各看主体；行走循环未在 0.1 s 片段确认，不作要求。",
+        "kind": "overview",
+        "unit": "正常游玩尺度的角色帧"
+      },
+      "full_credit": "玩家有可辨 visor 或头盔、四肢与持枪姿态，脚下接地；敌人有可辨形体，与玩家可区分。比例与废料家具协调。",
+      "group": "A",
+      "high_score_requirements": [
+        "玩家 visor、持枪与朝向在正常距离可辨。",
+        "红帽敌人与玩家形体可区分。",
+        "角色与集装箱、轮胎的比例协调，没有撕裂缩放。"
+      ],
+      "id": "A1",
+      "inspired_by": [
+        "sokoban:A2"
+      ],
+      "partial_credit": "能定位但缺少身份组织（无 visor 的胶囊、敌人是纯色块）；或缩放模糊贯穿整段。",
+      "title": "绿盔玩家与红帽敌人的形体",
+      "zero_credit": "正常游玩中主体无法辨认朝向与身份。分辨率不足时 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R008",
+            "R060"
+          ],
+          "observation": "R001 黄沙裂纹、红围栏集装箱、沙袋、锥桶、木板；R008 红集装箱墙、油桶、远处褐车；R060 蓝灰筒仓、黄坦克、轮胎堆、捕兽夹。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R093",
+            "R112"
+          ],
+          "observation": "R093 黄黑条护栏与铁丝网围出通道；R112 绿垫嵌在沙地里，旁边黄箱、轮胎、黄坦克，不是贴在屏幕上的色块。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S001",
+            "S002",
+            "S003"
+          ],
+          "observation": "素材预览含 Kenney 天空盒与 Toon 废料道具（轮胎、锥桶等）；录像场地是第三人称搭建的废料场，不是把天空盒铺成地面。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "地面是平沙，集装箱、沙袋、锥桶、轮胎都没有体积，只有远景色块，读不成废料场",
+          "id": "A2-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "给定 Kenney 天空盒被铺成行驶地面，透视与第三人称角色冲突，角色悬浮在天空图案上",
+          "id": "A2-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评场地是否读成有体积的废料场：沙地、集装箱、沙袋、锥桶、轮胎、厂房等任一组合。布局自由。空间取舍归 D1；本条评场所构造与透视。",
+      "evidence": {
+        "coverage": "平涂或几何风格同权，评体积、接地与透视。",
+        "kind": "overview",
+        "unit": "开局、中场与守垫的宽景"
+      },
+      "full_credit": "地面有材质，废料家具有体积并接地，远景厂房或围栏给出边界；透视与第三人称角色一致。",
+      "group": "A",
+      "high_score_requirements": [
+        "废料家具有体积并接地。",
+        "沙地与围栏给出可走范围。",
+        "透视与角色尺度一致，天空盒不被误铺成地面。"
+      ],
+      "id": "A2",
+      "inspired_by": [
+        "sokoban:A2",
+        "shadow-courier:A2"
+      ],
+      "partial_credit": "只有平沙加远景色块，家具没有体积；或透视冲突导致角色浮在贴图上。",
+      "title": "黄沙废料场的场所感",
+      "zero_credit": "场地退化为纯色背景，没有任何可辨的废料场组织。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R018",
+            "R119"
+          ],
+          "observation": "R001/R018 顶栏三块灰圆角面板（ARMOUR 条、WAVE 目标、SCORE/PAR），底栏 HEAT 条与武器灰板同一材质；R119 灰面板、黄 NEW RUN、蓝 TITLE，与游玩灰板/强调色同族。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S010",
+            "S011",
+            "S012",
+            "S032"
+          ],
+          "observation": "Kenney 灰面板、黄/蓝/绿/红矩形按钮与 KenneyFuture 字样，与录像 HUD 及结局按钮外观一致；对应不证明文件加载。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "代表性的主要界面虽已有分组、底板或字号差，但核心信息的重要性与视觉重量长期明显相反，或主要信息组仍没有可辨阅读顺序，导致这一状态的主要编排关系实质缺失。须指出具体角色和范围；常见字体、纯文字、缺少面板或一个局部修饰问题均不触发。",
+          "id": "A3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评价战斗读数、波次/目标提示、操作与完成表达的实际视觉编排。重点是信息角色、文字/图形比例、留白与对齐、状态重点共同形成的界面设计；正确显示信息、有字号差或使用统一颜色只证明相应的局部成果。下列 GT 观察是设计作用的实例，具体颜色、字体、图标、面板和固定位置不构成复刻要求。",
+      "evidence": {
+        "coverage": "代表性正常界面与原录像覆盖的状态画面并列查看；关键文字及组间比例需要正常尺度全帧。只评价本任务已采用且已展示的组成。",
+        "kind": "overview",
+        "unit": "游玩 HUD 与结局页"
+      },
+      "full_credit": "战斗读数、波次/目标提示、操作与完成表达在正常观看尺度下按当前任务的重要性形成清楚的视觉重量和阅读顺序；主要目标或行动状态有充分强调，名称、数值、辅助说明的比例、距离和对齐体现各自语义，弱化的信息仍有适当可读性。废料场战斗、推进与完成状态根据状态用途重新组织视觉中心、疏密与留白，同时延续可辨的字体角色或图形关系。整体编排已经形成完整、合乎内容的界面，不能仅由几组标签、标题放大和配色统一来证明。纯文字可以充分完成设计；仅评价实际采用的可选读数、图标、按钮和统计，不要求另加组件、面板或独立结果屏。",
+      "group": "A",
+      "high_score_requirements": [
+        "当前生存/武器状态、撤离或防守目标与辅助记录在正常画面中的视觉重量与当前用途匹配。指出强调了谁、弱化了谁以及字号/对比/位置/留白如何共同完成这一关系；仅列出标签和分组不算完整证据。",
+        "具体信息组内部与组间的比例、对齐和疏密共同形成阅读节奏，名称、读数、说明之间的联系清楚；同一字体、同一颜色或一条底板不自动证明这些关系完成。",
+        "废料场战斗、推进与完成状态各自的视觉中心与内容相称，状态变化通过实际编排表达用途变化；保持相同颜色或把一行字放大不足以单独证明完整，但有意义的简洁文字构图可以完整成立。",
+        "字体角色、形状、边缘或强调关系在整套界面中得到有目的的运用；需要说明具体处理产生了什么视觉效果，不能用‘没冲突、可读、风格统一’替代正面完成证据。"
+      ],
+      "id": "A3",
+      "inspired_by": [
+        "shadow-courier:A3"
+      ],
+      "partial_credit": "按已形成和未完成的设计关系连续判断：能读到文字但关键目标/状态的视觉重量弱于装饰性标题；标签与数值或相关说明靠简单并排仍缺少有效分组与阅读顺序；主次虽然有字号差，尺度、对比或留白却未配合语义；结果内容只是换字沿用普通读数排法，没有围绕已有完成信息形成视觉中心；局部做了边框或强调色，但主要界面仍缺乏上述编排。指出具体区域、相互比较的信息角色和可见后果，不能只说普通、简陋或缺乏高级感。仅有轻微间距问题时按局部损失判断；不能把缺少图标/插画、使用常见字体、不同字体家族或极简风格本身当缺陷。某信息是否缺失或错误归功能视觉项；本项须评价已展示信息怎样被设计，不能复用同一功能缺失扣分。",
+      "title": "界面的完整视觉编排",
+      "zero_credit": "所需观察范围充分时，主要界面完全没有实际视觉编排，只有无法形成信息角色或阅读顺序的散置占位内容。已经形成有效的局部编排应给部分完成度；没有拍到状态不等于没有设计。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "RD001",
+            "R008",
+            "R003"
+          ],
+          "observation": "RD001 枪口大团白黄闪光，角色背部有红色 X；R008 红箱前白色枪焰；R003 身侧火花与红帽同时存在。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R005",
+            "R047",
+            "R112"
+          ],
+          "observation": "R005 红帽上红色 X；R047 绿垫上白屑爆裂与黄色命中圈；R112 近身交火处橙色命中标记，绿垫仍在脚下发光。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "开火、命中、占垫三类事件里至少两类只有一帧闪光或瞬间切换，没有出现到消退的过程",
+          "id": "A4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评开火、命中、提取占垫等已展示事件在世界层的动态：是否有出现→持续→消退，是否绑在事件位置。本条是这些反馈的唯一计分处。阶段横幅归 V3。",
+      "evidence": {
+        "coverage": "稀疏总览只能确认有无；过程需要密集采样。",
+        "kind": "action_sequence",
+        "unit": "含开火与命中的密集片段，以及一段占垫"
+      },
+      "full_credit": "开火有枪口或弹道过程；命中在敌人处有可归因信号并消退；占垫时绿垫或进度有可见过程。粒子、红 X、HEAT 条都是手段而非必需。",
+      "group": "A",
+      "high_score_requirements": [
+        "枪口与命中有可感知过程，绑在事件位置。",
+        "多目标时信号能归因到被击的那名红帽。",
+        "占垫时绿垫或进度有世界层变化，不是只有数字。"
+      ],
+      "id": "A4",
+      "inspired_by": [
+        "shadow-courier:A4"
+      ],
+      "partial_credit": "部分事件只有一帧闪白或敌人瞬切消失；或效果出现在错误位置。",
+      "title": "枪口、命中与守垫的过程",
+      "zero_credit": "充分覆盖后所有事件都只是对象瞬间切换与数字变化，世界层没有任何动态。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R008",
+            "R018"
+          ],
+          "observation": "低饱和黄沙与浅蓝天作底，绿 visor 与红箱/红帽为暖冷对比焦点；灰 HUD 贴边不抢中圈。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R119"
+          ],
+          "observation": "结算深绿底+灰板+绿标题+黄/蓝按钮，与游玩灰板及顶栏强调色同族，不是系统默认对话框。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "代表性的正常画面中，主体、场所、效果和信息层虽各自存在，但跨部分的主要行动焦点或空间层次持续未建立：须有具体比例、明暗、遮挡或布局关系使主要行动被压成次要点或各部分无法形成同一空间的证据。配色一致不能豁免；个别装饰不足、单帧重叠或局部细节缺失不触发。",
+          "id": "A5-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评价玩家、敌人/弹道、废料场与信息层共同组成的整幅画面怎样表现直接射击并在升级压力下完成场地目标。本项需要跨部分构图、比例、空间与注意力层次的正面成果；能够认出同一游戏、配色一致或没有严重风格冲突只证明有限的协调。不再次评价 A1–A4 的局部制作水平，不把 GT 的具体风格和配色变成强制答案。",
+      "evidence": {
+        "coverage": "以多个独立阶段的正常全帧检查整体关系，并与原录像覆盖的状态画面比较；不以单一漂亮结果页补偿游玩画面的主要关系缺失。",
+        "kind": "whole_scope",
+        "unit": "交火帧与结局页的跨部分比较"
+      },
+      "full_credit": "玩家、当前射击威胁与任务区域在代表性画面中形成有目的的关注关系；主体所占视觉重量、场所的衬托、效果的强调和信息层的介入共同表现直接射击并在升级压力下完成场地目标。各部分在尺度、明暗/色彩、边缘与空间上的配合形成完整画面，能指出主体如何处于场所中、效果如何依附其对象、界面如何配合当前状态。跨已展示的阶段与结果，视觉语言通过这些关系延续并适应状态变化；统一调色、重复字体或相同像素边不能代替整体构图与氛围的完成。几何、极简、像素、混合渲染和主题变化均可完整成立，不要求增加装饰或效果种类。",
+      "group": "A",
+      "high_score_requirements": [
+        "玩家、当前射击威胁与任务区域的关注顺序由整幅构图、视觉重量与场景衬托共同组织，具体说明至少两个部分如何相互支持。对象存在、能定位或颜色区分开，只是这项成果的一部分。",
+        "玩家、敌人/弹道、废料场与信息层之间的尺度、明暗/色彩、边缘或空间关系共同形成直接射击并在升级压力下完成场地目标的表现，举出画面中实际成立的整合关系；不能仅凭共享调色或材质名称判完整。",
+        "已展示的游玩阶段与结果通过构图、强调、形态或空间关系延续同一视觉方向，并适应各状态的用途；只复用一种颜色或字体并不能单独证明整套呈现完成。"
+      ],
+      "id": "A5",
+      "inspired_by": [
+        "strategy-skirmish:A1"
+      ],
+      "partial_credit": "按尚未建立的跨部分关系及其重要性给连续分：颜色相近却只是主体、平面场地、标记和顶栏的并置，比例与明暗没有共同组织主要行动；效果、装饰或信息层的面积/对比持续压过应被关注的世界主体或目标，使行动中心退化为画面的次要点；物件、地面和效果各自可辨，却在接地、遮挡或视觉尺度上缺乏联系，整幅画面的空间表现未形成；游玩与结果只复用颜色，实际构图和强调关系没有支持其体验的延续。必须指出至少两个部分之间的可见关系与结果，不能以‘拼装感、没氛围’概括，也不能再次列角色缺细节、地面少装饰或界面字小作为独立扣分。局部轻微不协调按局部判断；不同风格、稀疏场景、明亮特效或大界面并不自动证明失败。",
+      "title": "整体构图与美术整合",
+      "zero_credit": "代表性画面中各部分没有共同形成可辨的主要行动、空间层次或整体表现方向，只有互不关联的内容并置。已形成的实际关系应保留部分完成度；不能因画风不合偏好给零分。"
+    }
+  ],
+  "rubric_version": "2026-09-19.vlm-art-relationships-v1",
+  "score_curve": {
+    "caps_scale": "final_score",
+    "exponent": 3,
+    "input": "attainment",
+    "missing_evidence": null,
+    "name": "power"
+  },
+  "self_review": {
+    "caps_trigger_table": [
+      {
+        "condition": "能开火但朝向锁定，红帽必须走进枪口",
+        "id": "M1-C1",
+        "max_credit": 0.5,
+        "vs_zero": "zero 是完全不能开火或敌人完全无世界层反应"
+      },
+      {
+        "condition": "武器名换了但容量与枪管不变",
+        "id": "M2-C1",
+        "max_credit": 0.5,
+        "vs_zero": "zero 是既不能换枪也不能补弹"
+      },
+      {
+        "condition": "EXTRACTING 在走但人不在绿垫上",
+        "id": "M3-C1",
+        "max_credit": 0.5,
+        "vs_zero": "zero 是占据从不推进"
+      },
+      {
+        "condition": "WAVE 数字跳变后人已在垫上、无清场",
+        "id": "M4-C1",
+        "max_credit": 0.5,
+        "vs_zero": "zero 是没有遭遇也没有开始/结束"
+      },
+      {
+        "condition": "有家具但目标点到达前不存在",
+        "id": "D1-C1",
+        "max_credit": 0.5,
+        "vs_zero": "zero 是无空间也无目标点"
+      },
+      {
+        "condition": "有 WAVE 名目但后段仍是同一清场",
+        "id": "D2-C1",
+        "max_credit": 0.5,
+        "vs_zero": "zero 是全程一种遭遇"
+      },
+      {
+        "condition": "敌我只差帽色、在红箱黄沙前不可预读",
+        "id": "V1-C1",
+        "max_credit": 0.5,
+        "vs_zero": "zero 是完全无法分辨"
+      },
+      {
+        "condition": "有 HUD 但与世界层反向或冻结",
+        "id": "V2-C1",
+        "max_credit": 0.5,
+        "vs_zero": "zero 是没有任何随事件读数"
+      },
+      {
+        "condition": "面板挡住绿垫边界",
+        "id": "V2-C2",
+        "max_credit": 0.5,
+        "vs_zero": "不同事件，不与 V2 zero 等价"
+      },
+      {
+        "condition": "横幅出现后不退出、边界不可读",
+        "id": "V3-C1",
+        "max_credit": 0.5,
+        "vs_zero": "zero 是阶段切换毫无提示"
+      },
+      {
+        "condition": "有标题和按钮但统计无分组",
+        "id": "V4-C1",
+        "max_credit": 0.5,
+        "vs_zero": "zero 是无结局页也无重玩"
+      },
+      {
+        "condition": "绿盔只在结算页、游玩是胶囊",
+        "id": "A1-C1",
+        "max_credit": 0.5,
+        "vs_zero": "zero 是游玩中无法辨认身份"
+      },
+      {
+        "condition": "缩放到 visor 色点贯穿全场",
+        "id": "A1-C2",
+        "max_credit": 0.5,
+        "vs_zero": "名义有角色但尺度不可用"
+      },
+      {
+        "condition": "平沙无体积废料家具",
+        "id": "A2-C1",
+        "max_credit": 0.5,
+        "vs_zero": "zero 是纯色背景"
+      },
+      {
+        "condition": "天空盒铺成地面透视冲突",
+        "id": "A2-C2",
+        "max_credit": 0.5,
+        "vs_zero": "名义有场地但透视坏了"
+      },
+      {
+        "condition": "系统标签贴四角、无灰面板",
+        "id": "A3-C1",
+        "max_credit": 0.5,
+        "vs_zero": "zero 是界面与世界毫无组织"
+      },
+      {
+        "condition": "两类事件只有一帧闪、无过程",
+        "id": "A4-C1",
+        "max_credit": 0.5,
+        "vs_zero": "zero 是全部事件都无动态"
+      },
+      {
+        "condition": "结算页另一套控件皮肤",
+        "id": "A5-C1",
+        "max_credit": 0.5,
+        "vs_zero": "zero 是无法形成整体；本 cap 是名义有完成页但语言断裂"
+      }
+    ],
+    "overlap": "逐对结论：①红帽退出只归 M1；枪口/红X/爆裂只归 A4。无闪光不扣 M1。②换枪规格与补弹回升归 M2；REPEATER/BREACHER 字样和 25/100 是否跟随归 V2。枪模已换但字样仍是 REPEATER 只触发 V2-C1。③占垫推进完成归 M3；到达前垫是否存在归 D1；绿垫可读归 V1；EXTRACTING 横幅形式归 V3；EXTRACTING 数字是否跟随归 V2。缺世界层垫只触发 D1-C1 或 M3-C1 之一：到达前完全无垫→D1-C1；有垫但倒计时在垫外走→M3-C1。④流程段存在归 M4；WAVE 2 CLEARED 横幅时机归 V3；后段是否换目标归 D2。只换 WAVE 数字不换目标只触发 D2-C1，不因无横幅再扣 M4。⑤空沙地无体积家具只触发 A2-C1；有家具但提取点到达前无垫只触发 D1-C1。⑥结果页无分组只触发 V4-C1，A3 不因结算排版扣分。⑦HUD 挡住绿垫只触发 V2-C2。⑧A4-C1 是同一条内的过程质量，不与 M1 叠加。",
+    "scope": "15 项（M4/D2/V4/A5）。按 brief 把第三人称射击后果、换枪+手动换弹、提取或防守、升级遭遇、成功/失败/重玩作为必需；竞技场数量、波次名、敌人职业、HEAT/CHAIN/弱点/RALLY/升级均为自由。条目数不套 4/3/4/5：本游戏没有第二套空间谜题，D 组两条足够覆盖掩体+目标点与遭遇发展。",
+    "uncertainties": "失败结局、按钮功能、换弹逐帧动画未能从 GT 确认。未建立独立语义审查证据。未建立人工分数校准证据。",
+    "unsupported_obligations": "未要求：三场地图、多职业敌人、HEAT/OVERPRESSURE、CLEAN VENT、弱点、油桶连锁、RALLY 盟友、升级词条、PAR 时限、失败页面、特定换弹动画、Kenney 字体。这些只写在 basis 举例。"
+  },
+  "task_map": {
+    "freedom": [
+      "竞技场布局、波次设计、敌人职能、武器手感与提取呈现均可自选（GT 为三场废料场、WAVE 1–3 清场后 WAVE 4 守绿垫、REPEATER/BREACHER 两枪）。",
+      "HEAT / OVERPRESSURE / CHAIN / CLEAN VENT / 弱点击杀 / 油桶连锁 / 盟友 RALLY / 升级 FIELD_PLATING 等是 GT 附加规则，未采用 → not_applicable。",
+      "失败资源形式（ARMOUR 条、倒地等）自由；具体 HUD 字段名不是满分前提。",
+      "命中红 X、枪口闪光、横幅文案都是 GT 手段，等效表达同权。"
+    ],
+    "required": [
+      "有界 3D 废料场竞技场：第三人称瞄准射击，交火有可见后果。",
+      "压力升级的遭遇，并完成可见的提取或防守目标。",
+      "成功或失败结局，以及重玩。",
+      "至少两个扩展操作：武器切换；独立于开火的手动换弹。"
+    ]
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "game_id": "super_dungeon_delve",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "sprites/monsters/orc_warrior_run_anim_f0.png",
+        "id": "S015",
+        "label": "sprites/monsters/orc_warrior_run_anim_f0.png"
+      },
+      {
+        "asset_path": "sprites/player/knight_m_hit_anim_f0.png",
+        "id": "S016",
+        "label": "sprites/player/knight_m_hit_anim_f0.png"
+      },
+      {
+        "asset_path": "tiles/tiles.png",
+        "id": "S017",
+        "label": "tiles/tiles.png"
+      },
+      {
+        "asset_path": "tiles/tilesv2.png",
+        "id": "S030",
+        "label": "tiles/tilesv2.png"
+      },
+      {
+        "asset_path": "splash/title.png",
+        "id": "S039",
+        "label": "splash/title.png"
+      },
+      {
+        "asset_path": "sprites/monsters/skelet_run_anim_f0.png",
+        "id": "S058",
+        "label": "sprites/monsters/skelet_run_anim_f0.png"
+      },
+      {
+        "bundled_path": "media/S073.png",
+        "id": "S073",
+        "label": "FONT PREVIEW fonts/LifeCraft_Font.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "fonts/LifeCraft_Font.ttf"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "efx/4x4.png",
+        "efx/blob.png",
+        "efx/bone.png",
+        "efx/light-sm.png",
+        "efx/light.png",
+        "fonts/LifeCraft_Font.ttf",
+        "icon.png",
+        "misc/chest.png",
+        "misc/coin.png",
+        "misc/deco/blood.png",
+        "misc/deco/bones.png",
+        "misc/deco/crack.png",
+        "misc/deco/skull.png",
+        "misc/deco/torch_1.png",
+        "misc/deco/torch_2.png",
+        "misc/deco/torch_3.png",
+        "misc/deco/torch_4.png",
+        "misc/key.png",
+        "misc/ladder.png",
+        "misc/potion.png",
+        "music/gameover.ogg",
+        "music/main.ogg",
+        "music/title.wav",
+        "reference_media/assets/efx",
+        "reference_media/assets/icon.png",
+        "reference_media/assets/misc",
+        "reference_media/assets/music",
+        "reference_media/assets/sfx",
+        "reference_media/assets/splash",
+        "reference_media/assets/sprites",
+        "reference_media/assets/tiles",
+        "reference_media/assets/ui",
+        "sfx/bones.wav",
+        "sfx/coins.wav",
+        "sfx/death.wav",
+        "sfx/exit.wav",
+        "sfx/footstep.wav",
+        "sfx/grunts.wav",
+        "sfx/heal.wav",
+        "sfx/slurp.wav",
+        "sfx/smack.wav",
+        "sfx/squish.wav",
+        "sfx/swipe.wav",
+        "splash/boot.png",
+        "splash/gameover.png",
+        "splash/title.png",
+        "sprites/monsters/orc_warrior_run_anim_f0.png",
+        "sprites/monsters/orc_warrior_run_anim_f1.png",
+        "sprites/monsters/orc_warrior_run_anim_f2.png",
+        "sprites/monsters/orc_warrior_run_anim_f3.png",
+        "sprites/monsters/skelet_run_anim_f0.png",
+        "sprites/monsters/skelet_run_anim_f1.png",
+        "sprites/monsters/skelet_run_anim_f2.png",
+        "sprites/monsters/skelet_run_anim_f3.png",
+        "sprites/monsters/skeleton_v2_1.png",
+        "sprites/monsters/skeleton_v2_2.png",
+        "sprites/monsters/skeleton_v2_3.png",
+        "sprites/monsters/skeleton_v2_4.png",
+        "sprites/monsters/swampy_run_anim_f1.png",
+        "sprites/monsters/swampy_run_anim_f2.png",
+        "sprites/monsters/swampy_run_anim_f3.png",
+        "sprites/player/knight_m_hit_anim_f0.png",
+        "sprites/player/knight_m_idle_anim_f0.png",
+        "sprites/player/knight_m_idle_anim_f1.png",
+        "sprites/player/knight_m_idle_anim_f2.png",
+        "sprites/player/knight_m_idle_anim_f3.png",
+        "sprites/player/knight_m_run_anim_f0.png",
+        "sprites/player/knight_m_run_anim_f1.png",
+        "sprites/player/knight_m_run_anim_f2.png",
+        "sprites/player/knight_m_run_anim_f3.png",
+        "sprites/player/weapon_red_gem_sword.png",
+        "tiles/tiles.png",
+        "tiles/tilesv2.png",
+        "ui/pointer.png"
+      ],
+      "file_count": 116,
+      "font_files": [
+        "fonts/LifeCraft_Font.ttf"
+      ]
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry. Font previews are rendered from actual supplied font files; preview wording is illustrative, not additional task requirements.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 47.217,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R004",
+        "time_s": 3.0
+      },
+      {
+        "id": "R006",
+        "time_s": 5.0
+      },
+      {
+        "id": "R008",
+        "time_s": 7.0
+      },
+      {
+        "id": "R011",
+        "time_s": 10.0
+      },
+      {
+        "id": "R014",
+        "time_s": 13.0
+      },
+      {
+        "id": "R017",
+        "time_s": 16.0
+      },
+      {
+        "id": "R023",
+        "time_s": 22.0
+      },
+      {
+        "id": "R025",
+        "time_s": 24.0
+      },
+      {
+        "id": "R032",
+        "time_s": 31.0
+      },
+      {
+        "id": "R034",
+        "time_s": 33.0
+      },
+      {
+        "id": "R036",
+        "time_s": 35.0
+      },
+      {
+        "id": "R040",
+        "time_s": 39.0
+      },
+      {
+        "id": "R044",
+        "time_s": 43.0
+      },
+      {
+        "id": "R045",
+        "time_s": 44.0
+      },
+      {
+        "id": "R047",
+        "time_s": 46.0
+      },
+      {
+        "id": "R049",
+        "time_s": 47.2
+      },
+      {
+        "clip": 1,
+        "id": "RD012",
+        "time_s": 10.5434
+      },
+      {
+        "clip": 2,
+        "id": "RD023",
+        "time_s": 23.8085
+      },
+      {
+        "clip": 2,
+        "id": "RD024",
+        "time_s": 23.9085
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 1.0,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Super Dungeon Delve — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nDescend four generated pixel dungeon floors as a lone knight, trading safety for treasure, and reach the fourth exit alive.\n\n## Scope boundary\n\nFour procedurally generated floors with grid movement, directional melee, three enemy kinds, chest and potion pickups, a depth readout, and separate cleared and death endings.\n\n## Creative freedom\n\nYou may choose tile and creature dressing, HUD composition, lighting, and audio while preserving generation, real weapon hitboxes, contact damage, and the four-floor closure.\n"
+}

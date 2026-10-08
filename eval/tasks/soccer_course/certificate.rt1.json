@@ -1,0 +1,72 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "ada81069b1407bceaaa4d83373281a9759db0a668083b04ff5dba83599204a1a"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "soccer_course/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "054b780ba577db8a47ee9c5402516c3cc49e2b3f9248fd705644abd4aba89937",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "ada81069b1407bceaaa4d83373281a9759db0a668083b04ff5dba83599204a1a",
+    "task_id": "soccer_course"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "21cb9ae3eb4355981f34d1c3e46a838d524ecca3743beff06810733cb1bf45e6",
+    "source_sha256": "fadb80e34b7032b134633d6d627a0d5e10a4f33f218af93c064e5c989457ed21"
+  },
+  "passed_route_ids": [
+    "soccer_course/L0/no_input_no_goal",
+    "soccer_course/L5/whole_game_clear"
+  ],
+  "readings": {
+    "soccer_course/L0/no_input_no_goal": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "soccer_course/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 8913,
+      "injects": 0,
+      "milestones_reached": [
+        "opening_goal",
+        "regulation_match_won"
+      ],
+      "solution_kind": "tape",
+      "steps": 330,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "054b780ba577db8a47ee9c5402516c3cc49e2b3f9248fd705644abd4aba89937"
+  },
+  "result": "2/2 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "fce5f931ff3bda1a4fb0d3902007a30c16828b27686fc2e2c6a13c8a9f72a7ba",
+  "schema_version": 2,
+  "solution_kinds": {
+    "soccer_course/L0/no_input_no_goal": "tape",
+    "soccer_course/L5/whole_game_clear": "tape"
+  },
+  "task_id": "soccer_course",
+  "validated_at": "2026-09-09"
+}

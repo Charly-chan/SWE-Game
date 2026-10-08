@@ -1,0 +1,112 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "1fcec92f23e7456e55fb641e8d422b8fae0efcf596c05d3d2e87e05c55494180"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "city_delivery/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "5a8594816628e73240c0119e9c42225879d5726e6765fe8662875adb029b232a",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "1fcec92f23e7456e55fb641e8d422b8fae0efcf596c05d3d2e87e05c55494180",
+    "task_id": "city_delivery"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "b6634a0da16a6239681c1af166646737bcaa3593d4ac213b60e92427eac4616d",
+    "source_sha256": "4111627dc43522565b440442e9868085ba225d9565d74c16f1c980ce5e77b985"
+  },
+  "passed_route_ids": [
+    "city_delivery/L0/no_input_no_delivery",
+    "city_delivery/C1/morning_route_clear",
+    "city_delivery/C2/cold_chain_clear",
+    "city_delivery/C3/peak_load_clear",
+    "city_delivery/L5/whole_game_clear"
+  ],
+  "readings": {
+    "city_delivery/C1/morning_route_clear": {
+      "deaths": 1,
+      "frames": 6958,
+      "injects": 0,
+      "milestones_reached": [
+        "morning_quota_delivered"
+      ],
+      "solution_kind": "tape",
+      "steps": 3331,
+      "stop_reason": "scene_changed"
+    },
+    "city_delivery/C2/cold_chain_clear": {
+      "deaths": 1,
+      "frames": 7522,
+      "injects": 0,
+      "milestones_reached": [
+        "cold_chain_quota_delivered"
+      ],
+      "solution_kind": "tape",
+      "steps": 3684,
+      "stop_reason": "scene_changed"
+    },
+    "city_delivery/C3/peak_load_clear": {
+      "deaths": 1,
+      "frames": 12471,
+      "injects": 0,
+      "milestones_reached": [
+        "peak_quota_delivered"
+      ],
+      "solution_kind": "tape",
+      "steps": 4967,
+      "stop_reason": "scene_changed"
+    },
+    "city_delivery/L0/no_input_no_delivery": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "city_delivery/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 27037,
+      "injects": 0,
+      "milestones_reached": [
+        "morning_route_done",
+        "cold_chain_done",
+        "campaign_complete"
+      ],
+      "solution_kind": "tape",
+      "steps": 11986,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "5a8594816628e73240c0119e9c42225879d5726e6765fe8662875adb029b232a"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "7430c09c10e993195db3cb3f77859c8ac25cde969929e640680617c13393bf6d",
+  "schema_version": 2,
+  "solution_kinds": {
+    "city_delivery/C1/morning_route_clear": "tape",
+    "city_delivery/C2/cold_chain_clear": "tape",
+    "city_delivery/C3/peak_load_clear": "tape",
+    "city_delivery/L0/no_input_no_delivery": "tape",
+    "city_delivery/L5/whole_game_clear": "tape"
+  },
+  "task_id": "city_delivery",
+  "validated_at": "2026-09-09"
+}

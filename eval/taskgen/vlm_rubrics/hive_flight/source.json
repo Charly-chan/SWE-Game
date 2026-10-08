@@ -1,0 +1,281 @@
+{
+  "game_id": "hive_flight",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "Legacy-Fantasy - High Forest 2.3/Character/Run/Run-Sheet.png",
+        "id": "S009",
+        "label": "Legacy-Fantasy - High Forest 2.3/Character/Run/Run-Sheet.png"
+      },
+      {
+        "asset_path": "Legacy-Fantasy - High Forest 2.3/HUD/Base-01.png",
+        "id": "S010",
+        "label": "Legacy-Fantasy - High Forest 2.3/HUD/Base-01.png"
+      },
+      {
+        "asset_path": "reference_media/assets/art/ui/hud_base.png",
+        "id": "S023",
+        "label": "reference_media/assets/art/ui/hud_base.png"
+      },
+      {
+        "asset_path": "Legacy-Fantasy - High Forest 2.3/Assets/Hive.png",
+        "id": "S024",
+        "label": "Legacy-Fantasy - High Forest 2.3/Assets/Hive.png"
+      },
+      {
+        "asset_path": "reference_media/assets/art/env/props_rocks.png",
+        "id": "S032",
+        "label": "reference_media/assets/art/env/props_rocks.png"
+      },
+      {
+        "asset_path": "reference_media/assets/art/trees/green.png",
+        "id": "S043",
+        "label": "reference_media/assets/art/trees/green.png"
+      },
+      {
+        "asset_path": "reference_media/assets/art/trees/red.png",
+        "id": "S049",
+        "label": "reference_media/assets/art/trees/red.png"
+      },
+      {
+        "asset_path": "reference_media/assets/art/char/jump_loop.png",
+        "id": "S052",
+        "label": "reference_media/assets/art/char/jump_loop.png"
+      },
+      {
+        "asset_path": "reference_media/assets/art/trees/treeline.png",
+        "id": "S054",
+        "label": "reference_media/assets/art/trees/treeline.png"
+      },
+      {
+        "asset_path": "reference_media/assets/art/char/run.png",
+        "id": "S059",
+        "label": "reference_media/assets/art/char/run.png"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "Legacy-Fantasy - High Forest 2.3/Assets/Buildings.aseprite",
+        "Legacy-Fantasy - High Forest 2.3/Assets/Buildings.png",
+        "Legacy-Fantasy - High Forest 2.3/Assets/Hive.aseprite",
+        "Legacy-Fantasy - High Forest 2.3/Assets/Hive.png",
+        "Legacy-Fantasy - High Forest 2.3/Assets/Interior-01.png",
+        "Legacy-Fantasy - High Forest 2.3/Assets/Props-Rocks.aseprite",
+        "Legacy-Fantasy - High Forest 2.3/Assets/Props-Rocks.png",
+        "Legacy-Fantasy - High Forest 2.3/Assets/Sprite-0011.aseprite",
+        "Legacy-Fantasy - High Forest 2.3/Assets/Tiles.aseprite",
+        "Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png",
+        "Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.aseprite",
+        "Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png",
+        "Legacy-Fantasy - High Forest 2.3/Background/Background.aseprite",
+        "Legacy-Fantasy - High Forest 2.3/Background/Background.png",
+        "Legacy-Fantasy - High Forest 2.3/Character/Attack-01",
+        "Legacy-Fantasy - High Forest 2.3/Character/Dead",
+        "Legacy-Fantasy - High Forest 2.3/Character/Idle",
+        "Legacy-Fantasy - High Forest 2.3/Character/Jumlp-All",
+        "Legacy-Fantasy - High Forest 2.3/Character/Jump",
+        "Legacy-Fantasy - High Forest 2.3/Character/Jump-End",
+        "Legacy-Fantasy - High Forest 2.3/Character/Jump-Start",
+        "Legacy-Fantasy - High Forest 2.3/Character/Run",
+        "Legacy-Fantasy - High Forest 2.3/HUD/Base-01.aseprite",
+        "Legacy-Fantasy - High Forest 2.3/HUD/Base-01.png",
+        "Legacy-Fantasy - High Forest 2.3/Mob/Boar",
+        "Legacy-Fantasy - High Forest 2.3/Mob/Small Bee",
+        "Legacy-Fantasy - High Forest 2.3/Mob/Snail",
+        "Legacy-Fantasy - High Forest 2.3/Trees/Background.aseprite",
+        "Legacy-Fantasy - High Forest 2.3/Trees/Background.png",
+        "Legacy-Fantasy - High Forest 2.3/Trees/Dark-Tree.aseprite",
+        "Legacy-Fantasy - High Forest 2.3/Trees/Dark-Tree.png",
+        "Legacy-Fantasy - High Forest 2.3/Trees/Golden-Tree.aseprite",
+        "Legacy-Fantasy - High Forest 2.3/Trees/Golden-Tree.png",
+        "Legacy-Fantasy - High Forest 2.3/Trees/Green-Tree.aseprite",
+        "Legacy-Fantasy - High Forest 2.3/Trees/Green-Tree.png",
+        "Legacy-Fantasy - High Forest 2.3/Trees/Red-Tree.aseprite",
+        "Legacy-Fantasy - High Forest 2.3/Trees/Red-Tree.png",
+        "Legacy-Fantasy - High Forest 2.3/Trees/Yellow-Tree.aseprite",
+        "Legacy-Fantasy - High Forest 2.3/Trees/Yellow-Tree.png",
+        "reference_media/assets/art",
+        "reference_media/assets/sfx",
+        "reference_media/icon.svg"
+      ],
+      "file_count": 100,
+      "font_files": []
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 57.25,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R002",
+        "time_s": 1.0
+      },
+      {
+        "id": "R006",
+        "time_s": 5.0
+      },
+      {
+        "id": "R007",
+        "time_s": 6.0
+      },
+      {
+        "id": "R008",
+        "time_s": 7.0
+      },
+      {
+        "id": "R009",
+        "time_s": 8.0
+      },
+      {
+        "id": "R013",
+        "time_s": 12.0
+      },
+      {
+        "id": "R015",
+        "time_s": 14.0
+      },
+      {
+        "id": "R018",
+        "time_s": 17.0
+      },
+      {
+        "id": "R021",
+        "time_s": 20.0
+      },
+      {
+        "id": "R022",
+        "time_s": 21.0
+      },
+      {
+        "id": "R023",
+        "time_s": 22.0
+      },
+      {
+        "id": "R024",
+        "time_s": 23.0
+      },
+      {
+        "id": "R025",
+        "time_s": 24.0
+      },
+      {
+        "id": "R026",
+        "time_s": 25.0
+      },
+      {
+        "id": "R030",
+        "time_s": 29.0
+      },
+      {
+        "id": "R031",
+        "time_s": 30.0
+      },
+      {
+        "id": "R032",
+        "time_s": 31.0
+      },
+      {
+        "id": "R033",
+        "time_s": 32.0
+      },
+      {
+        "id": "R036",
+        "time_s": 35.0
+      },
+      {
+        "id": "R039",
+        "time_s": 38.0
+      },
+      {
+        "id": "R041",
+        "time_s": 40.0
+      },
+      {
+        "id": "R043",
+        "time_s": 42.0
+      },
+      {
+        "id": "R049",
+        "time_s": 48.0
+      },
+      {
+        "id": "R052",
+        "time_s": 51.0
+      },
+      {
+        "id": "R053",
+        "time_s": 52.0
+      },
+      {
+        "id": "R054",
+        "time_s": 53.0
+      },
+      {
+        "id": "R055",
+        "time_s": 54.0
+      },
+      {
+        "id": "R059",
+        "time_s": 57.2333
+      },
+      {
+        "clip": 1,
+        "id": "RD008",
+        "time_s": 12.15
+      },
+      {
+        "clip": 1,
+        "id": "RD010",
+        "time_s": 12.35
+      },
+      {
+        "clip": 1,
+        "id": "RD013",
+        "time_s": 12.65
+      },
+      {
+        "clip": 1,
+        "id": "RD017",
+        "time_s": 13.05
+      },
+      {
+        "clip": 1,
+        "id": "RD018",
+        "time_s": 13.15
+      },
+      {
+        "clip": 2,
+        "id": "RD040",
+        "time_s": 30.525
+      },
+      {
+        "clip": 3,
+        "id": "RD055",
+        "time_s": 47.2
+      },
+      {
+        "clip": 3,
+        "id": "RD057",
+        "time_s": 47.4
+      },
+      {
+        "clip": 3,
+        "id": "RD060",
+        "time_s": 47.7
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 1.0,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Hive Flight — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nRun through a side-scrolling forest route, read obstacles quickly, recover from small mistakes, and stay ahead of a pursuing swarm.\n\n## Scope boundary\n\nA short 2D runner-platformer with escalating chase pressure, hazards, recoverable and terminal failures, and final escape.\n\n## Creative freedom\n\nYou may choose track beats, obstacle combinations, chase tuning, collectibles, and forest composition.\n"
+}

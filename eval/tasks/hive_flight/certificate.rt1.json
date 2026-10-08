@@ -1,0 +1,114 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "13c25fa32bd4e11a1349fa7b3b1a9c610337a2ad9ea7dae5d90e0ab9e087a3d4"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "hive_flight/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "870f5e4a447b7a72d37b7a9e854b8fcae77c6e3da9cb622ea415a099dc5d3924",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "13c25fa32bd4e11a1349fa7b3b1a9c610337a2ad9ea7dae5d90e0ab9e087a3d4",
+    "task_id": "hive_flight"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "34ecc7924f8d14e0872966ac3eac9ce3f3254d3d09a7b78947e0a7fc48618bc3",
+    "source_sha256": "90ac2590d45b57879a14e971c1f0ca74e18c426f3340585acb5d6ac6fb7103c7"
+  },
+  "passed_route_ids": [
+    "hive_flight/L0/no_input_no_win",
+    "hive_flight/C1/startled_hush_clear",
+    "hive_flight/C2/broken_boughs_clear",
+    "hive_flight/C3/swarms_reach_clear",
+    "hive_flight/L5/whole_game_clear"
+  ],
+  "readings": {
+    "hive_flight/C1/startled_hush_clear": {
+      "deaths": 0,
+      "frames": 814,
+      "injects": 0,
+      "milestones_reached": [
+        "reached_level_1_goal"
+      ],
+      "solution_kind": "tape",
+      "steps": 15,
+      "stop_reason": "scene_changed"
+    },
+    "hive_flight/C2/broken_boughs_clear": {
+      "deaths": 0,
+      "frames": 1055,
+      "injects": 0,
+      "milestones_reached": [
+        "reached_level_2_goal"
+      ],
+      "solution_kind": "tape",
+      "steps": 24,
+      "stop_reason": "scene_changed"
+    },
+    "hive_flight/C3/swarms_reach_clear": {
+      "deaths": 1,
+      "frames": 1295,
+      "injects": 0,
+      "milestones_reached": [
+        "reached_level_3_goal"
+      ],
+      "solution_kind": "tape",
+      "steps": 30,
+      "stop_reason": "goal_reached"
+    },
+    "hive_flight/L0/no_input_no_win": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "hive_flight/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 3188,
+      "injects": 0,
+      "milestones_reached": [
+        "level_1_goal_reached",
+        "entered_level_2",
+        "level_2_goal_reached",
+        "entered_level_3",
+        "level_3_goal_reached"
+      ],
+      "solution_kind": "tape",
+      "steps": 73,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "870f5e4a447b7a72d37b7a9e854b8fcae77c6e3da9cb622ea415a099dc5d3924"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "7e6532fa4d0888e9ec6a671444a08ada5e2dcaa2b26796fdf8a43d23b7f22a3d",
+  "schema_version": 2,
+  "solution_kinds": {
+    "hive_flight/C1/startled_hush_clear": "tape",
+    "hive_flight/C2/broken_boughs_clear": "tape",
+    "hive_flight/C3/swarms_reach_clear": "tape",
+    "hive_flight/L0/no_input_no_win": "tape",
+    "hive_flight/L5/whole_game_clear": "tape"
+  },
+  "task_id": "hive_flight",
+  "validated_at": "2026-09-09"
+}

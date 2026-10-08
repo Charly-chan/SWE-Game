@@ -1,0 +1,200 @@
+{
+  "game_id": "citycab_rush",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "kaykit_citybuilder_gltf/citybits_texture.png",
+        "id": "S001",
+        "label": "kaykit_citybuilder_gltf/citybits_texture.png"
+      },
+      {
+        "asset_path": "reference_media/assets/markers/icon_exclamation.png",
+        "id": "S002",
+        "label": "reference_media/assets/markers/icon_exclamation.png"
+      },
+      {
+        "asset_path": "reference_media/assets/models/citybits_texture.png",
+        "id": "S003",
+        "label": "reference_media/assets/models/citybits_texture.png"
+      },
+      {
+        "asset_path": "reference_media/assets/ui/hud_coins.png",
+        "id": "S005",
+        "label": "reference_media/assets/ui/hud_coins.png"
+      },
+      {
+        "asset_path": "reference_media/assets/markers/icon_flag.png",
+        "id": "S006",
+        "label": "reference_media/assets/markers/icon_flag.png"
+      },
+      {
+        "asset_path": "reference_media/assets/markers/ring_circle_03.png",
+        "id": "S007",
+        "label": "reference_media/assets/markers/ring_circle_03.png"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "KayKit_License.txt",
+        "kaykit_citybuilder_gltf/base.gltf",
+        "kaykit_citybuilder_gltf/bench.gltf",
+        "kaykit_citybuilder_gltf/box_A.gltf",
+        "kaykit_citybuilder_gltf/box_B.gltf",
+        "kaykit_citybuilder_gltf/building_A.gltf",
+        "kaykit_citybuilder_gltf/building_A_withoutBase.gltf",
+        "kaykit_citybuilder_gltf/building_B.gltf",
+        "kaykit_citybuilder_gltf/building_B_withoutBase.gltf",
+        "kaykit_citybuilder_gltf/building_C.gltf",
+        "kaykit_citybuilder_gltf/building_C_withoutBase.gltf",
+        "kaykit_citybuilder_gltf/building_D.gltf",
+        "kaykit_citybuilder_gltf/building_D_withoutBase.gltf",
+        "kaykit_citybuilder_gltf/building_E.gltf",
+        "kaykit_citybuilder_gltf/building_E_withoutBase.gltf",
+        "kaykit_citybuilder_gltf/building_F.gltf",
+        "kaykit_citybuilder_gltf/building_F_withoutBase.gltf",
+        "kaykit_citybuilder_gltf/building_G.gltf",
+        "kaykit_citybuilder_gltf/building_G_withoutBase.gltf",
+        "kaykit_citybuilder_gltf/building_H.gltf",
+        "kaykit_citybuilder_gltf/building_H_withoutBase.gltf",
+        "kaykit_citybuilder_gltf/bush.gltf",
+        "kaykit_citybuilder_gltf/car_hatchback.gltf",
+        "kaykit_citybuilder_gltf/car_police.gltf",
+        "kaykit_citybuilder_gltf/car_sedan.gltf",
+        "kaykit_citybuilder_gltf/car_stationwagon.gltf",
+        "kaykit_citybuilder_gltf/car_taxi.gltf",
+        "kaykit_citybuilder_gltf/citybits_texture.png",
+        "kaykit_citybuilder_gltf/dumpster.gltf",
+        "kaykit_citybuilder_gltf/firehydrant.gltf",
+        "kaykit_citybuilder_gltf/road_corner.gltf",
+        "kaykit_citybuilder_gltf/road_corner_curved.gltf",
+        "kaykit_citybuilder_gltf/road_junction.gltf",
+        "kaykit_citybuilder_gltf/road_straight.gltf",
+        "kaykit_citybuilder_gltf/road_straight_crossing.gltf",
+        "kaykit_citybuilder_gltf/road_tsplit.gltf",
+        "kaykit_citybuilder_gltf/streetlight.gltf",
+        "kaykit_citybuilder_gltf/trafficlight_A.gltf",
+        "kaykit_citybuilder_gltf/trafficlight_B.gltf",
+        "kaykit_citybuilder_gltf/trafficlight_C.gltf",
+        "kaykit_citybuilder_gltf/trash_A.gltf",
+        "kaykit_citybuilder_gltf/trash_B.gltf",
+        "kaykit_citybuilder_gltf/watertower.gltf",
+        "reference_media/assets/audio",
+        "reference_media/assets/markers",
+        "reference_media/assets/models",
+        "reference_media/assets/particles",
+        "reference_media/assets/ui",
+        "reference_media/icon.svg"
+      ],
+      "file_count": 93,
+      "font_files": []
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 172.5,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R010",
+        "time_s": 13.2
+      },
+      {
+        "id": "R012",
+        "time_s": 16.1333
+      },
+      {
+        "id": "R017",
+        "time_s": 23.4667
+      },
+      {
+        "id": "R018",
+        "time_s": 24.9333
+      },
+      {
+        "id": "R026",
+        "time_s": 36.6667
+      },
+      {
+        "id": "R032",
+        "time_s": 45.4667
+      },
+      {
+        "id": "R060",
+        "time_s": 86.5333
+      },
+      {
+        "id": "R088",
+        "time_s": 127.6
+      },
+      {
+        "id": "R104",
+        "time_s": 151.067
+      },
+      {
+        "id": "R116",
+        "time_s": 168.667
+      },
+      {
+        "id": "R119",
+        "time_s": 172.483
+      },
+      {
+        "clip": 1,
+        "id": "RD001",
+        "time_s": 34.5
+      },
+      {
+        "clip": 1,
+        "id": "RD006",
+        "time_s": 35.0
+      },
+      {
+        "clip": 1,
+        "id": "RD010",
+        "time_s": 35.4
+      },
+      {
+        "clip": 1,
+        "id": "RD012",
+        "time_s": 35.6
+      },
+      {
+        "clip": 1,
+        "id": "RD019",
+        "time_s": 36.3
+      },
+      {
+        "clip": 1,
+        "id": "RD020",
+        "time_s": 36.4
+      },
+      {
+        "clip": 2,
+        "id": "RD021",
+        "time_s": 86.25
+      },
+      {
+        "clip": 2,
+        "id": "RD030",
+        "time_s": 87.15
+      },
+      {
+        "clip": 2,
+        "id": "RD040",
+        "time_s": 88.15
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.6840579710144927,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# CityCab Rush — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nDrive a toy-like taxi through a compact city, collect fares, deliver them under time pressure, and finish a complete shift.\n\n## Scope boundary\n\nA bounded 3D arcade driving game with pickup/delivery, a clock or score pressure, success, failure, and replay.\n\n## Creative freedom\n\nYou may choose the road layout, fare placement, traffic pressure, handling, and city dressing.\n"
+}

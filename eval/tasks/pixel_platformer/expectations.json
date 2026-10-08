@@ -1,0 +1,192 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-27T17:55:09+00:00",
+  "interface_requirements": {
+    "O9": {
+      "fields": [],
+      "reason": "reference has no registered anchor expectation",
+      "required": false
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 1,
+        "gb_collectible": 8,
+        "gb_door": 1,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 5,
+        "gb_interactive": 8,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          4
+        ],
+        "gb_hazard": [
+          "x",
+          3
+        ],
+        "gb_interactive": [
+          "x",
+          4
+        ]
+      },
+      "goal_transition": "res://scenes/ui/results.tscn",
+      "scene": "res://levels/level_01.tscn",
+      "spawn_goal_distance": 0.9318181818528516
+    },
+    {
+      "census": {
+        "gb_checkpoint": 2,
+        "gb_collectible": 11,
+        "gb_door": 1,
+        "gb_enemy": 3,
+        "gb_goal": 1,
+        "gb_hazard": 7,
+        "gb_interactive": 14,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "x",
+          2
+        ],
+        "gb_collectible": [
+          "x",
+          5
+        ],
+        "gb_enemy": [
+          "y",
+          2
+        ],
+        "gb_hazard": [
+          "x",
+          4
+        ],
+        "gb_interactive": [
+          "x",
+          4
+        ]
+      },
+      "goal_transition": "res://scenes/ui/results.tscn",
+      "scene": "res://levels/level_02.tscn",
+      "spawn_goal_distance": 0.9583333333498514
+    },
+    {
+      "census": {
+        "gb_checkpoint": 2,
+        "gb_collectible": 13,
+        "gb_door": 1,
+        "gb_enemy": 1,
+        "gb_goal": 1,
+        "gb_hazard": 6,
+        "gb_interactive": 9,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "x",
+          2
+        ],
+        "gb_collectible": [
+          "x",
+          5
+        ],
+        "gb_hazard": [
+          "x",
+          3
+        ],
+        "gb_interactive": [
+          "x",
+          4
+        ]
+      },
+      "goal_transition": "res://scenes/ui/results.tscn",
+      "scene": "res://levels/level_03.tscn",
+      "spawn_goal_distance": 0.9196428571734582
+    }
+  ],
+  "probe_sha256": "fe750d48224bfe79a915c4057b270adbbcdbc421e5b99f56213c3b2b7f746edd",
+  "project": "pixel_platformer",
+  "runtime_assets": {
+    "res://assets/audio/music/level_foundry.ogg": "c5f1d954bb5be95f893e3e848d0baabf3fbf7c22db7ad480e58ce910a14e68dc",
+    "res://assets/audio/music/level_grove.ogg": "0720c25ff0f14ad73d5fa302a8d3e5cccc47abb91ca1b704a3b0b1da3b476686",
+    "res://assets/audio/music/level_overload.ogg": "a3baf1b0a7da883334caf20ba9b09f72e65d6459b6888b2905cdf1905034ced9",
+    "res://assets/backdrop/far_hills.png": "03b2048022a11f7a0b41319e216b19f9dddbd4ff4f0277963276044d55675254",
+    "res://assets/backdrop/near_scrub.png": "a7ffc7a3fdff82592a2b3316a484a051b80efe411afdf568235b2cee63aba083",
+    "res://assets/fonts/kenney_future.ttf": "7a55b07f5968fac872648a7c5e959bd2b93e06f63153b585d56e4d5298ddff61",
+    "res://assets/fx/contact_shadow.png": "fa4814bd55a1065c4bfeb76a2b56a17ae270ba1d19cd2fce644b4bf069d471e9",
+    "res://assets/kings_and_pigs/02-King Pig/Dead (38x28).png": "077abc213b31a28c7fa2e3295309382b081aaddbc246bca8fb11b8401163b8ff",
+    "res://assets/kings_and_pigs/02-King Pig/Hit (38x28).png": "e99c3bec02425d06a1765761e6b8c8761b503534bd65ba3dfabc3e8d08d64868",
+    "res://assets/kings_and_pigs/02-King Pig/Idle (38x28).png": "5ef16af7837cc12f91d42020aea40cce1ceaae7fe3cd2a9060a180b916608929",
+    "res://assets/kings_and_pigs/02-King Pig/Run (38x28).png": "6a99a7c047d53d9b1d48eb6726776e091b95ac5cf8715bf3482a1c3258eddc4a",
+    "res://assets/kings_and_pigs/03-Pig/Dead (34x28).png": "701f99cd53da30e04d224788af956458ada3d0eef2df946ada08b41a1dae49d1",
+    "res://assets/kings_and_pigs/03-Pig/Hit (34x28).png": "f37d70725795b48f23afa51eb6cda32eab220ae70ec32dc68f89a3711c196d25",
+    "res://assets/kings_and_pigs/03-Pig/Idle (34x28).png": "889dd115e86497a802097cb07d73c5e59f23ffb1226c28c69f7f8dd1d1ce4638",
+    "res://assets/kings_and_pigs/03-Pig/Run (34x28).png": "1e78e725aca838885c8586787da5f1b020013924aa73f258cc39dc302e029220",
+    "res://assets/kings_and_pigs/08-Box/Idle.png": "8a09062e218c9339dbe06f206edcdfef7a9e046f3a021afd77d573b5bfd39d63",
+    "res://assets/kings_and_pigs/12-Live and Coins/Big Diamond Idle (18x14).png": "7f57247e15731a8bf3627ea6b428dc48b46286a698e6a9729958dafc6be6eb1b",
+    "res://assets/kings_and_pigs/12-Live and Coins/Small Heart Idle (18x14).png": "1a03ae7289690f17d1c2d116564d56f7e851dbcd33854123b577941d21588524",
+    "res://assets/kings_and_pigs/14-TileSets/Decorations (32x32).png": "522102a2f392fcd0685f1359df10774ab2b28e110ebfae5934c9e7da382efe0e",
+    "res://assets/pixel_adventure/Background/Blue.png": "a37af35c2a8f30600b6831fccf7b4853969e74f0c4f582ca12f9379798e67409",
+    "res://assets/pixel_adventure/Background/Gray.png": "b4edcb870085fdd1eb3d3c3b78da4080f2ba3dabd9782e742743e945d3284a51",
+    "res://assets/pixel_adventure/Background/Purple.png": "d233dfcbf68a36477d552e6459acd0b7c3d1a9e36dd85a99bcb9291c074d600c",
+    "res://assets/pixel_adventure/Background/Yellow.png": "10a5c9ff221f448468af6bb9d567e927f5a1ace01c9100d54dc153fdb88a5244",
+    "res://assets/pixel_adventure/Items/Boxes/Box1/Idle.png": "2d0339d0c6bb02eb7b77fcb75d0d45c51dd906cbfcaff3e19e49a954b461f2ae",
+    "res://assets/pixel_adventure/Items/Boxes/Box2/Idle.png": "dd297d194299b4980bfa5aa874005dadf5a9413e0e348bb9dff7543abb214f3f",
+    "res://assets/pixel_adventure/Items/Boxes/Box3/Idle.png": "31916581928592e428cd0f7b42bf63f64f946a52d1d752fd53516973ed7d3d38",
+    "res://assets/pixel_adventure/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png": "99fd9012b3935a91f580922c051ca2cbe86fe85c1ca5d8a1dbf09fc161f3e309",
+    "res://assets/pixel_adventure/Items/Checkpoints/Checkpoint/Checkpoint (Flag Out) (64x64).png": "b4e42b307d92ec89a2ed2857c021732cc8b27740e7cab6307723086551c1dee5",
+    "res://assets/pixel_adventure/Items/Checkpoints/Checkpoint/Checkpoint (No Flag).png": "cd048973d0ead9e6c81003601bd041c364044eb8210e9e71e473076a9afa5ae7",
+    "res://assets/pixel_adventure/Items/Checkpoints/End/End (Idle).png": "283b5cb5fda1993b46f2da84592a8b90dde7c124a90d5fa67f1dc8c61f4f1286",
+    "res://assets/pixel_adventure/Items/Checkpoints/End/End (Pressed) (64x64).png": "59b0019cfc40a840e027ad8268ac583e34f9f52adefdad11217cbf9495a36fa9",
+    "res://assets/pixel_adventure/Items/Checkpoints/Start/Start (Idle).png": "acb6643795bb6b36efc30ca12560bab34eaee91d1f72d6592f58b946c3640cd6",
+    "res://assets/pixel_adventure/Items/Checkpoints/Start/Start (Moving) (64x64).png": "44311719b2a81384fecdef540c101740819a295637626e35409dd135bc06eaff",
+    "res://assets/pixel_adventure/Items/Fruits/Apple.png": "ee71a978665c5c375603a4a047d129729e319f03708787279954171caabfd1e3",
+    "res://assets/pixel_adventure/Items/Fruits/Bananas.png": "d234d94d916a8777341a45ac3120f3aeb1c1e044ce7294d3183dd08e2dce9f42",
+    "res://assets/pixel_adventure/Items/Fruits/Cherries.png": "d9edb2c3157a28daf47c5f76a3cfb9354e6caa623c364784bfc3c015602e8f05",
+    "res://assets/pixel_adventure/Items/Fruits/Collected.png": "a95221be04a4eb2b567f12954257307b4b4a6735373562309a130a88ff978c11",
+    "res://assets/pixel_adventure/Items/Fruits/Kiwi.png": "2db09bbb75304583e2aa87b73c3bcf7cfab829ac23d2fe9cb1b99188cbb39c17",
+    "res://assets/pixel_adventure/Items/Fruits/Melon.png": "35216881ce7b8f38397335ea04b159d3340e4b2096d5ba729ed4960de39de5fe",
+    "res://assets/pixel_adventure/Items/Fruits/Orange.png": "5638574b3fc7cb471184175d47dcbbee5be4d0cec75d4b7b7bfeae3017077736",
+    "res://assets/pixel_adventure/Items/Fruits/Pineapple.png": "872b73e2631fb8c86b4b90c183be6595401faf5850b5d8527e983e8842617b6d",
+    "res://assets/pixel_adventure/Items/Fruits/Strawberry.png": "19f65cfcf207e6bb493bf5f0cbc806a0b6582d36b60ba9e9f9f3e5d463e82661",
+    "res://assets/pixel_adventure/Main Characters/Mask Dude/Double Jump (32x32).png": "d8a4ea93f017afb50dd2cc620b00937d7151b0b8cf88aaadc5a6c9ceb72d35d4",
+    "res://assets/pixel_adventure/Main Characters/Mask Dude/Fall (32x32).png": "b4829a85e20ba9447596cca214002e9340c6da6854bc2d83f6fddbacd8394a6d",
+    "res://assets/pixel_adventure/Main Characters/Mask Dude/Hit (32x32).png": "dbca9bdf4319407cc583cb60d4bee18c6749aeb4774918b8c4d0cb78366044c0",
+    "res://assets/pixel_adventure/Main Characters/Mask Dude/Idle (32x32).png": "ded44a6ee1985f19201f87e11b373ac23db0541f27d7dfe8a2014848cb6ae66a",
+    "res://assets/pixel_adventure/Main Characters/Mask Dude/Jump (32x32).png": "ddce2a578aa83e955114283fffae90562e9949178d9ff0e64c4a759fc51ee802",
+    "res://assets/pixel_adventure/Main Characters/Mask Dude/Run (32x32).png": "c17add49705fa9a8b175d8270d0f2a8b1405393b34af890c371ebcd50a4ed8a8",
+    "res://assets/pixel_adventure/Main Characters/Mask Dude/Wall Jump (32x32).png": "63aac973a1b37264ec40d5cd885c64a875abbb88cda1776884d0d8045ed50245",
+    "res://assets/pixel_adventure/Menu/Buttons/Next.png": "eadf45aaad81294877eef44dd1b6c49e9139f4f4728b7becf74b7048a1a3e601",
+    "res://assets/pixel_adventure/Terrain/Terrain (16x16).png": "3fb1a76c7cc102116562f9533d51386b8e63616aa0e228f359001dbb7479eaab",
+    "res://assets/pixel_adventure/Traps/Fire/Hit (16x32).png": "117df8388411ed96960c6a7b30cd4504b2ec8be97362860b70af4e97d6409b31",
+    "res://assets/pixel_adventure/Traps/Fire/Off.png": "f785380e32a3f98c241fcad8dbee0a8fbb7b69cd6c0c57259e31709289437d07",
+    "res://assets/pixel_adventure/Traps/Fire/On (16x32).png": "5fa8a42abcc74bda2d2aac911ec2b77ce03bcc64ead23861d45972e16956ca43",
+    "res://assets/pixel_adventure/Traps/Platforms/Brown Off.png": "f59498d41d9cea8d3886d2116e9cf22e72e2c8b89e8f225b39791a324aacf2db",
+    "res://assets/pixel_adventure/Traps/Platforms/Brown On (32x8).png": "2ac98ed7d0c723707af667cdd1f9edf184519f7c3eb796c5840685ffbab6f354",
+    "res://assets/pixel_adventure/Traps/Platforms/Grey Off.png": "1d303ddc3e08bb527358e9ed996bb47bf4b3a3c26894b59000c66d5c8a724284",
+    "res://assets/pixel_adventure/Traps/Platforms/Grey On (32x8).png": "56c95eda0d6a5f71669e86f7ada0022538ea99981d5bc2bdb9809992bcd3994c",
+    "res://assets/pixel_adventure/Traps/Saw/Off.png": "bec02b5ce44accd9dede0a4dd63597f446353fc3d654d6a4f41849f0ccf0ea87",
+    "res://assets/pixel_adventure/Traps/Saw/On (38x38).png": "eaa10a06c10ade360d1f5a2dde32f6cd14898232875dedaeeb5badf9d82b78e5",
+    "res://assets/pixel_adventure/Traps/Spikes/Idle.png": "2ac00698d048ef4b41ccf05dd5409b57a4013ea2c5e8e75d1ceea91b341c3e6e",
+    "res://assets/pixel_adventure/Traps/Trampoline/Idle.png": "39fb9f137ba349417f7ca6f1966ac581b320f25b4303a741aa86cdc893da127f",
+    "res://assets/pixel_adventure/Traps/Trampoline/Jump (28x28).png": "360c33b01080999efe8d603db9a323716039b1db167fbc4ecdf2f3ba7c58891b"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

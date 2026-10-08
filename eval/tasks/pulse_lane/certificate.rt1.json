@@ -1,0 +1,117 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "harness_concessions_only",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "14bf7bbf57f32d3b8c80912008c6de1883a683a48527250fe48af64fb0878091"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "pulse_lane/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "2741cec80ef9b77242059e8e879e30cc491af2ce06307d38402e674aa823d470",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "14bf7bbf57f32d3b8c80912008c6de1883a683a48527250fe48af64fb0878091",
+    "task_id": "pulse_lane"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "cf502f71776ef83875d425619aafcbb67cc3b3f43710deea896127b389fc317a",
+    "source_sha256": "76ef9bd88a0317a072c256c24b3818ddd5812d27f98b125a35d2aa250e4d30df"
+  },
+  "passed_route_ids": [
+    "pulse_lane/L0/no_input_no_clear",
+    "pulse_lane/C1/first_light_full_chart",
+    "pulse_lane/C2/crosswind_full_chart",
+    "pulse_lane/C3/lattice_full_chart",
+    "pulse_lane/L5/whole_game_clear"
+  ],
+  "readings": {
+    "pulse_lane/C1/first_light_full_chart": {
+      "deaths": 1,
+      "frames": 2752,
+      "injects": 0,
+      "milestones_reached": [
+        "first_light_half_judged",
+        "first_light_all_judged"
+      ],
+      "solution_kind": "tape",
+      "steps": 207,
+      "stop_reason": "scene_changed"
+    },
+    "pulse_lane/C2/crosswind_full_chart": {
+      "deaths": 1,
+      "frames": 4628,
+      "injects": 1,
+      "milestones_reached": [
+        "crosswind_half_judged",
+        "crosswind_all_judged"
+      ],
+      "solution_kind": "tape",
+      "steps": 282,
+      "stop_reason": "scene_changed"
+    },
+    "pulse_lane/C3/lattice_full_chart": {
+      "deaths": 1,
+      "frames": 4898,
+      "injects": 1,
+      "milestones_reached": [
+        "lattice_half_judged",
+        "lattice_all_judged"
+      ],
+      "solution_kind": "tape",
+      "steps": 386,
+      "stop_reason": "scene_changed"
+    },
+    "pulse_lane/L0/no_input_no_clear": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "pulse_lane/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 12386,
+      "injects": 0,
+      "milestones_reached": [
+        "first_light_all_judged",
+        "entered_crosswind",
+        "crosswind_all_judged",
+        "entered_lattice",
+        "lattice_all_judged"
+      ],
+      "solution_kind": "tape",
+      "steps": 877,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "2741cec80ef9b77242059e8e879e30cc491af2ce06307d38402e674aa823d470"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "696aaf6a32ff3b87ddf88f76feb463d724eb661ab4087e7c550a4ca6d1703a4e",
+  "schema_version": 2,
+  "solution_kinds": {
+    "pulse_lane/C1/first_light_full_chart": "tape",
+    "pulse_lane/C2/crosswind_full_chart": "tape",
+    "pulse_lane/C3/lattice_full_chart": "tape",
+    "pulse_lane/L0/no_input_no_clear": "tape",
+    "pulse_lane/L5/whole_game_clear": "tape"
+  },
+  "task_id": "pulse_lane",
+  "validated_at": "2026-09-09"
+}

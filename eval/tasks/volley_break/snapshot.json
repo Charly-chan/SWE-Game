@@ -1,0 +1,3166 @@
+{
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "driver_sha256": "7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742",
+  "endings": {
+    "defeat": "res://scenes/flow/stage_failed.tscn",
+    "run_complete": "res://scenes/flow/game_complete.tscn",
+    "victory": "res://scenes/flow/results.tscn"
+  },
+  "engine": "4.5.1",
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "2b4855c9ba69bd5bf131b881215245b10210b55afe05bc2b4675a6a02161c491",
+    "source_sha256": "4bc61a477fe74ef7a09e6f98c6d8beaa5d13ccf6f4409d090d5ffb30997a0247"
+  },
+  "levels": [
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          1168.0,
+          588.0,
+          0.0
+        ],
+        "min3": [
+          112.0,
+          96.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 0,
+        "alive_before": 0,
+        "attempted": false,
+        "delta": 0,
+        "detail": "this level declares no gb_collectible, so there is nothing to pick up",
+        "effect": {},
+        "target": ""
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://scenes/sets/set_first_serve.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "0 collect-and-deliver cycles then 120 frames on GoalRival, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "progress_before": null
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://scenes/sets/set_first_serve.tscn",
+        "scene_before": "res://scenes/sets/set_first_serve.tscn",
+        "target": "GoalRival"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_door": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 0.0731707317073171
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              640.0,
+              132.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 44,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.0909090909090909,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.181818181818182,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.272727272727273,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.363636363636364,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.454545454545455,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.545454545454545,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.636363636363636,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.727272727272727,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.818181818181818,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.909090909090909,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.0909090909090909,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.181818181818182,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.272727272727273,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.363636363636364,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.454545454545455,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.545454545454545,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.636363636363636,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.727272727272727,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.818181818181818,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.909090909090909,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.0909090909090909,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.181818181818182,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.272727272727273,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.363636363636364,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.454545454545455,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.545454545454545,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.636363636363636,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.727272727272727,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.818181818181818,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.909090909090909,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.0909090909090909,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.181818181818182,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.272727272727273,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.363636363636364,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.454545454545455,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.545454545454545,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.636363636363636,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.727272727272727,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.818181818181818,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.909090909090909,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.747967479674797
+            }
+          ],
+          "total": 44,
+          "world": [
+            [
+              112.0,
+              256.0,
+              0.0
+            ],
+            [
+              208.0,
+              256.0,
+              0.0
+            ],
+            [
+              304.0,
+              256.0,
+              0.0
+            ],
+            [
+              400.0,
+              256.0,
+              0.0
+            ],
+            [
+              496.0,
+              256.0,
+              0.0
+            ],
+            [
+              592.0,
+              256.0,
+              0.0
+            ],
+            [
+              688.0,
+              256.0,
+              0.0
+            ],
+            [
+              784.0,
+              256.0,
+              0.0
+            ],
+            [
+              880.0,
+              256.0,
+              0.0
+            ],
+            [
+              976.0,
+              256.0,
+              0.0
+            ],
+            [
+              1072.0,
+              256.0,
+              0.0
+            ],
+            [
+              1168.0,
+              256.0,
+              0.0
+            ],
+            [
+              208.0,
+              308.0,
+              0.0
+            ],
+            [
+              304.0,
+              308.0,
+              0.0
+            ],
+            [
+              400.0,
+              308.0,
+              0.0
+            ],
+            [
+              496.0,
+              308.0,
+              0.0
+            ],
+            [
+              592.0,
+              308.0,
+              0.0
+            ],
+            [
+              688.0,
+              308.0,
+              0.0
+            ],
+            [
+              784.0,
+              308.0,
+              0.0
+            ],
+            [
+              880.0,
+              308.0,
+              0.0
+            ],
+            [
+              976.0,
+              308.0,
+              0.0
+            ],
+            [
+              1072.0,
+              308.0,
+              0.0
+            ],
+            [
+              208.0,
+              412.0,
+              0.0
+            ],
+            [
+              304.0,
+              412.0,
+              0.0
+            ],
+            [
+              400.0,
+              412.0,
+              0.0
+            ],
+            [
+              496.0,
+              412.0,
+              0.0
+            ],
+            [
+              592.0,
+              412.0,
+              0.0
+            ],
+            [
+              688.0,
+              412.0,
+              0.0
+            ],
+            [
+              784.0,
+              412.0,
+              0.0
+            ],
+            [
+              880.0,
+              412.0,
+              0.0
+            ],
+            [
+              976.0,
+              412.0,
+              0.0
+            ],
+            [
+              1072.0,
+              412.0,
+              0.0
+            ],
+            [
+              112.0,
+              464.0,
+              0.0
+            ],
+            [
+              208.0,
+              464.0,
+              0.0
+            ],
+            [
+              304.0,
+              464.0,
+              0.0
+            ],
+            [
+              400.0,
+              464.0,
+              0.0
+            ],
+            [
+              496.0,
+              464.0,
+              0.0
+            ],
+            [
+              592.0,
+              464.0,
+              0.0
+            ],
+            [
+              688.0,
+              464.0,
+              0.0
+            ],
+            [
+              784.0,
+              464.0,
+              0.0
+            ],
+            [
+              880.0,
+              464.0,
+              0.0
+            ],
+            [
+              976.0,
+              464.0,
+              0.0
+            ],
+            [
+              1072.0,
+              464.0,
+              0.0
+            ],
+            [
+              1168.0,
+              464.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              640.0,
+              96.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_interactive": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 0.930894308943089
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              640.0,
+              554.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 1.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              640.0,
+              588.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "player_points": 0.0,
+        "score": 0.0
+      },
+      "numeric_source": {
+        "player_points": "declared",
+        "score": "declared"
+      },
+      "reached": true,
+      "scene": "res://scenes/sets/set_first_serve.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "settle",
+          "player": [
+            640.0,
+            588.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_first_serve.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_first_serve.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_first_serve.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_first_serve.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_first_serve.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_first_serve.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_first_serve.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_first_serve.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_first_serve.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_first_serve.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_first_serve.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_first_serve.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_first_serve.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_first_serve.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_first_serve.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_first_serve.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 210,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_first_serve.tscn"
+        }
+      ],
+      "spawn": [
+        640.0,
+        588.0,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.5,
+        "y": 1.0
+      },
+      "stop_reason": "goal_no_transition"
+    },
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          1168.0,
+          588.0,
+          0.0
+        ],
+        "min3": [
+          112.0,
+          96.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 0,
+        "alive_before": 0,
+        "attempted": false,
+        "delta": 0,
+        "detail": "this level declares no gb_collectible, so there is nothing to pick up",
+        "effect": {},
+        "target": ""
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://scenes/sets/set_shard_fall.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "0 collect-and-deliver cycles then 120 frames on GoalRival, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "progress_before": null
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://scenes/sets/set_shard_fall.tscn",
+        "scene_before": "res://scenes/sets/set_shard_fall.tscn",
+        "target": "GoalRival"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_door": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.493476694280451,
+              "y": 0.0731707317073171
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              633.111389160156,
+              132.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 46,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.0909090909090909,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.181818181818182,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.272727272727273,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.363636363636364,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.636363636363636,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.727272727272727,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.818181818181818,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.909090909090909,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.0909090909090909,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.181818181818182,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.272727272727273,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.363636363636364,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.454545454545455,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.545454545454545,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.636363636363636,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.727272727272727,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.818181818181818,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.909090909090909,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.181818181818182,
+              "y": 0.536585365853659
+            },
+            {
+              "valid": true,
+              "x": 0.272727272727273,
+              "y": 0.536585365853659
+            },
+            {
+              "valid": true,
+              "x": 0.727272727272727,
+              "y": 0.536585365853659
+            },
+            {
+              "valid": true,
+              "x": 0.818181818181818,
+              "y": 0.536585365853659
+            },
+            {
+              "valid": true,
+              "x": 0.0909090909090909,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.181818181818182,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.272727272727273,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.363636363636364,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.454545454545455,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.545454545454545,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.636363636363636,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.727272727272727,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.818181818181818,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.909090909090909,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.0909090909090909,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.181818181818182,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.272727272727273,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.363636363636364,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.454545454545455,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.545454545454545,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.636363636363636,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.727272727272727,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.818181818181818,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.909090909090909,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.747967479674797
+            }
+          ],
+          "total": 46,
+          "world": [
+            [
+              112.0,
+              256.0,
+              0.0
+            ],
+            [
+              208.0,
+              256.0,
+              0.0
+            ],
+            [
+              304.0,
+              256.0,
+              0.0
+            ],
+            [
+              400.0,
+              256.0,
+              0.0
+            ],
+            [
+              496.0,
+              256.0,
+              0.0
+            ],
+            [
+              784.0,
+              256.0,
+              0.0
+            ],
+            [
+              880.0,
+              256.0,
+              0.0
+            ],
+            [
+              976.0,
+              256.0,
+              0.0
+            ],
+            [
+              1072.0,
+              256.0,
+              0.0
+            ],
+            [
+              1168.0,
+              256.0,
+              0.0
+            ],
+            [
+              208.0,
+              308.0,
+              0.0
+            ],
+            [
+              304.0,
+              308.0,
+              0.0
+            ],
+            [
+              400.0,
+              308.0,
+              0.0
+            ],
+            [
+              496.0,
+              308.0,
+              0.0
+            ],
+            [
+              592.0,
+              308.0,
+              0.0
+            ],
+            [
+              688.0,
+              308.0,
+              0.0
+            ],
+            [
+              784.0,
+              308.0,
+              0.0
+            ],
+            [
+              880.0,
+              308.0,
+              0.0
+            ],
+            [
+              976.0,
+              308.0,
+              0.0
+            ],
+            [
+              1072.0,
+              308.0,
+              0.0
+            ],
+            [
+              304.0,
+              360.0,
+              0.0
+            ],
+            [
+              400.0,
+              360.0,
+              0.0
+            ],
+            [
+              880.0,
+              360.0,
+              0.0
+            ],
+            [
+              976.0,
+              360.0,
+              0.0
+            ],
+            [
+              208.0,
+              412.0,
+              0.0
+            ],
+            [
+              304.0,
+              412.0,
+              0.0
+            ],
+            [
+              400.0,
+              412.0,
+              0.0
+            ],
+            [
+              496.0,
+              412.0,
+              0.0
+            ],
+            [
+              592.0,
+              412.0,
+              0.0
+            ],
+            [
+              688.0,
+              412.0,
+              0.0
+            ],
+            [
+              784.0,
+              412.0,
+              0.0
+            ],
+            [
+              880.0,
+              412.0,
+              0.0
+            ],
+            [
+              976.0,
+              412.0,
+              0.0
+            ],
+            [
+              1072.0,
+              412.0,
+              0.0
+            ],
+            [
+              112.0,
+              464.0,
+              0.0
+            ],
+            [
+              208.0,
+              464.0,
+              0.0
+            ],
+            [
+              304.0,
+              464.0,
+              0.0
+            ],
+            [
+              400.0,
+              464.0,
+              0.0
+            ],
+            [
+              496.0,
+              464.0,
+              0.0
+            ],
+            [
+              592.0,
+              464.0,
+              0.0
+            ],
+            [
+              688.0,
+              464.0,
+              0.0
+            ],
+            [
+              784.0,
+              464.0,
+              0.0
+            ],
+            [
+              880.0,
+              464.0,
+              0.0
+            ],
+            [
+              976.0,
+              464.0,
+              0.0
+            ],
+            [
+              1072.0,
+              464.0,
+              0.0
+            ],
+            [
+              1168.0,
+              464.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              640.0,
+              96.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_interactive": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.540539712616892,
+              "y": 0.151877953754208
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              682.809936523438,
+              170.72395324707,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 1.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              640.0,
+              588.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "player_points": 1.0,
+        "score": 1.0
+      },
+      "numeric_source": {
+        "player_points": "declared",
+        "score": "declared"
+      },
+      "reached": true,
+      "scene": "res://scenes/sets/set_shard_fall.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 46,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "settle",
+          "player": [
+            640.0,
+            588.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_shard_fall.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 46,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_shard_fall.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 46,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_shard_fall.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 45,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_shard_fall.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 45,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_shard_fall.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 45,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_shard_fall.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_shard_fall.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_shard_fall.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_shard_fall.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 44,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_shard_fall.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 43,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_shard_fall.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 43,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_shard_fall.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 43,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "player_points": 1.0,
+            "score": 1.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_shard_fall.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 43,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "player_points": 1.0,
+            "score": 1.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_shard_fall.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 43,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "player_points": 1.0,
+            "score": 1.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_shard_fall.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 43,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "player_points": 1.0,
+            "score": 1.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_shard_fall.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 43,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 210,
+          "numeric": {
+            "player_points": 1.0,
+            "score": 1.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_shard_fall.tscn"
+        }
+      ],
+      "spawn": [
+        640.0,
+        588.0,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.5,
+        "y": 1.0
+      },
+      "stop_reason": "goal_no_transition"
+    },
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          1168.0,
+          588.0,
+          0.0
+        ],
+        "min3": [
+          112.0,
+          96.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 0,
+        "alive_before": 0,
+        "attempted": false,
+        "delta": 0,
+        "detail": "this level declares no gb_collectible, so there is nothing to pick up",
+        "effect": {},
+        "target": ""
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://scenes/sets/set_match_point.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "0 collect-and-deliver cycles then 120 frames on GoalRival, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "progress_before": null
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://scenes/sets/set_match_point.tscn",
+        "scene_before": "res://scenes/sets/set_match_point.tscn",
+        "target": "GoalRival"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_door": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.384154290863962,
+              "y": 0.0731707317073171
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              517.666931152344,
+              132.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 42,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.0909090909090909,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.181818181818182,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.272727272727273,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.363636363636364,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.454545454545455,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.545454545454545,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.636363636363636,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.727272727272727,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.818181818181818,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.909090909090909,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.32520325203252
+            },
+            {
+              "valid": true,
+              "x": 0.0909090909090909,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.181818181818182,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.272727272727273,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.727272727272727,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.818181818181818,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.909090909090909,
+              "y": 0.430894308943089
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.536585365853659
+            },
+            {
+              "valid": true,
+              "x": 0.181818181818182,
+              "y": 0.536585365853659
+            },
+            {
+              "valid": true,
+              "x": 0.272727272727273,
+              "y": 0.536585365853659
+            },
+            {
+              "valid": true,
+              "x": 0.727272727272727,
+              "y": 0.536585365853659
+            },
+            {
+              "valid": true,
+              "x": 0.818181818181818,
+              "y": 0.536585365853659
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.536585365853659
+            },
+            {
+              "valid": true,
+              "x": 0.0909090909090909,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.181818181818182,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.272727272727273,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.727272727272727,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.818181818181818,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.909090909090909,
+              "y": 0.642276422764228
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.0909090909090909,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.181818181818182,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.272727272727273,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.363636363636364,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.454545454545455,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.545454545454545,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.636363636363636,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.727272727272727,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.818181818181818,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 0.909090909090909,
+              "y": 0.747967479674797
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.747967479674797
+            }
+          ],
+          "total": 42,
+          "world": [
+            [
+              112.0,
+              256.0,
+              0.0
+            ],
+            [
+              208.0,
+              256.0,
+              0.0
+            ],
+            [
+              304.0,
+              256.0,
+              0.0
+            ],
+            [
+              400.0,
+              256.0,
+              0.0
+            ],
+            [
+              496.0,
+              256.0,
+              0.0
+            ],
+            [
+              592.0,
+              256.0,
+              0.0
+            ],
+            [
+              688.0,
+              256.0,
+              0.0
+            ],
+            [
+              784.0,
+              256.0,
+              0.0
+            ],
+            [
+              880.0,
+              256.0,
+              0.0
+            ],
+            [
+              976.0,
+              256.0,
+              0.0
+            ],
+            [
+              1072.0,
+              256.0,
+              0.0
+            ],
+            [
+              1168.0,
+              256.0,
+              0.0
+            ],
+            [
+              208.0,
+              308.0,
+              0.0
+            ],
+            [
+              304.0,
+              308.0,
+              0.0
+            ],
+            [
+              400.0,
+              308.0,
+              0.0
+            ],
+            [
+              880.0,
+              308.0,
+              0.0
+            ],
+            [
+              976.0,
+              308.0,
+              0.0
+            ],
+            [
+              1072.0,
+              308.0,
+              0.0
+            ],
+            [
+              112.0,
+              360.0,
+              0.0
+            ],
+            [
+              304.0,
+              360.0,
+              0.0
+            ],
+            [
+              400.0,
+              360.0,
+              0.0
+            ],
+            [
+              880.0,
+              360.0,
+              0.0
+            ],
+            [
+              976.0,
+              360.0,
+              0.0
+            ],
+            [
+              1168.0,
+              360.0,
+              0.0
+            ],
+            [
+              208.0,
+              412.0,
+              0.0
+            ],
+            [
+              304.0,
+              412.0,
+              0.0
+            ],
+            [
+              400.0,
+              412.0,
+              0.0
+            ],
+            [
+              880.0,
+              412.0,
+              0.0
+            ],
+            [
+              976.0,
+              412.0,
+              0.0
+            ],
+            [
+              1072.0,
+              412.0,
+              0.0
+            ],
+            [
+              112.0,
+              464.0,
+              0.0
+            ],
+            [
+              208.0,
+              464.0,
+              0.0
+            ],
+            [
+              304.0,
+              464.0,
+              0.0
+            ],
+            [
+              400.0,
+              464.0,
+              0.0
+            ],
+            [
+              496.0,
+              464.0,
+              0.0
+            ],
+            [
+              592.0,
+              464.0,
+              0.0
+            ],
+            [
+              688.0,
+              464.0,
+              0.0
+            ],
+            [
+              784.0,
+              464.0,
+              0.0
+            ],
+            [
+              880.0,
+              464.0,
+              0.0
+            ],
+            [
+              976.0,
+              464.0,
+              0.0
+            ],
+            [
+              1072.0,
+              464.0,
+              0.0
+            ],
+            [
+              1168.0,
+              464.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              640.0,
+              96.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_interactive": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 0.930894308943089
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              640.0,
+              554.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 1.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              640.0,
+              588.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "player_points": 0.0,
+        "score": 0.0
+      },
+      "numeric_source": {
+        "player_points": "declared",
+        "score": "declared"
+      },
+      "reached": true,
+      "scene": "res://scenes/sets/set_match_point.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 42,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "settle",
+          "player": [
+            640.0,
+            588.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_match_point.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 42,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_match_point.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 42,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_match_point.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 42,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_match_point.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 42,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_match_point.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 42,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_match_point.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 42,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_match_point.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 42,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_match_point.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 42,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_match_point.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 42,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_match_point.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 42,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_match_point.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 42,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_match_point.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 42,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_match_point.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 42,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_match_point.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 42,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_match_point.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 42,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_match_point.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 1,
+            "gb_enemy": 42,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 210,
+          "numeric": {
+            "player_points": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            96.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/sets/set_match_point.tscn"
+        }
+      ],
+      "spawn": [
+        640.0,
+        588.0,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.5,
+        "y": 1.0
+      },
+      "stop_reason": "goal_no_transition"
+    }
+  ],
+  "liveness": [
+    {
+      "action": "gb_left",
+      "detail": "gb_left differs from the idle control on velocity (delta 620.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "velocity"
+    },
+    {
+      "action": "gb_right",
+      "detail": "gb_right differs from the idle control on velocity (delta 620.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "velocity"
+    },
+    {
+      "action": "gb_up",
+      "detail": "gb_up is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    },
+    {
+      "action": "gb_down",
+      "detail": "gb_down is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    },
+    {
+      "action": "gb_jump",
+      "detail": "gb_jump is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    },
+    {
+      "action": "gb_action",
+      "detail": "gb_action differs from the idle control on visible_count (delta 32.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "visible_count"
+    }
+  ],
+  "no_input_no_win": true,
+  "no_input_stop_reason": "budget_frames",
+  "notes": [
+    "liveness deadline derived from this project's own structural pass: 19.4 ms/frame median, 19.5 ms/frame worst",
+    "liveness sweep: 3 live / 3 dead against the 420-frame idle control truth/L0#idle420"
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "game",
+  "read_failure": "",
+  "taken_at": "2026-09-10T09:24:05+00:00",
+  "version": "1"
+}

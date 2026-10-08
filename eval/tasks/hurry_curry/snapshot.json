@@ -1,0 +1,1896 @@
+{
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "driver_sha256": "7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742",
+  "endings": {
+    "defeat": "res://scenes/flow/level_failed.tscn",
+    "run_complete": "res://scenes/flow/run_complete.tscn",
+    "victory": "res://scenes/flow/level_clear.tscn"
+  },
+  "engine": "4.5.1",
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "5589330246c0815caab6c78c4cc824738680faf6586e9b16228f4dfd44ef1d74",
+    "source_sha256": "e244e1f110bbe5adf555c07d5bcc140128cbc0cb39a994901422fa77a715f2ce"
+  },
+  "levels": [
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          21.5,
+          0.0,
+          11.5
+        ],
+        "min3": [
+          3.5,
+          0.0,
+          3.5
+        ],
+        "plane": "xz",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 4,
+        "alive_before": 4,
+        "attempted": true,
+        "delta": 0,
+        "detail": "one collect-and-deliver cycle on Tile_21_6: 4 alive before, 4 after",
+        "effect": {
+          "actions": [],
+          "complete_trigger": false,
+          "cycle_index": 0,
+          "kind": "target_changed",
+          "observed": false
+        },
+        "target": "Tile_21_6"
+      },
+      "cycles": [
+        {
+          "alive_after": 4,
+          "alive_before": 4,
+          "delivered": true,
+          "delta": 0,
+          "index": 0,
+          "target": "Tile_21_6"
+        },
+        {
+          "alive_after": 4,
+          "alive_before": 4,
+          "delivered": true,
+          "delta": 0,
+          "index": 1,
+          "target": "Tile_21_7"
+        },
+        {
+          "alive_after": 4,
+          "alive_before": 4,
+          "delivered": true,
+          "delta": 0,
+          "index": 2,
+          "target": "Tile_21_8"
+        },
+        {
+          "alive_after": 4,
+          "alive_before": 4,
+          "delivered": true,
+          "delta": 0,
+          "index": 3,
+          "target": "Tile_21_9"
+        }
+      ],
+      "cycles_capped": false,
+      "declared_scene": "res://scenes/levels/junior_kitchen.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "4 collect-and-deliver cycles then 120 frames on Tile_4_3, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://scenes/levels/junior_kitchen.tscn",
+        "scene_before": "res://scenes/levels/junior_kitchen.tscn",
+        "target": "Tile_4_3"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 4,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.5
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.625
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.75
+            }
+          ],
+          "total": 4,
+          "world": [
+            [
+              21.5,
+              0.0,
+              6.5
+            ],
+            [
+              21.5,
+              0.0,
+              7.5
+            ],
+            [
+              21.5,
+              0.0,
+              8.5
+            ],
+            [
+              21.5,
+              0.0,
+              9.5
+            ]
+          ]
+        },
+        "gb_door": {
+          "alive": 4,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.888888888888889,
+              "y": 0.25
+            },
+            {
+              "valid": true,
+              "x": 0.944444444444444,
+              "y": 0.25
+            },
+            {
+              "valid": true,
+              "x": 0.166666666666667,
+              "y": 1.0
+            },
+            {
+              "valid": true,
+              "x": 0.222222222222222,
+              "y": 1.0
+            }
+          ],
+          "total": 4,
+          "world": [
+            [
+              19.5,
+              0.0,
+              5.5
+            ],
+            [
+              20.5,
+              0.0,
+              5.5
+            ],
+            [
+              6.5,
+              0.0,
+              11.5
+            ],
+            [
+              7.5,
+              0.0,
+              11.5
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_goal": {
+          "alive": 9,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0555555555555556,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.277777777777778,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.722222222222222,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.944444444444444,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.222222222222222,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.75
+            },
+            {
+              "valid": true,
+              "x": 0.388888888888889,
+              "y": 0.875
+            }
+          ],
+          "total": 9,
+          "world": [
+            [
+              4.5,
+              0.0,
+              3.5
+            ],
+            [
+              8.5,
+              0.0,
+              3.5
+            ],
+            [
+              12.5,
+              0.0,
+              3.5
+            ],
+            [
+              16.5,
+              0.0,
+              3.5
+            ],
+            [
+              20.5,
+              0.0,
+              3.5
+            ],
+            [
+              3.5,
+              0.0,
+              6.5
+            ],
+            [
+              7.5,
+              0.0,
+              6.5
+            ],
+            [
+              3.5,
+              0.0,
+              9.5
+            ],
+            [
+              10.5,
+              0.0,
+              10.5
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 5,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.611111111111111,
+              "y": 0.875
+            },
+            {
+              "valid": true,
+              "x": 0.666666666666667,
+              "y": 0.875
+            },
+            {
+              "valid": true,
+              "x": 0.777777777777778,
+              "y": 0.875
+            },
+            {
+              "valid": true,
+              "x": 0.833333333333333,
+              "y": 0.875
+            },
+            {
+              "valid": true,
+              "x": 0.888888888888889,
+              "y": 0.875
+            }
+          ],
+          "total": 5,
+          "world": [
+            [
+              14.5,
+              0.0,
+              10.5
+            ],
+            [
+              15.5,
+              0.0,
+              10.5
+            ],
+            [
+              17.5,
+              0.0,
+              10.5
+            ],
+            [
+              18.5,
+              0.0,
+              10.5
+            ],
+            [
+              19.5,
+              0.0,
+              10.5
+            ]
+          ]
+        },
+        "gb_interactive": {
+          "alive": 61,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.0555555555555556,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.111111111111111,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.222222222222222,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.277777777777778,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.333333333333333,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.444444444444444,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.555555555555556,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.666666666666667,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.722222222222222,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.777777777777778,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.888888888888889,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.944444444444444,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.277777777777778,
+              "y": 0.125
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.25
+            },
+            {
+              "valid": true,
+              "x": 0.222222222222222,
+              "y": 0.25
+            },
+            {
+              "valid": true,
+              "x": 0.666666666666667,
+              "y": 0.25
+            },
+            {
+              "valid": true,
+              "x": 0.722222222222222,
+              "y": 0.25
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.0555555555555556,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.166666666666667,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.222222222222222,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.277777777777778,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.555555555555556,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.611111111111111,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.777777777777778,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.833333333333333,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.5
+            },
+            {
+              "valid": true,
+              "x": 0.222222222222222,
+              "y": 0.5
+            },
+            {
+              "valid": true,
+              "x": 0.444444444444444,
+              "y": 0.5
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.5
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.625
+            },
+            {
+              "valid": true,
+              "x": 0.444444444444444,
+              "y": 0.625
+            },
+            {
+              "valid": true,
+              "x": 0.555555555555556,
+              "y": 0.625
+            },
+            {
+              "valid": true,
+              "x": 0.611111111111111,
+              "y": 0.625
+            },
+            {
+              "valid": true,
+              "x": 0.666666666666667,
+              "y": 0.625
+            },
+            {
+              "valid": true,
+              "x": 0.722222222222222,
+              "y": 0.625
+            },
+            {
+              "valid": true,
+              "x": 0.777777777777778,
+              "y": 0.625
+            },
+            {
+              "valid": true,
+              "x": 0.833333333333333,
+              "y": 0.625
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.625
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.75
+            },
+            {
+              "valid": true,
+              "x": 0.0555555555555556,
+              "y": 0.75
+            },
+            {
+              "valid": true,
+              "x": 0.444444444444444,
+              "y": 0.75
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.75
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.875
+            },
+            {
+              "valid": true,
+              "x": 0.333333333333333,
+              "y": 0.875
+            },
+            {
+              "valid": true,
+              "x": 0.388888888888889,
+              "y": 0.875
+            },
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 0.875
+            },
+            {
+              "valid": true,
+              "x": 0.555555555555556,
+              "y": 0.875
+            },
+            {
+              "valid": true,
+              "x": 0.611111111111111,
+              "y": 0.875
+            },
+            {
+              "valid": true,
+              "x": 0.666666666666667,
+              "y": 0.875
+            },
+            {
+              "valid": true,
+              "x": 0.722222222222222,
+              "y": 0.875
+            },
+            {
+              "valid": true,
+              "x": 0.777777777777778,
+              "y": 0.875
+            },
+            {
+              "valid": true,
+              "x": 0.833333333333333,
+              "y": 0.875
+            },
+            {
+              "valid": true,
+              "x": 0.888888888888889,
+              "y": 0.875
+            },
+            {
+              "valid": true,
+              "x": 0.944444444444444,
+              "y": 0.875
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.875
+            }
+          ],
+          "total": 61,
+          "world": [
+            [
+              3.5,
+              0.0,
+              3.5
+            ],
+            [
+              4.5,
+              0.0,
+              3.5
+            ],
+            [
+              5.5,
+              0.0,
+              3.5
+            ],
+            [
+              7.5,
+              0.0,
+              3.5
+            ],
+            [
+              8.5,
+              0.0,
+              3.5
+            ],
+            [
+              9.5,
+              0.0,
+              3.5
+            ],
+            [
+              11.5,
+              0.0,
+              3.5
+            ],
+            [
+              12.5,
+              0.0,
+              3.5
+            ],
+            [
+              13.5,
+              0.0,
+              3.5
+            ],
+            [
+              15.5,
+              0.0,
+              3.5
+            ],
+            [
+              16.5,
+              0.0,
+              3.5
+            ],
+            [
+              17.5,
+              0.0,
+              3.5
+            ],
+            [
+              19.5,
+              0.0,
+              3.5
+            ],
+            [
+              20.5,
+              0.0,
+              3.5
+            ],
+            [
+              21.5,
+              0.0,
+              3.5
+            ],
+            [
+              8.5,
+              0.0,
+              4.5
+            ],
+            [
+              3.5,
+              0.0,
+              5.5
+            ],
+            [
+              7.5,
+              0.0,
+              5.5
+            ],
+            [
+              15.5,
+              0.0,
+              5.5
+            ],
+            [
+              16.5,
+              0.0,
+              5.5
+            ],
+            [
+              3.5,
+              0.0,
+              6.5
+            ],
+            [
+              4.5,
+              0.0,
+              6.5
+            ],
+            [
+              6.5,
+              0.0,
+              6.5
+            ],
+            [
+              7.5,
+              0.0,
+              6.5
+            ],
+            [
+              8.5,
+              0.0,
+              6.5
+            ],
+            [
+              12.5,
+              0.0,
+              6.5
+            ],
+            [
+              13.5,
+              0.0,
+              6.5
+            ],
+            [
+              14.5,
+              0.0,
+              6.5
+            ],
+            [
+              17.5,
+              0.0,
+              6.5
+            ],
+            [
+              18.5,
+              0.0,
+              6.5
+            ],
+            [
+              21.5,
+              0.0,
+              6.5
+            ],
+            [
+              3.5,
+              0.0,
+              7.5
+            ],
+            [
+              7.5,
+              0.0,
+              7.5
+            ],
+            [
+              11.5,
+              0.0,
+              7.5
+            ],
+            [
+              21.5,
+              0.0,
+              7.5
+            ],
+            [
+              3.5,
+              0.0,
+              8.5
+            ],
+            [
+              11.5,
+              0.0,
+              8.5
+            ],
+            [
+              13.5,
+              0.0,
+              8.5
+            ],
+            [
+              14.5,
+              0.0,
+              8.5
+            ],
+            [
+              15.5,
+              0.0,
+              8.5
+            ],
+            [
+              16.5,
+              0.0,
+              8.5
+            ],
+            [
+              17.5,
+              0.0,
+              8.5
+            ],
+            [
+              18.5,
+              0.0,
+              8.5
+            ],
+            [
+              21.5,
+              0.0,
+              8.5
+            ],
+            [
+              3.5,
+              0.0,
+              9.5
+            ],
+            [
+              4.5,
+              0.0,
+              9.5
+            ],
+            [
+              11.5,
+              0.0,
+              9.5
+            ],
+            [
+              21.5,
+              0.0,
+              9.5
+            ],
+            [
+              3.5,
+              0.0,
+              10.5
+            ],
+            [
+              9.5,
+              0.0,
+              10.5
+            ],
+            [
+              10.5,
+              0.0,
+              10.5
+            ],
+            [
+              12.5,
+              0.0,
+              10.5
+            ],
+            [
+              13.5,
+              0.0,
+              10.5
+            ],
+            [
+              14.5,
+              0.0,
+              10.5
+            ],
+            [
+              15.5,
+              0.0,
+              10.5
+            ],
+            [
+              16.5,
+              0.0,
+              10.5
+            ],
+            [
+              17.5,
+              0.0,
+              10.5
+            ],
+            [
+              18.5,
+              0.0,
+              10.5
+            ],
+            [
+              19.5,
+              0.0,
+              10.5
+            ],
+            [
+              20.5,
+              0.0,
+              10.5
+            ],
+            [
+              21.5,
+              0.0,
+              10.5
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.716102812025282,
+              "y": 0.455496788024902
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              16.3898506164551,
+              0.0,
+              7.14397430419922
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "completed_orders": 0.0,
+        "progress": 0.0,
+        "score": 0.0,
+        "time_left": 594.916666666671,
+        "timer": 594.916666666671
+      },
+      "numeric_source": {
+        "completed_orders": "declared",
+        "progress": "declared",
+        "score": "declared",
+        "time_left": "declared",
+        "timer": "declared"
+      },
+      "reached": true,
+      "scene": "res://scenes/levels/junior_kitchen.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 598.516666666668,
+            "timer": 598.516666666668
+          },
+          "phase": "settle",
+          "player": [
+            16.3898506164551,
+            0.0,
+            7.14397430419922
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 598.416666666668,
+            "timer": 598.416666666668
+          },
+          "phase": "pick",
+          "player": [
+            21.5,
+            0.0,
+            6.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 598.283333333335,
+            "timer": 598.283333333335
+          },
+          "phase": "deliver",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 598.150000000002,
+            "timer": 598.150000000002
+          },
+          "phase": "deliver",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 598.016666666668,
+            "timer": 598.016666666668
+          },
+          "phase": "pick",
+          "player": [
+            21.5,
+            0.0,
+            7.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 597.883333333335,
+            "timer": 597.883333333335
+          },
+          "phase": "deliver",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 597.750000000002,
+            "timer": 597.750000000002
+          },
+          "phase": "deliver",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 597.616666666669,
+            "timer": 597.616666666669
+          },
+          "phase": "pick",
+          "player": [
+            21.5,
+            0.0,
+            8.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 597.483333333336,
+            "timer": 597.483333333336
+          },
+          "phase": "deliver",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 597.350000000002,
+            "timer": 597.350000000002
+          },
+          "phase": "deliver",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 597.216666666669,
+            "timer": 597.216666666669
+          },
+          "phase": "pick",
+          "player": [
+            21.5,
+            0.0,
+            9.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 597.083333333336,
+            "timer": 597.083333333336
+          },
+          "phase": "deliver",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 596.950000000003,
+            "timer": 596.950000000003
+          },
+          "phase": "deliver",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 596.81666666667,
+            "timer": 596.81666666667
+          },
+          "phase": "goal",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 596.683333333336,
+            "timer": 596.683333333336
+          },
+          "phase": "goal",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 596.550000000003,
+            "timer": 596.550000000003
+          },
+          "phase": "goal",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 216,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 596.41666666667,
+            "timer": 596.41666666667
+          },
+          "phase": "goal",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 224,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 596.283333333337,
+            "timer": 596.283333333337
+          },
+          "phase": "goal",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 232,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 596.150000000004,
+            "timer": 596.150000000004
+          },
+          "phase": "goal",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 240,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 596.01666666667,
+            "timer": 596.01666666667
+          },
+          "phase": "goal",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 248,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 595.883333333337,
+            "timer": 595.883333333337
+          },
+          "phase": "goal",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 256,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 595.750000000004,
+            "timer": 595.750000000004
+          },
+          "phase": "goal",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 264,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 595.616666666671,
+            "timer": 595.616666666671
+          },
+          "phase": "goal",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 272,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 595.483333333337,
+            "timer": 595.483333333337
+          },
+          "phase": "goal",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 280,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 595.350000000004,
+            "timer": 595.350000000004
+          },
+          "phase": "goal",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 288,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 595.216666666671,
+            "timer": 595.216666666671
+          },
+          "phase": "goal",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 296,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 595.083333333338,
+            "timer": 595.083333333338
+          },
+          "phase": "goal",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 304,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 594.950000000005,
+            "timer": 594.950000000005
+          },
+          "phase": "goal",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 4,
+            "gb_door": 4,
+            "gb_enemy": 0,
+            "gb_goal": 9,
+            "gb_hazard": 5,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 306,
+          "numeric": {
+            "completed_orders": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "time_left": 594.916666666671,
+            "timer": 594.916666666671
+          },
+          "phase": "goal",
+          "player": [
+            4.5,
+            0.0,
+            3.5
+          ],
+          "scene_path": "res://scenes/levels/junior_kitchen.tscn"
+        }
+      ],
+      "spawn": [
+        16.3898506164551,
+        0.0,
+        7.14397430419922
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.7161028120252833,
+        "y": 0.45549678802490245
+      },
+      "stop_reason": "goal_no_transition"
+    }
+  ],
+  "liveness": [
+    {
+      "action": "gb_left",
+      "detail": "gb_left differs from the idle control on position (delta 3.998204 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_right",
+      "detail": "gb_right differs from the idle control on position (delta 4.217776 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_up",
+      "detail": "gb_up differs from the idle control on position (delta 0.744 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_down",
+      "detail": "gb_down is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    },
+    {
+      "action": "gb_jump",
+      "detail": "gb_jump is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    },
+    {
+      "action": "gb_action",
+      "detail": "gb_action differs from the idle control on text (delta 1.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "text"
+    }
+  ],
+  "no_input_no_win": true,
+  "no_input_stop_reason": "budget_frames",
+  "notes": [
+    "liveness deadline derived from this project's own structural pass: 19.8 ms/frame median, 19.8 ms/frame worst",
+    "liveness sweep: 4 live / 2 dead against the 420-frame idle control truth/L0#idle420"
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "hurry_curry",
+  "read_failure": "",
+  "taken_at": "2026-09-10T09:19:33+00:00",
+  "version": "1"
+}

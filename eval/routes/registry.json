@@ -1,0 +1,292 @@
+{
+  "schema_version": 1,
+  "tasks": {
+    "3d_platformer": {
+      "certificate": "tasks/3d_platformer/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/3d_platformer/route.json",
+      "sha256": "33579286fcea9620244259d5b1734131ff0894cf0c92e20bc54d110f533fab81"
+    },
+    "arc_wing": {
+      "certificate": "tasks/arc_wing/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/arc_wing/route.json",
+      "sha256": "8707fb4540d125d81ab7f62267d6523fc66136f8cf1cb302cb2b418dbc326aae"
+    },
+    "ballast_yard": {
+      "certificate": "tasks/ballast_yard/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/ballast_yard/route.json",
+      "sha256": "2d720a466e489e004258623f93433b9f00dac2f8baa167e68e7098659fe3d922"
+    },
+    "bush_522": {
+      "certificate": "tasks/bush_522/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/bush_522/route.json",
+      "sha256": "7691539d91fb64ded99f0ed91465871e328e8e3181a3aebc77081f2273397cb2"
+    },
+    "canopy_dash": {
+      "certificate": "tasks/canopy_dash/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/canopy_dash/route.json",
+      "sha256": "37e3a06f6ca425e2f3dc8bd170c19e9604409f91db7d05f50bafd2d1a2cff682"
+    },
+    "cat_defense": {
+      "certificate": "tasks/cat_defense/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/cat_defense/route.json",
+      "sha256": "b248b27c4dfd621ac2cb43fc6de54d1f6ac4b536a2c4b8c2bfe9f5a34cede30e"
+    },
+    "city_delivery": {
+      "certificate": "tasks/city_delivery/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/city_delivery/route.json",
+      "sha256": "7430c09c10e993195db3cb3f77859c8ac25cde969929e640680617c13393bf6d"
+    },
+    "citycab_rush": {
+      "certificate": "tasks/citycab_rush/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/citycab_rush/route.json",
+      "sha256": "5eaa06d116f32ec9b0495c5864d66e75b980588deb1e452c2948413bf4bcdd66"
+    },
+    "cyber_survival": {
+      "certificate": "tasks/cyber_survival/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/cyber_survival/route.json",
+      "sha256": "b15dd18e684d4d46b33e5d1cf177a5036237f24420e12d061ae2c209bb2f4964"
+    },
+    "deepgrid": {
+      "certificate": "tasks/deepgrid/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/deepgrid/route.json",
+      "sha256": "c1dc7b26c3fc002ee62a5af32b95109e78014eea678b604ceb3944607e6bad26"
+    },
+    "dogwalk": {
+      "certificate": "tasks/dogwalk/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/dogwalk/route.json",
+      "sha256": "bb126778614e9d30bc2ee2f0d7959b473115ba1c90c16eb864b8c0664c8059d3"
+    },
+    "dont_stop": {
+      "certificate": "tasks/dont_stop/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/dont_stop/route.json",
+      "sha256": "4153050b8f60e55484e84568eab762ec455c595dcbaa8eb4e0cbf01bc901e168"
+    },
+    "dungeon_escape": {
+      "certificate": "tasks/dungeon_escape/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/dungeon_escape/route.json",
+      "sha256": "92b246cd24194641c1be5b4bed2dad5be630db31475e2b093edd9445ac02ebdc"
+    },
+    "ember_and_tide": {
+      "certificate": "tasks/ember_and_tide/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/ember_and_tide/route.json",
+      "sha256": "b427bf9e84dcb8df0efc1c85a709ea50db8198fc821adcdf3445f7f6b05d8971"
+    },
+    "gentlemans_adventure": {
+      "certificate": "tasks/gentlemans_adventure/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/gentlemans_adventure/route.json",
+      "sha256": "5bcabae4271cc8eb36fe3a6e6c00cb92e5cb90525eebab7fd918f51a78fa317d"
+    },
+    "gunfire_dungeon": {
+      "certificate": "tasks/gunfire_dungeon/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/gunfire_dungeon/route.json",
+      "sha256": "100131d7fdd15cf4aa4e05c4d5d3d96bbc0d777841e93bc2afe4cbf6410d47ed"
+    },
+    "harvest_ledger": {
+      "certificate": "tasks/harvest_ledger/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/harvest_ledger/route.json",
+      "sha256": "5a8cf57ee89d2c6212c6c93d0a08006ad34846f3ed1ba370786221b2c1622231"
+    },
+    "hazard_circuit": {
+      "certificate": "tasks/hazard_circuit/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/hazard_circuit/route.json",
+      "sha256": "2df6195aaa47584dfa0f9ff7706040dbbcfd6927388db2e17b1d91687c646ff6"
+    },
+    "hive_flight": {
+      "certificate": "tasks/hive_flight/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/hive_flight/route.json",
+      "sha256": "7e6532fa4d0888e9ec6a671444a08ada5e2dcaa2b26796fdf8a43d23b7f22a3d"
+    },
+    "hurry_curry": {
+      "certificate": "tasks/hurry_curry/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/hurry_curry/route.json",
+      "sha256": "2a3c2e5a92e648c5c38d4969f1e6333a695569767f22cd07abd63f06586297f1"
+    },
+    "kindle_relay": {
+      "certificate": "tasks/kindle_relay/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/kindle_relay/route.json",
+      "sha256": "daeddebed2ec31067bfe3c7c94ab46cb426a95088826b0bdb32d28cbca67b40a"
+    },
+    "ninja_roguelite": {
+      "certificate": "tasks/ninja_roguelite/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/ninja_roguelite/route.json",
+      "sha256": "2766816805796f3a0851d26d74fd724dab5affb297f36803e74d3e2b234ac255"
+    },
+    "pixel_platformer": {
+      "certificate": "tasks/pixel_platformer/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/pixel_platformer/route.json",
+      "sha256": "da5059e059fcd0cb90792713b7cc3c26e9732e23fe2fb10641a0a43ad5622f98"
+    },
+    "pixel_platformer_v2": {
+      "certificate": "tasks/pixel_platformer_v2/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/pixel_platformer_v2/route.json",
+      "sha256": "c18e2aa41d41b6ae479245a6e299b0d32c12e2846a3d81cdfd31acf267ece72f"
+    },
+    "pixel_sabotage": {
+      "certificate": "tasks/pixel_sabotage/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/pixel_sabotage/route.json",
+      "sha256": "4e4ac47ed98c4deb41392f88a0dff70df272653078ca4bed83fcf14567704840"
+    },
+    "pulse_lane": {
+      "certificate": "tasks/pulse_lane/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/pulse_lane/route.json",
+      "sha256": "696aaf6a32ff3b87ddf88f76feb463d724eb661ab4087e7c550a4ca6d1703a4e"
+    },
+    "racing": {
+      "certificate": "tasks/racing/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/racing/route.json",
+      "sha256": "9c67fd173f54321c5d47d4a712f63b033bf1a5c8b72d670ffdd46d25beb0759f"
+    },
+    "relic_runner": {
+      "certificate": "tasks/relic_runner/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/relic_runner/route.json",
+      "sha256": "03dd2df64cbf451f2c638cf799dcbed7f4ef26df5966f4b721df7bfa34c5b090"
+    },
+    "sands_of_the_restless": {
+      "certificate": "tasks/sands_of_the_restless/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/sands_of_the_restless/route.json",
+      "sha256": "768f435b3a7eed409c0ea438d25da037571718570119976075dfb8dff4b80dcf"
+    },
+    "shadow_walker": {
+      "certificate": "tasks/shadow_walker/certificate.rt1.json",
+      "reviewed_at": "2026-09-16",
+      "reviewer": "project_owner",
+      "route_file": "tasks/shadow_walker/route.json",
+      "sha256": "c2c65fc35c92a11a8cb35f4ae828be5d01f4cc0696c694d44302ab159ab2ffd2"
+    },
+    "soccer_course": {
+      "certificate": "tasks/soccer_course/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/soccer_course/route.json",
+      "sha256": "fce5f931ff3bda1a4fb0d3902007a30c16828b27686fc2e2c6a13c8a9f72a7ba"
+    },
+    "sprout_market": {
+      "certificate": "tasks/sprout_market/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/sprout_market/route.json",
+      "sha256": "824e5f9d3cea0537b756fc6375c216d77dcc9a283572900e657f7d46911edb8b"
+    },
+    "super_dungeon_delve": {
+      "certificate": "tasks/super_dungeon_delve/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/super_dungeon_delve/route.json",
+      "sha256": "44ad57ef4f774f9b60d44b5c7a972696e9246e3a67e4adf1edcf8104eed62cd2"
+    },
+    "terraforge": {
+      "certificate": "tasks/terraforge/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/terraforge/route.json",
+      "sha256": "281beed9f2696c2c436eb406325240b0df1da4db3480c83537b7cd2ca65ae11f"
+    },
+    "tiny_rts": {
+      "certificate": "tasks/tiny_rts/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/tiny_rts/route.json",
+      "sha256": "bd272cc63ac067bd0f31d969145f62a888d7f8eeef77e08c2a5cf3b9c2cd0745"
+    },
+    "toon_shooter": {
+      "certificate": "tasks/toon_shooter/certificate.rt1.json",
+      "reviewed_at": "2026-09-12",
+      "reviewer": "project_owner",
+      "route_file": "tasks/toon_shooter/route.json",
+      "sha256": "02a68bbe87acaeb55c8c481ebb4d06713b0b8503517720bde0fbd02fdbab5a8a"
+    },
+    "twin_holds": {
+      "certificate": "tasks/twin_holds/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/twin_holds/route.json",
+      "sha256": "1e50ad0e9b3edac1f67dbb80fd20efb6e8078d48fe7e4fbdd8ac25250e48c933"
+    },
+    "vaultline": {
+      "certificate": "tasks/vaultline/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/vaultline/route.json",
+      "sha256": "1c9b80f0ce0ae9305c9d5034ddb94113ad0310d646e40df012831339f9397b14"
+    },
+    "volley_break": {
+      "certificate": "tasks/volley_break/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/volley_break/route.json",
+      "sha256": "b4324ac4675ea7f6116798d049ab800c66a8c94a86073b3e3f7be0ad4690a4df"
+    },
+    "where_the_dead_lie": {
+      "certificate": "tasks/where_the_dead_lie/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/where_the_dead_lie/route.json",
+      "sha256": "15a5813ff539126d411b2dad2cc752301bd803d2114ed7f48da6d2e1551d3fcd"
+    },
+    "wizard_chase": {
+      "certificate": "tasks/wizard_chase/certificate.rt1.json",
+      "reviewed_at": "2026-09-09",
+      "reviewer": "project_owner",
+      "route_file": "tasks/wizard_chase/route.json",
+      "sha256": "46136a940d3926f664c7642d28974a07301076d3876f49aae514451de66040f0"
+    }
+  }
+}

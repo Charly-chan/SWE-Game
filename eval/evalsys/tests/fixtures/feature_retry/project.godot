@@ -1,0 +1,21 @@
+config_version=5
+
+[application]
+config/name="Feature retry protocol fixture"
+run/main_scene="res://main.tscn"
+
+[autoload]
+RunState="*res://state.gd"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+
+[input]
+gb_left={"deadzone":0.5,"events":[]}
+gb_right={"deadzone":0.5,"events":[]}
+gb_up={"deadzone":0.5,"events":[]}
+gb_down={"deadzone":0.5,"events":[]}
+gb_jump={"deadzone":0.5,"events":[]}
+gb_action={"deadzone":0.5,"events":[]}
+gb_pause={"deadzone":0.5,"events":[]}
+gb_reset={"deadzone":0.5,"events":[]}

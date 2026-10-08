@@ -1,0 +1,199 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-27T17:39:16+00:00",
+  "interface_requirements": {},
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 2,
+        "gb_collectible": 33,
+        "gb_door": 1,
+        "gb_enemy": 9,
+        "gb_goal": 1,
+        "gb_hazard": 6,
+        "gb_interactive": 8,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "x",
+          2
+        ],
+        "gb_collectible": [
+          "x",
+          5
+        ],
+        "gb_enemy": [
+          "x",
+          5
+        ],
+        "gb_hazard": [
+          "x",
+          4
+        ],
+        "gb_interactive": [
+          "x",
+          4
+        ]
+      },
+      "goal_transition": "res://scenes/stage_02.tscn",
+      "scene": "res://scenes/stage_01.tscn",
+      "spawn_goal_distance": 0.956250000000284
+    },
+    {
+      "census": {
+        "gb_checkpoint": 3,
+        "gb_collectible": 38,
+        "gb_door": 1,
+        "gb_enemy": 16,
+        "gb_goal": 1,
+        "gb_hazard": 13,
+        "gb_interactive": 9,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "x",
+          3
+        ],
+        "gb_collectible": [
+          "x",
+          5
+        ],
+        "gb_enemy": [
+          "x",
+          5
+        ],
+        "gb_hazard": [
+          "x",
+          4
+        ],
+        "gb_interactive": [
+          "x",
+          5
+        ]
+      },
+      "goal_transition": "res://scenes/stage_03.tscn",
+      "scene": "res://scenes/stage_02.tscn",
+      "spawn_goal_distance": 0.9715909090910867
+    },
+    {
+      "census": {
+        "gb_checkpoint": 1,
+        "gb_collectible": 11,
+        "gb_door": 1,
+        "gb_enemy": 1,
+        "gb_goal": 1,
+        "gb_hazard": 5,
+        "gb_interactive": 3,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          5
+        ],
+        "gb_hazard": [
+          "x",
+          2
+        ],
+        "gb_interactive": [
+          "x",
+          3
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://scenes/stage_03.tscn",
+      "spawn_goal_distance": 0.29545454545528993
+    }
+  ],
+  "probe_sha256": "fe750d48224bfe79a915c4057b270adbbcdbc421e5b99f56213c3b2b7f746edd",
+  "project": "gentlemans_adventure",
+  "runtime_assets": {
+    "res://assets/audio/boss_shoot.ogg": "618ed2bfa69f042cc52263a901d68ad209b4f039da76860ba3e4594d1bb2b903",
+    "res://assets/audio/boss_spawn.ogg": "83d49ad3dff89a1d4a04ac6542d1fd95f021bee6b088156aad36d9cafafdb247",
+    "res://assets/audio/cannon.ogg": "c8fc21a99c7c062bc017a6fcbb51598d2a99031ab5af7d93731c48c9f3c4aa40",
+    "res://assets/audio/checkpoint.ogg": "bfbf8dc5143d96d756e7e9f6b52fbbf7c555b08b2091e80f9a97e3f628b2fb1e",
+    "res://assets/audio/game.ogg": "aefd74638349a354000f427227b5c082ff00fd9f3b5f4f0ceecadb9e493c6651",
+    "res://assets/fonts/font_normal.ttf": "94c5cf42f93abf4f94781055bce1c337cb96ef9fc2954dcd6b05669d25ac4e03",
+    "res://assets/sprites/arrow_act-sheet0.png": "1ec513359b032b67d09bcc3d21ec622954e6c9ebfca3458b697348424751a5d0",
+    "res://assets/sprites/arrow_ind_big-sheet0.png": "590826ca5c7e6cd80f68fddcee30308f9bdde081d5cdcd7bb89276ae54744f5f",
+    "res://assets/sprites/bar_ammo.png": "5321da5b609716785245dfed8498ccf80b6d39aba93971f0c587fe890776061b",
+    "res://assets/sprites/bar_ammo_back.png": "8984c518f811409dfc0a3d5e661d65610d05faff982e206cc9d82a7883c94258",
+    "res://assets/sprites/bar_life.png": "4cc2d2d8b2439eb2d3abfdf5b3723a9b827d68bae4eea90a0dfb55bfade3a86b",
+    "res://assets/sprites/bar_life_back.png": "6bfe5060068c196eca756ab9c7aae072e6106f9b888d7a55461bd080c2c676f2",
+    "res://assets/sprites/block_bonus-sheet0.png": "323e0e075daaa6595558f654733554372a22fecb7e04ec1b52f1957a39464b97",
+    "res://assets/sprites/block_bonus-sheet1.png": "a878ff8e0e472fa2102e4b43630cf6b305c5840b8d5224a70382aab89c341b76",
+    "res://assets/sprites/block_destructible-sheet0.png": "7de3b2d9c1f3d850783775885a58d3aa6efcdab0026289402194f111d2e511c7",
+    "res://assets/sprites/block_destructible-sheet1.png": "71d68b690b438f1d93cbb8496f809787b4d9236510a649465be95d156ec368b5",
+    "res://assets/sprites/block_destructible-sheet2.png": "ce6acd9ecef6901ce6ded33bca8188b42da097bf8534facf96dd693a56e4d68a",
+    "res://assets/sprites/boss-sheet0.png": "d98ba3b8efed2dfc68e4ffded3ef07ebe7dfc2055038949b743068e8ec12f945",
+    "res://assets/sprites/boss-sheet1.png": "9d40a79295dff81023d61874f235f32fadf76ee6a98b88a9cf2d44c3b772a545",
+    "res://assets/sprites/boss_bar.png": "e84fc92462976c6c984fa7a777f22396b116a2dfa40453d5f01212692c97438e",
+    "res://assets/sprites/boss_bar_icon-sheet0.png": "a22367c34bb2cdb4ce9ae6aa0b73dbaf8224e7338d49829002c44241688798ad",
+    "res://assets/sprites/boss_shield-sheet0.png": "97fec5b40c730bec80ea9f0a041b84d477b7591d055e291d5fe93feef89d9c34",
+    "res://assets/sprites/boss_shield-sheet1.png": "fa9dd2c15c00cb16fb25d14777ecbe10aec80c6d4a4284e089e2454fcf13ac80",
+    "res://assets/sprites/cannon-sheet0.png": "3a2f51df8181c32f8fb7fcbf1fda864654a7fb240813564cebf218a874990ad2",
+    "res://assets/sprites/cannon-sheet1.png": "7553b103c996827e3b89385340bea0e7262d3a052a758860f08ec52386a32d89",
+    "res://assets/sprites/cannon_laser-sheet0.png": "8c136cb186c55cac2f6a62c3fd34e498f2d0317c14a81949269581070969c43d",
+    "res://assets/sprites/cannon_laser-sheet1.png": "962e5d6700af05d6d2b97526bbcba7ee6c73651df2877656d87fe8552b2edb9b",
+    "res://assets/sprites/cannon_laser_impact-sheet0.png": "58cfcd43aaf410eda98aef952af0cc3817c03431e0df245c3307e0f7a549ac45",
+    "res://assets/sprites/cannon_laser_impact-sheet1.png": "a0260db7a18c51b38c27ee428171851c342ec9b4fb81131d3b8918620c50f5ab",
+    "res://assets/sprites/checkpoint-sheet0.png": "1ef1f2154a199edd1ce6c586256da0324c1629923bc0e7fb7bbf1d3dbafdfc95",
+    "res://assets/sprites/checkpoint-sheet1.png": "ba613eb7de15d53c139f40eaa302c4d2a3878996e4f94aa0e329c52fc634adf4",
+    "res://assets/sprites/checkpoint_light-sheet0.png": "62f4386792e918cb7a0231cc3ab0a1597707462e1ed7f441977f8e6a30ac5636",
+    "res://assets/sprites/checkpoint_light-sheet1.png": "4f7dd4ef10cea41f8156310ad000166d8aefcefe0a514f5343407e7833b6ba83",
+    "res://assets/sprites/checkpoint_light-sheet2.png": "5a12a0497a7d1947493cfd5138d138ff686c8540c69af77dd98ff8afd56e5f46",
+    "res://assets/sprites/cloud-sheet0.png": "d35cc4a640cb5ce835d393df7c905bd93cc604b02bfe8fdf541c18fbf0a5bbe0",
+    "res://assets/sprites/goomba-sheet0.png": "868cd6b9919c44cc490edd215fecc0d957bda39abf38ae5e27f0dc98526eb0b2",
+    "res://assets/sprites/goomba-sheet1.png": "1b1490ee3a633dcc38387bf95f87e2d49cebbc82ede2b08c17055a15ed4c16d5",
+    "res://assets/sprites/gunner-sheet0.png": "fa041a019969f61af0dfa787b2107e3edeeb9345d118fc7f847484cd8d8cd2b8",
+    "res://assets/sprites/gunner-sheet1.png": "5feac8e65b2bd684fdb398e4a5802527720326d69fefe1255939c692507a4583",
+    "res://assets/sprites/gunner_bullet-sheet0.png": "ec371404e13ebd79133fc2b2d7792275ce313c7806986ecb3458c8912719af67",
+    "res://assets/sprites/gunner_bullet-sheet1.png": "175b2dfc2465921e007b4011a2d14198581f90e20f76ca117d0790027cc1014d",
+    "res://assets/sprites/gunner_bullet_splash-sheet0.png": "53a9e6d2aad3c4410325c46a8b1b60ef3ba4f6e8ad412ab18f3b8d5c0f716433",
+    "res://assets/sprites/hud_icons-sheet0.png": "8f1d2c42a9c24347c1412883a1dc285667bb4a102c4e8f38ed363ee080f0e3d5",
+    "res://assets/sprites/koopa-sheet0.png": "3ee908780ba3e1a3f680a0a6a9c41b30b795c334dee8a124f10be60a340f8c14",
+    "res://assets/sprites/koopa-sheet1.png": "4abda53d5cb38a4dbb5a5f5dfc3c47f24f9e0d8cfcfc7568c3b78e27dd91a2cf",
+    "res://assets/sprites/koopa-sheet2.png": "dbf5b75efb6bf219ef768bb41e17378c87e48317b9123f830ec91181679b10f9",
+    "res://assets/sprites/koopa_bomb-sheet0.png": "a9cbee7785f2a0f7a4722a2d1f3eaf6ebad5a839973ad67edeac9b1d196c0ab5",
+    "res://assets/sprites/main_menu_title-sheet0.png": "7cd858ca7ec7c37930017bf4596c3a7e609c34adce193ee21cd485dcac8271cf",
+    "res://assets/sprites/map_decor.png": "145771a7cff2e84d269af71e3cfd885b5c4155c0fd8afb0f318aaa9c513323b9",
+    "res://assets/sprites/map_ground.png": "7bb45df3d5c86450c0c140c47c17195a414cf81b77c60b049dab22ce3c5d3686",
+    "res://assets/sprites/map_ground_dark.png": "f8eadad3c5edf9d038103e871459f810fd0f5f3f56f3c8341ac157a9a75128c3",
+    "res://assets/sprites/map_water.png": "820a673858a106332f2d54ef2bb3038e48914c6f9b20f56361a37d144cc9b018",
+    "res://assets/sprites/player-sheet0.png": "e43c6d1540c5f8a30786d1c60c82588eb916b5b44f942781606e36923a7feb0e",
+    "res://assets/sprites/powerup-sheet0.png": "429d7c2602974a6e4160a5ae64baf42ef9e829a18eda2391bb0d527676755817",
+    "res://assets/sprites/powerup-sheet1.png": "973daddf21a46eac5a1654d16c1582515401bd98100b13107027fc432dae741a",
+    "res://assets/sprites/rune-sheet0.png": "fa3b8d5317232cf22312854700352682868b9d22e030073546ffd5ffb0a8cb23",
+    "res://assets/sprites/rune-sheet1.png": "dd3e2cd31792cd1d070401673c2343fc0d6cebddb0703d1da9bac95bafad49c0",
+    "res://assets/sprites/shop_capsule-sheet0.png": "9eabfa7c63be567e5fdd40bf4f22542e83d8d76cc4ae69f652bc9e5f27e2aaa0",
+    "res://assets/sprites/shop_capsule-sheet1.png": "a43f4ea03668e95942e86cb36d759c1db29f61b8e231f436116a3a9ee6f31941",
+    "res://assets/sprites/shop_capsule-sheet2.png": "aa757e1c6f80556650c29a05fa93604a769808aef16c717790e8e2d70357c9db",
+    "res://assets/sprites/shopkeeper-sheet0.png": "fe27688f44845927202eaddefa1d01b37813b7d9bfe1ce48656db939df8d37f0",
+    "res://assets/sprites/shopkeeper-sheet1.png": "62c1ab6baa2ad058493710df0bd12180f85c032312e3dd206c1bc0cb1411f2b5",
+    "res://assets/sprites/shopkeeper-sheet2.png": "6e440d99e688bc656e3e4f942dd16886273b29f6c682000687f4373f9eef1ca2",
+    "res://assets/sprites/shopkeeper_bubble-sheet0.png": "f45ba622c11abf4b3da629f0327eca3628b9a9a291ba2cf470a833b2e0fe7e46",
+    "res://assets/sprites/spiny-sheet0.png": "abd2e525afd4388e5cb594bf0a457cd5eec51502f55dfbf545aef7c66c1b387a",
+    "res://assets/sprites/spiny_saw-sheet0.png": "5485b91559019c87cec05f67e3d40247a1182932f219039ccc421e0341fe65c0",
+    "res://assets/sprites/spiny_saw-sheet1.png": "6a1d78e3350767b6699ebd344bfb1cfeeabb0aa43c925778ca823f225f14804c",
+    "res://assets/sprites/teleport-sheet0.png": "889cb16ff25f81e97f1665c3f7b86c964d510cc6e6faa4684bd941c53e29e363",
+    "res://assets/sprites/teleport-sheet1.png": "183a6348a91b3b01de73dbfc491888f0d50418b4dd4f48660e9046c3b96868da",
+    "res://assets/sprites/teleport-sheet2.png": "c8b1ac68b3edf594a5bf013a6909beddbd036698046a8bc7fe755527c109f583",
+    "res://assets/sprites/thwomp-sheet0.png": "96b23c5dcceec0e0902d53989082e6c55588cf2ea1d47b60a9ef18d0f0f3a334",
+    "res://assets/sprites/thwomp_chain.png": "1762b2a5d024a7890dd8a0cb3bc4f8b8b5a0dfe404a49d92b6cbe4defb7c10db"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

@@ -1,0 +1,344 @@
+{
+  "game_id": "gunfire_dungeon",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "reference_media/assets/sprites/role/dle_liquid/enemy0003.png",
+        "id": "S004",
+        "label": "reference_media/assets/sprites/role/dle_liquid/enemy0003.png"
+      },
+      {
+        "asset_path": "reference_media/assets/sprites/role/role0001/idle/Sprite-0002.png",
+        "id": "S007",
+        "label": "reference_media/assets/sprites/role/role0001/idle/Sprite-0002.png"
+      },
+      {
+        "asset_path": "reference_media/assets/sprites/weapon/weapon0001/Weapon0001.png",
+        "id": "S008",
+        "label": "reference_media/assets/sprites/weapon/weapon0001/Weapon0001.png"
+      },
+      {
+        "asset_path": "reference_media/assets/sprites/weapon/weapon0003/Weapon0003.png",
+        "id": "S009",
+        "label": "reference_media/assets/sprites/weapon/weapon0003/Weapon0003.png"
+      },
+      {
+        "asset_path": "sprites/box/TreasureBox0001.png",
+        "id": "S012",
+        "label": "sprites/box/TreasureBox0001.png"
+      },
+      {
+        "asset_path": "sprites/map/PreviewMap.png",
+        "id": "S025",
+        "label": "sprites/map/PreviewMap.png"
+      },
+      {
+        "asset_path": "sprites/role/role0001/idle/Sprite-0002.png",
+        "id": "S037",
+        "label": "sprites/role/role0001/idle/Sprite-0002.png"
+      },
+      {
+        "asset_path": "sprites/role/role10.png",
+        "id": "S040",
+        "label": "sprites/role/role10.png"
+      },
+      {
+        "asset_path": "sprites/role/shopBoss0001/ShopBoss0001.png",
+        "id": "S041",
+        "label": "sprites/role/shopBoss0001/ShopBoss0001.png"
+      },
+      {
+        "asset_path": "sprites/tile/Hall.png",
+        "id": "S044",
+        "label": "sprites/tile/Hall.png"
+      },
+      {
+        "asset_path": "sprites/ui/GUI.png",
+        "id": "S046",
+        "label": "sprites/ui/GUI.png"
+      },
+      {
+        "asset_path": "sprites/ui/roulette/RouletteBg.png",
+        "id": "S054",
+        "label": "sprites/ui/roulette/RouletteBg.png"
+      },
+      {
+        "asset_path": "sprites/weapon/weapon0009/Weapon0009_reload.png",
+        "id": "S065",
+        "label": "sprites/weapon/weapon0009/Weapon0009_reload.png"
+      },
+      {
+        "bundled_path": "media/S073.png",
+        "id": "S073",
+        "label": "FONT PREVIEW fonts/DinkieBitmap-7pxDemo.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "fonts/DinkieBitmap-7pxDemo.ttf"
+      },
+      {
+        "bundled_path": "media/S076.png",
+        "id": "S076",
+        "label": "FONT PREVIEW fonts/VonwaonBitmap-12px.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "fonts/VonwaonBitmap-12px.ttf"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "fonts/DinkieBitmap-7pxDemo.ttf",
+        "fonts/DinkieBitmap-9pxDemo.ttf",
+        "fonts/DinkieBitmap-9pxItalicDemo.ttf",
+        "fonts/VonwaonBitmap-12px.ttf",
+        "fonts/VonwaonBitmap-16px.ttf",
+        "reference_media/assets/sounds",
+        "reference_media/assets/sprites",
+        "reference_media/icon.png",
+        "sounds/bgm/Intro.ogg",
+        "sounds/sfx/beLoaded",
+        "sounds/sfx/collision",
+        "sounds/sfx/common",
+        "sounds/sfx/explosion",
+        "sounds/sfx/reloading",
+        "sounds/sfx/role",
+        "sounds/sfx/shooting",
+        "sprites/Light.png",
+        "sprites/box/TreasureBox0001.png",
+        "sprites/box/TreasureBox0001_icon.png",
+        "sprites/brush/Brush0001.png",
+        "sprites/brush/Brush0002.png",
+        "sprites/brush/Brush0003.png",
+        "sprites/brush/Temp.png",
+        "sprites/brush/TestMask.png",
+        "sprites/bullet/collision",
+        "sprites/bullet/laser",
+        "sprites/bullet/normal",
+        "sprites/bullet/special",
+        "sprites/bullet/summons",
+        "sprites/common/Circle.png",
+        "sprites/common/Circle2.png",
+        "sprites/common/Effect1.png",
+        "sprites/common/HiiNumberShadow.png",
+        "sprites/common/MeleeAttack1.png",
+        "sprites/common/Number.png",
+        "sprites/common/Smoke.png",
+        "sprites/common/Smoke2.png",
+        "sprites/common/Smoke3.png",
+        "sprites/common/Smoke4.png",
+        "sprites/common/debug_arrows.png",
+        "sprites/currency/Gold_1.png",
+        "sprites/currency/Gold_10.png",
+        "sprites/currency/Gold_5.png",
+        "sprites/currency/Gold_shadow.png",
+        "sprites/explode/Explode_circle0001.png",
+        "sprites/explode/Explode_circle0002.png",
+        "sprites/explode/Explode_circle0003.png",
+        "sprites/explode/Explode_line0001.png",
+        "sprites/explode/Explode_pit0001.png",
+        "sprites/item/Items.png",
+        "sprites/itemIcon/item0002_icon.png",
+        "sprites/liquid/Test.png",
+        "sprites/liquid/Test2.png",
+        "sprites/liquid/Venom.png",
+        "sprites/liquid/Water.png",
+        "sprites/map/PreviewMap.png",
+        "sprites/map/PreviewMapShadow.png",
+        "sprites/map/PreviewTransition.png",
+        "sprites/map/PreviewTransition2.png",
+        "sprites/map/PreviewTransition3.png",
+        "sprites/map/PreviewTransition4.png",
+        "sprites/map/PreviewTransition5.png",
+        "sprites/map/PreviewTransition6.png",
+        "sprites/map/TerrainMask.png",
+        "sprites/map/TerrainMask2.png",
+        "sprites/map/TerrainMask3.png",
+        "sprites/map/TerrainMask4.png",
+        "sprites/map/WallTransition1.png",
+        "sprites/map/WallTransition2.png",
+        "sprites/map/WallTransition3.png",
+        "sprites/map/door_close.png",
+        "sprites/map/door_open.png",
+        "sprites/map/door_open2.png",
+        "sprites/map/door_open3.png",
+        "sprites/map/door_up.png",
+        "sprites/noise/Noise0001.png",
+        "sprites/noise/Noise0002.png",
+        "sprites/prop/active",
+        "sprites/prop/buff",
+        "sprites/prop/part",
+        "sprites/role/boss",
+        "sprites/role/common",
+        "sprites/role/dle_liquid",
+        "sprites/role/enemy0001",
+        "sprites/role/enemy0002",
+        "sprites/role/role0001",
+        "sprites/role/role10.png",
+        "sprites/role/role7.png",
+        "sprites/role/role8.png",
+        "sprites/role/role9.png",
+        "sprites/role/scarecrow0001.png",
+        "sprites/role/shopBoss0001",
+        "sprites/shell/Shell0001.png",
+        "sprites/shell/Shell0002.png",
+        "sprites/shell/Shell0003.png",
+        "sprites/shell/Shell0004.png",
+        "sprites/shootFire/ShotFire0001.png",
+        "sprites/shootFire/ShotFire0002.png",
+        "sprites/shootFire/ShotFire0003.png",
+        "sprites/tile/Hall.png",
+        "sprites/tip/Bleeding.png",
+        "sprites/tip/BleedingMask.png",
+        "sprites/tip/Fire.png",
+        "sprites/tip/FireMask.png",
+        "sprites/tip/Mask.png",
+        "sprites/tip/Poison.png",
+        "sprites/tip/PoisonMask.png",
+        "sprites/ui/GUI.png",
+        "sprites/ui/commonIcon",
+        "sprites/ui/encyclopedia",
+        "sprites/ui/font_bg.png",
+        "sprites/ui/keyboard",
+        "sprites/ui/mapEditorProject",
+        "sprites/ui/mapEditorTools",
+        "sprites/ui/roomMap",
+        "sprites/ui/roomUI",
+        "sprites/ui/roulette",
+        "sprites/ui/setting",
+        "sprites/ui/sursors",
+        "sprites/weapon/weapon0001",
+        "sprites/weapon/weapon0002",
+        "sprites/weapon/weapon0003",
+        "sprites/weapon/weapon0004",
+        "sprites/weapon/weapon0005",
+        "sprites/weapon/weapon0006",
+        "sprites/weapon/weapon0007",
+        "sprites/weapon/weapon0008",
+        "sprites/weapon/weapon0009",
+        "sprites/weapon/weapon0010",
+        "sprites/weapon/weapon0011",
+        "sprites/weapon/weapon0012",
+        "sprites/weapon/weapon0013",
+        "sprites/weapon/weapon0014",
+        "sprites/weapon/weapon0016",
+        "sprites/weapon/weapon0017",
+        "sprites/weapon/weapon0018",
+        "sprites/weapon/weapon0019",
+        "sprites/weapon/weapon0020",
+        "sprites/weapon/weapon0021",
+        "sprites/weapon/weapon0022",
+        "sprites/weapon/weapon0023",
+        "sprites/weapon/weapon0030",
+        "sprites/weapon/weapon0032",
+        "sprites/weapon/weapon0033",
+        "sprites/weapon/weapon0034",
+        "sprites/weapon/weapon0035",
+        "sprites/weapon/weapon0036",
+        "sprites/weapon/weapon0037",
+        "sprites/weapon/weapon0038",
+        "sprites/weapon/weapon0039",
+        "sprites/weapon/weapon0040",
+        "sprites/weapon/weapon0041",
+        "sprites/weapon/weapon0042",
+        "sprites/weapon/weapon0043",
+        "sprites/weapon/weapon0044",
+        "sprites/weapon/weapon0045",
+        "sprites/weapon/weapon0046",
+        "sprites/weapon/weapon29",
+        "sprites/weapon/weapon31"
+      ],
+      "file_count": 399,
+      "font_files": [
+        "fonts/DinkieBitmap-7pxDemo.ttf",
+        "fonts/DinkieBitmap-9pxDemo.ttf",
+        "fonts/DinkieBitmap-9pxItalicDemo.ttf",
+        "fonts/VonwaonBitmap-12px.ttf",
+        "fonts/VonwaonBitmap-16px.ttf"
+      ]
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry. Font previews are rendered from actual supplied font files; preview wording is illustrative, not additional task requirements.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 481.867,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R008",
+        "time_s": 28.7
+      },
+      {
+        "id": "R016",
+        "time_s": 61.5
+      },
+      {
+        "id": "R017",
+        "time_s": 65.6
+      },
+      {
+        "id": "R028",
+        "time_s": 110.7
+      },
+      {
+        "id": "R036",
+        "time_s": 143.5
+      },
+      {
+        "id": "R055",
+        "time_s": 221.4
+      },
+      {
+        "id": "R060",
+        "time_s": 241.9
+      },
+      {
+        "id": "R065",
+        "time_s": 262.4
+      },
+      {
+        "id": "R080",
+        "time_s": 323.9
+      },
+      {
+        "id": "R088",
+        "time_s": 356.7
+      },
+      {
+        "id": "R118",
+        "time_s": 479.7
+      },
+      {
+        "id": "R119",
+        "time_s": 481.85
+      },
+      {
+        "clip": 1,
+        "id": "RD001",
+        "time_s": 96.3734
+      },
+      {
+        "clip": 1,
+        "id": "RD010",
+        "time_s": 97.2734
+      },
+      {
+        "clip": 2,
+        "id": "RD028",
+        "time_s": 241.6335
+      },
+      {
+        "clip": 3,
+        "id": "RD046",
+        "time_s": 385.9936
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.24488084886493575,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# 枪火地牢 — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\n在俯视地牢中移动、瞄准和射击，在有限资源与持续敌压下完成一段有终点的突围。\n\n## Scope boundary\n\n一个紧凑的俯视射击地牢流程，包含战斗反馈、阶段推进、死亡/失败、重试以及明确胜利。\n\n## Required controls\n\nThis task requires at least 2 declared extended actions in `gb_levels.json.extended_actions` (extra InputMap verbs beyond the eight canonical `gb_*` actions, each bound to a real key and read in gameplay code) covering: a manual reload; a weapon switch (both separate from the fire button). Choose your own stable ids. Holding every declared extra from frame 0 must not clear the game.\n\n## Creative freedom\n\n可以自行决定房间拓扑、敌人组合、武器与升级、掉落节奏和美术编排。\n"
+}

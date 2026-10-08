@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gamebenchmark.local/interface/gb_interface.schema.json",
+  "title": "GameBenchmark gb_levels.json v2",
+  "type": "object",
+  "required": [
+    "levels",
+    "endings"
+  ],
+  "properties": {
+    "levels": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^res://.+"
+      }
+    },
+    "endings": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "enum": [
+          "victory",
+          "success",
+          "win",
+          "complete",
+          "run_complete",
+          "defeat",
+          "failure",
+          "failed",
+          "loss",
+          "lose"
+        ]
+      },
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^res://.+"
+      },
+      "anyOf": [
+        {
+          "required": [
+            "victory"
+          ]
+        },
+        {
+          "required": [
+            "success"
+          ]
+        },
+        {
+          "required": [
+            "win"
+          ]
+        },
+        {
+          "required": [
+            "complete"
+          ]
+        },
+        {
+          "required": [
+            "run_complete"
+          ]
+        }
+      ]
+    },
+    "numeric": {
+      "type": "object",
+      "propertyNames": {
+        "enum": [
+          "progress",
+          "health",
+          "timer",
+          "score"
+        ]
+      },
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      },
+      "default": {}
+    },
+    "device_ids": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^(L[1-9][0-9]*/)?(collectible|goal|hazard|enemy|checkpoint|door|interactive|pad|tile|movplat|falling_platform|spring)#[0-9]+$"
+      },
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      },
+      "default": {}
+    },
+    "anchor_camera": {
+      "type": "string",
+      "pattern": "^res://.+::.+$"
+    },
+    "audio_buses": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "level_clear": {
+      "type": "object",
+      "required": [
+        "predicate"
+      ],
+      "properties": {
+        "predicate": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Parsed evaluator predicate, never natural-language prose. Legal functions: overlap(2), collected_all(1), count(1), alive(1), norm_delta(1), norm_in(3), numeric(1), numeric_delta(1), count_delta(1), whole_game_clear(0), levels_visited(0), contact(2), device_present(2), standing_on(2), device_norm_delta(3), device_state(4), device_numeric(3), device_numeric_delta(3). Examples: overlap(gb_player, gb_goal); collected_all(gb_collectible) and overlap(gb_player, gb_goal); numeric(progress) >= 2; count_delta(gb_enemy) <= -8."
+        }
+      },
+      "additionalProperties": false
+    },
+    "level_entry": {
+      "type": "object",
+      "required": [
+        "kind",
+        "scene"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scene": {
+          "type": "string",
+          "pattern": "^res://.+"
+        },
+        "selector": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "extended_actions": {
+      "type": "array",
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "why"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{1,31}$"
+          },
+          "why": {
+            "type": "string",
+            "minLength": 8
+          }
+        }
+      }
+    },
+    "analog_axes": {
+      "type": "array",
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "why",
+          "min",
+          "max",
+          "steps"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{1,31}$"
+          },
+          "why": {
+            "type": "string",
+            "minLength": 8
+          },
+          "min": {
+            "type": "number"
+          },
+          "max": {
+            "type": "number"
+          },
+          "steps": {
+            "type": "integer",
+            "minimum": 2,
+            "maximum": 33
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

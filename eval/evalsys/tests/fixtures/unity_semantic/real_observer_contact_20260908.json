@@ -1,0 +1,669 @@
+{
+  "provenance": {
+    "kind": "compact_real_unity_trace_replay_fixture",
+    "scope": "observer_conformance_not_game_calibration",
+    "sha256": "d1f80de33ebd78b6f13c9905b8d944937718a2ea4ca0e6aa2bf8ab3221d1097b",
+    "source": "D:\\gamebench-unity-vm\\evidence\\m5-005-sandbox-20260908T062419Z\\observer-semantic-report.json"
+  },
+  "report": {
+    "bounds": {
+      "max": {
+        "x": 3.5,
+        "y": 0.5,
+        "z": 0.5
+      },
+      "min": {
+        "x": -2.5,
+        "y": -0.5,
+        "z": -0.5
+      }
+    },
+    "deaths": 0,
+    "detail": "production injected observer over public SDK fixture",
+    "device_contacts": {},
+    "device_index": {},
+    "errors": [],
+    "group_totals": {
+      "gb_enemy": 1,
+      "gb_goal": 1,
+      "gb_player": 1,
+      "gb_projectile": 1
+    },
+    "injects": 0,
+    "out_of_bounds": 0,
+    "physics_frames_at_end": 41,
+    "process_frames_at_end": 41,
+    "rows": [
+      {
+        "c": [],
+        "d": {
+          "goal#0": {
+            "present": true
+          }
+        },
+        "f": 6,
+        "g": {
+          "gb_enemy": 1,
+          "gb_goal": 1,
+          "gb_player": 1,
+          "gb_projectile": 0
+        },
+        "lv": 1,
+        "n": {
+          "health": 100,
+          "input_performed": 0,
+          "score": 0
+        },
+        "o": {
+          "gb_enemy": false,
+          "gb_enemy|gb_goal": false,
+          "gb_goal": false
+        },
+        "px": -2,
+        "py": 0,
+        "pz": 0,
+        "s": {
+          "anim": 0,
+          "audio_events": 0,
+          "node_count": 6,
+          "numeric": {
+            "health": 100,
+            "input_performed": 0,
+            "score": 0
+          },
+          "text": 0,
+          "visible_count": 3
+        },
+        "so": "",
+        "vx": 0,
+        "vy": 0,
+        "vz": 0,
+        "wgc": false
+      },
+      {
+        "c": [],
+        "d": {
+          "goal#0": {
+            "present": true
+          }
+        },
+        "f": 16,
+        "g": {
+          "gb_enemy": 1,
+          "gb_goal": 1,
+          "gb_player": 1,
+          "gb_projectile": 1
+        },
+        "lv": 1,
+        "n": {
+          "health": 100,
+          "input_performed": 1,
+          "score": 0
+        },
+        "o": {
+          "gb_enemy": false,
+          "gb_enemy|gb_goal": false,
+          "gb_enemy|gb_projectile": true,
+          "gb_goal": false,
+          "gb_goal|gb_projectile": false,
+          "gb_projectile": true
+        },
+        "px": -2,
+        "py": 0,
+        "pz": 0,
+        "s": {
+          "anim": 0,
+          "audio_events": 0,
+          "node_count": 6,
+          "numeric": {
+            "health": 100,
+            "input_performed": 1,
+            "score": 0
+          },
+          "text": 0,
+          "visible_count": 4
+        },
+        "so": "",
+        "vx": 0,
+        "vy": 0,
+        "vz": 0,
+        "wgc": false
+      },
+      {
+        "c": [
+          "goal#0"
+        ],
+        "d": {
+          "goal#0": {
+            "present": true
+          }
+        },
+        "f": 32,
+        "g": {
+          "gb_enemy": 0,
+          "gb_goal": 1,
+          "gb_player": 1,
+          "gb_projectile": 1
+        },
+        "lv": 1,
+        "n": {
+          "health": 100,
+          "input_performed": 1,
+          "score": 100
+        },
+        "o": {
+          "gb_goal": false,
+          "gb_goal|gb_projectile": false,
+          "gb_projectile": false
+        },
+        "px": 2,
+        "py": 0,
+        "pz": 0,
+        "s": {
+          "anim": 0,
+          "audio_events": 0,
+          "node_count": 5,
+          "numeric": {
+            "health": 100,
+            "input_performed": 1,
+            "score": 100
+          },
+          "text": 0,
+          "visible_count": 3
+        },
+        "so": "",
+        "vx": 12.500004768371582,
+        "vy": 0,
+        "vz": 0,
+        "wgc": false
+      },
+      {
+        "c": [
+          "goal#0"
+        ],
+        "d": {
+          "goal#0": {
+            "present": true
+          }
+        },
+        "f": 33,
+        "g": {
+          "gb_enemy": 0,
+          "gb_goal": 1,
+          "gb_player": 1,
+          "gb_projectile": 1
+        },
+        "lv": 1,
+        "n": {
+          "health": 100,
+          "input_performed": 1,
+          "score": 100
+        },
+        "o": {
+          "gb_goal": true,
+          "gb_goal|gb_projectile": false,
+          "gb_projectile": false
+        },
+        "px": 2,
+        "py": 0,
+        "pz": 0,
+        "s": {
+          "anim": 0,
+          "audio_events": 0,
+          "node_count": 5,
+          "numeric": {
+            "health": 100,
+            "input_performed": 1,
+            "score": 100
+          },
+          "text": 0,
+          "visible_count": 3
+        },
+        "so": "",
+        "vx": 0,
+        "vy": 0,
+        "vz": 0,
+        "wgc": false
+      },
+      {
+        "c": [
+          "goal#0"
+        ],
+        "d": {
+          "goal#0": {
+            "present": true
+          }
+        },
+        "f": 34,
+        "g": {
+          "gb_enemy": 0,
+          "gb_goal": 1,
+          "gb_player": 1,
+          "gb_projectile": 1
+        },
+        "lv": 1,
+        "n": {
+          "health": 100,
+          "input_performed": 1,
+          "score": 100
+        },
+        "o": {
+          "gb_goal": true,
+          "gb_goal|gb_projectile": false,
+          "gb_projectile": false
+        },
+        "px": 2,
+        "py": 0,
+        "pz": 0,
+        "s": {
+          "anim": 0,
+          "audio_events": 0,
+          "node_count": 5,
+          "numeric": {
+            "health": 100,
+            "input_performed": 1,
+            "score": 100
+          },
+          "text": 0,
+          "visible_count": 3
+        },
+        "so": "",
+        "vx": 0,
+        "vy": 0,
+        "vz": 0,
+        "wgc": true
+      },
+      {
+        "c": [
+          "goal#0"
+        ],
+        "d": {
+          "goal#0": {
+            "present": true
+          }
+        },
+        "f": 35,
+        "g": {
+          "gb_enemy": 0,
+          "gb_goal": 1,
+          "gb_player": 1,
+          "gb_projectile": 1
+        },
+        "lv": 1,
+        "n": {
+          "health": 100,
+          "input_performed": 1,
+          "score": 100
+        },
+        "o": {
+          "gb_goal": true,
+          "gb_goal|gb_projectile": false,
+          "gb_projectile": false
+        },
+        "px": 2,
+        "py": 0,
+        "pz": 0,
+        "s": {
+          "anim": 0,
+          "audio_events": 0,
+          "node_count": 5,
+          "numeric": {
+            "health": 100,
+            "input_performed": 1,
+            "score": 100
+          },
+          "text": 0,
+          "visible_count": 3
+        },
+        "so": "",
+        "vx": 0,
+        "vy": 0,
+        "vz": 0,
+        "wgc": true
+      },
+      {
+        "c": [
+          "goal#0"
+        ],
+        "d": {
+          "goal#0": {
+            "present": true
+          }
+        },
+        "f": 36,
+        "g": {
+          "gb_enemy": 0,
+          "gb_goal": 1,
+          "gb_player": 1,
+          "gb_projectile": 1
+        },
+        "lv": 1,
+        "n": {
+          "health": 100,
+          "input_performed": 1,
+          "score": 100
+        },
+        "o": {
+          "gb_goal": true,
+          "gb_goal|gb_projectile": false,
+          "gb_projectile": false
+        },
+        "px": 2,
+        "py": 0,
+        "pz": 0,
+        "s": {
+          "anim": 0,
+          "audio_events": 0,
+          "node_count": 5,
+          "numeric": {
+            "health": 100,
+            "input_performed": 1,
+            "score": 100
+          },
+          "text": 0,
+          "visible_count": 3
+        },
+        "so": "",
+        "vx": 0,
+        "vy": 0,
+        "vz": 0,
+        "wgc": true
+      },
+      {
+        "c": [
+          "goal#0"
+        ],
+        "d": {
+          "goal#0": {
+            "present": true
+          }
+        },
+        "f": 37,
+        "g": {
+          "gb_enemy": 0,
+          "gb_goal": 1,
+          "gb_player": 1,
+          "gb_projectile": 1
+        },
+        "lv": 1,
+        "n": {
+          "health": 100,
+          "input_performed": 1,
+          "score": 100
+        },
+        "o": {
+          "gb_goal": true,
+          "gb_goal|gb_projectile": false,
+          "gb_projectile": false
+        },
+        "px": 2,
+        "py": 0,
+        "pz": 0,
+        "s": {
+          "anim": 0,
+          "audio_events": 0,
+          "node_count": 5,
+          "numeric": {
+            "health": 100,
+            "input_performed": 1,
+            "score": 100
+          },
+          "text": 0,
+          "visible_count": 3
+        },
+        "so": "",
+        "vx": 0,
+        "vy": 0,
+        "vz": 0,
+        "wgc": true
+      },
+      {
+        "c": [
+          "goal#0"
+        ],
+        "d": {
+          "goal#0": {
+            "present": true
+          }
+        },
+        "f": 38,
+        "g": {
+          "gb_enemy": 0,
+          "gb_goal": 1,
+          "gb_player": 1,
+          "gb_projectile": 1
+        },
+        "lv": 1,
+        "n": {
+          "health": 100,
+          "input_performed": 1,
+          "score": 100
+        },
+        "o": {
+          "gb_goal": true,
+          "gb_goal|gb_projectile": false,
+          "gb_projectile": false
+        },
+        "px": 2,
+        "py": 0,
+        "pz": 0,
+        "s": {
+          "anim": 0,
+          "audio_events": 0,
+          "node_count": 5,
+          "numeric": {
+            "health": 100,
+            "input_performed": 1,
+            "score": 100
+          },
+          "text": 0,
+          "visible_count": 3
+        },
+        "so": "",
+        "vx": 0,
+        "vy": 0,
+        "vz": 0,
+        "wgc": true
+      },
+      {
+        "c": [
+          "goal#0"
+        ],
+        "d": {
+          "goal#0": {
+            "present": true
+          }
+        },
+        "f": 39,
+        "g": {
+          "gb_enemy": 0,
+          "gb_goal": 1,
+          "gb_player": 1,
+          "gb_projectile": 1
+        },
+        "lv": 1,
+        "n": {
+          "health": 100,
+          "input_performed": 1,
+          "score": 100
+        },
+        "o": {
+          "gb_goal": true,
+          "gb_goal|gb_projectile": false,
+          "gb_projectile": false
+        },
+        "px": 2,
+        "py": 0,
+        "pz": 0,
+        "s": {
+          "anim": 0,
+          "audio_events": 0,
+          "node_count": 5,
+          "numeric": {
+            "health": 100,
+            "input_performed": 1,
+            "score": 100
+          },
+          "text": 0,
+          "visible_count": 3
+        },
+        "so": "",
+        "vx": 0,
+        "vy": 0,
+        "vz": 0,
+        "wgc": true
+      },
+      {
+        "c": [
+          "goal#0"
+        ],
+        "d": {
+          "goal#0": {
+            "present": true
+          }
+        },
+        "f": 40,
+        "g": {
+          "gb_enemy": 0,
+          "gb_goal": 1,
+          "gb_player": 1,
+          "gb_projectile": 1
+        },
+        "lv": 1,
+        "n": {
+          "health": 100,
+          "input_performed": 1,
+          "score": 100
+        },
+        "o": {
+          "gb_goal": true,
+          "gb_goal|gb_projectile": false,
+          "gb_projectile": false
+        },
+        "px": 2,
+        "py": 0,
+        "pz": 0,
+        "s": {
+          "anim": 0,
+          "audio_events": 0,
+          "node_count": 5,
+          "numeric": {
+            "health": 100,
+            "input_performed": 1,
+            "score": 100
+          },
+          "text": 0,
+          "visible_count": 3
+        },
+        "so": "",
+        "vx": 0,
+        "vy": 0,
+        "vz": 0,
+        "wgc": true
+      },
+      {
+        "c": [
+          "goal#0"
+        ],
+        "d": {
+          "goal#0": {
+            "present": true
+          }
+        },
+        "f": 41,
+        "g": {
+          "gb_enemy": 0,
+          "gb_goal": 1,
+          "gb_player": 1,
+          "gb_projectile": 1
+        },
+        "lv": 1,
+        "n": {
+          "health": 100,
+          "input_performed": 1,
+          "score": 100
+        },
+        "o": {
+          "gb_goal": true,
+          "gb_goal|gb_projectile": false,
+          "gb_projectile": false
+        },
+        "px": 2,
+        "py": 0,
+        "pz": 0,
+        "s": {
+          "anim": 0,
+          "audio_events": 0,
+          "node_count": 5,
+          "numeric": {
+            "health": 100,
+            "input_performed": 1,
+            "score": 100
+          },
+          "text": 0,
+          "visible_count": 3
+        },
+        "so": "",
+        "vx": 0,
+        "vy": 0,
+        "vz": 0,
+        "wgc": true
+      },
+      {
+        "c": [
+          "goal#0"
+        ],
+        "d": {
+          "goal#0": {
+            "present": true
+          }
+        },
+        "f": 42,
+        "g": {
+          "gb_enemy": 0,
+          "gb_goal": 1,
+          "gb_player": 1,
+          "gb_projectile": 1
+        },
+        "lv": 1,
+        "n": {
+          "health": 100,
+          "input_performed": 1,
+          "score": 100
+        },
+        "o": {
+          "gb_goal": true,
+          "gb_goal|gb_projectile": false,
+          "gb_projectile": false
+        },
+        "px": 2,
+        "py": 0,
+        "pz": 0,
+        "s": {
+          "anim": 0,
+          "audio_events": 0,
+          "node_count": 5,
+          "numeric": {
+            "health": 100,
+            "input_performed": 1,
+            "score": 100
+          },
+          "text": 0,
+          "visible_count": 3
+        },
+        "so": "",
+        "vx": 0,
+        "vy": 0,
+        "vz": 0,
+        "wgc": true
+      }
+    ],
+    "run_id": "m5-104-observer/positive",
+    "schema": "gamebench.unity-semantic-report.v1",
+    "stall_frames": 0,
+    "steps": 1,
+    "stop_reason": "goal_reached",
+    "success_before_all_levels": false,
+    "turns": 1
+  }
+}

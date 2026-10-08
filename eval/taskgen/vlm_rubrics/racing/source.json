@@ -1,0 +1,181 @@
+{
+  "game_id": "racing",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "reference_media/assets/vendor/kenney_skybox/skybox-day.png",
+        "id": "S004",
+        "label": "reference_media/assets/vendor/kenney_skybox/skybox-day.png"
+      },
+      {
+        "bundled_path": "media/S005.png",
+        "id": "S005",
+        "label": "kenney_car-kit-0.png"
+      },
+      {
+        "bundled_path": "media/S016.png",
+        "id": "S016",
+        "label": "kenney_racing-kit-0.png"
+      },
+      {
+        "bundled_path": "media/S017.png",
+        "id": "S017",
+        "label": "kenney_racing-kit-1.png"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "kenney_car-kit.zip",
+        "kenney_racing-kit.zip",
+        "reference_media/assets/audio",
+        "reference_media/assets/vendor"
+      ],
+      "file_count": 49,
+      "font_files": []
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 339.084,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R002",
+        "time_s": 2.88333
+      },
+      {
+        "id": "R003",
+        "time_s": 5.76667
+      },
+      {
+        "id": "R006",
+        "time_s": 14.4167
+      },
+      {
+        "id": "R007",
+        "time_s": 17.3
+      },
+      {
+        "id": "R014",
+        "time_s": 37.4833
+      },
+      {
+        "id": "R025",
+        "time_s": 69.2
+      },
+      {
+        "id": "R035",
+        "time_s": 98.0333
+      },
+      {
+        "id": "R043",
+        "time_s": 121.1
+      },
+      {
+        "id": "R056",
+        "time_s": 158.583
+      },
+      {
+        "id": "R057",
+        "time_s": 161.467
+      },
+      {
+        "id": "R060",
+        "time_s": 170.117
+      },
+      {
+        "id": "R088",
+        "time_s": 250.85
+      },
+      {
+        "id": "R117",
+        "time_s": 334.467
+      },
+      {
+        "id": "R118",
+        "time_s": 337.35
+      },
+      {
+        "id": "R119",
+        "time_s": 339.067
+      },
+      {
+        "clip": 1,
+        "id": "RD007",
+        "time_s": 68.4168
+      },
+      {
+        "clip": 1,
+        "id": "RD010",
+        "time_s": 68.7168
+      },
+      {
+        "clip": 1,
+        "id": "RD013",
+        "time_s": 69.0168
+      },
+      {
+        "clip": 1,
+        "id": "RD016",
+        "time_s": 69.3168
+      },
+      {
+        "clip": 1,
+        "id": "RD019",
+        "time_s": 69.6168
+      },
+      {
+        "clip": 2,
+        "id": "RD021",
+        "time_s": 169.542
+      },
+      {
+        "clip": 2,
+        "id": "RD024",
+        "time_s": 169.842
+      },
+      {
+        "clip": 2,
+        "id": "RD028",
+        "time_s": 170.242
+      },
+      {
+        "clip": 2,
+        "id": "RD030",
+        "time_s": 170.442
+      },
+      {
+        "clip": 2,
+        "id": "RD033",
+        "time_s": 170.742
+      },
+      {
+        "clip": 3,
+        "id": "RD041",
+        "time_s": 271.2672
+      },
+      {
+        "clip": 3,
+        "id": "RD050",
+        "time_s": 272.1672
+      },
+      {
+        "clip": 3,
+        "id": "RD060",
+        "time_s": 273.1672
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.3479963666820021,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Apex Circuit — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nDrive from a chase view, commit to braking and cornering decisions, race a complete circuit, and receive an unambiguous result.\n\n## Scope boundary\n\nA compact third-person circuit racer with a start, timed or opponent pressure, lap progression, finish order, failure or loss, and restart.\n\n## Creative freedom\n\nYou may design the circuit, handling model, rivals, lap count, and presentation.\n"
+}

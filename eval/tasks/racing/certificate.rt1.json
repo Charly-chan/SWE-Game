@@ -1,0 +1,113 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "harness_concessions_only",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "65abe249f284a71d66a66a0083d94aa07628b834a920fe3ae07dcbbc37318427"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "racing/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "7f1ca4d84eaf21f9fdf91f2c0861ee7a3acf707e64395659cb341ae36be90206",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "65abe249f284a71d66a66a0083d94aa07628b834a920fe3ae07dcbbc37318427",
+    "task_id": "racing"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "5bbcc5c4ae1dcca2f4a7fd35b09d8d566a91b5be77fb8a94c6a928f6b6fb957d",
+    "source_sha256": "9c4372be417fb5fa276c88004e79767f279bd1d9cd166977744f6588606541b0"
+  },
+  "passed_route_ids": [
+    "racing/L0/no_input_no_lap",
+    "racing/C1/lakeside_three_laps",
+    "racing/C2/ravine_three_laps",
+    "racing/C3/lakeside_first_lap",
+    "racing/L5/whole_game_clear"
+  ],
+  "readings": {
+    "racing/C1/lakeside_three_laps": {
+      "deaths": 1,
+      "frames": 9544,
+      "injects": 1,
+      "milestones_reached": [
+        "lakeside_first_lap",
+        "lakeside_race_won"
+      ],
+      "solution_kind": "tape",
+      "steps": 2256,
+      "stop_reason": "goal_reached"
+    },
+    "racing/C2/ravine_three_laps": {
+      "deaths": 1,
+      "frames": 10426,
+      "injects": 1,
+      "milestones_reached": [
+        "ravine_first_lap",
+        "ravine_race_won"
+      ],
+      "solution_kind": "tape",
+      "steps": 2711,
+      "stop_reason": "goal_reached"
+    },
+    "racing/C3/lakeside_first_lap": {
+      "deaths": 0,
+      "frames": 4222,
+      "injects": 1,
+      "milestones_reached": [
+        "lakeside_lap_one"
+      ],
+      "solution_kind": "tape",
+      "steps": 936,
+      "stop_reason": "ops_exhausted"
+    },
+    "racing/L0/no_input_no_lap": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "racing/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 20098,
+      "injects": 0,
+      "milestones_reached": [
+        "lakeside_won",
+        "ravine_won"
+      ],
+      "solution_kind": "tape",
+      "steps": 4970,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "7f1ca4d84eaf21f9fdf91f2c0861ee7a3acf707e64395659cb341ae36be90206"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "9c67fd173f54321c5d47d4a712f63b033bf1a5c8b72d670ffdd46d25beb0759f",
+  "schema_version": 2,
+  "solution_kinds": {
+    "racing/C1/lakeside_three_laps": "tape",
+    "racing/C2/ravine_three_laps": "tape",
+    "racing/C3/lakeside_first_lap": "tape",
+    "racing/L0/no_input_no_lap": "tape",
+    "racing/L5/whole_game_clear": "tape"
+  },
+  "task_id": "racing",
+  "validated_at": "2026-09-09"
+}

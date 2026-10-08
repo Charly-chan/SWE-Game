@@ -1,0 +1,879 @@
+{
+  "game_id": "twin_holds",
+  "mode": "brief",
+  "provided_asset_observations": [
+    {
+      "frame_ids": [
+        "S001",
+        "S004",
+        "S008",
+        "S009"
+      ],
+      "informs": [
+        "A2"
+      ],
+      "observation": "多数素材预览是 hexagons_medieval 调色板，不是 3D 棋盘；若候选把调色板铺成地面需检查透视。"
+    },
+    {
+      "frame_ids": [
+        "S053",
+        "S055",
+        "S063",
+        "S064",
+        "S066"
+      ],
+      "informs": [
+        "A1",
+        "A2"
+      ],
+      "observation": "KayKit 样张含城堡、房屋、风车、自然块与六边形砖，与录像岛屿同族。"
+    },
+    {
+      "frame_ids": [
+        "S062",
+        "S065",
+        "S067",
+        "S068"
+      ],
+      "informs": [
+        "A3",
+        "V4"
+      ],
+      "observation": "黄描边焦点按钮、蓝按钮与灰面板，与结局页控件同族。"
+    }
+  ],
+  "reference_limits": [
+    "录像未展示失败结局、标题页与暂停；失败只在候选展示时评判。",
+    "Next Level / Back to Title 未被点击，功能未验证。",
+    "玩家攻下红堡的连续过程未拍到，只有 R053 文案 You stormed the rival Castle；攻城动画 unknown。",
+    "Prestige 目标、三关、具体造价与对手脚本是 GT 设计，不要求复制。",
+    "无音频；调色板预览对应不证明文件加载。"
+  ],
+  "reference_observations": [
+    {
+      "frame_ids": [
+        "R001"
+      ],
+      "informs": [
+        "M4",
+        "D1",
+        "V1",
+        "V2",
+        "A2"
+      ],
+      "observation": "开局 Gold 150 Wood 80 Food 50 Pop 0/4 Prestige 0 Food/turn +0，Rival Gold 260 Round 1/20 Goal 280/500；蓝堡在南、红堡在北，中河，黄地。"
+    },
+    {
+      "frame_ids": [
+        "R005",
+        "R008"
+      ],
+      "informs": [
+        "M1",
+        "M2",
+        "M3",
+        "V2",
+        "V3"
+      ],
+      "observation": "R005 Opponent built Mine at (2, -4)，Gold 0 Wood 50 Pop 7/7 Rival Gold 214 Round 2/20 Goal 96/500；R008 Round collected Gold+0 Wood+20 Food-2，Wood 150 Round 7/20 Rival Gold 125 Goal 186/500。"
+    },
+    {
+      "frame_ids": [
+        "R018",
+        "R053",
+        "R054"
+      ],
+      "informs": [
+        "M4",
+        "D2",
+        "V4"
+      ],
+      "observation": "R018 Level 1 Complete 产出胜利 Score 510 Rounds 20；R053 Level 2 Complete 攻下城堡 Score 64 Rounds 27；R054 第三关 Gold 300 Wood 160 Round 1/40 Goal 550/1400。"
+    },
+    {
+      "frame_ids": [
+        "R036",
+        "R037"
+      ],
+      "informs": [
+        "M3",
+        "M1",
+        "D2",
+        "A4"
+      ],
+      "observation": "R036 对手进攻失败 Attack 3 vs Defense 5，Gold 28 Wood 34 Pop 12/15 Round 14/30 Goal 111/900；R037 Built Well Food/turn +1 Goal 91/900。"
+    },
+    {
+      "frame_ids": [
+        "R060",
+        "R110",
+        "R119"
+      ],
+      "informs": [
+        "M2",
+        "M1",
+        "V2",
+        "V4"
+      ],
+      "observation": "R060 Round collected Gold+15 Wood+12 Food-8，Rival Gold 380 Round 2/40 Goal 276/1400；R110 拆除退款 Prestige 21 Round 40/40 Goal 950/1400；R119 Game Complete Score 1999 / 87 Rounds。"
+    },
+    {
+      "frame_ids": [
+        "RD052"
+      ],
+      "informs": [
+        "M1",
+        "A4"
+      ],
+      "observation": "Built Lumbermill — +4 Wood/turn，格子上出现伐木场。"
+    }
+  ],
+  "requirements": [
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R005",
+            "R037"
+          ],
+          "observation": "R001 蓝堡周围几乎只有城堡与黄土地，Gold 150 Wood 80 Pop 0/4；R005 蓝堡旁已有风车与红顶房屋，Gold 0 Wood 50 Pop 7/7；R037 横幅 Built Well — +2 Food/turn，河边出现水井模型，Gold 13 Wood 29。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R110",
+            "RD052"
+          ],
+          "observation": "R110 Demolished (-2, 5): refunded 15 Gold, 10 Wood，Gold 349 Wood 581；RD052 Built Lumbermill — +4 Wood/turn，对应格子出现伐木场。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "左侧 BUILD 选了 Tavern 或 Mine，Gold 从开局 150 降下去，但黄土地上没有新增酒馆、矿井或房屋模型",
+          "id": "M1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评玩家建造选择是否形成花费→格子上出现对应建筑。黄格高亮与横幅形式归 A4/V3；Gold/Wood 是否跟随归 V2。",
+      "evidence": {
+        "coverage": "看花费前后同一格子；数字同步归 V2，高亮过程归 A4。",
+        "kind": "action_sequence",
+        "unit": "一次建造（及一次拆除，若有）"
+      },
+      "full_credit": "选择一种建筑并确认后，目标六边形出现新建筑，花费与该次放置对应。拆除若候选采用：格子清空并退资源。",
+      "group": "M",
+      "high_score_requirements": [
+        "建造落在所选六边形上，不是随机刷在别处。",
+        "新建筑与所选类型可对应。",
+        "拆除若存在则格子清空，而不是只改一句 Demolished。"
+      ],
+      "id": "M1",
+      "inspired_by": [
+        "strategy-skirmish:M2"
+      ],
+      "partial_credit": "能打开建造列表但反复出现扣资源却无新建筑，或建筑出现在未选的格子。建筑种类少本身不是缺陷。",
+      "title": "花费后六边形上出现建筑",
+      "zero_credit": "充分覆盖建造操作后，棋盘上从未因玩家选择而出现新建筑。未拍到建造为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R008",
+            "R060"
+          ],
+          "observation": "R008 Round collected Gold+0 Wood+20 Food-2，Wood 150；R060 Round collected Gold+15 Wood+12 Food-8，Gold 132 Wood 69 Food 75，Food/turn -8。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "Round 从 1/20 走到 7/20，棋盘上已有风车，但 Wood 从未因回合增加，也没有任何结算事件",
+          "id": "M2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评回合结束是否根据已有建筑结算资源。Round collected 横幅形式归 V3；顶栏数字方向归 V2。",
+      "evidence": {
+        "coverage": "需要看到结算前后资源变化；横幅文案归 V3。",
+        "kind": "action_sequence",
+        "unit": "一次 End Turn 结算"
+      },
+      "full_credit": "结束回合并确认后，资源按已建造的经济建筑发生变化（增产或食物维持）。没有产量的开局回合不因此判负。",
+      "group": "M",
+      "high_score_requirements": [
+        "结束回合触发一次可跟踪的结算。",
+        "结算方向与已有经济建筑相符。",
+        "食物或等价维持若被采用，会在结算中显现。"
+      ],
+      "id": "M2",
+      "inspired_by": [
+        "strategy-skirmish:M2"
+      ],
+      "partial_credit": "有结束回合，但已有风车/矿井的情况下资源从不因回合而变。",
+      "title": "结束回合后产量结算",
+      "zero_credit": "充分覆盖结束回合后，资源与建筑状态完全不随回合推进。未拍到结束回合为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R005",
+            "R008"
+          ],
+          "observation": "R005 Opponent built Mine at (2, -4)，红堡侧出现灰色矿井，Rival Gold 214；R008 红堡周围已有风车与房屋，Rival Gold 125。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R036",
+            "R053"
+          ],
+          "observation": "R036 Opponent attacked (0, 1): Attack Power 3 vs Defense 5 — failed，棋盘写 Attack 3 vs Defense 5 FAILED；R053 Level 2 Complete：You stormed the rival Castle。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "横幅写 Opponent built Mine 或 Opponent attacked，但红堡一侧格子没有任何新建筑，被攻击的格子也没有任何胜负变化",
+          "id": "M3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评脚本化对手是否在回合中回应：在己方格子外出现新建筑，或发动攻击并产生成败。攻击闪光归 A4；横幅归 V3；Rival Gold 数字归 V2。",
+      "evidence": {
+        "coverage": "对手脚本自由；需要看到世界层后果，不要求复制 Attack 3 vs Defense 5。",
+        "kind": "action_sequence",
+        "unit": "一次对手建造或一次攻防"
+      },
+      "full_credit": "对手在对局中至少做出建造或进攻之一，世界层可见（红堡侧新建筑，或攻击力对防御的胜负）。单位规则与对手脚本自由。",
+      "group": "M",
+      "high_score_requirements": [
+        "对手行动发生在己方操作之外的回合。",
+        "建造或进攻能在格子上对上。",
+        "攻防有成败，不是攻了永远无后果。"
+      ],
+      "id": "M3",
+      "inspired_by": [
+        "strategy-skirmish:M3"
+      ],
+      "partial_credit": "有对手城堡，但全程不建造也不进攻，只作为静态摆设。",
+      "title": "对手据点会建造或进攻",
+      "zero_credit": "充分覆盖多回合后棋盘上没有对手据点，也没有任何对手行动。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R018",
+            "R054"
+          ],
+          "observation": "R001 Round 1/20 Goal 280/500 黄土地开局；R018 Level 1 Complete，Next Level / Back to Title；R054 新图 Round 1/40 Goal 550/1400，Gold 300 Wood 160。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R053",
+            "R119"
+          ],
+          "observation": "R053 Level 2 Complete，You stormed the rival Castle；R119 Game Complete，Back to Title，Session Kingdom Score 1999 over 87 Rounds。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "名义有 Round 1/20，但第一回合结束就弹出 Level Complete，红堡一侧从未出现过对峙建筑或进攻",
+          "id": "M4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评流程：可检查的开局盘面 → 若干回合对局 → 胜利或失败 → 下一关或回标题。关卡数与 Goal 分数自由。结局页分组归 V4。",
+      "evidence": {
+        "coverage": "成功结局必需；失败仅在展示时评。",
+        "kind": "whole_scope",
+        "unit": "开局、中段回合与结局页"
+      },
+      "full_credit": "开局可辨两座据点与资源；随后有回合推进；胜利或失败出现在对局之后；提供下一关或回标题。失败页未拍到不扣 GT，候选展示时才评。",
+      "group": "M",
+      "high_score_requirements": [
+        "开局能看出己方据点、对手据点与资源。",
+        "结局出现在实际回合之后。",
+        "通关页提供下一关或回标题。"
+      ],
+      "id": "M4",
+      "inspired_by": [
+        "shadow-courier:M3"
+      ],
+      "partial_credit": "有对局但缺结局或缺重开入口，或结局未经过回合直接出现。",
+      "title": "开局、对局、胜利或失败与重开",
+      "zero_credit": "充分覆盖后既没有可操作回合，也没有可辨的开始或结束。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R054"
+          ],
+          "observation": "R001 底部蓝顶城堡、顶部粉红城堡，中间黄六边形与蓝河；R054 第三关仍是两岸据点夹一条河，树林与山体围边。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R036",
+            "R110"
+          ],
+          "observation": "R036 两岸都铺了房屋、塔与风车，河仍分隔；R110 格子几乎填满，仍能看出蓝堡在南、红堡在北。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "开局只有一座蓝堡和黄格子，对手据点在棋盘上不存在，只能靠 Rival Gold 数字知道有敌人",
+          "id": "D1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评棋盘是否给出两座据点与可建造的地块。拓扑自由，不要求中河或三关换图。敌我配色归 V1；地形美术归 A2。",
+      "evidence": {
+        "coverage": "不要求复制河流走向或关卡数量。",
+        "kind": "overview",
+        "unit": "开局与中盘宽景"
+      },
+      "full_credit": "开局就能看见己方据点与对手据点，中间有可走或可造的格子，边界可读。单张紧凑棋盘本身不是缺陷。",
+      "group": "D",
+      "high_score_requirements": [
+        "两座据点在开局盘面同时可见。",
+        "可造地块与障碍可区分。",
+        "对局中据点位置保持可读，不会丢成一团。"
+      ],
+      "id": "D1",
+      "inspired_by": [
+        "shadow-courier:D1"
+      ],
+      "partial_credit": "只有己方城堡，对手在视野外；或格子无法区分可造与不可造。",
+      "title": "两座据点之间可读的地块",
+      "zero_credit": "充分覆盖后没有棋盘空间，也没有两座据点。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R005",
+            "R037"
+          ],
+          "observation": "R005 左侧同时列出房屋、风车、矿与塔类图标及 20g/10w 等造价；R037 刚造 Well 增加 Food/turn，棋盘上仍留着 Attack 3 vs Defense 5 FAILED。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R053",
+            "R060"
+          ],
+          "observation": "R053 军事胜利 You stormed the rival Castle；R060 左侧 2–11 号含风车、塔、投石塔等，Food/turn -8 显示人口维持在抽经济。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "BUILD 列表里既有风车也有塔，但造价与效果完全相同，造塔不增加防御、造风车不增加木，取舍只换图标",
+          "id": "D2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评 brief 要求的经济对军事压力：建造列表里经济项与军事项会争同一资源或格子。具体建筑名自由。未提供任何军事选项则本条按缺失评，不是 not_applicable。",
+      "evidence": {
+        "coverage": "不要求同时展示经济胜利与攻城胜利。",
+        "kind": "overview",
+        "unit": "建造列表与一次军事压力"
+      },
+      "full_credit": "玩家能在增产（金/木/食物/人口）与防御或攻击建筑之间做可见选择，选择改变后续压力。",
+      "group": "D",
+      "high_score_requirements": [
+        "经济项与军事项同时出现在可选集合里。",
+        "选择会改变产量或防攻态势。",
+        "对手压力让纯堆经济不是唯一无代价路径。"
+      ],
+      "id": "D2",
+      "inspired_by": [
+        "strategy-skirmish:D2"
+      ],
+      "partial_credit": "列表上有两类，但费用与效果无差别，造哪个都不改变对手压力。",
+      "title": "经济建筑与军事建筑的取舍",
+      "zero_credit": "充分覆盖后建造选项只有一类，无法在经济与军事之间取舍。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R005",
+            "R054"
+          ],
+          "observation": "R001/R005 南侧蓝顶城堡与旗，北侧粉红屋顶城堡；黄地与绿树、蓝河对比清楚。R054 第三关仍用同一套蓝/红城堡语言。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "两座城堡同一模型同一配色，只能靠顶栏 Rival Gold 才知道哪座是对手",
+          "id": "V1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评己方据点、对手据点、可造黄地与河流/树林在正常距离是否可预读。建筑身份细节归 A1。",
+      "evidence": {
+        "coverage": "到达前预读，不评攻击闪光。",
+        "kind": "overview",
+        "unit": "开局与中盘盘面"
+      },
+      "full_credit": "两座城堡配色或形体可分；可造格与障碍格可分。",
+      "group": "V",
+      "high_score_requirements": [
+        "敌我城堡在开局即可分辨。",
+        "黄地可造与树/河不可造可预读。",
+        "中盘建筑变密后仍能找到两座主堡。"
+      ],
+      "id": "V1",
+      "inspired_by": [
+        "strategy-skirmish:V4"
+      ],
+      "partial_credit": "能分开但要靠选中才知道谁是对手。",
+      "title": "蓝堡与红堡在到达前可预读",
+      "zero_credit": "充分覆盖后两座据点与地块无法分辨。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R005",
+            "R008"
+          ],
+          "observation": "R001 Gold 150 Wood 80 Pop 0/4 Round 1/20 Rival Gold 260 Goal 280/500；R005 Gold 0 Wood 50 Pop 7/7 Round 2/20 Rival Gold 214 Goal 96/500；R008 Wood 150 Round 7/20 Rival Gold 125，Round collected Wood+20。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R037",
+            "R060",
+            "R110"
+          ],
+          "observation": "R037 Built Well 后 Food/turn +1（R036 为 -1）；R060 Gold 132 Wood 69 Food 75 Pop 7/7 Food/turn -8 Round 2/40 Goal 276/1400；R110 Prestige 21 Pop 19/22 Round 40/40 Goal 950/1400，拆除退 15 Gold 10 Wood。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "棋盘上已出现新井、新矿或 Round collected 横幅，但 Gold/Wood/Food/turn/Round 持续不更新或方向相反",
+          "id": "V2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评可检查状态是否随建造、结算、对手行动更新。本条是读数同步的唯一计分处。Goal/Prestige 未采用不扣。",
+      "evidence": {
+        "coverage": "只评候选采用的字段。",
+        "kind": "action_sequence",
+        "unit": "建造、结算与对手行动对应的顶栏"
+      },
+      "full_credit": "建造后 Gold/Wood 下降，结算后产量上升，人口与食物维持若采用则跟随房屋，Round 随 End Turn 增加，Rival Gold 随对手变化。",
+      "group": "V",
+      "high_score_requirements": [
+        "花费与顶栏 Gold/Wood 同向。",
+        "结算与产量字段同向。",
+        "Round 与 Rival Gold 随对手回合变化。"
+      ],
+      "id": "V2",
+      "inspired_by": [
+        "shadow-courier:V4"
+      ],
+      "partial_credit": "有顶栏但与棋盘反复脱节（造了井 Food/turn 不变，结算 +20 木但 Wood 不动）。",
+      "title": "Gold、Wood、Pop 与 Round 跟随事件",
+      "zero_credit": "充分覆盖后没有任何随事件更新的状态读数。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R005",
+            "R008"
+          ],
+          "observation": "R001 灰框 Yellow dirt = legal for this building. Move there, Enter to build, T to end turn.；R005 Opponent built Mine at (2, -4).；R008 绿框 Round collected Gold+0 Wood+20 Food-2。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R036",
+            "R037",
+            "R110"
+          ],
+          "observation": "R036 绿框 Opponent attacked (0, 1): Attack Power 3 vs Defense 5 — failed；R037 Built Well — +2 Food/turn · End Turn (T) banks it；R110 Demolished (-2, 5): refunded 15 Gold, 10 Wood。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "Round collected 或 Opponent attacked 横幅出现后一直不退，盖住要选的黄格子",
+          "id": "V3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评事件是否有可退出的即时提示。流程存在归 M4；数字对错归 V2。",
+      "evidence": {
+        "coverage": "只评实际出现的提示。",
+        "kind": "overview",
+        "unit": "事件附近帧"
+      },
+      "full_credit": "建造完成、回合结算、对手建造或攻击时出现提示，并在下一操作前可退出。",
+      "group": "V",
+      "high_score_requirements": [
+        "建造、结算、对手行动各有即时提示。",
+        "提示会退出，不永久挡格。",
+        "合法格说明与非法格说明可区分。"
+      ],
+      "id": "V3",
+      "inspired_by": [
+        "shadow-courier:V2"
+      ],
+      "partial_credit": "有提示但与事件错位，或一直挂着挡住选格。",
+      "title": "建造、结算与攻防的即时提示",
+      "zero_credit": "充分覆盖这些事件后画面上没有任何即时提示。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R018",
+            "R053",
+            "R119"
+          ],
+          "observation": "R018 Level 1 Complete，Your holding out-produced the rival.，Kingdom Score 510 · Rounds used 20 · Prestige 0，黄 Next Level (Enter) 与蓝 Back to Title (Esc)；R053 Level 2 Complete，You stormed the rival Castle.，Score 64 Rounds 27；R119 Game Complete，Session Kingdom Score 1999 over 87 Rounds，仅 Back to Title (Enter)。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "有 Game Complete 标题和 Back to Title，但 Kingdom Score 与说明挤成一段无分组字堆，胜负要逐行读",
+          "id": "V4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评结局页能否一眼读出胜负并找到下一关或回标题。失败页未拍到 → 展示时才评。界面材质归 A3。",
+      "evidence": {
+        "coverage": "成功页必需；失败仅在展示时评。",
+        "kind": "overview",
+        "unit": "结局页面帧"
+      },
+      "full_credit": "完成或失败语义第一眼可辨；分数与按钮分区；下一关或回标题可找。具体分数公式自由。",
+      "group": "V",
+      "high_score_requirements": [
+        "胜负语义第一眼可辨。",
+        "分数与按钮分区。",
+        "下一关或回标题视觉上可找。"
+      ],
+      "id": "V4",
+      "inspired_by": [
+        "shadow-courier:D5"
+      ],
+      "partial_credit": "有结局页但胜负埋在分数行里，或按钮与正文混排。",
+      "title": "关卡完成页的分组与重开入口",
+      "zero_credit": "充分覆盖通关后没有结局页，也没有重开入口。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R005",
+            "R110"
+          ],
+          "observation": "R001 蓝顶多层城堡与粉红城堡各有体积；R005 红顶房屋、风车叶片、灰矿可分；R110 塔、井、伐木场在密铺时仍有轮廓。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S055",
+            "S053",
+            "S063"
+          ],
+          "observation": "KayKit Medieval Hexagon Pack 的城堡、房屋、风车样张与录像主堡/民居/风车同族；调色板 S001 等未作为棋盘铺开。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "KayKit 城堡只出现在标题样张，游玩中的据点是无门无塔的纯色六边形柱",
+          "id": "A1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评正常棋盘尺度下主堡、房屋、风车、塔是否可辨。事件高亮归 A4。给定 KayKit 建筑可改造。",
+      "evidence": {
+        "coverage": "不要求全部建筑种类。",
+        "kind": "overview",
+        "unit": "开局与中盘建筑"
+      },
+      "full_credit": "主堡有屋顶、门或旗可辨朝向；经济建筑与军事建筑外形可分；与六边形接地。",
+      "group": "A",
+      "high_score_requirements": [
+        "主堡在正常距离可辨。",
+        "经济建筑与军事建筑外形可分。",
+        "建筑坐在六边形上，不悬浮撕裂。"
+      ],
+      "id": "A1",
+      "inspired_by": [
+        "sokoban:A2"
+      ],
+      "partial_credit": "能定位但建筑都是同色方块；或缩放模糊贯穿整局。",
+      "title": "城堡与建筑的形体",
+      "zero_credit": "正常游玩中建筑无法辨认身份。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R054",
+            "R060"
+          ],
+          "observation": "R001 黄六边形有厚度，中部蓝河，绿树成丛，边缘灰黄山体；R054/R060 第三关河更长，两岸树带仍在。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S064",
+            "S066",
+            "S001"
+          ],
+          "observation": "S064/S066 为 KayKit 自然与六边形砖预览；S001 等是 hexagons_medieval 调色板，GT 未把调色板铺成地面。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "棋盘是没有厚度的平涂六边形色块，没有河、树、山体体积，读不成两座据点之间的地块",
+          "id": "A2-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "给定 hexagons_medieval 调色板原样铺满当棋盘，透视与 3D 城堡冲突，城堡浮在色板上",
+          "id": "A2-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评棋盘场所：六边形地块、水域、树林、边界山体是否构成可理解的岛屿对峙。拓扑归 D1。",
+      "evidence": {
+        "coverage": "几何风格同权，评体积与透视。",
+        "kind": "overview",
+        "unit": "开局与换关后的棋盘"
+      },
+      "full_credit": "地块有厚度，河或障碍有体积，树林接地，透视与城堡一致。",
+      "group": "A",
+      "high_score_requirements": [
+        "六边形有厚度并可走读。",
+        "水域或树林给出障碍。",
+        "透视与城堡一致，调色板不被误铺成地面。"
+      ],
+      "id": "A2",
+      "inspired_by": [
+        "sokoban:A2",
+        "shadow-courier:A2"
+      ],
+      "partial_credit": "只有平涂六边形色板，没有河/树体积。",
+      "title": "六边形岛的河、树与山体",
+      "zero_credit": "棋盘退化为纯色背景，没有任何地块组织。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R018",
+            "R119"
+          ],
+          "observation": "R001 顶栏 Gold/Wood/Food/Pop/Prestige 与 Rival Gold/Round/Goal 分列，左侧空 BUILD 槽，右下 End Turn 深色按钮；R018/R119 灰圆角面板、绿标题、黄框主按钮、蓝次按钮。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S062",
+            "S065",
+            "S067",
+            "S068"
+          ],
+          "observation": "button_focus 黄描边、button_normal/pressed 蓝块、panel_frame 灰板，与录像结局按钮及面板同族。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "代表性的主要界面虽已有分组、底板或字号差，但核心信息的重要性与视觉重量长期明显相反，或主要信息组仍没有可辨阅读顺序，导致这一状态的主要编排关系实质缺失。须指出具体角色和范围；常见字体、纯文字、缺少面板或一个局部修饰问题均不触发。",
+          "id": "A3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评价资源/回合、建造选择、棋盘状态与结局的实际视觉编排。重点是信息角色、文字/图形比例、留白与对齐、状态重点共同形成的界面设计；正确显示信息、有字号差或使用统一颜色只证明相应的局部成果。下列 GT 观察是设计作用的实例，具体颜色、字体、图标、面板和固定位置不构成复刻要求。",
+      "evidence": {
+        "coverage": "代表性正常界面与原录像覆盖的状态画面并列查看；关键文字及组间比例需要正常尺度全帧。只评价本任务已采用且已展示的组成。",
+        "kind": "overview",
+        "unit": "游玩 HUD 与结局页"
+      },
+      "full_credit": "资源/回合、建造选择、棋盘状态与结局在正常观看尺度下按当前任务的重要性形成清楚的视觉重量和阅读顺序；主要目标或行动状态有充分强调，名称、数值、辅助说明的比例、距离和对齐体现各自语义，弱化的信息仍有适当可读性。回合决策、对手响应与录像覆盖的结束状态根据状态用途重新组织视觉中心、疏密与留白，同时延续可辨的字体角色或图形关系。整体编排已经形成完整、合乎内容的界面，不能仅由几组标签、标题放大和配色统一来证明。纯文字可以充分完成设计；仅评价实际采用的可选读数、图标、按钮和统计，不要求另加组件、面板或独立结果屏。",
+      "group": "A",
+      "high_score_requirements": [
+        "当前建造/回合决策、资源代价与辅助信息在正常画面中的视觉重量与当前用途匹配。指出强调了谁、弱化了谁以及字号/对比/位置/留白如何共同完成这一关系；仅列出标签和分组不算完整证据。",
+        "具体信息组内部与组间的比例、对齐和疏密共同形成阅读节奏，名称、读数、说明之间的联系清楚；同一字体、同一颜色或一条底板不自动证明这些关系完成。",
+        "回合决策、对手响应与录像覆盖的结束状态各自的视觉中心与内容相称，状态变化通过实际编排表达用途变化；保持相同颜色或把一行字放大不足以单独证明完整，但有意义的简洁文字构图可以完整成立。",
+        "字体角色、形状、边缘或强调关系在整套界面中得到有目的的运用；需要说明具体处理产生了什么视觉效果，不能用‘没冲突、可读、风格统一’替代正面完成证据。"
+      ],
+      "id": "A3",
+      "inspired_by": [
+        "shadow-courier:A3"
+      ],
+      "partial_credit": "按已形成和未完成的设计关系连续判断：能读到文字但关键目标/状态的视觉重量弱于装饰性标题；标签与数值或相关说明靠简单并排仍缺少有效分组与阅读顺序；主次虽然有字号差，尺度、对比或留白却未配合语义；结果内容只是换字沿用普通读数排法，没有围绕已有完成信息形成视觉中心；局部做了边框或强调色，但主要界面仍缺乏上述编排。指出具体区域、相互比较的信息角色和可见后果，不能只说普通、简陋或缺乏高级感。仅有轻微间距问题时按局部损失判断；不能把缺少图标/插画、使用常见字体、不同字体家族或极简风格本身当缺陷。某信息是否缺失或错误归功能视觉项；本项须评价已展示信息怎样被设计，不能复用同一功能缺失扣分。",
+      "title": "界面的完整视觉编排",
+      "zero_credit": "所需观察范围充分时，主要界面完全没有实际视觉编排，只有无法形成信息角色或阅读顺序的散置占位内容。已经形成有效的局部编排应给部分完成度；没有拍到状态不等于没有设计。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R037",
+            "RD009"
+          ],
+          "observation": "R001 提示合法黄地；R037 井已出现且仍叠着 Attack 3 vs Defense 5 FAILED 橙字；RD009 Tavern selected. Follow yellow dirt。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R036",
+            "RD052"
+          ],
+          "observation": "R036 被攻击格附近橙字 FAILED；RD052 Built Lumbermill 后该格出现伐木场。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "建造、对手落子、攻击三类事件里至少两类没有黄格高亮或胜负标记，对象直接出现或消失",
+          "id": "A4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评选格、建造、对手落子、攻击等已展示事件的世界层过程。本条是这些反馈的唯一计分处。横幅文案归 V3。",
+      "evidence": {
+        "coverage": "回合制允许切帧；需要看到高亮或落子前后。",
+        "kind": "action_sequence",
+        "unit": "一次选格建造与一次攻防（若有）"
+      },
+      "full_credit": "合法格有高亮；建造或对手落子有从空到有的可感知过程；攻击有成败标记。不要求单位行走动画。",
+      "group": "A",
+      "high_score_requirements": [
+        "合法格在确认前可看见。",
+        "落子有从空到有的过程。",
+        "攻击成败绑在被打的格子上。"
+      ],
+      "id": "A4",
+      "inspired_by": [
+        "shadow-courier:A4"
+      ],
+      "partial_credit": "部分事件只有对象瞬切；或高亮出现在错误格子。",
+      "title": "选格、落子与攻防的过程",
+      "zero_credit": "充分覆盖后所有事件都只是对象瞬间切换与数字变化。"
+    }
+  ],
+  "rubric_version": "2026-09-19.vlm-art-relationships-v1",
+  "score_curve": {
+    "caps_scale": "final_score",
+    "exponent": 3,
+    "input": "attainment",
+    "missing_evidence": null,
+    "name": "power"
+  },
+  "self_review": {
+    "caps_trigger_table": [
+      {
+        "id": "M1-C1",
+        "vs_zero": "zero 是从未出现新建筑；cap 是花了 Gold 仍是空黄地"
+      },
+      {
+        "id": "M2-C1",
+        "vs_zero": "zero 是结束回合完全无资源变化；cap 是已有风车矿井却结算为空转"
+      },
+      {
+        "id": "M3-C1",
+        "vs_zero": "zero 是无对手据点也无行动；cap 是有对手文案但格子无后果"
+      },
+      {
+        "id": "M4-C1",
+        "vs_zero": "zero 是无回合无开始结束；cap 是有 Round 名目却跳过对峙"
+      },
+      {
+        "id": "D1-C1",
+        "vs_zero": "zero 是无棋盘无据点；cap 是有己方无对手城堡"
+      },
+      {
+        "id": "D2-C1",
+        "vs_zero": "zero 是建造选项只有一类；cap 是名义有经济项和军事项但效果可互换"
+      },
+      {
+        "id": "V1-C1",
+        "vs_zero": "zero 是无法分辨；cap 是两堡同模同色"
+      },
+      {
+        "id": "V2-C1",
+        "vs_zero": "zero 是无读数；cap 是有顶栏但与事件反向"
+      },
+      {
+        "id": "V3-C1",
+        "vs_zero": "zero 是无提示；cap 是提示不退出挡格"
+      },
+      {
+        "id": "V4-C1",
+        "vs_zero": "zero 是无结局页；cap 是有标题按钮但无分组"
+      },
+      {
+        "id": "A1-C1",
+        "vs_zero": "zero 是无法辨认建筑；cap 是城堡只在样张、游玩是色柱"
+      },
+      {
+        "id": "A2-C1",
+        "vs_zero": "zero 是纯色背景；cap 是平涂六边形无体积"
+      },
+      {
+        "id": "A2-C2",
+        "vs_zero": "名义有棋盘但调色板透视坏了"
+      },
+      {
+        "id": "A3-C1",
+        "vs_zero": "zero 是界面与棋盘无组织；cap 是系统标签无列表面板"
+      },
+      {
+        "id": "A4-C1",
+        "vs_zero": "zero 是全部事件无动态；cap 是两类无高亮过程"
+      }
+    ],
+    "overlap": "逐对结论：①新建筑出现只归 M1；Gold 是否下降归 V2；Built Well 横幅归 V3；黄格高亮归 A4。扣资源无建筑只触发 M1-C1。②回合结算机制归 M2；数字方向归 V2；横幅形式归 V3。Round 在走且已有风车但从未出现结算事件 → 只 M2-C1；已有 Round collected 横幅但顶栏反向 → 只 V2-C1。③对手矿/进攻世界层归 M3；横幅归 V3。有字无建筑只触发 M3-C1。④两座据点空间归 D1；配色预读归 V1；河树体积归 A2。缺对手城堡只触发 D1-C1；两座同色只触发 V1-C1。⑤经济/军事取舍归 D2；建筑外形可分归 A1。效果可互换只触发 D2-C1；列表缺军事项走 D2 zero 而非 cap。⑥结局无分组只触发 V4-C1，A3 不因排版扣分。",
+    "scope": "14 项（M4/D2/V4/A4）。按 brief 把据点生长、经济对军事、脚本对手、回合、可检查状态、胜负与重开作为必需。不套 4/3/4/5：没有独立的过场空间，A 组不单列跨部分条，跨部分放进 A3。对局长度与建筑种类为自由。",
+    "uncertainties": "失败页、按钮功能、攻城过程未从 GT 确认。未建立独立语义审查证据。",
+    "unsupported_obligations": "未要求：三关、Prestige 500、中河、KayKit 字体、失败页、攻城动画、具体建筑清单。"
+  },
+  "task_map": {
+    "freedom": [
+      "棋盘拓扑、建筑种类、单位规则、对手脚本与对局长度均可自选（GT 为六边形岛、中河、蓝堡对红堡、多关 Goal 分数）。",
+      "Prestige 目标、三关、拆建筑退款、具体建筑名（Tavern/Mine/Well/Catapult）是 GT 设计，未采用 → not_applicable。",
+      "胜利可以是产出压过对手或攻下城堡，不必两种都做。"
+    ],
+    "required": [
+      "可读棋盘上经营一座小据点，建造选择会改变格子。",
+      "经济与军事压力对峙：脚本化的对手据点会回应。",
+      "通过回合制击败对手据点。",
+      "状态可检查；胜利或失败；可重开。"
+    ]
+  }
+}

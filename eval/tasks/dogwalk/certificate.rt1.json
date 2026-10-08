@@ -1,0 +1,117 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "afe5310bfb5e3f219eab27123cc5c52b8a2aa13f6e16b56c6633d7c725048e0c"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "dogwalk/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "45d5f570260b84af119ad1691f9b2bfe4f60009f00b664c79687e2c8aa1e179d",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "afe5310bfb5e3f219eab27123cc5c52b8a2aa13f6e16b56c6633d7c725048e0c",
+    "task_id": "dogwalk"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "b3976d7ab23576e1afeab1d7d278fecc80f11e52d9b1ad52315eecb1df69fa0b",
+    "source_sha256": "7cff512f51f981fd739c420f2047de13793ce54f45603d3b70fedc1a2fea7ab5"
+  },
+  "passed_route_ids": [
+    "dogwalk/L0/no_input_no_clear",
+    "dogwalk/C1/pinda_fetches_the_traffic_cone",
+    "dogwalk/C2/the_cone_reaches_the_snowman",
+    "dogwalk/C3/all_five_decorations_placed",
+    "dogwalk/L5/whole_game_clear"
+  ],
+  "readings": {
+    "dogwalk/C1/pinda_fetches_the_traffic_cone": {
+      "deaths": 0,
+      "frames": 861,
+      "injects": 0,
+      "milestones_reached": [
+        "the_cone_is_in_her_hands"
+      ],
+      "solution_kind": "tape",
+      "steps": 20,
+      "stop_reason": "ops_exhausted"
+    },
+    "dogwalk/C2/the_cone_reaches_the_snowman": {
+      "deaths": 0,
+      "frames": 2100,
+      "injects": 0,
+      "milestones_reached": [
+        "the_cone_is_in_her_hands",
+        "the_cone_is_on_the_snowman"
+      ],
+      "solution_kind": "tape",
+      "steps": 47,
+      "stop_reason": "ops_exhausted"
+    },
+    "dogwalk/C3/all_five_decorations_placed": {
+      "deaths": 0,
+      "frames": 10130,
+      "injects": 0,
+      "milestones_reached": [
+        "cone_placed",
+        "shovel_placed",
+        "tennis_ball_placed",
+        "branch_placed",
+        "ear_muffs_placed"
+      ],
+      "solution_kind": "tape",
+      "steps": 201,
+      "stop_reason": "ops_exhausted"
+    },
+    "dogwalk/L0/no_input_no_clear": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "dogwalk/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 13243,
+      "injects": 0,
+      "milestones_reached": [
+        "one_decoration_placed",
+        "three_decorations_placed",
+        "all_five_decorations_placed"
+      ],
+      "solution_kind": "tape",
+      "steps": 206,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "45d5f570260b84af119ad1691f9b2bfe4f60009f00b664c79687e2c8aa1e179d"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "bb126778614e9d30bc2ee2f0d7959b473115ba1c90c16eb864b8c0664c8059d3",
+  "schema_version": 2,
+  "solution_kinds": {
+    "dogwalk/C1/pinda_fetches_the_traffic_cone": "tape",
+    "dogwalk/C2/the_cone_reaches_the_snowman": "tape",
+    "dogwalk/C3/all_five_decorations_placed": "tape",
+    "dogwalk/L0/no_input_no_clear": "tape",
+    "dogwalk/L5/whole_game_clear": "tape"
+  },
+  "task_id": "dogwalk",
+  "validated_at": "2026-09-09"
+}

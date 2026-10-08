@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "interface_version": 2,
+  "title": "GameBenchmark submission interface",
+  "groups": {
+    "required": ["gb_player"],
+    "optional": ["gb_collectible", "gb_goal", "gb_hazard", "gb_enemy", "gb_checkpoint", "gb_door", "gb_interactive"]
+  },
+  "actions": ["gb_left", "gb_right", "gb_up", "gb_down", "gb_jump", "gb_action", "gb_pause", "gb_reset"],
+  "endings": {
+    "success": ["victory", "success", "win", "complete", "run_complete"],
+    "failure": ["defeat", "failure", "failed", "loss", "lose"]
+  },
+  "numeric_slots": ["progress", "health", "timer", "score"],
+  "device_kinds": ["collectible", "goal", "hazard", "enemy", "checkpoint", "door", "interactive", "pad", "tile", "movplat", "falling_platform", "spring"],
+  "device_id_pattern": "^(L[1-9][0-9]*/)?(collectible|goal|hazard|enemy|checkpoint|door|interactive|pad|tile|movplat|falling_platform|spring)#[0-9]+$",
+  "extended_action_id_pattern": "^[a-z][a-z0-9_]{1,31}$",
+  "extended_actions_max": 16,
+  "extended_action_why_min_length": 8,
+  "extended_action_reserved_prefixes": ["gb_", "ui_"],
+  "extended_action_reserved_names": ["pause", "reset", "quit", "exit"],
+  "analog_axis_id_pattern": "^[a-z][a-z0-9_]{1,31}$",
+  "analog_axes_max": 4,
+  "analog_axis_steps_min": 2,
+  "analog_axis_steps_max": 33,
+  "predicate_functions": {
+    "overlap": 2,
+    "collected_all": 1,
+    "count": 1,
+    "alive": 1,
+    "norm_delta": 1,
+    "norm_in": 3,
+    "numeric": 1,
+    "numeric_delta": 1,
+    "count_delta": 1,
+    "whole_game_clear": 0,
+    "levels_visited": 0,
+    "contact": 2,
+    "device_present": 2,
+    "standing_on": 2,
+    "device_norm_delta": 3,
+    "device_state": 4,
+    "device_numeric": 3,
+    "device_numeric_delta": 3
+  },
+  "predicate_examples": [
+    "overlap(gb_player, gb_goal)",
+    "collected_all(gb_collectible) and overlap(gb_player, gb_goal)",
+    "numeric(progress) >= 2",
+    "count_delta(gb_enemy) <= -8"
+  ],
+  "manifest": {
+    "required": ["levels", "endings"],
+      "optional": ["numeric", "device_ids", "anchor_camera", "audio_buses", "level_clear", "level_entry", "extended_actions", "analog_axes"],
+    "fields": {
+      "levels": {"type": "array", "globally_required": true, "channels": ["O1", "O3", "O4", "O5", "O7", "O8"]},
+      "endings": {"type": "object", "globally_required": true, "channels": ["O2", "O3", "O7"]},
+      "numeric": {"type": "object", "globally_required": false, "channels": ["O2", "O3"]},
+      "device_ids": {"type": "object", "globally_required": false, "channels": ["O2", "O3", "O7"]},
+      "anchor_camera": {"type": "string", "globally_required": false, "task_required_for": ["O9"], "channels": ["O2", "O9"]},
+      "audio_buses": {"type": "array", "globally_required": false, "channels": ["O2"]},
+      "level_clear": {"type": "object", "globally_required": false, "channels": ["O2", "O3", "O7"]},
+      "level_entry": {"type": "object", "globally_required": false, "channels": ["O2", "O7"]},
+      "extended_actions": {"type": "array", "globally_required": false, "channels": ["O7", "O8"]},
+      "analog_axes": {"type": "array", "globally_required": false, "channels": ["O7", "O8"]}
+    }
+  },
+  "excluded_submission_obligations": ["observe()", "observe().kind", "Agent Bridge"],
+  "channel_inputs": {
+    "O1": {"submission": ["levels[0]", "groups.gb_player", "actions"], "evaluator": ["cold_import", "pixel_capture"]},
+    "O2": {"submission": ["conformance_report"], "evaluator": ["task_requirements"]},
+    "O3": {"submission": ["groups", "actions", "endings", "numeric", "level_clear", "device_ids"], "evaluator": ["truth", "registered_H_routes", "expectations"]},
+    "O4": {"submission": ["levels"], "evaluator": ["truth", "expectations"]},
+    "O5": {"submission": ["levels", "groups.gb_player", "groups.gb_goal", "groups.gb_collectible"], "evaluator": ["truth", "expectations"]},
+    "O6": {"submission": [], "evaluator": ["supplied_asset_manifest", "runtime_asset_observation"]},
+    "O7": {"submission": ["levels", "actions", "endings", "device_ids"], "evaluator": ["registered_routes", "certificate", "tape"]},
+    "O8": {"submission": ["levels", "actions"], "evaluator": ["external_agent"]},
+    "O9": {"submission": ["anchor_camera"], "evaluator": ["frozen_anchor_expectation", "X_capture"]}
+  }
+}

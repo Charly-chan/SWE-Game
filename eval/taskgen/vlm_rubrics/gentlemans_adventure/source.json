@@ -1,0 +1,295 @@
+{
+  "game_id": "gentlemans_adventure",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "reference_media/assets/sprites/block_bonus-sheet0.png",
+        "id": "S013",
+        "label": "reference_media/assets/sprites/block_bonus-sheet0.png"
+      },
+      {
+        "asset_path": "sprites/block_bonus-sheet0.png",
+        "id": "S018",
+        "label": "sprites/block_bonus-sheet0.png"
+      },
+      {
+        "asset_path": "reference_media/assets/sprites/boss-sheet0.png",
+        "id": "S023",
+        "label": "reference_media/assets/sprites/boss-sheet0.png"
+      },
+      {
+        "asset_path": "reference_media/assets/sprites/cannon-sheet0.png",
+        "id": "S035",
+        "label": "reference_media/assets/sprites/cannon-sheet0.png"
+      },
+      {
+        "asset_path": "reference_media/assets/sprites/goomba-sheet0.png",
+        "id": "S059",
+        "label": "reference_media/assets/sprites/goomba-sheet0.png"
+      },
+      {
+        "asset_path": "reference_media/assets/sprites/gunner-sheet0.png",
+        "id": "S063",
+        "label": "reference_media/assets/sprites/gunner-sheet0.png"
+      },
+      {
+        "bundled_path": "media/S073.png",
+        "id": "S073",
+        "label": "FONT PREVIEW fonts/font_normal.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "fonts/font_normal.ttf"
+      },
+      {
+        "bundled_path": "media/S074.png",
+        "id": "S074",
+        "label": "FONT PREVIEW reference_media/assets/fonts/font_normal.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "reference_media/assets/fonts/font_normal.ttf"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "audio/block_destroy.ogg",
+        "audio/block_hit.ogg",
+        "audio/bomb.ogg",
+        "audio/boss_death.ogg",
+        "audio/boss_hit.ogg",
+        "audio/boss_impact.ogg",
+        "audio/boss_shoot.ogg",
+        "audio/boss_spawn.ogg",
+        "audio/bullet_splash.ogg",
+        "audio/buy.ogg",
+        "audio/cannon.ogg",
+        "audio/checkpoint.ogg",
+        "audio/coin.ogg",
+        "audio/damage.ogg",
+        "audio/dive.ogg",
+        "audio/enemy_death.ogg",
+        "audio/enemy_shoot.ogg",
+        "audio/evolve.ogg",
+        "audio/game.ogg",
+        "audio/impact.ogg",
+        "audio/menu.ogg",
+        "audio/no_money.ogg",
+        "audio/open_capsule.ogg",
+        "audio/player_death.ogg",
+        "audio/select.ogg",
+        "audio/shoot.ogg",
+        "audio/teleport.ogg",
+        "audio/upgrade.ogg",
+        "fonts/font_normal.ttf",
+        "reference_media/assets/audio",
+        "reference_media/assets/fonts",
+        "reference_media/assets/sprites",
+        "sprites/arrow_act-sheet0.png",
+        "sprites/arrow_act-sheet1.png",
+        "sprites/arrow_ind-sheet0.png",
+        "sprites/arrow_ind_big-sheet0.png",
+        "sprites/bar_ammo.png",
+        "sprites/bar_ammo_back.png",
+        "sprites/bar_life.png",
+        "sprites/bar_life_back.png",
+        "sprites/block_bonus-sheet0.png",
+        "sprites/block_bonus-sheet1.png",
+        "sprites/block_destructible-sheet0.png",
+        "sprites/block_destructible-sheet1.png",
+        "sprites/block_destructible-sheet2.png",
+        "sprites/boss-sheet0.png",
+        "sprites/boss-sheet1.png",
+        "sprites/boss_bar.png",
+        "sprites/boss_bar_icon-sheet0.png",
+        "sprites/boss_bulet_splash-sheet0.png",
+        "sprites/boss_bullet-sheet0.png",
+        "sprites/boss_bullet-sheet1.png",
+        "sprites/boss_shield-sheet0.png",
+        "sprites/boss_shield-sheet1.png",
+        "sprites/boss_trigger-sheet0.png",
+        "sprites/bubble-sheet0.png",
+        "sprites/camera-sheet0.png",
+        "sprites/cannon-sheet0.png",
+        "sprites/cannon-sheet1.png",
+        "sprites/cannon_laser-sheet0.png",
+        "sprites/cannon_laser-sheet1.png",
+        "sprites/cannon_laser_impact-sheet0.png",
+        "sprites/cannon_laser_impact-sheet1.png",
+        "sprites/cannon_laser_sparks.png",
+        "sprites/checkpoint-sheet0.png",
+        "sprites/checkpoint-sheet1.png",
+        "sprites/checkpoint_light-sheet0.png",
+        "sprites/checkpoint_light-sheet1.png",
+        "sprites/checkpoint_light-sheet2.png",
+        "sprites/checkpoint_light_sparks.png",
+        "sprites/cloud-sheet0.png",
+        "sprites/cloud-sheet1.png",
+        "sprites/cmg_logo-sheet0.png",
+        "sprites/final_text-sheet0.png",
+        "sprites/final_text-sheet1.png",
+        "sprites/goomba-sheet0.png",
+        "sprites/goomba-sheet1.png",
+        "sprites/gunner-sheet0.png",
+        "sprites/gunner-sheet1.png",
+        "sprites/gunner_bullet-sheet0.png",
+        "sprites/gunner_bullet-sheet1.png",
+        "sprites/gunner_bullet_splash-sheet0.png",
+        "sprites/hud_btn_quit-sheet0.png",
+        "sprites/hud_btn_screen-sheet0.png",
+        "sprites/hud_btn_screen-sheet1.png",
+        "sprites/hud_btn_sfx-sheet0.png",
+        "sprites/hud_btn_sfx-sheet1.png",
+        "sprites/hud_icons-sheet0.png",
+        "sprites/hud_map-sheet0.png",
+        "sprites/hud_map_back-sheet0.png",
+        "sprites/hud_map_fog-sheet0.png",
+        "sprites/hud_map_player-sheet0.png",
+        "sprites/hud_overlay.png",
+        "sprites/hud_quit-sheet0.png",
+        "sprites/hud_selector-sheet0.png",
+        "sprites/koopa-sheet0.png",
+        "sprites/koopa-sheet1.png",
+        "sprites/koopa-sheet2.png",
+        "sprites/koopa_bomb-sheet0.png",
+        "sprites/koopa_bomb_splash-sheet0.png",
+        "sprites/main_menu_btn_continue-sheet0.png",
+        "sprites/main_menu_btn_credits-sheet0.png",
+        "sprites/main_menu_btn_exit-sheet0.png",
+        "sprites/main_menu_btn_new-sheet0.png",
+        "sprites/main_menu_btn_options-sheet0.png",
+        "sprites/main_menu_btn_screen-sheet0.png",
+        "sprites/main_menu_btn_sfx-sheet0.png",
+        "sprites/main_menu_confirm-sheet0.png",
+        "sprites/main_menu_credits-sheet0.png",
+        "sprites/main_menu_logo-sheet0.png",
+        "sprites/main_menu_selector.png",
+        "sprites/main_menu_title-sheet0.png",
+        "sprites/map_controls.png",
+        "sprites/map_decor.png",
+        "sprites/map_ground.png",
+        "sprites/map_ground_dark.png",
+        "sprites/map_water.png",
+        "sprites/player-sheet0.png",
+        "sprites/powerup-sheet0.png",
+        "sprites/powerup-sheet1.png",
+        "sprites/powerup_splash-sheet0.png",
+        "sprites/rune-sheet0.png",
+        "sprites/rune-sheet1.png",
+        "sprites/rune_bullet-sheet0.png",
+        "sprites/rune_bullet-sheet1.png",
+        "sprites/rune_bullet_splash-sheet0.png",
+        "sprites/rune_bullet_splash-sheet1.png",
+        "sprites/rune_bullet_splash-sheet2.png",
+        "sprites/screen_edge.png",
+        "sprites/shop_capsule-sheet0.png",
+        "sprites/shop_capsule-sheet1.png",
+        "sprites/shop_capsule-sheet2.png",
+        "sprites/shopkeeper-sheet0.png",
+        "sprites/shopkeeper-sheet1.png",
+        "sprites/shopkeeper-sheet2.png",
+        "sprites/shopkeeper_bubble-sheet0.png",
+        "sprites/shopkeeper_price-sheet0.png",
+        "sprites/shopkeeper_text.png",
+        "sprites/spiny-sheet0.png",
+        "sprites/spiny_saw-sheet0.png",
+        "sprites/spiny_saw-sheet1.png",
+        "sprites/teleport-sheet0.png",
+        "sprites/teleport-sheet1.png",
+        "sprites/teleport-sheet2.png",
+        "sprites/thwomp-sheet0.png",
+        "sprites/thwomp_chain.png"
+      ],
+      "file_count": 215,
+      "font_files": [
+        "fonts/font_normal.ttf",
+        "reference_media/assets/fonts/font_normal.ttf"
+      ]
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry. Font previews are rendered from actual supplied font files; preview wording is illustrative, not additional task requirements.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 96.367,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R004",
+        "time_s": 3.0
+      },
+      {
+        "id": "R006",
+        "time_s": 5.0
+      },
+      {
+        "id": "R009",
+        "time_s": 8.0
+      },
+      {
+        "id": "R030",
+        "time_s": 29.0
+      },
+      {
+        "id": "R041",
+        "time_s": 40.0
+      },
+      {
+        "id": "R050",
+        "time_s": 49.0
+      },
+      {
+        "id": "R066",
+        "time_s": 65.0
+      },
+      {
+        "id": "R073",
+        "time_s": 72.0
+      },
+      {
+        "id": "R094",
+        "time_s": 93.0
+      },
+      {
+        "id": "R098",
+        "time_s": 96.35
+      },
+      {
+        "clip": 1,
+        "id": "RD001",
+        "time_s": 19.2734
+      },
+      {
+        "clip": 1,
+        "id": "RD006",
+        "time_s": 19.7734
+      },
+      {
+        "clip": 1,
+        "id": "RD009",
+        "time_s": 20.0734
+      },
+      {
+        "clip": 2,
+        "id": "RD028",
+        "time_s": 48.8835
+      },
+      {
+        "clip": 2,
+        "id": "RD031",
+        "time_s": 49.1835
+      },
+      {
+        "clip": 2,
+        "id": "RD034",
+        "time_s": 49.4835
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 1.0,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Another Gentleman's Adventure — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nGuide a character through a whimsical side-view adventure, overcome traversal and interaction obstacles, and reach a proper ending.\n\n## Scope boundary\n\nA compact 2D adventure-platformer with a coherent route, at least one meaningful interaction beyond walking, failure/recovery, and completion.\n\n## Creative freedom\n\nYou may choose the route, interactions, hazards, dialogue-light presentation, and asset composition.\n"
+}

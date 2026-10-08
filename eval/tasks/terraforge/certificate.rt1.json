@@ -1,0 +1,103 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "986cf6bec5bd18b7e7291a0b1c43a919085504e6845b8fc4c97f5464c00c26bf"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "terraforge/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "b2890836a30499d39b1f0d1c154bc449390ed79ee3c690587bf491a7a9cb75cf",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "986cf6bec5bd18b7e7291a0b1c43a919085504e6845b8fc4c97f5464c00c26bf",
+    "task_id": "terraforge"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "analog_axes": [
+      {
+        "id": "look_y",
+        "max": 1.0,
+        "min": -1.0,
+        "steps": 17,
+        "why": "camera pitch is a continuous axis; six verbs yaw and walk but cannot look 89 degrees to climb out of the cave"
+      }
+    ],
+    "extended_actions": [
+      {
+        "id": "quick_craft",
+        "why": "field craft of the next objective is key C; jump+up chords are unreliable on the spiral climb"
+      },
+      {
+        "id": "place",
+        "why": "block placement is key K; jump+action placement misses on narrow shaft lips"
+      }
+    ],
+    "interface_version": 2,
+    "normalized_sha256": "1d155785902baeb01c855140af9d7e68e9c41a6889bc5a48869a1e4da5d2e522",
+    "source_sha256": "4c7ef36b8a1d9fc13cd1655e95abf87e26819fa713512deae2e9d7a414648af3"
+  },
+  "passed_route_ids": [
+    "terraforge/L0/no_input_no_artifact",
+    "terraforge/C1/objectives_and_forge_pedestal",
+    "terraforge/L5/whole_game_clear"
+  ],
+  "readings": {
+    "terraforge/C1/objectives_and_forge_pedestal": {
+      "deaths": 1,
+      "frames": 10213,
+      "injects": 0,
+      "milestones_reached": [
+        "artifact_victory_scene"
+      ],
+      "solution_kind": "tape",
+      "steps": 681,
+      "stop_reason": "goal_reached"
+    },
+    "terraforge/L0/no_input_no_artifact": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "terraforge/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 10213,
+      "injects": 0,
+      "milestones_reached": [
+        "artifact_victory_scene"
+      ],
+      "solution_kind": "tape",
+      "steps": 681,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "b2890836a30499d39b1f0d1c154bc449390ed79ee3c690587bf491a7a9cb75cf"
+  },
+  "result": "3/3 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "281beed9f2696c2c436eb406325240b0df1da4db3480c83537b7cd2ca65ae11f",
+  "schema_version": 2,
+  "solution_kinds": {
+    "terraforge/C1/objectives_and_forge_pedestal": "tape",
+    "terraforge/L0/no_input_no_artifact": "tape",
+    "terraforge/L5/whole_game_clear": "tape"
+  },
+  "task_id": "terraforge",
+  "validated_at": "2026-09-09"
+}

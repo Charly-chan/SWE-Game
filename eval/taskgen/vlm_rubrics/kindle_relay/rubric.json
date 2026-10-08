@@ -1,0 +1,917 @@
+{
+  "game_id": "kindle_relay",
+  "mode": "brief",
+  "provided_asset_observations": [
+    {
+      "frame_ids": [
+        "S001",
+        "S002"
+      ],
+      "informs": [
+        "A3",
+        "M4",
+        "V4"
+      ],
+      "observation": "KenneyFuture / KenneyFutureNarrow 样张含 OBJECTIVE / STATUS、LEVEL 03 SCORE 120 TIME 02:45、CONTINUE RETRY COMPLETED，宽体方形无衬线。游玩 LIT/ACT 字重接近，样张上的 CONTINUE/RETRY 未在本录像里作为可点控件出现。预览用词不是任务要求。给定资源只有两款字体和音频。"
+    }
+  ],
+  "reference_limits": [
+    "失败、熄火、坠落与重试全程未出现；brief 要求的失败重试未展示，M4 在未拍到时为 unknown，不归零。",
+    "第一、二、五座点燃的接触瞬间未被单独采到，只看到 LIT 从 0→1、1→2 与 4→5 的结果帧；第三、四、六座有点燃前后帧。",
+    "读数先于塔火：R028、R061 已分别是 3/6、6/6，而塔顶火焰在下一秒帧才出现；评 V2 时读数早于火焰 1 s 内不算不同步。",
+    "密集片段覆盖谷地走、一次点燃白闪/升火、以及后段风举，未覆盖熄火或重试的 0.1 s 过程。",
+    "R074 原图中心带最大通道亮度约 17，MORNING 可认，数字行除首位 6 与末 0 0 外不可靠，不把中间两格写进 basis。",
+    "Q TO CALL 的蓝光追随未形成可判闭环；不因缺召唤物扣分。",
+    "R074 底部一行极暗小字疑为按钮，未被点击，再开功能未验证。",
+    "无音频；素材对应不证明文件加载。给定资源只有两款字体与音频文件，无贴图或模型预览。"
+  ],
+  "reference_observations": [
+    {
+      "frame_ids": [
+        "R001",
+        "R002"
+      ],
+      "informs": [
+        "M1",
+        "M4",
+        "V2",
+        "V3",
+        "A1",
+        "A3"
+      ],
+      "observation": "开场全帧：R001 黑场，左上 0/6 LIT，ACT I · COAST，六枚空心菱形；底栏 WASD TO WALK · SPACE TO LEAP · Q TO CALL · E TO KINDLE。R002 斗篷人出现在疏林夜丘顶，右手持灯，文案 Call with Q. Follow the answer. Kindle with E."
+    },
+    {
+      "frame_ids": [
+        "R010",
+        "R011",
+        "R012",
+        "R015"
+      ],
+      "informs": [
+        "M2",
+        "D2",
+        "V2"
+      ],
+      "observation": "R010/R011 1/6 LIT、ACT I · COAST，人走向丘顶上方大块白色亮斑；R012 已是 2/6 LIT、ACT II · VALLEY，文案 Moss Bell — A low flame for travellers under leaves.，第二座点燃的接触瞬间在 R011→R012 之间未被采到；R015 2/6 LIT，THE VALLEY STIRS — seek the glass and the hollow."
+    },
+    {
+      "frame_ids": [
+        "R020",
+        "R024",
+        "R027",
+        "R028",
+        "R029",
+        "R030"
+      ],
+      "informs": [
+        "D1",
+        "V1",
+        "M2",
+        "D3",
+        "A1"
+      ],
+      "observation": "R020 2/6 LIT、WINDLIFT 文案与右上淡紫光柱；R024 2/6 LIT，左侧条纹螺旋台顶的白塔未燃、人在丘顶尚未走到；R027 2/6 LIT 镜头贴近斗篷人背影与灯杆；R028 3/6 LIT 同一背影被白闪照白，文案 Glass Field；R029/R030 3/6 LIT 该塔顶已燃黄色火焰，人站在塔旁。"
+    },
+    {
+      "frame_ids": [
+        "R032",
+        "R037"
+      ],
+      "informs": [
+        "D1",
+        "V1",
+        "M1",
+        "A2",
+        "A4"
+      ],
+      "observation": "R032 3/6 LIT、右下坡脚发光蓝面 Glass Field，左侧白月；R037 3/6 LIT、人离地悬在光柱中，左下草叶发青。"
+    },
+    {
+      "frame_ids": [
+        "R038",
+        "R039",
+        "RD029",
+        "RD035"
+      ],
+      "informs": [
+        "M2",
+        "V2",
+        "V3",
+        "A1",
+        "A4"
+      ],
+      "observation": "R038/RD029 4/6 LIT、ACT III · SUMMIT、Hollow Arch 文案、近景持灯人灯芯亮、RD029 整帧白闪；RD035 台座独立红火与手持小火同在；R039 左前景大火、人悬在中景。"
+    },
+    {
+      "frame_ids": [
+        "R046",
+        "R050",
+        "R060",
+        "R061",
+        "R062",
+        "R063"
+      ],
+      "informs": [
+        "M3",
+        "D2",
+        "D3",
+        "V2",
+        "A4"
+      ],
+      "observation": "R046 4/6 LIT 走上白阶台；R050 5/6 LIT 塔顶红火 Far Lantern；R060 5/6 LIT；R061 6/6 LIT 空高台、SIX LIGHTS. THE WORLD REMEMBERS MORNING.；R062 中等红火；R063 高塔顶大火。"
+    },
+    {
+      "frame_ids": [
+        "R064",
+        "R074"
+      ],
+      "informs": [
+        "M3",
+        "M4",
+        "V4",
+        "A5"
+      ],
+      "observation": "R064 同一机位塔火持续、天空转亮；R074 暗场 MORNING，数字行首位 6、末两位 0 0，中间两格不可靠，其下一行极暗小字按钮。"
+    },
+    {
+      "frame_ids": [
+        "RD001",
+        "RD055"
+      ],
+      "informs": [
+        "M1",
+        "D1",
+        "A4"
+      ],
+      "observation": "RD001 2/6 LIT、ACT II · VALLEY，谷地丘顶行走；RD055 5/6 LIT、ACT III · SUMMIT，后段再次离地风举。"
+    }
+  ],
+  "requirements": [
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R002",
+            "R011",
+            "R037"
+          ],
+          "observation": "R002 斗篷人站在疏林夜丘顶，手持小火；R011 已走到白色亮斑前方的坡顶；R037 人离开地面悬在光柱里，仍持火。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R046",
+            "RD001",
+            "RD055"
+          ],
+          "observation": "R046 人走上白色多层阶台朝右侧空灯塔；RD001 在谷地丘顶背对镜头走；RD055 再次离地悬在丘顶上方，手持火点。",
+          "source_id": "reference_video"
+        },
+        {
+          "quote": "Carry a fragile relay flame through a hazardous route, maintain its state through successive traversal challenges, and deliver it to the final beacon.",
+          "source_id": "experience"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "持火人会转身，但所有白塔底座都钉在出生丘半径里，下一座丘从不出现",
+          "id": "M1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评持火人能否在出生点、危害段与灯塔之间连续改变位置。朝向与步态归 A4；点亮世界层归 M2。",
+      "evidence": {
+        "coverage": "需要看到位置连续变化。路线形状自由，不要求夜丘加三幕。",
+        "kind": "action_sequence",
+        "unit": "从一处丘顶走到下一座灯塔或危害段"
+      },
+      "full_credit": "持火人沿地面或空中连续移动，能从一处走到另一处灯塔或危害段，位移与所面对的坡、台或气流一致。",
+      "group": "M",
+      "high_score_requirements": [
+        "出生点与终点之间有可跟踪的行进，不是切镜瞬移。",
+        "面对的坡或台随位移改变，不是永远对着同一座塔。",
+        "至少有一段路让人离开出生丘。"
+      ],
+      "id": "M1",
+      "inspired_by": [
+        "shadow-courier:M1"
+      ],
+      "partial_credit": "能挪动但反复穿入丘体或卡在坡缝；或名义上有多座塔，实际只在出生丘顶转圈。具体键位不是缺陷。",
+      "title": "持火人沿接力路线改变位置",
+      "zero_credit": "充分覆盖可操作游玩后持火人不能改变位置。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R024",
+            "R029",
+            "R030"
+          ],
+          "observation": "R024 2/6 LIT，人站在丘顶，左侧条纹螺旋台顶的白塔尚无火；R029 3/6 LIT，同一台顶已燃起黄色火焰，人站在塔右侧仍持灯；R030 拉远后火仍在塔顶。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "RD035",
+            "R050",
+            "R063"
+          ],
+          "observation": "RD035 白台座上升起独立红火，人在右后方仍持小火，4/6 LIT；R050 另一座白塔顶已有红火，5/6 LIT；R063 终点高塔顶大火，6/6 LIT。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "台座上会出现一团火，但持火人仍站在出生丘或另一座丘上，火没有长在走到并执行点燃的那座塔上；读数空跳归 V2-C1",
+          "id": "M2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评在未亮的接力结构上执行点燃后，该处是否出现独立于手持火的点燃体，且落在走到的那座结构上。读数是否跟上归 V2；火焰生长过程归 A4。",
+      "evidence": {
+        "coverage": "需要看到点燃前后的世界层。塔的外形与数量自由。",
+        "kind": "action_sequence",
+        "unit": "靠近未亮结构到该结构燃起"
+      },
+      "full_credit": "在未亮的灯塔或等价接力点执行点燃后，该结构上出现可辨的独立火焰，且随后仍在。",
+      "group": "M",
+      "high_score_requirements": [
+        "点燃落在走过的那座结构上，不是远处突然多一团火。",
+        "点燃体独立于手持火，两者能同时看见。",
+        "点过的结构在后续路段仍然亮着。"
+      ],
+      "id": "M2",
+      "inspired_by": [
+        "shadow-courier:M5"
+      ],
+      "partial_credit": "走近后只拿手火晃一下，台座仍空；或只能点亮一处之后再点无效。只有一座中间塔本身不是缺陷。",
+      "title": "点燃检查点改变世界层",
+      "zero_credit": "充分覆盖已对着未亮结构执行点燃之后，世界层完全不变。未拍到点燃为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R061",
+            "R062",
+            "R063",
+            "R064"
+          ],
+          "observation": "R061 人站在空的白色高台右侧，手持亮火，6/6 LIT，文案 SIX LIGHTS. THE WORLD REMEMBERS MORNING.；R062 同一高台顶升起中等红火；R063 大火；R064 同一机位塔火持续，天空开始转亮。",
+          "source_id": "reference_video"
+        },
+        {
+          "quote": "A bounded traversal relay with movement hazards, visible carried-state feedback, staged progress, failure and retry, and an explicit final delivery.",
+          "source_id": "scope"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "出现 MORNING 或等价完成字，但终点台座仍是空的，画面上也没有点燃体",
+          "id": "M3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评接力火是否被带到终点结构并完成送达。中途点亮归 M2；完成页排版归 V4。手持火的美术归 V3。",
+      "evidence": {
+        "coverage": "需要看到终点结构从空到燃，或等价送达。不要求 MORNING 标题页。",
+        "kind": "overview",
+        "unit": "最终送达前后"
+      },
+      "full_credit": "持火人靠近终点结构后该处被点燃，或出现等价的最终送达态，且持火在到达前仍在身上。",
+      "group": "M",
+      "high_score_requirements": [
+        "终点点燃发生在持火人已经靠近之后。",
+        "送达后终点火焰留下，不是闪一下就没。",
+        "到达前身上仍有可辨的持火。"
+      ],
+      "id": "M3",
+      "inspired_by": [
+        "shadow-courier:D3"
+      ],
+      "partial_credit": "终点亮了但持火人从未靠近；或人到了终点只拿手火比划，终点结构仍空。未拍到熄火不是缺陷。",
+      "title": "持火送到最终灯塔",
+      "zero_credit": "充分覆盖结束时终点结构未改态，也没有任何完成字或等价送达态。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R074"
+          ],
+          "observation": "R001 开场 0/6 LIT，底栏 WASD TO WALK · SPACE TO LEAP · Q TO CALL · E TO KINDLE；全程未见熄火、坠落或重试画面。R074 暗场 MORNING，其下有一行极暗的小字按钮，未见被点击。",
+          "source_id": "reference_video"
+        },
+        {
+          "quote": "A bounded traversal relay with movement hazards, visible carried-state feedback, staged progress, failure and retry, and an explicit final delivery.",
+          "source_id": "scope"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "有熄火或坠落字样，但失败前后持火人的位置、手上火苗与进度读数完全不变，失败只是叠了一行字",
+          "id": "M4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评是否存在失败态，以及失败后能否再进入可操作接力。检查点间距自由，不要求分段存档；原地或检查点即时重生都算再出发。完成页里再玩按钮的排版归 V4。",
+      "evidence": {
+        "coverage": "需要看到失败态与随后的可操作恢复。本参考录像未覆盖失败，缺画面则为 unknown。",
+        "kind": "overview",
+        "unit": "一次失败到再出发"
+      },
+      "full_credit": "存在可辨的失败态（熄火、坠落、越界等），失败后能从起点或已达位置再进入可操作的持火行进。",
+      "group": "M",
+      "high_score_requirements": [
+        "失败态能和普通行进分开。",
+        "失败后能再次控制持火人。",
+        "再出发时仍处于接力，不是只回到标题。"
+      ],
+      "id": "M4",
+      "inspired_by": [
+        "shadow-courier:D5"
+      ],
+      "partial_credit": "有失败画面但只能看、不能再操作；或失败后直接跳到完成态。",
+      "title": "失败之后能够再出发",
+      "zero_credit": "充分覆盖下既没有任何失败态，也没有任何再开入口。未拍到失败为 unknown，不因缺失败画面归零。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R020",
+            "R037",
+            "RD055"
+          ],
+          "observation": "R020 2/6 LIT，文案 WINDLIFT — leap and hold Space to ride the current.，人走在树下；R037 3/6 LIT，人已离地悬在光柱中；RD055 5/6 LIT，后段再次离地，脚下是丘顶不是平地。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R032"
+          ],
+          "observation": "R032 3/6 LIT，右下前景有一块发光蓝面贴着坡脚，文案 Glass Field — The valley answers in a thousand shards.",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "路上确有一处要跳或要举的危害，但从它之后直到终点全是平地直走，危害没有随接力再出现",
+          "id": "D1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评路上是否有必须改步态或改动作才能通过的移动危害，且危害随接力继续出现。危害预读归 V1；人是否真的跳起来归 M1。障碍种类自由。",
+      "evidence": {
+        "coverage": "需要看到必须改动作的段。不要求风举或玻璃田。",
+        "kind": "overview",
+        "unit": "含危害的一段路"
+      },
+      "full_credit": "路上有跳跃、气流、水面或其他必须改动作才能过的危害，不是全程平地直走，且不止一处。",
+      "group": "D",
+      "high_score_requirements": [
+        "至少一类危害会打断直线走。",
+        "危害落在要走的路上，不是远景装饰。",
+        "过了危害才能继续靠近下一座目标。"
+      ],
+      "id": "D1",
+      "inspired_by": [
+        "magnet-dash:M4",
+        "magnet-dash:D2"
+      ],
+      "partial_credit": "画了缺口或光柱但可以绕开从不触发；或只有一处装饰性落差。",
+      "title": "路线要求改动作才能过",
+      "zero_credit": "充分覆盖全程是平地直走，没有任何要改动作的段。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R002",
+            "R015",
+            "R046"
+          ],
+          "observation": "R002 ACT I · COAST，疏林夜丘、0/6 LIT；R015 ACT II · VALLEY，2/6 LIT，头顶白月、极光，左侧远处有一点橙火；R046 ACT III · SUMMIT，4/6 LIT，人走上白色多层阶台。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R032",
+            "R061"
+          ],
+          "observation": "R032 谷地坡脚出现发光蓝面；R061 山顶是空心白高台加 SIX LIGHTS 文案，地面已是浅色石面而不是草丘。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "后段换了 ACT 名或色温，丘形、树列和危害种类仍是前段的平移复制",
+          "id": "D2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评分段推进时后段在地形、危害或目标布置上是否与前段不同。ACT 换名本身不够。检查点间距自由，不因间距相同扣分。",
+      "evidence": {
+        "coverage": "需要看到至少两段。不要求三幕地名。",
+        "kind": "overview",
+        "unit": "前段与后段各一段"
+      },
+      "full_credit": "后续路段在地形起伏、危害种类或目标结构上与前段可辨不同。",
+      "group": "D",
+      "high_score_requirements": [
+        "后段能指出与前段不同的地形或危害。",
+        "不是只换一行 ACT 字。",
+        "目标结构的外形或底座也随段变化。"
+      ],
+      "id": "D2",
+      "inspired_by": [
+        "magnet-dash:D3"
+      ],
+      "partial_credit": "后段只换了天色或地名，丘和危害仍是同一套。",
+      "title": "后段路线与前段可辨不同",
+      "zero_credit": "充分覆盖只有一段可走路线，没有后续段。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R024",
+            "R046",
+            "R061"
+          ],
+          "observation": "R024 人在丘顶，左侧条纹螺旋台上的白塔已整座可见，人尚未走到；R046 空灯塔在白色阶台尽头，人仍在坡上；R061 空高台占左前景，人在台右侧尚未贴上塔顶。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "塔在远处只是一根与树干同色同粗的竖条，走到贴近前认不出是塔，找目标全靠文案或读数",
+          "id": "D3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评目标接力结构是否在持火人尚未重叠时就能在路上看到并认出是塔。点亮机制归 M2；人被瞬移到塔旁归 M1-C1。",
+      "evidence": {
+        "coverage": "需要看到到达前的目标形体。塔的间距自由。",
+        "kind": "overview",
+        "unit": "接近一座目标的一段"
+      },
+      "full_credit": "至少一座目标灯塔或等价终点在持火人尚未重叠时就能从路上看到并认出。",
+      "group": "D",
+      "high_score_requirements": [
+        "目标在重叠前至少有一帧可指认。",
+        "人是朝它走过去的。",
+        "目标不是贴在脚边的图标。"
+      ],
+      "id": "D3",
+      "inspired_by": [
+        "shadow-courier:D3"
+      ],
+      "partial_credit": "只有最后一座能提前看到，中间目标都是踩到才出现。",
+      "title": "灯塔在到达前就能看见",
+      "zero_credit": "所有目标只在已经重叠时才出现。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R020",
+            "R032",
+            "R037"
+          ],
+          "observation": "R020 右上天空有一道淡紫光柱斜下来；R032 坡脚有一块与草地不同的发光蓝面；R037 人已在光柱里，左下草叶发青。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "水面或气流与夜丘草地同色同形，只能靠一行提示文案才知道脚下是什么",
+          "id": "V1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评气流、水面或落差在接触前能否靠形体或光柱与地面分开。路上有没有危害归 D1；文案形式归 V2/A3。",
+      "evidence": {
+        "coverage": "需要看到接触前的形体。不要求光柱或蓝水。",
+        "kind": "overview",
+        "unit": "接触危害前的一帧"
+      },
+      "full_credit": "已采用的危害在接触前能靠光柱、水面、缺口或其他形体与可走地面区分。",
+      "group": "V",
+      "high_score_requirements": [
+        "危害占位在接触前能指出来。",
+        "不需要先读一行字才知道哪里不能直走。",
+        "可走地面与危害面有分界。"
+      ],
+      "id": "V1",
+      "inspired_by": [
+        "magnet-dash:V4",
+        "shadow-courier:V4"
+      ],
+      "partial_credit": "危害只有一行提示文案，接触前画面上看不出它占哪块地。",
+      "title": "移动危害在接触前可预读",
+      "zero_credit": "充分覆盖存在会改动作的危害，但接触前画面上完全没有危害形体，只有撞了才出字。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R011",
+            "R015"
+          ],
+          "observation": "原始全帧读两遍：R001 左上 0/6 LIT、ACT I · COAST、六枚空心菱形；R011 1/6 LIT、一枚实心菱形、仍是 ACT I · COAST；R015 2/6 LIT、ACT II · VALLEY。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R038",
+            "R050",
+            "R061"
+          ],
+          "observation": "原始全帧读两遍：R038 4/6 LIT、ACT III · SUMMIT、四实二空；R050 白塔已燃，5/6 LIT；R061 空高台旁已是 6/6 LIT、六枚实心菱形，塔火在 R062 才升起，读数早于火焰约 1 s。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "灯塔顶的火已经烧起来，走到下一座塔时点亮计数或进度点还停在点火前的值，或往回减",
+          "id": "V2-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "n/6 LIT 与 ACT 行是贴在星空上的无底板裸字，并挡住灯塔沿或手持火",
+          "id": "V2-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评世界层点燃后进度标记是否向已完成方向变化。这是读数同步的唯一计分处。世界层有没有火归 M2。",
+      "evidence": {
+        "coverage": "需要看到世界层点燃与读数。不要求 LIT 这组英文字。",
+        "kind": "overview",
+        "unit": "一次点燃前后的读数"
+      },
+      "full_credit": "世界层灯塔点燃后，进度读数或等价标记向已完成方向变化，并与点燃次数对得上。",
+      "group": "V",
+      "high_score_requirements": [
+        "点燃后进度标记增加，不是只换一句旁白。",
+        "读数方向与点燃次数一致。",
+        "读数不挡正在看的塔沿或火苗。"
+      ],
+      "id": "V2",
+      "inspired_by": [
+        "shadow-courier:V3"
+      ],
+      "partial_credit": "有读数但滞后一段仍能对上；或只有点没有数字。字段名自由。",
+      "title": "进度读数跟随点燃",
+      "zero_credit": "充分覆盖已点燃后，画面上没有任何进度信号。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R002",
+            "R011",
+            "R038"
+          ],
+          "observation": "R002 斗篷右侧有一粒暖色火；R011 人在亮斑前，手侧仍有独立小火；R038 近景灯芯是一颗黄白火球，和身后星空分开。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "RD035",
+            "R061"
+          ],
+          "observation": "RD035 台座红火与人右手小火同时在画面上；R061 人右手火团比远处星点大且更暖。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "手上有一个白点，但与远处星点、灯塔火无法区分，只能读底栏才知道还亮着",
+          "id": "V3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评随身火苗在正常游玩中能否与环境光分开。左下橙色横条是 GT 手段，不能单独当满分。熄火后果归 M4。",
+      "evidence": {
+        "coverage": "需要看到身上的火。不要求灯笼杆。",
+        "kind": "overview",
+        "unit": "正常行进中的持火"
+      },
+      "full_credit": "手持或随身火苗在正常游玩中能与星点、灯塔火分开，着火可辨。",
+      "group": "V",
+      "high_score_requirements": [
+        "身上的火在中景也分得清。",
+        "和已点燃的塔火能同时辨认。",
+        "不是只靠一条底栏表示还亮着。"
+      ],
+      "id": "V3",
+      "inspired_by": [
+        "magnet-dash:V3"
+      ],
+      "partial_credit": "只有底栏条或 HUD 图标表示持火，世界层手上没有光。",
+      "title": "身上的火在世界层能看见",
+      "zero_credit": "充分覆盖完全看不出是否持火。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R063",
+            "R064",
+            "R074"
+          ],
+          "observation": "R063 终点高塔大火；R064–R068 同一机位塔火持续，天空由夜转晨；R074 暗场中央 MORNING，其下有一排极暗数字，能辨认首位 6 与末两位 0 0，中间两格在原图最大通道亮度约 17 下无法可靠读出。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "完成页有标题与统计，但 MORNING 类标题与其下的数字亮度接近、字号一致、不分行，看不出哪一行是结果",
+          "id": "V4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评最终送达之后完成组织是否可找。再开入口是否存在归 M4；MORNING 页与夜丘是否同一皮肤归 A5。",
+      "evidence": {
+        "coverage": "需要看到完成态。不要求独立标题页或可读的四列统计。",
+        "kind": "overview",
+        "unit": "送达后的完成组织"
+      },
+      "full_credit": "送达完成后有明确的完成组织（世界层长明、结果页或等价），完成语义不用逐词猜。",
+      "group": "V",
+      "high_score_requirements": [
+        "完成态能在一瞥里和游玩态分开。",
+        "完成态不是突然切黑后只剩一行看不清的字。",
+        "若有数字行，至少按组排开。"
+      ],
+      "id": "V4",
+      "inspired_by": [
+        "magnet-dash:D5"
+      ],
+      "partial_credit": "只有一行完成字叠在游玩画面上，没有分组。",
+      "title": "送达完成后的组织可读",
+      "zero_credit": "结束后切黑且世界层也不停留在点燃的终点，没有任何完成组织。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R002",
+            "R027",
+            "R028",
+            "R038"
+          ],
+          "observation": "R002 蓝色斗篷剪影，头与袍可分，右侧持灯；R027 镜头贴近斗篷人背影，黄色灯杆从袍右侧伸出、灯笼发光；R028 同一背影被点燃白闪照成白色多面锥体，灯杆仍在，仍可辨为人而不是塔；R038 近景斗篷+弯杆+灯芯，背对镜头。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "持火人与白石灯塔同色同锥形，停住时分不清哪一座是人",
+          "id": "A1-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "持火人被缩成星空里一个色点，点灯全程看不清斗篷或持火一侧",
+          "id": "A1-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评操作主体能否从灯塔、树和星点里认出来。持火光点归 V3；步态归 A4。",
+      "evidence": {
+        "coverage": "需要看到可辨主体。不要求斗篷造型。",
+        "kind": "overview",
+        "unit": "中景持火人"
+      },
+      "full_credit": "能从形体认出持火者及其朝向。",
+      "group": "A",
+      "high_score_requirements": [
+        "中景能指出头和持火一侧。",
+        "和灯塔外形能分开。",
+        "不是只靠一个移动像素。"
+      ],
+      "id": "A1",
+      "inspired_by": [
+        "shadow-courier:A4",
+        "sokoban:A2"
+      ],
+      "partial_credit": "能定位但无朝向，或只有斗篷剪影没有持火一侧。",
+      "title": "持火人形体可认",
+      "zero_credit": "充分覆盖无法从场景里找到操作主体。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R002",
+            "R032",
+            "R046"
+          ],
+          "observation": "R002 深绿丘面、黑树、星空和极光分层；R032 坡、树、发光蓝面、左侧白月同在一帧；R046 草绿坡接到白色多层阶台，空塔坐在台顶。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "夜空下只有一条线切开两块平涂，白塔悬在天上，没有可走的坡",
+          "id": "A2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评地面、天空、树或等价景物是否有起伏和远近，目标结构是否坐在可走地形上。视觉主题自由，不要求夜丘星空。",
+      "evidence": {
+        "coverage": "只评场所层次。不要求夜主题。",
+        "kind": "whole_scope",
+        "unit": "行进中的场所"
+      },
+      "full_credit": "路线场所有地面起伏或远近层次，灯塔或等价目标坐在可走的地形上。",
+      "group": "A",
+      "high_score_requirements": [
+        "地面有可走的起伏。",
+        "远树或远塔有远近。",
+        "目标座在地形上，不是浮在天上的图标。"
+      ],
+      "id": "A2",
+      "inspired_by": [
+        "shadow-courier:A2"
+      ],
+      "partial_credit": "有地平线但丘和树是贴在天上的剪影，没有坡面。",
+      "title": "路线场所有厚度",
+      "zero_credit": "充分覆盖没有可走的地面或场所，只有空白或单一色。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R038"
+          ],
+          "observation": "R001 左上 LIT/ACT 与底栏 WASD 提示是细白无衬线，压在黑底上不带系统窗边；R038 左上 4/6 LIT、ACT III · SUMMIT 同一字重，底栏提示已隐去，只留左下橙色横条。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S001"
+          ],
+          "observation": "S001 KenneyFuture 样张含 OBJECTIVE / STATUS、LEVEL 03 SCORE 120 TIME 02:45、CONTINUE RETRY COMPLETED，宽体方形无衬线；游玩 LIT/ACT 字重接近，不证明加载。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "代表性的主要界面虽已有分组、底板或字号差，但核心信息的重要性与视觉重量长期明显相反，或主要信息组仍没有可辨阅读顺序，导致这一状态的主要编排关系实质缺失。须指出具体角色和范围；常见字体、纯文字、缺少面板或一个局部修饰问题均不触发。",
+          "id": "A3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评价火焰/接力进度、动作提示与完成表达的实际视觉编排。重点是信息角色、文字/图形比例、留白与对齐、状态重点共同形成的界面设计；正确显示信息、有字号差或使用统一颜色只证明相应的局部成果。下列 GT 观察是设计作用的实例，具体颜色、字体、图标、面板和固定位置不构成复刻要求。",
+      "evidence": {
+        "coverage": "代表性正常界面与原录像覆盖的状态画面并列查看；关键文字及组间比例需要正常尺度全帧。只评价本任务已采用且已展示的组成。",
+        "kind": "overview",
+        "unit": "游玩界面与场所"
+      },
+      "full_credit": "火焰/接力进度、动作提示与完成表达在正常观看尺度下按当前任务的重要性形成清楚的视觉重量和阅读顺序；主要目标或行动状态有充分强调，名称、数值、辅助说明的比例、距离和对齐体现各自语义，弱化的信息仍有适当可读性。持火穿越、接力进度与完成状态根据状态用途重新组织视觉中心、疏密与留白，同时延续可辨的字体角色或图形关系。整体编排已经形成完整、合乎内容的界面，不能仅由几组标签、标题放大和配色统一来证明。纯文字可以充分完成设计；仅评价实际采用的可选读数、图标、按钮和统计，不要求另加组件、面板或独立结果屏。",
+      "group": "A",
+      "high_score_requirements": [
+        "当前接力状态、前进目标与辅助操作在正常画面中的视觉重量与当前用途匹配。指出强调了谁、弱化了谁以及字号/对比/位置/留白如何共同完成这一关系；仅列出标签和分组不算完整证据。",
+        "具体信息组内部与组间的比例、对齐和疏密共同形成阅读节奏，名称、读数、说明之间的联系清楚；同一字体、同一颜色或一条底板不自动证明这些关系完成。",
+        "持火穿越、接力进度与完成状态各自的视觉中心与内容相称，状态变化通过实际编排表达用途变化；保持相同颜色或把一行字放大不足以单独证明完整，但有意义的简洁文字构图可以完整成立。",
+        "字体角色、形状、边缘或强调关系在整套界面中得到有目的的运用；需要说明具体处理产生了什么视觉效果，不能用‘没冲突、可读、风格统一’替代正面完成证据。"
+      ],
+      "id": "A3",
+      "inspired_by": [
+        "shadow-courier:A3"
+      ],
+      "partial_credit": "按已形成和未完成的设计关系连续判断：能读到文字但关键目标/状态的视觉重量弱于装饰性标题；标签与数值或相关说明靠简单并排仍缺少有效分组与阅读顺序；主次虽然有字号差，尺度、对比或留白却未配合语义；结果内容只是换字沿用普通读数排法，没有围绕已有完成信息形成视觉中心；局部做了边框或强调色，但主要界面仍缺乏上述编排。指出具体区域、相互比较的信息角色和可见后果，不能只说普通、简陋或缺乏高级感。仅有轻微间距问题时按局部损失判断；不能把缺少图标/插画、使用常见字体、不同字体家族或极简风格本身当缺陷。某信息是否缺失或错误归功能视觉项；本项须评价已展示信息怎样被设计，不能复用同一功能缺失扣分。",
+      "title": "界面的完整视觉编排",
+      "zero_credit": "所需观察范围充分时，主要界面完全没有实际视觉编排，只有无法形成信息角色或阅读顺序的散置占位内容。已经形成有效的局部编排应给部分完成度；没有拍到状态不等于没有设计。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "RD001",
+            "RD029",
+            "RD035"
+          ],
+          "observation": "RD001 人在谷地丘顶连续走；RD029 近景持灯人处在白闪里，灯芯已亮；RD035 台座红火已升起到人肩以上，人仍在右后方，不是空台瞬切到满火。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R061",
+            "R062",
+            "R063"
+          ],
+          "observation": "终点塔火分三档可见：R061 空台，R062 中等红火，R063 满火，火焰高度逐帧增长。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R037",
+            "RD055"
+          ],
+          "observation": "R037 与 RD055 人离开丘顶悬在光柱中，袍和火点仍在身上。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "行走位移可跟踪，但每座塔的点燃都是空台与满火两帧直切，密集片段里没有一座塔有火焰生长的中间帧",
+          "id": "A4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评已采用的走、跃、点燃是否有世界层过程。人是否移动归 M1；塔是否改态、火是否长在走到的那座塔上归 M2。",
+      "evidence": {
+        "coverage": "需要过程中间帧。只给总览抽帧时本条可 unknown。",
+        "kind": "action_sequence",
+        "unit": "走一段或点燃一次的密集帧"
+      },
+      "full_credit": "行走有位置连续变化，离地或点燃时火或人有可跟踪的中间帧，不是只有切镜。",
+      "group": "A",
+      "high_score_requirements": [
+        "走段能跟上连续位移。",
+        "点燃或离地看得到中间态。",
+        "火的生长有从小到大的过程。"
+      ],
+      "id": "A4",
+      "inspired_by": [
+        "shadow-courier:A4"
+      ],
+      "partial_credit": "走得到，但点燃只有一帧火团蹦现；或只有走没有离地/点燃过程。",
+      "title": "行走、离地与点燃有过程",
+      "zero_credit": "充分覆盖下所有已采用动作都是切镜，看不到中间位置。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R046",
+            "R063",
+            "R074"
+          ],
+          "observation": "R046/R063 白塔、斗篷人、星空同属低多边形夜景；R074 MORNING 仍是细白无衬线压在黑底上，不是第三套写实照片，但统计行过暗。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "代表性的正常画面中，主体、场所、效果和信息层虽各自存在，但跨部分的主要行动焦点或空间层次持续未建立：须有具体比例、明暗、遮挡或布局关系使主要行动被压成次要点或各部分无法形成同一空间的证据。配色一致不能豁免；个别装饰不足、单帧重叠或局部细节缺失不触发。",
+          "id": "A5-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评价持火主体、路线/信标、环境与信息层共同组成的整幅画面怎样表现在危险路线中维持火焰并送达终点。本项需要跨部分构图、比例、空间与注意力层次的正面成果；能够认出同一游戏、配色一致或没有严重风格冲突只证明有限的协调。不再次评价 A1–A4 的局部制作水平，不把 GT 的具体风格和配色变成强制答案。",
+      "evidence": {
+        "coverage": "以多个独立阶段的正常全帧检查整体关系，并与原录像覆盖的状态画面比较；不以单一漂亮结果页补偿游玩画面的主要关系缺失。",
+        "kind": "whole_scope",
+        "unit": "开场、山顶与完成跨状态"
+      },
+      "full_credit": "持火者、下一段路线与接力目标在代表性画面中形成有目的的关注关系；主体所占视觉重量、场所的衬托、效果的强调和信息层的介入共同表现在危险路线中维持火焰并送达终点。各部分在尺度、明暗/色彩、边缘与空间上的配合形成完整画面，能指出主体如何处于场所中、效果如何依附其对象、界面如何配合当前状态。跨已展示的阶段与结果，视觉语言通过这些关系延续并适应状态变化；统一调色、重复字体或相同像素边不能代替整体构图与氛围的完成。几何、极简、像素、混合渲染和主题变化均可完整成立，不要求增加装饰或效果种类。",
+      "group": "A",
+      "high_score_requirements": [
+        "持火者、下一段路线与接力目标的关注顺序由整幅构图、视觉重量与场景衬托共同组织，具体说明至少两个部分如何相互支持。对象存在、能定位或颜色区分开，只是这项成果的一部分。",
+        "持火主体、路线/信标、环境与信息层之间的尺度、明暗/色彩、边缘或空间关系共同形成在危险路线中维持火焰并送达终点的表现，举出画面中实际成立的整合关系；不能仅凭共享调色或材质名称判完整。",
+        "已展示的游玩阶段与结果通过构图、强调、形态或空间关系延续同一视觉方向，并适应各状态的用途；只复用一种颜色或字体并不能单独证明整套呈现完成。"
+      ],
+      "id": "A5",
+      "inspired_by": [
+        "shadow-courier:A1"
+      ],
+      "partial_credit": "按尚未建立的跨部分关系及其重要性给连续分：颜色相近却只是主体、平面场地、标记和顶栏的并置，比例与明暗没有共同组织主要行动；效果、装饰或信息层的面积/对比持续压过应被关注的世界主体或目标，使行动中心退化为画面的次要点；物件、地面和效果各自可辨，却在接地、遮挡或视觉尺度上缺乏联系，整幅画面的空间表现未形成；游玩与结果只复用颜色，实际构图和强调关系没有支持其体验的延续。必须指出至少两个部分之间的可见关系与结果，不能以‘拼装感、没氛围’概括，也不能再次列角色缺细节、地面少装饰或界面字小作为独立扣分。局部轻微不协调按局部判断；不同风格、稀疏场景、明亮特效或大界面并不自动证明失败。",
+      "title": "整体构图与美术整合",
+      "zero_credit": "代表性画面中各部分没有共同形成可辨的主要行动、空间层次或整体表现方向，只有互不关联的内容并置。已形成的实际关系应保留部分完成度；不能因画风不合偏好给零分。"
+    }
+  ],
+  "rubric_version": "2026-09-19.vlm-art-relationships-v1",
+  "score_curve": {
+    "caps_scale": "final_score",
+    "exponent": 3,
+    "input": "attainment",
+    "missing_evidence": null,
+    "name": "power"
+  },
+  "self_review": {
+    "overlap": "事件唯一归属：位移 → M1；检查点世界层改燃及火落在走到的那座塔上 → M2；终点送达 → M3；失败态与再出发是否存在 → M4；路上要不要改动作及危害是否延续 → D1；后段是否真变 → D2；塔在到达前可见可认 → D3；危害形体预读 → V1；LIT/菱形是否跟随点燃与是否挡塔 → V2；身上火可见 → V3；完成页组织 → V4；人与塔能否分开 → A1；场所层次 → A2；游玩字皮肤 → A3；走/跃/点燃的中间帧 → A4；夜丘与完成页是否互认 → A5。逐对：出生丘与终点叠同一坡只打 M1-C1，D3 不写距离；火长在别的塔上只打 M2-C1，A4-C1 只罚没有生长中间帧，两者可同时命中但罚的是不同缺陷；读数空跳打 V2-C1；有完成字但终点空打 M3-C1，完成页标题与数字不分层打 V4-C1；失败只是叠字打 M4-C1，无失败画面不打 M4 零分；危害只出现一次后全平地打 D1-C1，危害画了但可绕开是 D1 partial，危害与地面同形只打 V1-C1；后段只换 ACT 名打 D2-C1，不要求间距不同；塔远看像树干打 D3-C1，瞬移到塔旁归 M1-C1；LIT 不动打 V2-C1，裸字挡塔打 V2-C2，默认调试字皮肤打 A3-C1；身上火只是星点打 V3-C1，人不像人打 A1；平涂地平线打 A2-C1 不打 D1；完成页换写实照片打 A5-C1，仅字号违和打 A3-C1。",
+    "scope": "16 项（M4/D3/V4/A5）。条数按 brief 定：走、点灯、送达、失败重试四条机制；危害路、段间变化、塔可预读三条设计；危害预读、LIT 同步、持火可见、完成组织四条呈现；持火人、场所、界面字、过程、跨夜/晨五条美术。无敌人，不设敌人可读条目。brief 把脆弱持火、移动危害、分阶段、失败重试、最终送达列为必需；路线几何、障碍组合、视觉主题、检查点间距、反馈处理列为自由。失败未拍到，M4 不因缺失败画面归零。",
+    "uncertainties": "失败重试未出现。第一、二、五座点燃接触帧未采到。R074 中间两格数字不可靠。Q 召唤未闭环。RD055 判为离地依据是袍底与丘顶之间的间隙加 WINDLIFT 文案。未建立独立语义审查证据。",
+    "unsupported_obligations": "未要求：固定夜主题、斗篷造型、六座白塔、三幕地名、风举/玻璃田、Q 召唤、E/WASD、n/6 LIT 字段名、菱形点、左下橙条、Kenney 字体、MORNING 标题、可读的四列结算。GT 做法只写在 basis。即时重生也算再出发。"
+  },
+  "task_map": {
+    "freedom": [
+      "路线几何、障碍组合、视觉主题、检查点间距、反馈处理。",
+      "HUD 字段名（n/6 LIT、ACT I · COAST 等）、菱形进度点、左下橙色横条、风举/玻璃田、斗篷持灯人、夜丘星空、MORNING 字样都是 GT 手段。",
+      "三幕地名、六座白塔、Q 召唤、E 点燃键位均为呈现或操作选择，等效同权。"
+    ],
+    "required": [
+      "携带脆弱接力火苗穿越有移动危害的路线，保持火苗状态，分阶段推进并送到最终灯塔。",
+      "持火状态可见；有失败与重试；有明确的最终送达。"
+    ]
+  }
+}

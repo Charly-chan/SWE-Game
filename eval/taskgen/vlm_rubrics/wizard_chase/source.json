@@ -1,0 +1,186 @@
+{
+  "game_id": "wizard_chase",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "enemy/enemyfiend/EnemyFiend.png",
+        "id": "S001",
+        "label": "enemy/enemyfiend/EnemyFiend.png"
+      },
+      {
+        "asset_path": "enemy/enemylizardman/EnemyLizardMan.png",
+        "id": "S002",
+        "label": "enemy/enemylizardman/EnemyLizardMan.png"
+      },
+      {
+        "asset_path": "enemy/enemyogre/EnemyOgre.png",
+        "id": "S003",
+        "label": "enemy/enemyogre/EnemyOgre.png"
+      },
+      {
+        "asset_path": "enemy/enemyslime/EnemySlime.png",
+        "id": "S004",
+        "label": "enemy/enemyslime/EnemySlime.png"
+      },
+      {
+        "asset_path": "reference_media/assets/enemy/enemylizardman/EnemyLizardMan.png",
+        "id": "S008",
+        "label": "reference_media/assets/enemy/enemylizardman/EnemyLizardMan.png"
+      },
+      {
+        "asset_path": "reference_media/assets/ui/uilives/ui_player_life.png",
+        "id": "S014",
+        "label": "reference_media/assets/ui/uilives/ui_player_life.png"
+      },
+      {
+        "asset_path": "reference_media/assets/ui/uiwalls/ui_wall.png",
+        "id": "S015",
+        "label": "reference_media/assets/ui/uiwalls/ui_wall.png"
+      },
+      {
+        "asset_path": "reference_media/assets/world/door/Doors.png",
+        "id": "S016",
+        "label": "reference_media/assets/world/door/Doors.png"
+      },
+      {
+        "asset_path": "reference_media/assets/world/dungeon/Dungeon.png",
+        "id": "S017",
+        "label": "reference_media/assets/world/dungeon/Dungeon.png"
+      },
+      {
+        "asset_path": "reference_media/assets/world/map_generated/floorspikes/spike_0.png",
+        "id": "S019",
+        "label": "reference_media/assets/world/map_generated/floorspikes/spike_0.png"
+      },
+      {
+        "asset_path": "reference_media/assets/world/overlay/treasure/coin/coin_0.png",
+        "id": "S026",
+        "label": "reference_media/assets/world/overlay/treasure/coin/coin_0.png"
+      },
+      {
+        "bundled_path": "media/S073.png",
+        "id": "S073",
+        "label": "FONT PREVIEW font/PressStart2P-Regular.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "font/PressStart2P-Regular.ttf"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "audio/FreeSFX/GameSFX",
+        "audio/sfx/magic",
+        "audio/sfx/power",
+        "blank_tile.svg",
+        "enemy/enemyfiend/EnemyFiend.png",
+        "enemy/enemylizardman/EnemyLizardMan.png",
+        "enemy/enemyogre/EnemyOgre.png",
+        "enemy/enemyslime/EnemySlime.png",
+        "font/PressStart2P-Regular.ttf",
+        "icon.png",
+        "player/Player.png",
+        "reference_media/assets/audio",
+        "reference_media/assets/enemy",
+        "reference_media/assets/icon.png",
+        "reference_media/assets/player",
+        "reference_media/assets/ui",
+        "reference_media/assets/world",
+        "ui/uiinventory/10_great_sword.png",
+        "ui/uiinventory/1_staff.png",
+        "ui/uiinventory/2_gold_shortsword.png",
+        "ui/uiinventory/3_orange_potion.png",
+        "ui/uiinventory/4_silversword.png",
+        "ui/uiinventory/5_bow.png",
+        "ui/uiinventory/6_green_potion.png",
+        "ui/uiinventory/7_red_staff.png",
+        "ui/uiinventory/8_dagger.png",
+        "ui/uiinventory/9_blue_potion.png",
+        "ui/uilives/ui_player_life.png",
+        "ui/uiwalls/ui_wall.png",
+        "ui/uiwalls/ui_wall_unavailable.png",
+        "world/door/Doors.png",
+        "world/dungeon/Dungeon.png",
+        "world/foreground/Foreground.png",
+        "world/map_generated/floorspikes",
+        "world/map_generated/magicwalls",
+        "world/map_generated/wallblades",
+        "world/markers/Markers.png",
+        "world/overlay/Overlay.png",
+        "world/overlay/fountain",
+        "world/overlay/treasure",
+        "world/overlay/wall_x_button.png",
+        "world/overlay/wall_y_button.png"
+      ],
+      "file_count": 137,
+      "font_files": [
+        "font/PressStart2P-Regular.ttf"
+      ]
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry. Font previews are rendered from actual supplied font files; preview wording is illustrative, not additional task requirements.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 307.884,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R015",
+        "time_s": 36.6333
+      },
+      {
+        "id": "R016",
+        "time_s": 39.25
+      },
+      {
+        "id": "R020",
+        "time_s": 49.7167
+      },
+      {
+        "id": "R021",
+        "time_s": 52.3333
+      },
+      {
+        "id": "R039",
+        "time_s": 99.4333
+      },
+      {
+        "id": "R040",
+        "time_s": 102.05
+      },
+      {
+        "id": "R049",
+        "time_s": 125.6
+      },
+      {
+        "id": "R060",
+        "time_s": 154.383
+      },
+      {
+        "id": "R063",
+        "time_s": 162.233
+      },
+      {
+        "id": "R070",
+        "time_s": 180.55
+      },
+      {
+        "id": "R087",
+        "time_s": 225.033
+      },
+      {
+        "id": "R119",
+        "time_s": 307.867
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.38326122825479725,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Wizard Chase — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nSteal treasure from five increasingly hostile mazes as a fragile wizard who cannot fight back, reading corners and spending two temporary walls to survive the chase.\n\n## Scope boundary\n\nFive authored rooms in one continuous run with grid movement, four pursuing enemy kinds, timed hazards, a coin sweep that opens each exit, two temporary wall charges, three lives, and separate cleared and failed endings.\n\n## Creative freedom\n\nYou may choose maze dressing, enemy and spell presentation, HUD layout, and audio while preserving the coin gate, the pursuit, the wall charges, and the five-room closure.\n"
+}

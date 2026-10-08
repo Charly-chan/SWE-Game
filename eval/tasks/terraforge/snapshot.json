@@ -1,0 +1,486 @@
+{
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "driver_sha256": "7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742",
+  "endings": {
+    "defeat": "res://ui/results_screen.tscn",
+    "victory": "res://ui/results_victory.tscn"
+  },
+  "engine": "4.5.1",
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "analog_axes": [
+      {
+        "id": "look_y",
+        "max": 1.0,
+        "min": -1.0,
+        "steps": 17,
+        "why": "camera pitch is a continuous axis; six verbs yaw and walk but cannot look 89 degrees to climb out of the cave"
+      }
+    ],
+    "extended_actions": [
+      {
+        "id": "quick_craft",
+        "why": "field craft of the next objective is key C; jump+up chords are unreliable on the spiral climb"
+      },
+      {
+        "id": "place",
+        "why": "block placement is key K; jump+action placement misses on narrow shaft lips"
+      }
+    ],
+    "interface_version": 2,
+    "normalized_sha256": "1d155785902baeb01c855140af9d7e68e9c41a6889bc5a48869a1e4da5d2e522",
+    "source_sha256": "4c7ef36b8a1d9fc13cd1655e95abf87e26819fa713512deae2e9d7a414648af3"
+  },
+  "levels": [
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          9.5,
+          72.0,
+          4.5
+        ],
+        "min3": [
+          2.5,
+          30.5,
+          -7.5
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 0,
+        "alive_before": 0,
+        "attempted": false,
+        "delta": 0,
+        "detail": "this level declares no gb_collectible, so there is nothing to pick up",
+        "effect": {},
+        "target": ""
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://world/world.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": false,
+        "changed": false,
+        "detail": "goal has prerequisite actions; evaluated by certified input-only progress routes",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "route_progress",
+          "observation_missing": false,
+          "progress_before": null
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://world/world.tscn",
+        "scene_before": "res://world/world.tscn",
+        "target": ""
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_door": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_enemy": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 1.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              9.5,
+              72.0,
+              4.5
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 17,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.285714285714286,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.428571428571429,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.571428571428571,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.285714285714286,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.428571428571429,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.571428571428571,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.285714285714286,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.428571428571429,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.571428571428571,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.571428571428571,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.571428571428571,
+              "y": 0.0
+            }
+          ],
+          "total": 17,
+          "world": [
+            [
+              2.5,
+              30.5,
+              -7.5
+            ],
+            [
+              3.5,
+              30.5,
+              -7.5
+            ],
+            [
+              4.5,
+              30.5,
+              -7.5
+            ],
+            [
+              5.5,
+              30.5,
+              -7.5
+            ],
+            [
+              6.5,
+              30.5,
+              -7.5
+            ],
+            [
+              2.5,
+              30.5,
+              -6.5
+            ],
+            [
+              4.5,
+              30.5,
+              -6.5
+            ],
+            [
+              5.5,
+              30.5,
+              -6.5
+            ],
+            [
+              6.5,
+              30.5,
+              -6.5
+            ],
+            [
+              2.5,
+              30.5,
+              -5.5
+            ],
+            [
+              4.5,
+              30.5,
+              -5.5
+            ],
+            [
+              5.5,
+              30.5,
+              -5.5
+            ],
+            [
+              6.5,
+              30.5,
+              -5.5
+            ],
+            [
+              2.5,
+              30.5,
+              -4.5
+            ],
+            [
+              6.5,
+              30.5,
+              -4.5
+            ],
+            [
+              2.5,
+              30.5,
+              -3.5
+            ],
+            [
+              6.5,
+              30.5,
+              -3.5
+            ]
+          ]
+        },
+        "gb_interactive": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 1.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              9.5,
+              72.0,
+              4.5
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.285714285714286,
+              "y": 0.976011161344597
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              4.5,
+              71.0044631958008,
+              4.5
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "health": 20.0
+      },
+      "numeric_source": {
+        "health": "declared"
+      },
+      "reached": true,
+      "scene": "res://world/world.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 17,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "health": 20.0
+          },
+          "phase": "settle",
+          "player": [
+            4.5,
+            71.0044631958008,
+            4.5
+          ],
+          "scene_path": "res://world/world.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 17,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "health": 20.0
+          },
+          "phase": "settle",
+          "player": [
+            4.5,
+            71.0044631958008,
+            4.5
+          ],
+          "scene_path": "res://world/world.tscn"
+        }
+      ],
+      "spawn": [
+        4.5,
+        71.0044631958008,
+        4.5
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.2857142857142857,
+        "y": 0.9760111613445975
+      },
+      "stop_reason": "goal_requires_route"
+    }
+  ],
+  "liveness": [
+    {
+      "action": "gb_left",
+      "detail": "gb_left differs from the idle control on text (delta 1.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "text"
+    },
+    {
+      "action": "gb_right",
+      "detail": "gb_right differs from the idle control on text (delta 1.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "text"
+    },
+    {
+      "action": "gb_up",
+      "detail": "gb_up differs from the idle control on position (delta 19.98969 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_down",
+      "detail": "gb_down differs from the idle control on position (delta 23.8399 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_jump",
+      "detail": "gb_jump differs from the idle control on velocity (delta 8.967 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "velocity"
+    },
+    {
+      "action": "gb_action",
+      "detail": "gb_action differs from the idle control on node_count (delta 57.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "node_count"
+    }
+  ],
+  "no_input_no_win": true,
+  "no_input_stop_reason": "budget_frames",
+  "notes": [
+    "liveness deadline derived from this project's own structural pass: 87.1 ms/frame median, 87.1 ms/frame worst",
+    "liveness sweep: 6 live / 0 dead against the 420-frame idle control truth/L0#idle420"
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "terraforge",
+  "read_failure": "",
+  "taken_at": "2026-09-10T09:22:42+00:00",
+  "version": "1"
+}

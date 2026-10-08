@@ -1,0 +1,245 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "b9e05fb9aeaf2b8e48ac72f81b25d4be94915379ee797bce8b79ae4598f2beaf"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "ember_and_tide/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "73da890d9495f6ce6a1fff7e61cd92b85e6c117728d0992f5ac631e5ef443ab4",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "b9e05fb9aeaf2b8e48ac72f81b25d4be94915379ee797bce8b79ae4598f2beaf",
+    "task_id": "ember_and_tide"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "extended_actions": [
+      {
+        "id": "ember_left",
+        "why": "Ember walks on WASD independently of Tide; six verbs drive one focused body and cannot hold Ember left while Tide walks"
+      },
+      {
+        "id": "ember_right",
+        "why": "Ember right is a second body's axis; gb_right after a focus swap cannot overlap Tide motion on the same tick"
+      },
+      {
+        "id": "ember_jump",
+        "why": "Ember jump is independent of Tide jump; six verbs have one jump channel"
+      },
+      {
+        "id": "tide_left",
+        "why": "Tide walks on arrows independently of Ember; honest solutions press both clusters in the same frame"
+      },
+      {
+        "id": "tide_right",
+        "why": "Tide right is the other half of simultaneous two-body walks; focus-swap cannot press both rights together"
+      },
+      {
+        "id": "tide_jump",
+        "why": "Tide jump is a second jump verb; a shared gb_jump cannot launch both avatars on the same physics tick"
+      }
+    ],
+    "interface_version": 2,
+    "normalized_sha256": "b1784e3bf9dbd8145b6c368347f8e915f71195b1e9a2fb0926bf7338220c0851",
+    "source_sha256": "c5a39cdb5e916dcb85c2a5b960955f203c2ae8d86e4efbe04cef348232160458"
+  },
+  "passed_route_ids": [
+    "ember_and_tide/L0/no_input_no_clear",
+    "ember_and_tide/C1/chamber_1_twin_gates",
+    "ember_and_tide/C2/chamber_2_moving_platform",
+    "ember_and_tide/C3/chamber_3_paired_routes",
+    "ember_and_tide/C4/chamber_4_timed_switches",
+    "ember_and_tide/C5/chamber_5_element_channels",
+    "ember_and_tide/C6/chamber_6_dual_network",
+    "ember_and_tide/C7/chamber_7_hazard_crossing",
+    "ember_and_tide/C8/chamber_8_relay_gates",
+    "ember_and_tide/C9/chamber_9_mixed_devices",
+    "ember_and_tide/C10/chamber_10_final_convergence",
+    "ember_and_tide/L5/whole_game_clear"
+  ],
+  "readings": {
+    "ember_and_tide/C1/chamber_1_twin_gates": {
+      "deaths": 1,
+      "frames": 262,
+      "injects": 0,
+      "milestones_reached": [
+        "chamber_1_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 4,
+      "stop_reason": "scene_changed"
+    },
+    "ember_and_tide/C10/chamber_10_final_convergence": {
+      "deaths": 1,
+      "frames": 3559,
+      "injects": 0,
+      "milestones_reached": [
+        "chamber_10_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 53,
+      "stop_reason": "goal_reached"
+    },
+    "ember_and_tide/C2/chamber_2_moving_platform": {
+      "deaths": 1,
+      "frames": 2061,
+      "injects": 0,
+      "milestones_reached": [
+        "chamber_2_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 34,
+      "stop_reason": "scene_changed"
+    },
+    "ember_and_tide/C3/chamber_3_paired_routes": {
+      "deaths": 1,
+      "frames": 336,
+      "injects": 0,
+      "milestones_reached": [
+        "chamber_3_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 5,
+      "stop_reason": "scene_changed"
+    },
+    "ember_and_tide/C4/chamber_4_timed_switches": {
+      "deaths": 1,
+      "frames": 1510,
+      "injects": 0,
+      "milestones_reached": [
+        "chamber_4_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 33,
+      "stop_reason": "scene_changed"
+    },
+    "ember_and_tide/C5/chamber_5_element_channels": {
+      "deaths": 1,
+      "frames": 817,
+      "injects": 0,
+      "milestones_reached": [
+        "chamber_5_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 31,
+      "stop_reason": "scene_changed"
+    },
+    "ember_and_tide/C6/chamber_6_dual_network": {
+      "deaths": 1,
+      "frames": 1273,
+      "injects": 0,
+      "milestones_reached": [
+        "chamber_6_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 33,
+      "stop_reason": "scene_changed"
+    },
+    "ember_and_tide/C7/chamber_7_hazard_crossing": {
+      "deaths": 1,
+      "frames": 2626,
+      "injects": 0,
+      "milestones_reached": [
+        "chamber_7_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 37,
+      "stop_reason": "scene_changed"
+    },
+    "ember_and_tide/C8/chamber_8_relay_gates": {
+      "deaths": 1,
+      "frames": 2019,
+      "injects": 0,
+      "milestones_reached": [
+        "chamber_8_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 25,
+      "stop_reason": "scene_changed"
+    },
+    "ember_and_tide/C9/chamber_9_mixed_devices": {
+      "deaths": 1,
+      "frames": 2454,
+      "injects": 0,
+      "milestones_reached": [
+        "chamber_9_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 27,
+      "stop_reason": "scene_changed"
+    },
+    "ember_and_tide/L0/no_input_no_clear": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "ember_and_tide/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 20106,
+      "injects": 0,
+      "milestones_reached": [
+        "chamber_1_cleared",
+        "entered_chamber_2",
+        "chamber_2_cleared",
+        "entered_chamber_3",
+        "chamber_3_cleared",
+        "entered_chamber_4",
+        "chamber_4_cleared",
+        "entered_chamber_5",
+        "chamber_5_cleared",
+        "entered_chamber_6",
+        "chamber_6_cleared",
+        "entered_chamber_7",
+        "chamber_7_cleared",
+        "entered_chamber_8",
+        "chamber_8_cleared",
+        "entered_chamber_9",
+        "chamber_9_cleared",
+        "entered_chamber_10",
+        "chamber_10_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 293,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "73da890d9495f6ce6a1fff7e61cd92b85e6c117728d0992f5ac631e5ef443ab4"
+  },
+  "result": "12/12 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "b427bf9e84dcb8df0efc1c85a709ea50db8198fc821adcdf3445f7f6b05d8971",
+  "schema_version": 2,
+  "solution_kinds": {
+    "ember_and_tide/C1/chamber_1_twin_gates": "tape",
+    "ember_and_tide/C10/chamber_10_final_convergence": "tape",
+    "ember_and_tide/C2/chamber_2_moving_platform": "tape",
+    "ember_and_tide/C3/chamber_3_paired_routes": "tape",
+    "ember_and_tide/C4/chamber_4_timed_switches": "tape",
+    "ember_and_tide/C5/chamber_5_element_channels": "tape",
+    "ember_and_tide/C6/chamber_6_dual_network": "tape",
+    "ember_and_tide/C7/chamber_7_hazard_crossing": "tape",
+    "ember_and_tide/C8/chamber_8_relay_gates": "tape",
+    "ember_and_tide/C9/chamber_9_mixed_devices": "tape",
+    "ember_and_tide/L0/no_input_no_clear": "tape",
+    "ember_and_tide/L5/whole_game_clear": "tape"
+  },
+  "task_id": "ember_and_tide",
+  "validated_at": "2026-09-09"
+}

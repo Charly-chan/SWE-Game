@@ -1,0 +1,23 @@
+{
+  "schema_version": 3,
+  "engine": "unity",
+  "unity_editor_version": "6000.3.23f1",
+  "entry_scene": "Assets/Game/Scenes/Entry.unity",
+  "levels": [
+    {"id": "L1", "scene": "Assets/Game/Scenes/Level1.unity"},
+    {"id": "L2", "scene": "Assets/Game/Scenes/Level2.unity"}
+  ],
+  "supported_actions": [
+    "gb_left", "gb_right", "gb_up", "gb_down",
+    "gb_jump", "gb_action", "gb_attack", "gb_dash", "reload"
+  ],
+  "required_actions": ["gb_left", "gb_right", "gb_action", "reload"],
+  "analog_axes": [
+    {"id": "look_x", "why": "horizontal aiming", "min": -1.0, "max": 1.0, "steps": 9}
+  ],
+  "semantic_roles": ["gb_player", "gb_enemy", "gb_projectile", "gb_goal"],
+  "numeric_slots": ["health", "score", "progress"],
+  "outcome_capabilities": ["success", "failure", "checkpoint"],
+  "scaffold_profile_id": "ubuntu2404-unity6000.3.23f1-candidate",
+  "scaffold_digest": "sha256:replace-with-the-package-published-scaffold-digest"
+}

@@ -1,0 +1,121 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-27T19:11:10+00:00",
+  "interface_requirements": {},
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 8,
+        "gb_collectible": 0,
+        "gb_door": 0,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 109,
+        "gb_interactive": 0,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "x",
+          4
+        ],
+        "gb_hazard": [
+          "x",
+          5
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://scenes/levels/level_lakeside.tscn",
+      "spawn_goal_distance": 0.12154848978968585
+    },
+    {
+      "census": {
+        "gb_checkpoint": 8,
+        "gb_collectible": 0,
+        "gb_door": 0,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 111,
+        "gb_interactive": 0,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "y",
+          5
+        ],
+        "gb_hazard": [
+          "x",
+          5
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://scenes/levels/level_ravine.tscn",
+      "spawn_goal_distance": 0.15232478392445942
+    }
+  ],
+  "probe_sha256": "fe750d48224bfe79a915c4057b270adbbcdbc421e5b99f56213c3b2b7f746edd",
+  "project": "racing",
+  "runtime_assets": {
+    "res://assets/audio/engine/engine.ogg": "6d665dfc961e2d522c866bdcf12fc0ac56c885c0c7117e830df84ba8eecd655c",
+    "res://assets/audio/engine/skid.ogg": "424bbe660f29b825bd0255e332d084a22719c2c4a04b64f83ec6a531197780ed",
+    "res://assets/audio/music/ambience.ogg": "35697cbfde073f92df06e828fe2c8676a1f98c07404193e6477ca9202213f80a",
+    "res://assets/audio/ui/tick_001.ogg": "9d057b918024c787bbe6c00beed13a7ef72a3fa0c259add3cef36582792f4230",
+    "res://assets/vendor/kenney_car_kit/Textures/colormap.png": "f3622a03a20c6696065cae9cbe391351be873508af190c2ebd1d420c055787a5",
+    "res://assets/vendor/kenney_car_kit/race-future.glb": "869e2a58d2c12de474e824aff137334491b8f234b97127cf23f1ea04e42deec6",
+    "res://assets/vendor/kenney_car_kit/race.glb": "e1408c4c6e135f5a39c5f34cbfbcac9ae21c5c491e793fdee74bccac8334d942",
+    "res://assets/vendor/kenney_particles/dirt_02.png": "fcecc70b561f80568b3391c3dc1180126d86ce4fbd4d1b01518e6045203e10a3",
+    "res://assets/vendor/kenney_racing_kit/bannerTowerRed.glb": "16b22cccce7d97bf6f8c8333a0048cd14f986d32ae7115aa38107bb78ebfeea2",
+    "res://assets/vendor/kenney_racing_kit/barrierWall.glb": "86abcd8c4d5ee9ff9862dda49b9f079e7e66c27266e4ab696e03c799e737cef8",
+    "res://assets/vendor/kenney_racing_kit/billboard.glb": "2c95fe71e6b31430b8379febf31b4b6118a21b55a6bb1e197a4e4fabfd026c20",
+    "res://assets/vendor/kenney_racing_kit/billboard_tankcoBanner.png": "a227d4859084e4ee78d361d90b37ba31e8ad37fe049a6d8ea81625d06bcb074e",
+    "res://assets/vendor/kenney_racing_kit/fenceStraight.glb": "12fac1aea8f7d8d138a2a8820c7476187fb25a7c39963bfef250c2e8120fba68",
+    "res://assets/vendor/kenney_racing_kit/fenceStraight_net.png": "b607e305d22fd640184ffd5bcb8b13fb7ee356ce939ffcc7acff0ad9aa1239f4",
+    "res://assets/vendor/kenney_racing_kit/flagCheckers.glb": "2feb99a4974fc82f90b43436421feb0874c074d4ea685d9673c6803429fd32ba",
+    "res://assets/vendor/kenney_racing_kit/flagCheckers_checkers.png": "6ba021820c7a607de5597fb519887dcd82893d513f68f04b71cc64d36f79c666",
+    "res://assets/vendor/kenney_racing_kit/flagGreen.glb": "18846508e1f1744c284b0fb7add034d748aa9d35b3179e22e279cc65c279b834",
+    "res://assets/vendor/kenney_racing_kit/flagRed.glb": "ffe61934815e0b52104dd4f11d67f7dc98dbad1220d0d60947870a9081b80b87",
+    "res://assets/vendor/kenney_racing_kit/grandStandCovered.glb": "48fc8e7eace9969a849805bddd5dce2bf1244129f46ae18f7dc8499fe1792b50",
+    "res://assets/vendor/kenney_racing_kit/grandStandCoveredRound.glb": "97359aaf62c7247ee0683ba9365257751eced797040c0e4aa375fd9d83ed561e",
+    "res://assets/vendor/kenney_racing_kit/grass.glb": "892ca5d51fd4f733db7df48161e1fec2372880787ba1dc30ea1ff47ba342fbe8",
+    "res://assets/vendor/kenney_racing_kit/lightPostModern.glb": "8fd8fccc65f53cf54efff81546b90be23d8c32a4ea85b5bbc79c6c9d123cb925",
+    "res://assets/vendor/kenney_racing_kit/overheadRound.glb": "47147adaed1d387c6554145faedf5c6e969ec1e8518a4b4c55a4fda9761b817b",
+    "res://assets/vendor/kenney_racing_kit/pitsGarage.glb": "db73d2ebd70763380ef872ffd2a399eb72c979f96c5a3c1ab377d93670204a23",
+    "res://assets/vendor/kenney_racing_kit/pitsGarage_tankcoBanner.png": "a227d4859084e4ee78d361d90b37ba31e8ad37fe049a6d8ea81625d06bcb074e",
+    "res://assets/vendor/kenney_racing_kit/pitsOfficeRoof.glb": "144c15e740c8b11eff72f391f2ce543cd02299ffa872d49d0e910f697bb4c1e6",
+    "res://assets/vendor/kenney_racing_kit/pylon.glb": "d554671f5ab372cef0e1083b83dc270c03f32bfa0dbc3978c40206faf5608b89",
+    "res://assets/vendor/kenney_racing_kit/raceCarGreen.glb": "9d5fe01fb3dd1cc656238a669a79764aeaa45cecbd36cbd7321a38ec04b2cb55",
+    "res://assets/vendor/kenney_racing_kit/raceCarOrange.glb": "3f7d799e54e0f64c846db3764f04ccfcddfbfe48d7d59f366495d4585a35a980",
+    "res://assets/vendor/kenney_racing_kit/raceCarWhite.glb": "b1e50959852ec6f91070f802edd1be42896b2c87fbacfebab72f6e1017832cd0",
+    "res://assets/vendor/kenney_racing_kit/radarEquipment.glb": "7606e6aec88124a4b9fe96c4898c5e381aa2954f18ae772438ae24b0356cf684",
+    "res://assets/vendor/kenney_racing_kit/roadCornerLarge.glb": "fe6e9db43a5f3fde04b56d9f9905bb69b725325053002627968b5cd9e0f72d15",
+    "res://assets/vendor/kenney_racing_kit/roadCornerLargeBorder.glb": "c1d8986f2a68efab23a9564f188054757a04892dacd1476a8f800d3611b0756b",
+    "res://assets/vendor/kenney_racing_kit/roadCornerLargeBorderInner.glb": "d11acfc8a6a1b5340abe24ec9afd00076f59c8c9765b63b73fde2b1646289887",
+    "res://assets/vendor/kenney_racing_kit/roadCornerLargeSand.glb": "822aff491430f6f3a066a6311f8ac394e2a33f53ef3f4470b7f4be097e47c117",
+    "res://assets/vendor/kenney_racing_kit/roadCornerLarger.glb": "65a8189a5edcb2df6323daa558a3bcfbb55f0803d7df59a3c84f137fce1e0c6d",
+    "res://assets/vendor/kenney_racing_kit/roadCornerLargerBorder.glb": "40d3412e358a8a35fbbb3c9bb46682ec9dcee140c4b50dd043caab5bf877da1b",
+    "res://assets/vendor/kenney_racing_kit/roadCornerLargerBorderInner.glb": "61923a96f08ef0c7259dbd8ad4d654b7f07b21eab83db0bd55349a3fc5e0dfbb",
+    "res://assets/vendor/kenney_racing_kit/roadCornerLargerSand.glb": "852736ec795cce262a1afa59d9791b09a18b2d6e111e3415ee3219d91a9e5cdb",
+    "res://assets/vendor/kenney_racing_kit/roadCornerLargerSandInner.glb": "f5731b2087c85eba8f1920504978d25c7b84a986142f453254baf54ff60bda88",
+    "res://assets/vendor/kenney_racing_kit/roadStart.glb": "80fe439932c3d347a4bb4b4f1a6ce8a161b0e245f4f4dc69d09c01145e8bd705",
+    "res://assets/vendor/kenney_racing_kit/roadStartPositions.glb": "6b4493c4c3b80f7dc4fe99245b64bdec788e5e4001f5db003b9eb4491359e3c4",
+    "res://assets/vendor/kenney_racing_kit/roadStraight.glb": "6b1f92e5859d417951f259e52c9c9eadad5bfceb3b545e074049bbc17d02f00d",
+    "res://assets/vendor/kenney_racing_kit/tentLong.glb": "aa1297953436fd8496a0ade725cb9777ed6483f3c3cc50020ed44b92f7c3d91f",
+    "res://assets/vendor/kenney_racing_kit/treeLarge.glb": "3fcba4474bc490a5e589ce4924e972ca629029f2ade17a20f4ca3a7f253a3168",
+    "res://assets/vendor/kenney_racing_kit/treeSmall.glb": "151d1556b762768433ed9610589650ae8110cac2ed99a3fe1e4da53e1335be23",
+    "res://assets/vendor/kenney_skybox/skybox-day.png": "b7d98fe95157e74b3899a1dd468a1e478005bcd1f668b29b5b42a48cb5358fa2"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

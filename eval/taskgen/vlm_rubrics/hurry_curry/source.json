@@ -1,0 +1,123 @@
+{
+  "game_id": "hurry_curry",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "reference_media/map/tiles/grass_side.webp",
+        "id": "S002",
+        "label": "reference_media/map/tiles/grass_side.webp"
+      },
+      {
+        "asset_path": "reference_media/player/character/circle.png",
+        "id": "S004",
+        "label": "reference_media/player/character/circle.png"
+      },
+      {
+        "asset_path": "reference_media/player/character/robot/face.webp",
+        "id": "S005",
+        "label": "reference_media/player/character/robot/face.webp"
+      },
+      {
+        "asset_path": "ui/menu_cover.png",
+        "id": "S006",
+        "label": "ui/menu_cover.png"
+      },
+      {
+        "asset_path": "reference_media/player/character/faces.webp",
+        "id": "S008",
+        "label": "reference_media/player/character/faces.webp"
+      },
+      {
+        "asset_path": "reference_media/map/tiles/tree/leaves.webp",
+        "id": "S009",
+        "label": "reference_media/map/tiles/tree/leaves.webp"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "audio/cook.ogg",
+        "audio/order_complete.ogg",
+        "audio/ui_click.ogg",
+        "reference_media/assets/audio",
+        "reference_media/gui/resources",
+        "reference_media/map/textures",
+        "reference_media/map/tiles",
+        "reference_media/player/character",
+        "reference_media/player/sounds",
+        "ui/menu_cover.png"
+      ],
+      "file_count": 20,
+      "font_files": []
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 178.017,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R011",
+        "time_s": 15.1667
+      },
+      {
+        "id": "R018",
+        "time_s": 25.7833
+      },
+      {
+        "id": "R044",
+        "time_s": 65.2167
+      },
+      {
+        "id": "R056",
+        "time_s": 83.4167
+      },
+      {
+        "id": "R060",
+        "time_s": 89.4833
+      },
+      {
+        "id": "R081",
+        "time_s": 121.333
+      },
+      {
+        "id": "R100",
+        "time_s": 150.15
+      },
+      {
+        "id": "R108",
+        "time_s": 162.283
+      },
+      {
+        "id": "R119",
+        "time_s": 178.0
+      },
+      {
+        "clip": 3,
+        "id": "RD046",
+        "time_s": 142.9136
+      },
+      {
+        "clip": 3,
+        "id": "RD055",
+        "time_s": 143.8136
+      },
+      {
+        "clip": 3,
+        "id": "RD060",
+        "time_s": 144.3136
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.6628580416477078,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Hurry Curry — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nMove quickly through a compact kitchen, prepare increasingly involved recipes, plate and deliver each order, and complete service before patience runs out.\n\n## Scope boundary\n\nA short cooking game with ingredient pickup, preparation stations, plating, delivery, score and patience pressure, failure recovery, and a three-order victory.\n\n## Creative freedom\n\nYou may choose the kitchen layout, presentation, ingredient arrangement, feedback, and exact pacing while preserving the ordered preparation and delivery loop.\n"
+}

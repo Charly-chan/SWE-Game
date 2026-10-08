@@ -1,0 +1,12 @@
+{
+  "endings": {
+    "defeat": "res://defeat.tscn",
+    "victory": "res://victory.tscn"
+  },
+  "levels": [
+    "res://main.tscn"
+  ],
+  "numeric": {
+    "score": "score"
+  }
+}

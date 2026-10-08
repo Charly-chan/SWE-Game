@@ -1,0 +1,903 @@
+{
+  "game_id": "sprout_market",
+  "mode": "brief",
+  "provided_asset_observations": [
+    {
+      "frame_ids": [
+        "S003",
+        "S007",
+        "S014",
+        "S019",
+        "S027"
+      ],
+      "informs": [
+        "A1",
+        "A3"
+      ],
+      "observation": "3D 西兰花/食物套件/胡萝卜/玉米与金币图标；GT 营业用像素方块货与金币图标，未铺 3D 食物。"
+    },
+    {
+      "frame_ids": [
+        "S054",
+        "S067",
+        "S071",
+        "S073"
+      ],
+      "informs": [
+        "A2",
+        "A3",
+        "A5"
+      ],
+      "observation": "Kenney 三消棋盘、地牢、Tiny Town 城堡与 Kenney Future 字体；城堡/棋盘未作营业地面，字体与 GT 面板同族。"
+    }
+  ],
+  "reference_limits": [
+    "录像未展示失败结算、标题页与暂停；brief 要求的失败只能在候选展示 walkout 耗尽或破产时评判，未展示为 unknown。",
+    "PLAY AGAIN / BACK TO TITLE / OPEN THE DOORS 未被点击，功能未验证。",
+    "无音频；Kenney 素材文件存在不证明被加载。",
+    "R001 顶栏 TAKINGS 分母以同班 R008 的 0/2 为准；联系图上顶栏小字不作为数字依据。",
+    "8 班、定额 2/4/6/10、营收目标 69、玉米货架价 10 是 GT 例子，不是满分前提。"
+  ],
+  "reference_observations": [
+    {
+      "frame_ids": [
+        "R001"
+      ],
+      "informs": [
+        "M1",
+        "M4",
+        "D1",
+        "V2",
+        "V3"
+      ],
+      "observation": "开局 SHIFT 1/8，时钟 0:30，金币 15，WALKOUTS 0/12，场内 SHIFT 1；左田右店，教程字在底边。"
+    },
+    {
+      "frame_ids": [
+        "R008"
+      ],
+      "informs": [
+        "M1",
+        "M2",
+        "D2",
+        "V2"
+      ],
+      "observation": "SHIFT 1/8，时钟 0:08，TAKINGS 0/2，金币 15，箱 0/12，WALKOUTS 1/12；店主在店内，地面有蓝货块。"
+    },
+    {
+      "frame_ids": [
+        "R011"
+      ],
+      "informs": [
+        "M3",
+        "V3",
+        "A3"
+      ],
+      "observation": "BUILD PHASE，金币 29，NEXT SHIFT 2 OF 8，QUOTA 4，四项升级标价 10/50/150/40，OPEN THE DOORS。"
+    },
+    {
+      "frame_ids": [
+        "R018"
+      ],
+      "informs": [
+        "M2",
+        "D2",
+        "D3",
+        "V1",
+        "V2"
+      ],
+      "observation": "SHIFT 2/8，0:13，TAKINGS 1/4，金币 20，箱 0/12，WALKOUTS 2/12；顾客站在队位面对店主。"
+    },
+    {
+      "frame_ids": [
+        "R022",
+        "R035"
+      ],
+      "informs": [
+        "M4",
+        "D3",
+        "V2",
+        "V3"
+      ],
+      "observation": "R022 TAKINGS 4/QUOTA 4，SERVED 3，当班 walkout 2，累计 2/12，RUN TOTAL 8 OF 69，+10；R035 TAKINGS 10/QUOTA 6，SERVED 4，当班 0，累计 2/12，RUN TOTAL 18 OF 69。"
+    },
+    {
+      "frame_ids": [
+        "R060"
+      ],
+      "informs": [
+        "M1",
+        "D1",
+        "D3",
+        "V1",
+        "V2"
+      ],
+      "observation": "SHIFT 5/8，0:14，TAKINGS 0/10，金币 18，箱 3/12，WALKOUTS 2/12；三人排队，店内设备比开局多。"
+    },
+    {
+      "frame_ids": [
+        "R119"
+      ],
+      "informs": [
+        "M4",
+        "V4",
+        "A3",
+        "A5"
+      ],
+      "observation": "MARKET THRIVING，8/8 班，TOTAL TAKINGS 97 OF 69，SERVED 30，WALKOUTS 3/12，PLAY AGAIN / BACK TO TITLE。"
+    },
+    {
+      "frame_ids": [
+        "RD016",
+        "RD028",
+        "RD033"
+      ],
+      "informs": [
+        "M2",
+        "A4"
+      ],
+      "observation": "密集段店主连续换格，顾客在队位移动。"
+    }
+  ],
+  "requirements": [
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R008"
+          ],
+          "observation": "R001 左侧褐土种植区有绿色作物格，右侧米店空货架与柜台；R008 店主站在店内地板，脚下有蓝色货块，货架仍空，说明货物已离开种植区进入店内。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R018",
+            "R060"
+          ],
+          "observation": "R018 柜台前有顾客、地板上有蓝色货块；R060 货架与加工台占用比开局多，箱图标读数 3/12，店内已有可售存。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "箱图标或货架计数会增加，但种植区与货架上都看不到货物本体换位，补货只有数字跳动",
+          "id": "M1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评店主能否从种植区或库存取货，并把货物放到货架、加工台或收银台，使店内可售物在连续片段中增加。走动过程归 A4；TAKINGS 数字归 V2。",
+      "evidence": {
+        "coverage": "需要取与放的前后；不要求玉米或特定加工台。售出归 M2，数字同步归 V2。",
+        "kind": "action_sequence",
+        "unit": "一次从种植区或库存取货并放到店内"
+      },
+      "full_credit": "店主能接近种植区或原料点取走一物，随后在货架、加工台或柜台处放下，该处出现可辨货物，取与放能对上同一段。",
+      "group": "M",
+      "high_score_requirements": [
+        "取货能归因到某一种植格或原料点，不是货物凭空出现在手里。",
+        "放下后货架、加工台或柜台之一出现该物。",
+        "一次取放对应一件可指认货物，不是整排货架瞬间刷满。"
+      ],
+      "id": "M1",
+      "inspired_by": [
+        "shadow-courier:M1"
+      ],
+      "partial_credit": "能走动，但充分覆盖中看不到货物从种植区转移到货架/柜台，或放下后店内可售物完全不变。",
+      "title": "补货使货物出现在店内",
+      "zero_credit": "充分覆盖可操作班次后，店主无法取走或放下任何货物。未拍到取放为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R008",
+            "R018"
+          ],
+          "observation": "R008 柜台前空位、WALKOUTS 已是 1/12，一名顾客未服务就离开；R018 一名顾客站在白色队位点上面对店主与柜台，TAKINGS 已是 1/4。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R060",
+            "RD028",
+            "RD033"
+          ],
+          "observation": "R060 三名顾客排在收银台白格上；密集段可见队列人数与店主位置变化，不是永远钉在门口。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "顾客会走到柜台，但无需店主靠近或货架有货就自动消失，服务没有对应的交互位置",
+          "id": "M2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评顾客到达需求点后，是否在被服务后离开队列或离开店铺。TAKINGS / 金币是否增加归 V2；顾客外形归 V1。",
+      "evidence": {
+        "coverage": "至少一次服务或一次离店；WALKOUTS 数字本身归 V2。未采用收银台形式可用货架自取等效。",
+        "kind": "action_sequence",
+        "unit": "一名顾客从排队到离开"
+      },
+      "full_credit": "顾客会停在货架或收银台；服务发生后该顾客离开排队位或走出店铺，服务与离开能对上。",
+      "group": "M",
+      "high_score_requirements": [
+        "离开能对上某一柜台或货架位置，不是全图随机消失。",
+        "未服务的离开（walkout）与被服务的离开能分开看。",
+        "队列或需求位在服务后空出，下一名可以补上。"
+      ],
+      "id": "M2",
+      "inspired_by": [
+        "magnet-dash:M2"
+      ],
+      "partial_credit": "有顾客进店，但充分覆盖中没有人在柜台或货架前完成一次离开，或离开与店主交互完全无关。",
+      "title": "顾客被服务后离开",
+      "zero_credit": "充分覆盖后没有任何顾客或需求对象，也没有任何被服务后的离开。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R011"
+          ],
+          "observation": "BUILD PHASE，金币 29；可选 OPEN A SHELF FOR CORN（OPEN 10）、CARRY CAPACITY BUY 50、STATION OUTPUT AND SHELF DEPTH BUY 150、WALKING SPEED BUY 40，底部 OPEN THE DOORS。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R001",
+            "R060"
+          ],
+          "observation": "R001 右侧多为空木架；R060 同侧出现更多柜台/加工台与货架占用，班次间店内设备增加，与花费阶段一致。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "BUILD PHASE 里金币减少，但下一班货架、柜台与负重格数与花费前完全一样，店内看不到新设备",
+          "id": "M3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评是否存在花费选择：交出货币后出现新货架、更大负重、更快移动或等效店内能力。BUILD PHASE 面板样式归 V3；金币数字同步归 V2。未做升级菜单但班次间用货币换到可见能力，仍可评。",
+      "evidence": {
+        "coverage": "需要花费前后的货币与能力；具体价目与玉米货架自由。地面无代价刷出新家具不算花费。",
+        "kind": "action_sequence",
+        "unit": "一次花费及其后的店内变化"
+      },
+      "full_credit": "存在可辨的花费界面或交互；花费后金币下降，同时货架、负重、步速或加工能力之一在下一班或当场可见增强。",
+      "group": "M",
+      "high_score_requirements": [
+        "花费能归因到某一升级项或交互，不是金币无故跳变。",
+        "一次花费对应一类可辨获得（新货架、负重或步速等）。",
+        "下一班仍能看到该获得，不是面板上写了店内没有。"
+      ],
+      "id": "M3",
+      "inspired_by": [
+        "shadow-courier:M3"
+      ],
+      "partial_credit": "有升级列表但花费后店内能力完全不变，或金币下降与任何获得脱节。",
+      "title": "花费换取店内能力",
+      "zero_credit": "充分覆盖多班后没有任何花费选择，也没有任何用货币换能力的可见交换。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R018",
+            "R060"
+          ],
+          "observation": "R001 SHIFT 1/8、时钟 0:30；R018 SHIFT 2/8、时钟 0:13；R060 SHIFT 5/8、时钟 0:14。同一局里班次编号上升。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R022",
+            "R035",
+            "R119"
+          ],
+          "observation": "R022 / R035 为 SHIFT CLEARED；R119 MARKET THRIVING，SHIFTS CLEARED 8 OF 8，文案 YOU CLEARED ALL EIGHT SHIFTS AND HIT THE TAKINGS TARGET。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "第一班结束后玩家被直接放到 MARKET THRIVING，中间没有第二班可玩的营业时间",
+          "id": "M4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评是否有多班短战役：一班计时结束后进入结算或下一班，最终出现完成或失败。SHIFT CLEARED / MARKET THRIVING 编排归 V4；失败页未拍到时该分支为 unknown，不因此判本条为零。",
+      "evidence": {
+        "coverage": "完成页必需；失败仅在候选展示破产或 walkout 耗尽时评判。8 班与 69 目标是例子。PLAY AGAIN 未点击。",
+        "kind": "whole_scope",
+        "unit": "开局班次、中段班次、战役完成页"
+      },
+      "full_credit": "一班有倒计时并结束；之后进入下一班或花费阶段，最终出现战役完成；若候选展示失败，失败与完成能分开。",
+      "group": "M",
+      "high_score_requirements": [
+        "至少两班可玩，第二班开场状态可辨（SHIFT 编号或定额不同）。",
+        "班次结束发生在计时走完或定额达成之后，不是开场几秒结算。",
+        "战役完成出现在多班之后，并带有可找到的再玩或返回入口。"
+      ],
+      "id": "M4",
+      "inspired_by": [
+        "shadow-courier:M3"
+      ],
+      "partial_credit": "只有单班无限营业，或班次结束直接跳到完成页、中间没有第二班。",
+      "title": "班次走到战役结果",
+      "zero_credit": "充分覆盖后既没有班次推进，也没有任何战役完成或失败状态。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R008",
+            "R060"
+          ],
+          "observation": "左侧褐土网格种植区与右侧米色地砖店铺始终同屏；店铺有空木架、柜台与白色队位；外圈绿色草地只作边界。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "种植格和柜台画在同一块平地上，没有颜色或边界把备货区与售卖区分开，补货路线无法预读",
+          "id": "D1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评同一画面是否同时给出种植/备货区与售卖区，使补货有路可走。具体左右布局、货架造型自由。货物是否被取走归 M1。",
+      "evidence": {
+        "coverage": "左右对调或上下对调均可。未采用田地、改用仓库等效。",
+        "kind": "overview",
+        "unit": "开局与中段各一帧全屏"
+      },
+      "full_credit": "同一屏能指出一块种植或备货地面，以及一块带货架/柜台的店铺地面，两者之间有可走路径。",
+      "group": "D",
+      "high_score_requirements": [
+        "两区在一屏内都能看见，不必进门加载。",
+        "从种植区走到柜台有可感知距离，不是重叠在同一格。",
+        "柜台或队位与货架不堵死种植区出口。"
+      ],
+      "id": "D1",
+      "inspired_by": [
+        "shadow-courier:D1"
+      ],
+      "partial_credit": "只有店铺没有备货区，或两区重叠成同一块空地、看不出工作分工。",
+      "title": "单屏上种植区与店铺分开",
+      "zero_credit": "充分覆盖后没有可辨的经营场地，也不存在两个工作区。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R008",
+            "R018",
+            "R060"
+          ],
+          "observation": "R008 WALKOUTS 1/12，已有人未买就走；R018 一人站在队位；R060 三人同时占住收银台白格，门口与货架旁还有其他顾客。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "顾客有不同衣服色，但全程钉在地图边缘，从不进入队位或货架前",
+          "id": "D2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评顾客是否形成需求：进入、排队或等待，超时或未被服务会离店。服务机制归 M2；WALKOUTS 读数归 V2。具体顾客规则自由。",
+      "evidence": {
+        "coverage": "人数与外观自由。没有 walkout 但有可见等待压力也可评。",
+        "kind": "overview",
+        "unit": "一班中的排队与一次 walkout 或服务"
+      },
+      "full_credit": "营业中有多名顾客进入店铺；他们会占用队位或货架前；至少能看到等待或离店，使店主必须选择先服务谁。",
+      "group": "D",
+      "high_score_requirements": [
+        "同时可见一名以上顾客，需求不是单个循环刷怪。",
+        "队位或等待位置可预读，店主能判断先去哪里。",
+        "未服务的离店会改变场上人数，不是只改 HUD。"
+      ],
+      "id": "D2",
+      "inspired_by": [
+        "shadow-courier:D2"
+      ],
+      "partial_credit": "有顾客色块，但全程站在草地外缘从不进店，或进店后永远不离开也不排队。",
+      "title": "顾客排队并造成离店压力",
+      "zero_credit": "充分覆盖营业后场上没有顾客或任何需求对象。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R018",
+            "R060"
+          ],
+          "observation": "R001 TAKINGS 开局分母为 2（R008 确认为 0/2），空木架为主；R018 TAKINGS 1/4；R060 TAKINGS 0/10，店内加工台与货架比开局多。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R022",
+            "R035"
+          ],
+          "observation": "R022 定额 4；R035 定额 6 且当班 TAKINGS 10，后班目标高于前班。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "SHIFT 编号在变，但货架、柜台与定额分母始终与第一班相同，后班只是换一张 SHIFT 标签",
+          "id": "D3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评战役后段的货架、柜台或定额是否比第一班更满，而不是八次同一间空店。花费是否发生归 M3；定额数字归 V2。班次节奏自由。",
+      "evidence": {
+        "coverage": "具体 8 班不是满分前提；有两档店面或定额即可。",
+        "kind": "overview",
+        "unit": "第一班与中后班对照"
+      },
+      "full_credit": "后段班次的店内设备或定额明显高于开局：更多货架/柜台，或 TAKINGS 分母上升，场上不是复制第一班。",
+      "group": "D",
+      "high_score_requirements": [
+        "后班至少多一类可见压力（更高定额、更多家具或更多同时顾客）。",
+        "开局空架与后班有货/有设备能对照。",
+        "定额分母上升时店面不是仍只有一个空柜台。"
+      ],
+      "id": "D3",
+      "inspired_by": [
+        "shadow-courier:D2"
+      ],
+      "partial_credit": "班次编号在变，但店内家具与定额始终与第一班相同。",
+      "title": "后班店面比开局更满",
+      "zero_credit": "充分覆盖后只有一班布局，看不到第二套店面压力。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R018",
+            "R060"
+          ],
+          "observation": "店主为浅色圆头小人；顾客有绿帽、深褐、橙头等不同色；货物为蓝/白小方块，与米色地砖可分。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "店主有独特颜色，但顾客与店主同形，离开柜台后只能靠顶栏人数知道店里还有人",
+          "id": "V1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评店主、进店顾客与地上/架上货物在世界层能否分开阅读。形体质量归 A1；持货过程归 A4。",
+      "evidence": {
+        "coverage": "不要求姓名牌。Among-us 形或别的像素人均可。",
+        "kind": "overview",
+        "unit": "开局、柜台、中段店面"
+      },
+      "full_credit": "店主与顾客能靠轮廓或服装分开；货物是可指认的小块，不与地砖融成一点。",
+      "group": "V",
+      "high_score_requirements": [
+        "店主在种植区与柜台都能从人群里找出来。",
+        "货物在手中、地上、架上三种位置仍可认。",
+        "顾客朝向或队位能看出他们在等什么，不是随机散步色点。"
+      ],
+      "id": "V1",
+      "inspired_by": [
+        "shadow-courier:V1"
+      ],
+      "partial_credit": "有店主，但顾客与店主同形同色，或货物只能靠 HUD 箱计数知道还在。",
+      "title": "店主、顾客与货物可分开",
+      "zero_credit": "充分覆盖后分不清谁是店主、谁是顾客，也看不到货物。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R008",
+            "R018"
+          ],
+          "observation": "R001 SHIFT 1/8、时钟 0:30、金币 15、WALKOUTS 0/12；R008 同班时钟 0:08、TAKINGS 0/2、WALKOUTS 1/12、金币仍 15；R018 SHIFT 2/8、时钟 0:13、TAKINGS 1/4、金币 20、WALKOUTS 2/12。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R060",
+            "R022",
+            "R035"
+          ],
+          "observation": "R060 SHIFT 5/8、0:14、TAKINGS 0/10、金币 18、箱 3/12、WALKOUTS 2/12；R022 TAKINGS 4/QUOTA 4、RUN TOTAL 8 OF 69；R035 TAKINGS 10/QUOTA 6、RUN TOTAL 18 OF 69。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "顶栏已有 TAKINGS 与时钟，但顾客已离开柜台后 TAKINGS 仍为 0，或营业进行中时钟读数完全不动",
+          "id": "V2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评顶栏是否成组给出班次、计时、TAKINGS、金币、存货与 WALKOUTS，并在世界层已售出、离店或时间已走过时同向更新。本条是读数同步的唯一计分处。售出离开归 M2，班次存在归 M4。",
+      "evidence": {
+        "coverage": "字段名不必叫 TAKINGS。未采用 WALKOUTS 上限 12 → not_applicable。",
+        "kind": "overview",
+        "unit": "开局、中班、班次结算的顶栏"
+      },
+      "full_credit": "营业中可见班次、计时、营收定额、货币与离店计数；顾客被服务后 TAKINGS 或金币增加，计时下降，walkout 发生时 WALKOUTS 增加。",
+      "group": "V",
+      "high_score_requirements": [
+        "班次、计时、营收、货币在同一条信息带上可扫读。",
+        "至少一次服务前后 TAKINGS 或金币同向增加。",
+        "至少两帧营业之间时钟下降，且与画面推进同向。"
+      ],
+      "id": "V2",
+      "inspired_by": [
+        "shadow-courier:V2"
+      ],
+      "partial_credit": "有顶栏占位，但服务后 TAKINGS 与金币不动，或计时在营业中冻结。",
+      "title": "班次营收与离店读数同步",
+      "zero_credit": "充分覆盖一场经营后没有任何班次、营收或计时占位。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R011",
+            "R022"
+          ],
+          "observation": "R001 场内大字 SHIFT 1；R011 褐底 BUILD PHASE；R022 绿底 SHIFT CLEARED，三套标题不同。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R035"
+          ],
+          "observation": "后班结算仍用 SHIFT CLEARED，不复用 BUILD PHASE。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "有大字标题，但开班、结算与建造阶段用同一句，无法判断当前能不能买升级还是在营业",
+          "id": "V3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评已采用的开班、班次结束与花费阶段是否有能归因的提示。本条是这些提示的唯一计分处；花费后果归 M3，完成页归 V4。",
+      "evidence": {
+        "coverage": "具体英文标题自由。未做建造阶段则只评开班与结束是否不同。",
+        "kind": "overview",
+        "unit": "开班、建造、结算各一帧"
+      },
+      "full_credit": "开班有 SHIFT 标题或等效；班次结束有与开班不同的结算提示；若有花费阶段，其标题与结算不同。",
+      "group": "V",
+      "high_score_requirements": [
+        "开班标题出现在计时开始的那一班。",
+        "结算页与建造页用不同底或不同句。",
+        "SHIFT N 场内字不挡住队位到无法操作。"
+      ],
+      "id": "V3",
+      "inspired_by": [
+        "shadow-courier:V3"
+      ],
+      "partial_credit": "只有数字在变，或开班、结算、建造共用同一句，阶段无法归因。",
+      "title": "班次与建造提示可归因",
+      "zero_credit": "充分覆盖多班后，开班与结束都没有任何即时提示。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R119"
+          ],
+          "observation": "绿底黑面板 MARKET THRIVING；YOU CLEARED ALL EIGHT SHIFTS AND HIT THE TAKINGS TARGET；一颗星；TOTAL TAKINGS 97 OF 69、SHIFTS CLEARED 8 OF 8、CUSTOMERS SERVED 30、WALKOUTS 3 OF 12；PLAY AGAIN 与 BACK TO TITLE 两个蓝按钮。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "有 MARKET THRIVING 或等效字样，但与店铺地砖、顶栏 TAKINGS 叠在同一层，再玩不是单独成组的按钮",
+          "id": "V4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评结束状态是否把完成语义、战役数字与下一步操作组织成可扫读的一页。流程是否走到完成归 M4；字体归 A3。失败页未拍到为 unknown。",
+      "evidence": {
+        "coverage": "失败页仅在候选展示时评判。69 与 8 班是例子。按钮功能未点。",
+        "kind": "overview",
+        "unit": "战役完成页"
+      },
+      "full_credit": "出现与店铺游玩分开的完成页；标题、战绩与再玩/返回分成可扫读的组。",
+      "group": "V",
+      "high_score_requirements": [
+        "完成页与店铺层分开，不再露出营业顶栏。",
+        "战绩与下一步操作上下分组，扫一眼能找到再玩。",
+        "若候选展示失败，失败页与完成页能分开。"
+      ],
+      "id": "V4",
+      "inspired_by": [
+        "shadow-courier:V4"
+      ],
+      "partial_credit": "有完成文字，但仍叠在店铺顶栏上，或标题与按钮无分组。",
+      "title": "战役完成页可扫读",
+      "zero_credit": "充分覆盖战役结束后没有任何与店铺分开的结果状态，也不给出下一步入口。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R018",
+            "R060"
+          ],
+          "observation": "像素圆头小人有身体色块；种植区绿色作物；货物为蓝白小方。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S003",
+            "S007",
+            "S014",
+            "S019"
+          ],
+          "observation": "素材含 3D 西兰花、Kenney 食物套件、胡萝卜、玉米；GT 营业未把这些 3D 模型当作店内主体。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "店主能看出圆头小人，但货物是无轮廓色点，补货或结账时与米色地砖无法分开",
+          "id": "A1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评正常尺度下店主、顾客与作物/货物是否具有可辨形体。身份可读归 V1。给定 3D 食物与 Kenney 小人的采用自由。",
+      "evidence": {
+        "coverage": "不要求 3D 食物。未采用 Kenney 食物套件 → not_applicable。",
+        "kind": "overview",
+        "unit": "种植区与柜台正常尺度"
+      },
+      "full_credit": "店主与顾客能看出头身；作物或货物是带色小块，不与地砖同一颜色。",
+      "group": "A",
+      "high_score_requirements": [
+        "店主与顾客在中距仍有身体色差。",
+        "作物在种植格里可认，不是空穴。",
+        "手持货物与空手姿态可分。"
+      ],
+      "id": "A1",
+      "inspired_by": [
+        "shadow-courier:A1"
+      ],
+      "partial_credit": "人可认作圆头，但货物是无色噪点，或全员同一剪影。",
+      "title": "店主顾客与作物可辨",
+      "zero_credit": "充分覆盖后场上物体无法认作人或货物。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R060"
+          ],
+          "observation": "GT 地面是平视褐土+米色砖+绿草边，没有城堡、地牢或三消棋盘。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S007",
+            "S054",
+            "S067",
+            "S071"
+          ],
+          "observation": "给定 Kenney 3D 食物套件、三消棋盘、地牢图与 Tiny Town 城堡街景；这些是可选装修，GT 营业未铺。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "把给定的 Kenney Tiny Town 城堡/地牢图或三消棋盘原样铺成俯视营业地面，与像素店主和网格田地透视冲突",
+          "id": "A2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评种植土、店内地砖、草地边界与柜台是否读成同一俯视小店。两区几何归 D1，本条评表面。不得把 Kenney Tiny Town 城堡/地牢或三消拼图原样铺成营业地面。",
+      "evidence": {
+        "coverage": "未采用城镇图 → not_applicable。几何地砖允许。",
+        "kind": "overview",
+        "unit": "全屏店铺"
+      },
+      "full_credit": "种植区是土色网格，店铺是浅色地砖，外圈草地只作边界，柜台与队位画在店内地板上。",
+      "group": "A",
+      "high_score_requirements": [
+        "土、砖、草三层尺度一致，草不是另一套透视。",
+        "柜台和队位坐在店房地板上，不漂在 HUD 上。",
+        "不把菜单拼图或城堡图当营业地面。"
+      ],
+      "id": "A2",
+      "inspired_by": [
+        "shadow-courier:A2"
+      ],
+      "partial_credit": "有两块颜色，但其中一块是透视冲突的城镇/地牢图，或柜台浮在草地上没有地板。",
+      "title": "田地与店房地面整合",
+      "zero_credit": "充分覆盖后没有可认作店铺或田地的地面。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R018",
+            "R011",
+            "R119"
+          ],
+          "observation": "顶栏白字胶囊；BUILD PHASE / MARKET THRIVING 用同一几何无衬线；操作按钮均为亮蓝圆角。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S073",
+            "S027",
+            "S006"
+          ],
+          "observation": "Kenney Future 字样、金币图标、蓝按钮切片与 GT 界面同族；采用哪些自由。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "代表性的主要界面虽已有分组、底板或字号差，但核心信息的重要性与视觉重量长期明显相反，或主要信息组仍没有可辨阅读顺序，导致这一状态的主要编排关系实质缺失。须指出具体角色和范围；常见字体、纯文字、缺少面板或一个局部修饰问题均不触发。",
+          "id": "A3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评价经营读数、货物/顾客信息、阶段操作与完成表达的实际视觉编排。重点是信息角色、文字/图形比例、留白与对齐、状态重点共同形成的界面设计；正确显示信息、有字号差或使用统一颜色只证明相应的局部成果。下列 GT 观察是设计作用的实例，具体颜色、字体、图标、面板和固定位置不构成复刻要求。",
+      "evidence": {
+        "coverage": "代表性正常界面与原录像覆盖的状态画面并列查看；关键文字及组间比例需要正常尺度全帧。只评价本任务已采用且已展示的组成。",
+        "kind": "overview",
+        "unit": "营业顶栏、建造板、完成页"
+      },
+      "full_credit": "经营读数、货物/顾客信息、阶段操作与完成表达在正常观看尺度下按当前任务的重要性形成清楚的视觉重量和阅读顺序；主要目标或行动状态有充分强调，名称、数值、辅助说明的比例、距离和对齐体现各自语义，弱化的信息仍有适当可读性。营业、已采用的建造/投资阶段与完成根据状态用途重新组织视觉中心、疏密与留白，同时延续可辨的字体角色或图形关系。整体编排已经形成完整、合乎内容的界面，不能仅由几组标签、标题放大和配色统一来证明。纯文字可以充分完成设计；仅评价实际采用的可选读数、图标、按钮和统计，不要求另加组件、面板或独立结果屏。",
+      "group": "A",
+      "high_score_requirements": [
+        "当前补货/售卖目标、时间/经营状态与辅助记录在正常画面中的视觉重量与当前用途匹配。指出强调了谁、弱化了谁以及字号/对比/位置/留白如何共同完成这一关系；仅列出标签和分组不算完整证据。",
+        "具体信息组内部与组间的比例、对齐和疏密共同形成阅读节奏，名称、读数、说明之间的联系清楚；同一字体、同一颜色或一条底板不自动证明这些关系完成。",
+        "营业、已采用的建造/投资阶段与完成各自的视觉中心与内容相称，状态变化通过实际编排表达用途变化；保持相同颜色或把一行字放大不足以单独证明完整，但有意义的简洁文字构图可以完整成立。",
+        "字体角色、形状、边缘或强调关系在整套界面中得到有目的的运用；需要说明具体处理产生了什么视觉效果，不能用‘没冲突、可读、风格统一’替代正面完成证据。"
+      ],
+      "id": "A3",
+      "inspired_by": [
+        "shadow-courier:A3"
+      ],
+      "partial_credit": "按已形成和未完成的设计关系连续判断：能读到文字但关键目标/状态的视觉重量弱于装饰性标题；标签与数值或相关说明靠简单并排仍缺少有效分组与阅读顺序；主次虽然有字号差，尺度、对比或留白却未配合语义；结果内容只是换字沿用普通读数排法，没有围绕已有完成信息形成视觉中心；局部做了边框或强调色，但主要界面仍缺乏上述编排。指出具体区域、相互比较的信息角色和可见后果，不能只说普通、简陋或缺乏高级感。仅有轻微间距问题时按局部损失判断；不能把缺少图标/插画、使用常见字体、不同字体家族或极简风格本身当缺陷。某信息是否缺失或错误归功能视觉项；本项须评价已展示信息怎样被设计，不能复用同一功能缺失扣分。",
+      "title": "界面的完整视觉编排",
+      "zero_credit": "所需观察范围充分时，主要界面完全没有实际视觉编排，只有无法形成信息角色或阅读顺序的散置占位内容。已经形成有效的局部编排应给部分完成度；没有拍到状态不等于没有设计。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "RD010",
+            "RD016",
+            "RD028",
+            "RD033"
+          ],
+          "observation": "密集段店主在店内连续换格，顾客在队位上移动，不是只在起点终点各一帧。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R008",
+            "R018"
+          ],
+          "observation": "R008 店主与地面货块同框；R018 店主已到柜台面对顾客，位置过程可从中段帧接上。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "取货能看到种植格空了和货架有货两帧，但中间没有店主携带货物的位移",
+          "id": "A4-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "店主有换格，但整段滑行无步态，货物粘在固定像素偏移、从不放下",
+          "id": "A4-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评店主移动、取放货与顾客排队在世界层是否有过程。本条是这些动态的唯一计分处；是否补上货归 M1，是否被服务归 M2。",
+      "evidence": {
+        "coverage": "需要密集片段；只给总览时本条为 unknown。",
+        "kind": "action_sequence",
+        "unit": "一段走动取货或一段排队"
+      },
+      "full_credit": "店主能看到跨格位移；取放货有货物跟随或放下的中间状态；顾客排队有人位变化，不是瞬移进出。",
+      "group": "A",
+      "high_score_requirements": [
+        "从种植区到柜台能指出中间位置。",
+        "顾客进入队位有位移，不是突然出现在白格上。",
+        "放下货物时货物离开店主，不是永远粘在身上。"
+      ],
+      "id": "A4",
+      "inspired_by": [
+        "magnet-dash:A4"
+      ],
+      "partial_credit": "有位移，但取货是瞬间刷在手里，或顾客在门口与柜台之间瞬移。",
+      "title": "走动取货与排队有过程",
+      "zero_credit": "充分覆盖走动、取货、排队后，这些事件在世界层没有任何过程，只有对象瞬移或 HUD 变化。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R011",
+            "R119"
+          ],
+          "observation": "从 SHIFT 1 店铺到 BUILD PHASE 再到 MARKET THRIVING，几何无衬线与蓝按钮保持同一产品；未切入 Tiny Town 或三消棋盘。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "代表性的正常画面中，主体、场所、效果和信息层虽各自存在，但跨部分的主要行动焦点或空间层次持续未建立：须有具体比例、明暗、遮挡或布局关系使主要行动被压成次要点或各部分无法形成同一空间的证据。配色一致不能豁免；个别装饰不足、单帧重叠或局部细节缺失不触发。",
+          "id": "A5-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评价店主、货物/顾客、田地/店房与信息层共同组成的整幅画面怎样表现独自组织补货售卖并完成短经营过程。本项需要跨部分构图、比例、空间与注意力层次的正面成果；能够认出同一游戏、配色一致或没有严重风格冲突只证明有限的协调。不再次评价 A1–A4 的局部制作水平，不把 GT 的具体风格和配色变成强制答案。",
+      "evidence": {
+        "coverage": "以多个独立阶段的正常全帧检查整体关系，并与原录像覆盖的状态画面比较；不以单一漂亮结果页补偿游玩画面的主要关系缺失。",
+        "kind": "whole_scope",
+        "unit": "开局、建造、完成页"
+      },
+      "full_credit": "店主、当前货物与服务队列在代表性画面中形成有目的的关注关系；主体所占视觉重量、场所的衬托、效果的强调和信息层的介入共同表现独自组织补货售卖并完成短经营过程。各部分在尺度、明暗/色彩、边缘与空间上的配合形成完整画面，能指出主体如何处于场所中、效果如何依附其对象、界面如何配合当前状态。跨已展示的阶段与结果，视觉语言通过这些关系延续并适应状态变化；统一调色、重复字体或相同像素边不能代替整体构图与氛围的完成。几何、极简、像素、混合渲染和主题变化均可完整成立，不要求增加装饰或效果种类。",
+      "group": "A",
+      "high_score_requirements": [
+        "店主、当前货物与服务队列的关注顺序由整幅构图、视觉重量与场景衬托共同组织，具体说明至少两个部分如何相互支持。对象存在、能定位或颜色区分开，只是这项成果的一部分。",
+        "店主、货物/顾客、田地/店房与信息层之间的尺度、明暗/色彩、边缘或空间关系共同形成独自组织补货售卖并完成短经营过程的表现，举出画面中实际成立的整合关系；不能仅凭共享调色或材质名称判完整。",
+        "已展示的游玩阶段与结果通过构图、强调、形态或空间关系延续同一视觉方向，并适应各状态的用途；只复用一种颜色或字体并不能单独证明整套呈现完成。"
+      ],
+      "id": "A5",
+      "inspired_by": [
+        "shadow-courier:A5"
+      ],
+      "partial_credit": "按尚未建立的跨部分关系及其重要性给连续分：颜色相近却只是主体、平面场地、标记和顶栏的并置，比例与明暗没有共同组织主要行动；效果、装饰或信息层的面积/对比持续压过应被关注的世界主体或目标，使行动中心退化为画面的次要点；物件、地面和效果各自可辨，却在接地、遮挡或视觉尺度上缺乏联系，整幅画面的空间表现未形成；游玩与结果只复用颜色，实际构图和强调关系没有支持其体验的延续。必须指出至少两个部分之间的可见关系与结果，不能以‘拼装感、没氛围’概括，也不能再次列角色缺细节、地面少装饰或界面字小作为独立扣分。局部轻微不协调按局部判断；不同风格、稀疏场景、明亮特效或大界面并不自动证明失败。",
+      "title": "整体构图与美术整合",
+      "zero_credit": "代表性画面中各部分没有共同形成可辨的主要行动、空间层次或整体表现方向，只有互不关联的内容并置。已形成的实际关系应保留部分完成度；不能因画风不合偏好给零分。"
+    }
+  ],
+  "rubric_version": "2026-09-19.vlm-art-relationships-v1",
+  "score_curve": {
+    "caps_scale": "final_score",
+    "exponent": 3,
+    "input": "attainment",
+    "missing_evidence": null,
+    "name": "power"
+  },
+  "self_review": {
+    "overlap": "事件归属：货物从田到架 → M1；顾客被服务后离开 → M2；花费换店内能力 → M3；班次推进与战役结果是否存在 → M4；田/店两区几何 → D1；排队与离店压力 → D2；后班店面/定额变满 → D3；店主顾客货物可读 → V1；TAKINGS/时钟/金币/WALKOUTS 同步 → V2；SHIFT / BUILD PHASE / SHIFT CLEARED 标题 → V3；MARKET THRIVING 分组 → V4；形体 → A1；地面 → A2；字重 → A3；走动取放过程 → A4；跨页统一 → A5。逐对：D1-C1（两区无边界）与 A2-C1（铺了城堡/三消图）互斥。D2-C1（顾客钉在边缘）只在 D2，M2 不因无人进店而与 D2 双罚——无顾客走 M2 零分，有色差但不进店走 D2-C1。M1 与 V2：架上无货归 M1，货已在架但箱计数不动归 V2-C1。M2 与 V2：人未离开归 M2，人已离开但 TAKINGS 仍 0 归 V2-C1。M3 与 V2：无花费链归 M3，花了金币数不降归 V2。M3 与 D3：没买成归 M3，买了但后班店面仍空归 D3。M4 与 V3：无第二班归 M4，有班但标题相同归 V3-C1。M4 与 V4：完成是否存在归 M4，页内分组归 V4。M1 与 A4：数字补货归 M1-C1，有货但瞬移归 A4-C1。A4-C1 与 A4-C2 同条不叠加。V4-C1 与 A3-C1：无分组归 V4，三套字体归 A3。A5 不重复 A1–A4 单件。",
+    "scope": "16 项（M4/D3/V4/A5）。M 只写补货换位、顾客被服务离开、花费换能力、班次战役四条链；D 写单屏两区、顾客压力、后班店面变满；V 写身份可读、读数同步、阶段标题、完成页；A 写形体、地面、界面、过程、跨页统一。平面、商品、升级名、班次数属自由。条数按这间店的可见环节定。",
+    "uncertainties": "失败页未出现。建造项是否被点开未逐项验证，后班家具增加按画面对照，不认证每一次 BUY。R119 TOTAL TAKINGS 97 OF 69 以全帧为准。未建立独立语义审查证据。未建立人工分数校准证据。",
+    "unsupported_obligations": "未要求：玉米商品、8 班、69 营收、Kenney 3D 食物、Tiny Town、三消棋盘、失败页、音频、具体升级价、OPEN THE DOORS 必须可点。GT 做法只写在 basis。"
+  },
+  "task_map": {
+    "freedom": [
+      "平面布局、商品、升级、班次节奏、顾客规则与视觉编排可自选。",
+      "具体作物名、货架数、升级项目名、班次数与 69 营收目标均为可选；GT 的玉米货架、BUILD PHASE 与 MARKET THRIVING 是例子。"
+    ],
+    "required": [
+      "独自经营小店：可见的补货到售出闭环，时间与花费选择，完成一段短战役。",
+      "单屏经营、直接移动或交互、顾客或需求、经济后果、失败、战役完成。"
+    ]
+  }
+}

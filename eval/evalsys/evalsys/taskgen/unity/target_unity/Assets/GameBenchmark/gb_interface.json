@@ -1,0 +1,15 @@
+{
+  "schema_version": 3,
+  "engine": "unity",
+  "unity_editor_version": "6000.3.23f1",
+  "entry_scene": "Assets/Game/Scenes/Entry.unity",
+  "levels": [],
+  "supported_actions": [],
+  "required_actions": [],
+  "analog_axes": [],
+  "semantic_roles": [],
+  "numeric_slots": [],
+  "outcome_capabilities": [],
+  "scaffold_profile_id": "ubuntu2404-unity6000.3.23f1-candidate",
+  "scaffold_digest": "filled-by-evaluator-package-metadata"
+}

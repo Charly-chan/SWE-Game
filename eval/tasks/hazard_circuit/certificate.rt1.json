@@ -1,0 +1,189 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "cfb109313ca57f6266992b91d6044c67bec1bac9504e8db230836895146de0d6"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "hazard_circuit/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "130ceaf6722711d5ee322b5c0373eb32f6a636d398de8346a76b6724407fc1b7",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "cfb109313ca57f6266992b91d6044c67bec1bac9504e8db230836895146de0d6",
+    "task_id": "hazard_circuit"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "290168ed85d3fdc496fe1cc9dece18db7a7cd668a86c78e7e7a69f3b12ed367e",
+    "source_sha256": "923aee1277e266619ee34442c7686c33917cacbcd9ed900cdcd9969bc167d37b"
+  },
+  "passed_route_ids": [
+    "hazard_circuit/L0/no_input_no_clear",
+    "hazard_circuit/C1/induction_pulse_jumps_and_goal",
+    "hazard_circuit/C2/cold_store_ice_and_goal",
+    "hazard_circuit/C3/rigging_deck_wall_traversal_and_goal",
+    "hazard_circuit/C4/blade_alley_slide_and_goal",
+    "hazard_circuit/C5/flooded_sump_swim_and_goal",
+    "hazard_circuit/C6/keyhouse_keys_locks_and_goal",
+    "hazard_circuit/C7/press_line_timing_and_goal",
+    "hazard_circuit/C8/final_circuit_power_and_terminal_goal",
+    "hazard_circuit/L5/whole_game_clear"
+  ],
+  "readings": {
+    "hazard_circuit/C1/induction_pulse_jumps_and_goal": {
+      "deaths": 1,
+      "frames": 6835,
+      "injects": 0,
+      "milestones_reached": [
+        "induction_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 919,
+      "stop_reason": "scene_changed"
+    },
+    "hazard_circuit/C2/cold_store_ice_and_goal": {
+      "deaths": 1,
+      "frames": 2504,
+      "injects": 0,
+      "milestones_reached": [
+        "cold_store_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 95,
+      "stop_reason": "scene_changed"
+    },
+    "hazard_circuit/C3/rigging_deck_wall_traversal_and_goal": {
+      "deaths": 1,
+      "frames": 1088,
+      "injects": 0,
+      "milestones_reached": [
+        "rigging_deck_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 58,
+      "stop_reason": "scene_changed"
+    },
+    "hazard_circuit/C4/blade_alley_slide_and_goal": {
+      "deaths": 1,
+      "frames": 3071,
+      "injects": 0,
+      "milestones_reached": [
+        "blade_alley_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 121,
+      "stop_reason": "scene_changed"
+    },
+    "hazard_circuit/C5/flooded_sump_swim_and_goal": {
+      "deaths": 1,
+      "frames": 7428,
+      "injects": 0,
+      "milestones_reached": [
+        "flooded_sump_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 164,
+      "stop_reason": "scene_changed"
+    },
+    "hazard_circuit/C6/keyhouse_keys_locks_and_goal": {
+      "deaths": 1,
+      "frames": 2502,
+      "injects": 0,
+      "milestones_reached": [
+        "keyhouse_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 152,
+      "stop_reason": "scene_changed"
+    },
+    "hazard_circuit/C7/press_line_timing_and_goal": {
+      "deaths": 1,
+      "frames": 2544,
+      "injects": 0,
+      "milestones_reached": [
+        "press_line_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 124,
+      "stop_reason": "scene_changed"
+    },
+    "hazard_circuit/C8/final_circuit_power_and_terminal_goal": {
+      "deaths": 1,
+      "frames": 3958,
+      "injects": 0,
+      "milestones_reached": [
+        "final_circuit_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 353,
+      "stop_reason": "goal_reached"
+    },
+    "hazard_circuit/L0/no_input_no_clear": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "hazard_circuit/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 30336,
+      "injects": 0,
+      "milestones_reached": [
+        "act_1_cleared",
+        "entered_act_2",
+        "act_2_cleared",
+        "entered_act_3",
+        "act_3_cleared",
+        "entered_act_4",
+        "act_4_cleared",
+        "entered_act_5",
+        "act_5_cleared",
+        "entered_act_6",
+        "act_6_cleared",
+        "entered_act_7",
+        "act_7_cleared",
+        "entered_act_8",
+        "act_8_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 2010,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "130ceaf6722711d5ee322b5c0373eb32f6a636d398de8346a76b6724407fc1b7"
+  },
+  "result": "10/10 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "2df6195aaa47584dfa0f9ff7706040dbbcfd6927388db2e17b1d91687c646ff6",
+  "schema_version": 2,
+  "solution_kinds": {
+    "hazard_circuit/C1/induction_pulse_jumps_and_goal": "tape",
+    "hazard_circuit/C2/cold_store_ice_and_goal": "tape",
+    "hazard_circuit/C3/rigging_deck_wall_traversal_and_goal": "tape",
+    "hazard_circuit/C4/blade_alley_slide_and_goal": "tape",
+    "hazard_circuit/C5/flooded_sump_swim_and_goal": "tape",
+    "hazard_circuit/C6/keyhouse_keys_locks_and_goal": "tape",
+    "hazard_circuit/C7/press_line_timing_and_goal": "tape",
+    "hazard_circuit/C8/final_circuit_power_and_terminal_goal": "tape",
+    "hazard_circuit/L0/no_input_no_clear": "tape",
+    "hazard_circuit/L5/whole_game_clear": "tape"
+  },
+  "task_id": "hazard_circuit",
+  "validated_at": "2026-09-09"
+}

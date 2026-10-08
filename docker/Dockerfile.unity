@@ -1,0 +1,16 @@
+FROM gamebench-agent:godot-4.5.1
+LABEL org.opencontainers.image.source="https://github.com/Charly-chan/SWE-Game"
+LABEL org.gamebench.agent.mode="unity" org.gamebench.agent.unity-version="6000.3.23f1"
+USER root
+ARG UNITY_EDITOR_URL=https://download.unity3d.com/download_unity/09d2ecc7fb28/LinuxEditorInstaller/Unity-6000.3.23f1.tar.xz
+ARG UNITY_IL2CPP_URL=https://download.unity3d.com/download_unity/09d2ecc7fb28/LinuxEditorTargetInstaller/UnitySetup-Linux-IL2CPP-Support-for-Editor-6000.3.23f1.tar.xz
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    build-essential clang lld libgtk-3-0 libnss3 libnspr4 libcups2 \
+    libxcomposite1 libxdamage1 libxfixes3 libxss1 libxtst6 libgconf-2-4 \
+    && rm -rf /var/lib/apt/lists/*
+RUN mkdir -p /opt/unity/6000.3.23f1 \
+    && curl --retry 5 --retry-delay 3 --connect-timeout 30 -fsSL "$UNITY_EDITOR_URL" | tar -xJ -C /opt/unity/6000.3.23f1 \
+    && curl --retry 5 --retry-delay 3 --connect-timeout 30 -fsSL "$UNITY_IL2CPP_URL" | tar -xJ -C /opt/unity/6000.3.23f1
+ENV UNITY_BIN=/opt/unity/6000.3.23f1/Editor/Unity
+RUN ln -s "$UNITY_BIN" /usr/local/bin/unity
+USER agent

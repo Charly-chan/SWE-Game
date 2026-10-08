@@ -1,0 +1,330 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-27T17:55:09+00:00",
+  "interface_requirements": {
+    "O9": {
+      "fields": [],
+      "reason": "reference has no registered anchor expectation",
+      "required": false
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 4,
+        "gb_collectible": 10,
+        "gb_door": 5,
+        "gb_enemy": 5,
+        "gb_goal": 1,
+        "gb_hazard": 5,
+        "gb_interactive": 12,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "x",
+          4
+        ],
+        "gb_collectible": [
+          "x",
+          4
+        ],
+        "gb_door": [
+          "x",
+          4
+        ],
+        "gb_enemy": [
+          "x",
+          3
+        ],
+        "gb_hazard": [
+          "y",
+          2
+        ],
+        "gb_interactive": [
+          "x",
+          5
+        ]
+      },
+      "goal_transition": "res://world/level_02_archive.tscn",
+      "scene": "res://world/level_01_cistern.tscn",
+      "spawn_goal_distance": 0.9896076115572631
+    },
+    {
+      "census": {
+        "gb_checkpoint": 6,
+        "gb_collectible": 12,
+        "gb_door": 7,
+        "gb_enemy": 12,
+        "gb_goal": 1,
+        "gb_hazard": 6,
+        "gb_interactive": 15,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "x",
+          4
+        ],
+        "gb_collectible": [
+          "x",
+          5
+        ],
+        "gb_door": [
+          "x",
+          5
+        ],
+        "gb_enemy": [
+          "x",
+          5
+        ],
+        "gb_hazard": [
+          "y",
+          2
+        ],
+        "gb_interactive": [
+          "x",
+          5
+        ]
+      },
+      "goal_transition": "res://world/level_03_sanctum.tscn",
+      "scene": "res://world/level_02_archive.tscn",
+      "spawn_goal_distance": 0.8462172510381666
+    },
+    {
+      "census": {
+        "gb_checkpoint": 6,
+        "gb_collectible": 13,
+        "gb_door": 6,
+        "gb_enemy": 15,
+        "gb_goal": 1,
+        "gb_hazard": 4,
+        "gb_interactive": 17,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "x",
+          4
+        ],
+        "gb_collectible": [
+          "x",
+          5
+        ],
+        "gb_door": [
+          "y",
+          3
+        ],
+        "gb_enemy": [
+          "x",
+          5
+        ],
+        "gb_hazard": [
+          "y",
+          2
+        ],
+        "gb_interactive": [
+          "x",
+          5
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://world/level_03_sanctum.tscn",
+      "spawn_goal_distance": 0.9865951876424066
+    }
+  ],
+  "probe_sha256": "fe750d48224bfe79a915c4057b270adbbcdbc421e5b99f56213c3b2b7f746edd",
+  "project": "dungeon_escape",
+  "runtime_assets": {
+    "res://assets/audio/music/archive_theme.ogg": "c5f1d954bb5be95f893e3e848d0baabf3fbf7c22db7ad480e58ce910a14e68dc",
+    "res://assets/audio/music/cistern_theme.ogg": "a3baf1b0a7da883334caf20ba9b09f72e65d6459b6888b2905cdf1905034ced9",
+    "res://assets/audio/music/sanctum_theme.ogg": "0720c25ff0f14ad73d5fa302a8d3e5cccc47abb91ca1b704a3b0b1da3b476686",
+    "res://assets/audio/sfx/checkpoint.ogg": "9df61e3ae9a83dc65e5a1fd3ed19d480876f3b22b963a1b9ef6fa293592dcec4",
+    "res://assets/audio/sfx/player_hurt.ogg": "4ab53b26f4ea575120dcc1348526c9e0db2afc6af7a442aa0489bdead2ca80b6",
+    "res://assets/dungeon_tileset_ii/character/monster/chort/chort.png": "ed6cee00880acedb0223273d84251987f28e999d455ecbdd22f70f836a7a7242",
+    "res://assets/dungeon_tileset_ii/character/monster/goblin/goblin.png": "5523df3a54588f552f0ddd95b8d53607fa965d1ab926e81efae30187432f1735",
+    "res://assets/dungeon_tileset_ii/character/monster/zombie/zombie.png": "84220c2309260a64cf6f182b00fd246f77de6f058eaee65f43654ad9c081d07e",
+    "res://assets/dungeon_tileset_ii/character/rogue/rogue.png": "162ebf9392d1e422c7c1e3de0f80664534b461c660f5b1cd2645d9d45f6dd16f",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/bottom.png": "18b9a556eb862eb9a37ce3af653e447f10c83fb0a79fea70df1aeeb817f2a5f8",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/bottom_blue.png": "65bad55cf99b22b473aac9d71547a76378762946454ee0d0fff007c924657822",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/bottom_closed.png": "6d2f72f2aa51981107c40b31891020390cd8e081d0a721ddd497a8c57f60597a",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/bottom_closed1.png": "18b9a556eb862eb9a37ce3af653e447f10c83fb0a79fea70df1aeeb817f2a5f8",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/bottom_closed2.png": "ec835c1e0206be25699536ec1847029f18941b85f4a9390e8a5c3ddafaaf2d5e",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/bottom_closed3.png": "12905a5b7b214190d484bcceffba15c796184bbb4e5af657ba5b7794468b6900",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/bottom_green.png": "e6e00868c28f6c1c5f9f7f3b997e97251000545801bc2016b41653b779fea945",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/bottom_red.png": "9aec9a923e776db8c91c22dfbe97a0a6ec6c36c061ac37cba24d00fc97ec4d17",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/bottom_yellow.png": "84ec9f4a23299648f9eafa1a0ca6069f1bc6da4fb37a7864ddf982b0569f60b5",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/left.png": "51ec41697c6884c0408b7a4b7dea50eeeec2e9c3fdd6762541c5aa10da4cac50",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/left_blue.png": "69419d3908a99ee1ebcfd0c9b58e346760e91349057977ec4b4b9f06d1c0fd6c",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/left_closed.png": "5903a428dcf6c0a4b543c7ee139602fc78797c2cdc448c1973f9914a14958104",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/left_closed1.png": "51ec41697c6884c0408b7a4b7dea50eeeec2e9c3fdd6762541c5aa10da4cac50",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/left_closed2.png": "223c8cc0b02cb1b2814f68290b0f7966c026845d0160f66d40f7edbfab4300a7",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/left_closed3.png": "1356f096647f2a7f3d1327f1f8cb148ee900fb0b3798ec6ed085a96c616411db",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/left_green.png": "1c444be900be793b1c8d8d1948f391635aa50f35a9aabcd62f81dbf4fae77ff8",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/left_red.png": "4712c7b8482490fb4de40437bbfb2cd92f056b01ced652bc08a8a4a7d7e5618e",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/left_yellow.png": "09fdc67abad3bf41398415b5ac7cf1d98cecf264e9c68bb5c68f02b9d849b573",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/right.png": "224920fb0eebdaea7e8b8de9fe3f49fcff34ae112d41e2bee071605049d4eee6",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/right_blue.png": "d4a2b2fad6b8e2bb587e79a0e8752d46c8becb6315286a9bf7ec53a553b55255",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/right_closed.png": "d4018510f5e508a73d8ed061e8241c1bbae90f82884898579fac90e195ea569c",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/right_closed1.png": "224920fb0eebdaea7e8b8de9fe3f49fcff34ae112d41e2bee071605049d4eee6",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/right_closed2.png": "c6fa082226a23d4f210b9f5878e212eb115d5f1dae299f26a0fe106ec6886d52",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/right_closed3.png": "93a7f76c7494aa33cfa19b8a08fd2d5864f71dd5b3fd8da0799376ad4ac17379",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/right_green.png": "23eabac9a8a34d439362f523a66a9d9b81ca4b2a6c48e5b7c86df88bdac83efb",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/right_red.png": "89d4316c657b69b6f6c59c73fba9a958869e543bc6e990bc89b34917503b0c6a",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/right_yellow.png": "4d90f3365073c6f6ba492d0caa954dd930974eef140da5f2f31c26398f12e8de",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/top.png": "aa46bb1866a09da8455060187813ed268933b15e5976db91dd2c40da38b7cb5a",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/top_blue.png": "07a446b7978c3e0ff6c45bd2bbd8098f55cd104f7a8f19b031f3e06230156817",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/top_closed.png": "9dff88672c23616ae7e48acf47325a22bcbf4efa4aa567b10ce0e5003974d5fd",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/top_closed1.png": "aa46bb1866a09da8455060187813ed268933b15e5976db91dd2c40da38b7cb5a",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/top_closed2.png": "94dd568881b287dff7239bf15ec49457d3374825334a4283eb138452e04b3983",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/top_closed3.png": "1afb9ea2f197e9c694315f14e47570497a574e455f84a3d8c10c009ac7b424e6",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/top_green.png": "7fb4ec142c7be8a9e0b8aa489d357e6b70b38a5afc70c2b97cd73e06fb7f8706",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/top_red.png": "9b64718902394ca08903d7b2dded804a349c26db64d5d99ad09db7def377e008",
+    "res://assets/dungeon_tileset_ii/dungeon/default/door/top_yellow.png": "5376b1e8eb8148c25170dc75209ca82fe9803d697045572334e8626f0bac606c",
+    "res://assets/dungeon_tileset_ii/dungeon/default/floor/empty.png": "42db8fe8ce69b8a4b42ed2791015963ab008195c09652403b85fd09d6a6afee3",
+    "res://assets/dungeon_tileset_ii/dungeon/default/floor/floor_1.png": "716d101065d31a5526f16fb089c8ad52b26211837922342fc85a7d8979126782",
+    "res://assets/dungeon_tileset_ii/dungeon/default/floor/floor_damaged.png": "33d70645c4a49d9bce2c7f51c61ce63ba6b825f735bfacbb0bd017be628b4f29",
+    "res://assets/dungeon_tileset_ii/dungeon/default/floor/floor_hole.png": "d3f952e33c6a32f6bfadfda9f4d75e48be7dc6c87d7b873ece9da95d608bbe60",
+    "res://assets/dungeon_tileset_ii/dungeon/default/floor/floor_hole1.png": "27138deee6834d7bc26f8bff46a178e21f92b4375b9541823df37c8f867fea49",
+    "res://assets/dungeon_tileset_ii/dungeon/default/floor/floor_ladder.png": "aa46bb1866a09da8455060187813ed268933b15e5976db91dd2c40da38b7cb5a",
+    "res://assets/dungeon_tileset_ii/dungeon/default/floor/pit_open.png": "745fed85c190a466529710fbaf525020aea9c6ac845883052ddc65b098936d33",
+    "res://assets/dungeon_tileset_ii/dungeon/default/portal/glasswall/glasswall_horizontal.png": "2860f8d5969ebe5db683dca472b24c615328e0854ec72e303eb05fd13d4afe11",
+    "res://assets/dungeon_tileset_ii/dungeon/default/portal/glasswall/glasswall_vertical.png": "501d701b99afde0c26e53a315271d116a88beacc4a6f279a7af56f68be36c6bc",
+    "res://assets/dungeon_tileset_ii/dungeon/default/portal/gutter/gutter_horizontal.png": "36260ffc305088167a4935b1c7009808e1f58f8696dba5c7127da6f772b6bea8",
+    "res://assets/dungeon_tileset_ii/dungeon/default/portal/gutter/gutter_vertical.png": "aba99dbd2ee4d1bdd5eac98fd1493e594572151d6ee009ec33c9c0906eb623d5",
+    "res://assets/dungeon_tileset_ii/dungeon/default/portal/portal_block.png": "57c4293c6e26bbbffef4579eee900d76ed47a375743d5455a6f82ab708841de4",
+    "res://assets/dungeon_tileset_ii/dungeon/default/portal/portal_wall_bottom.png": "f90a867412b1f94c0e97133f723aaa855311acb15ebeff8542856094d514ca03",
+    "res://assets/dungeon_tileset_ii/dungeon/default/portal/portal_wall_horizontal.png": "cb6561e814e2b76475722a5e2c0ea571f34f2c3e92c34779c52cdc44fbaba625",
+    "res://assets/dungeon_tileset_ii/dungeon/default/portal/portal_wall_left.png": "e2936ac5e068fc43d262cdfac9f0fc2d550a5ed3941e63e4ad8003e517e652c4",
+    "res://assets/dungeon_tileset_ii/dungeon/default/portal/portal_wall_right.png": "652814f89e8475e8922f002722a97cf6e8fc0f7623e0397f756e2c6bbdc2d357",
+    "res://assets/dungeon_tileset_ii/dungeon/default/portal/portal_wall_top.png": "9adb66cc0657ffbc58881d8638f7eabd4e4de36a7b8b97e9358378751694b21a",
+    "res://assets/dungeon_tileset_ii/dungeon/default/portal/portal_wall_vertical.png": "c25981623f5f4918962c49c467cd955c7779de89a359d8b2df5e6cff91c90509",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/bottom.png": "f81b703a8fb74c6dc5c8667a1f53fc331f2cd7736b232d734c1a544c5f97ed6c",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/corner_bottom_left.png": "19d99cd4b5bd354ab3e41ff559463f2a2e3870df2a55ac9e70aab919afe62995",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/corner_bottom_left_empty_cross.png": "05e0f2e7f108b29b681384f53fb9729ccb889ea94802378773e2af3bf0e29af5",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/corner_bottom_left_inner_empty.png": "becae0f702a899ed6d7f03238f25a5387d32004b8ed69b11bd9a3afce377b479",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/corner_bottom_right.png": "4ee1b605a3a90b0c99bc85090e7fa0a7a24a52a3dd3dd69fff4617cf30d7c9b0",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/corner_bottom_right_empty_cross.png": "9123d07121e06596a1d6303cb1b60b7e5fd464be693ee3f382e4dbddc8e05859",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/corner_bottom_right_inner_empty.png": "ca1bbf7b43c6a1ec3e1e298752c3fc2de5197b88c3c2c21097b8eef0a6762f3a",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/corner_br.png": "113a60a8068717d37995cb6677fdb2103587018b80350822614a6ec5f9c3b10f",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/corner_upper_left.png": "fb61168d777acc9b859c2b982fe6108603c2873a0f59b3bbaf4843a64474f890",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/corner_upper_left_empty_cross.png": "dd236984f0285a379cfcb914d5a19ef7bf82b63e721308891f755e16bdd15acf",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/corner_upper_left_inner_empty.png": "e65ec93367c8ecb6c184bdcbc56d658f5a1e34d9dcd4ce4058c61e419492847c",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/corner_upper_right.png": "4775ee6b78f79cf4a1c2985198f3e2b206a7464cbc1bf9af50f16e3d873768f9",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/corner_upper_right_empty_cross.png": "dabd0cd2481326dfc2253aecd4c29bc8ab61abeacf0dca2620e751aed5773cfc",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/corner_upper_right_inner_empty.png": "c959bc8acece9ec739a50885b226a0ed1c0b0227e1f37e38d05cbe5b183f274e",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/cross.png": "716116493194dab1fb53c22c7bc9e9cb3dfab7c35f764a6f81133c4aa9732a11",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/empty.png": "3e75880f58f799e645416bc91874ef2f18ed650385687b520be28e95f264498a",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/left.png": "aee10a00fd6577e205136040d82e0a9ec79c1ac9299b43f84c8e0cbb74a67756",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/left_double.png": "251da6c36bb52e3e83a822961cebf9a6497eb613f0e958aca0c7edf2fddee12e",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/right.png": "fac19766798489b3f89cb6b3b67d8a29d4ee81e060da16fdcdd69e07a4010ac5",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/right_double.png": "bc7578035e0e416a532abc6d69db35d779da04b122a5e1a0fb79fd22c55cd4c4",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/side.png": "7944be1bee69f5d05d73dcd37eb46dd52dc30dbdd0301c9d13f7e282fc3383a7",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/t_cross_top.png": "606d60024b392fa942b7b0b13da6b4199c06e5f7fc076a01bf8a30fcfddfb474",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/t_inner_bottom.png": "da2e0beca704f6baee9aebf4b581382b7064e7d67c851b25aaa25f6862af7536",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/t_inner_bottom_empty.png": "f69b77cb43493257a126dc85e75a37ab4c52915b21467df6cde2be3dd97c720a",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/t_inner_bottom_empty_left.png": "2f3ec5669d2b4228a968a3d8743d92e411cc5b8e504a22d76c05aae8b16ae023",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/t_inner_bottom_empty_left_right.png": "49e7a1ea31c6512da9dddd291c2d05063c59303da0052647adce46e8e3ed3ea6",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/t_inner_bottom_empty_right.png": "b2d8352636afd7c4e3e15cb9295c4a32bf0bdf27b9714fc687c1320aeba168e5",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/t_inner_left.png": "25aaf9d973b497fb367f6a93e3a4bdb3a847773fedb8131c8aac44cfff0cf3b3",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/t_inner_left_empty_bottom.png": "9e0d36d552cb86bb96aa9d47a142c0988d6f60f3bcfdc3d4d2a9c173bce647e5",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/t_inner_left_empty_top.png": "cab63972395b845ef67642f5018722395cb162a7a53095bd56bda442208dce4d",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/t_inner_left_empty_top_bottom.png": "f0461b7ced4000937e229b6552dada2115554a215b5d1b1221594c2ec95cbf7d",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/t_inner_right.png": "e0de221dd8c34c8eb65aeef8a030071f74ccf4f4df6a8f0c98e8a68e41483272",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/t_inner_right_empty_bottom.png": "6ddd123bd2b0a73beb55958987d2956725782e8258ab6bc89e7f4b4111d2027b",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/t_inner_right_empty_top.png": "75409296f183253700d8d8ff030ad09fc7c3cd271ca7e498e45798fa6674976b",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/t_inner_right_empty_top_bottom.png": "77255e76fabd3386ae62f3597e767a13941ac9175342cb4ac9f3dda67eb1240a",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/t_inner_top.png": "8bb71d9ef6ac50643f3762fa4eba2bcf395d0d1c9852d0606540c6e5c585ee24",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/t_inner_top_empty.png": "790a0ebb5f3cd21777beb17333a86c8950c98fa7cbe49e8cb81ff5047206cabd",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/t_inner_top_empty_left.png": "da17a32eeee7b69c617e3b55bd1380ae9c3c90f808c55d4e261446786d0413c6",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/t_inner_top_empty_left_right.png": "66150d07c8504e37e8dc2bf6511aed0c1cbdbce356321701d4cf98837a33b45c",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/t_inner_top_empty_right.png": "2e619947f3f70c6b1c764ab528e6684f45b6276db28feab07b8bfb101ebbadc9",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/top.png": "b26dd188f33f98fc023109caf48ee874b0daa440149f49ecb76a9d297e72b387",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/top_bottom.png": "61d5a35e97d939d99515481a92c3d94ee5a32858d4372a1c132758f6173aa498",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_bottom.png": "62aad2f3538b54795605702fd01dac0ec240a56e6b186c9905441517dfbe9ab8",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_cross_upper_left_bottom_right.png": "716116493194dab1fb53c22c7bc9e9cb3dfab7c35f764a6f81133c4aa9732a11",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_cross_upper_right_bottom_left.png": "716116493194dab1fb53c22c7bc9e9cb3dfab7c35f764a6f81133c4aa9732a11",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_end_bottom.png": "503ec48affd16dc8cb8cb221a7ff58495d4e8bf49b99091aed8313a9b90575cf",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_end_left.png": "8398f1bc23d38374fa0285bf3cd85fb06043e27c145268bbf9080a70bca910a5",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_end_right.png": "6d4e31a9651b5a239db338a2424bc372c6f587f733bcac8b89516ee3b5bf83c7",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_end_top.png": "a3cc8230e2e129354fb72463b6618266afae6b4c2cb2ee57233fd486f0fe4362",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_inner_corner_bottom_left.png": "5d8bb69c0619bb38cc1b4f8f1eef9d6bce1c421f807d91025262244990393955",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_inner_corner_bottom_left_double.png": "20ec34896a6110b6df8c529035509843c4a35e4b7d3b3585588645b0a711fb8d",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_inner_corner_bottom_right.png": "4c085248a1d03dd7ce53160bd38a0dc40d368ee21e2cbaedb4e67e5d011ef549",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_inner_corner_bottom_right_double.png": "bbaf133c34a8b1a58cb35b23e97bf98b9cbadb1925853c0c30cff5e1df53520f",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_inner_corner_upper_left.png": "29b42b0323b15be01d902c403693cc8a85cf7461b7b83ea43f32481b7df0cf14",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_inner_corner_upper_left_double.png": "27752dc68ef3c6563090d1998ee7bb008a985a82afdcc126d0912065843135cd",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_inner_corner_upper_right.png": "ddaf8925e2b157d6a830f25412b2774ba4ebcf32046b94c55c0d35cda3bcd1d9",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_inner_corner_upper_right_double.png": "405af97530ee5493827009466adefe7597587b15f98ce1a48cd4671095055d21",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_inner_top.png": "f5a802bb6fa3f04879f9438614c3ca4e76154fc1573ff5e849b79a24e6d2132e",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_left.png": "035eee2098a771e25f0131bed56d44633ff4c2ac1f59fdcd9d9025b9f6db4607",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_outer_corner_bottom_left.png": "1faf653d10ac278a1c35c73b1d2b17e148af005a50d2ef3e96611485c5c8da1d",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_outer_corner_bottom_right.png": "cc9c3ae07f0051d7ab726775bfb9aa74e8cdc36e85ebc06247b88107985e1b65",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_outer_corner_upper_left.png": "1d6c9c5af733a134d4b9df95300934a7d39d25d5fd24919dc32aefd706c4698f",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_outer_corner_upper_right.png": "f2d1c54faa04b8c1bcd039302a396e1429dff6770057dbce6b54a7dcd7c5c21a",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_outer_top.png": "499a5c58dc7214f3c7d5e92e732488e30158eff518eb7341ea0524290ca3eeda",
+    "res://assets/dungeon_tileset_ii/dungeon/default/wall/wall_right.png": "035eee2098a771e25f0131bed56d44633ff4c2ac1f59fdcd9d9025b9f6db4607",
+    "res://assets/dungeon_tileset_ii/items/key/big_key.png": "98c5150c1f3ac6b87e4a61f5b7ac8138aa6aced1abd606f21726e3abfa4ec35f",
+    "res://assets/dungeon_tileset_ii/items/key/blue_key.png": "8c31fa14eb65dd86057adf424ac3da0d963fd4e98fe3ccbd61d12c9e0b676b89",
+    "res://assets/dungeon_tileset_ii/items/key/gold_key.png": "8cd93e54f1503ff10614d167cd3a76e1d5b768c707c5d42b03cb9ee392cc2525",
+    "res://assets/dungeon_tileset_ii/items/key/red_key.png": "f164ee5c329c5a8b284c658d453000fdba008774deade83d12f623c6ef4f8226",
+    "res://assets/dungeon_tileset_ii/items/key/small_key.png": "5e454476df2242f4cf4f340b658b0c61083934a91d0eeef8d78f5f752645ec7f",
+    "res://assets/dungeon_tileset_ii/items/pickups/fairy_pickup.png": "9e4625c4cfff6a6fb9a08250d520480ba9beef7cbdb7a1d57d811c903f20dd40",
+    "res://assets/dungeon_tileset_ii/items/pickups/heart_pickup.png": "01025ab149d795774e3288f1e82a1af96a1cbac7de868fe6522c43670db3e7ed",
+    "res://assets/dungeon_tileset_ii/items/resource/basalt.png": "ffa94207efae0b4252a97750c4934a5dcc24999eee5df99725b8e1a8573bb967",
+    "res://assets/dungeon_tileset_ii/items/resource/beer.png": "d48959f9691a6415efb2be91b756e31778b27a3a5259dd812ebe7bc31fccbb8a",
+    "res://assets/dungeon_tileset_ii/items/resource/berry.png": "09f83104c2455800e825b8834fa2d9b132498c752a2be8da158979862fba6ea0",
+    "res://assets/dungeon_tileset_ii/items/resource/bone.png": "49d2d612de3d9afd581d65b3b292dcd2f87b6cc9881ae8b52c660696b6d2a43f",
+    "res://assets/dungeon_tileset_ii/items/resource/cheese.png": "6637f499d2683ba92900a7f583cffd65523aa7553d9bdf0713306dec906e0b3b",
+    "res://assets/dungeon_tileset_ii/items/resource/coffee.png": "334d0881a407c784aa40c736f76c5537d68900674512dad27802ee2d5873527c",
+    "res://assets/dungeon_tileset_ii/items/resource/donut.png": "d8df761a3a1a62d0ae061f0a1bf2c6231740b3d3d9f686fbda0dea835a70a56b",
+    "res://assets/dungeon_tileset_ii/items/resource/dragon_tooth.png": "066d19334eedaa5113110e2d8ad0df7e65cb75ec5c3b49d3c38955c6dbe83160",
+    "res://assets/dungeon_tileset_ii/items/resource/dragon_wing.png": "1d404406573935ab4e2eb91d46a4f56a487c94984cf70c6ed868c18fcdb8fbc4",
+    "res://assets/dungeon_tileset_ii/items/resource/egg.png": "9323d377b78c7b1d7cac3f776a57a35217bacc40ae427d810c02788427f4b8da",
+    "res://assets/dungeon_tileset_ii/items/resource/emerald.png": "51d8a6e8b3d4410b4ec7c0db0f154313f616139a0307f9508d77665a741cbf9f",
+    "res://assets/dungeon_tileset_ii/items/resource/gold.png": "d6c6594f17ec47ba6689acac5baba9921be904be99d0151d13e1b49ffb78c938",
+    "res://assets/dungeon_tileset_ii/items/resource/iron_ore.png": "405c4ab066dcf76f08917169959645b0c690a0a7c042e5d91757a2a38c0623a1",
+    "res://assets/dungeon_tileset_ii/items/resource/leather.png": "f7d6ead69bc0c048168ee70f4366a67cacd2f078088b379557e24f14830ff3a7",
+    "res://assets/dungeon_tileset_ii/items/resource/meat.png": "66b92f3b46fe58df340c1386284aba0a64c93f1b7731f9be5da5e832a782ddf6",
+    "res://assets/dungeon_tileset_ii/items/resource/mushroom_brown.png": "4c46f1ded42f65c2a347aa2563d1cd3a0d7553e586afc1cfd6f7b5ceefd3ede5",
+    "res://assets/dungeon_tileset_ii/items/resource/mushroom_red.png": "653f6299c1e14c822caa207abcbc99bc3880f5262abeceb452150d072ea03ee5",
+    "res://assets/dungeon_tileset_ii/items/resource/opal.png": "32882992f94ce93b23eecf59c0589b0afb96f503f3c3880438d632bd1b44582a",
+    "res://assets/dungeon_tileset_ii/items/resource/pretzel.png": "43c1bcbf51db8687c031de14d5f46d817bc78295e5f96c500608c53aafb94285",
+    "res://assets/dungeon_tileset_ii/items/resource/saphire.png": "a4a3974abb1109697d87c5ed4b57a81333c6c55bbb6647fcc49f0b67697ac03f",
+    "res://assets/dungeon_tileset_ii/items/resource/skull.png": "9264042d2ac9484c8b9b6a9d1391bfa28682114b349f50331d041efbbc7cb9a8",
+    "res://assets/dungeon_tileset_ii/items/resource/steel.png": "d814be90407ab1c448e607ef365adc52bc4a028979f7832582d5f56902913963",
+    "res://assets/dungeon_tileset_ii/items/resource/stick.png": "f94bd3afca2c30ace4628474d8af15965277bd9ad74b9a5491393fc85884235f",
+    "res://assets/dungeon_tileset_ii/items/resource/stone.png": "7550e6e1e4e343d26977c6d09cdd3fd2ecc7e9e245d1afa6ab8c1bc591479238",
+    "res://assets/dungeon_tileset_ii/items/resource/sulphur.png": "6c1cdad57e800d789c5b2500527fde5faa25446867cec6e86983b60cf7c5e420",
+    "res://assets/dungeon_tileset_ii/items/resource/tentacle.png": "0522652568175cf4bafc5be0fa6a544a919a4a9bdb54c64d7c4bfd831d334f7b",
+    "res://assets/dungeon_tileset_ii/items/resource/toadstool.png": "2540e59387d28292f95956dbc905be584f985bcd88e321dc2f1d713d3638a7bf",
+    "res://assets/dungeon_tileset_ii/items/resource/topas.png": "92f124539a44fb913bf3ac5a0a6e318cbbd19bc490f4beba49ad02f493819e24",
+    "res://assets/dungeon_tileset_ii/items/resource/wood.png": "42077c1d54fc85b0885a7925a075d8ae0fc158599e6c99f5235f1778dceda567",
+    "res://assets/dungeon_tileset_ii/objects/crate/basic.png": "4bdd95b084d744e276ed9629317a8c973c72d3904a1f3abe81f5bc6ac5478118",
+    "res://assets/dungeon_tileset_ii/objects/lever/lever.png": "e7de91455c3e15758dc24da86e57a370db37bd025e6a620f567a6bb51f1b5737",
+    "res://assets/dungeon_tileset_ii/objects/pressureplate/pressureplate.png": "e2f6cb629d911293e1dd150b4454de738b1fecf81538c8d7d337894e83fa7a2d",
+    "res://assets/dungeon_tileset_ii/objects/torch/torch.png": "1e8c4fe8ddcde4ab036f947a592f46247a5539044fcba8608c7759c9a1d50fd5",
+    "res://assets/dungeon_tileset_ii/objects/treasurechest/treasurechest.png": "455df74c4446699a8351a72457dc75c0da6e3903edd0bd3f835bb60552562675",
+    "res://assets/dungeon_tileset_ii/objects/vase/vase.png": "71bacb225d526987b6325bb1b81fde830840623bc6e8d59a03623029623244dd",
+    "res://assets/ui/fonts/kenney_future.ttf": "7a55b07f5968fac872648a7c5e959bd2b93e06f63153b585d56e4d5298ddff61",
+    "res://assets/ui/fonts/kenney_future_narrow.ttf": "17e182587a3264dcf9e5b17c055715d5597187546ce81925c64e9184c26d597f",
+    "res://assets/ui/panels/arrow_focus.png": "00d4235d0e07a84fbf8761c9ba1f3b6e5c21dde281ab3793dd51a222373927bd",
+    "res://assets/ui/panels/panel_depth.png": "2b53f7a8b9527fa66dd995736f94b11fa39e69ca390a7e17539f32919a9cb521",
+    "res://assets/ui/panels/panel_frame.png": "724fbc97079b358afb4a9a4ddf4f67486ade7fa97f7bd7d70ef8444a31b907ab",
+    "res://assets/ui/panels/strip.png": "8d8a2c63a9cfe3bcd45fbf11a9ea1e6b046df74455631f635dafd0012193a75e",
+    "res://assets/ui/prompts/keyboard_escape.png": "8874e394d80161d6188ffce8b715357fea8059a9d6627a28769a91e3855bcbd7"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

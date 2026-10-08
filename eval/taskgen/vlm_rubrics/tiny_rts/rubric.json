@@ -1,0 +1,983 @@
+{
+  "game_id": "tiny_rts",
+  "mode": "brief",
+  "provided_asset_observations": [
+    {
+      "frame_ids": [
+        "S008",
+        "S011",
+        "S007",
+        "S012",
+        "S010"
+      ],
+      "informs": [
+        "A1",
+        "D1"
+      ],
+      "observation": "给定矛兵、工人、蓝弓、蓝战士与红战士精灵表，与录像兵种盔型和武器可对应。"
+    },
+    {
+      "frame_ids": [
+        "S025",
+        "S001",
+        "S049",
+        "S029"
+      ],
+      "informs": [
+        "A1",
+        "A2"
+      ],
+      "observation": "给定蓝堡、兵营、民居与草地瓦片，与基地建筑及地表同族，未把瓦片当 UI。"
+    },
+    {
+      "frame_ids": [
+        "S006",
+        "S066",
+        "S042",
+        "S073"
+      ],
+      "informs": [
+        "A3",
+        "V4"
+      ],
+      "observation": "头像框、木条、旗帜卷轴与 KenneyFuture 字样与 HUD/通关页外观相近。"
+    },
+    {
+      "frame_ids": [
+        "S003",
+        "S051"
+      ],
+      "informs": [
+        "A4"
+      ],
+      "observation": "尘土与爆炸序列可对应围拆烟火，不证明文件加载。"
+    }
+  ],
+  "reference_limits": [
+    "录像未展示失败结算、标题页与暂停菜单；brief 要求的失败只能在候选展示时评判，未展示为 unknown。",
+    "ENTER NEXT LEVEL / R REPLAY / ESC TITLE 未被点击，功能未验证。",
+    "无音频；素材与画面外观对应不证明文件加载。",
+    "波次具体数量（2/5/6）、神殿占领、插旗、工兵拆建筑是 GT 例子，不等同于任务强制机制。",
+    "小于十余像素的远程箭矢与个别旗帜尖在压缩帧上不可确认，不作要求。"
+  ],
+  "reference_observations": [
+    {
+      "frame_ids": [
+        "R001"
+      ],
+      "informs": [
+        "M1",
+        "M4",
+        "V2",
+        "V3",
+        "A1"
+      ],
+      "observation": "开场金 260 木 200 补给 3/10，WAVE 1/2 IN 1:17，SHRINE: NEUTRAL，RAZE EVERY RED BUILDING (2 LEFT)，指挥官 140/140 HP，操作提示 ARROW KEYS OR WASD… SPACE GIVES ORDERS。"
+    },
+    {
+      "frame_ids": [
+        "R005",
+        "R017",
+        "R058"
+      ],
+      "informs": [
+        "M2",
+        "D1",
+        "V3",
+        "A3"
+      ],
+      "observation": "R005 TRAINING PAWN，金 239 木 80 补给 4/18；R017 TRAINING ARCHER 且出现石塔；R058 幽灵兵营与三槽建造栏 70G 130W。"
+    },
+    {
+      "frame_ids": [
+        "R041",
+        "R084",
+        "R092"
+      ],
+      "informs": [
+        "M1",
+        "M3",
+        "D2",
+        "V1"
+      ],
+      "observation": "指挥官涉河接近神殿；红方近战围门口；随后 SHRINE: BLUE、HELD，工兵围攻瞭望塔。"
+    },
+    {
+      "frame_ids": [
+        "R100",
+        "R101"
+      ],
+      "informs": [
+        "D2",
+        "M4",
+        "V1",
+        "V4"
+      ],
+      "observation": "灰色标记场与幽灵旗帜 PLANT THE BANNER；通关页 II - EMBERFIELD CLEARED，ENTER NEXT LEVEL / R REPLAY / ESC TITLE。"
+    },
+    {
+      "frame_ids": [
+        "R103",
+        "R111",
+        "R112"
+      ],
+      "informs": [
+        "M3",
+        "D3",
+        "V1",
+        "A4"
+      ],
+      "observation": "新图 BREAK THE RED KEEP；红顶主堡集群；5 SAPPERS SIEGE THE KEEP。"
+    },
+    {
+      "frame_ids": [
+        "R119"
+      ],
+      "informs": [
+        "M4",
+        "V4",
+        "A3",
+        "A5"
+      ],
+      "observation": "III - BANNERFALL KEEP CLEARED，TIME 1:17 GOLD 194 WOOD 130 SUPPLY 1/10 WAVES SURVIVED 1，ENTER REPLAY / ESC TITLE。"
+    },
+    {
+      "frame_ids": [
+        "RD028",
+        "RD036",
+        "RD050"
+      ],
+      "informs": [
+        "M1",
+        "A4",
+        "M3"
+      ],
+      "observation": "密集段：指挥官连续奔跑；神殿旁烟团与围攻瞭望塔提示同帧。"
+    }
+  ],
+  "requirements": [
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R021",
+            "R024",
+            "R041"
+          ],
+          "observation": "R001 指挥官持矛立在蓝堡右侧；R021 底栏 2 ARMY，提示 2 UNITS MOVE TO THE COMMANDER；R024 4 ARMY 同句；R041 指挥官已走到河心，底栏 6 ARMY SELECTED。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "RD001",
+            "RD010",
+            "RD028",
+            "RD036"
+          ],
+          "observation": "RD001–RD010 约 0.1 s 间隔：4 ARMY 提示不变，单位在蓝堡前向指挥官靠拢；RD028–RD036 指挥官持矛从堡前跑向画面右侧，位置连续变化。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "名义上有行军，但被点名的单位被直接放到目标旁，中间没有可感知路程",
+          "id": "M1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评玩家能否选出一组单位并下达命令，使这些单位在地图上连续改变位置以靠近指挥官或指定点。行走姿态、选中高亮与提示条不在此评，归 A4/V3。",
+      "evidence": {
+        "coverage": "需要看到命令前后位置；行走姿态归 A4。不推断隐藏寻路网格。",
+        "kind": "action_sequence",
+        "unit": "一次点选加一次下令后的位移"
+      },
+      "full_credit": "能选出指挥官或其他编制；下令后被点名的单位在连续帧中沿可感知路程靠近目标点，位置变化与命令时序一致。",
+      "group": "M",
+      "high_score_requirements": [
+        "下令与位移在连续帧中可归因到同一编制，而不是全图单位无令自走。",
+        "行军有可感知距离，不是瞬移到指挥官脚边。",
+        "指挥官自身也能因方向输入连续改变位置。"
+      ],
+      "id": "M1",
+      "inspired_by": [
+        "shadow-courier:M1",
+        "strategy-skirmish:M1"
+      ],
+      "partial_credit": "能选但不能走，或能走但命令与位移反复脱节；只有一种编制或不能单独点选某一兵种本身不是缺陷。",
+      "title": "点选与下令使单位改变位置",
+      "zero_credit": "充分覆盖可操作游玩后单位不能因命令改变位置。未拍到下令为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R005",
+            "R017"
+          ],
+          "observation": "R001 金 260、木 200、补给 3/10，一座蓝顶屋；R005 金 239、木 80、补给 4/18，已有两座屋且提示 TRAINING PAWN；R017 金 83、木 74、补给 10/18，TRAINING ARCHER，右下出现石塔。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R010",
+            "R053",
+            "R058",
+            "R074"
+          ],
+          "observation": "R010 底栏 5 PAWNS SENT TO GATHER；R053 4 PAWNS、TRAINING PAWN；R058 幽灵兵营与 BARRACKS SELECTED (70G 130W)；R074 提示 NO SUPPLY LEFT — BUILD A HOUSE。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "训练或建造只改资源数字，世界层从未出现对应的新单位或新建筑",
+          "id": "M2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评有限资源是否因采集上升、因训练或建造下降，并在世界层出现新单位或新建筑。花费提示与幽灵预览归 V3；形体质量归 A1。",
+      "evidence": {
+        "coverage": "至少一段花费前后；采集只在实际派出工人时评判。提示文案归 V3。",
+        "kind": "action_sequence",
+        "unit": "一次采集或一次花费闭环：读数变化且世界层出现对象"
+      },
+      "full_credit": "采集使至少一种资源读数上升；训练或建造使对应资源下降，且世界层出现新的工人、战斗单位或建筑。人口/补给上限若被采用，超限时不能再无代价出兵。",
+      "group": "M",
+      "high_score_requirements": [
+        "采集上升与花费下降能分别指到工人位置或训练/放置动作，而不是数字自跳。",
+        "新单位或新建筑出现在花费发生的场所附近。",
+        "若采用补给上限，超限时有可见阻断而不是继续白嫖出兵。"
+      ],
+      "id": "M2",
+      "inspired_by": [
+        "strategy-skirmish:M2"
+      ],
+      "partial_credit": "能花钱但世界层不出现新对象，或采集与读数脱节；只有一种可训单位或不能造兵营本身不是缺陷。",
+      "title": "采集并花费资源产生单位或建筑",
+      "zero_credit": "充分覆盖后资源从不因采集或花费改变，也没有任何新单位或建筑出现。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R041",
+            "R084",
+            "R092"
+          ],
+          "observation": "R041 6 ARMY 40/70 HP、RAZE EVERY RED BUILDING (1 LEFT)；R084 神殿旁红盔金甲单位成团，7 ARMY 70/70 HP；R092 SHRINE: BLUE、HOLD THE SHRINE (HELD)、6 SAPPERS SIEGE THE WATCHTOWER。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R111",
+            "R112",
+            "RD050"
+          ],
+          "observation": "R111 红顶主堡与带角兵营仍在；R112 指挥官贴着主堡门，5 SAPPERS SIEGE THE KEEP，底栏 SAPPING THE KEEP；RD050 6 SAPPERS SIEGE THE WATCHTOWER，底栏 SAPPING THE BARRACKS。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "名义上有交战，但只改分数或目标文字，敌方单位与建筑从未因接触改变状态",
+          "id": "M3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评己方单位接触敌方单位或建筑后，敌方耐久或占有是否下降并最终退出战场或被拆除，且目标计数同向变化。受击闪光、烟尘与血条样式归 A4/V1。",
+      "evidence": {
+        "coverage": "需要接触前后；未拍到失败防守不推断失败规则。烟尘形式归 A4。",
+        "kind": "action_sequence",
+        "unit": "一次接触到敌方状态改变"
+      },
+      "full_credit": "己方单位与敌方单位或建筑发生可见接触后，敌方状态改变（耐久下降、阵营易手、建筑拆除或单位消失），目标剩余计数随之减少。",
+      "group": "M",
+      "high_score_requirements": [
+        "能指出哪一组己方单位的接触导致了哪一座敌方建筑或哪一队敌人退出。",
+        "目标剩余计数与拆除/占领同向，不在无接触时跳变。",
+        "占领点若被采用，易手后敌我占有可从状态读出。"
+      ],
+      "id": "M3",
+      "inspired_by": [
+        "strategy-skirmish:M3",
+        "shadow-courier:M2"
+      ],
+      "partial_credit": "有接触但敌方状态从不变化，或目标计数与拆除脱节；没有独立攻城工兵本身不是缺陷。",
+      "title": "交战使敌方单位或建筑退出",
+      "zero_credit": "充分覆盖接触后敌方单位与建筑从未因交战改变状态。未拍到接触为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R103"
+          ],
+          "observation": "R001 蓝堡、指挥官、RAZE EVERY RED BUILDING (2 LEFT)、WAVE 1/2 IN 1:17；R103 新开局 BREAK THE RED KEEP (1 LEFT)、WAVE 1/6 IN 0:57、金 300 木 220。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R101",
+            "R119"
+          ],
+          "observation": "R101 羊皮纸 II - EMBERFIELD CLEARED，ENTER NEXT LEVEL / R REPLAY / ESC TITLE；R119 III - BANNERFALL KEEP CLEARED，ENTER REPLAY / ESC TITLE。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [],
+      "description": "评流程各段是否存在：可辨开局、一段采集/交战游玩、胜利或失败结局、重玩或下一关入口。关卡内容差异归 D3；结局页编排归 V4。失败画面未拍到时该分支为 unknown，不因此判 M4 为零。",
+      "evidence": {
+        "coverage": "成功结局必需；失败仅在候选展示时评判。按钮功能未点击不认证。",
+        "kind": "whole_scope",
+        "unit": "开局、中段游玩与结局页"
+      },
+      "full_credit": "有可辨开局（基地与首条目标），随后有实际采集或交战，出现完成或失败结局，并提供重玩或再开入口。",
+      "group": "M",
+      "high_score_requirements": [
+        "开局目标与基地在第一眼可辨，不是空白场景突然出兵。",
+        "结局出现在实际拆除或占领之后，而不是跳过游玩。",
+        "通关页提供可辨的重玩或下一关入口。"
+      ],
+      "id": "M4",
+      "inspired_by": [
+        "shadow-courier:M3"
+      ],
+      "partial_credit": "有游玩但缺少结局或缺少重玩入口；或结局未经过游玩直接出现。",
+      "title": "从开局到通关可重玩",
+      "zero_credit": "充分覆盖后既没有战略游玩也没有可辨的开始/结束状态。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R010",
+            "R017",
+            "R058"
+          ],
+          "observation": "R001 持矛指挥官与无武器工人；R010 工人派出采集；R017 TRAINING ARCHER 且出现石塔；R058 建造栏三槽：1 00G 60W、2 40G 90W、3 70G 130W 兵营。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R084",
+            "R092",
+            "R112"
+          ],
+          "observation": "R084 红盔近战单位守神殿；R092 工人变为 6 SAPPERS SIEGE THE WATCHTOWER；R112 5 SAPPERS SIEGE THE KEEP，与近战守点不是同一职责。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "候选宣称有多类单位或建筑，但除色差外行为无差别，采集、战斗与建造可互相替换而不改变后果",
+          "id": "D1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评已展示的单位与建筑是否在行为上可区分，使训练/建造选择有后果。外形可辨归 V1/A1；本条只评职责差异。具体兵种名与数量自由。",
+      "evidence": {
+        "coverage": "只评实际出现的种类；未采用的兵种 not_applicable。",
+        "kind": "whole_scope",
+        "unit": "至少两类单位或建筑在其职责情境中的帧"
+      },
+      "full_credit": "至少两类单位或建筑在行为上不同（采集/训练/战斗/拆建筑/指挥等任一组合），玩家能根据当前目标选择派出哪一类。",
+      "group": "D",
+      "high_score_requirements": [
+        "工人与战斗单位在画面上做不同的事，而不是同一套移动。",
+        "至少一种建筑改变生产能力或人口，而不只是摆设。",
+        "拆建筑或守点若被采用，由可辨角色执行而不是所有单位自动完成。"
+      ],
+      "id": "D1",
+      "inspired_by": [
+        "strategy-skirmish:D2",
+        "shadow-courier:D2"
+      ],
+      "partial_credit": "有多名目但行为无差别，选择不改变能做的事。只有指挥官加一种工人可以给部分分。",
+      "title": "兵种与建筑承担不同职责",
+      "zero_credit": "充分覆盖后全部单位与建筑做同一件事，或只有一种不可替换的棋子。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R041",
+            "R084"
+          ],
+          "observation": "R001 蓝堡在画面左下、顶为河流；R041 指挥官正在涉河，对岸是紫顶神殿与旗帜；R084 神殿在开阔草地中央，红方单位围在门口。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R100",
+            "R111"
+          ],
+          "observation": "R100 灰色矩形标记场与幽灵旗帜，提示 PLANT THE BANNER AT THE MARKED SITE；R111 红顶主堡、带角兵营与圆塔组成敌营，灰色范围罩在其上。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "敌方据点或争夺点在到达前没有任何世界层场所，只能靠目标条文，走到某处才刷出或直接结束",
+          "id": "D2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评地图是否把己方基地、资源与敌方目标分成可理解的区域，使行军距离和路线选择成立。敌我外观归 V1；单位能否走完路程归 M1。",
+      "evidence": {
+        "coverage": "至少一处从己方区域前往目标的过程；河道、森林等具体障碍等效。",
+        "kind": "overview",
+        "unit": "基地宽景与接近敌方目标但尚未结束的帧"
+      },
+      "full_credit": "己方城堡/营地与至少一处敌方建筑或争夺点在到达前即可从布局上分开；中间有可感知的空地、河道或障碍，行军不是站在出生点就碰到敌营。",
+      "group": "D",
+      "high_score_requirements": [
+        "从己方城堡出发时，目标方向上已有可辨场所而不是雾外瞬现。",
+        "行军穿过可说出名字的中间地带（河、林、空地等任一）。",
+        "标记点或敌营范围在进入前可从场地形状读出。"
+      ],
+      "id": "D2",
+      "inspired_by": [
+        "shadow-courier:D1"
+      ],
+      "partial_credit": "两边同屏挤在一起几乎无路程；或敌方目标在到达前完全不存在，只能走到某处才刷出。",
+      "title": "己方基地与敌方目标隔开可走的空间",
+      "zero_credit": "充分覆盖后没有可辨的敌方场所，冲突发生在空白场中央。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R047",
+            "R092"
+          ],
+          "observation": "R001 RAZE EVERY RED BUILDING (2 LEFT)、WAVE 1/2；R047 HOLD THE SHRINE (NOT HELD) AND RAZE THE RED BARRACKS；R092 同目标但 SHRINE: BLUE 且 HELD。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R101",
+            "R103",
+            "R111"
+          ],
+          "observation": "R101 清关 II - EMBERFIELD CLEARED；R103 新图 BREAK THE RED KEEP，WAVE 1/6；R111 红顶主堡集群，与开局单座蓝堡对面一座神殿不同。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "候选采用多名目关卡或波次，但后段只换标题与底色，目标句、敌营布局与开局无法区分",
+          "id": "D3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评后段是否在目标或地图组织上相对开局发生变化，而不是只换标题。波次数与关卡名自由；单张地图通关且目标始终同一条时，本条可 not_applicable。",
+      "evidence": {
+        "coverage": "单段通关为本条 not_applicable；只评实际出现的后段。",
+        "kind": "whole_scope",
+        "unit": "开局与后段目标/地图的对比帧"
+      },
+      "full_credit": "后段目标或场所与开局可区分（新争夺点、新敌营布局、新胜利条件等任一），并且该差异改变要做什么，而不只改底色。",
+      "group": "D",
+      "high_score_requirements": [
+        "后段目标能从条文或场所一眼看出与开局不同。",
+        "后段敌营或争夺点布局不是开局建筑换色。",
+        "若有清关页分列关名，应与过程中的地图名对应。"
+      ],
+      "id": "D3",
+      "inspired_by": [
+        "shadow-courier:D3"
+      ],
+      "partial_credit": "有第二段标题但布局、敌营与目标句与开局相同。",
+      "title": "后续目标与地图比开局有内容发展",
+      "zero_credit": "候选宣称多关或多波，但全程只有同一句目标与同一块场地。单段游戏标 not_applicable。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R084",
+            "R111"
+          ],
+          "observation": "R001 蓝瓦石堡与蓝盔指挥官；R084 紫顶神殿、门口红盔金甲单位与木桩旗；R111 红瓦主堡、带红角兵营与圆塔，灰色范围罩在敌营上。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R100",
+            "R092"
+          ],
+          "observation": "R100 灰色矩形场内幽灵 K 形旗帜，顶栏 PLANT THE BANNER AT THE MARKED SITE；R092 顶栏 SHRINE: BLUE，神殿旁蓝方旗帜。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "敌我建筑在到达前没有任何世界层族徽、屋顶色或旗帜差异，只能靠目标条文里的 RED/BLUE 字样",
+          "id": "V1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评敌方建筑、己方基地与争夺点能否在到达前从世界层辨认，而不只靠目标条文。血条样式可作补充；提示横幅归 V3。",
+      "evidence": {
+        "coverage": "各实际地图至少一处接近目标；小于十余像素的旗尖不可辨时记限制。",
+        "kind": "overview",
+        "unit": "接近目标但尚未结束的宽景帧"
+      },
+      "full_credit": "己方基地与敌方建筑在屋顶、旗帜或轮廓上可分族；当前争夺点或标记场在进入该区域时就能认出，并与普通树木/民居区分。",
+      "group": "V",
+      "high_score_requirements": [
+        "进入目标区域时不必读条文就能认出敌营或争夺点。",
+        "己方城堡与敌方城堡在屋顶或旗帜上可分族。",
+        "插旗或占领标记在到达前已在世界层出现，而不是结束后才画。"
+      ],
+      "id": "V1",
+      "inspired_by": [
+        "strategy-skirmish:V4",
+        "shadow-courier:V3"
+      ],
+      "partial_credit": "只有 HUD 写 RED/BLUE，世界层敌我建筑同一剪影；或标记点到达前不可见。",
+      "title": "敌我建筑与争夺点在到达前可读",
+      "zero_credit": "充分覆盖后无法在到达前判断哪座建筑是敌方目标。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R005",
+            "R060"
+          ],
+          "observation": "R001 顶栏金 260 木 200 肉 3/10、WAVE 1/2 IN 1:17、SHRINE: NEUTRAL，底栏 COMMANDER 140/140 HP；R005 金 239 木 80 肉 4/18，底栏 3 PAWNS 45/45 HP IDLE；R060 金 297 木 216 肉 7/14、PYRES: BURNING、COMMANDER 140/140 HP +4 HP/S。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R084",
+            "R092",
+            "R100"
+          ],
+          "observation": "R084 7 ARMY 70/70 HP；R092 SHRINE: BLUE 与目标条文 HELD 同时出现，6 PAWNS 45/45 HP SAPPING THE WATCHTOWER；R100 5 PAWNS 40/45 HP，WAVES STOPPED (3/5)。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "世界层已出现花费出兵、单位受伤或争夺点易手的明确后果，但对应 HUD 读数持续不更新或方向相反",
+          "id": "V2-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "信息层持续遮挡当前要拆或要占的建筑，使其在指挥中无法辨认",
+          "id": "V2-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评资源、补给、波次、神殿/阵营状态与选中单位的生命是否成组可读，并在世界层已出现对应后果时同步更新。花费是否产生对象归 M2；交战是否拆除归 M3；本条只评读数同步与占位。",
+      "evidence": {
+        "coverage": "需要世界后果与读数同帧或紧随。遮挡只在挡住当前目标时记。",
+        "kind": "overview",
+        "unit": "花费后、交战后、占领后的 HUD 帧"
+      },
+      "full_credit": "顶栏资源/波次与底栏编制分区清楚；世界层已出现花费、受伤或占领时，对应数字或阵营标签立刻同向更新；面板不挡住当前要拆的建筑。",
+      "group": "V",
+      "high_score_requirements": [
+        "资源、波次与选中生命三类读数在正常尺度下可同时找到且成组。",
+        "花费、受伤与占领三者均与世界事件同向。",
+        "底栏编制名与肖像和场上被点名的单位一致。"
+      ],
+      "id": "V2",
+      "inspired_by": [
+        "shadow-courier:V4"
+      ],
+      "partial_credit": "分区混乱或关键读数过小；世界后果已出现但读数滞后或方向相反。",
+      "title": "资源与编制读数成组并与世界同步",
+      "zero_credit": "充分覆盖后没有任何稳定的资源或编制读数。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R005",
+            "R012",
+            "R017"
+          ],
+          "observation": "R001 ARROW KEYS OR WASD MOVE THE COMMANDER. SPACE GIVES ORDERS.；R005 TRAINING PAWN；R012 BUILD MENU CLOSED；R017 TRAINING ARCHER。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R058",
+            "R059",
+            "R074",
+            "R092",
+            "R100"
+          ],
+          "observation": "R058 BARRACKS SELECTED (70G 130W) - SPACE TO PLACE AT THE COMMANDER；R059 BLOCKED GROUND — MOVE THE COMMANDER；R074 NO SUPPLY LEFT — BUILD A HOUSE；R092 6 SAPPERS SIEGE THE WATCHTOWER；R100 NO ENEMY BUILDINGS WITHIN REACH — MOVE THE COMMANDER CLOSER。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "训练出兵、放置建筑或围拆已在世界层发生时，画面上没有任何即时事件提示，只能事后从列表或数字发现",
+          "id": "V3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评训练、建造放置、下令集结、围拆、资源不足等已采用事件是否有能归因的即时提示。本条是这些提示的唯一计分处；机制后果归 M，世界层过程归 A4。",
+      "evidence": {
+        "coverage": "至少一段花费类提示与一段战斗/围拆提示；未采用的事件类型不要求提示。",
+        "kind": "action_sequence",
+        "unit": "训练、放置或围拆发生的前后帧"
+      },
+      "full_credit": "训练、放置、集结与围拆各有可辨即时提示，并能读出对象（哪一类单位、哪座建筑），不与目标条文互相淹没。",
+      "group": "V",
+      "high_score_requirements": [
+        "训练与放置提示出现在花费同时，并能读出兵种或建筑名。",
+        "围拆提示指向具体建筑，不与顶栏长期目标条文混淆。",
+        "资源不足或放置受阻有独立提示，而不是无反应的按键。"
+      ],
+      "id": "V3",
+      "inspired_by": [
+        "shadow-courier:V2"
+      ],
+      "partial_credit": "部分事件没有任何提示，只能事后从数字发现；或提示无法归因到哪一类单位。",
+      "title": "训练、放置与围拆有可归因提示",
+      "zero_credit": "充分覆盖上述事件后完全没有任何即时提示。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R101",
+            "R119"
+          ],
+          "observation": "R101 米色卡片居中，II - EMBERFIELD CLEARED 在最上，BANNER PLANTED，TIME 4:32 GOLD 235 WOOD 118 SUPPLY 7/14 WAVES SURVIVED 3，底行 ENTER NEXT LEVEL / R REPLAY / ESC TITLE。R119 III - BANNERFALL KEEP CLEARED，TIME 1:17 GOLD 194 WOOD 130 SUPPLY 1/10 WAVES SURVIVED 1，ENTER REPLAY / ESC TITLE。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "结局页为无分组、无重点的裸文字堆叠，完成语义与重玩入口都要逐行阅读才能找到",
+          "id": "V4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评结束状态是否把完成语义、关键统计与下一步操作组织成可扫读的一页。流程是否存在归 M4；字体母题归 A3。失败页未拍到为 unknown。",
+      "evidence": {
+        "coverage": "成功结局必需；失败仅在候选展示时评判。按钮功能未点击不认证。",
+        "kind": "overview",
+        "unit": "结局页面帧"
+      },
+      "full_credit": "完成语义第一眼可辨；统计分组；下一关、重玩与退出是可辨控件且视觉上可区分。",
+      "group": "V",
+      "high_score_requirements": [
+        "完成语义在页面出现的第一眼即可分辨，不依赖阅读统计。",
+        "成绩分组与下一步操作分区清楚，重玩入口可单独找到。",
+        "若分列关卡名，应与游玩中的地图标题一致。"
+      ],
+      "id": "V4",
+      "inspired_by": [
+        "shadow-courier:D5"
+      ],
+      "partial_credit": "有结束字但统计与按钮混排，或重玩入口与正文无法区分。",
+      "title": "通关页可读且有下一步入口",
+      "zero_credit": "充分覆盖后没有任何完成状态，也没有任何重玩入口。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R005",
+            "R084",
+            "R111"
+          ],
+          "observation": "R001 蓝盔持长矛指挥官、无武器工人、蓝瓦双塔城堡与蓝顶民居；R005 工人肖像在底栏；R084 红盔金甲近战单位围神殿；R111 红瓦主堡、带红角兵营与圆塔。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S008",
+            "S011",
+            "S012",
+            "S010",
+            "S025",
+            "S049"
+          ],
+          "observation": "给定 Lancer_Idle、Pawn_Idle、蓝/红 Warrior_Attack、blue_castle、blue_house1：录像中的矛兵、工人、蓝盾战士、红盔敌人、蓝堡与民居在盔型与屋顶上可对应，不证明文件加载。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "给定单位或城堡形象只出现在结算页，正常游玩中的主体是无法辨认兵种的几何块或点",
+          "id": "A1-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "单位在正常尺度下被缩放到只能定位、形体撕裂或明显模糊，且贯穿整段战场",
+          "id": "A1-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评正常游玩尺度下指挥官、工人、战斗单位与城堡是否有符合身份的轮廓和内部分区，敌我外形可区分。围拆时的瞬时烟火归 A4。给定像素单位/建筑的采用与改造自由。",
+      "evidence": {
+        "coverage": "不要求特定像素风格或兵种名单。敌我外形差异在此评形体，阵营可读性归 V1。",
+        "kind": "overview",
+        "unit": "基地与战场上的单位/建筑原尺度帧"
+      },
+      "full_credit": "指挥官、工人与至少一种战斗单位有可辨剪影（武器、盔型或工具）；城堡有塔楼、门洞与屋顶分区；敌我单位不是同一剪影换色；与地面比例协调。",
+      "group": "A",
+      "high_score_requirements": [
+        "指挥官、工人与战斗单位在正常尺度下可一眼分族。",
+        "己方城堡与敌方城堡有门洞或塔楼分区，不是纯色块。",
+        "给定像素素材若采用则边缘完整，与草地尺度匹配。"
+      ],
+      "id": "A1",
+      "inspired_by": [
+        "sokoban:A2"
+      ],
+      "partial_credit": "单位可定位但兵种不可辨；建筑是无开口色块；敌我同一剪影。",
+      "title": "单位与建筑的主体形体",
+      "zero_credit": "正常游玩中单位只是无法辨认身份的占位块。分辨率不足时为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R041",
+            "R084"
+          ],
+          "observation": "黄绿像素草地、顶部蓝河与灰石、深浅绿松与黄叶树、白羊；R041 指挥官涉过河心；R084 神殿立在开阔草地上，旁有燃烧火堆。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S029",
+            "S002",
+            "S053"
+          ],
+          "observation": "给定 tilemap_grass 含草地与石岸过渡，bush 条与 scorched 焦土瓦；录像河岸与草地同族像素密度，未把装饰条原样铺满屏幕。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "场地只是单色地面加无开口盒子建筑，没有地表纹理、水域或林木分区，场所无法读成王国地图",
+          "id": "A2-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "给定俯视瓦片或装饰条原样铺满作为地面，其透视与尺度和单位冲突，单位悬浮在图案上",
+          "id": "A2-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评地表、水域、树木与据点是否共同构成可理解的小王国场地。瓦片与装饰的选择自由；俯视素材不得造成透视冲突。",
+      "evidence": {
+        "coverage": "各实际地图若干场地；平涂几何风格同权，评分区与接地。",
+        "kind": "overview",
+        "unit": "基地宽景与战场宽景"
+      },
+      "full_credit": "草地有可辨纹理，河流或边界把区域分开，树木/岩石接地；城堡与民居坐落在地面上而不是悬浮；战场空地与基地密度可区分。",
+      "group": "A",
+      "high_score_requirements": [
+        "草地、水域与林木共同给出可行走与不可走的边界。",
+        "基地密集区与战场空地可辨，不是同一块复制草皮。",
+        "城堡、神殿与树木相对地面的比例像同一张地图。"
+      ],
+      "id": "A2",
+      "inspired_by": [
+        "sokoban:A2",
+        "shadow-courier:A2"
+      ],
+      "partial_credit": "地面是单色填充，没有水域或林木组织；建筑浮在色块上。",
+      "title": "草地、河流与据点场所",
+      "zero_credit": "充分覆盖后没有任何可辨地表或场所，只有空白背景与棋子。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R058",
+            "R101",
+            "R119"
+          ],
+          "observation": "顶栏深棕木纹条、金/木/肉图标、橙底目标条；底栏深棕板加方形肖像与红血条；R058 三个带蓝框的建筑槽；R101/R119 米色羊皮纸加右侧卷轴旗，标题为宽体无衬线大写。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S006",
+            "S066",
+            "S073",
+            "S042"
+          ],
+          "observation": "给定头盔头像框、木条 bar_big_base、KenneyFuture 字样与 swords banner：与录像底栏肖像、顶栏木纹、通关标题及卷轴旗外观相近；不证明文件加载。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "代表性的主要界面虽已有分组、底板或字号差，但核心信息的重要性与视觉重量长期明显相反，或主要信息组仍没有可辨阅读顺序，导致这一状态的主要编排关系实质缺失。须指出具体角色和范围；常见字体、纯文字、缺少面板或一个局部修饰问题均不触发。",
+          "id": "A3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评价资源/编制、建造选择、目标提示与结局的实际视觉编排。重点是信息角色、文字/图形比例、留白与对齐、状态重点共同形成的界面设计；正确显示信息、有字号差或使用统一颜色只证明相应的局部成果。下列 GT 观察是设计作用的实例，具体颜色、字体、图标、面板和固定位置不构成复刻要求。",
+      "evidence": {
+        "coverage": "代表性正常界面与原录像覆盖的状态画面并列查看；关键文字及组间比例需要正常尺度全帧。只评价本任务已采用且已展示的组成。",
+        "kind": "overview",
+        "unit": "游玩 HUD 与结局页"
+      },
+      "full_credit": "资源/编制、建造选择、目标提示与结局在正常观看尺度下按当前任务的重要性形成清楚的视觉重量和阅读顺序；主要目标或行动状态有充分强调，名称、数值、辅助说明的比例、距离和对齐体现各自语义，弱化的信息仍有适当可读性。指挥、建设/战斗与结束状态根据状态用途重新组织视觉中心、疏密与留白，同时延续可辨的字体角色或图形关系。整体编排已经形成完整、合乎内容的界面，不能仅由几组标签、标题放大和配色统一来证明。纯文字可以充分完成设计；仅评价实际采用的可选读数、图标、按钮和统计，不要求另加组件、面板或独立结果屏。",
+      "group": "A",
+      "high_score_requirements": [
+        "当前战略目标、资源/军队状态与辅助提示在正常画面中的视觉重量与当前用途匹配。指出强调了谁、弱化了谁以及字号/对比/位置/留白如何共同完成这一关系；仅列出标签和分组不算完整证据。",
+        "具体信息组内部与组间的比例、对齐和疏密共同形成阅读节奏，名称、读数、说明之间的联系清楚；同一字体、同一颜色或一条底板不自动证明这些关系完成。",
+        "指挥、建设/战斗与结束状态各自的视觉中心与内容相称，状态变化通过实际编排表达用途变化；保持相同颜色或把一行字放大不足以单独证明完整，但有意义的简洁文字构图可以完整成立。",
+        "字体角色、形状、边缘或强调关系在整套界面中得到有目的的运用；需要说明具体处理产生了什么视觉效果，不能用‘没冲突、可读、风格统一’替代正面完成证据。"
+      ],
+      "id": "A3",
+      "inspired_by": [
+        "shadow-courier:A3"
+      ],
+      "partial_credit": "按已形成和未完成的设计关系连续判断：能读到文字但关键目标/状态的视觉重量弱于装饰性标题；标签与数值或相关说明靠简单并排仍缺少有效分组与阅读顺序；主次虽然有字号差，尺度、对比或留白却未配合语义；结果内容只是换字沿用普通读数排法，没有围绕已有完成信息形成视觉中心；局部做了边框或强调色，但主要界面仍缺乏上述编排。指出具体区域、相互比较的信息角色和可见后果，不能只说普通、简陋或缺乏高级感。仅有轻微间距问题时按局部损失判断；不能把缺少图标/插画、使用常见字体、不同字体家族或极简风格本身当缺陷。某信息是否缺失或错误归功能视觉项；本项须评价已展示信息怎样被设计，不能复用同一功能缺失扣分。",
+      "title": "界面的完整视觉编排",
+      "zero_credit": "所需观察范围充分时，主要界面完全没有实际视觉编排，只有无法形成信息角色或阅读顺序的散置占位内容。已经形成有效的局部编排应给部分完成度；没有拍到状态不等于没有设计。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "RD028",
+            "RD032",
+            "RD036",
+            "RD040"
+          ],
+          "observation": "约 0.1 s 间隔：指挥官持矛从蓝堡前向右奔跑，腿部姿态与水平位置连续变化，不是瞬移。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R092",
+            "RD050",
+            "R111",
+            "R112"
+          ],
+          "observation": "R092/RD050 神殿旁白色烟团与 6 SAPPERS SIEGE THE WATCHTOWER 同时出现；R111 敌营内黄火与爆炸；R112 主堡门前指挥官与 5 SAPPERS SIEGE THE KEEP、地面火团仍在。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "行军、围拆、交火三类事件里至少两类在连续覆盖中没有任何世界层过程，只有对象瞬移或数字变化",
+          "id": "A4-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "单位始终为单帧贴图平移、朝向不变，虽有数字变化但围拆与交战在主体上没有任何姿态、烟火或替代闪光",
+          "id": "A4-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评行军、围拆、交火、插旗等已展示事件在世界层是否有过程并绑在事件位置。本条是这些动态的唯一计分处；M 只评数值后果，V3 只评提示文字。",
+      "evidence": {
+        "coverage": "需要 0.1 s 级片段才能评过程；只有总览抽帧时本条为 unknown。A4-C1 与 A4-C2 属同一条不叠加。",
+        "kind": "action_sequence",
+        "unit": "行军、围拆或交火的密集片段"
+      },
+      "full_credit": "行军时单位朝向与步态随去向改变；围拆或交火在目标处有持续烟尘、火光或等价过程；插旗或占领有可辨过渡，不是单帧切换。",
+      "group": "A",
+      "high_score_requirements": [
+        "行军、围拆与交火都有可跟踪的位置或烟火过程，效果出现在事件所在位置。",
+        "拆除或占领有起止，不是单帧消失。",
+        "多单位同屏时过程能归因到正在围拆的那一座建筑。"
+      ],
+      "id": "A4",
+      "inspired_by": [
+        "shadow-courier:A4"
+      ],
+      "partial_credit": "部分事件瞬切（建筑瞬删、单位瞬移）；动态与事件位置脱离；行走始终同一姿态平移。",
+      "title": "行走、围拆与交战的世界层过程",
+      "zero_credit": "充分覆盖后单位只是单帧贴图平移，围拆与交战都没有任何世界层过程。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R084",
+            "R111",
+            "R119"
+          ],
+          "observation": "R001/R084 黄绿草、蓝河、蓝瓦与紫顶、像素单位同锐度；木纹 HUD 与战场边缘一致；R111 红瓦敌营仍是同一像素语言；R119 羊皮纸加卷轴旗，不像系统弹窗。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "代表性的正常画面中，主体、场所、效果和信息层虽各自存在，但跨部分的主要行动焦点或空间层次持续未建立：须有具体比例、明暗、遮挡或布局关系使主要行动被压成次要点或各部分无法形成同一空间的证据。配色一致不能豁免；个别装饰不足、单帧重叠或局部细节缺失不触发。",
+          "id": "A5-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评价单位、建筑/据点、战场与信息层共同组成的整幅画面怎样表现花费有限资源扩张军队并击败对手。本项需要跨部分构图、比例、空间与注意力层次的正面成果；能够认出同一游戏、配色一致或没有严重风格冲突只证明有限的协调。不再次评价 A1–A4 的局部制作水平，不把 GT 的具体风格和配色变成强制答案。",
+      "evidence": {
+        "coverage": "以多个独立阶段的正常全帧检查整体关系，并与原录像覆盖的状态画面比较；不以单一漂亮结果页补偿游玩画面的主要关系缺失。",
+        "kind": "whole_scope",
+        "unit": "开局基地、战场、结算跨状态"
+      },
+      "full_credit": "当前指挥对象、敌我压力与战略目标在代表性画面中形成有目的的关注关系；主体所占视觉重量、场所的衬托、效果的强调和信息层的介入共同表现花费有限资源扩张军队并击败对手。各部分在尺度、明暗/色彩、边缘与空间上的配合形成完整画面，能指出主体如何处于场所中、效果如何依附其对象、界面如何配合当前状态。跨已展示的阶段与结果，视觉语言通过这些关系延续并适应状态变化；统一调色、重复字体或相同像素边不能代替整体构图与氛围的完成。几何、极简、像素、混合渲染和主题变化均可完整成立，不要求增加装饰或效果种类。",
+      "group": "A",
+      "high_score_requirements": [
+        "当前指挥对象、敌我压力与战略目标的关注顺序由整幅构图、视觉重量与场景衬托共同组织，具体说明至少两个部分如何相互支持。对象存在、能定位或颜色区分开，只是这项成果的一部分。",
+        "单位、建筑/据点、战场与信息层之间的尺度、明暗/色彩、边缘或空间关系共同形成花费有限资源扩张军队并击败对手的表现，举出画面中实际成立的整合关系；不能仅凭共享调色或材质名称判完整。",
+        "已展示的游玩阶段与结果通过构图、强调、形态或空间关系延续同一视觉方向，并适应各状态的用途；只复用一种颜色或字体并不能单独证明整套呈现完成。"
+      ],
+      "id": "A5",
+      "inspired_by": [
+        "strategy-skirmish:A1"
+      ],
+      "partial_credit": "按尚未建立的跨部分关系及其重要性给连续分：颜色相近却只是主体、平面场地、标记和顶栏的并置，比例与明暗没有共同组织主要行动；效果、装饰或信息层的面积/对比持续压过应被关注的世界主体或目标，使行动中心退化为画面的次要点；物件、地面和效果各自可辨，却在接地、遮挡或视觉尺度上缺乏联系，整幅画面的空间表现未形成；游玩与结果只复用颜色，实际构图和强调关系没有支持其体验的延续。必须指出至少两个部分之间的可见关系与结果，不能以‘拼装感、没氛围’概括，也不能再次列角色缺细节、地面少装饰或界面字小作为独立扣分。局部轻微不协调按局部判断；不同风格、稀疏场景、明亮特效或大界面并不自动证明失败。",
+      "title": "整体构图与美术整合",
+      "zero_credit": "代表性画面中各部分没有共同形成可辨的主要行动、空间层次或整体表现方向，只有互不关联的内容并置。已形成的实际关系应保留部分完成度；不能因画风不合偏好给零分。"
+    }
+  ],
+  "rubric_version": "2026-09-19.vlm-art-relationships-v1",
+  "score_curve": {
+    "caps_scale": "final_score",
+    "exponent": 3,
+    "input": "attainment",
+    "missing_evidence": null,
+    "name": "power"
+  },
+  "self_review": {
+    "overlap": "事件唯一归属表：点选下令导致位移 → M1；采集/花费导致资源与世界对象变化 → M2；交战导致敌方退出或建筑拆除 → M3；开局/通关/重玩入口是否存在 → M4；兵种建筑职责差异 → D1；基地与敌营空间距离 → D2；后段目标与地图发展 → D3；敌我建筑世界层可读 → V1；HUD 成组与读数同步、遮挡 → V2；训练/放置/围拆提示 → V3；结局页组织 → V4；持久形体 → A1；草地河流场所 → A2；界面图形语言 → A3；行走/围拆/交火的世界层过程 → A4；跨部分关系 → A5。caps 互斥：A4-C1 与 A4-C2 同条不叠加；V2-C1 只在世界后果已出现但读数不跟时触发，与 M2/M3 的‘无后果’零分可区分；D1-C1 评行为无差别，V1-C1 评有建筑但无族徽；M1-C1 评无路程瞬移，A4-C2 评有路程但单帧平移。",
+    "scope": "16 项（M4/D3/V4/A5）。按 brief 把键盘指挥、采集花费、扩张军队、击败可读敌军、胜利/失败/重开作为必需；地图、数值、波次、神殿/插旗形式作为自由。失败页未拍到，M4 不因缺失败画面归零。",
+    "uncertainties": "失败与重玩按钮未被点击。箭矢飞行在压缩帧上偏小。未建立独立语义审查证据。未建立人工分数校准证据。",
+    "unsupported_obligations": "未要求：固定波次数、神殿机制、插旗、工兵、三资源、人口上限数值、标题页、失败页、音频、特定像素引擎。GT 做法只写在 basis。"
+  },
+  "task_map": {
+    "freedom": [
+      "地图拓扑、单位数值、节奏与视觉构成。",
+      "资源种类名、人口上限、波次数、神殿占领、插旗、工兵拆建筑等均为 GT 例子，等效战略循环同权。",
+      "失败画面未拍到；失败形式自由，未展示为 unknown。"
+    ],
+    "required": [
+      "键盘指挥小型王国：采集并花费有限资源、扩张军队、击败画面上可读的敌对势力。",
+      "至少覆盖选择单位、训练、打开建造/放置、下达进攻/采集/集结一类命令。",
+      "经济、冲突、胜利、失败与重开都能走完。"
+    ]
+  }
+}

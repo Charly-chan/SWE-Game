@@ -1,0 +1,394 @@
+{
+  "captured_at": "2026-09-08T17:58:36Z",
+  "fixture_note": "Replay items are the real revert capture; only the edit is synthetic. On 2026-09-10, copied sub_bug_revert and added one separate hunk in scripts/session.gd (record_loss: appended \"# synthetic locality fixture\" to last_outcome = reason), added scripts/unrelated_note.gd (extends Node plus a comment), and added one EOF comment hunk to unrelated levels/level_1.tscn. The original repair hunks in scripts/session.gd (level_scene) and levels/level_3.tscn remain. edit_radius item computed 2026-09-10 from the stored faulty build / submission pair with these synthetic additions.",
+  "game_id": "shadow_walker",
+  "headline_at_capture": 86.875,
+  "items": [
+    {
+      "credit": 1.0,
+      "detail": "project.godot resolved",
+      "evidence": {
+        "project": "local workspace"
+      },
+      "id": "layout",
+      "verdict": "passed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "Interface v2 conformance PASS",
+      "evidence": {},
+      "id": "interface",
+      "verdict": "passed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "no new blocking grant sites (0 inherited from the corpus copy via harness_scan, which is a known debt and not this task; 0 concession(s) ignored)",
+      "evidence": {},
+      "id": "anti_grant_static",
+      "verdict": "passed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "no declared-victory change in _ready",
+      "evidence": {},
+      "id": "auto_win_ready",
+      "verdict": "passed"
+    },
+    {
+      "credit": 0.0,
+      "detail": "gb_levels.json does not declare numeric.health",
+      "evidence": {},
+      "id": "health_writable",
+      "verdict": "unobservable"
+    },
+    {
+      "credit": 1.0,
+      "detail": "no certificate/route/expectations planted",
+      "evidence": {},
+      "id": "no_eval_smuggling",
+      "verdict": "passed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "source passed 5 route(s); the bootable mutant failed 2",
+      "id": "bugfix_publication",
+      "verdict": "passed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "script count 23 (was 23); 0 scripts dropped",
+      "evidence": {},
+      "id": "surface",
+      "verdict": "passed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "required actions/groups/scripts from mutations remain",
+      "evidence": {},
+      "id": "feature_kept",
+      "verdict": "passed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "idle stop_reason=budget_frames",
+      "evidence": {},
+      "id": "null_no_win",
+      "verdict": "passed"
+    },
+    {
+      "credit": 0.0,
+      "detail": "no extended actions or analog axes declared; mash does not apply",
+      "evidence": {
+        "analog_axes": [],
+        "applicable": false,
+        "extras": [],
+        "reason": "no extended actions or analog axes declared",
+        "won": false
+      },
+      "id": "extended_mash_no_win",
+      "verdict": "unobservable"
+    },
+    {
+      "credit": 1.0,
+      "detail": "idle grant-probe and ops pair did not diverge in the grant direction (flagged-wins / env-loses, or flagged much earlier)",
+      "id": "anti_grant_diff",
+      "verdict": "passed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "5 registered route(s) passed on the honest baseline; genuine_clear present",
+      "evidence": {
+        "genuine_clear": {
+          "present": true,
+          "reason": "validated and frozen by Mode-4 publication preflight"
+        }
+      },
+      "id": "gold_replay",
+      "verdict": "passed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "the repair restored 2 mutation target route(s); 0 public-contract target(s) passed feature_kept; preserved 2 unrelated positive route(s), and kept 1 negative control(s)",
+      "evidence": {
+        "negative_control_routes": [
+          "shadow_walker/L0/no_input_no_win"
+        ],
+        "regression_routes": [
+          "shadow_walker/C1/level_1_chest_and_exit",
+          "shadow_walker/C2/level_2_chest_and_exit"
+        ],
+        "target_contract_checks": [],
+        "target_routes": [
+          "shadow_walker/C3/level_3_chest_and_exit",
+          "shadow_walker/L5/whole_game_clear"
+        ]
+      },
+      "id": "repair_differential",
+      "verdict": "passed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "repair restored 2/2 preregistered target route(s)",
+      "evidence": {
+        "negative_control_failed": [],
+        "regression_failed": [],
+        "restored_targets": [
+          "shadow_walker/C3/level_3_chest_and_exit",
+          "shadow_walker/L5/whole_game_clear"
+        ],
+        "routes": {
+          "shadow_walker/C1/level_1_chest_and_exit": {
+            "status": "pass",
+            "tier": 2
+          },
+          "shadow_walker/C2/level_2_chest_and_exit": {
+            "status": "pass",
+            "tier": 3
+          },
+          "shadow_walker/C3/level_3_chest_and_exit": {
+            "status": "pass",
+            "tier": 4
+          },
+          "shadow_walker/L0/no_input_no_win": {
+            "status": "pass",
+            "tier": 0
+          },
+          "shadow_walker/L5/whole_game_clear": {
+            "status": "pass",
+            "tier": 5
+          }
+        },
+        "target_count": 2,
+        "unrestored_targets": []
+      },
+      "id": "repair_restoration",
+      "verdict": "passed"
+    },
+    {
+      "credit": 0.8421052631578948,
+      "detail": "evaluate_project objective_lo=0.842",
+      "evidence": {
+        "card": {
+          "channels": [
+            {
+              "by_verdict": {
+                "passed": 1.0
+              },
+              "channel": "O1",
+              "coverage": 1.0,
+              "denominator": 1.0,
+              "hi": 1.0,
+              "lo": 1.0,
+              "low_coverage": false,
+              "measured": true,
+              "mode_used": "X_CPU",
+              "name": "runnable",
+              "note": "cold_import=passed; boots=passed; draws_nontrivial=passed; responds_to_input=passed",
+              "weight": 0.063,
+              "width": 0.0
+            },
+            {
+              "by_verdict": {
+                "passed": 1.0
+              },
+              "channel": "O2",
+              "coverage": 1.0,
+              "denominator": 1.0,
+              "hi": 1.0,
+              "lo": 1.0,
+              "low_coverage": false,
+              "measured": true,
+              "mode_used": "H",
+              "name": "interface_conformance",
+              "note": "groups=passed; actions=passed; levels=passed; endings=passed; optional_fields_valid=passed; task_required_observables=passed",
+              "weight": 0.072,
+              "width": 0.0
+            },
+            {
+              "by_verdict": {
+                "failed": 2.0,
+                "passed": 6.0
+              },
+              "channel": "O3",
+              "coverage": 1.0,
+              "denominator": 8.0,
+              "hi": 0.75,
+              "lo": 0.75,
+              "low_coverage": false,
+              "measured": true,
+              "mode_used": "H",
+              "name": "mechanic_fidelity",
+              "note": "universal assertions U1, U2, U3, U4, U5, U6, U7 over 3 levels; H-class 3 item(s) for task_id='shadow_walker'",
+              "weight": 0.18,
+              "width": 0.0
+            },
+            {
+              "by_verdict": {
+                "passed": 1.0,
+                "unobservable": 1.0
+              },
+              "channel": "O4",
+              "coverage": 1.0,
+              "denominator": 1.0,
+              "hi": 1.0,
+              "lo": 1.0,
+              "low_coverage": false,
+              "measured": true,
+              "mode_used": "H",
+              "name": "level_topology",
+              "note": "level count and inter-level digraph over 3 levels against expectations frozen 2026-08-23T10:27:47+00:00",
+              "weight": 0.099,
+              "width": 0.0
+            },
+            {
+              "by_verdict": {
+                "passed": 3.0
+              },
+              "channel": "O5",
+              "coverage": 1.0,
+              "denominator": 3.0,
+              "hi": 1.0,
+              "lo": 1.0,
+              "low_coverage": false,
+              "measured": true,
+              "mode_used": "H",
+              "name": "spatial_ordinal",
+              "note": "collectible ordering, normalised goal distance and entity dispersion over 3 levels against expectations frozen 2026-08-23T10:27:47+00:00",
+              "weight": 0.081,
+              "width": 0.0
+            },
+            {
+              "by_verdict": {
+                "unmeasurable": 1.0
+              },
+              "channel": "O6",
+              "coverage": 0.0,
+              "denominator": 0.0,
+              "hi": 0.0,
+              "lo": 0.0,
+              "low_coverage": true,
+              "measured": false,
+              "mode_used": "H",
+              "name": "asset_use",
+              "note": "supplied asset manifest missing",
+              "weight": 0.063,
+              "width": 0.0
+            },
+            {
+              "by_verdict": {
+                "passed": 1.0
+              },
+              "channel": "O7",
+              "coverage": 1.0,
+              "denominator": 1.0,
+              "hi": 1.0,
+              "lo": 1.0,
+              "low_coverage": false,
+              "measured": true,
+              "mode_used": "H",
+              "name": "authored_clear",
+              "note": "L5 authored clear over 1 RT-1-passed route(s)",
+              "weight": 0.126,
+              "width": 0.0
+            },
+            {
+              "by_verdict": {
+                "unobservable": 1.0
+              },
+              "channel": "O9",
+              "coverage": 0.0,
+              "denominator": 0.0,
+              "hi": 0.0,
+              "lo": 0.0,
+              "low_coverage": true,
+              "measured": false,
+              "mode_used": "X_CPU",
+              "name": "anchor_composition",
+              "note": "task has no O9 expectation",
+              "weight": 0.09,
+              "width": 0.0
+            },
+            {
+              "by_verdict": {
+                "unobservable": 1.0
+              },
+              "channel": "O8",
+              "coverage": 0.0,
+              "denominator": 0.0,
+              "hi": 0.0,
+              "lo": 0.0,
+              "low_coverage": true,
+              "measured": false,
+              "mode_used": "X_CPU",
+              "name": "gui_agent_routes",
+              "note": "excluded from the main card; independent external-agent routes consume the same levels/actions SubmissionInterface",
+              "weight": 0.126,
+              "width": 0.0
+            }
+          ],
+          "scard": null,
+          "scard_state": "absent"
+        }
+      },
+      "id": "reproduction",
+      "verdict": "passed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "all packaging, restoration, and runtime transformation duties passed",
+      "id": "transformation_contract",
+      "verdict": "passed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "bugfix emitted all 15 strict profile checks",
+      "id": "verifier_profile_complete",
+      "verdict": "passed"
+    },
+    {
+      "attribution": null,
+      "credit": 0.75,
+      "detail": "edit locality relative to the faulty build (reported with weight 0)",
+      "evidence": {
+        "deliverables_ignored": [],
+        "edit_radius": 0.75,
+        "file_focus": 0.5,
+        "files_in_patch_set": [
+          "levels/level_3.tscn",
+          "scripts/session.gd"
+        ],
+        "files_touched": [
+          "levels/level_1.tscn",
+          "levels/level_3.tscn",
+          "scripts/session.gd",
+          "scripts/unrelated_note.gd"
+        ],
+        "func_focus": 0.5,
+        "hunk_functions": {
+          "scripts/session.gd": [
+            "level_scene",
+            "record_loss"
+          ]
+        },
+        "hunks_in_patch_files": 2,
+        "hunks_in_patched_functions": 1,
+        "patched_functions": {
+          "scripts/session.gd": [
+            "level_scene"
+          ]
+        },
+        "unrelated_files": [
+          "levels/level_1.tscn",
+          "scripts/unrelated_note.gd"
+        ]
+      },
+      "id": "edit_radius",
+      "verdict": "passed",
+      "weight": 1.0
+    }
+  ],
+  "mode": "bugfix",
+  "registry_version_at_capture": "2026-09-08.mode34",
+  "resolved": true,
+  "source_report": "local workspace"
+}

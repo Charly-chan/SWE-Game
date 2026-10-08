@@ -1,0 +1,181 @@
+{
+  "game_id": "cyber_survival",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "reference_media/assets/vendor/kenney_skybox/skybox-night.png",
+        "id": "S003",
+        "label": "reference_media/assets/vendor/kenney_skybox/skybox-night.png"
+      },
+      {
+        "asset_path": "reference_media/assets/vendor/kenney_ui_pack/button_rectangle_depth_flat.png",
+        "id": "S004",
+        "label": "reference_media/assets/vendor/kenney_ui_pack/button_rectangle_depth_flat.png"
+      },
+      {
+        "asset_path": "reference_media/assets/vendor/quaternius_cyberpunk/Cyberpunk Platform-J3AJSwqmBJ_Texture_Sign.png",
+        "id": "S005",
+        "label": "reference_media/assets/vendor/quaternius_cyberpunk/Cyberpunk Platform-J3AJSwqmBJ_Texture_Sign.png"
+      },
+      {
+        "asset_path": "reference_media/assets/vendor/kenney_ui_pack/button_rectangle_depth_gloss.png",
+        "id": "S007",
+        "label": "reference_media/assets/vendor/kenney_ui_pack/button_rectangle_depth_gloss.png"
+      },
+      {
+        "asset_path": "reference_media/assets/vendor/quaternius_cyberpunk/Cyberpunk Platform-ctQ5CDmraQ_Texture_Sign.png",
+        "id": "S008",
+        "label": "reference_media/assets/vendor/quaternius_cyberpunk/Cyberpunk Platform-ctQ5CDmraQ_Texture_Sign.png"
+      },
+      {
+        "asset_path": "reference_media/assets/vendor/quaternius_cyberpunk/Cyberpunk Signs_Texture_Sign.png",
+        "id": "S011",
+        "label": "reference_media/assets/vendor/quaternius_cyberpunk/Cyberpunk Signs_Texture_Sign.png"
+      },
+      {
+        "bundled_path": "media/S014.png",
+        "id": "S014",
+        "label": "FONT PREVIEW reference_media/assets/vendor/kenney_ui_pack/KenneyFuture.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "reference_media/assets/vendor/kenney_ui_pack/KenneyFuture.ttf"
+      },
+      {
+        "bundled_path": "media/S015.png",
+        "id": "S015",
+        "label": "FONT PREVIEW reference_media/assets/vendor/kenney_ui_pack/KenneyFutureNarrow.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "reference_media/assets/vendor/kenney_ui_pack/KenneyFutureNarrow.ttf"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "Quaternius_Cyberpunk_Game_Kit_GLTF.zip",
+        "reference_media/assets/vendor"
+      ],
+      "file_count": 61,
+      "font_files": [
+        "reference_media/assets/vendor/kenney_ui_pack/KenneyFuture.ttf",
+        "reference_media/assets/vendor/kenney_ui_pack/KenneyFutureNarrow.ttf"
+      ]
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry. Font previews are rendered from actual supplied font files; preview wording is illustrative, not additional task requirements.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 122.034,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R007",
+        "time_s": 6.3
+      },
+      {
+        "id": "R011",
+        "time_s": 10.5
+      },
+      {
+        "id": "R016",
+        "time_s": 15.75
+      },
+      {
+        "id": "R027",
+        "time_s": 27.3
+      },
+      {
+        "id": "R030",
+        "time_s": 30.45
+      },
+      {
+        "id": "R031",
+        "time_s": 31.5
+      },
+      {
+        "id": "R033",
+        "time_s": 33.6
+      },
+      {
+        "id": "R048",
+        "time_s": 49.35
+      },
+      {
+        "id": "R060",
+        "time_s": 61.95
+      },
+      {
+        "id": "R067",
+        "time_s": 69.3
+      },
+      {
+        "id": "R094",
+        "time_s": 97.65
+      },
+      {
+        "id": "R095",
+        "time_s": 98.7
+      },
+      {
+        "id": "R109",
+        "time_s": 113.4
+      },
+      {
+        "id": "R113",
+        "time_s": 117.6
+      },
+      {
+        "id": "R118",
+        "time_s": 122.017
+      },
+      {
+        "clip": 1,
+        "id": "RD008",
+        "time_s": 25.1068
+      },
+      {
+        "clip": 2,
+        "id": "RD021",
+        "time_s": 61.017
+      },
+      {
+        "clip": 2,
+        "id": "RD030",
+        "time_s": 61.917
+      },
+      {
+        "clip": 2,
+        "id": "RD036",
+        "time_s": 62.517
+      },
+      {
+        "clip": 3,
+        "id": "RD046",
+        "time_s": 98.1272
+      },
+      {
+        "clip": 3,
+        "id": "RD047",
+        "time_s": 98.2272
+      },
+      {
+        "clip": 3,
+        "id": "RD050",
+        "time_s": 98.5272
+      },
+      {
+        "clip": 3,
+        "id": "RD058",
+        "time_s": 99.3272
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.9669436386580789,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Neon Lockdown — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nSurvive a contained cyberpunk combat space, manage pressure and limited safety, and reach a decisive end rather than an endless demo.\n\n## Scope boundary\n\nA compact action-survival game with escalating threats, readable damage, success, death/failure, recovery, and replay.\n\n## Required controls\n\nThis task requires at least 2 declared extended actions in `gb_levels.json.extended_actions` (extra InputMap verbs beyond the eight canonical `gb_*` actions, each bound to a real key and read in gameplay code) covering: a turn or aim control that is independent of walking; a survival ability (reload, heal, or EMP) that is not the fire button. Choose your own stable ids. Holding every declared extra from frame 0 must not clear the game.\n\n## Creative freedom\n\nYou may choose the arena, enemy behaviours, progression rewards, pacing, and visual effects.\n"
+}

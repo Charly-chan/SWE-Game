@@ -1,0 +1,40 @@
+{
+  "schema": "gamebench.unity-environment-profile.v1",
+  "profile_id": "ubuntu2404-unity6000.3.23f1-candidate",
+  "certification_status": "certified",
+  "environment_class": "linux-vm-certified",
+  "platform": "Ubuntu 24.04.4 LTS x86_64",
+  "score_eligible": true,
+  "preflight_passed": true,
+  "m5_005_status": "certified",
+  "m5_004_status": "certified_blank_protocol_cat_defense",
+  "guest_os": "ubuntu-24.04-x86_64",
+  "kernel": "6.8.0-138-generic",
+  "hypervisor": "qemu-11.1.0-whpx",
+  "unity_editor": "6000.3.23f1",
+  "unity_changeset": "09d2ecc7fb28",
+  "unity_modules": [
+    "linux-il2cpp"
+  ],
+  "package_lock_digest": "sha256:6be282278a256de8f7c4a41b65d039f1af010955812af7320e1bf36d649403f7",
+  "unity_project_package_lock_digest": "sha256:ccddb289e34e557e669cca082bfd821d1773f21ec61090e97172264e65dcf3b0",
+  "target_scaffold_digest": "sha256:b65bf8e432726887c8b96f046c356ce8b7e87847987d73a9e33f67126233f476",
+  "base_image_digest": "sha256:cdb75453391db66929301a82b1cc2a7ce8002644f3888aceb44c282ac4e26fa6",
+  "display": "xvfb",
+  "renderer": "mesa-llvmpipe",
+  "mesa_version": "25.2.8-0ubuntu0.24.04.2",
+  "graphical_profile": "xvfb-960x540-mesa-llvmpipe",
+  "resolution": "960x540",
+  "locale": "C.UTF-8",
+  "timezone": "UTC",
+  "network_policy": "loopback-only",
+  "license_mechanism": "unity-personal-hub-provisioned-scrubbed-offline-image-preflight-revalidated",
+  "limits": {
+    "cpus": 8,
+    "memory_mb": 12288,
+    "disk_mb": 65536,
+    "wall_seconds": 1800
+  },
+  "certification_record_digest": "sha256:6c3b9370689771fd4f4e0a7893c82a93f57ac215956c9bac11ceed3c6bd5f1ef",
+  "environment_certification_evidence": "evidence/environment-certification.json"
+}

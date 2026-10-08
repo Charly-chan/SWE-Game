@@ -1,0 +1,1020 @@
+{
+  "game_id": "ember_and_tide",
+  "mode": "brief",
+  "provided_asset_observations": [
+    {
+      "frame_ids": [
+        "S001",
+        "S012"
+      ],
+      "informs": [
+        "A1"
+      ],
+      "observation": "Ember 红圆双眼立绘、Tide 蓝滴：GT 游玩 Ember 简化为单眼，Tide 保持滴状。"
+    },
+    {
+      "frame_ids": [
+        "S002",
+        "S009",
+        "S020",
+        "S033",
+        "S035",
+        "S044"
+      ],
+      "informs": [
+        "A2",
+        "A5"
+      ],
+      "observation": "紫菱尘、黄绿浪顶石砖、紫空、岩浆表面、潮池表面与 GT 房间同族。"
+    },
+    {
+      "frame_ids": [
+        "S003",
+        "S014",
+        "S024",
+        "S034",
+        "S060",
+        "S068"
+      ],
+      "informs": [
+        "A2",
+        "M3"
+      ],
+      "observation": "门板、拱门、拉杆、踩板上/下：GT 用嵌宝石褐门与小灰块/杆，未照抄拱门立绘。"
+    },
+    {
+      "frame_ids": [
+        "S010",
+        "S021",
+        "S031",
+        "S050",
+        "S066",
+        "S073",
+        "S074"
+      ],
+      "informs": [
+        "A3",
+        "V3",
+        "V4"
+      ],
+      "observation": "白圆角按钮与 Kenney Future 字样贴近 HUD/清关/结局；红/蓝面板未在已看帧中原样出现。"
+    },
+    {
+      "frame_ids": [
+        "S011",
+        "S032",
+        "S042",
+        "S051",
+        "S067"
+      ],
+      "informs": [
+        "A2",
+        "A5"
+      ],
+      "observation": "Kenney 抽象平台角色表与远山/城堡风景：GT 采用前者的几何语言，未把城堡山丘铺成行走面。"
+    }
+  ],
+  "reference_limits": [
+    "录像未展示标题页、暂停菜单、死亡或失败结算；brief 要求的失败只能在候选展示时评判，未展示为 unknown。各清关卡 RESTARTS 均为 0，重置规则不可从像素判断。",
+    "NEXT CHAMBER / REPLAY / CHAMBER SELECT / RUN IT AGAIN / TITLE SCREEN 未被点击，功能未验证。",
+    "对方元素是否致死、岩浆/潮水的伤害数值、板的持续秒数（除提示写 TWO SECONDS 外）不能从已看帧确认。",
+    "步态与落地挤压在 0.1 s 片段中仍偏小，不能确认行走循环，不作要求。",
+    "给定拱门、植物、篱笆、远山城堡、死亡白光未在已看世界帧中确认使用，不以它们为义务。",
+    "无音频；素材与画面外观对应不证明文件加载。"
+  ],
+  "reference_observations": [
+    {
+      "frame_ids": [
+        "R001"
+      ],
+      "informs": [
+        "M1",
+        "M2",
+        "D1",
+        "V1",
+        "V2",
+        "A1",
+        "A2"
+      ],
+      "observation": "FIRST LIGHT 0:00.0 0/6；左栏 EMBER A W D / TIDE 方向键 / BOTH R；提示 YOUR OWN ELEMENT CANNOT HURT YOU；红圆 Ember 与蓝滴 Tide 分站中柱两侧，左岩浆右潮水，门嵌红/蓝花。"
+    },
+    {
+      "frame_ids": [
+        "R002"
+      ],
+      "informs": [
+        "M1",
+        "M3",
+        "A4",
+        "V2"
+      ],
+      "observation": "0:02.9 2/6，两化身带棕/蓝拖尾离开原平台，上层黄宝石已不在。"
+    },
+    {
+      "frame_ids": [
+        "R003",
+        "R021"
+      ],
+      "informs": [
+        "M4",
+        "D3",
+        "V3",
+        "A3"
+      ],
+      "observation": "CHAMBER CLEAR 卡片：FIRST LIGHT TIME 4.15 PAR 22.5 GEMS 3/6 RESTARTS 0；THE LONG LEVER TIME 4.05 PAR 44.5 GEMS 0/6 RESTARTS 0；三按钮 NEXT / REPLAY / CHAMBER SELECT。"
+    },
+    {
+      "frame_ids": [
+        "R005",
+        "R006",
+        "R020"
+      ],
+      "informs": [
+        "M2",
+        "D1",
+        "D2",
+        "V1"
+      ],
+      "observation": "WEIGHTY AND WIRE 提示筏与留守；R006 两态并立褐土、1/6；THE LONG LEVER 中 Ember 站岩浆、Tide 站水，提示分侧拉杆。"
+    },
+    {
+      "frame_ids": [
+        "R023",
+        "R034",
+        "R037",
+        "R046"
+      ],
+      "informs": [
+        "M3",
+        "D2",
+        "A4",
+        "V2"
+      ],
+      "observation": "COUNTERWEIGHT 吊柱+轮流乘梯；DEADWEIGHT 推块与岩浆，R037 拾取闪光 2/6；CROSSCURRENT 0:17.7 3/6，Ember 站在岩浆与潮水之间近成对门。"
+    },
+    {
+      "frame_ids": [
+        "R050",
+        "R060",
+        "R064"
+      ],
+      "informs": [
+        "M3",
+        "D2",
+        "V2"
+      ],
+      "observation": "PATIENCE 限时板提示；R060 0:30.5 4/6；R064 0:42.1 5/6 Tide 贴蓝门、双勾 BOTH。"
+    },
+    {
+      "frame_ids": [
+        "R070",
+        "R081",
+        "R084",
+        "R100",
+        "R107",
+        "R115"
+      ],
+      "informs": [
+        "M2",
+        "M3",
+        "D2",
+        "A2",
+        "A4"
+      ],
+      "observation": "SUNKEN STAIR 灰块；EVERYTHING FALLS 污泥；LAST GATE Ember 浸岩浆、褐块移位、R115 Ember 在红门前 Tide 靠近。"
+    },
+    {
+      "frame_ids": [
+        "RD001",
+        "RD010",
+        "RD019"
+      ],
+      "informs": [
+        "M1",
+        "A4"
+      ],
+      "observation": "0.1 s 段 Tide 起跳、滞空、落到中层黄台，蓝拖尾随路径伸展。"
+    },
+    {
+      "frame_ids": [
+        "R118",
+        "R119"
+      ],
+      "informs": [
+        "M4",
+        "D2",
+        "V4",
+        "A1",
+        "A5"
+      ],
+      "observation": "THE DEPTHS ARE OPEN，10/10 CHAMBERS 27/60 GEMS 267.6 S，十行分室，RUN IT AGAIN / CHAMBER SELECT / TITLE SCREEN。"
+    }
+  ],
+  "requirements": [
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R002",
+            "R006"
+          ],
+          "observation": "R001 Ember（红圆一眼）在左中平台、Tide（蓝滴）在中右平台；R002 计时 0:02.9，两者都已离开原位并带拖尾；R006 两者并立在底部褐土地面上。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "RD001",
+            "RD010",
+            "RD019",
+            "R084"
+          ],
+          "observation": "RD001–RD019 Tide 从下层跳到中层黄台再向右；R084 Ember 带着棕色拖尾从上层斜向落下，位置连续。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "名义上有平台室，但化身被直接放到出口门旁、没有可感知的移动距离",
+          "id": "M1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评玩家控制的元素化身能否在平台之间连续改变位置与高度，并落在可站表面上。跳跃拖尾与姿态归 A4；谁能站哪种液体归 M2。",
+      "evidence": {
+        "coverage": "需要看到位置连续变化；穿墙只在画面上角色进入实心块时记。拖尾形式归 A4。",
+        "kind": "action_sequence",
+        "unit": "一段跳跃或水平移动，含离台与落地"
+      },
+      "full_credit": "化身沿平台连续改变水平与竖直位置，落地后停在表面上而不是穿过地面；双体设计时两个化身都能被移动。",
+      "group": "M",
+      "high_score_requirements": [
+        "水平走与起跳落地在连续帧中可跟踪，不是平台间瞬移。",
+        "落地后停在黄台、泥土或己方液体上，不反复坠入实心地面。",
+        "双体设计时两个化身都有被移动的证据，而不是一个永远当摆设。"
+      ],
+      "id": "M1",
+      "inspired_by": [
+        "shadow-courier:M1"
+      ],
+      "partial_credit": "能移动但反复穿入地面或卡死；或只有一个化身能走、另一个全程静止且候选声称双体可操作。",
+      "title": "角色移动改变位置并落在平台上",
+      "zero_credit": "充分覆盖可操作游玩后化身不能改变位置。名义上有室但被放在门口的情形走 M1-C1，不归零。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R020",
+            "R100"
+          ],
+          "observation": "R001 左侧红岩浆贴 Ember 门、右侧蓝水贴 Tide 门，中柱把两侧隔开；R020 Ember 站在左侧岩浆上、Tide 站在右侧水面上；R100 Ember 整身浸在底部岩浆带中仍保持红圆一眼。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R046",
+            "R107"
+          ],
+          "observation": "R046 Ember 站在岩浆与潮水之间的黄台上、右侧是成对的红/蓝宝石门；R107 Ember 沿岩浆带向右走，Tide 站在右侧褐土近门处。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [],
+      "description": "评两种对比状态是否各自打开对方无法使用的通行或交互。GT 用 Ember 站岩浆、Tide 站潮水；单体换色或双体同权。受击闪光归 A4；状态可读归 V1。",
+      "evidence": {
+        "coverage": "需要看到两态差异的实际后果；对方元素是否致死未拍到，记 unknown，不推断隐藏伤害规则。",
+        "kind": "action_sequence",
+        "unit": "至少一种状态踏入其专属地面或打开其专属交互"
+      },
+      "full_credit": "两种状态各自至少对应一类对方不能用的地面、门或机关；在连续覆盖中能指出哪一种状态打开了哪一段路。",
+      "group": "M",
+      "high_score_requirements": [
+        "能指出哪一段路或哪扇门只对其中一态开放。",
+        "控制从一态切到另一态后，可走区域随之改变，而不是只换 HUD 标签。",
+        "两态差异在多于一个房间里重复成立，不是只在教程室口头说明。"
+      ],
+      "id": "M2",
+      "inspired_by": [
+        "shadow-courier:M2"
+      ],
+      "partial_credit": "有两种外观，但只有一种真正改变通行，另一种只换颜色；或己方液体可走从未被演示、只靠文案声称。",
+      "title": "两种元素状态改变可通行空间",
+      "zero_credit": "充分覆盖后两种状态在通行与交互上完全同权，切换不改变任何可走空间。brief 要求两态都实质影响游玩，不能标 not_applicable。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R002",
+            "R006",
+            "R037"
+          ],
+          "observation": "R001 宝石 0/6，平台上有红/蓝/黄宝石；R002 已为 2/6 且原上层黄宝石位置变空；R006 1/6；R037 2/6，Tide 所在黄台上有白闪光，对应宝石已不在原位。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R064",
+            "R070",
+            "R107",
+            "R115"
+          ],
+          "observation": "R064 Tide 贴在右侧蓝宝石门上，宝石 5/6；R070 Tide 站在左平台灰块上；R107 中层褐块已离开 R100 的上层位置；R115 Ember 站在红宝石门前、Tide 带拖尾靠近门区。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "室完成或宝石计数只改 HUD，化身从未进入对应出口区或从未接触收集物",
+          "id": "M3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评踩板、拉杆、推块、筏/梯等已采用机关是否改变可通行结构，以及到达出口条件后该室是否完成。宝石若被采用，拾取后该物离开世界；计数同步归 V2；清关卡片形式归 V3。",
+      "evidence": {
+        "coverage": "至少一段操作→世界变化或到门→完成；只看到数字跳变按 M3-C1。未采用的机关种类不要求。",
+        "kind": "action_sequence",
+        "unit": "一次机关操作或一次到达出口"
+      },
+      "full_credit": "已采用的机关在操作后改变平台、筏、门或块的位置/可用；化身到达出口区后该室进入完成态。采用收集物时，拾取后该物从世界层消失。",
+      "group": "M",
+      "high_score_requirements": [
+        "机关操作与平台/筏/块变化能一一对应，不是无操作的自动过场。",
+        "到达成对出口或等价条件后面板进入完成态，该室布局不再作为未完成关卡继续。",
+        "若采用收集物，拾取与物体消失同向，能指出哪一颗被拿走。"
+      ],
+      "id": "M3",
+      "inspired_by": [
+        "shadow-courier:M3"
+      ],
+      "partial_credit": "有板/杆/块外形但操作后世界不变；或室完成与到达出口脱节（未到门就结算，或到门无后果）。未采用收集物不扣本条。",
+      "title": "机关与出口改变室状态",
+      "zero_credit": "充分覆盖后没有任何机关后果，出口也不改变室状态。未拍到操作机关为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R005",
+            "R023",
+            "R081"
+          ],
+          "observation": "R001 顶栏 FIRST LIGHT；R005 WEIGHTY AND WIRE；R023 COUNTERWEIGHT；R081 EVERYTHING FALLS：多个开室标题可辨。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R003",
+            "R021",
+            "R118",
+            "R119"
+          ],
+          "observation": "R003/R021 白卡片 CHAMBER CLEAR，按钮 NEXT CHAMBER / REPLAY THIS CHAMBER / CHAMBER SELECT；R118/R119 THE DEPTHS ARE OPEN，按钮 RUN IT AGAIN / CHAMBER SELECT / TITLE SCREEN。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [],
+      "description": "评流程各段是否存在：可辨开室、一段实际解谜、室完成或最终结局、重玩/再开入口。室与室内容差异归 D2；清关卡片编排归 V3；结局页组织归 V4。死亡未拍到为 unknown，不因此判本条为零。",
+      "evidence": {
+        "coverage": "成功结局必需；死亡/失败页未拍到不认证伤害规则。按钮是否真能重玩未点击，不认证功能。",
+        "kind": "whole_scope",
+        "unit": "开室帧、游玩中段、清关或结局帧"
+      },
+      "full_credit": "有可辨开室（室名或首个布局），随后有实际移动解谜，出现室完成或最终结局，并提供重玩或再开入口。候选若展示失败，失败后能回到可玩状态。",
+      "group": "M",
+      "high_score_requirements": [
+        "开室、解谜、完成在时间上连贯，结束不是突然切到无关画面。",
+        "重玩与选室入口在完成页上可找到，与回标题分开。",
+        "若采用多室，清关后仍能进入下一室而不是只有第一室可玩。"
+      ],
+      "id": "M4",
+      "inspired_by": [
+        "shadow-courier:M3"
+      ],
+      "partial_credit": "有游玩但缺少完成态或缺少重玩入口；或结局未经过任何解谜直接出现。",
+      "title": "从开室到结局可重开",
+      "zero_credit": "充分覆盖后既没有解谜游玩也没有可辨的开始/结束状态。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R005",
+            "R020"
+          ],
+          "observation": "R001 中柱隔开两侧，提示 YOUR OWN ELEMENT CANNOT HURT YOU / PILLAR KEEPS THE OTHER ONE AWAY；R005 提示 THE RAFT ANSWERS TO THE PLATES，ONE OF YOU HAS TO STAY BEHIND — TWICE；R020 提示 A LEVER STAYS WHERE YOU LEAVE IT，EACH OF YOU CAN ONLY REACH THE OTHER'S，Ember 在岩浆侧、Tide 在水侧。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R023",
+            "R050",
+            "R070"
+          ],
+          "observation": "R023 THE LIFT ONLY HOLDS WHILE SOMEONE IS STANDING ON A PLATE，TAKE TURNS；R050 MARKED PLATES ONLY HOLD FOR TWO SECONDS；R070 THE BLOCK HOLDS A PLATE FOREVER，Tide 站在灰块上。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "画面上有两种元素外观，但所有必达路径都可只由其中一态走完，第二态从不改变可通行结构",
+          "id": "D1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评在两种状态都已存在的前提下（否则本条 not_applicable，缺两态归 M2），布局是否迫使玩家用一态打开另一态的路：留守踩板、分侧拉杆、轮流乘梯等。机关是否有数值后果归 M3。",
+      "evidence": {
+        "coverage": "看提示与实际分侧站位；只有一态的设计标 not_applicable。提示文案是证据不是必抄句。",
+        "kind": "overview",
+        "unit": "需要分侧或留守的房间布局帧"
+      },
+      "full_credit": "至少一室的必达路径需要两种状态分工（一人留守、分侧够物、或一态开路另一态通过）。",
+      "group": "D",
+      "high_score_requirements": [
+        "至少一室能从站位看出必须留下一态踩板或分侧操作。",
+        "另一态无法独自到达成对出口或等价终点。",
+        "后期室仍保持双态分工，而不是学会后改回单人走道。"
+      ],
+      "id": "D1",
+      "inspired_by": [
+        "shadow-courier:D1"
+      ],
+      "partial_credit": "两态都在场，但所有必达路径只靠其中一态就能走完，第二态只捡可选宝石。",
+      "title": "空间问题要求两种状态配合",
+      "zero_credit": "充分覆盖后第二种状态在空间上没有任何可用位置（不能走到另一侧或另一类地面）。两态都能走动但必达路径仍单态可完成时走 D1-C1。仅一态且 M2 已判零时本条 not_applicable。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R005",
+            "R020",
+            "R023"
+          ],
+          "observation": "FIRST LIGHT 为中柱分侧+岩浆/水；WEIGHTY AND WIRE 出现褐土筏区与成对右门；THE LONG LEVER 左右门分置且有中层黑杆；COUNTERWEIGHT 出现从顶垂下的绿柱与褐土地段。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R050",
+            "R070",
+            "R081",
+            "R100"
+          ],
+          "observation": "PATIENCE 为限时板+吊柱；THE SUNKEN STAIR 出现可站灰块；EVERYTHING FALLS 底部大块褐污泥；THE LAST GATE 上层推块+底岩浆带+成对右门。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "候选采用多名目室，但后段只换标题与底色，平台结构和机关种类与前段无法区分",
+          "id": "D2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评若候选采用多段室，后段是否在机关种类或组合上相对前段有可辨发展（限时板、推块、污泥渡口等）。只换室名不换结构不成立。单室完整通关则本条 not_applicable。",
+      "evidence": {
+        "coverage": "单室通关为本条 not_applicable；只评实际出现的室。",
+        "kind": "whole_scope",
+        "unit": "至少两段室的对比帧"
+      },
+      "full_credit": "后段相对前段至少增加一类新机关或新组合，并且仍用同一套两态规则。",
+      "group": "D",
+      "high_score_requirements": [
+        "后段能从机关种类一眼看出与前段不同。",
+        "新机关仍服从两态规则，而不是另开一套无关玩法。",
+        "结局若分列各室成绩，室名与过程中的顶栏标题对应。"
+      ],
+      "id": "D2",
+      "inspired_by": [
+        "shadow-courier:D3"
+      ],
+      "partial_credit": "有多名目室但平台形状与机关种类几乎不变，只有标题换字。",
+      "title": "多室在机关组合上可见发展",
+      "zero_credit": "候选宣称多室，但后段与前段是同一段游玩的重复循环，连标题都不变。单室设计标 not_applicable。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R003",
+            "R021",
+            "R119"
+          ],
+          "observation": "R003 FIRST LIGHT 清关 GEMS 3/6；R021 THE LONG LEVER 清关 GEMS 0/6 仍 UNDER PAR；R119 总 27/60 GEMS，说明未收齐也可完成旅程。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R001",
+            "R023",
+            "R081"
+          ],
+          "observation": "R001 黄宝石在上层短台上、红/蓝宝石在中层，出口门在左右地面；R023 黄宝石在中层、门在右下；R081 宝石散布在上中下三层，门在底部污泥右侧。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "候选采用了收集计数，但不收齐就无法看到出口或无法完成任何一室",
+          "id": "D3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评若候选采用收集物，必达出口是否可以在未收齐时完成；各室的宝石或等价物布置是否让绕路收集成为可选空间选择。未采用收集物则本条 not_applicable。计数是否同步归 V2。",
+      "evidence": {
+        "coverage": "未采用收集物为 not_applicable；只评实际出现的收集。",
+        "kind": "overview",
+        "unit": "未满收集的清关帧与宝石相对门的布局"
+      },
+      "full_credit": "至少一室在收集未满时仍能完成；收集物放在相对出口的岔路或上层，先走出口与先收集是两种可见路线。",
+      "group": "D",
+      "high_score_requirements": [
+        "能指出一室在计数未满时已经完成。",
+        "至少一颗收集物不在必经线上，绕路收集有可感知距离。",
+        "各室收集上限或布置不同，不是同一排复制宝石。"
+      ],
+      "id": "D3",
+      "inspired_by": [
+        "shadow-courier:D1"
+      ],
+      "partial_credit": "有收集物但全部挡在必经线上，不收就无法到门；或收集物与出口完全重合，没有空间选择。",
+      "title": "可选收集不挡住必达出口",
+      "zero_credit": "候选展示了收集计数，但物体无法被拿走且出口被锁死到必须满收集。未采用收集标 not_applicable。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R020",
+            "R046"
+          ],
+          "observation": "R001 红圆一眼 vs 蓝滴一眼，左红岩浆/右蓝水，门上分别嵌红花与蓝花；R020 同样左右分池分门；R046 底左岩浆、底右潮水、右下成对褐门带红/蓝宝石。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R064",
+            "R081",
+            "R115"
+          ],
+          "observation": "R064 右门一对，Tide 贴蓝宝石门；R081 底污泥为整块褐池，门在其右；R115 Ember 已站在红宝石门前，蓝门仍空。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "岩浆/潮水/对门在到达前没有任何世界层差异（只有同形色块或纯文字标签），只能读 HUD 才知道属于哪一态",
+          "id": "V1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评 Ember/Tide（或等价两态）、岩浆/潮水/污泥、以及匹配门能否在到达前从世界层辨认。HUD 文字是补充；清关提示归 V3；界面遮挡归 V2。",
+      "evidence": {
+        "coverage": "各阶段至少一处接近门或池的画面；小于十余像素的门嵌花不可辨时记限制。",
+        "kind": "overview",
+        "unit": "进入房间后、尚未踏池或进门的帧"
+      },
+      "full_credit": "两态化身轮廓可分；己方与对方液体在进入前可辨；出口门有与状态对应的世界层标志。",
+      "group": "V",
+      "high_score_requirements": [
+        "进入该室时就能分清两态化身与两池，不必先踩一次。",
+        "成对门在到达前能与状态对应，不必读清单。",
+        "污泥/泥土/岩浆/潮水在表面形状上可分，不只是换色的同一矩形。"
+      ],
+      "id": "V1",
+      "inspired_by": [
+        "shadow-courier:V3"
+      ],
+      "partial_credit": "只有 HUD 写名字，世界层两态或两池无法区分；或多门同屏无法判断哪一扇属于当前态。",
+      "title": "两态、元素地面与对门在到达前可读",
+      "zero_credit": "充分覆盖后无法在到达前判断要走哪一侧或进哪扇门。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R002",
+            "R005",
+            "R006"
+          ],
+          "observation": "R001 FIRST LIGHT 0:00.0 0/6，左栏 EMBER A W D / TIDE 方向键 / BOTH R，右钮 X EMBER 红底；R002 0:02.9 2/6；R005 WEIGHTY AND WIRE 0:01.5 0/6；R006 0:04.4 1/6，与少了一颗红宝石相符。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R016",
+            "R037",
+            "R064",
+            "R115"
+          ],
+          "observation": "R016 右钮双勾 EMBER+TIDE（BOTH）；R037 宝石 2/6 且有拾取闪光；R064 PATIENCE 0:42.1 5/6 双勾；R115 THE LAST GATE 0:52.9 4/6。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "世界层已出现拾取、换控或室切换的明确后果，但对应 HUD 读数持续不更新或方向相反",
+          "id": "V2-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "信息层持续遮挡当前出口门或必经元素池，使其在解谜中无法辨认",
+          "id": "V2-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评顶栏室名、计时、收集比、以及当前控制（Ember/Tide/Both 或等价）是否成组可读，并在世界层已出现对应后果时同步。谁能走哪段路归 M2；宝石是否离开世界归 M3；本条只评读数同步与占位。",
+      "evidence": {
+        "coverage": "需要世界后果与读数同帧或紧随。遮挡只在挡住当前门或池时记。",
+        "kind": "overview",
+        "unit": "拾取后、换控后、室切换后的 HUD 帧"
+      },
+      "full_credit": "室名、计时、收集比分区清楚；拾取后计数增加、计时随游玩递增、当前移动的化身与控制高亮一致；面板不挡住当前门或必经池。",
+      "group": "V",
+      "high_score_requirements": [
+        "室名、计时、收集比三类读数在正常尺度下可同时找到且成组。",
+        "拾取后计数、游玩中计时、换控后高亮三者均与世界事件同向。",
+        "左栏键位说明与右钮当前控制一致，BOTH 时两态高亮可辨。"
+      ],
+      "id": "V2",
+      "inspired_by": [
+        "shadow-courier:V4"
+      ],
+      "partial_credit": "分区混乱或关键读数过小；世界后果已出现但读数滞后或方向相反；控制高亮与正在移动的化身长期不符。",
+      "title": "室名、计时、收集与控制读数同步",
+      "zero_credit": "充分覆盖后没有任何稳定的状态读数，玩家无法从信息层知道室名、进度或当前控制。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R003",
+            "R021"
+          ],
+          "observation": "R003 勾号+CHAMBER CLEAR+FIRST LIGHT，TIME 4.15 PAR 22.5 UNDER PAR，GEMS 3/6，RESTARTS 0；R021 同结构，室名 THE LONG LEVER，TIME 4.05 PAR 44.5，GEMS 0/6，RESTARTS 0。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "已出现室完成态，但只是一行裸字或数字，没有室名与结果的分组，只能事后从下一室标题猜测刚结束的是哪一室",
+          "id": "V3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评室完成这一事件是否有能归因的即时结果态。本条是清关提示的唯一计分处；流程是否存在归 M4，卡片美术归 A3。完全没有完成态归 M4，不在此用 V3-C1 再罚一次。",
+      "evidence": {
+        "coverage": "至少一张清关态；完全无完成态归 M4。按钮功能未点击不认证。",
+        "kind": "overview",
+        "unit": "室完成卡片或等价结果帧"
+      },
+      "full_credit": "室完成后出现可辨完成态，能读出室名与至少一项过程结果（用时、收集或重开次数），并给出下一步入口。",
+      "group": "V",
+      "high_score_requirements": [
+        "完成态出现时能立刻读出刚结束的室名。",
+        "用时与收集（若采用）与该室过程同向，不与别室串数。",
+        "下一步入口与重玩入口同时可见且可区分。"
+      ],
+      "id": "V3",
+      "inspired_by": [
+        "shadow-courier:V2"
+      ],
+      "partial_credit": "有完成字但无法读出是哪一室，或与下一室开场叠在一起无法归因。",
+      "title": "室完成有可归因的结果提示",
+      "zero_credit": "候选有室完成态，但充分覆盖后该态完全没有任何可辨提示。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R118",
+            "R119"
+          ],
+          "observation": "灰卡片居中，标题 THE DEPTHS ARE OPEN；10/10 CHAMBERS、27/60 GEMS、267.6 S OF CHAMBER TIME；下列 FIRST LIGHT 至 THE LAST GATE 十行用时与宝石；按钮 RUN IT AGAIN / CHAMBER SELECT / TITLE SCREEN；两侧放大的红圆一眼与蓝滴。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "结局页为无分组、无重点的裸文字堆叠，完成语义与重玩入口都要逐行阅读才能找到",
+          "id": "V4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评最终结束是否把完成语义、旅程统计与下一步操作组织成可扫读的一页。流程是否存在归 M4；字体母题归 A3。失败页未拍到为 unknown。",
+      "evidence": {
+        "coverage": "成功结局必需；失败仅在候选展示时评判。按钮功能未点击不认证。",
+        "kind": "overview",
+        "unit": "最终结局页面帧"
+      },
+      "full_credit": "完成语义第一眼可辨；统计分组；重玩与回标题是可辨控件且视觉上可区分。",
+      "group": "V",
+      "high_score_requirements": [
+        "完成语义在页面出现的第一眼即可分辨，不依赖阅读十行统计。",
+        "总览数字与分室表、下一步按钮分区清楚。",
+        "若分列各室成绩，室名与游玩中的顶栏标题一致。"
+      ],
+      "id": "V4",
+      "inspired_by": [
+        "shadow-courier:D5"
+      ],
+      "partial_credit": "有结束字但统计与按钮混排，或重玩入口与正文无法区分。",
+      "title": "终局页可读且有重玩入口",
+      "zero_credit": "充分覆盖后没有任何最终完成状态，也没有任何重玩入口。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R006",
+            "R100",
+            "R119"
+          ],
+          "observation": "R001/R006 Ember 为红圆+白眼黑瞳，Tide 为蓝滴+白眼；R100 Ember 浸在岩浆中轮廓仍是红圆一眼；R119 结算两侧放大同一对剪影，Ember 多出两条白腿。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S001",
+            "S012"
+          ],
+          "observation": "给定 ember_stand 为红圆身+并列双眼，tide_stand 为蓝滴一眼；GT 游玩中 Ember 简化为单眼，Tide 保持滴状，属可见对应而非文件证明。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "给定 Ember/Tide 立绘或等价主体只出现在结算页，正常游玩中的化身是无法分辨两态的色点或同一矩形换色",
+          "id": "A1-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "化身在正常尺度下被缩放到只能定位、形体撕裂或明显模糊，且贯穿整个解谜阶段",
+          "id": "A1-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评正常游玩尺度下两种元素化身是否有可辨轮廓与身份，以及谁被控制是否能从形体认出。跳跃拖尾与闪光归 A4。给定 Ember/Tide 立绘的采用与改造自由；几何同权。",
+      "evidence": {
+        "coverage": "原尺度检查轮廓；不要求双眼立绘或像素风格。",
+        "kind": "overview",
+        "unit": "两态同屏与单态特写的正常游玩帧"
+      },
+      "full_credit": "两态有不同轮廓或内部组织（GT 为红圆一眼 vs 蓝滴一眼），在平台上可定位且比例与台宽相称；被控制者可从形体认出，不只靠 HUD。",
+      "group": "A",
+      "high_score_requirements": [
+        "两态在正常尺度下可一眼分族，不必读 HUD。",
+        "化身与黄台宽度、门洞高度比例成立，给定立绘若采用则边缘完整。",
+        "结算放大像与游玩剪影是同一对角色，不是另换一套人。"
+      ],
+      "id": "A1",
+      "inspired_by": [
+        "sokoban:A2"
+      ],
+      "partial_credit": "两态只是同一剪影换色；或能定位但看不出朝向/身份；持久状态只改文字。",
+      "title": "两态化身的主体形体",
+      "zero_credit": "正常游玩中玩家化身只是无法辨认的占位点。分辨率不足时为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R023",
+            "R081"
+          ],
+          "observation": "R001 紫底浅菱纹、上下绿带、黄台顶为波浪黄砖、岩浆与潮水有起伏表面、褐门嵌在绿边内；R023 顶上垂下带黄三角的绿柱；R081 底部整块褐污泥与上层短黄台分层。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S002",
+            "S009",
+            "S033",
+            "S035",
+            "S044"
+          ],
+          "observation": "给定紫菱尘、黄绿浪顶石砖、紫天空、红岩浆表面、蓝潮池表面与 GT 场所同族；Kenney 远山/城堡预览未铺进行走层。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "房间只是单色底加无表面色条，没有台面、池面或门洞，场所无法读成一间室",
+          "id": "A2-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "给定远山/城堡风景图原样铺为行走地面或主角所站平面，其透视与侧视平台角色冲突",
+          "id": "A2-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评紫空、绿边框、黄台、元素池与门洞是否共同构成可理解的房间，而不是浮在单色底上的标签。给定石砖与神庙背景的采用自由；Kenney 远山城堡不得原样铺成行走地面。",
+      "evidence": {
+        "coverage": "前、中、后段各若干室；平涂几何同权，评分层与边界。",
+        "kind": "overview",
+        "unit": "房间宽景，含池与门"
+      },
+      "full_credit": "房间有可走台面与不可走空域，元素池有表面起伏或分区，门洞嵌在实心里；顶底边框或等价边界把场地收成一室。",
+      "group": "A",
+      "high_score_requirements": [
+        "台面、空域、元素池与门洞共同给出可走与不可走的边界。",
+        "不同室在柱、污泥、筏区或门位上可辨，不是同一空盒子。",
+        "给定石砖或神庙天空若采用，保持边缘清晰且不把风景样张当地面。"
+      ],
+      "id": "A2",
+      "inspired_by": [
+        "sokoban:A2"
+      ],
+      "partial_credit": "平台是无表面的纯色条，池与地面无法分界；或远景风景图被铺成侧视行走面，透视与角色冲突。",
+      "title": "神庙平台室的场所组织",
+      "zero_credit": "充分覆盖后没有任何可辨平台或房间边界，只有空白底与角色。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R016",
+            "R003",
+            "R119"
+          ],
+          "observation": "R001 顶白条室名/计时/n/6，左白键位卡，右红 Ember/蓝 Tide 钮；R016 双勾实心红蓝钮表示 BOTH；R003/R119 浅灰圆角卡+白条按钮，与键位卡同族宽体无衬线。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S010",
+            "S021",
+            "S031",
+            "S073",
+            "S074"
+          ],
+          "observation": "给定白圆角按钮三态与 Kenney Future / Future Narrow 字样，与顶栏数字、CHAMBER CLEAR、THE DEPTHS ARE OPEN 的宽体无衬线外观相近。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "代表性的主要界面虽已有分组、底板或字号差，但核心信息的重要性与视觉重量长期明显相反，或主要信息组仍没有可辨阅读顺序，导致这一状态的主要编排关系实质缺失。须指出具体角色和范围；常见字体、纯文字、缺少面板或一个局部修饰问题均不触发。",
+          "id": "A3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评价两态信息、操作提示、关卡进度与完成表达的实际视觉编排。重点是信息角色、文字/图形比例、留白与对齐、状态重点共同形成的界面设计；正确显示信息、有字号差或使用统一颜色只证明相应的局部成果。下列 GT 观察是设计作用的实例，具体颜色、字体、图标、面板和固定位置不构成复刻要求。",
+      "evidence": {
+        "coverage": "代表性正常界面与原录像覆盖的状态画面并列查看；关键文字及组间比例需要正常尺度全帧。只评价本任务已采用且已展示的组成。",
+        "kind": "overview",
+        "unit": "游玩 HUD 与清关/结局页"
+      },
+      "full_credit": "两态信息、操作提示、关卡进度与完成表达在正常观看尺度下按当前任务的重要性形成清楚的视觉重量和阅读顺序；主要目标或行动状态有充分强调，名称、数值、辅助说明的比例、距离和对齐体现各自语义，弱化的信息仍有适当可读性。状态切换、穿越与阶段/最终完成根据状态用途重新组织视觉中心、疏密与留白，同时延续可辨的字体角色或图形关系。整体编排已经形成完整、合乎内容的界面，不能仅由几组标签、标题放大和配色统一来证明。纯文字可以充分完成设计；仅评价实际采用的可选读数、图标、按钮和统计，不要求另加组件、面板或独立结果屏。",
+      "group": "A",
+      "high_score_requirements": [
+        "当前元素状态、行动目标与辅助操作在正常画面中的视觉重量与当前用途匹配。指出强调了谁、弱化了谁以及字号/对比/位置/留白如何共同完成这一关系；仅列出标签和分组不算完整证据。",
+        "具体信息组内部与组间的比例、对齐和疏密共同形成阅读节奏，名称、读数、说明之间的联系清楚；同一字体、同一颜色或一条底板不自动证明这些关系完成。",
+        "状态切换、穿越与阶段/最终完成各自的视觉中心与内容相称，状态变化通过实际编排表达用途变化；保持相同颜色或把一行字放大不足以单独证明完整，但有意义的简洁文字构图可以完整成立。",
+        "字体角色、形状、边缘或强调关系在整套界面中得到有目的的运用；需要说明具体处理产生了什么视觉效果，不能用‘没冲突、可读、风格统一’替代正面完成证据。"
+      ],
+      "id": "A3",
+      "inspired_by": [
+        "shadow-courier:A3"
+      ],
+      "partial_credit": "按已形成和未完成的设计关系连续判断：能读到文字但关键目标/状态的视觉重量弱于装饰性标题；标签与数值或相关说明靠简单并排仍缺少有效分组与阅读顺序；主次虽然有字号差，尺度、对比或留白却未配合语义；结果内容只是换字沿用普通读数排法，没有围绕已有完成信息形成视觉中心；局部做了边框或强调色，但主要界面仍缺乏上述编排。指出具体区域、相互比较的信息角色和可见后果，不能只说普通、简陋或缺乏高级感。仅有轻微间距问题时按局部损失判断；不能把缺少图标/插画、使用常见字体、不同字体家族或极简风格本身当缺陷。某信息是否缺失或错误归功能视觉项；本项须评价已展示信息怎样被设计，不能复用同一功能缺失扣分。",
+      "title": "界面的完整视觉编排",
+      "zero_credit": "所需观察范围充分时，主要界面完全没有实际视觉编排，只有无法形成信息角色或阅读顺序的散置占位内容。已经形成有效的局部编排应给部分完成度；没有拍到状态不等于没有设计。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R002",
+            "RD001",
+            "RD010",
+            "RD019"
+          ],
+          "observation": "R002 Ember 带棕色烟状拖尾、Tide 带蓝色拖尾，离开平台；RD001–RD019 Tide 连续起跳、滞空、落到中层黄台，拖尾随位移伸展再收。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R037",
+            "R064",
+            "R084",
+            "R115"
+          ],
+          "observation": "R037 Tide 处白星闪光且宝石计数到 2/6；R064 Tide 贴蓝门；R084 Ember 长棕拖尾斜贯上半屏；R115 Tide 带蓝拖尾靠近门区，Ember 已停在红门前。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "跳跃、拾取、进门三类已采用事件里至少两类在连续覆盖中没有任何世界层过程，只有对象瞬移或数字变化",
+          "id": "A4-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "化身始终为单帧贴图平移，已采用的跳跃或拾取在主体上没有任何姿态、拖尾或替代闪光",
+          "id": "A4-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评跳跃、拾取、进门等已展示事件在世界层是否有过程（出现→持续→消退）并绑在事件位置。本条是这些动态的唯一计分处；M 只评位置与计数后果。步态细节不可确认为 unknown。",
+      "evidence": {
+        "coverage": "需要 0.1 s 级片段才能评过程；只有总览抽帧时本条为 unknown。A4-C1 与 A4-C2 属同一条不叠加。",
+        "kind": "action_sequence",
+        "unit": "跳跃、拾取或进门的密集片段"
+      },
+      "full_credit": "起跳有可跟踪的离台弧线或拖尾；拾取在物体处有短暂强调后物体消失；接近门时化身连续走进门区而不是瞬移进门。",
+      "group": "A",
+      "high_score_requirements": [
+        "起跳到落地有可跟踪弧线，拖尾或等价过程出现在化身路径上。",
+        "拾取有位置绑定的短暂强调，物体随后离开。",
+        "进门是走进门区的连续位移，不是从远处瞬切到完成卡。"
+      ],
+      "id": "A4",
+      "inspired_by": [
+        "shadow-courier:A4"
+      ],
+      "partial_credit": "部分事件瞬切（宝石瞬没、进门瞬移）；动态与事件位置脱离；拖尾方向与位移长期相反。",
+      "title": "跳跃、拾取与进门的世界层过程",
+      "zero_credit": "充分覆盖后移动只是单帧贴图平移，拾取与进门都没有任何世界层过程。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R081",
+            "R119"
+          ],
+          "observation": "R001/R081 同为紫底菱纹、绿框、黄浪台、红蓝强调；HUD 白底圆角与房间边缘同锐度；R119 结算卡仍用宽体标题与圆角按钮，两侧仍是这对红蓝剪影。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "代表性的正常画面中，主体、场所、效果和信息层虽各自存在，但跨部分的主要行动焦点或空间层次持续未建立：须有具体比例、明暗、遮挡或布局关系使主要行动被压成次要点或各部分无法形成同一空间的证据。配色一致不能豁免；个别装饰不足、单帧重叠或局部细节缺失不触发。",
+          "id": "A5-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评价化身、状态关联对象、平台/房间与信息层共同组成的整幅画面怎样表现切换两种状态完成有边界的空间旅程。本项需要跨部分构图、比例、空间与注意力层次的正面成果；能够认出同一游戏、配色一致或没有严重风格冲突只证明有限的协调。不再次评价 A1–A4 的局部制作水平，不把 GT 的具体风格和配色变成强制答案。",
+      "evidence": {
+        "coverage": "以多个独立阶段的正常全帧检查整体关系，并与原录像覆盖的状态画面比较；不以单一漂亮结果页补偿游玩画面的主要关系缺失。",
+        "kind": "whole_scope",
+        "unit": "开室、中段室、终局跨状态"
+      },
+      "full_credit": "当前化身、空间问题与到达目标在代表性画面中形成有目的的关注关系；主体所占视觉重量、场所的衬托、效果的强调和信息层的介入共同表现切换两种状态完成有边界的空间旅程。各部分在尺度、明暗/色彩、边缘与空间上的配合形成完整画面，能指出主体如何处于场所中、效果如何依附其对象、界面如何配合当前状态。跨已展示的阶段与结果，视觉语言通过这些关系延续并适应状态变化；统一调色、重复字体或相同像素边不能代替整体构图与氛围的完成。几何、极简、像素、混合渲染和主题变化均可完整成立，不要求增加装饰或效果种类。",
+      "group": "A",
+      "high_score_requirements": [
+        "当前化身、空间问题与到达目标的关注顺序由整幅构图、视觉重量与场景衬托共同组织，具体说明至少两个部分如何相互支持。对象存在、能定位或颜色区分开，只是这项成果的一部分。",
+        "化身、状态关联对象、平台/房间与信息层之间的尺度、明暗/色彩、边缘或空间关系共同形成切换两种状态完成有边界的空间旅程的表现，举出画面中实际成立的整合关系；不能仅凭共享调色或材质名称判完整。",
+        "已展示的游玩阶段与结果通过构图、强调、形态或空间关系延续同一视觉方向，并适应各状态的用途；只复用一种颜色或字体并不能单独证明整套呈现完成。"
+      ],
+      "id": "A5",
+      "inspired_by": [
+        "strategy-skirmish:A1"
+      ],
+      "partial_credit": "按尚未建立的跨部分关系及其重要性给连续分：颜色相近却只是主体、平面场地、标记和顶栏的并置，比例与明暗没有共同组织主要行动；效果、装饰或信息层的面积/对比持续压过应被关注的世界主体或目标，使行动中心退化为画面的次要点；物件、地面和效果各自可辨，却在接地、遮挡或视觉尺度上缺乏联系，整幅画面的空间表现未形成；游玩与结果只复用颜色，实际构图和强调关系没有支持其体验的延续。必须指出至少两个部分之间的可见关系与结果，不能以‘拼装感、没氛围’概括，也不能再次列角色缺细节、地面少装饰或界面字小作为独立扣分。局部轻微不协调按局部判断；不同风格、稀疏场景、明亮特效或大界面并不自动证明失败。",
+      "title": "整体构图与美术整合",
+      "zero_credit": "代表性画面中各部分没有共同形成可辨的主要行动、空间层次或整体表现方向，只有互不关联的内容并置。已形成的实际关系应保留部分完成度；不能因画风不合偏好给零分。"
+    }
+  ],
+  "rubric_version": "2026-09-19.vlm-art-relationships-v1",
+  "score_curve": {
+    "caps_scale": "final_score",
+    "exponent": 3,
+    "input": "attainment",
+    "missing_evidence": null,
+    "name": "power"
+  },
+  "self_review": {
+    "overlap": "事件唯一归属表：位移与落地 → M1；两态改变可走空间 → M2；机关/拾取使世界或室状态改变、到门完成 → M3；开室/完成段/重开入口是否存在 → M4；双态空间分工 → D1；多室机关发展 → D2；可选收集与必达出口 → D3；两态/池/门的到达前可读 → V1；HUD 成组与同步、遮挡 → V2；清关提示 → V3；终局页组织 → V4；持久形体 → A1；房间场所 → A2；界面图形语言 → A3；跳/拾/进门的世界层过程 → A4；跨部分关系 → A5。caps 互斥：A4-C1 与 A4-C2 同条不叠加；完全无完成态归 M4 不触发 V3-C1；仅一态时 D1 为 not_applicable 不与 M2 零分双罚；V2-C1 只在世界后果已出现但读数不跟时触发，与 M3 的‘无世界后果’可区分；D1-C1 评有两态但不分工，V1-C1 评有对象但无世界层差异。",
+    "scope": "16 项（M4/D3/V4/A5）。按 brief 把双态实质影响、空间解谜、有界旅程、失败/恢复与结局作为必需；双体或单体、室数、宝石必收、具体机关与美术手段作为自由。死亡未拍到，M4 不因缺失败画面归零。",
+    "uncertainties": "第二室顶栏读作 WEIGHTY AND WIRE，结局表同一行 OCR 不稳定，条目里用顶栏所见，不把室名当作义务。死亡与失败页未出现。未建立独立语义审查证据。未建立人工分数校准证据。",
+    "unsupported_obligations": "未要求：固定 10 室、收齐 60 宝石、双眼 Ember 立绘、神庙柱、Kenney 城堡、具体键位、标题页、死亡动画、音频。GT 做法只写在 basis。"
+  },
+  "task_map": {
+    "freedom": [
+      "具体状态规则：双体同时在场、单体换态、或其他对比态均可；GT 的 Ember/Tide 双体与 A/W/D、方向键、R=BOTH 是例子。",
+      "遭遇布局、机关种类、室数、宝石是否必收、危害形式与呈现均可自选。",
+      "几何/像素/给定素材同权；不要求 Kenney 风景图、神庙柱或特定宝石造型。"
+    ],
+    "required": [
+      "紧凑 2D 动作解谜：切换或平衡两种对比元素状态，穿越遭遇、解决空间问题、完成有界旅程。",
+      "两种元素状态都实质改变游玩（通行、交互或解谜条件至少一类）。",
+      "有失败/恢复与最终结局。"
+    ]
+  }
+}

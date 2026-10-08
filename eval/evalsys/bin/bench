@@ -1,0 +1,438 @@
+#!/usr/bin/env python3
+"""Command-line entry points for fixed task downloads and evaluation.
+
+Subcommands delegate to the corresponding evaluator modules. Reports retain
+measurement coverage and enforce the selected scoring protocol.
+"""
+from __future__ import annotations
+import argparse
+import json
+import os
+import platform
+import subprocess
+import sys
+import tarfile
+from pathlib import Path
+_ROOT = Path(__file__).resolve().parents[1]
+_INTERFACE_ROOT = Path(__file__).resolve().parents[2] / 'interface'
+if str(_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ROOT))
+from evalsys.report.terminology import OBJECTIVE_EVALUATION, PERCEPTUAL_ASSESSMENT, display_terms
+
+def _load_truth(path: str | None):
+    if not path:
+        return None
+    from evalsys.truth.snapshot import TruthSnapshot
+    from evalsys.harness import assert_identifiable, identity_from_snapshot
+    snapshot = TruthSnapshot.read(path)
+    assert_identifiable(identity_from_snapshot(snapshot))
+    return snapshot
+
+def _print(lines) -> None:
+    for line in lines:
+        print(line)
+
+def cmd_selfcheck(args: argparse.Namespace) -> int:
+    from evalsys.pipeline import selfcheck
+    ok, lines = selfcheck()
+    _print(lines)
+    return 0 if ok else 1
+
+def cmd_conformance(args: argparse.Namespace) -> int:
+    """Report the fixed submission interface before any gameplay score."""
+    from evalsys.interface import TaskInterfaceRequirements, load_submission_interface
+    from evalsys.tasks import expectations_path
+    from evalsys.truth.expectations import Expectations
+    if args.schema:
+        schema = _INTERFACE_ROOT / 'gb_interface.schema.json'
+        if not schema.is_file():
+            print(f'interface schema is not on disk: {schema}', file=sys.stderr)
+            return 2
+        print(schema.read_text(encoding='utf-8'), end='')
+        return 0
+    if not args.project:
+        print('conformance needs <project> unless --schema is used', file=sys.stderr)
+        return 2
+    requirements = TaskInterfaceRequirements.empty()
+    if args.task_id:
+        path = expectations_path(args.task_id)
+        if not path.is_file():
+            print(f'task-bound conformance needs frozen expectations: {path}', file=sys.stderr)
+            return 2
+        requirements = TaskInterfaceRequirements.from_dict(Expectations.read(path).interface_requirements)
+    interface = load_submission_interface(args.project, requirements=requirements)
+    report = interface.report
+    payload = report.to_dict()
+    if args.out:
+        Path(args.out).parent.mkdir(parents=True, exist_ok=True)
+        Path(args.out).write_text(json.dumps(payload, indent=2, sort_keys=True, ensure_ascii=False), encoding='utf-8', newline='\n')
+        print(f'conformance -> {args.out}')
+    if args.json:
+        print(json.dumps(payload, indent=2, sort_keys=True, ensure_ascii=False))
+    else:
+        print(f'diagnostic interface: {report.verdict}')
+        for name, check in report.checks.items():
+            print(f"  {check['status']:<4} {name:<14} {check['detail']}")
+        if report.missing:
+            print('  missing: ' + ', '.join(report.missing))
+        print('  observe()/observe().kind: reference-only; not checked on submissions')
+    if args.explain and (not report.ok):
+        remedies = {'project_godot': 'Put project.godot at the engine project root.', 'groups': 'Assign the controllable node to the gb_player group.', 'actions': 'Bind every fixed alias and read that same alias in submitted source; bound-not-read is dead.', 'gb_levels': 'List at least one shipped, resolvable res:// scene in gb_levels.json.levels.', 'endings': '胜负同场景不可判定；make at least one success scene distinct from every declared failure scene.', 'numeric': 'Use only progress/health/timer/score keys; each value is a bare property name ("health"), read verbatim with Object.get() on autoloads / the current scene root / gb_* nodes. Owner prefixes, NodePaths and scene addresses never resolve (see checks.numeric.values[*].form).', 'device_ids': 'Use only registered generic device IDs and non-empty scene-relative NodePaths.', 'anchor_camera': 'Use res://scene.tscn::NodePath, or omit this optional address.', 'audio_buses': 'Provide a non-empty list of non-empty Godot bus names, or omit it.', 'level_clear': 'Remove level_clear or provide a legal generic PREDICATE_FUNCTIONS expression.'}
+        anchors = {'actions': '#fixed-actions', 'endings': '#distinct-endings', 'gb_levels': '#level-manifest', 'numeric': '#level-manifest', 'device_ids': '#level-manifest', 'anchor_camera': '#level-manifest', 'audio_buses': '#level-manifest', 'level_clear': '#level-manifest'}
+        stream = sys.stderr if args.json else sys.stdout
+        print('explain:', file=stream)
+        for name, check in report.checks.items():
+            if check['status'] == 'pass':
+                continue
+            anchor = anchors.get(name, '')
+            print(f'  {name}: {remedies[name]}', file=stream)
+            print('    spec: eval/interface/SUBMISSION_INTERFACE.md' + anchor, file=stream)
+    return 0 if report.ok else 1
+
+def cmd_evaluate(args: argparse.Namespace) -> int:
+    from evalsys.evaluate import EvaluationRefused, evaluate_project
+    try:
+        package = evaluate_project(args.project, task_id=args.task_id, tier=args.tier, mode=args.mode, modality=args.modality, out=args.out, submission=args.submission or None, supplied_assets=args.supplied_asset, visual_judge=args.visual_judge)
+    except EvaluationRefused as exc:
+        print(f'EVALUATION REFUSED: {exc}', file=sys.stderr)
+        return 2
+    print(f'evaluation package -> {package.path}')
+    print(f'Evidence domains: {OBJECTIVE_EVALUATION} / {PERCEPTUAL_ASSESSMENT}')
+    print(f'score_lo={package.card.objective_lo:.6f} share={package.card.measured_weight_share:.6f} coverage={package.card.coverage:.6f}')
+    return 0
+
+def cmd_validate_unity(args: argparse.Namespace) -> int:
+    """Run only the implemented static portion of the Mode-5 contract."""
+    from evalsys.taskgen.unity.unity_interface import validate_unity_interface
+    report = validate_unity_interface(args.project)
+    payload = report.to_dict()
+    if args.out:
+        target = Path(args.out).resolve()
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(json.dumps(payload, indent=2, sort_keys=True, ensure_ascii=False) + '\n', encoding='utf-8')
+        print(f'unity static report -> {target}')
+    if args.json:
+        print(json.dumps(payload, indent=2, sort_keys=True, ensure_ascii=False))
+    else:
+        print(f'static_status={report.static_status} overall_status={report.status} ready_for_runtime={str(report.ready_for_runtime).lower()}')
+        for item in report.diagnostics:
+            print(f'{item.status:10s} {item.id}: {item.detail}')
+    return 0 if report.static_status == 'pass' else 1
+
+def cmd_score(args: argparse.Namespace) -> int:
+    from evalsys.pipeline import score_project
+    from evalsys.report.render_md import card_markdown
+    card = score_project(args.project, submission=args.submission or Path(args.project).name, task_id=args.task_id or Path(args.project).name, tier=args.tier, modality=args.modality, mode=args.mode, ceiling_path=args.ceiling, quick=args.quick, expectations_dir=args.expectations_dir, truth=_load_truth(args.truth))
+    if args.out:
+        path = card.write(args.out)
+        print(f'card -> {path}')
+    if args.json:
+        print(json.dumps(card.to_dict(), indent=2, sort_keys=True, ensure_ascii=False))
+    else:
+        print(card_markdown(card))
+    return 0 if card.measured_weight_share > 0.99 else 1
+
+def cmd_cost(args: argparse.Namespace) -> int:
+    from evalsys.render.render_cost import measure_render_cost
+    cost = measure_render_cost(args.project, frames=args.frames)
+    payload = cost.to_dict() if hasattr(cost, 'to_dict') else cost
+    print(json.dumps(payload, indent=2, sort_keys=True, ensure_ascii=False))
+    if args.out:
+        Path(args.out).write_text(json.dumps(payload, indent=2, sort_keys=True, ensure_ascii=False), encoding='utf-8', newline='\n')
+        print(f'render_cost -> {args.out}', file=sys.stderr)
+    return 0
+
+def cmd_routes(args: argparse.Namespace) -> int:
+    from evalsys.pipeline import run_routes
+    out = run_routes(args.project, routes_file=args.routes, agent=args.agent)
+    print(json.dumps(out, indent=2, sort_keys=True, ensure_ascii=False, default=str))
+    return 0
+
+def cmd_report(args: argparse.Namespace) -> int:
+    from evalsys.report.cards import Card
+    from evalsys.report.render_md import main_table
+    cards = [Card.read(p) for p in args.cards]
+    print(main_table(cards))
+    return 0
+
+def cmd_gen_task(args: argparse.Namespace) -> int:
+    """Download a fixed visible/ + hidden/ task package."""
+    from evalsys.taskgen import GenerateError, generate_task
+    try:
+        package = generate_task(args.game, mode=args.mode, out=args.out, mutations=args.mutations, assets=args.assets, score_against_source=args.score_against_source, case_id=args.case_id, playtest_kit=args.playtest_kit == 'on', reference_video=args.reference_video == 'on')
+    except (GenerateError, FileNotFoundError, ValueError) as exc:
+        print(f'gen-task refused: {exc}', file=sys.stderr)
+        return 2
+    print(f'task package -> {package.root}')
+    print(f"  mode     {package.manifest.get('mode')}")
+    print(f"  game     {package.manifest.get('game_id')}")
+    print(f"  playtest {package.manifest.get('playtest_kit')}")
+    print(f"  reference_video {package.manifest.get('reference_video')}")
+    blockers = package.manifest.get('blockers') or []
+    if blockers:
+        print('  blockers')
+        for item in blockers:
+            print(f'    - {item}')
+    print('  handoff  give the model visible/ only')
+    return 0
+
+def cmd_rescore_visuals(args: argparse.Namespace) -> int:
+    from evalsys.taskgen.visual_rescore import rescore_visuals
+    try:
+        result = rescore_visuals(args.report, args.out, visual_inputs=args.visual_inputs, package=args.package, submission=args.submission, record_missing=args.record_missing, game_rubric=True)
+    except (OSError, ValueError, KeyError, RuntimeError) as exc:
+        print(f'visual rescore refused: {exc}', file=sys.stderr)
+        return 2
+    card = result['scorecard']
+    print(json.dumps({'score': card['weighted_total']['score'], 'status': card['weighted_total']['status'], 'visual': card.get('visual_total') or card.get('mdva_vlm_total')}, ensure_ascii=False))
+    return 0 if not card['evaluation_incomplete'] else 1
+
+def cmd_finalize_mode5(args: argparse.Namespace) -> int:
+    """Finalize the host side of the offline Unity VM handoff."""
+    from evalsys.taskgen.mode5.finalize import finalize_mode5
+    try:
+        final = finalize_mode5(args.report, args.package, args.artifacts, args.out)
+    except (OSError, ValueError, RuntimeError, tarfile.TarError) as exc:
+        print(f'evaluator_failed: {exc}', file=sys.stderr)
+        Path(args.out).mkdir(parents=True, exist_ok=True)
+        (Path(args.out) / 'production_status.json').write_text(json.dumps({'status': 'evaluator_failed', 'detail': str(exc)}, indent=2) + '\n', encoding='utf-8')
+        return 2
+    print(json.dumps({'status': 'scored', 'score': final['headline']['score'], 'registry_version': final['registry_version']}, ensure_ascii=False))
+    return 0
+
+def cmd_eval_task(args: argparse.Namespace) -> int:
+    os.environ.setdefault('GB_SCRATCH_ROOT', '/tmp/swe-game/gb_taskgen_scratch')
+    os.environ.setdefault('GB_ROUTES_SCRATCH', '/tmp/swe-game/gb_taskgen_scratch/gb_routes_scratch')
+    os.environ.setdefault('GODOT_BIN', '/opt/godot451-bin/godot')
+    from evalsys.taskgen import evaluate_task
+    from evalsys.taskgen.evaluate import EvalTaskError
+    from evalsys.taskgen.scorecard import MODE5_MDVA_REGISTRY_VERSION
+    vm_mode = getattr(args, 'unity_vm', 'auto')
+    try:
+        package_manifest = json.loads((Path(args.package).resolve() / 'manifest.json').read_text(encoding='utf-8'))
+    except (OSError, ValueError, json.JSONDecodeError):
+        package_manifest = {}
+    wants_vm = platform.system().lower() == 'windows' and str(package_manifest.get('mode') or '') == 'port' and (args.engine != 'off') and (vm_mode != 'off')
+    if wants_vm:
+        if args.registry not in (None, MODE5_MDVA_REGISTRY_VERSION):
+            print(f'eval-task refused: Mode 5 is frozen to {MODE5_MDVA_REGISTRY_VERSION}; historical registries are only valid for offline report rescore', file=sys.stderr)
+            return 2
+        runner = Path(__file__).resolve().parents[2] / 'infra' / 'unity' / 'host_runner' / 'Invoke-UnityCandidateEvaluation.ps1'
+        infra_ready = runner.is_file() and Path('D:/gamebench-unity-vm/license-exchange/ubuntu2404-unity6000.3.23f1-personal-license-scrubbed.qcow2').is_file()
+        if vm_mode == 'on' and (not infra_ready):
+            print('eval-task refused: certified Unity VM runner is unavailable', file=sys.stderr)
+            return 2
+        if infra_ready:
+            if not args.out:
+                print('eval-task refused: --out is required for Unity VM evaluation', file=sys.stderr)
+                return 2
+            command = ['powershell.exe', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', str(runner), '-Package', str(Path(args.package).resolve()), '-Submission', str(Path(args.submission).resolve()), '-Out', str(Path(args.out).resolve()), '-VisualJudge', args.visual_judge, '-RegistryVersion', MODE5_MDVA_REGISTRY_VERSION]
+            process = subprocess.run(command, text=True, encoding='utf-8', errors='replace', check=False)
+            return process.returncode
+    try:
+        result = evaluate_task(args.package, args.submission, engine=args.engine, score_against_source=True if args.score_against_source else None, visual_judge=args.visual_judge, out=args.out, registry_version=args.registry)
+    except (EvalTaskError, FileNotFoundError, ValueError) as exc:
+        print(f'eval-task refused: {exc}', file=sys.stderr)
+        return 2
+    interval = result.interval
+    resolved = result.resolved
+    resolved_text = 'not_measured' if resolved is None else 'yes' if resolved else 'no'
+    print(f'resolved={resolved_text} eligibility={result.eligibility_status}')
+    wire = result.to_dict()
+    print(f'Evidence domains: {OBJECTIVE_EVALUATION} / {PERCEPTUAL_ASSESSMENT}')
+    if str(result.package.manifest.get('mode') or '') == 'port':
+        headline = wire['headline']
+        diagnostics = wire['scorecard']['diagnostics']
+        bounds = diagnostics['fixed_weight_bounds']
+        score_text = f"{float(headline['score']):.3f}/100" if headline.get('score') is not None else 'withheld'
+        print(f"mode5_score={score_text} status={headline['status']} ranking_eligible={str(bool(headline['ranking_eligible'])).lower()}")
+        print(f"earned_points_floor={diagnostics['earned_points_floor']:.3f}/100 possible_range={bounds['lo']:.3f}..{bounds['hi']:.3f} measured_weight={100.0 - diagnostics['unmeasured_weight']:.3f}/100")
+    elif not result.comparable:
+        print(f'playability not measured; behavior score withheld (coverage={interval.coverage:.6f} denom={interval.denominator:.6f} comparable=false)')
+    else:
+        print(f'behavior_score_lo={interval.lo:.6f} behavior_score_hi={interval.hi:.6f} coverage={interval.coverage:.6f} comparable=true diagnostic=true')
+    for item in result.items:
+        mark = item.verdict.value
+        print(f'  {mark:<14} {item.id:<22} {display_terms(item.detail)}')
+    if args.out:
+        print(f"report -> {Path(args.out) / 'report.json'}")
+    return 1 if result.resolved is False else 0
+
+def cmd_run_task_matrix(args: argparse.Namespace) -> int:
+    """Generate, run, collect, evaluate, and summarize selected game x mode cases."""
+    from evalsys.taskgen import AgentConfig, MatrixError, run_matrix
+    agent = AgentConfig(backend=args.agent_backend, command=args.agent_command, env_file=args.agent_env_file, model=args.model, base_url=args.agent_base_url, key_env=args.agent_key_env, effort=args.agent_effort, timeout_s=args.agent_timeout, sandbox=args.agent_sandbox, docker_image=args.agent_docker_image, provider=args.agent_provider, auth_file=args.agent_auth_file, dry_run=args.agent_dry_run)
+    if args.agent_dry_run and (not args.generate_only):
+        print('run-task-matrix refused: --agent-dry-run requires --generate-only', file=sys.stderr)
+        return 2
+    try:
+        summary = run_matrix(args.out, game_ids=args.game, modes=args.mode, case_ids=args.case_id, agent=agent, engine=args.engine, visual_judge=args.visual_judge, resume=args.resume, generate_only=args.generate_only, catalog_path=args.catalog, playtest_kit=args.playtest_kit == 'on', single_cell=args.single_cell, reference_video=args.reference_video == 'on', evaluate=args.eval == 'on')
+    except (MatrixError, FileNotFoundError, ValueError) as exc:
+        print(f'run-task-matrix refused: {exc}', file=sys.stderr)
+        return 2
+    print(f'matrix -> {Path(args.out).resolve()}')
+    print(f"  selected {summary['total_selected']} reported {summary['reported']} counts={summary['counts']}")
+    denominators = summary.get('denominators') or {}
+    print(f"  denominators planned={denominators.get('planned_cells', 0)} material_ready={denominators.get('material_ready_cells', 0)} agent_attempted={denominators.get('agent_attempted_cells', 0)} submission_produced={denominators.get('submission_produced_cells', 0)} verifier_measured={denominators.get('verifier_measured_cells', 0)} resolved_yes={denominators.get('resolved_yes', 0)} resolved_no={denominators.get('resolved_no', 0)} not_measured={denominators.get('resolved_not_measured', 0)}")
+    counts = summary.get('counts') or {}
+    incomplete = int(counts.get('failed', 0)) + int(counts.get('package_blocked', 0)) + int(denominators.get('resolved_no', 0)) + int(denominators.get('resolved_not_measured', 0))
+    return 1 if incomplete else 0
+
+def cmd_scan_grant(args: argparse.Namespace) -> int:
+    """Delegate to eval/tools/gates/harness_scan.py. Exit 1 if a film would block."""
+    from evalsys.taskgen.antigrant import scan_fleet, scan_project
+    from evalsys.tasks import eval_root
+    paths = [Path(p) for p in args.paths or []]
+    if args.corpus:
+        results = scan_fleet(eval_root().parent / 'games')
+    else:
+        if not paths:
+            print('scan-grant needs PATH or --corpus', file=sys.stderr)
+            return 2
+        results = [scan_project(path) for path in paths]
+    reports = [r.to_dict() for r in results]
+    blocked = 0
+    for result in results:
+        mark = 'BLOCK' if result.blocks_film else 'ok   '
+        other = sum((1 for h in result.hits if h.kind in ('other_cli', 'env_read')))
+        auto_win = getattr(result, 'auto_win_hits', [])
+        print(f"{mark}  {result.project:<24} flags={len(result.harness_flag_hits):2d}  grants={len(result.grant_hits):2d}  concessions={len(result.concession_hits):2d}  auto_win={len(auto_win):2d}  other={other:2d}  files={result.scanned_files}  inclusion={getattr(result, 'inclusion', 'load_graph')}")
+        if result.blocks_film:
+            blocked += 1
+            blocking = getattr(result, 'blocking_hits', result.grant_hits)
+            for hit in blocking:
+                print(f'         {hit.path}:{hit.line}  [{hit.classification}] {hit.snippet}')
+    print(f'{blocked} of {len(results)} projects would refuse a playthrough film (source: eval/tools/gates/harness_scan.py)')
+    if args.json:
+        print(json.dumps(reports, indent=2, ensure_ascii=False))
+    return 1 if blocked else 0
+
+def build_parser() -> argparse.ArgumentParser:
+    p = argparse.ArgumentParser(prog='bench', description=__doc__.split('\n')[0])
+    sub = p.add_subparsers(dest='cmd', required=True)
+    s = sub.add_parser('selfcheck', help='prove the scoring kernel can go green AND red')
+    s.set_defaults(func=cmd_selfcheck)
+    s = sub.add_parser('conformance', help='preflight the fixed submission diagnostic interface')
+    s.add_argument('project', nargs='?')
+    s.add_argument('--out', default=None)
+    s.add_argument('--json', action='store_true')
+    s.add_argument('--explain', action='store_true')
+    s.add_argument('--schema', action='store_true')
+    s.add_argument('--task-id', default='', help='also enforce conditional fields frozen for this task')
+    s.set_defaults(func=cmd_conformance)
+    s = sub.add_parser('evaluate', help='fail-closed full evaluation -> auditable run package')
+    s.add_argument('project')
+    s.add_argument('--task-id', required=True)
+    s.add_argument('--tier', default='D1')
+    s.add_argument('--mode', default='X_CPU', choices=['H', 'X_CPU', 'X_GPU'])
+    s.add_argument('--modality', default='Mv')
+    s.add_argument('--submission', default='')
+    s.add_argument('--out', default=None)
+    s.add_argument('--supplied-asset', action='append', default=[], help='asset path handed to the subject; repeatable and used by O6 at D2/D3')
+    s.add_argument('--visual-judge', default='none', choices=['none', 'local', 'vlm'], help='attach evaluator-frame S1-S3 evidence; uncalibrated output stays out of the main score')
+    s.set_defaults(func=cmd_evaluate)
+    s = sub.add_parser('validate-unity', help='validate the static Unity Mode-5 layout/interface (runtime remains unverified)')
+    s.add_argument('project')
+    s.add_argument('--json', action='store_true')
+    s.add_argument('--out', default=None)
+    s.set_defaults(func=cmd_validate_unity)
+    s = sub.add_parser('score', help='objective card for one project')
+    s.add_argument('project')
+    s.add_argument('--tier', default='D1')
+    s.add_argument('--modality', default='Mv')
+    s.add_argument('--mode', default='X_CPU', choices=['H', 'X_CPU', 'X_GPU'])
+    s.add_argument('--submission', default='')
+    s.add_argument('--task-id', default='')
+    s.add_argument('--ceiling', default=None, help='path to ceilings.json')
+    s.add_argument('--quick', action='store_true')
+    s.add_argument('--expectations-dir', default=None)
+    s.add_argument('--truth', default=None, help='reuse a truth_snapshot.json instead of taking one')
+    s.add_argument('--json', action='store_true', help='machine-readable card')
+    s.add_argument('--out', default=None, help='also write the card JSON here')
+    s.set_defaults(func=cmd_score)
+    s = sub.add_parser('cost', help='measured per-frame render cost -> budgets')
+    s.add_argument('project')
+    s.add_argument('--frames', type=int, default=600)
+    s.add_argument('--out', default=None)
+    s.set_defaults(func=cmd_cost)
+    s = sub.add_parser('routes', help='run GUI-agent routes L0-L5')
+    s.add_argument('project')
+    s.add_argument('--routes', default=None)
+    s.add_argument('--agent', default='scripted', choices=['scripted', 'null', 'llm'])
+    s.set_defaults(func=cmd_routes)
+    s = sub.add_parser('report', help='main table from written cards')
+    s.add_argument('cards', nargs='+')
+    s.set_defaults(func=cmd_report)
+    s = sub.add_parser('gen-task', help='download a fixed SWE-Game task package')
+    s.add_argument('--mode', required=True, help='brief|gdd|skeleton|bugfix|port (or 1–5)')
+    s.add_argument('--game', required=True, help='path to games/<id>')
+    s.add_argument('--out', required=True, help='empty directory to write the package into')
+    s.add_argument('--case-id', default='', help='mode bugfix: select a released task by case id')
+    s.add_argument('--score-against-source', action='store_true', help='record that eval-task should also run bench evaluate')
+    s.add_argument('--playtest-kit', default='off', choices=['on', 'off'], help='ship visible/playtest/ (Play-Watch-Fix self-verification kit) in modes brief/gdd/skeleton; recorded in manifest.json (default: off, same as run-task-matrix and run_benchmark.sh)')
+    s.add_argument('--reference-video', default='on', choices=['on', 'off'], help='on keeps the normal mode inputs; off is the Mode-1-only no-reference-video input ablation')
+    s.set_defaults(func=cmd_gen_task, mutations='auto', assets='copy')
+    s = sub.add_parser('eval-task', help='evaluate a submission against a fixed task package', description=f'Evaluate a submission against a fixed task package. Evidence domains:\n  {OBJECTIVE_EVALUATION}: engine runs and state checks (serialized as `ocard`)\n  {PERCEPTUAL_ASSESSMENT}: evaluator-owned frames (serialized as `scard`; attached by --visual-judge)', formatter_class=argparse.RawDescriptionHelpFormatter)
+    s.add_argument('--package', required=True)
+    s.add_argument('--submission', required=True)
+    s.add_argument('--out', default=None)
+    s.add_argument('--engine', default='auto', choices=['auto', 'on', 'off'])
+    s.add_argument('--unity-vm', default='auto', choices=['auto', 'on', 'off'], help='on Windows, delegate Mode 5 runtime to the certified disposable VM')
+    s.add_argument('--visual-judge', default='none', choices=['none', 'local', 'vlm'], help='attach evaluator-owned frame evidence; uncalibrated and outside resolved')
+    s.add_argument('--score-against-source', action='store_true')
+    s.add_argument('--registry', default=None, metavar='VERSION', help='mode-specific registry (Modes 1–3 default to 2026-09-19.modeN-vlm1; use --visual-judge vlm for a complete composite score)')
+    s.set_defaults(func=cmd_eval_task)
+    s = sub.add_parser('rescore-visuals', help='judge retained evaluator movies with the game-specific VLM rubric')
+    s.add_argument('--report', required=True)
+    s.add_argument('--out', required=True, help='new output directory; original report is retained')
+    s.add_argument('--visual-inputs', default=None)
+    s.add_argument('--package', default=None)
+    s.add_argument('--submission', default=None)
+    s.add_argument('--record-missing', action='store_true')
+    s.set_defaults(func=cmd_rescore_visuals)
+    s = sub.add_parser('finalize-mode5', help='finalize retained offline Unity evidence on the host and publish a numeric score')
+    s.add_argument('--report', required=True, help='objective report produced inside the VM')
+    s.add_argument('--package', required=True, help='frozen task package')
+    s.add_argument('--artifacts', required=True, help='verified evaluation-artifacts.tar.gz')
+    s.add_argument('--out', required=True, help='host finalization output directory')
+    s.set_defaults(func=cmd_finalize_mode5)
+    s = sub.add_parser('run-task-matrix', help='run resumable fixed task downloads, coding agent runs, evaluation, and summary')
+    s.add_argument('--out', required=True, help='matrix run directory')
+    s.add_argument('--catalog', default=str(Path(__file__).resolve().parents[3] / 'catalog.json'))
+    s.add_argument('--game', action='append', default=[], help='game id to run; repeatable; default is all catalog games')
+    s.add_argument('--mode', action='append', default=[], help='brief|gdd|skeleton|bugfix|port; repeatable; default is all five')
+    s.add_argument('--case-id', action='append', default=[], help='limit Mode 4 to an active case id; repeatable')
+    s.add_argument('--agent-backend', default='none', choices=['none', 'command', 'codex', 'claude'])
+    s.add_argument('--agent-command', default='', help='backend=command argv template; supports {workspace}, {prompt}, {submission}')
+    s.add_argument('--agent-env-file', default='', help='repo-external KEY=VALUE file; values are never written to run logs')
+    s.add_argument('--agent-base-url', default='https://vip.auto-code.net/v1', help='custom provider base URL; backend defaults are inferred')
+    s.add_argument('--agent-key-env', default='AUTO_CODE_API_KEY', help='environment variable name containing the provider key; never a key value')
+    s.add_argument('--model', default='gpt-5.6')
+    s.add_argument('--agent-provider', default='custom', choices=['custom', 'openai', 'claude'], help="custom = gateway at --agent-base-url with --agent-key-env; openai = Codex built-in provider with the operator's account; claude = Claude Code with the operator's subscription login")
+    s.add_argument('--agent-auth-file', default='', help='provider login file copied into the private attempt home: Codex auth.json or Claude .credentials.json; never written to run logs')
+    s.add_argument('--agent-effort', default='high', choices=['low', 'medium', 'high'], help='reasoning effort passed to Claude Code or Codex; requested and effective values are logged')
+    s.add_argument('--agent-timeout', type=int, default=None, help='optional hard wall cap in seconds for either coding-agent backend; omitted = no cap, the agent runs until it exits on its own (recorded as timeout_s null)')
+    s.add_argument('--agent-sandbox', default='unshare', choices=['unshare', 'docker', 'none'], help="unshare hides /data2 except the visible workspace (formal); docker runs the agent inside the sandbox image named by --agent-docker-image or GB_SANDBOX_IMAGE, for hosts whose capability bounding set lacks CAP_SYS_ADMIN so unshare and Codex's bwrap cannot start -- never formally eligible; none is debug-only")
+    s.add_argument('--agent-docker-image', default='', help='Docker toolchain image; empty falls back to GB_SANDBOX_IMAGE. The callers pick Godot for Modes 1-4 and Unity for Mode 5')
+    s.add_argument('--engine', default='auto', choices=['auto', 'on', 'off'])
+    s.add_argument('--visual-judge', default='none', choices=['none', 'local', 'vlm'], help='pass evaluator-owned frame evidence to reproduction evaluation')
+    s.add_argument('--generate-only', action='store_true', help='stop after package + visible-only workspace generation')
+    s.add_argument('--agent-dry-run', action='store_true', help='with --generate-only: also write agent/{request,env}.json and prompt.md exactly as the run would, without starting the CLI')
+    s.add_argument('--resume', action='store_true', help='reuse completed phases and continue incomplete cases')
+    s.add_argument('--playtest-kit', default='off', choices=['on', 'off'], help='ship visible/playtest/ in generated packages (modes 1-3); recorded in run.json and manifest.json. Default off = the live0904 baseline condition')
+    s.add_argument('--single-cell', action='store_true', help='exactly one game x mode x case: write package/ workspace/ agent/ submission/ evaluation/ directly under --out (run_benchmark.sh layout)')
+    s.add_argument('--reference-video', default='on', choices=['on', 'off'], help='Mode 1 only: off withholds the input reference video; evaluation and output demos are unchanged')
+    s.add_argument('--eval', default='on', choices=['on', 'off'], help='off keeps each collected submission without evaluating it; --resume --eval on evaluates the retained submission')
+    s.set_defaults(func=cmd_run_task_matrix)
+    s = sub.add_parser('scan-grant', help='static anti-self-grant scan (delegates to harness_scan.py)')
+    s.add_argument('paths', nargs='*', help='project roots; empty with --corpus')
+    s.add_argument('--corpus', action='store_true', help='scan every games/<id> under the repository')
+    s.add_argument('--json', action='store_true')
+    s.set_defaults(func=cmd_scan_grant)
+    return p
+
+def main(argv: list[str] | None=None) -> int:
+    args = build_parser().parse_args(argv)
+    return args.func(args)
+if __name__ == '__main__':
+    raise SystemExit(main())

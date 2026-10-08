@@ -1,0 +1,138 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "37367ed46f5f2e580b71582c4a472ffb651e5a2f41655eed8a8720eb44e9c7cc"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "where_the_dead_lie/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "ac6207459edd87b3234606783020ac5f610a39a3dff956fd3efb3368db48a213",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "37367ed46f5f2e580b71582c4a472ffb651e5a2f41655eed8a8720eb44e9c7cc",
+    "task_id": "where_the_dead_lie"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "extended_actions": [
+      {
+        "id": "turn_left",
+        "why": "Discrete yaw control is required to face generators, chests, the door, and exit."
+      },
+      {
+        "id": "turn_right",
+        "why": "Discrete yaw control is required to face generators, chests, the door, and exit."
+      },
+      {
+        "id": "look_up",
+        "why": "Discrete pitch control is required to aim the flashlight and inspect targets."
+      },
+      {
+        "id": "look_down",
+        "why": "Discrete pitch control is required to aim the flashlight and inspect targets."
+      }
+    ],
+    "interface_version": 2,
+    "normalized_sha256": "4d257c6d6064a5fc62f2ece251c3b85699b193b4d1f844afb3874fdb1919c07c",
+    "source_sha256": "b91d105058485ead029a7fdeb611928b6ce16a9ca43f44f226d9d70c1f30939b"
+  },
+  "passed_route_ids": [
+    "where_the_dead_lie/L0/no_input_no_escape",
+    "where_the_dead_lie/C1/two_generators",
+    "where_the_dead_lie/C2/puzzle_restored",
+    "where_the_dead_lie/C3/first_key",
+    "where_the_dead_lie/C4/second_key_and_exit_armed",
+    "where_the_dead_lie/L5/whole_game_clear"
+  ],
+  "readings": {
+    "where_the_dead_lie/C1/two_generators": {
+      "deaths": 0,
+      "frames": 1431,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 110,
+      "stop_reason": "ops_exhausted"
+    },
+    "where_the_dead_lie/C2/puzzle_restored": {
+      "deaths": 0,
+      "frames": 730,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 212,
+      "stop_reason": "ops_exhausted"
+    },
+    "where_the_dead_lie/C3/first_key": {
+      "deaths": 0,
+      "frames": 1330,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 373,
+      "stop_reason": "ops_exhausted"
+    },
+    "where_the_dead_lie/C4/second_key_and_exit_armed": {
+      "deaths": 0,
+      "frames": 3430,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 773,
+      "stop_reason": "ops_exhausted"
+    },
+    "where_the_dead_lie/L0/no_input_no_escape": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "where_the_dead_lie/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 7971,
+      "injects": 0,
+      "milestones_reached": [
+        "generators_started",
+        "puzzle_unlocked",
+        "puzzle_solved",
+        "first_key_collected",
+        "exit_armed",
+        "run_completed"
+      ],
+      "solution_kind": "tape",
+      "steps": 856,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "ac6207459edd87b3234606783020ac5f610a39a3dff956fd3efb3368db48a213"
+  },
+  "result": "6/6 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "15a5813ff539126d411b2dad2cc752301bd803d2114ed7f48da6d2e1551d3fcd",
+  "schema_version": 2,
+  "solution_kinds": {
+    "where_the_dead_lie/C1/two_generators": "tape",
+    "where_the_dead_lie/C2/puzzle_restored": "tape",
+    "where_the_dead_lie/C3/first_key": "tape",
+    "where_the_dead_lie/C4/second_key_and_exit_armed": "tape",
+    "where_the_dead_lie/L0/no_input_no_escape": "tape",
+    "where_the_dead_lie/L5/whole_game_clear": "tape"
+  },
+  "task_id": "where_the_dead_lie",
+  "validated_at": "2026-09-09"
+}

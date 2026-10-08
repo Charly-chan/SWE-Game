@@ -1,0 +1,111 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-27T17:48:33+00:00",
+  "interface_requirements": {},
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 0,
+        "gb_door": 1,
+        "gb_enemy": 44,
+        "gb_goal": 1,
+        "gb_hazard": 0,
+        "gb_interactive": 1,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_enemy": [
+          "x",
+          5
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://scenes/sets/set_first_serve.tscn",
+      "spawn_goal_distance": 1.0
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 0,
+        "gb_door": 1,
+        "gb_enemy": 46,
+        "gb_goal": 1,
+        "gb_hazard": 0,
+        "gb_interactive": 1,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_enemy": [
+          "x",
+          5
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://scenes/sets/set_shard_fall.tscn",
+      "spawn_goal_distance": 1.0
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 0,
+        "gb_door": 1,
+        "gb_enemy": 42,
+        "gb_goal": 1,
+        "gb_hazard": 0,
+        "gb_interactive": 1,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_enemy": [
+          "x",
+          5
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://scenes/sets/set_match_point.tscn",
+      "spawn_goal_distance": 1.0
+    }
+  ],
+  "probe_sha256": "fe750d48224bfe79a915c4057b270adbbcdbc421e5b99f56213c3b2b7f746edd",
+  "project": "volley_break",
+  "runtime_assets": {
+    "res://assets/audio/impact/impactBell_heavy_001.ogg": "9df61e3ae9a83dc65e5a1fd3ed19d480876f3b22b963a1b9ef6fa293592dcec4",
+    "res://assets/audio/impact/impactGlass_light_000.ogg": "d750cf88097d0c3e69920e6e14496e1444e1a9da01aa4cca8f5ec8cb44c57b4f",
+    "res://assets/audio/impact/impactMetal_medium_000.ogg": "a96f879fec0864a8938e0c745b6996a6c5679c16a234ce31a01cc995e8401003",
+    "res://assets/audio/impact/impactMining_000.ogg": "36b4ea107222d073c67ca64dde26944975609202d5090b2f2021213c1a7e35cd",
+    "res://assets/audio/impact/impactPlate_light_000.ogg": "6e797cf8a5bfc52d7ed5eb47c227974c1cf2a674954fec5b539cea7d62c7282c",
+    "res://assets/audio/impact/impactSoft_medium_000.ogg": "7d3ba0bb5e60a11b5d3e558c141303dcf494256675fbf753c0d252d2cf0481e3",
+    "res://assets/audio/interface/error_003.ogg": "885b28175c7b511118bcffab95675b48bbac9005cf6514656ebdad979276b3ab",
+    "res://assets/audio/music/court_bed.mp3": "aa3dc59166e121cecfc2033ffc3a11ea6b74b28c8cdac492e1a6db35c5abe1fd",
+    "res://assets/font/KenneyFutureNarrow.ttf": "17e182587a3264dcf9e5b17c055715d5597187546ce81925c64e9184c26d597f",
+    "res://assets/puzzle_pack_2/backtiles/BackTile_03.png": "be37a44c76dd9e010f1d524707063813c0efbe9266afbce03336f62a51a2da09",
+    "res://assets/puzzle_pack_2/backtiles/BackTile_09.png": "4da2d626150833444aa2950ce75228f0b18f7a49ec5aa4fc457d22a258e0ccc9",
+    "res://assets/puzzle_pack_2/backtiles/BackTile_15.png": "110fc7b4e547d3f936f463b9c50e541c48c992d6e27b3103b12255f8cfdfee91",
+    "res://assets/puzzle_pack_2/backtiles/BackTile_17.png": "8f922aefe35e8b9fc8a4215cd89abe4d20f13820133ba564c12322cb4a1cb828",
+    "res://assets/puzzle_pack_2/balls/ballGrey_06.png": "d4aef3394dc2907c1f946a596346ae046f0ba7454fa4dec95e2a5a7c76ddba6b",
+    "res://assets/puzzle_pack_2/balls/ballYellow_06.png": "be9cd367dffa1f1e610f905cb6a60e310b5cef81deb61f64ab136d3f7234dd71",
+    "res://assets/puzzle_pack_2/paddles/paddle_02.png": "ab59f9cc071f67946e9b06dd2f3ed8135247a065e435a2300fba41b9f1e1148b",
+    "res://assets/puzzle_pack_2/paddles/paddle_06.png": "acee5bebbb05413e9e9f00bec3faf107ce90a5b44c0682cfc7b63fe42fac6fee",
+    "res://assets/puzzle_pack_2/particles/particleWhite_2.png": "2c0c2ee7ec35890060e9d80a8a1a5c7b9eed900c6b6fa0890fbef34d5627fddd",
+    "res://assets/puzzle_pack_2/particles/particleYellow_6.png": "ff9f1a83284d2f9f248125d27f680fec22891649460c5defc7f3549a9b40c2a9",
+    "res://assets/puzzle_pack_2/tiles/tileBlue_02.png": "fb8acc2038df465f16dc8191947abeefef0a869e222081ce1ed4b83bd9689820",
+    "res://assets/puzzle_pack_2/tiles/tileGreen_02.png": "9bff6c3177824ad47e95fc963e85ece903cda0f7bece3fe4ffadd6efbe202563",
+    "res://assets/puzzle_pack_2/tiles/tileGrey_02.png": "8630850b33560646d778fcb2286963a2466d22c177e7d545f8cb901732f93310",
+    "res://assets/puzzle_pack_2/tiles/tileOrange_01.png": "10917f460e3063af1a2510a22c05cef35025a8097329027c49ff0f0e6099757a",
+    "res://assets/puzzle_pack_2/tiles/tileRed_02.png": "7530111d76d85bda3c0651669751309ca7d928a8ec8f428ea6060221d402c5a6"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

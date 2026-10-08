@@ -1,0 +1,152 @@
+{
+  "game_id": "deepgrid",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "reference_media/assets/models/Textures/texture-h.png",
+        "id": "S019",
+        "label": "reference_media/assets/models/Textures/texture-h.png"
+      },
+      {
+        "bundled_path": "media/S028.png",
+        "id": "S028",
+        "label": "kenney_blaster-kit_2.1-4.png"
+      },
+      {
+        "asset_path": "reference_media/assets/sprites/pickup_repair_kit.png",
+        "id": "S037",
+        "label": "reference_media/assets/sprites/pickup_repair_kit.png"
+      },
+      {
+        "asset_path": "reference_media/assets/textures/surf_floor_deck_normal.jpg",
+        "id": "S064",
+        "label": "reference_media/assets/textures/surf_floor_deck_normal.jpg"
+      },
+      {
+        "bundled_path": "media/S073.png",
+        "id": "S073",
+        "label": "FONT PREVIEW reference_media/assets/ui/KenneyFuture.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "reference_media/assets/ui/KenneyFuture.ttf"
+      },
+      {
+        "bundled_path": "media/S074.png",
+        "id": "S074",
+        "label": "FONT PREVIEW reference_media/assets/ui/KenneyFutureNarrow.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "reference_media/assets/ui/KenneyFutureNarrow.ttf"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "5_Action_Chiptunes_By_Juhani_Junkala.zip",
+        "Concrete034_1K-JPG.zip",
+        "CorrugatedSteel005_1K-JPG.zip",
+        "MetalPlates006_1K-JPG.zip",
+        "MetalPlates012_1K-JPG.zip",
+        "MetalPlates013_1K-JPG.zip",
+        "MetalWalkway013_1K-JPG.zip",
+        "OfficeCeiling005_1K-JPG.zip",
+        "PaintedMetal004_1K-JPG.zip",
+        "ambientCG_LICENSE.txt",
+        "kenney_blaster-kit_2.1.zip",
+        "kenney_blocky-characters_20.zip",
+        "kenney_digital-audio.zip",
+        "kenney_generic-items.zip",
+        "kenney_impact-sounds.zip",
+        "kenney_input-prompts_1.5.zip",
+        "kenney_interface-sounds.zip",
+        "kenney_particle-pack.zip",
+        "kenney_prototype-textures.zip",
+        "kenney_ui-pack.zip",
+        "reference_media/assets/audio",
+        "reference_media/assets/models",
+        "reference_media/assets/particles",
+        "reference_media/assets/sprites",
+        "reference_media/assets/textures",
+        "reference_media/assets/ui"
+      ],
+      "file_count": 116,
+      "font_files": [
+        "reference_media/assets/ui/KenneyFuture.ttf",
+        "reference_media/assets/ui/KenneyFutureNarrow.ttf"
+      ]
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry. Font previews are rendered from actual supplied font files; preview wording is illustrative, not additional task requirements.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 353.517,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R007",
+        "time_s": 18.0
+      },
+      {
+        "id": "R013",
+        "time_s": 36.0
+      },
+      {
+        "id": "R024",
+        "time_s": 69.0
+      },
+      {
+        "id": "R029",
+        "time_s": 84.0
+      },
+      {
+        "id": "R038",
+        "time_s": 111.0
+      },
+      {
+        "id": "R045",
+        "time_s": 132.0
+      },
+      {
+        "id": "R060",
+        "time_s": 177.0
+      },
+      {
+        "id": "R067",
+        "time_s": 198.0
+      },
+      {
+        "id": "R094",
+        "time_s": 279.0
+      },
+      {
+        "id": "R102",
+        "time_s": 303.0
+      },
+      {
+        "id": "R114",
+        "time_s": 339.0
+      },
+      {
+        "id": "R117",
+        "time_s": 348.0
+      },
+      {
+        "id": "R119",
+        "time_s": 353.5
+      },
+      {
+        "clip": 3,
+        "id": "RD055",
+        "time_s": 284.2136
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.3337887569763265,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Deepgrid — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nExplore and manipulate a compact grid-based underground system, learn its rules, combine them, and reach a conclusive objective.\n\n## Scope boundary\n\nA bounded grid or systems puzzle with explicit state changes, progressive challenges, failure or invalid states, recovery, and completion.\n\n## Creative freedom\n\nYou may decide the exact grid verbs, puzzle topology, progression, theme, and feedback using the supplied assets.\n"
+}

@@ -1,0 +1,275 @@
+{
+  "game_id": "dungeon_escape",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "dungeon_tileset_ii/character/monster/chort/chort.png",
+        "id": "S001",
+        "label": "dungeon_tileset_ii/character/monster/chort/chort.png"
+      },
+      {
+        "asset_path": "dungeon_tileset_ii/character/monster/goblin/goblin.png",
+        "id": "S002",
+        "label": "dungeon_tileset_ii/character/monster/goblin/goblin.png"
+      },
+      {
+        "asset_path": "dungeon_tileset_ii/character/monster/zombie/zombie.png",
+        "id": "S003",
+        "label": "dungeon_tileset_ii/character/monster/zombie/zombie.png"
+      },
+      {
+        "asset_path": "dungeon_tileset_ii/character/rogue/rogue.png",
+        "id": "S004",
+        "label": "dungeon_tileset_ii/character/rogue/rogue.png"
+      },
+      {
+        "asset_path": "dungeon_tileset_ii/dungeon/default/portal/glasswall/glasswall_horizontal.png",
+        "id": "S007",
+        "label": "dungeon_tileset_ii/dungeon/default/portal/glasswall/glasswall_horizontal.png"
+      },
+      {
+        "asset_path": "dungeon_tileset_ii/dungeon/default/portal/gutter/gutter_horizontal.png",
+        "id": "S008",
+        "label": "dungeon_tileset_ii/dungeon/default/portal/gutter/gutter_horizontal.png"
+      },
+      {
+        "asset_path": "dungeon_tileset_ii/objects/pressureplate/pressureplate.png",
+        "id": "S017",
+        "label": "dungeon_tileset_ii/objects/pressureplate/pressureplate.png"
+      },
+      {
+        "asset_path": "dungeon_tileset_ii/objects/torch/torch.png",
+        "id": "S018",
+        "label": "dungeon_tileset_ii/objects/torch/torch.png"
+      },
+      {
+        "asset_path": "dungeon_tileset_ii/objects/treasurechest/treasurechest.png",
+        "id": "S019",
+        "label": "dungeon_tileset_ii/objects/treasurechest/treasurechest.png"
+      },
+      {
+        "asset_path": "reference_media/assets/ui/panels/panel_depth.png",
+        "id": "S062",
+        "label": "reference_media/assets/ui/panels/panel_depth.png"
+      },
+      {
+        "asset_path": "ui/panels/button_focus.png",
+        "id": "S063",
+        "label": "ui/panels/button_focus.png"
+      },
+      {
+        "bundled_path": "media/S073.png",
+        "id": "S073",
+        "label": "FONT PREVIEW reference_media/assets/ui/fonts/kenney_future.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "reference_media/assets/ui/fonts/kenney_future.ttf"
+      },
+      {
+        "bundled_path": "media/S075.png",
+        "id": "S075",
+        "label": "FONT PREVIEW ui/fonts/kenney_future.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "ui/fonts/kenney_future.ttf"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "audio/music/archive_theme.ogg",
+        "audio/music/cistern_theme.ogg",
+        "audio/music/menu_theme.wav",
+        "audio/music/results_theme.wav",
+        "audio/music/sanctum_theme.ogg",
+        "audio/sfx/checkpoint.ogg",
+        "audio/sfx/chest_open.ogg",
+        "audio/sfx/crate_break.ogg",
+        "audio/sfx/door_unlock.ogg",
+        "audio/sfx/enemy_death.ogg",
+        "audio/sfx/footstep_stone_a.ogg",
+        "audio/sfx/footstep_stone_b.ogg",
+        "audio/sfx/footstep_stone_c.ogg",
+        "audio/sfx/footstep_stone_d.ogg",
+        "audio/sfx/heart_pickup.ogg",
+        "audio/sfx/key_pickup.ogg",
+        "audio/sfx/lever_toggle.ogg",
+        "audio/sfx/locked_deny.ogg",
+        "audio/sfx/menu_back.ogg",
+        "audio/sfx/menu_move.ogg",
+        "audio/sfx/menu_select.ogg",
+        "audio/sfx/plate_press.ogg",
+        "audio/sfx/player_hurt.ogg",
+        "audio/sfx/relic_pickup.ogg",
+        "audio/sfx/secret_found.ogg",
+        "audio/sfx/spike_hit.ogg",
+        "audio/sfx/stinger_defeat.ogg",
+        "audio/sfx/stinger_level_clear.ogg",
+        "audio/sfx/stinger_victory.ogg",
+        "audio/sfx/sword_hit.ogg",
+        "audio/sfx/sword_swing.ogg",
+        "audio/sfx/vase_break.ogg",
+        "dungeon_tileset_ii/character/monster",
+        "dungeon_tileset_ii/character/rogue",
+        "dungeon_tileset_ii/dungeon/default",
+        "dungeon_tileset_ii/items/key",
+        "dungeon_tileset_ii/items/pickups",
+        "dungeon_tileset_ii/items/puzzle-piece.png",
+        "dungeon_tileset_ii/items/resource",
+        "dungeon_tileset_ii/objects/crate",
+        "dungeon_tileset_ii/objects/lever",
+        "dungeon_tileset_ii/objects/pressureplate",
+        "dungeon_tileset_ii/objects/torch",
+        "dungeon_tileset_ii/objects/treasurechest",
+        "dungeon_tileset_ii/objects/vase",
+        "licenses/kenney_impact-sounds_License.txt",
+        "licenses/kenney_input-prompts_License.txt",
+        "licenses/kenney_interface-sounds_License.txt",
+        "licenses/kenney_music-jingles_License.txt",
+        "licenses/kenney_ui-pack_License.txt",
+        "reference_media/assets/audio",
+        "reference_media/assets/dungeon_tileset_ii",
+        "reference_media/assets/ui",
+        "ui/fonts/kenney_future.ttf",
+        "ui/fonts/kenney_future_narrow.ttf",
+        "ui/panels/arrow_focus.png",
+        "ui/panels/button_focus.png",
+        "ui/panels/button_idle.png",
+        "ui/panels/divider.png",
+        "ui/panels/panel_depth.png",
+        "ui/panels/panel_frame.png",
+        "ui/panels/star.png",
+        "ui/panels/star_outline.png",
+        "ui/panels/strip.png",
+        "ui/prompts/keyboard_a.png",
+        "ui/prompts/keyboard_arrows_all.png",
+        "ui/prompts/keyboard_d.png",
+        "ui/prompts/keyboard_e.png",
+        "ui/prompts/keyboard_escape.png",
+        "ui/prompts/keyboard_j.png",
+        "ui/prompts/keyboard_k.png",
+        "ui/prompts/keyboard_r.png",
+        "ui/prompts/keyboard_s.png",
+        "ui/prompts/keyboard_space.png",
+        "ui/prompts/keyboard_w.png"
+      ],
+      "file_count": 406,
+      "font_files": [
+        "reference_media/assets/ui/fonts/kenney_future.ttf",
+        "reference_media/assets/ui/fonts/kenney_future_narrow.ttf",
+        "ui/fonts/kenney_future.ttf",
+        "ui/fonts/kenney_future_narrow.ttf"
+      ]
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry. Font previews are rendered from actual supplied font files; preview wording is illustrative, not additional task requirements.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 582.134,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R006",
+        "time_s": 24.75
+      },
+      {
+        "id": "R011",
+        "time_s": 49.5
+      },
+      {
+        "id": "R023",
+        "time_s": 108.9
+      },
+      {
+        "id": "R025",
+        "time_s": 118.8
+      },
+      {
+        "id": "R027",
+        "time_s": 128.7
+      },
+      {
+        "id": "R051",
+        "time_s": 247.5
+      },
+      {
+        "id": "R060",
+        "time_s": 292.05
+      },
+      {
+        "id": "R086",
+        "time_s": 420.75
+      },
+      {
+        "id": "R114",
+        "time_s": 559.35
+      },
+      {
+        "id": "R118",
+        "time_s": 579.15
+      },
+      {
+        "id": "R119",
+        "time_s": 582.117
+      },
+      {
+        "clip": 1,
+        "id": "RD001",
+        "time_s": 116.4268
+      },
+      {
+        "clip": 1,
+        "id": "RD008",
+        "time_s": 117.1268
+      },
+      {
+        "clip": 1,
+        "id": "RD012",
+        "time_s": 117.5268
+      },
+      {
+        "clip": 1,
+        "id": "RD019",
+        "time_s": 118.2268
+      },
+      {
+        "clip": 2,
+        "id": "RD031",
+        "time_s": 292.067
+      },
+      {
+        "clip": 2,
+        "id": "RD038",
+        "time_s": 292.767
+      },
+      {
+        "clip": 3,
+        "id": "RD041",
+        "time_s": 465.7072
+      },
+      {
+        "clip": 3,
+        "id": "RD046",
+        "time_s": 466.2072
+      },
+      {
+        "clip": 3,
+        "id": "RD055",
+        "time_s": 467.1072
+      },
+      {
+        "clip": 3,
+        "id": "RD060",
+        "time_s": 467.6072
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.20270247056519633,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# The Ember Key — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nExplore a top-down dungeon, learn what each locked route demands, survive threats, obtain what opens the way, and escape.\n\n## Scope boundary\n\nA compact top-down action-adventure with exploration, gated progression, readable danger, failure/recovery, and a final escape state.\n\n## Creative freedom\n\nYou may design the floor layout, key or relic rules, enemy mix, and order of discoveries.\n"
+}

@@ -1,0 +1,991 @@
+{
+  "game_id": "deepgrid",
+  "mode": "brief",
+  "provided_asset_observations": [
+    {
+      "frame_ids": [
+        "S001",
+        "S010",
+        "S019"
+      ],
+      "informs": [
+        "A1",
+        "A5"
+      ],
+      "observation": "Kenney 爆破枪与块状角色预览与 GT 第一人称枪、黄/白块状单位同族；glb 敌人无可靠静帧，不从 enemy_overseer.glb 文件名想象几何。"
+    },
+    {
+      "frame_ids": [
+        "S028",
+        "S037",
+        "S046"
+      ],
+      "informs": [
+        "A2"
+      ],
+      "observation": "锈蚀金属、步行道与三角镶嵌纹理与 R001/R038/R060 墙地同族。"
+    },
+    {
+      "frame_ids": [
+        "S055",
+        "S064",
+        "S073",
+        "S074"
+      ],
+      "informs": [
+        "A3",
+        "V4",
+        "A4"
+      ],
+      "observation": "UI 胶囊按钮与 Kenney Future 字样与游玩 HUD、R119 结算控件外观相近。急救/冷却剂/RAM 精灵与 R038 地面拾取同族。"
+    }
+  ],
+  "reference_limits": [
+    "录像未展示标题页、暂停菜单、死亡与失败结算；brief 要求的失败只能在候选展示时评判，未展示为 unknown。",
+    "RUN AGAIN / TITLE 未被点击，功能未验证。",
+    "R007 底栏 100/24/200/3 与后帧五位 SCORE 不一致，不把 24 写成击杀依据。",
+    "KILLS 在 R060 为 7、R067 为 0，更像分层计数，不把它写成全程累计。",
+    "已看全帧未采到清晰枪口火焰或单位受击变色；密集段看到接近过程。总览间距不能证明单发命中判定。",
+    "3D 敌人/武器 glb 在素材联系图无可靠预览，不从文件名想象几何，也不因 GT 使用几何体而要求套件模型。",
+    "无音频；素材与画面外观对应不证明文件加载。"
+  ],
+  "reference_observations": [
+    {
+      "frame_ids": [
+        "R001"
+      ],
+      "informs": [
+        "M4",
+        "V2",
+        "V3",
+        "A1",
+        "A2"
+      ],
+      "observation": "FLOOR 1 INTAKE BAY，MACHINES 0/5 SECRETS 0/1 CORES 0/4，0:00/PAR 0:45，COLD-START THE VAULT. REACH THE EXIT INTERLOCK.，INTEGRITY 100 KILLS 0 SCORE 0 RESPONSE 3，BLASTER。锈墙、点阵吊顶、黄色第一人称枪。"
+    },
+    {
+      "frame_ids": [
+        "R007"
+      ],
+      "informs": [
+        "M1",
+        "M3",
+        "V3"
+      ],
+      "observation": "LAST SECRET FOUND，MACHINES 2/5 SECRETS 1/1 CORES 0/4，0:18/PAR 0:45。底栏四格为 100 / 24 / 200 / 3；后帧分数为五位数，此处不把 24 写成累计击杀。右侧白胶囊、远墙旋涡黑块。"
+    },
+    {
+      "frame_ids": [
+        "R013"
+      ],
+      "informs": [
+        "M3",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "observation": "FLOOR 2 CONDUIT SPINE，MACHINES 0/8 SECRETS 0/1 CORES 0/4，0:03/PAR 0:45，BLUE CARD OPENS EVERY BAY – THE SPINE DOOR NEEDS IT，INTEGRITY 100 KILLS 1 SCORE 26700。棕三角墙、绿卡在尽头。"
+    },
+    {
+      "frame_ids": [
+        "R024",
+        "R029"
+      ],
+      "informs": [
+        "M2",
+        "D1",
+        "V1"
+      ],
+      "observation": "R024 FLOOR 3 MACHINE STACKS，MACHINES 0/10，INTEGRITY 94 KILLS 3 SCORE 45600；R029 MACHINES 5/10，INTEGRITY 47 KILLS 3 SCORE 46900，红条纹块状单位。"
+    },
+    {
+      "frame_ids": [
+        "R038"
+      ],
+      "informs": [
+        "M1",
+        "M2",
+        "V3",
+        "A4"
+      ],
+      "observation": "ALL MACHINES DESTROYED，MACHINES 10/10，0:46/PAR 0:50，INTEGRITY 41 KILLS 3 SCORE 47500，波形墙，地面绿条 RAM 与红十字箱。"
+    },
+    {
+      "frame_ids": [
+        "R045",
+        "R060"
+      ],
+      "informs": [
+        "M2",
+        "D2",
+        "V2",
+        "A1"
+      ],
+      "observation": "R045 FLOOR 4 COOLANT RING，MACHINES 1/10，REPAIR UNIT CALLED 1 MACHINE，INTEGRITY 45 SCORE 50000，BLASTER；R060 MACHINES 9/10 SECRETS 1/1 CORES 0/1，0:32/PAR 0:50，INTEGRITY 25 KILLS 7 SCORE 70000 RESPONSE 2，REPEATER，棕三角墙。"
+    },
+    {
+      "frame_ids": [
+        "R067"
+      ],
+      "informs": [
+        "M2",
+        "D3",
+        "V3",
+        "A2"
+      ],
+      "observation": "FLOOR 5 CORE APPROACH，MACHINES 0/11 SECRETS 0/1 CORES 0/3，VENT SEALED – OPENS IN 3.05，0:04/PAR 1:05，INTEGRITY 34 KILLS 0 SCORE 91000 RESPONSE 2，ARC CUTTER，黄格通风墙。"
+    },
+    {
+      "frame_ids": [
+        "R094",
+        "R102",
+        "R114"
+      ],
+      "informs": [
+        "M1",
+        "M3",
+        "V1",
+        "V3"
+      ],
+      "observation": "R094 FLOOR 6，VENT OPEN 0.65，REPAIR UNIT CALLED，INTEGRITY 10 KILLS 16 SCORE 91800；R102 黄色 Overseer，INTEGRITY 2 SCORE 93100；R114 OVERSEER DESTROYED – VAULT UNSEALED，MACHINES 5/6 SECRETS 1/1 CORES 1/2，INTEGRITY 2 KILLS 24 SCORE 93100。"
+    },
+    {
+      "frame_ids": [
+        "R117",
+        "R119"
+      ],
+      "informs": [
+        "M3",
+        "M4",
+        "V2",
+        "V4"
+      ],
+      "observation": "R117 LAST DATA CORE SECURED，CORES 2/2，1:20/PAR 0:55，SCORE 93200；R119 VAULT OPEN，AVERAGE KILLS 81% SECRETS 83% DATA CORES 29%，TOTAL TIME 5:26，FINAL SCORE 113200，RUN AGAIN / TITLE。"
+    },
+    {
+      "frame_ids": [
+        "RD055"
+      ],
+      "informs": [
+        "M1",
+        "D2",
+        "V1",
+        "A4"
+      ],
+      "observation": "FLOOR 6，MACHINES 2/6，0:16/PAR 0:55，VENT OPEN，INTEGRITY 35 KILLS 16 SCORE 92200，白紫块状单位在锈红走廊中轴。"
+    }
+  ],
+  "requirements": [
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R007",
+            "R038"
+          ],
+          "observation": "R001 黄色 BLASTER 停在 INTAKE BAY 锈墙房间中央；R007 已转向房间中后部，MACHINES 2/5、SECRETS 1/1，中央出现 LAST SECRET FOUND，右侧有白胶囊、远墙有带旋涡的黑方块；R038 FLOOR 3 MACHINES 10/10，ALL MACHINES DESTROYED，地面出现绿条 RAM 与红十字急救箱。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R102",
+            "R114",
+            "RD055"
+          ],
+          "observation": "RD055 走廊里白色紫带块状单位正对枪口；R102 同一锈红房间右侧出现黄色块状 Overseer；R114 中央 OVERSEER DESTROYED – VAULT UNSEALED，Overseer 已不在画面中，地上剩两枚白紫小块。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "名义上有地下房间，但玩家出生即面对出口互锁面板、没有可感知的穿行与格子操作",
+          "id": "M1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评玩家能否在地下房间里连续改变位置，并用候选采用的格子动词（射击、开关、推动等）使对象在世界层改变状态。射击是 GT 动词，未采用时改评其他动词，不因此扣分。枪口闪光与摧毁动画归 A4；MACHINES 等读数是否跟上归 V2。",
+      "evidence": {
+        "coverage": "需要看到位置连续变化与动词后果；只拍到空走廊走动不足以判断对象退出。命中闪光归 A4，计数同步归 V2。",
+        "kind": "action_sequence",
+        "unit": "一段位移与至少一次格子动词至对象状态改变"
+      },
+      "full_credit": "视角或角色沿房间连续改变位置与朝向；已采用的动词使被作用对象在连续覆盖中状态改变（机器停止占据、门打开、物块被取走等），对象不再以原功能占据该格。",
+      "group": "M",
+      "high_score_requirements": [
+        "位移与朝向在连续帧中可跟踪，不是在房间间瞬移。",
+        "能归因哪一次动词对应哪个机器、门或块状单位的状态改变。",
+        "被改变的对象不再以原功能占据该格，不遗留仍在移动却不再可作用的幽灵体。"
+      ],
+      "id": "M1",
+      "inspired_by": [
+        "shadow-courier:M1",
+        "sokoban:M1"
+      ],
+      "partial_credit": "能走动也能发出动词，但连续覆盖中反复出现对准对象却无任何世界层后果。只有一种武器或没有冲刺本身不是缺陷。",
+      "title": "探索位移与格子动词改变对象状态",
+      "zero_credit": "充分覆盖可操作游玩后不能改变位置，或已采用的动词对场上对象完全没有世界层后果。未拍到动词过程为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R029",
+            "R038",
+            "R045"
+          ],
+          "observation": "R001 INTEGRITY 100；R029 FLOOR 3 INTEGRITY 47、MACHINES 5/10，红条纹块状单位在锈墙前；R038 INTEGRITY 41 且地面有红十字箱与绿条 RAM；R045 FLOOR 4 INTEGRITY 45，中央 REPAIR UNIT CALLED 1 MACHINE。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R060",
+            "R067",
+            "R094"
+          ],
+          "observation": "R060 INTEGRITY 25；R067 FLOOR 5 INTEGRITY 34、VENT SEALED – OPENS IN 3.05，正对黄格通风墙；R094 FLOOR 6 INTEGRITY 10、VENT OPEN – SEALS IN 0.65，并有 REPAIR UNIT CALLED 1 MACHINE。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "有 INTEGRITY 条，但与块状哨兵或修理单元接触后数值只在换 FLOOR 或进入 VAULT OPEN 时跳变",
+          "id": "M2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评是否存在失败或非法状态，以及恢复手段是否产生世界层后果。GT 用 INTEGRITY 随块状哨兵/修理单元接触下降，急救箱或换层后回升；通风口封闭是非法通行。未采用战斗威胁时，受击部分标 not_applicable，但仍须有一种失败或非法状态。读数编排归 V2。",
+      "evidence": {
+        "coverage": "需要看到接触/锁定附近的帧；死亡页未拍到时不评失败结算，只评已展示的消耗与恢复。",
+        "kind": "action_sequence",
+        "unit": "一次失败资源下降或一次非法锁定，以及一次恢复"
+      },
+      "full_credit": "已采用的失败资源随威胁或非法接触下降；已采用的恢复（急救箱、修理、等待通风口重开等）使对应状态回升或通路重新可用，方向与动作一致。",
+      "group": "M",
+      "high_score_requirements": [
+        "失败资源下降能归因到场上威胁或非法接触，而不是只在换层时重置。",
+        "至少一种恢复手段让数值回升或通路重新打开。",
+        "通风口或门锁若被采用，封闭时不能无代价穿过。"
+      ],
+      "id": "M2",
+      "inspired_by": [
+        "shadow-courier:M3"
+      ],
+      "partial_credit": "有完整性条或锁定文案，但充分覆盖的接触后数值与威胁脱节；或恢复物存在但使用后状态完全不变。",
+      "title": "失败或非法状态可发生，并有可见恢复",
+      "zero_credit": "充分覆盖后不存在任何失败或非法状态，威胁与锁定位无代价。未拍到受击或恢复过程为 unknown。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R007",
+            "R013",
+            "R038"
+          ],
+          "observation": "R007 LAST SECRET FOUND 且 SECRETS 1/1；R013 FLOOR 2 CONDUIT SPINE，中央 BLUE CARD OPENS EVERY BAY – THE SPINE DOOR NEEDS IT，远处有绿卡拾取；R038 MACHINES 10/10 与 ALL MACHINES DESTROYED 同时出现。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R114",
+            "R117"
+          ],
+          "observation": "R114 OVERSEER DESTROYED – VAULT UNSEALED，CORES 1/2；R117 LAST DATA CORE SECURED，CORES 2/2，浅青面板上有橙白胶囊。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "MACHINES、SECRETS 或 CORES 只改数字，玩家从未走到对应机器、秘密物或核心胶囊",
+          "id": "M3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评玩家是否通过已采用的进度对象（机器定额、秘密、数据核心、钥匙卡或等效）组合出通往完成的路径。不要求同时采用 MACHINES/SECRETS/CORES 三套，也不要求黄色 Overseer。读数是否跟上归 V2；对象形体归 A1/A2。",
+      "evidence": {
+        "coverage": "跨楼层看对象与通路关系；不要求三套计数都用。",
+        "kind": "whole_scope",
+        "unit": "至少两类已采用进度对象从出现到改变"
+      },
+      "full_credit": "已采用的进度对象在世界层可到达、可改变状态，并且后续通路或完成条件依赖这些改变，而不是只改计数。",
+      "group": "M",
+      "high_score_requirements": [
+        "进度对象在到达前能在房间里定位，不是只存在于 HUD。",
+        "至少两类已采用规则叠在同一段路径上（例如先清机器再过通风口，或先取卡再开门）。",
+        "完成条件能追溯到这些对象的改变，而不是时间到了自动结算。"
+      ],
+      "id": "M3",
+      "inspired_by": [
+        "magnet-dash:M3"
+      ],
+      "partial_credit": "有进度对象但改变后通路不变；或计数在动、玩家从未走到对应物体。未采用的可选进度标 not_applicable。",
+      "title": "进度对象组合通向完成",
+      "zero_credit": "充分覆盖后没有任何可组合的进度对象，完成与探索操作无关。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R013",
+            "R045",
+            "R067"
+          ],
+          "observation": "R001 FLOOR 1 INTAKE BAY，COLD-START THE VAULT. REACH THE EXIT INTERLOCK.，0:00/PAR 0:45；R013 FLOOR 2 CONDUIT SPINE；R045 FLOOR 4 COOLANT RING；R067 FLOOR 5 CORE APPROACH，PAR 改为 1:05。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R114",
+            "R119"
+          ],
+          "observation": "R114 FLOOR 6 OVERSEER VAULT，OVERSEER DESTROYED – VAULT UNSEALED；R119 VAULT OPEN 卡，FINAL SCORE 113200，底部 RUN AGAIN 与 TITLE。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "名义上有地下推进，但玩家被直接放到 VAULT OPEN 结算、无可感知的楼层探索",
+          "id": "M4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评是否存在可辨的开场、推进段、决断完成与重玩入口。不要求恰好六层或必须出现 Overseer。阶段横幅形式归 V3；完成页排版归 V4。失败页未拍到时不因缺死亡画面归零。",
+      "evidence": {
+        "coverage": "需要跨段成立；失败页只在候选展示时评判。重玩按钮是否可点不从像素验证。",
+        "kind": "whole_scope",
+        "unit": "开场、中段楼层、完成页与重玩入口"
+      },
+      "full_credit": "开场任务、至少一段推进、一次完成声明与重玩/返回入口按时间顺序可读；完成不是同一房间循环的暂停。",
+      "group": "M",
+      "high_score_requirements": [
+        "开场、推进与完成能按时间顺序读出，不是同一锈墙走廊循环。",
+        "完成声明一次金库打开或等效决断，而不是无限清机的暂停。",
+        "完成页提供重玩或返回入口，流程可以再走一遍。"
+      ],
+      "id": "M4",
+      "inspired_by": [
+        "shadow-courier:M4"
+      ],
+      "partial_credit": "有开场和完成但中间没有可辨推进；或完成页没有重玩入口。",
+      "title": "开场、递进、完成与重玩闭环",
+      "zero_credit": "充分覆盖后只有一段可玩画面循环，没有任何完成声明。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R013",
+            "R024",
+            "R067"
+          ],
+          "observation": "R001 目标为冷启动金库并到出口互锁，MACHINES 0/5 CORES 0/4，PAR 0:45；R013 改为脊门需要蓝卡，MACHINES 0/8；R024 FLOOR 3 MACHINE STACKS，MACHINES 0/10、PAR 0:50；R067 FLOOR 5 出现 0/11 机器与 3.05 秒通风封闭。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R045",
+            "R102"
+          ],
+          "observation": "R045 COOLANT RING 出现修理单元回机；R102 OVERSEER VAULT 出现整墙高的黄色块状 Overseer，与前层白紫哨兵不同。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "宣称的多楼层只换 FLOOR n 与房间名，机器定额、墙面组织和目标句在正常尺度下看不出差别",
+          "id": "D1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评已展示的多段内容是否在任务句、对象定额或房间组织上形成发展，而不是只换 FLOOR n。层数、PAR 与具体楼名是 GT 手段，等效递进同权。锈墙是否平涂归 A2，不在此扣。",
+      "evidence": {
+        "coverage": "比较开场、中段与后段的任务与对象；不要求难度单调递增，不要求恰好六层。",
+        "kind": "whole_scope",
+        "unit": "至少两段已展示的地下段落"
+      },
+      "full_credit": "后续段落在任务文本、机器/锁定额或房间要素上相对前一段可辨发展；玩家需要用已学规则面对新组合。",
+      "group": "D",
+      "high_score_requirements": [
+        "后段任务不是前段原句换名，能读出新的空间或对象任务。",
+        "至少一段的对象定额或锁定规则明显高于开场。",
+        "房间要素随段落变化（三角墙、波形墙、黄格通风、锈红金库）而不是同一走廊复制。"
+      ],
+      "id": "D1",
+      "inspired_by": [
+        "shadow-courier:D2"
+      ],
+      "partial_credit": "有多层标题，但定额、任务与墙面组织几乎不变，只有房间名不同。",
+      "title": "楼层任务与对象组合的可见发展",
+      "zero_credit": "充分覆盖后只有一段可玩内容，或后段与前段在任务与对象上完全同构。单段紧凑设计若形成完整规则循环，给部分分而不是零。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R013",
+            "R045",
+            "R060"
+          ],
+          "observation": "R013 绿卡在走廊尽头、三角墙占右侧；R045 修理单元停在长廊远端；R060 右侧三角墙切断直线，远点有白色物体，枪口朝向空地。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R067",
+            "RD055"
+          ],
+          "observation": "R067 黄格通风墙封住正面通路；RD055 白紫块状单位挡在锈红走廊中轴，远端还有第二个单位。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "名义上有机器与出口互锁，但出生格子就贴着目标对象，走位从不改变到达代价",
+          "id": "D2-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评地下房间是否把移动与目标放进同一空间：机器、通风口或出口互锁在到达前可见，走位改变到达代价。墙体是否提供碰撞不能从像素推断。哨兵是否追人归 M2，不在此评竞争。",
+      "evidence": {
+        "coverage": "需要看到从当前位置到机器/门/通风口的距离；不推断墙体的碰撞体积。",
+        "kind": "overview",
+        "unit": "含目标与行进距离的正常游玩帧"
+      },
+      "full_credit": "目标对象位于可感知距离之外；玩家必须穿越走廊或转弯才能到达；墙面转折使直线接近不是唯一无代价路线。",
+      "group": "D",
+      "high_score_requirements": [
+        "机器、通风口或出口在到达前就能在房间中定位，且与出生点有可感知距离。",
+        "转弯或墙垛出现在行进路径上，而不是只摆在镜头外装饰。",
+        "同一条走廊里目标与威胁可以同时存在，走位需要选择。"
+      ],
+      "id": "D2",
+      "inspired_by": [
+        "shadow-courier:D1"
+      ],
+      "partial_credit": "有目标但紧贴出生点，走位几乎不改变到达代价；或转折只是装饰、从不挡在路线上。",
+      "title": "房间走位改变到达代价",
+      "zero_credit": "充分覆盖后没有可到达的目标路径，走位不改变任何对象可达性。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R013",
+            "R045",
+            "R067"
+          ],
+          "observation": "R013 在 CONDUIT SPINE 同时给出蓝卡开门与机器定额；R045 清机过程中插入修理单元回机；R067 进入新层立刻面对通风封闭，MACHINES 0/11 与 VENT 计时同屏。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R094",
+            "R114"
+          ],
+          "observation": "R094 金库层同时有 VENT OPEN 倒计时、REPAIR UNIT CALLED 与 MACHINES 0/6；R114 仍在 VENT SEALED 计时下出现 OVERSEER DESTROYED。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "有蓝卡或通风口文案，但门与通风口从不挡住路线，计时只是装饰横幅",
+          "id": "D3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评后续挑战是否要求同时使用已学规则（定额清机、钥匙卡开门、通风口等待、修理单元回机等已采用者），而不是每层只练一个孤立动词。未采用的锁/通风标 not_applicable，不扣满分。",
+      "evidence": {
+        "coverage": "比较开场单任务与后段叠规则；不要求必须用卡和通风口两套。",
+        "kind": "whole_scope",
+        "unit": "至少一段同时出现两类规则的后半房间"
+      },
+      "full_credit": "至少一段后半内容把两类已采用规则叠在同一空间：例如通风口计时与清机同时在场，或取卡与开门同一路径。",
+      "group": "D",
+      "high_score_requirements": [
+        "后段能指出玩家正在同时处理两类规则，而不是连续做两次同样的清机。",
+        "被组合的规则在世界层都有对象，不是只有第二条横幅。",
+        "组合出现在推进中段或后段，开场不必一上来叠满。"
+      ],
+      "id": "D3",
+      "inspired_by": [
+        "magnet-dash:D2"
+      ],
+      "partial_credit": "多层都有新文案，但玩家每层仍只需做开场那个单一动作。",
+      "title": "已学规则在后续房间被组合",
+      "zero_credit": "充分覆盖后规则从不组合，每层都是同一动词换房间名。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R029",
+            "R094",
+            "R102"
+          ],
+          "observation": "R029 红条纹块状单位立在锈墙前，轮廓与墙面分层；R094 白红条加闪电标记的修理单元；R102 黄色块状 Overseer 带黑眼与胸前圆标，高度接近整面锈墙。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R045",
+            "RD055"
+          ],
+          "observation": "R045 远端白红修理单元在长廊中轴可读；RD055 近距白紫块状单位与右侧锈墙、白色 ARC CUTTER 三分。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "哨兵、修理单元与黄色 Overseer 在行为上有差别，但形体与锈墙箱体无法区分，只能靠横幅知道场上有单位",
+          "id": "V1-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评正常游玩尺度下块状哨兵、修理单元、黄色 Overseer 或等效威胁能否与锈墙、拾取物和第一人称枪区分，并在到达作用距离前被定位。未采用战斗时改评可操作机器与墙面的区分。命中反馈归 A4。",
+      "evidence": {
+        "coverage": "各层含对象的帧，尤其近距；小于十余像素的远点只记限制，不写成缺陷。",
+        "kind": "overview",
+        "unit": "含威胁或可操作对象的正常游玩帧"
+      },
+      "full_credit": "威胁或可操作对象进入画面时就能与墙面和拾取物区分；所在方向清楚；同屏多对象时每只都能单独定位。",
+      "group": "V",
+      "high_score_requirements": [
+        "近距单位能在作用前从形体辨认，不依赖 MACHINES 数字。",
+        "哨兵、修理单元与拾取物是可一眼区分的轮廓语言。",
+        "同屏多单位时每只都能单独定位到走廊位置。"
+      ],
+      "id": "V1",
+      "inspired_by": [
+        "shadow-courier:V4"
+      ],
+      "partial_credit": "对象与墙面对比不足导致误读；或行为不同的单位在形体上无法预先区分。",
+      "title": "机器、威胁与修理单元的预读",
+      "zero_credit": "充分覆盖正常游玩后，无法判断场上是否有可作用对象或其所在方向。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R007",
+            "R038",
+            "R060"
+          ],
+          "observation": "左上 FLOOR/MACHINES/SECRETS/CORES 成组，右上本层时钟与 PAR；底栏 INTEGRITY/KILLS/SCORE/RESPONSE 与武器名。R007 秘密横幅出现时 SECRETS 已是 1/1、MACHINES 2/5；R038 ALL MACHINES DESTROYED 时 MACHINES 10/10；R060 MACHINES 9/10、INTEGRITY 25、SCORE 70000、武器 REPEATER。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R067",
+            "R117",
+            "R119"
+          ],
+          "observation": "R067 VENT SEALED 与 MACHINES 0/11 同屏，INTEGRITY 34、SCORE 91000；R117 LAST DATA CORE SECURED 时 CORES 2/2；R119 结算 AVERAGE KILLS 81%、SECRETS 83%、DATA CORES 29%、TOTAL TIME 5:26。CLICK TO TAKE CONTROL 居中偏下，未挡住底栏数字。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "世界层已出现机器被毁、秘密拾取或完整性下降，但 MACHINES / SECRETS / CORES / INTEGRITY 持续不更新或与事件方向相反；机制后果是否存在归 M 组",
+          "id": "V2-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "底栏或 CLICK TO TAKE CONTROL 持续挡住近距机器、通风口或出口互锁面板",
+          "id": "V2-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评楼层、进度、完整性与计时是否成组可读，并与已发生的世界事件同向。机制后果是否存在归 M 组，本条只评读数是否跟随。界面遮挡在此评。不要求必须使用 FLOOR/MACHINES/PAR 这些字段名。",
+      "evidence": {
+        "coverage": "开场、清机、换层与完成；不要求特定字段名。遮挡只在此记。",
+        "kind": "overview",
+        "unit": "各层正常游玩 HUD"
+      },
+      "full_credit": "关键读数分组稳定（楼层与定额、完整性、计时），字号与对比在正常尺度可读；机器被毁、秘密拾取或完整性变化后对应读数同向更新；提示不长期挡住机器或出口。",
+      "group": "V",
+      "high_score_requirements": [
+        "楼层定额、完整性与计时分成稳定的信息组，主次靠位置与字号可分。",
+        "清机、拾取与受击后，对应读数在下一可读帧同向更新。",
+        "提示条与底栏不挡住当前机器、通风口或正在对准的单位。"
+      ],
+      "id": "V2",
+      "inspired_by": [
+        "shadow-courier:V3"
+      ],
+      "partial_credit": "读数能读但不成组或主次颠倒；或个别事件后读数滞后；或提示偶尔挡住目标。",
+      "title": "状态读数成组并与世界同步",
+      "zero_credit": "充分覆盖后没有任何可读的进度或失败信息，玩家无法从画面知道自己在哪一层或是否还能继续。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R007",
+            "R038"
+          ],
+          "observation": "R001 中央 COLD-START THE VAULT. REACH THE EXIT INTERLOCK.；R007 LAST SECRET FOUND；R038 ALL MACHINES DESTROYED。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R067",
+            "R094",
+            "R114",
+            "R117"
+          ],
+          "observation": "R067 VENT SEALED – OPENS IN 3.05；R094 VENT OPEN – SEALS IN 0.65 与 REPAIR UNIT CALLED 1 MACHINE；R114 OVERSEER DESTROYED – VAULT UNSEALED；R117 LAST DATA CORE SECURED。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "进入新楼层只有左上 FLOOR 数字变化，没有中央任务句或 LAST SECRET / ALL MACHINES / OVERSEER DESTROYED 一类阶段句",
+          "id": "V3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评进入新层、定额完成、通风口状态与金库解封是否有可归因的即时信号。信号形式是本条唯一计分处；楼层段是否存在归 M4。",
+      "evidence": {
+        "coverage": "需要看到状态切换附近的帧；横幅动画平滑度不作要求。",
+        "kind": "overview",
+        "unit": "换层、定额完成、通风口或解封各至少一次"
+      },
+      "full_credit": "进入新层有任务句，定额完成、通风口开闭与关键对象解决各有可辨提示，出现时机与状态改变一致，退出后不永久挡住场地。",
+      "group": "V",
+      "high_score_requirements": [
+        "进入、定额完成与解封各有可归因信号，不互相复用到无法分辨。",
+        "提示出现在对应事件发生的同一时段，而不是提前或永久滞留。",
+        "大字提示退出后房间与 HUD 恢复可玩，不挡住下一目标。"
+      ],
+      "id": "V3",
+      "inspired_by": [
+        "magnet-dash:V2"
+      ],
+      "partial_credit": "只有部分阶段有提示，或提示与实际状态不符（未完成却显示 ALL MACHINES DESTROYED）。",
+      "title": "楼层进入与阶段完成的即时信号",
+      "zero_credit": "充分覆盖换层与定额完成后，完全没有任何阶段提示，只能靠数字猜测。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R119"
+          ],
+          "observation": "深紫底上深色卡片，薄荷色 VAULT OPEN；副标题 THE OVERSEER IS SCRAP AND THE CORE VAULT ANSWERS TO NOBODY.；统计 AVERAGE KILLS 81%、AVERAGE SECRETS 83%、AVERAGE DATA CORES 29%、TOTAL TIME 5:26；大字 FINAL SCORE 113200；底部浅蓝 RUN AGAIN 与浅绿 TITLE。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "VAULT OPEN 页有 RUN AGAIN，但标题、KILLS/SECRETS/CORES 百分比与 113200 级分数同一字号挤成一块",
+          "id": "V4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评决断完成页是否能读出结果语义、关键统计与下一步操作。失败页未拍到时只评已展示的成功页；按钮皮肤归 A3。",
+      "evidence": {
+        "coverage": "只评拍到的成功或失败页；按钮是否可点不验证。无失败页为 unknown，不是本条零分。",
+        "kind": "overview",
+        "unit": "已展示的完成页"
+      },
+      "full_credit": "完成页有结果标题、可扫读的统计层级与重玩/返回入口；标题与按钮主次可分。",
+      "group": "V",
+      "high_score_requirements": [
+        "结果标题先于统计被读到，统计行对齐且单位清楚。",
+        "重玩与返回是独立操作位，不是埋在正文里的两个单词。",
+        "完成语义（金库打开或失败）不需要靠猜测数字才能分辨。"
+      ],
+      "id": "V4",
+      "inspired_by": [
+        "shadow-courier:D5"
+      ],
+      "partial_credit": "有完成字样但统计与操作挤成一堆，或重玩入口与正文无法区分。",
+      "title": "完成页可读且有重玩入口",
+      "zero_credit": "充分覆盖流程结束后没有完成页，或完成页没有任何重玩/返回入口。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R060",
+            "R067"
+          ],
+          "observation": "R001 右下黄色 Kenney 形 BLASTER，枪管与弹夹可读；R060 换成橙色短管 REPEATER；R067 白色紫握把 ARC CUTTER，三者轮廓不同。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R102",
+            "R038"
+          ],
+          "observation": "R102 黄色块状 Overseer 有眼窝与胸标，立在锈红墙前；R038 绿条 RAM 与红十字箱落在波形地面上，体积小于枪身。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "游玩中能看到第一人称枪，但枪身始终是无法分辨 BLASTER/REPEATER/ARC CUTTER 的细棍，块状哨兵被压成与锈墙同色的矩形",
+          "id": "A1-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "武器或块状角色在正常尺度下被拉到半屏模糊，且贯穿已展示的地下楼层",
+          "id": "A1-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评正常游玩尺度下第一人称武器与块状角色的可辨轮廓、比例与接地。几何或素材改造同权。射击时的形态变化归 A4。未采用 Kenney 爆破枪或块状人套件不扣分。",
+      "evidence": {
+        "coverage": "不要求使用给定 blaster/blocky 套件；3D glb 无可靠预览，不从文件名想象几何。事件姿态归 A4。",
+        "kind": "overview",
+        "unit": "各层含武器与单位的正常尺度帧"
+      },
+      "full_credit": "武器有可辨的枪身与握把，块状单位有独立头身轮廓；二者与房间比例协调，没有模糊拉伸到只能定位。",
+      "group": "A",
+      "high_score_requirements": [
+        "武器与块状单位在正常尺度下各有可辨轮廓。",
+        "主体与房间、拾取物的比例协调，给定素材若被采用则边缘清晰。",
+        "同一机位下枪、哨兵与修理单元不属于同一剪影。"
+      ],
+      "id": "A1",
+      "inspired_by": [
+        "sokoban:A2"
+      ],
+      "partial_credit": "能认出是枪，但型号或朝向在多层中丢失；或单位缩成无法辨认的点。更小或与 GT 不同的几何体本身不是缺陷。",
+      "title": "枪械与块状单位的主体形体",
+      "zero_credit": "充分覆盖后无法从房间中辨认武器或任何可操作主体。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R038",
+            "R060"
+          ],
+          "observation": "R001 锈斑墙、点阵吊顶、冲孔地板；R038 深色波形凹墙形成通道；R060 左侧锈板、右侧棕三角镶嵌墙，地面有长圆孔金属步道。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R067",
+            "R117"
+          ],
+          "observation": "R067 正面黄格通风墙与两侧锈板分层；R117 浅青面板带网格线，橙白胶囊立在面板前，与锈红金库墙不是同一表面。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S019",
+            "S028",
+            "S037"
+          ],
+          "observation": "素材联系图上的锈蚀金属、菱形步道与三角镶嵌预览与 R001/R060 世界层墙地同族；GT 把它们当作有厚度的墙/地，不是铺满镜头的贴纸。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "锈蚀金属或三角墙纹理被当成无厚度的全屏贴图，房间没有可走的墙角与地面分层",
+          "id": "A2-C1",
+          "max_credit": 0.5
+        },
+        {
+          "condition": "机器、出口互锁或通风口只是与墙同色的矩形，没有任何面板、台面或格栅形态",
+          "id": "A2-C2",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评房间是否形成可读的地面、墙角、通风口与远景层次。给定金属/步行道纹理的整合在此评；原样铺成无厚度全屏贴图在此记。楼层是否递进归 D1。",
+      "evidence": {
+        "coverage": "评场所组织与素材整合；不要求用完 ambientCG 或 glb 套件。3D 敌人模型无预览时不从文件名想象。",
+        "kind": "overview",
+        "unit": "各层房间全帧"
+      },
+      "full_credit": "地面、墙面转折与通风口/出口面板形成可理解的场所；表面重复可以，但通道有墙角与厚度，不是无边界色板。",
+      "group": "A",
+      "high_score_requirements": [
+        "墙角、地面步道与通风口/出口构成前中后景，通道可被眼睛跟踪。",
+        "给定金属纹理若被采用，是作为墙面或地面，而不是贴在镜头上的错透视贴图。",
+        "出口互锁或通风口有独立形态，能在到达前从房间中认出。"
+      ],
+      "id": "A2",
+      "inspired_by": [
+        "sokoban:A2"
+      ],
+      "partial_credit": "有锈墙但机器只是墙面色差；或纹理与透视打架；或全场同一密度没有通道感。",
+      "title": "锈蚀地下房间的场所组织",
+      "zero_credit": "充分覆盖后场馆是无墙角、无对象形态的纯色空间。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R119"
+          ],
+          "observation": "游玩态用宽距几何无衬线、浅黄任务句；底栏是深色条槽。R119 标题同族薄荷大字，RUN AGAIN / TITLE 为两枚圆角胶囊，一张深色卡片压在紫网格上。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "S073",
+            "S074",
+            "S064"
+          ],
+          "observation": "fonts-01 的 Kenney Future 宽体字样与 HUD/VAULT OPEN 标题同族；assets 里的圆角按钮预览与 R119 胶囊外形相近。不证明文件加载。",
+          "source_id": "provided_assets"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "代表性的主要界面虽已有分组、底板或字号差，但核心信息的重要性与视觉重量长期明显相反，或主要信息组仍没有可辨阅读顺序，导致这一状态的主要编排关系实质缺失。须指出具体角色和范围；常见字体、纯文字、缺少面板或一个局部修饰问题均不触发。",
+          "id": "A3-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评价当前状态、目标提示、交互读数与结局的实际视觉编排。重点是信息角色、文字/图形比例、留白与对齐、状态重点共同形成的界面设计；正确显示信息、有字号差或使用统一颜色只证明相应的局部成果。下列 GT 观察是设计作用的实例，具体颜色、字体、图标、面板和固定位置不构成复刻要求。",
+      "evidence": {
+        "coverage": "代表性正常界面与原录像覆盖的状态画面并列查看；关键文字及组间比例需要正常尺度全帧。只评价本任务已采用且已展示的组成。",
+        "kind": "overview",
+        "unit": "游玩 HUD 与完成页"
+      },
+      "full_credit": "当前状态、目标提示、交互读数与结局在正常观看尺度下按当前任务的重要性形成清楚的视觉重量和阅读顺序；主要目标或行动状态有充分强调，名称、数值、辅助说明的比例、距离和对齐体现各自语义，弱化的信息仍有适当可读性。地下探索、交互与完成状态根据状态用途重新组织视觉中心、疏密与留白，同时延续可辨的字体角色或图形关系。整体编排已经形成完整、合乎内容的界面，不能仅由几组标签、标题放大和配色统一来证明。纯文字可以充分完成设计；仅评价实际采用的可选读数、图标、按钮和统计，不要求另加组件、面板或独立结果屏。",
+      "group": "A",
+      "high_score_requirements": [
+        "当前探索/操作目标、行动资源与辅助说明在正常画面中的视觉重量与当前用途匹配。指出强调了谁、弱化了谁以及字号/对比/位置/留白如何共同完成这一关系；仅列出标签和分组不算完整证据。",
+        "具体信息组内部与组间的比例、对齐和疏密共同形成阅读节奏，名称、读数、说明之间的联系清楚；同一字体、同一颜色或一条底板不自动证明这些关系完成。",
+        "地下探索、交互与完成状态各自的视觉中心与内容相称，状态变化通过实际编排表达用途变化；保持相同颜色或把一行字放大不足以单独证明完整，但有意义的简洁文字构图可以完整成立。",
+        "字体角色、形状、边缘或强调关系在整套界面中得到有目的的运用；需要说明具体处理产生了什么视觉效果，不能用‘没冲突、可读、风格统一’替代正面完成证据。"
+      ],
+      "id": "A3",
+      "inspired_by": [
+        "strategy-skirmish:A1"
+      ],
+      "partial_credit": "按已形成和未完成的设计关系连续判断：能读到文字但关键目标/状态的视觉重量弱于装饰性标题；标签与数值或相关说明靠简单并排仍缺少有效分组与阅读顺序；主次虽然有字号差，尺度、对比或留白却未配合语义；结果内容只是换字沿用普通读数排法，没有围绕已有完成信息形成视觉中心；局部做了边框或强调色，但主要界面仍缺乏上述编排。指出具体区域、相互比较的信息角色和可见后果，不能只说普通、简陋或缺乏高级感。仅有轻微间距问题时按局部损失判断；不能把缺少图标/插画、使用常见字体、不同字体家族或极简风格本身当缺陷。某信息是否缺失或错误归功能视觉项；本项须评价已展示信息怎样被设计，不能复用同一功能缺失扣分。",
+      "title": "界面的完整视觉编排",
+      "zero_credit": "所需观察范围充分时，主要界面完全没有实际视觉编排，只有无法形成信息角色或阅读顺序的散置占位内容。已经形成有效的局部编排应给部分完成度；没有拍到状态不等于没有设计。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R038",
+            "R045",
+            "R117"
+          ],
+          "observation": "R038 清机横幅出现时地面已落下 RAM 与急救箱，不是空地瞬间打上字；R045 修理单元从走廊远端进入视野，同时出现 REPAIR UNIT CALLED；R117 胶囊立在浅青面板前，与 LAST DATA CORE SECURED 同帧。",
+          "source_id": "reference_video"
+        },
+        {
+          "frame_ids": [
+            "R067",
+            "R094",
+            "RD055"
+          ],
+          "observation": "R067 黄格墙与 VENT SEALED 3.05 同在；R094 同一金库层改为 VENT OPEN 0.65；RD055 白紫单位沿走廊接近，枪口对准中轴。已看全帧未采到清晰枪口火焰，密集联系图有接近过程。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "已采用的开火或机器摧毁至少一类只有 MACHINES 计数变化，枪口或对象处没有过程",
+          "id": "A4-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评已采用事件在世界层是否有过程、位置绑定与节奏。本条是这些事件反馈的唯一计分处。未采用射击时，开火部分标 not_applicable，改评已采用的拾取或门/通风过渡。",
+      "evidence": {
+        "coverage": "依赖密集片段判断过程；只有总览抽帧时本条可为 unknown。音频不评。",
+        "kind": "action_sequence",
+        "unit": "一次开火或一次摧毁，以及一次拾取或通风过渡"
+      },
+      "full_credit": "已采用的开火或摧毁在对象处有可归因信号；拾取有离开地面的过程；通风口或门锁有开闭过渡；多事件同屏时不淹没主体。",
+      "group": "A",
+      "high_score_requirements": [
+        "摧毁或拾取能在对象位置看到变化，而不是只有左上数字跳动。",
+        "通风口或门锁若被采用，开闭有可见过渡，不是墙面瞬间替换。",
+        "修理单元或哨兵的接近过程可在连续帧中跟踪。"
+      ],
+      "id": "A4",
+      "inspired_by": [
+        "shadow-courier:A4"
+      ],
+      "partial_credit": "部分已采用事件只有计数变化，对象处没有过程；或效果出现在错误位置。",
+      "title": "开火、摧毁、拾取与通风的世界层过程",
+      "zero_credit": "充分覆盖已采用事件后，所有状态都是无过程的瞬间切换。"
+    },
+    {
+      "basis": [
+        {
+          "frame_ids": [
+            "R001",
+            "R060",
+            "R102",
+            "R119"
+          ],
+          "observation": "从 INTAKE BAY 到 COOLANT RING 到 OVERSEER VAULT 都是锈板/三角墙加第一人称几何枪与宽体 HUD；R119 结算仍用同族宽体标题与圆角胶囊，不像系统对话框。",
+          "source_id": "reference_video"
+        }
+      ],
+      "caps": [
+        {
+          "condition": "代表性的正常画面中，主体、场所、效果和信息层虽各自存在，但跨部分的主要行动焦点或空间层次持续未建立：须有具体比例、明暗、遮挡或布局关系使主要行动被压成次要点或各部分无法形成同一空间的证据。配色一致不能豁免；个别装饰不足、单帧重叠或局部细节缺失不触发。",
+          "id": "A5-C1",
+          "max_credit": 0.5
+        }
+      ],
+      "description": "评价行动主体/持有物、地下空间、交互对象与信息层共同组成的整幅画面怎样表现探索地下系统并理解、组合可见规则。本项需要跨部分构图、比例、空间与注意力层次的正面成果；能够认出同一游戏、配色一致或没有严重风格冲突只证明有限的协调。不再次评价 A1–A4 的局部制作水平，不把 GT 的具体风格和配色变成强制答案。",
+      "evidence": {
+        "coverage": "以多个独立阶段的正常全帧检查整体关系，并与原录像覆盖的状态画面比较；不以单一漂亮结果页补偿游玩画面的主要关系缺失。",
+        "kind": "whole_scope",
+        "unit": "开场、中段楼层、结算跨状态"
+      },
+      "full_credit": "当前通路、对准/操作对象与目标在代表性画面中形成有目的的关注关系；主体所占视觉重量、场所的衬托、效果的强调和信息层的介入共同表现探索地下系统并理解、组合可见规则。各部分在尺度、明暗/色彩、边缘与空间上的配合形成完整画面，能指出主体如何处于场所中、效果如何依附其对象、界面如何配合当前状态。跨已展示的阶段与结果，视觉语言通过这些关系延续并适应状态变化；统一调色、重复字体或相同像素边不能代替整体构图与氛围的完成。几何、极简、像素、混合渲染和主题变化均可完整成立，不要求增加装饰或效果种类。",
+      "group": "A",
+      "high_score_requirements": [
+        "当前通路、对准/操作对象与目标的关注顺序由整幅构图、视觉重量与场景衬托共同组织，具体说明至少两个部分如何相互支持。对象存在、能定位或颜色区分开，只是这项成果的一部分。",
+        "行动主体/持有物、地下空间、交互对象与信息层之间的尺度、明暗/色彩、边缘或空间关系共同形成探索地下系统并理解、组合可见规则的表现，举出画面中实际成立的整合关系；不能仅凭共享调色或材质名称判完整。",
+        "已展示的游玩阶段与结果通过构图、强调、形态或空间关系延续同一视觉方向，并适应各状态的用途；只复用一种颜色或字体并不能单独证明整套呈现完成。"
+      ],
+      "id": "A5",
+      "inspired_by": [
+        "strategy-skirmish:A1"
+      ],
+      "partial_credit": "按尚未建立的跨部分关系及其重要性给连续分：颜色相近却只是主体、平面场地、标记和顶栏的并置，比例与明暗没有共同组织主要行动；效果、装饰或信息层的面积/对比持续压过应被关注的世界主体或目标，使行动中心退化为画面的次要点；物件、地面和效果各自可辨，却在接地、遮挡或视觉尺度上缺乏联系，整幅画面的空间表现未形成；游玩与结果只复用颜色，实际构图和强调关系没有支持其体验的延续。必须指出至少两个部分之间的可见关系与结果，不能以‘拼装感、没氛围’概括，也不能再次列角色缺细节、地面少装饰或界面字小作为独立扣分。局部轻微不协调按局部判断；不同风格、稀疏场景、明亮特效或大界面并不自动证明失败。",
+      "title": "整体构图与美术整合",
+      "zero_credit": "代表性画面中各部分没有共同形成可辨的主要行动、空间层次或整体表现方向，只有互不关联的内容并置。已形成的实际关系应保留部分完成度；不能因画风不合偏好给零分。"
+    }
+  ],
+  "rubric_version": "2026-09-19.vlm-art-relationships-v1",
+  "score_curve": {
+    "caps_scale": "final_score",
+    "exponent": 3,
+    "input": "attainment",
+    "missing_evidence": null,
+    "name": "power"
+  },
+  "self_review": {
+    "overlap": "事件唯一归属：位移与动词导致对象退出 → M1；INTEGRITY/锁定下降与恢复 → M2；进度对象组合通向完成 → M3；开场/推进/完成/重玩是否存在 → M4；楼层内容发展 → D1；走位距离代价 → D2；已学规则组合 → D3；威胁/机器预读 → V1；HUD 成组、读数同步、遮挡 → V2；阶段横幅 → V3；完成页组织 → V4；持久形体 → A1；房间与纹理整合 → A2；界面图形语言 → A3；开火/摧毁/拾取/通风过程 → A4；跨部分关系 → A5。跨条目双罚结论：单走廊——只有一层空走廊归 D1 零分（无递进）；多层但每层出生即贴着出口只触发 D2-C1，D1 不因走位短再扣。全平涂——锈墙平涂只归 A2-C1，D1 只比任务与定额，不因材质扣。对手不竞争——哨兵不追人或不掉 INTEGRITY 归 M2，D2 只评到达距离，不因敌人不拦截再扣。碰撞无后果——动词后对象不退出归 M1 零分；对象已退出但 MACHINES/SECRETS/CORES/INTEGRITY 不更新只触发 V2-C1，M 组不因计数器没变扣分。段间无信号——楼层段不存在归 M4；有换层但只有 FLOOR 数字、无中央任务句只触发 V3-C1。结果页无分组——标题/百分比/按钮层级归 V4-C1；字体与胶囊皮肤归 A3，同一页不两边各扣一次。D1/D3：D1 比后段是否换任务，D3 比是否叠两类规则；只换定额不叠规则触发 D3-C1 或 D3 部分分，不再用 D1-C1 重罚。D2/D3：走位短归 D2，锁/通风不挡路归 D3-C1。",
+    "scope": "16 项（M4/D3/V4/A5）。按 brief 把地下网格操作、明确状态变化、挑战递进、失败/非法与恢复、完成闭环作为必需。六层、射击、三把枪、PAR、数据核心、Overseer 作为自由：未采用 → not_applicable。本游戏多层且有锁/通风组合，故 D 组 3 条而不是套 4/3/4/5。失败页未拍到，M4/V4 不因缺失败画面归零。",
+    "uncertainties": "单次机器摧毁的完整退出未在密集全帧采到，只看到定额到达 10/10 与结算页。枪口火焰未在已看全帧确认。死亡未出现。R007 底栏 24 的字段归属不明。未建立独立语义审查证据。未建立人工分数校准证据。",
+    "unsupported_obligations": "未要求：恰好六层、必须射击、必须三把枪、必须出现 Overseer、必须采用 PAR 或数据核心、Kenney/ambientCG/glb 套件用完、标题页、失败页、写实机甲、音频。GT 做法只写在 basis。"
+  },
+  "task_map": {
+    "freedom": [
+      "具体格子动词、谜题拓扑、推进结构、主题与反馈。",
+      "GT 的六层楼名、射击、BLASTER/REPEATER/ARC CUTTER、机器/秘密/核心计数、PAR、黄色 Overseer 都是例子，不是满分前提。"
+    ],
+    "required": [
+      "紧凑的地下网格/系统：探索并操作格子状态，学会规则并组合它们，到达可决断的目标。",
+      "状态变化明确；挑战递进；有失败或非法状态、恢复与完成。"
+    ]
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "game_id": "sands_of_the_restless",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "palette/materials-1k/bricks083/color.jpg",
+        "id": "S010",
+        "label": "palette/materials-1k/bricks083/color.jpg"
+      },
+      {
+        "asset_path": "reference_media/visuals/materials/generated/gold_albedo.png",
+        "id": "S036",
+        "label": "reference_media/visuals/materials/generated/gold_albedo.png"
+      },
+      {
+        "asset_path": "reference_media/visuals/materials/generated/temple_stone_albedo.png",
+        "id": "S044",
+        "label": "reference_media/visuals/materials/generated/temple_stone_albedo.png"
+      },
+      {
+        "asset_path": "reference_media/visuals/materials/generated/vm_glove_albedo.png",
+        "id": "S047",
+        "label": "reference_media/visuals/materials/generated/vm_glove_albedo.png"
+      },
+      {
+        "asset_path": "reference_media/visuals/materials/generated/vm_hand_albedo.png",
+        "id": "S050",
+        "label": "reference_media/visuals/materials/generated/vm_hand_albedo.png"
+      },
+      {
+        "asset_path": "reference_media/visuals/materials/generated/vm_metal_albedo.png",
+        "id": "S053",
+        "label": "reference_media/visuals/materials/generated/vm_metal_albedo.png"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "palette/hdri/qwantani_noon_puresky_1k.hdr",
+        "palette/materials-1k/bricks083",
+        "palette/materials-1k/granite003a",
+        "palette/materials-1k/ground054",
+        "palette/materials-1k/rock023",
+        "palette/materials-1k/tiles139",
+        "reference_media/assets/materials-1k",
+        "reference_media/audio/generated",
+        "reference_media/visuals/materials"
+      ],
+      "file_count": 59,
+      "font_files": []
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 248.134,
+    "frames": [
+      {
+        "id": "R002",
+        "time_s": 2.11667
+      },
+      {
+        "id": "R003",
+        "time_s": 4.23333
+      },
+      {
+        "id": "R013",
+        "time_s": 25.4
+      },
+      {
+        "id": "R014",
+        "time_s": 27.5167
+      },
+      {
+        "id": "R019",
+        "time_s": 38.1
+      },
+      {
+        "id": "R024",
+        "time_s": 48.6833
+      },
+      {
+        "id": "R027",
+        "time_s": 55.0333
+      },
+      {
+        "id": "R028",
+        "time_s": 57.15
+      },
+      {
+        "id": "R041",
+        "time_s": 84.6667
+      },
+      {
+        "id": "R054",
+        "time_s": 112.183
+      },
+      {
+        "id": "R060",
+        "time_s": 124.883
+      },
+      {
+        "id": "R063",
+        "time_s": 131.233
+      },
+      {
+        "id": "R064",
+        "time_s": 133.35
+      },
+      {
+        "id": "R065",
+        "time_s": 135.467
+      },
+      {
+        "id": "R068",
+        "time_s": 141.817
+      },
+      {
+        "id": "R073",
+        "time_s": 152.4
+      },
+      {
+        "id": "R083",
+        "time_s": 173.567
+      },
+      {
+        "id": "R097",
+        "time_s": 203.2
+      },
+      {
+        "id": "R100",
+        "time_s": 209.55
+      },
+      {
+        "id": "R117",
+        "time_s": 245.533
+      },
+      {
+        "id": "R118",
+        "time_s": 247.65
+      },
+      {
+        "id": "R119",
+        "time_s": 248.117
+      },
+      {
+        "clip": 1,
+        "id": "RD001",
+        "time_s": 49.6268
+      },
+      {
+        "clip": 1,
+        "id": "RD009",
+        "time_s": 50.4268
+      },
+      {
+        "clip": 1,
+        "id": "RD014",
+        "time_s": 50.9268
+      },
+      {
+        "clip": 1,
+        "id": "RD018",
+        "time_s": 51.3268
+      },
+      {
+        "clip": 3,
+        "id": "RD041",
+        "time_s": 198.5072
+      },
+      {
+        "clip": 3,
+        "id": "RD043",
+        "time_s": 198.7072
+      },
+      {
+        "clip": 3,
+        "id": "RD045",
+        "time_s": 198.9072
+      },
+      {
+        "clip": 3,
+        "id": "RD046",
+        "time_s": 199.0072
+      },
+      {
+        "clip": 3,
+        "id": "RD049",
+        "time_s": 199.3072
+      },
+      {
+        "clip": 3,
+        "id": "RD051",
+        "time_s": 199.5072
+      },
+      {
+        "clip": 3,
+        "id": "RD052",
+        "time_s": 199.6072
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.47554950147903957,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Sands of the Restless — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nFight through escalating undead waves, manage limited ammunition and purchases, open the sealed transition, and survive the final chamber.\n\n## Scope boundary\n\nA compact first-person survival campaign with two combat spaces, authored wave quotas, weapons, health and ammunition pressure, purchases, failure, and terminal victory.\n\n## Creative freedom\n\nYou may choose arena dressing, enemy presentation, weapon feel, wave composition, and HUD treatment while preserving the two-stage quota structure.\n"
+}

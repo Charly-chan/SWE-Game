@@ -1,0 +1,117 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "44dfb57cfeb90878560fa69347d59b373b86469d0b46c208a7c6198b78a93de6"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "shadow_walker/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "a44c5db46a7f53427421868937c505724ad052a66e236a0e94f8b8728113635c",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "44dfb57cfeb90878560fa69347d59b373b86469d0b46c208a7c6198b78a93de6",
+    "task_id": "shadow_walker"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "61f905f3045c95541ed9c611e6806c28c7a03aa541a4978afdc833d8fcbe20af",
+    "source_sha256": "57ecfcbbb5f1ade92d02ab9be3775db7114c793df560cd325f908f55eeeaf093"
+  },
+  "passed_route_ids": [
+    "shadow_walker/L0/no_input_no_win",
+    "shadow_walker/C1/level_1_chest_and_exit",
+    "shadow_walker/C2/level_2_chest_and_exit",
+    "shadow_walker/C3/level_3_chest_and_exit",
+    "shadow_walker/L5/whole_game_clear"
+  ],
+  "readings": {
+    "shadow_walker/C1/level_1_chest_and_exit": {
+      "deaths": 1,
+      "frames": 495,
+      "injects": 0,
+      "milestones_reached": [
+        "level_1_item_collected"
+      ],
+      "solution_kind": "tape",
+      "steps": 10,
+      "stop_reason": "scene_changed"
+    },
+    "shadow_walker/C2/level_2_chest_and_exit": {
+      "deaths": 1,
+      "frames": 1301,
+      "injects": 0,
+      "milestones_reached": [
+        "level_2_item_collected"
+      ],
+      "solution_kind": "tape",
+      "steps": 17,
+      "stop_reason": "scene_changed"
+    },
+    "shadow_walker/C3/level_3_chest_and_exit": {
+      "deaths": 1,
+      "frames": 1167,
+      "injects": 0,
+      "milestones_reached": [
+        "level_3_item_collected"
+      ],
+      "solution_kind": "tape",
+      "steps": 21,
+      "stop_reason": "scene_changed"
+    },
+    "shadow_walker/L0/no_input_no_win": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "shadow_walker/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 2981,
+      "injects": 0,
+      "milestones_reached": [
+        "level_1_item_collected",
+        "level_1_exit_reached",
+        "entered_level_2",
+        "level_2_item_collected",
+        "level_2_exit_reached",
+        "entered_level_3",
+        "level_3_item_collected",
+        "level_3_exit_reached"
+      ],
+      "solution_kind": "tape",
+      "steps": 51,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "a44c5db46a7f53427421868937c505724ad052a66e236a0e94f8b8728113635c"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "c2c65fc35c92a11a8cb35f4ae828be5d01f4cc0696c694d44302ab159ab2ffd2",
+  "schema_version": 2,
+  "solution_kinds": {
+    "shadow_walker/C1/level_1_chest_and_exit": "tape",
+    "shadow_walker/C2/level_2_chest_and_exit": "tape",
+    "shadow_walker/C3/level_3_chest_and_exit": "tape",
+    "shadow_walker/L0/no_input_no_win": "tape",
+    "shadow_walker/L5/whole_game_clear": "tape"
+  },
+  "task_id": "shadow_walker",
+  "validated_at": "2026-09-16"
+}

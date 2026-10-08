@@ -1,0 +1,90 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-28T07:50:16+00:00",
+  "interface_requirements": {
+    "O9": {
+      "fields": [],
+      "reason": "reference has no registered anchor expectation",
+      "required": false
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 0,
+        "gb_door": 0,
+        "gb_enemy": 0,
+        "gb_goal": 0,
+        "gb_hazard": 0,
+        "gb_interactive": 0,
+        "gb_player": 1
+      },
+      "dispersion": {},
+      "goal_transition": null,
+      "scene": "res://world/world.tscn",
+      "spawn_goal_distance": null
+    }
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "terraforge",
+  "runtime_assets": {
+    "res://assets/audio/creature_hit.ogg": "4d0096364ba9e46119d2ff6df493fdc101bd2e1efae061da5e5f77a53b3fdcb6",
+    "res://assets/audio/footstep_a.ogg": "d7267e183067757c92c169de2a379abea592cfca6b39bb2e8feea15221ad79fe",
+    "res://assets/audio/footstep_grass.ogg": "fb28781bd22b2eefdc14077f1adf5c94d7fe9c3a130194633b55f3e0d39d9f04",
+    "res://assets/audio/world_bed.ogg": "8ebf53829c692e2e91689b5d371c0867c519069598a61d690a2e4f5b4720e2d4",
+    "res://assets/blocks/terraforge_atlas.png": "63f0cc5785d240dee7ffd5ffba23aa0a3a4b9314a4aad4ecb1633ee96e3fb4bf",
+    "res://assets/fonts/KenneyFuture.ttf": "7a55b07f5968fac872648a7c5e959bd2b93e06f63153b585d56e4d5298ddff61",
+    "res://assets/fonts/KenneyFutureNarrow.ttf": "17e182587a3264dcf9e5b17c055715d5597187546ce81925c64e9184c26d597f",
+    "res://assets/items/alloyframe.png": "d2cbc180046d1403053bd55d8fa09666c6371aaf5257d72c6c95f67c70b3ae14",
+    "res://assets/items/artifact.png": "8145a89eb3175ebae1bfbdeba79949a2e129f1d3fdbdce63e3177c4840ef5623",
+    "res://assets/items/cutter.png": "5f5829aa7aefe99c6736712a13d97f4f6b23272501dbc3db810e4bdeda216cb1",
+    "res://assets/items/delver.png": "4f8053038d2d12dd85c8e08198ab490eaa9eba229a2c659584cf2c500fdaef95",
+    "res://assets/items/hewer.png": "bd75e947692e8c753374b00efb32d42d32c7b64ed88e674d4db9062c628ac85a",
+    "res://assets/items/rive.png": "2724fa99236df7b67f8ae55af50f93acfd5dbfc5a89f9b351d40a814c92ac83a",
+    "res://assets/items/rod.png": "33c53443370d6333c22b8fd7debc633c9ac6f3d986e655a0f8d23636d09b98e8",
+    "res://assets/items/shard_prism.png": "80e0ef8e01e22a891f7ea803306dfef812fde4b3cddc1c5f53678d6a09da5e18",
+    "res://assets/models/Textures/texture-d.png": "c61bc29ec4d96229b979fc9196500afac13c2b448bbab1085832354fb4ef849a",
+    "res://assets/models/creature_drifter.glb": "bd7cbf0d45e58f6809e3249a84502ce629ac53bfa13bc39fb0a83d171faf84bf",
+    "res://assets/models/prop_crystal.glb": "5d7f6c8bce8d1dc7ee62b1841376cda331c4359acfa2b9a11dd7e78c14ea9dbb",
+    "res://assets/models/prop_rock_a.glb": "6dd15390fd96501dcd1454765a17ba61dbbd8d47705dfe5149c8dd92b353ce25",
+    "res://assets/models/prop_rock_b.glb": "40ceafacfaabb0f04f93688fd8696c1464c65512bef219e1459c1f238cbbbe21",
+    "res://assets/models/prop_shrub.glb": "a9620a7d1fb165ae68d323676f80dbb2a9e3aafb21110d18d18d90b07026b91d",
+    "res://assets/models/prop_stump.glb": "e9b0f385f0ef98493ef716a055aa51e0b99efb8445279be7bb8bd83329a4c4af",
+    "res://assets/particles/circle_05.png": "925b8ac284436f74f9cadf0ecd058da1c08fba65c098e4e34fd220603022f02e",
+    "res://assets/particles/star_08.png": "05f24d1ee76c1464074cbca58155e4be517fefd34a7001bb012561647cc3dec3",
+    "res://assets/sky/moon.png": "176642f3a188bcc96ce8004d93420cb88fc1ce77d832572e4130519e5c846241",
+    "res://assets/sky/skybox_side.png": "e7f4958b77f201a1ade5fb9177a6eca931c3bd044ab0d92b86a15b7c363bcdcd",
+    "res://assets/sky/sun.png": "0b073a7ee76d37e1b110e97403dde7ca293949a15954feaed1484d722952edea",
+    "res://assets/ui/bar_bg.png": "7de9ba1d4bca313fd2c02e3595f3d699c1201d84d70a3c69828e56782d585ce7",
+    "res://assets/ui/bar_fill.png": "c91ee37858be6035143a8ae26588741e9350e5f42aed548e3ee00910092239e8",
+    "res://assets/ui/bar_fill_objective.png": "c91ee37858be6035143a8ae26588741e9350e5f42aed548e3ee00910092239e8",
+    "res://assets/ui/button.png": "5d56a6b8c650ca5f4f165b141cb22f7aaf4a9904aa27bbe725757ba93199d3ee",
+    "res://assets/ui/button_pressed.png": "c91ee37858be6035143a8ae26588741e9350e5f42aed548e3ee00910092239e8",
+    "res://assets/ui/crosshair.png": "69612cb89689bb9fe89c4505e3e13b42f12089ae19aa7f9580362c77c5aae84d",
+    "res://assets/ui/panel.png": "89b718275e0adf6e0cbdd3fb5594e8b6fd91755c336b0c877b52381f8aec8a03",
+    "res://assets/ui/prompts/key_a.png": "261f7a663d92429edd5a8b765a2d9428b99eb1d76f93d5b54bb8075d6653df89",
+    "res://assets/ui/prompts/key_d.png": "fc23cdd9652855e0ba1c8e814cd899d0db6ba45c4898387450a310550f44d70e",
+    "res://assets/ui/prompts/key_e.png": "a0d26dd705810c0dc889ebdd76b7a4a339e2e2685a221a405c77fd6ec4ac3ca6",
+    "res://assets/ui/prompts/key_s.png": "7bcbdc129a227b64e8ce9b73d45c22d6a4bbfef2c6bedcce63369890f1681bd7",
+    "res://assets/ui/prompts/key_space.png": "0febc949feed0de17de7b63ab9d7f69924452cd6de5c90b1a07cf1a9a9f8019b",
+    "res://assets/ui/prompts/key_w.png": "ed9ab25ebf561d353b8132ff376f86bf1c71935f10eede937502ca3bbd48355b",
+    "res://assets/ui/prompts/mouse_left.png": "022ef1f0b899e19c12c0a7ed8a01d4b36e433362d3ed10ba43668df607496b15",
+    "res://assets/ui/prompts/mouse_right.png": "20dac0946e039b50e843fb9e0a0f7d6542de98915239bbb4deadad7f043d0636",
+    "res://assets/ui/slot.png": "71eba3550fc4d630930fd0b0dd99b8bef2d7ff7a4df842ee25b668d36dc1f4b7",
+    "res://assets/ui/slot_selected.png": "fb38e9b9a1caf25a9eb926e433e0a503f09a946ae4ead9f212ccbe09237d2153"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

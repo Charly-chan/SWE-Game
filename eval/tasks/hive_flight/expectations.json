@@ -1,0 +1,108 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-27T17:49:11+00:00",
+  "interface_requirements": {},
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 0,
+        "gb_door": 0,
+        "gb_enemy": 1,
+        "gb_goal": 1,
+        "gb_hazard": 6,
+        "gb_interactive": 0,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_hazard": [
+          "x",
+          3
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/startled_hush.tscn",
+      "spawn_goal_distance": 0.8955223881346667
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 0,
+        "gb_door": 0,
+        "gb_enemy": 1,
+        "gb_goal": 1,
+        "gb_hazard": 8,
+        "gb_interactive": 0,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_hazard": [
+          "x",
+          4
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/broken_boughs.tscn",
+      "spawn_goal_distance": 0.9195402299580643
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 0,
+        "gb_door": 0,
+        "gb_enemy": 1,
+        "gb_goal": 1,
+        "gb_hazard": 9,
+        "gb_interactive": 0,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_hazard": [
+          "x",
+          4
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/swarms_reach.tscn",
+      "spawn_goal_distance": 0.9345794393241693
+    }
+  ],
+  "probe_sha256": "fe750d48224bfe79a915c4057b270adbbcdbc421e5b99f56213c3b2b7f746edd",
+  "project": "hive_flight",
+  "runtime_assets": {
+    "res://assets/art/char/attack.png": "0013bff77a757247bd3f40c425e45c76ef55d595c9e62023eb8d3f80a8eb217f",
+    "res://assets/art/char/dead.png": "6d1e14c93d1381d57cf1e30f76859e02197a8e15fd200e396767642070f3b566",
+    "res://assets/art/char/idle.png": "ce3099581da85781822cb5304a8c0a486becd3de8ca7f5bb0f7ab86364fb401d",
+    "res://assets/art/char/jump_end.png": "7be3c2dff3d7f71bd0dc6a5d1b891aa1d073e902c0140dad28e5cbead8b7beb9",
+    "res://assets/art/char/jump_loop.png": "ab02bf104aaf5a114fe2a463354927623a72105c42cccdebe4c6e6b1b347ce6f",
+    "res://assets/art/char/jump_start.png": "5680ce48c62d33ede9613f7b2446fdaf38640f26d52361869f812dd2e22841c4",
+    "res://assets/art/char/run.png": "0c682cf92056f596746571af574df119cafdb079bcd247fbdd9553ff53a90f7f",
+    "res://assets/art/env/buildings.png": "e2fd67600fa4c77f06fc80c2e09492bbf2f198892ae4d87ddd0f049e4ca259ad",
+    "res://assets/art/env/props_rocks.png": "5cf899d30565dae68eaacb1dc8418d94ed573891400e78af21a3aa305456073b",
+    "res://assets/art/env/sky.png": "874b97df2cc65fda0cee0614cd4d10de786ca5c0af7a24f501e71b35c2952169",
+    "res://assets/art/env/tiles.png": "77047e90171680e2fdc498b02cd907208b0236f71211fc833f0161491a8a5d25",
+    "res://assets/art/env/tree_assets.png": "36f1ea1e9309ba99744ccda66ff75f677aab21c8f1f34c47158b96721b37b4e6",
+    "res://assets/art/trees/dark.png": "118193625d9f3b51f350545dd46e2a7aac531e9b896bd66ff95bbee93d276033",
+    "res://assets/art/trees/golden.png": "21629beb137ce6ad6d30d8e220719c15fd00cdcb2479b067d5ffa1319ff82913",
+    "res://assets/art/trees/green.png": "30c0ded67e0aa43b7bb1fa862c70dac308abeebbdc14a7292c2b9fcc60b5aa3c",
+    "res://assets/art/trees/red.png": "1bcfaeea412d99cb502499caa82e83fc5c3e09f33c2eaa9a7bcb5c9a3b6ecf3e",
+    "res://assets/art/trees/treeline.png": "a634bf4016509cb1e50869db55a277ac4168c079494695f38b065f2b0902f688",
+    "res://assets/art/trees/yellow.png": "264ebf4cfa2a135da0416b88d83cdea4925b8ee1b50be5c3940439b446565507",
+    "res://assets/art/ui/hud_base.png": "e66bcb6739384dc644ab87b617108d71a0b58fd9c1a632dabb91a7c07b446514",
+    "res://assets/sfx/ambience.ogg": "35697cbfde073f92df06e828fe2c8676a1f98c07404193e6477ca9202213f80a",
+    "res://icon.svg": "78a0b33ef438fd3cc389cd20992cf559f4ad535bd67b952f56629ec3ed1f92b5"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

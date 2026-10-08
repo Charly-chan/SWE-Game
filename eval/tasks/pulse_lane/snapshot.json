@@ -1,0 +1,2107 @@
+{
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "driver_sha256": "7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742",
+  "endings": {
+    "defeat": "res://scenes/stage_failed.tscn",
+    "run_complete": "res://scenes/game_complete.tscn",
+    "victory": "res://scenes/results.tscn"
+  },
+  "engine": "4.5.1",
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "cf502f71776ef83875d425619aafcbb67cc3b3f43710deea896127b389fc317a",
+    "source_sha256": "76ef9bd88a0317a072c256c24b3818ddd5812d27f98b125a35d2aa250e4d30df"
+  },
+  "levels": [
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          880.0,
+          688.200012207031,
+          0.0
+        ],
+        "min3": [
+          400.0,
+          620.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 0,
+        "alive_before": 0,
+        "attempted": false,
+        "delta": 0,
+        "detail": "this level declares no gb_collectible, so there is nothing to pick up",
+        "effect": {},
+        "target": ""
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://scenes/stage_first_light.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "0 collect-and-deliver cycles then 120 frames on JudgmentLine, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "observed": true,
+          "progress_after": 2.0,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://scenes/stage_first_light.tscn",
+        "scene_before": "res://scenes/stage_first_light.tscn",
+        "target": "JudgmentLine"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_door": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_enemy": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              640.0,
+              620.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 1.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              640.0,
+              688.200012207031,
+              0.0
+            ]
+          ]
+        },
+        "gb_interactive": {
+          "alive": 4,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.333333333333333,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.666666666666667,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.0
+            }
+          ],
+          "total": 4,
+          "world": [
+            [
+              400.0,
+              620.0,
+              0.0
+            ],
+            [
+              560.0,
+              620.0,
+              0.0
+            ],
+            [
+              720.0,
+              620.0,
+              0.0
+            ],
+            [
+              880.0,
+              620.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              640.0,
+              620.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "health": 88.0,
+        "judged_units": 2.0,
+        "life": 88.0,
+        "progress": 2.0,
+        "score": 0.0
+      },
+      "numeric_source": {
+        "health": "declared",
+        "judged_units": "declared",
+        "life": "declared",
+        "progress": "declared",
+        "score": "declared"
+      },
+      "reached": true,
+      "scene": "res://scenes/stage_first_light.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "settle",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_first_light.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_first_light.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_first_light.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_first_light.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_first_light.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_first_light.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_first_light.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_first_light.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_first_light.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_first_light.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "health": 94.0,
+            "judged_units": 1.0,
+            "life": 94.0,
+            "progress": 1.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_first_light.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "health": 94.0,
+            "judged_units": 1.0,
+            "life": 94.0,
+            "progress": 1.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_first_light.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "health": 94.0,
+            "judged_units": 1.0,
+            "life": 94.0,
+            "progress": 1.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_first_light.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "health": 94.0,
+            "judged_units": 1.0,
+            "life": 94.0,
+            "progress": 1.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_first_light.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "health": 88.0,
+            "judged_units": 2.0,
+            "life": 88.0,
+            "progress": 2.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_first_light.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "health": 88.0,
+            "judged_units": 2.0,
+            "life": 88.0,
+            "progress": 2.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_first_light.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 210,
+          "numeric": {
+            "health": 88.0,
+            "judged_units": 2.0,
+            "life": 88.0,
+            "progress": 2.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_first_light.tscn"
+        }
+      ],
+      "spawn": [
+        640.0,
+        620.0,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.5,
+        "y": 0.0
+      },
+      "stop_reason": "goal_no_transition"
+    },
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          880.0,
+          688.200012207031,
+          0.0
+        ],
+        "min3": [
+          400.0,
+          620.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 0,
+        "alive_before": 0,
+        "attempted": false,
+        "delta": 0,
+        "detail": "this level declares no gb_collectible, so there is nothing to pick up",
+        "effect": {},
+        "target": ""
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://scenes/stage_crosswind.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "0 collect-and-deliver cycles then 120 frames on JudgmentLine, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "observed": true,
+          "progress_after": 2.0,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://scenes/stage_crosswind.tscn",
+        "scene_before": "res://scenes/stage_crosswind.tscn",
+        "target": "JudgmentLine"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_door": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_enemy": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              640.0,
+              620.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 1.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              640.0,
+              688.200012207031,
+              0.0
+            ]
+          ]
+        },
+        "gb_interactive": {
+          "alive": 4,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.333333333333333,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.666666666666667,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.0
+            }
+          ],
+          "total": 4,
+          "world": [
+            [
+              400.0,
+              620.0,
+              0.0
+            ],
+            [
+              560.0,
+              620.0,
+              0.0
+            ],
+            [
+              720.0,
+              620.0,
+              0.0
+            ],
+            [
+              880.0,
+              620.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              640.0,
+              620.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "health": 88.0,
+        "judged_units": 2.0,
+        "life": 88.0,
+        "progress": 2.0,
+        "score": 0.0
+      },
+      "numeric_source": {
+        "health": "declared",
+        "judged_units": "declared",
+        "life": "declared",
+        "progress": "declared",
+        "score": "declared"
+      },
+      "reached": true,
+      "scene": "res://scenes/stage_crosswind.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "settle",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_crosswind.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_crosswind.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_crosswind.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_crosswind.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_crosswind.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_crosswind.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_crosswind.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_crosswind.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "health": 94.0,
+            "judged_units": 1.0,
+            "life": 94.0,
+            "progress": 1.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_crosswind.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "health": 94.0,
+            "judged_units": 1.0,
+            "life": 94.0,
+            "progress": 1.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_crosswind.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "health": 94.0,
+            "judged_units": 1.0,
+            "life": 94.0,
+            "progress": 1.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_crosswind.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "health": 94.0,
+            "judged_units": 1.0,
+            "life": 94.0,
+            "progress": 1.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_crosswind.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "health": 94.0,
+            "judged_units": 1.0,
+            "life": 94.0,
+            "progress": 1.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_crosswind.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "health": 88.0,
+            "judged_units": 2.0,
+            "life": 88.0,
+            "progress": 2.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_crosswind.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "health": 88.0,
+            "judged_units": 2.0,
+            "life": 88.0,
+            "progress": 2.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_crosswind.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "health": 88.0,
+            "judged_units": 2.0,
+            "life": 88.0,
+            "progress": 2.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_crosswind.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 210,
+          "numeric": {
+            "health": 88.0,
+            "judged_units": 2.0,
+            "life": 88.0,
+            "progress": 2.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_crosswind.tscn"
+        }
+      ],
+      "spawn": [
+        640.0,
+        620.0,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.5,
+        "y": 0.0
+      },
+      "stop_reason": "goal_no_transition"
+    },
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          880.0,
+          688.200012207031,
+          0.0
+        ],
+        "min3": [
+          400.0,
+          620.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 0,
+        "alive_before": 0,
+        "attempted": false,
+        "delta": 0,
+        "detail": "this level declares no gb_collectible, so there is nothing to pick up",
+        "effect": {},
+        "target": ""
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://scenes/stage_lattice.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "0 collect-and-deliver cycles then 120 frames on JudgmentLine, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "observed": true,
+          "progress_after": 4.0,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://scenes/stage_lattice.tscn",
+        "scene_before": "res://scenes/stage_lattice.tscn",
+        "target": "JudgmentLine"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_door": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_enemy": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              640.0,
+              620.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 1.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              640.0,
+              688.200012207031,
+              0.0
+            ]
+          ]
+        },
+        "gb_interactive": {
+          "alive": 4,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.333333333333333,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.666666666666667,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.0
+            }
+          ],
+          "total": 4,
+          "world": [
+            [
+              400.0,
+              620.0,
+              0.0
+            ],
+            [
+              560.0,
+              620.0,
+              0.0
+            ],
+            [
+              720.0,
+              620.0,
+              0.0
+            ],
+            [
+              880.0,
+              620.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              640.0,
+              620.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "health": 76.0,
+        "judged_units": 4.0,
+        "life": 76.0,
+        "progress": 4.0,
+        "score": 0.0
+      },
+      "numeric_source": {
+        "health": "declared",
+        "judged_units": "declared",
+        "life": "declared",
+        "progress": "declared",
+        "score": "declared"
+      },
+      "reached": true,
+      "scene": "res://scenes/stage_lattice.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "settle",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_lattice.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_lattice.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_lattice.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_lattice.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_lattice.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_lattice.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_lattice.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "health": 100.0,
+            "judged_units": 0.0,
+            "life": 100.0,
+            "progress": 0.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_lattice.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "health": 88.0,
+            "judged_units": 2.0,
+            "life": 88.0,
+            "progress": 2.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_lattice.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "health": 88.0,
+            "judged_units": 2.0,
+            "life": 88.0,
+            "progress": 2.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_lattice.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "health": 88.0,
+            "judged_units": 2.0,
+            "life": 88.0,
+            "progress": 2.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_lattice.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "health": 88.0,
+            "judged_units": 2.0,
+            "life": 88.0,
+            "progress": 2.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_lattice.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "health": 76.0,
+            "judged_units": 4.0,
+            "life": 76.0,
+            "progress": 4.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_lattice.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "health": 76.0,
+            "judged_units": 4.0,
+            "life": 76.0,
+            "progress": 4.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_lattice.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "health": 76.0,
+            "judged_units": 4.0,
+            "life": 76.0,
+            "progress": 4.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_lattice.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "health": 76.0,
+            "judged_units": 4.0,
+            "life": 76.0,
+            "progress": 4.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_lattice.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 4,
+            "gb_player": 1
+          },
+          "frame": 210,
+          "numeric": {
+            "health": 76.0,
+            "judged_units": 4.0,
+            "life": 76.0,
+            "progress": 4.0,
+            "score": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            640.0,
+            620.0,
+            0.0
+          ],
+          "scene_path": "res://scenes/stage_lattice.tscn"
+        }
+      ],
+      "spawn": [
+        640.0,
+        620.0,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.5,
+        "y": 0.0
+      },
+      "stop_reason": "goal_no_transition"
+    }
+  ],
+  "liveness": [
+    {
+      "action": "gb_left",
+      "detail": "gb_left is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    },
+    {
+      "action": "gb_right",
+      "detail": "gb_right is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    },
+    {
+      "action": "gb_up",
+      "detail": "gb_up differs from the idle control on numeric (delta 1000.0 > 0.5); observed with repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "numeric"
+    },
+    {
+      "action": "gb_down",
+      "detail": "gb_down differs from the idle control on numeric (delta 800.0 > 0.5); observed with repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "numeric"
+    },
+    {
+      "action": "gb_jump",
+      "detail": "gb_jump is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    },
+    {
+      "action": "gb_action",
+      "detail": "gb_action is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    }
+  ],
+  "no_input_no_win": true,
+  "no_input_stop_reason": "budget_frames",
+  "notes": [
+    "liveness deadline derived from this project's own structural pass: 19.3 ms/frame median, 19.4 ms/frame worst",
+    "liveness sweep: 2 live / 4 dead against the 420-frame idle control truth/L0#idle420"
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "pulse_lane",
+  "read_failure": "",
+  "taken_at": "2026-09-10T09:20:43+00:00",
+  "version": "1"
+}
