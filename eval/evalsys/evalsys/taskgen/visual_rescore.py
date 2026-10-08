@@ -12,7 +12,7 @@ from .demonstrations import capture_task_visuals, judge_saved_visuals
 from .package import TaskPackage, write_json
 from .scorecard import (
     VISUAL_REGISTRY_VERSION, MODE1_VLM_REGISTRY_VERSION, MODE2_VLM_REGISTRY_VERSION,
-    MODE3_VLM_REGISTRY_VERSION, MODE5_MDVA_REGISTRY_VERSION,
+    MODE3_VLM_REGISTRY_VERSION,
     default_registry_for_mode, registry_policy, score_task_result,
 )
 
@@ -32,18 +32,18 @@ def rescore_visuals(report_path, out, *, visual_inputs=None, package=None,
         ):
             raise ValueError(f"completed output already exists: {out}; use a new directory")
     data = json.loads(source.read_text(encoding="utf-8"))
+    if data.get("mode") == "port":
+        raise ValueError("Mode 5 uses gb mode5 rejudge for retained Community evidence")
     if data.get("mode") == "bugfix":
         raise ValueError("Mode 4 keeps its repair/regression score; no task_visual contribution")
     stored_registry = (data.get("scorecard") or {}).get("registry_version")
     selected_registry = registry_version or (stored_registry if stored_registry in {
         MODE1_VLM_REGISTRY_VERSION, MODE2_VLM_REGISTRY_VERSION, MODE3_VLM_REGISTRY_VERSION,
-        MODE5_MDVA_REGISTRY_VERSION,
     } else None)
     policy = registry_policy(selected_registry, mode=data["mode"]) if selected_registry else None
-    if policy and not (policy.task_visual or policy.mode5_mdva_domain):
+    if policy and not policy.task_visual:
         raise ValueError("Visual rescoring needs a mode-specific VLM registry or 2026-09-11.visual1")
-    if judge is None and policy and (policy.mode1_redesign or policy.progressive_redesign_mode
-                                     or policy.mode5_mdva_domain):
+    if judge is None and policy and (policy.mode1_redesign or policy.progressive_redesign_mode):
         from ..scard.rubric_judge import rubric_judge_from_env
         rubric_judge_from_env().validate_configuration()
     manifest_path = Path(visual_inputs) if visual_inputs else source.parent / "demonstrations/visual_inputs.json"
@@ -80,25 +80,24 @@ def rescore_visuals(report_path, out, *, visual_inputs=None, package=None,
         else:
             raise ValueError("no saved evaluator recording; retain the project/package and use "
                              "--record-missing for Godot, or supply --visual-inputs for a recorded Unity run")
-
-    game_rubric = (bool(policy.mode1_redesign or policy.progressive_redesign_mode
-                        or policy.mode5_mdva_domain) if policy
+    # Recording paths are the evidence. Raw report numbers cannot replace them.
+    game_rubric = (bool(policy.mode1_redesign or policy.progressive_redesign_mode) if policy
                    else game_rubric or bool(manifest.get("game_rubric")))
     scoring_registry = selected_registry or (
         default_registry_for_mode(data["mode"]) if game_rubric else VISUAL_REGISTRY_VERSION)
-    mode5_mdva = registry_policy(scoring_registry, mode=data["mode"]).mode5_mdva_domain
-    visual_item_id = "unity_vlm" if mode5_mdva else "task_visual"
+    visual_item_id = "task_visual"
     selected, _omitted = select_demonstrations(manifest["demonstrations"], manifest["rubric"])
     if (record_missing and data.get("mode") in {"brief", "gdd", "skeleton"}
             and any(not (row.get("film") or {}).get("mp4")
                     or not Path(row["film"]["mp4"]).is_file() for row in selected)):
-
-
+        # External runners can retain the report/project but prune large videos.
+        # A stale manifest should not disable the explicit re-record option.
         manifest = record_retained()
         selected, _omitted = select_demonstrations(manifest["demonstrations"], manifest["rubric"])
     # The game-rubric judge owns failure attribution. In particular, a saved
-
-
+    # candidate-side "no ops tape" record is a complete visual zero, whereas a
+    # missing/undecodable evaluator file is retryable. Do not collapse both to
+    # an exception before that classifier can run.
     if not game_rubric:
         for row in selected:
             film = row.get("film") or {}
@@ -114,7 +113,7 @@ def rescore_visuals(report_path, out, *, visual_inputs=None, package=None,
 
         if manifest.get("game_id") != data["game_id"] or manifest.get("mode") != data["mode"]:
             raise ValueError("Visual evidence manifest belongs to a different game or mode")
-
+        # Apply the task-owned demo cap to this judging scope as well.
         manifest = {**manifest, "demonstrations": selected}
         item = judge_game_visual(manifest, out / "demonstrations/judgments", judge=judge)
         rows = manifest["demonstrations"]
@@ -123,7 +122,6 @@ def rescore_visuals(report_path, out, *, visual_inputs=None, package=None,
         rows = judge_saved_visuals(manifest, out / "demonstrations/judgments", judge=judge)
         item = aggregate_task_visual(rows, manifest["rubric"])
         report_lines = visual_report(item)
-
     item.id = visual_item_id
     allowed = {field.name for field in fields(Item)}
     items = []
@@ -135,8 +133,9 @@ def rescore_visuals(report_path, out, *, visual_inputs=None, package=None,
             raw["attribution"] = Attribution(raw["attribution"])
         items.append(Item(**raw))
     items.append(item)
-
-
+    # Native redesign axes also read retained engine truth and package oracle.
+    # Keep those inputs when adding VLM evidence; dropping them changes the
+    # objective score even though no behavioral test ran again.
     result = SimpleNamespace(package=SimpleNamespace(
         manifest={"mode": data["mode"], "game_id": data["game_id"]},
         root=Path(package or data.get("package") or "."),
@@ -150,16 +149,12 @@ def rescore_visuals(report_path, out, *, visual_inputs=None, package=None,
     data["scorecard"] = card
     weighted = card.get("weighted_total") or {}
     data["headline"] = {
-        "status": (card.get("outcome_status") if data["mode"] == "port"
-                   else weighted.get("status")) or "evaluation_incomplete",
+        "status": weighted.get("status") or "evaluation_incomplete",
         "score": weighted.get("score"),
         "scale": weighted.get("scale") or "0-100",
         "ranking_eligible": bool(card.get("ranking_eligible")),
         "score_scope": card.get("score_scope") or "task_capability",
     }
-    if data["mode"] == "port":
-        data["score"] = dict(data["headline"])
-        data["score_scope"] = "mode5_model_capability_only"
     if "registry_version" in data:
         data["registry_version"] = card["registry_version"]
     if "production_status" in data:

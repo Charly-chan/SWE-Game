@@ -8,7 +8,6 @@ coding agent's own checks. Task inputs and submissions are mounted at runtime.
 | File | Purpose |
 | --- | --- |
 | [`Dockerfile.godot`](Dockerfile.godot) | Build the pinned Godot and agent CLI toolchain |
-| [`Dockerfile.unity`](Dockerfile.unity) | Add the Unity editor and Linux build support to the Godot image |
 | [`Dockerfile.unity-local`](Dockerfile.unity-local) | Build the Unity image from archives already available on the host |
 | [`build.sh`](build.sh) | Build either image or both, using downloads or supplied Unity archives |
 | [`smoke.sh`](smoke.sh) | Check installed tools and render a Godot frame inside the images |
@@ -18,7 +17,8 @@ coding agent's own checks. Task inputs and submissions are mounted at runtime.
 | Image | Modes | Tools |
 | --- | --- | --- |
 | `gamebench-agent:godot-4.5.1` | 1–4 | Godot 4.5.1, Python 3.10 and `eval/evalsys/requirements.txt`, Node 22.22.0, Codex 0.153.4, Claude Code 2.1.222, FFmpeg, Xvfb, Mesa |
-| `gamebench-agent:unity-6000.3.23f1` | 5 | The Godot image plus Unity Editor 6000.3.23f1 and Linux IL2CPP build support |
+| `gamebench-mode5-agent:6000.3.23f1-v1` | 5 | The Godot toolchain plus locally installed Unity Editor and Linux Player build support (Mono) |
+| `gamebench-mode5-evaluator:6000.3.23f1-v1` | 5 | The independent offline evaluator toolchain |
 
 Both images default to `agent` (UID 1000), with `/workspace` as the working
 directory. The benchmark runner overrides the container UID/GID with the host
@@ -29,14 +29,13 @@ also sets `UNITY_BIN` and provides `unity` on `PATH`.
 
 ## Pull published images
 
-Images are published to `ghcr.io/charly-chan/swe-game` with engine-specific tags.
+The Godot image is published to `ghcr.io/charly-chan/swe-game`.
+Mode 5 images are built locally by `gb mode5 setup`.
 For a private package, authenticate with GitHub Packages before pulling.
 
 ```bash
 docker pull ghcr.io/charly-chan/swe-game:godot-4.5.1
-docker pull ghcr.io/charly-chan/swe-game:unity-6000.3.23f1
 docker tag ghcr.io/charly-chan/swe-game:godot-4.5.1 gamebench-agent:godot-4.5.1
-docker tag ghcr.io/charly-chan/swe-game:unity-6000.3.23f1 gamebench-agent:unity-6000.3.23f1
 ```
 
 The local aliases match the runner defaults. Alternatively, pass the full GHCR
@@ -47,11 +46,11 @@ The runner uses an image already available to the selected Docker daemon and
 pulls only when it is missing. Rebuild or pull explicitly to update a cached tag.
 For a remote daemon, build or pull on that daemon, or select an accessible
 registry tag with `--docker-image` (`GB_SANDBOX_IMAGE` for Godot and
-`GB_UNITY_SANDBOX_IMAGE` for Unity). A local build on another daemon is not shared
+the Community image lock for Unity). A local build on another daemon is not shared
 automatically.
 
 The [publish workflow](../.github/workflows/publish-container-images.yml) builds
-both images, checks installed tools and a rendered Godot frame, then publishes
+the Godot image, checks installed tools and a rendered frame, then publishes
 using the repository's GitHub Actions token. It runs on relevant changes to
 `main`, `toolchain-*` tags, or manual dispatch. Run `./docker/smoke.sh` locally
 after building to execute the same toolchain checks.
@@ -73,15 +72,15 @@ To build only the Godot image:
 To build Unity after the Godot image exists:
 
 ```bash
-./docker/build.sh unity
+./gb mode5 setup
 ```
 
-The default Unity build streams the official archives from the
+Community setup downloads the fixed official archives from the
 [Unity 6000.3.23f1 release](https://unity.com/releases/editor/whats-new/6000.3.23f1).
 Existing downloads can be reused:
 
 ```bash
-./docker/build.sh all --unity-archives /path/to/unity-downloads
+./gb mode5 setup --unity-archives /path/to/unity-downloads --no-download
 ```
 
 That directory must contain these two files:
@@ -98,7 +97,7 @@ the archive data as build context.
 
 The Godot build context contains only its Dockerfile and the Python dependency
 file; the Unity context contains only its Dockerfile and, for local builds, the
-two archives. No repository checkout, reference game, hidden evaluation input,
+two archives and the public Mode 5 helper. No repository checkout, reference game, hidden evaluation input,
 model credential, or Unity license is included. Standard `HTTP_PROXY`,
 `HTTPS_PROXY`, and `NO_PROXY` values are forwarded as Docker's predefined build
 arguments. They are not configured as image environment variables.
@@ -125,65 +124,16 @@ Mode 4 requires an active bug case; `canopy_dash` provides one:
   --out results/docker-bugfix
 ```
 
-Mode 5 selects the Unity image. If you already have a license file prepared
-for the container environment, expose its host path through the operator's
-environment or the run's agent env file:
+Mode 5 uses the [Community Docker workflow](../docs/reference/MODE5_RELEASE.md).
+`./gb mode5 setup` builds locally from official Unity archives, and doctor checks
+license, compilation, Linux Player build and offline runtime/capture before any
+agent calls. The independent evaluator uses Unity 6000.3.23f1 / StandaloneLinux64 /
+Mono. Setup records digest-pinned images in private local state.
 
-```bash
-export GB_UNITY_LICENSE_FILE=/absolute/path/to/operator-license.ulf
-```
-
-The Docker port runner accepts `.ulf` or `.xml` and installs the file in the
-container's private user configuration. It keeps the license outside the task
-workspace and image; the runtime metadata records only whether one was supplied
-and its format. This supplies an existing license; it does not activate one.
-The actual Unity startup or build determines whether it is valid. See Unity's
-[license file locations](https://docs.unity3d.com/6000.3/Documentation/Manual/ActivationFAQ.html#licensefilefolders)
-and [manual activation scope](https://docs.unity3d.com/6000.3/Documentation/Manual/ManualActivationGuide.html).
-
-```bash
-./run_benchmark.sh --game shadow_walker --mode port \
-  --harness codex --model "$MODEL_ID" --sandbox docker --eval off \
-  --out results/docker-port
-```
-
-`--docker-image TAG` overrides the default image. The lower-level coding entry
-accepts the same `--sandbox docker`, `--docker-image`, and `--eval` options.
-To select Docker for the existing experiment matrix:
-
-```bash
-AGENT_SANDBOX=docker EVAL=off ./scripts/experiments/run_all.sh main
-```
-
-For Codex, the runner automatically selects Docker's `seccomp=unconfined` and
-`apparmor=unconfined` security options so its bundled bubblewrap can create the
-inner sandbox. The container still receives only the task workspace mounts, and
-Codex retains its `workspace-write` sandbox. No manual Docker profile setup is
-needed.
-
-These examples retain submissions and agent logs with evaluation deferred.
-Append `--dry-run` to an individual `run_benchmark.sh` command to inspect its
-planned run before making model calls.
-
-For formal Mode 5 evaluation, transfer the complete cell `package/` and final
-`submission/` to the configured Windows/QEMU host, which starts the prescribed
-Ubuntu guest. On that Windows host, with the repository as the working
-directory and an activated VM already configured:
-
-```powershell
-$PY = 'C:\path\to\python.exe'
-$env:PYTHONPATH = (Resolve-Path eval/evalsys).Path
-& $PY eval/evalsys/bin/bench eval-task `
-  --package 'D:\runs\CELL\package' `
-  --submission 'D:\runs\CELL\submission' `
-  --out 'D:\runs\CELL\evaluation' `
-  --engine on --unity-vm on --visual-judge none
-```
-
-The output directory must be new. See the [VM instructions](../eval/infra/unity/README.md)
-for provisioning and non-default host paths. Read the resulting report's score,
-`ranking_eligible`, and unresolved status; container self-checks do not establish
-VM calibration or scoring readiness.
+Use `gb mode5 run` to retain the original submission and evaluate it in a fresh
+offline container. `gb mode5 evaluate` accepts existing submissions; rejudge
+uses retained captures. Unity activation and model credentials stay outside
+public images and task inputs.
 
 ## Use tools directly
 
@@ -192,7 +142,7 @@ Inspect installed versions without contacting a model provider:
 ```bash
 docker run --rm gamebench-agent:godot-4.5.1 bash -c \
   'godot --headless --version && node --version && codex --version && claude --version'
-docker run --rm gamebench-agent:unity-6000.3.23f1 unity -version
+docker run --rm gamebench-mode5-agent:6000.3.23f1-v1 unity -version
 ```
 
 For an interactive task workspace, mount the task's public input/output
@@ -223,6 +173,5 @@ editor import and project execution are available. Unity license activation is
 not performed during the build. Supplying a `.ulf` or `.xml` is for supported
 license types already prepared for this environment; this does not provide a
 Personal or Hub license migration flow. Valid-license import and Player build
-still need to be exercised on the actual runtime environment. Mode 5's formal evaluation uses its prescribed
-VM environment; these containers provide generation and self-check tools and
-do not make a run eligible for an official Unity score.
+are checked by doctor on the actual runtime environment. Complete Mode 5 scores
+also require runtime and fidelity measurements; see the Community guide.

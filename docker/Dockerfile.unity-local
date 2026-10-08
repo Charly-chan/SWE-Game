@@ -5,10 +5,16 @@ USER root
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     build-essential clang lld libgtk-3-0 libnss3 libnspr4 libcups2 \
     libxcomposite1 libxdamage1 libxfixes3 libxss1 libxtst6 libgconf-2-4 \
+    tesseract-ocr tesseract-ocr-eng libasound2-plugins \
     && rm -rf /var/lib/apt/lists/*
 # ADD extracts local tar archives directly; compressed archives are not image layers.
 ADD Unity-6000.3.23f1.tar.xz /opt/unity/6000.3.23f1/
 ADD UnitySetup-Linux-IL2CPP-Support-for-Editor-6000.3.23f1.tar.xz /opt/unity/6000.3.23f1/
+COPY mode5/GBCommunityBuild.cs /opt/gamebench/mode5/GBCommunityBuild.cs
+COPY mode5/gb-unity /usr/local/bin/gb-unity
 ENV UNITY_BIN=/opt/unity/6000.3.23f1/Editor/Unity
-RUN ln -s "$UNITY_BIN" /usr/local/bin/unity
+ENV UNITY_DISABLE_LINUX_TOOLCHAIN_MIGRATOR=1 UNITY_DISABLE_LINUX_AUTO_TOOLCHAIN_INSTALLATION=1
+RUN ln -s "$UNITY_BIN" /usr/local/bin/unity && chmod 0755 /usr/local/bin/gb-unity
+RUN useradd --create-home --uid 1100 unity-runner \
+    && useradd --create-home --uid 1101 gb-controller
 USER agent

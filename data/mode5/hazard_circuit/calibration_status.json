@@ -1,0 +1,17 @@
+{
+  "blockers": [],
+  "game_id": "hazard_circuit",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "hazard_circuit-c1-induction_pulse_jumps_and_goal",
+    "hazard_circuit-c3-rigging_deck_wall_traversal_and_goal",
+    "hazard_circuit-c4-blade_alley_slide_and_goal",
+    "hazard_circuit-c6-keyhouse_keys_locks_and_goal",
+    "hazard_circuit-c7-press_line_timing_and_goal",
+    "hazard_circuit-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:e3c6a6b9ab3bb514daf55e01fa835d4ec3460e52458e91fe30415b254fb79758"
+}

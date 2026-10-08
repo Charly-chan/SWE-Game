@@ -1,5 +1,14 @@
+"""Mode-specific scoring and evidence reporting for the five task families.
 
+The scorecard reports graded capability separately from strict task completion
+(``resolved``). Each registry defines its weights, applicability rules, gates,
+and treatment of missing evidence. A missing required measurement withholds the
+composite score; diagnostic intervals and evidence records remain available.
 
+``DEFAULT_REGISTRY_BY_MODE`` selects the current registry. Explicit registry
+versions support historical reports. Record both the registry and evaluator
+commit when comparing or reproducing scores.
+"""
 
 from __future__ import annotations
 
@@ -18,7 +27,7 @@ from .content.rubrics import rubric_milestones
 
 
 def _walk_evidence(value: Any):
-
+    """Yield nested evidence mappings without imposing producer-specific shapes."""
     if isinstance(value, Mapping):
         yield value
         for nested in value.values():
@@ -31,14 +40,50 @@ def _walk_evidence(value: Any):
 PILOT_REGISTRY_VERSION = "2026-09-02.pilot2"
 CALIB_REGISTRY_VERSION = "2026-09-04.calib3"
 CALIB4_REGISTRY_VERSION = "2026-09-04.calib4"
-
-
+#: ``2026-09-05.mode4`` (default from 2026-09-05 to 2026-09-10) inherits every
+#: calib4 weight and rule and
+#: changes only the Mode-4 (bugfix) causal-playability category.  The old
+#: bugfix causal set scored ``repair_differential`` (binary target restoration,
+#: 40) and ``gold_replay`` (honest replay, 30) as two criteria; because both
+#: read the *same* honest repaired replay they fail together, so one repair
+#: fact was charged twice in the diagnostic interval (INVENTORY.md: 2 of 4
+#: denominator points).  This version scores restoration ONCE, from the graded
+#: ``repair_restoration`` item (per-target-route credit, so a partial fix scores
+#: partially), and reports ``gold_replay`` as evidence (it remains a strict
+#: behavior gate that decides ``resolved`` -- honesty is not dropped, only the
+#: double charge in the score).  Strict ``resolved`` is unchanged.
 MODE4_REGISTRY_VERSION = "2026-09-05.mode4"
-
-
+#: ``2026-09-08.mode34`` (opt-in intermediate row:
+#: ``--registry 2026-09-08.mode34``) inherits every mode4 weight and rule and changes only
+#: *applicability* in the two modes that start from a shipped project (see
+#: docs/development/history/SCORING_MODE34_PROPOSAL.md):
+#:
+#: * skeleton (Mode 3): what the unmodified scaffold already passes in full
+#:   (project layout, evaluator interface/O2, level topology/O4) is reported,
+#:   not scored -- a submission cannot earn it.  Launch (O1: the raw scaffold
+#:   reads 0.5), the submitted ops contract, mechanic checkpoints, causal
+#:   witness, O3, O5--O7, O9 and the S-card (still unearned) stay.
+#: * bugfix (Mode 4): the faulty build already ships layout, launch, interface,
+#:   levels and visuals, so artifact/structure/visual leave the denominator and
+#:   the S-card is off (not applicable, not unearned).  The headline is a
+#:   product, ``repair_credit x gates x regression_mean``: graded
+#:   ``repair_restoration`` (0 as soon as a preserved regression route or the
+#:   negative control breaks) times the 0/1 integrity gates (no smuggling, no
+#:   grant, no-action control, mash control) times the weighted mean of the
+#:   regression readings (``feature_kept`` 40, ``surface`` 15,
+#:   ``transformation_contract`` 15).  O3 is reported, not a factor: it is an
+#:   absolute reading the reference itself does not max out.  An unmodified
+#:   faulty build scores 0; a clean revert scores 100.  ``feature_kept`` is
+#:   read once (the mode-specific ``feature_contract`` duplicate is dropped)
+#:   and the package-side ``bugfix_publication`` preflight is not a score axis.
 MODE34_REGISTRY_VERSION = "2026-09-08.mode34"
-
-
+#: ``2026-09-10.mode34b`` (default until evidence1) inherits mode34
+#: applicability.  The bugfix headline is
+#: ``repair_credit x gates x regression_factor x regression_mean``:
+#: ``repair_restoration_graded`` supplies repair_credit at assertion granularity
+#: when readings are complete, else route granularity; regression_factor is
+#: the preserved passing fraction.  ``regression_free`` is reported, and
+#: ``edit_radius`` is reported with weight 0.  Strict ``resolved`` is unchanged.
 MODE34B_REGISTRY_VERSION = "2026-09-10.mode34b"
 EVIDENCE_REGISTRY_VERSION = "2026-09-11.evidence1"
 VISUAL_REGISTRY_VERSION = "2026-09-11.visual1"
@@ -51,17 +96,7 @@ MODE3_VLM_REGISTRY_VERSION = "2026-09-19.mode3-vlm1"
 MODE4_REDESIGN_REGISTRY_VERSION = "2026-09-15.mode4-redesign1"
 MODE4_F2P_P2P_REGISTRY_VERSION = "2026-09-15.mode4-f2p-p2p1"
 REGISTRY_VERSION = EVIDENCE_REGISTRY_VERSION
-
-
-MODE5_REGISTRY_VERSION = "2026-09-11.mode5-capability-v1"
-
-
-MODE5_DELIVERY_ZERO_REGISTRY_VERSION = "2026-09-19.mode5-delivery-zero1"
-MODE5_MDVA_REGISTRY_VERSION = "2026-09-20.mode5-mdva-domain1"
-HISTORICAL_MODE5_REGISTRIES = (
-    MODE5_REGISTRY_VERSION,
-    MODE5_DELIVERY_ZERO_REGISTRY_VERSION,
-)
+from .mode5.score import REGISTRY_VERSION as MODE5_RELEASE_REGISTRY_VERSION
 REGISTRY_VERSIONS = (
     PILOT_REGISTRY_VERSION,
     CALIB_REGISTRY_VERSION,
@@ -79,18 +114,21 @@ REGISTRY_VERSIONS = (
     MODE3_VLM_REGISTRY_VERSION,
     MODE4_REDESIGN_REGISTRY_VERSION,
     MODE4_F2P_P2P_REGISTRY_VERSION,
-    MODE5_REGISTRY_VERSION,
-    MODE5_DELIVERY_ZERO_REGISTRY_VERSION,
-    MODE5_MDVA_REGISTRY_VERSION,
+    MODE5_RELEASE_REGISTRY_VERSION,
 )
 SCORECARD_SCHEMA = "gamebench.taskgen.scorecard.v2"
 MODE5_SCORECARD_SCHEMA = "gamebench.mode5.capability-scorecard.v1"
 MIN_RANKING_COVERAGE = 0.80
 
-
+#: Exponent applied to a graded O-channel point before it enters the headline
+#: (calib3).  A channel is a conjunction of rungs/families: 5 of 6 mechanics
+#: working is a game with a broken mechanic, not 83 % of a game.
 GRADED_CHANNEL_EXPONENT = 2.0
 
-
+#: Brief-mode criteria that are not score axes under calib4, with the reason
+#: the report prints under ``not_applicable_reasons``.  The weight leaves the
+#: category denominator through the ordinary not-applicable renormalisation,
+#: which is worth exactly as much as passing the criterion would have been.
 BRIEF_NOT_APPLICABLE: dict[tuple[str, str], str] = {
     ("causal_playability", "end_to_end_route"): (
         "brief mode: the submission designs its own game, so the reference's "
@@ -116,7 +154,18 @@ _SHIPPED_BY_FAULTY_BUILD = (
     "breaks it is charged through the regression readings, not here"
 )
 
-
+#: Skeleton-mode criteria that are not score axes under mode34: what the raw,
+#: unmodified ``minimal_scaffold_v1`` scaffold already passes in full.  Verified
+#: 2026-09-08 by evaluating the untouched scaffold (+ a trivial ops.json) of
+#: shadow_walker and canopy_dash through ``bench eval-task --engine on``:
+#: ``layout`` pass, ``interface`` pass, O2 = 1.0, O4 = 1.0 (the scaffold ships
+#: gb_levels.json and one placeholder scene per reference level, so level
+#: count and the inter-level digraph are the package's, not the
+#: submission's).  Everything the raw scaffold does *not* fully pass stays a
+#: score axis: O1 (0.5 -- placeholder scenes draw nothing and take no input),
+#: witness_contract (no ops.json shipped), O3 (0.67 on the universal
+#: assertions), O5 (0.33), O6 (0), O7 (0), O9 (task-dependent), the S-card
+#: (unearned) and the three mode-specific duties.
 SKELETON_NOT_APPLICABLE: dict[tuple[str, str], str] = {
     ("artifact_observability", "project_integrity"):
         _SHIPPED_BY_SCAFFOLD.format(what="the project layout", weight=10),
@@ -132,10 +181,23 @@ SKELETON_NOT_APPLICABLE: dict[tuple[str, str], str] = {
     ),
 }
 
-
+#: Headline the untouched scaffold (+ trivial ops.json) may not exceed under
+#: mode34, fixed from the shadow_walker raw-scaffold run (see
+#: SCORING_MODE34_PROPOSAL.md, "Mode 3", target X).  Guarded by
+#: test_taskgen_scorecard: a registry change that lets a no-op Mode 3
+#: submission above this line fails the test.
 SKELETON_NOOP_HEADLINE_CAP = 25.0
 
-
+#: Bugfix-mode criteria that are not score axes under mode34.  Verified
+#: 2026-09-08 on shadow_walker / shadow-walker-third-stage-registry-v2 by
+#: evaluating the unmodified faulty build and a clean two-site revert through
+#: ``bench eval-task --engine on``: the faulty build reads layout pass,
+#: interface pass, O1 = 1.0, O2 = 1.0, O4 = 1.0, O5 = 0.89 (the defect itself
+#: mislabels level 3), O6 unmeasured (bugfix packages ship no asset manifest,
+#: which left every Mode 4 cell ``evaluation_incomplete`` under mode4),
+#: ``bugfix_publication`` pass (package-side preflight), and O3 = 0.71 while
+#: the *source* reads O3 = 0.75 -- so an absolute O3 factor would charge a
+#: perfect revert ~13 points for rungs the reference never passed.
 BUGFIX_NOT_APPLICABLE: dict[tuple[str, str], str] = {
     ("artifact_observability", "project_integrity"):
         _SHIPPED_BY_FAULTY_BUILD.format(what="the project layout", weight=10, category="artifact"),
@@ -170,7 +232,8 @@ BUGFIX_NOT_APPLICABLE: dict[tuple[str, str], str] = {
     ),
 }
 
-
+#: Mode-4 product headline under mode34: which criteria are the repair credit,
+#: the 0/1 gates and the regression readings (with their weights).
 MODE4_REPAIR_CREDIT = ("causal_playability", "repair_restoration")
 MODE4_GATES: tuple[tuple[str, str], ...] = (
     ("artifact_observability", "integrity_controls"),
@@ -194,15 +257,17 @@ MODE4_REDESIGN_REGRESSION_WEIGHTS: dict[tuple[str, str], float] = {
     ("mode_specific", "product_surface"): 25,
     ("mode_specific", "transformation"): 25,
 }
-
-
+#: Development-only ordinal evidence carried beside repair correctness.  These
+#: are deliberately points, not percentages: author tiers have not yet been
+#: calibrated well enough to claim equal-interval scores or drive ranking.
 MODE4_PROVISIONAL_TIER_POINTS: dict[str, float] = {
     "easy": 1.0,
     "medium": 2.0,
     "hard": 3.0,
 }
 
-
+#: Words in a brief statement that make the reference layout a stated
+#: constraint, and so keep O5 a score axis in brief mode.
 _LAYOUT_CONSTRAINT_WORDS = (
     "layout", "spread", "spacing", "dispers", "scatter", "spatial",
     "vertical", "horizontal", "far apart", "distributed", "bands",
@@ -211,8 +276,13 @@ _LAYOUT_CONSTRAINT_WORDS = (
 
 
 def brief_layout_constraint(statement: str) -> str:
+    """The layout constraint a brief statement names, or ``""``.
 
-
+    Returned as the matching sentence so the report can quote it.  Brief
+    statements describe a player experience and scope; a layout obligation
+    ("collectibles spread over the whole height of the level") is rare and,
+    when present, is the only reason O5 stays a score axis in brief mode.
+    """
     text = statement or ""
     for sentence in re.split(r"(?<=[.!?。])\s+|\n+", text):
         lowered = sentence.lower()
@@ -233,7 +303,7 @@ class CriterionSpec:
     name: str
     weight: float
     sources: tuple[SourceSpec, ...]
-
+    #: Headline credit = point ** credit_exponent (1.0 = linear).
     credit_exponent: float = 1.0
 
 
@@ -247,58 +317,52 @@ class CategorySpec:
 
 @dataclass(frozen=True)
 class RegistryPolicy:
-
+    """Version-dependent rules that are not weights."""
 
     version: str
     status: str
-
-
+    #: Uncalibrated S-card: ``True`` = counted as unearned weight (0 in the
+    #: headline, ceiling reported); ``False`` = not applicable, renormalised away.
     scard_unearned: bool
-
+    #: O8 registered as a causal criterion (pilot2) or left off the registry.
     register_o8: bool
-
+    #: Exponent for the graded O-channel criteria (O1, O3, O4, O5, O6, O7).
     graded_exponent: float
-
-
+    #: calib4: brief mode scores structure against the submission's own
+    #: declaration (O4 consistency path) and drops O5/O7 as not applicable.
     brief_own_structure: bool = False
-
-
+    #: calib4: gdd mode's mode_specific criterion is the submission-side
+    #: `gdd_mechanics_observable` item instead of the package audit.
     gdd_mechanics_observable: bool = False
-
-
+    #: calib4: O6 asset coverage enters the headline linearly (it is a ratio,
+    #: not a conjunction of rungs).
     o6_linear: bool = False
-
-
+    #: 2026-09-05.mode4: Mode-4 causal restoration is scored once, from the
+    #: graded `repair_restoration` item, instead of charging the shared honest
+    #: replay twice through `repair_differential` and `gold_replay`.
     mode4_single_restoration: bool = False
-
-
+    #: 2026-09-08.mode34: per-mode applicability for skeleton/bugfix
+    #: (SKELETON_NOT_APPLICABLE / BUGFIX_NOT_APPLICABLE), bugfix reads
+    #: `feature_kept` once, and the bugfix headline is the product
+    #: repair_credit x gates x regression_mean instead of the category sum.
     mode34_applicability: bool = False
-
+    #: mode34b: assertion repair credit and proportional preserved-route factor.
     mode4_graded: bool = False
-
+    #: evidence1: checkpoint coverage and calibrated perceptual item readings.
     evidence_consistency: bool = False
-
+    # visual1: task-conditioned replay VLM replaces the human/static S-card source.
     task_visual: bool = False
-
-
+    #: Mode-5-only, capability-bearing five-category score.  Infrastructure,
+    #: submission-contract and causal-validity checks become zero-point gates.
     mode5_capability_only: bool = False
-
-
+    #: Fixed-weight Mode-1 redesign.  Execution/integrity checks are zero-point
+    #: gates; only capability axes contribute to the headline.
     mode1_redesign: bool = False
-
+    #: Successive fixed Mode-2/3 scorecards and the Mode-4 repair product.
     progressive_redesign_mode: str = ""
-
-
+    #: Mode-4 deterministic bug-site resolution. F2P and P2P are reported
+    #: separately and combined conjunctively instead of as a weighted product.
     mode4_f2p_p2p: bool = False
-
-
-    mode5_delivery_zero: bool = False
-
-
-    mode5_deliverable_gates_nonfatal: bool = False
-
-
-    mode5_mdva_domain: bool = False
 
 
 _POLICIES: dict[str, RegistryPolicy] = {
@@ -362,14 +426,6 @@ _POLICIES: dict[str, RegistryPolicy] = {
         mode34_applicability=True,
         mode4_graded=True,
     ),
-    MODE5_REGISTRY_VERSION: RegistryPolicy(
-        version=MODE5_REGISTRY_VERSION,
-        status="mode5_capability_design_not_blind_calibrated",
-        scard_unearned=False,
-        register_o8=False,
-        graded_exponent=1.0,
-        mode5_capability_only=True,
-    ),
 }
 
 _POLICIES[EVIDENCE_REGISTRY_VERSION] = replace(
@@ -431,12 +487,15 @@ def registry_policy(version: str | None = None, *, mode: str | None = None) -> R
     return policy
 
 
+# Weight tables per version.  Category weights sum to 100; criterion weights
+# sum to 100 within each category (for the brief/gdd/skeleton criterion sets;
+# mode-specific sets are unchanged between versions).
 _WEIGHTS: dict[str, dict[str, float]] = {
     PILOT_REGISTRY_VERSION: {
         "artifact": 15, "mechanics": 25, "causal": 25, "structure": 15, "visual": 10, "mode": 10,
         "project_integrity": 15, "runtime_viability": 25, "evaluator_addressability": 25,
         "witness_contract": 15, "integrity_controls": 20,
-
+        # bugfix has no witness_contract; its four artifact criteria keep pilot2's 15/25/25/20.
         "verified_witness": 30, "matched_null": 20, "anti_grant_controls": 20,
         "end_to_end_route": 20, "external_play": 10,
         "topology_progression": 35, "spatial_relations": 30, "asset_realization": 35,
@@ -452,33 +511,22 @@ _WEIGHTS: dict[str, dict[str, float]] = {
         "composition": 25, "calibrated_surface": 75,
     },
 }
-
+# calib4 changes rules, not weights.
 _WEIGHTS[CALIB4_REGISTRY_VERSION] = dict(_WEIGHTS[CALIB_REGISTRY_VERSION])
-
-
+# 2026-09-05.mode4 changes only the Mode-4 causal criterion set, not the
+# category weights; the shared weight table is reused.
 _WEIGHTS[MODE4_REGISTRY_VERSION] = dict(_WEIGHTS[CALIB_REGISTRY_VERSION])
-_WEIGHTS[MODE5_REGISTRY_VERSION] = dict(_WEIGHTS[CALIB_REGISTRY_VERSION])
-
-
-_WEIGHTS[MODE5_DELIVERY_ZERO_REGISTRY_VERSION] = dict(_WEIGHTS[MODE5_REGISTRY_VERSION])
-
-
-_WEIGHTS[MODE5_MDVA_REGISTRY_VERSION] = dict(_WEIGHTS[MODE5_REGISTRY_VERSION])
-_POLICIES[MODE5_DELIVERY_ZERO_REGISTRY_VERSION] = replace(
-    _POLICIES[MODE5_REGISTRY_VERSION],
-    version=MODE5_DELIVERY_ZERO_REGISTRY_VERSION,
-    status="mode5_capability_with_candidate_delivery_zero_not_blind_calibrated",
-    mode5_delivery_zero=True,
-    mode5_deliverable_gates_nonfatal=True,
+_WEIGHTS[MODE5_RELEASE_REGISTRY_VERSION] = dict(_WEIGHTS[CALIB_REGISTRY_VERSION])
+_POLICIES[MODE5_RELEASE_REGISTRY_VERSION] = RegistryPolicy(
+    version=MODE5_RELEASE_REGISTRY_VERSION,
+    status="release_evidence_adjusted_non_vlm_proxy",
+    scard_unearned=False,
+    register_o8=False,
+    graded_exponent=1.0,
+    mode5_capability_only=True,
 )
-_POLICIES[MODE5_MDVA_REGISTRY_VERSION] = replace(
-    _POLICIES[MODE5_DELIVERY_ZERO_REGISTRY_VERSION],
-    version=MODE5_MDVA_REGISTRY_VERSION,
-    status="mode5_objective70_plus_structure15_plus_mdva15_corpus_calibrated",
-    mode5_mdva_domain=True,
-)
-
-
+# 2026-09-08.mode34 changes applicability and the bugfix headline rule, not
+# weights.
 _WEIGHTS[MODE34_REGISTRY_VERSION] = dict(_WEIGHTS[CALIB_REGISTRY_VERSION])
 _WEIGHTS[MODE34B_REGISTRY_VERSION] = dict(_WEIGHTS[MODE34_REGISTRY_VERSION])
 _WEIGHTS[EVIDENCE_REGISTRY_VERSION] = dict(_WEIGHTS[MODE34B_REGISTRY_VERSION])
@@ -513,110 +561,42 @@ def _criterion(
 
 
 def _category_specs(mode: str, version: str | None = None) -> tuple[CategorySpec, ...]:
-
+    """Return one registry version projected to one task mode."""
 
     policy = registry_policy(version)
+    if mode == "port" and not policy.mode5_capability_only:
+        raise ValueError("Mode 5 requires its fixed Community release registry")
     if policy.mode5_capability_only:
         if mode != "port":
             raise ValueError(
                 f"registry {policy.version!r} is defined only for Mode 5 / port"
             )
-        return (
-            CategorySpec(
-                "core_mechanics",
-                "Core mechanics and semantic fidelity",
-                35,
-                (
-                    _criterion(
-                        "mechanic_obligations",
-                        "Evaluator-observed, source-grounded mechanic obligations",
-                        100,
-                        *_item_source("unity_mechanic_trace"),
-                    ),
-                ),
-            ),
-            CategorySpec(
-                "playability_progression",
-                "End-to-end playability and progression",
-                25,
-                (
-                    _criterion(
-                        "whole_game_completion",
-                        "Player-caused whole-game completion witness",
-                        40,
-                        *_item_source("causal_witness"),
-                    ),
-                    _criterion(
-                        "hidden_behavior_generalisation",
-                        "Evaluator-private behavior and progression scenarios",
-                        60,
-                        *_item_source("unity_hidden_behavior"),
-                    ),
-                ),
-            ),
-            CategorySpec(
-                "content_structure",
-                "Content and spatial-structure fidelity",
-                15,
-                (
-                    _criterion(
-                        "cross_engine_structure",
-                        "Cross-engine content, identity, and progression fidelity",
-                        100,
-                        *_item_source("unity_structure_fidelity"),
-                    ),
-                ),
-            ),
-            CategorySpec(
-                "visual_feedback",
-                "Visual quality",
-                15,
-                (
-                    _criterion(
-                        "mdva_visual_quality" if policy.mode5_mdva_domain
-                        else "cross_engine_visual_feedback",
-                        "Game-rubric visual quality" if policy.mode5_mdva_domain
-                        else "Cross-engine visual, UI, and feedback fidelity",
-                        100,
-                        *_item_source("unity_vlm" if policy.mode5_mdva_domain
-                                      else "unity_visual_fidelity"),
-                    ),
-                ),
-            ),
-            CategorySpec(
-                "stability_lifecycle",
-                "Runtime stability and lifecycle completeness",
-                10,
-                (
-                    _criterion(
-                        "clean_cold_runs",
-                        "Clean independent candidate cold runs",
-                        100,
-                        *_item_source("unity_runtime_stability"),
-                    ),
-                ),
-            ),
-        )
+        from .mode5.score import CRITERIA, COMPONENT_WEIGHTS
+        from .mode5.report import CATEGORIES
+        return tuple(CategorySpec(
+            ident, component.capitalize(), COMPONENT_WEIGHTS[component],
+            tuple(_criterion(key, key, weight / COMPONENT_WEIGHTS[component] * 100,
+                             *_item_source(key))
+                  for key, weight in CRITERIA.items() if key.startswith(component + ".")),
+        ) for ident, component in CATEGORIES.items())
     w = _WEIGHTS[policy.version]
     graded = policy.graded_exponent
-    unity = mode == "port"
     repair = mode == "bugfix"
 
     artifact = [
         _criterion(
             "project_integrity", "Project/package integrity", w["project_integrity"],
-            *_item_source("unity_layout" if unity else "layout"),
+            *_item_source("layout"),
         ),
         _criterion(
             "runtime_viability", "Build, launch, and non-trivial runtime", w["runtime_viability"],
-            *(_item_source("unity_build") if unity else _ocard_source("O1")),
-            credit_exponent=1.0 if unity else graded,
+            *(_ocard_source("O1")),
+            credit_exponent=graded,
         ),
         _criterion(
             "evaluator_addressability", "Evaluator addressability", w["evaluator_addressability"],
             *(
-                _item_source("unity_interface")
-                if unity else _item_source("interface") + _ocard_source("O2")
+                _item_source("interface") + _ocard_source("O2")
             ),
         ),
     ]
@@ -626,8 +606,6 @@ def _category_specs(mode: str, version: str | None = None) -> tuple[CategorySpec
             *_item_source("ops_present", "ops_valid", "ops_not_idle"),
         ))
     integrity_ids = (
-        ("no_eval_smuggling", "no_bundled_godot_runtime", "verifier_profile_complete")
-        if unity else
         ("anti_grant_static", "auto_win_ready", "verifier_profile_complete")
     )
     artifact.append(_criterion(
@@ -652,16 +630,6 @@ def _category_specs(mode: str, version: str | None = None) -> tuple[CategorySpec
             "feature_preservation", "Non-target feature preservation", 40,
             *_item_source("feature_kept"),
         ))
-    else:
-        mechanics.append(_criterion(
-            "unity_state_probe", "Unity runtime state and mechanic probe", 40,
-            *_item_source("unity_probe"),
-        ))
-        if policy.task_visual:
-
-
-            mechanics = mechanics[1:]
-
     if mode in {"brief", "gdd", "skeleton"}:
         causal_list = [
             _criterion("verified_witness", "Action-caused goal witness", w["verified_witness"],
@@ -680,8 +648,9 @@ def _category_specs(mode: str, version: str | None = None) -> tuple[CategorySpec
             ))
         causal = tuple(causal_list)
     elif repair and policy.mode4_single_restoration:
-
-
+        # The historical mode4 registry counts restoration once through
+        # ``repair_restoration``. ``repair_differential`` and ``gold_replay`` remain
+        # strict behavior gates and diagnostics, without separate score weights.
         causal_list = [
             _criterion("repair_restoration", "Failure-to-pass target restoration (graded)", 70,
                        *_item_source("repair_restoration_graded" if policy.mode4_graded else "repair_restoration")),
@@ -711,48 +680,25 @@ def _category_specs(mode: str, version: str | None = None) -> tuple[CategorySpec
                 "external_play", "Independent external play", 10, *_ocard_source("O8"),
             ))
         causal = tuple(causal_list)
-    else:
-        causal = (
-            _criterion("unity_route", "Evaluator-hidden Unity route", 35,
-                       *_item_source("unity_route_replay")),
-            _criterion("verified_witness", "Action-caused Unity witness", 25,
-                       *_item_source("causal_witness")),
-            _criterion("matched_null", "Matched-horizon no-action control", 20,
-                       *_item_source("null_no_win")),
-            _criterion("anti_grant_controls", "Extended-action negative control", 20,
-                       *_item_source("extended_mash_no_win")),
-        )
-
-    if unity:
-        structure = (
-            _criterion("cross_engine_structure", "Cross-engine structure/content preservation", 100,
-                       *_item_source("cross_engine_fidelity")),
-        )
-        visual = (
-            _criterion("evaluator_capture", "Evaluator-owned Unity capture", 25,
-                       *_item_source("unity_evaluator_capture")),
-            _criterion("paired_visual_fidelity", "Reference-conditioned visual quality"
-                       if policy.evidence_consistency else "Paired cross-engine visual fidelity", 75,
-                       *_item_source("unity_vlm")),
-        )
-    else:
-        structure = (
-            _criterion("topology_progression", "Level topology and progression",
-                       w["topology_progression"], *_ocard_source("O4"), credit_exponent=graded),
-            _criterion("spatial_relations", "Scale-invariant spatial relations",
-                       w["spatial_relations"], *_ocard_source("O5"), credit_exponent=graded),
-
-
-            _criterion("asset_realization", "Evaluator-observed supplied-asset use",
-                       w["asset_realization"], *_ocard_source("O6"),
-                       credit_exponent=1.0 if policy.o6_linear else graded),
-        )
-        visual = (
-            _criterion("composition", "Objective composition/readability", w["composition"],
-                       *_ocard_source("O9")),
-            _criterion("calibrated_surface", "Calibrated surface/UI/atmosphere/feel",
-                       w["calibrated_surface"], SourceSpec("scard", "calibrated_total")),
-        )
+    structure = (
+        _criterion("topology_progression", "Level topology and progression",
+                   w["topology_progression"], *_ocard_source("O4"), credit_exponent=graded),
+        _criterion("spatial_relations", "Scale-invariant spatial relations",
+                   w["spatial_relations"], *_ocard_source("O5"), credit_exponent=graded),
+        # O6 is a coverage ratio over the supplied pack (each asset one
+        # item), not a ladder or a family of conjunctive rungs, so calib4
+        # stops squaring it: 7 of 14 assets used is half the pack, not a
+        # quarter of one.
+        _criterion("asset_realization", "Evaluator-observed supplied-asset use",
+                   w["asset_realization"], *_ocard_source("O6"),
+                   credit_exponent=1.0 if policy.o6_linear else graded),
+    )
+    visual = (
+        _criterion("composition", "Objective composition/readability", w["composition"],
+                   *_ocard_source("O9")),
+        _criterion("calibrated_surface", "Calibrated surface/UI/atmosphere/feel",
+                   w["calibrated_surface"], SourceSpec("scard", "calibrated_total")),
+    )
 
     if policy.task_visual and not repair:
         visual = (visual[0], _criterion(
@@ -772,8 +718,10 @@ def _category_specs(mode: str, version: str | None = None) -> tuple[CategorySpec
                        *_item_source("brief_gdd_grounding")),
         ),
         "gdd": (
-
-
+            # calib4: the package audit `task_gdd_contract` is a property of
+            # the evaluator's own GDD and every submission passed it at 100;
+            # the criterion now asks whether the mechanics that GDD names are
+            # observable in the submission (fraction observed).
             _criterion("gdd_mechanics_observable",
                        "Task-GDD mechanics observable in the submission", 100,
                        *_item_source("gdd_mechanics_observable"))
@@ -797,8 +745,9 @@ def _category_specs(mode: str, version: str | None = None) -> tuple[CategorySpec
                            *_item_source("no_eval_smuggling")),
                 _criterion("product_surface", "Product surface preserved", 20,
                            *_item_source("surface")),
-
-
+                # mode34: `feature_kept` is already the mechanics criterion
+                # `feature_preservation`; reading the one item twice charged
+                # one measurement on two axes.
                 None if policy.mode34_applicability else
                 _criterion("feature_contract", "Public feature contract preserved", 20,
                            *_item_source("feature_kept")),
@@ -806,21 +755,6 @@ def _category_specs(mode: str, version: str | None = None) -> tuple[CategorySpec
                            *_item_source("transformation_contract")),
             ) if criterion is not None
         ),
-        "port": tuple(criterion for criterion in (
-            _criterion("task_gdd", "Published Task-GDD compliance", 15,
-                       *_item_source("task_gdd_contract")),
-            _criterion("port_alignment", "Godot-to-Unity port contract alignment", 25,
-                       *_item_source("port_contract_alignment")),
-            _criterion("no_smuggling", "No evaluator material smuggling", 15,
-                       *_item_source("no_eval_smuggling")),
-            _criterion("no_bundled_runtime", "No bundled Godot runtime", 15,
-                       *_item_source("no_bundled_godot_runtime")),
-            _criterion("build_recipe", "Reproducible Unity build recipe", 10,
-                       *_item_source("build_recipe")),
-            None if policy.evidence_consistency else
-            _criterion("cross_engine_fidelity", "Cross-engine semantic preservation", 20,
-                       *_item_source("cross_engine_fidelity")),
-        ) if criterion is not None),
     }
 
     return (
@@ -844,7 +778,15 @@ def _empty_interval(status: str) -> Interval:
 
 
 def _registered_combine(weighted: Sequence[tuple[float, Interval]]) -> Interval:
+    """Combine a frozen registry without renormalising missing measurements.
 
+    ``verdict.combine`` correctly drops evaluator-owned inconclusive readings
+    for ordinary measured-only cards.  A fixed 100-point category has a
+    different reporting job: every registered subcriterion must keep its
+    place.  An unmeasured subcriterion therefore contributes [0, 1], not zero
+    and not a vanished denominator.  Coverage records how much of that literal
+    interval was actually measured.
+    """
 
     denominator = sum(weight for weight, _interval in weighted)
     if denominator <= 0:
@@ -894,7 +836,7 @@ def _reproduction_card(items: Mapping[str, Item]) -> dict[str, Any]:
 
 
 def _reproduction_step(items: Mapping[str, Item]) -> str:
-
+    """The evaluator step that owns a missing O-card channel."""
     item = items.get("reproduction")
     if item is None:
         return "reproduction: not run"
@@ -904,7 +846,7 @@ def _reproduction_step(items: Mapping[str, Item]) -> str:
 
 
 def _legacy_graded_restoration(items: Mapping[str, Item]) -> Item | None:
-
+    """Re-score stored route evidence without inheriting the old regression veto."""
     legacy = items.get("repair_restoration")
     if legacy is None:
         return None
@@ -925,8 +867,8 @@ def _legacy_graded_restoration(items: Mapping[str, Item]) -> Item | None:
     partition = preflight.get("partition") or {}
     preserved: set[str] | None = None
     denominator_source = "route_cells"
-
-
+    # The frozen suite partition is exhaustive: non-target cells are preserved
+    # positives or negative controls. Successful differentials also store ids.
     if "regression_routes" in diff and "negative_control_routes" in diff:
         preserved = set(diff["regression_routes"]) | set(diff["negative_control_routes"])
         denominator_source = "repair_differential route ids"
@@ -976,29 +918,20 @@ def _source_interval(
     card: Mapping[str, Any],
     policy: RegistryPolicy,
 ) -> tuple[Interval, dict[str, Any]]:
+    """One source's diagnostic interval plus its row.
 
-
+    Every row carries `applicable` (a source that is not a score axis in this
+    cell: unobservable channel/item, uncalibrated S-card, all-exempt channel)
+    and, when applicable, `point` (the single-number reading, see
+    `Interval.point`) or `point = None` with `unmeasured_step` naming the
+    evaluator step that produced no reading.  A non-applicable row may carry
+    `headline: "unearned"` (calib3 uncalibrated S-card): it is not a score
+    axis for anyone in this evaluator build, so it stays outside coverage,
+    but its registered weight counts 0 in the headline rather than flowing to
+    the other criteria.
+    """
     if source.kind == "item":
         item = items.get(source.id)
-        if policy.evidence_consistency and source.id in {"unity_vlm", "cross_engine_fidelity"}:
-            evidence = (item.evidence or {}) if item else {}
-            state = str(evidence.get("calibration_state") or "uncalibrated")
-            if state != "calibrated":
-                return _empty_interval("inconclusive"), {
-                    "kind": source.kind, "id": source.id, "status": state,
-                    "applicable": False, "headline": "unearned",
-                    "detail": "uncalibrated perceptual readings cannot enter the headline score",
-                }
-            if source.id == "unity_vlm":
-
-
-                interval, row = _source_interval(
-                    SourceSpec("scard", "calibrated_total"), items,
-                    {"scard_state": state, "scard": (evidence.get("scard") or {}).get("interval")},
-                    policy,
-                )
-                row.update(kind=source.kind, id=source.id, evidence=evidence)
-                return interval, row
         if (policy.evidence_consistency and source.id == "mechanic_trace"
                 and item is not None and item.verdict in {Verdict.PASSED, Verdict.FAILED}):
             evidence = item.evidence or {}
@@ -1052,15 +985,26 @@ def _source_interval(
             float(row.get("denominator") or 0.0),
             dict(row.get("by_verdict") or {}),
         )
-
-
+        # Mirrors ocard.scorer: a channel with no reading that is unobservable
+        # (tier, task, or unimplemented channel) conveys nothing for anyone and
+        # is not a score axis in this cell; any other empty channel is a hole.
+        # A channel whose every in-denominator item is genre-exempt is likewise
+        # the same for everyone scored on this task.
         unobservable = (
             interval.denominator <= 0
             and bool(interval.by_verdict.get(Verdict.UNOBSERVABLE.value))
         )
         all_exempt = interval.denominator > 0 and interval.point is None
-
-
+        # A channel read only in part is not a reading of the channel. An
+        # `inconclusive` rung is one *our* step failed to read (capture import
+        # crash, probe timeout); it leaves the channel denominator, so the
+        # pessimistic point over the rungs that did measure silently forgives
+        # or charges whatever the unread rungs held. arc_wing/gdd Codex
+        # 2026-09-03: O1 `draws_nontrivial` inconclusive after the capture's
+        # import pass crashed, `responds_to_input` blocked above it; the point
+        # over the remaining half of the ladder was emitted as a complete
+        # headline. The rule is retry once, then `evaluation_incomplete`
+        # naming the step -- the same as for a whole-channel hole.
         partial_weight = (
             interval.by_verdict.get(Verdict.INCONCLUSIVE.value, 0.0)
             if interval.denominator > 0 else 0.0
@@ -1103,8 +1047,18 @@ def _source_interval(
         state = str(card.get("scard_state") or "uncalibrated")
         raw = card.get("scard") or {}
         if state != "calibrated" or not isinstance(raw, dict):
-
-
+            # No calibration report is wired into the pipeline, so this is the
+            # same for every submission: not a score axis yet, rather than a
+            # reading this run failed to produce. Leaving it as a hole made
+            # the visual category incapable of reaching 80% coverage and so
+            # made ranking_eligible unreachable for everyone. When calibration
+            # lands, a per-run judge failure must report a distinct state and
+            # go back to being a hole.
+            #
+            # pilot2 renormalised the weight away (a perfect objective card
+            # scored 100 with nothing perceptual measured). calib3 keeps the
+            # weight as unearned: 0 in the headline, `headline_ceiling` names
+            # the maximum reachable until calibration exists.
             row = {
                 "kind": source.kind,
                 "id": source.id,
@@ -1144,8 +1098,12 @@ def _source_interval(
 def _weighted_point(
     weighted: Sequence[tuple[float, float | None]],
 ) -> float | None:
+    """Weighted mean of point readings; `None` as soon as any input is unmeasured.
 
-
+    This is the headline rule: a single number is emitted only when every
+    applicable input has a reading. There is no `[0, weight]` hole here --
+    that belongs to the diagnostic interval.
+    """
     total = sum(weight for weight, _point in weighted)
     if total <= 0:
         return None
@@ -1196,8 +1154,11 @@ def _strict_status(result: Any, items: Mapping[str, Item], mode: str) -> dict[st
 
 
 def _ranking_note(result: Any, strict: Mapping[str, Any], ranking_eligible: bool) -> str:
+    """Explain ranking eligibility separately from strict task completion.
 
-
+    Coverage can be complete even when a submission fails a required condition.
+    The note records that distinction alongside the score.
+    """
     if not ranking_eligible:
         return ""
     eligibility = str(getattr(result, "eligibility_status", "") or "")
@@ -1234,8 +1195,12 @@ def _ranking_note(result: Any, strict: Mapping[str, Any], ranking_eligible: bool
 
 
 def _brief_context(result: Any, items: Mapping[str, Item]) -> dict[str, Any]:
+    """What the brief statement asked for, as far as the scorecard needs it.
 
-
+    Read from ``result.brief_context`` (set by ``evaluate_task`` and carried in
+    report.json) or, failing that, from the reproduction item's evidence, so
+    a stored report re-scores without the package on disk.
+    """
     context = getattr(result, "brief_context", None)
     if isinstance(context, Mapping):
         return dict(context)
@@ -1248,15 +1213,21 @@ def _brief_context(result: Any, items: Mapping[str, Item]) -> dict[str, Any]:
 def _forced_not_applicable(
     policy: RegistryPolicy, mode: str, result: Any, items: Mapping[str, Item],
 ) -> dict[tuple[str, str], str]:
+    """Criteria the registry declares not applicable for this mode.
 
-
+    calib4, brief mode: O7 always; O5 unless the brief statement names a
+    layout constraint (then the reading is a stated obligation and stays).
+    mode34, skeleton/bugfix mode: what the shipped scaffold / faulty build
+    already satisfies (SKELETON_NOT_APPLICABLE / BUGFIX_NOT_APPLICABLE).
+    """
     if policy.mode34_applicability and mode == "skeleton":
         return dict(SKELETON_NOT_APPLICABLE)
     if policy.mode34_applicability and mode == "bugfix":
         forced = dict(BUGFIX_NOT_APPLICABLE)
         if policy.progressive_redesign_mode == "bugfix":
-
-
+            # These inherited checks become zero-point candidate gates in the
+            # redesign product. They remain visible in the audit categories,
+            # but do not add an absolute-quality term to the headline.
             for key in (
                 ("artifact_observability", "project_integrity"),
                 ("artifact_observability", "runtime_viability"),
@@ -1282,8 +1253,12 @@ def _forced_not_applicable(
 def _mode4_candidate_import_items(
     items: Mapping[str, Item], engine: Mapping[str, Any],
 ) -> dict[str, Item]:
+    """Attribute replay silence only when two independent imports agree.
 
-
+    O1 imports the submitted project without the route probe. The route scratch
+    must also have copied and injected successfully, then failed a completed
+    import. This avoids charging a probe injection failure or timeout to the fix.
+    """
     normalized = dict(items)
     publication = items.get("bugfix_publication")
     if publication is None or publication.verdict is not Verdict.PASSED:
@@ -1329,7 +1304,7 @@ def _mode4_candidate_import_items(
             "candidate_cold_import": dict(cold), "route_import": dict(imported),
         }
         if ident == "repair_restoration_graded":
-
+            # No frozen target or preserved route can pass a non-importing fix.
             evidence.update(regression_factor=0.0, regression_free=False)
         normalized[ident] = replace(
             item, verdict=Verdict.FAILED, credit=0.0, attribution=Attribution.SUBMISSION,
@@ -1346,8 +1321,13 @@ def _mode4_product_headline(
     gate_keys: Sequence[tuple[str, str]] = MODE4_GATES,
     regression_weights: Mapping[tuple[str, str], float] = MODE4_REGRESSION_WEIGHTS,
 ) -> tuple[float | None, dict[str, Any]]:
+    """mode34 bugfix headline: ``repair_credit x gates x regression_mean``.
 
-
+    Reads the criterion points already computed for the six category rows.
+    A gate or regression criterion that is not applicable in this cell (every
+    source unobservable) is skipped; a *hole* (applicable, no reading) keeps
+    the headline withheld, exactly as in the additive rule.
+    """
     points: dict[tuple[str, str], float | None] = {}
     applicable: dict[tuple[str, str], bool] = {}
     details: dict[tuple[str, str], str] = {}
@@ -1373,7 +1353,7 @@ def _mode4_product_headline(
     ]
     gates = None
     if gate_points and all(point is not None for _key, point in gate_points):
-
+        # Gates are pass/fail items; anything short of a clean pass fails the cell.
         gates = 1.0 if all(point >= 1.0 for _key, point in gate_points) else 0.0
     regression_mean = _weighted_point(regression) if regression else None
     complete = (
@@ -1384,8 +1364,8 @@ def _mode4_product_headline(
     composition = {
         "formula": "repair_credit x gates x regression_mean",
         "repair_credit": None if repair is None else round(repair * 100.0, 3),
-
-
+        # Why the repair credit is what it is (restored/unrestored targets, a
+        # broken preserved route), so a 0 headline explains itself in the report.
         "repair_detail": details.get(MODE4_REPAIR_CREDIT, ""),
         "gates": None if gates is None else round(gates * 100.0, 3),
         "failed_gates": sorted(
@@ -1410,8 +1390,8 @@ def _mode4_product_headline(
     if graded:
         evidence = dict(repair_item.evidence or {}) if repair_item is not None else {}
         factor = evidence.get("regression_factor")
-
-
+        # Keep the new fraction at full precision, rather than round-trip via
+        # the category's display percentage (important for small assertion sets).
         if repair_item is not None and repair_item.verdict in {Verdict.PASSED, Verdict.FAILED}:
             repair = repair_item.credit
         edit_radius = (edit_radius_item.credit
@@ -1443,8 +1423,13 @@ def _mode4_f2p_p2p_outcome(
     repair_item: Item | None,
     strict: Mapping[str, Any],
 ) -> dict[str, Any]:
+    """Classify one current Mode-4 case as FULL/PARTIAL/NO/INCONCLUSIVE.
 
-
+    Current packages contain one coherent root bug site. Target assertions are
+    therefore F2P observations of that site, not independently weighted bugs.
+    Preserved routes and the registered preservation contracts are P2P evidence.
+    No successful F2P assertion can compensate for a P2P regression.
+    """
     points: dict[tuple[str, str], float | None] = {}
     applicable: dict[tuple[str, str], bool] = {}
     for category in category_rows:
@@ -1497,8 +1482,8 @@ def _mode4_f2p_p2p_outcome(
     failed_preservation = sorted(
         key for key, value in applicable_preservation.items() if not passed(value)
     )
-
-
+    # repair_differential/gold_replay are expected to fail when F2P is partial;
+    # all other strict failures remain non-exchangeable candidate failures.
     target_owned_strict = {"repair_differential", "gold_replay"}
     other_strict_failures = sorted(
         set(strict.get("failed_required_items") or []) - target_owned_strict
@@ -1564,7 +1549,7 @@ def _mode4_f2p_p2p_outcome(
 
 
 def _not_applicable_reason(criterion_row: Mapping[str, Any]) -> str:
-
+    """Why a criterion is not a score axis in this cell, from its source rows."""
     reasons: list[str] = []
     for source in criterion_row.get("sources") or []:
         if source.get("not_applicable_reason"):
@@ -1582,105 +1567,8 @@ def _not_applicable_reason(criterion_row: Mapping[str, Any]) -> str:
     return "; ".join(dict.fromkeys(reasons)) or "no applicable source"
 
 
-_MODE5_INFRASTRUCTURE_GATES = (
-    "task_gdd_contract",
-    "verifier_profile_complete",
-)
-
-
-_MODE5_ADMISSIBILITY_GATES = (
-    "unity_layout",
-    "unity_interface",
-    "unity_sdk_integrity",
-    "port_contract_alignment",
-    "no_eval_smuggling",
-    "no_bundled_godot_runtime",
-    "build_recipe",
-    "unity_anti_grant_static",
-    "unity_build",
-    "unity_probe",
-    "unity_input_dispatch",
-)
-
-
-_MODE5_DELIVERABLE_GATES = (
-    "ops_present",
-    "ops_valid",
-    "ops_not_idle",
-)
-
-_MODE5_SUBMISSION_GATES = _MODE5_ADMISSIBILITY_GATES + _MODE5_DELIVERABLE_GATES
-
-_MODE5_VALIDITY_GATES = (
-    "unity_auto_win_ready",
-    "null_no_win",
-    "unity_counterfactual",
-)
-
-
-def _mode5_environment_rows(items: Mapping[str, Item]) -> list[dict[str, Any]]:
-
-
-    profiles: list[tuple[str, Mapping[str, Any]]] = []
-    for item in items.values():
-        for node in _walk_evidence(item.evidence):
-            environment = node.get("environment")
-            if isinstance(environment, Mapping) and "score_eligible" in environment:
-                profiles.append((item.id, environment))
-    if not profiles:
-        return []
-
-
-    unique: dict[tuple[Any, ...], tuple[str, Mapping[str, Any]]] = {}
-    for item_id, profile in profiles:
-        key = (
-            profile.get("profile_id"), profile.get("environment_class"),
-            profile.get("score_eligible"), profile.get("certified"),
-            profile.get("certification_status"),
-        )
-        unique.setdefault(key, (item_id, profile))
-    rows = list(unique.values())
-    eligible = [
-        bool(profile.get("score_eligible")) and bool(profile.get("certified", True))
-        for _, profile in rows
-    ]
-    if all(eligible):
-        status = "passed"
-        detail = "host is certified for score-bearing Unity readings"
-    elif not any(eligible):
-        status = "inconclusive"
-        detail = next(
-            (
-                str(profile.get("detail"))
-                for _, profile in rows
-                if profile.get("detail")
-            ),
-            "host cannot produce score-bearing Unity readings",
-        )
-    else:
-        status = "inconclusive"
-        detail = "runtime evidence contains conflicting Unity environment profiles"
-    return [{
-        "id": "unity_environment_score_eligible",
-        "status": status,
-        "detail": detail,
-        "profiles": [
-            {
-                "source_item": item_id,
-                "profile_id": profile.get("profile_id"),
-                "environment_class": profile.get("environment_class"),
-                "score_eligible": profile.get("score_eligible"),
-                "certified": profile.get("certified"),
-                "certification_status": profile.get("certification_status"),
-            }
-            for item_id, profile in rows
-        ],
-        "attribution": "harness" if status != "passed" else None,
-    }]
-
-
 def _mode5_evidence_attribution(evidence: Any) -> str | None:
-
+    """Normalize producer-side attribution metadata to the verdict enum values."""
     values: list[str] = []
     for node in _walk_evidence(evidence):
         for key in ("attribution", "owner"):
@@ -1710,8 +1598,13 @@ def _mode5_evidence_attribution(evidence: Any) -> str | None:
 
 
 def _mode5_item_attribution(item: Item) -> str | None:
+    """Return the normalized owner for one Mode-5 item.
 
-
+    Producer metadata wins over the verdict fallback.  ``unobservable`` is
+    normally a modality/task fact, but the evaluator deliberately uses that
+    verdict for disabled optional probes too; those explicit configuration
+    messages are harness-owned rather than unattributable.
+    """
     if item.attribution is not None:
         return item.attribution.value
     evidence_attribution = _mode5_evidence_attribution(item.evidence)
@@ -1735,526 +1628,39 @@ def _mode5_item_attribution(item: Item) -> str | None:
     return None
 
 
-def _mode5_gate(
-    name: str, ids: Sequence[str], items: Mapping[str, Item],
-    *, extra_rows: Sequence[Mapping[str, Any]] = (),
-) -> dict[str, Any]:
-    rows: list[dict[str, Any]] = []
-    failed_ids: list[str] = []
-    pending_ids: list[str] = []
-    for item_id in ids:
-        item = items.get(item_id)
-        if item is None:
-            status = "missing"
-            detail = "required evaluator item was not emitted"
-            pending_ids.append(item_id)
-        else:
-            status = item.verdict.value
-            detail = item.detail
-            if item.verdict in {
-                Verdict.FAILED, Verdict.MALFORMED, Verdict.SKIPPED, Verdict.EXEMPT,
-            }:
-                failed_ids.append(item_id)
-            elif item.verdict is not Verdict.PASSED:
-                pending_ids.append(item_id)
-        attribution = _mode5_item_attribution(item) if item is not None else None
-        rows.append({
-            "id": item_id, "status": status, "detail": detail,
-            **({"attribution": attribution} if attribution else {}),
-        })
-    for extra in extra_rows:
-        row = dict(extra)
-        rows.append(row)
-        if row.get("status") == "failed":
-            failed_ids.append(str(row.get("id")))
-        elif row.get("status") != "passed":
-            pending_ids.append(str(row.get("id")))
-    state = "failed" if failed_ids else "incomplete" if pending_ids else "passed"
-    return {
-        "id": name,
-        "status": state,
-        "failed_items": failed_ids,
-        "unmeasured_items": pending_ids,
-        "items": rows,
-    }
-
-
-def _mode5_leaf(item_id: str, items: Mapping[str, Item]) -> tuple[float | None, dict[str, Any]]:
-    item = items.get(item_id)
-    if item is None:
-        return None, {
-            "kind": "item", "id": item_id, "status": "missing", "point": None,
-            "detail": "score-bearing evaluator item was not emitted",
-        }
-    decided = item.verdict in {
-        Verdict.PASSED, Verdict.FAILED, Verdict.MALFORMED, Verdict.SKIPPED,
-    }
-    point = item.credit if item.verdict in {Verdict.PASSED, Verdict.FAILED} else 0.0 if decided else None
-    return point, {
-        "kind": "item",
-        "id": item_id,
-        "status": item.verdict.value,
-        "point": None if point is None else round(point * 100.0, 3),
-        "credit": item.credit,
-        "detail": item.detail,
-        "evidence": item.evidence,
-
-
-        "attribution": _mode5_item_attribution(item),
-    }
-
-
-def _mode5_evaluator_owned_holes(
-    unmeasured: Sequence[Mapping[str, Any]], items: Mapping[str, Item],
-) -> list[dict[str, Any]]:
-
-
-    owed: list[dict[str, Any]] = []
-    for row in unmeasured:
-        source = str(row.get("source") or "")
-        ident = source.split("item:", 1)[1] if source.startswith("item:") else source
-        item = items.get(ident)
-        if item is not None and _mode5_item_attribution(item) == Attribution.SUBMISSION.value:
-            continue
-        owed.append(dict(row))
-    return owed
-
-
-def _mode5_table_summary(category_rows: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
-
-
-    by_id = {str(row.get("id")): row for row in category_rows}
-
-    def points(*ids: str) -> float | None:
-        total = 0.0
-        for ident in ids:
-            row = by_id.get(ident)
-            if not row:
-                return None
-            score = row.get("score") or {}
-            value = score.get("score")
-            if value is None:
-                return None
-            total += float(row.get("weight_in_total") or 0.0) * float(value) / 100.0
-        return round(total, 3)
-
-    columns = {
-        "mechanism_and_requirements": {
-            "weight": 35.0,
-            "score": points("core_mechanics"),
-            "sources": ["unity_mechanic_trace"],
-        },
-        "content_and_assets": {
-            "weight": 15.0,
-            "score": points("content_structure"),
-            "sources": ["unity_structure_fidelity"],
-            "note": (
-                "asset identity and supplied-content realization are included "
-                "here; visual correspondence may use VLM, but assets are not "
-                "a separate leaderboard column"
-            ),
-        },
-        "playability_and_demo": {
-            "weight": 35.0,
-            "score": points("playability_progression", "stability_lifecycle"),
-            "sources": ["causal_witness", "unity_hidden_behavior", "unity_runtime_stability"],
-            "note": "stability is aggregated here but remains a separate diagnostic leaf",
-        },
-        "mode_specific": {
-            "weight": 15.0,
-            "score": points("visual_feedback"),
-            "sources": ["unity_vlm"],
-            "note": "Mode-5 visual quality",
-        },
-    }
-    complete = all(column["score"] is not None for column in columns.values())
-    measured = round(sum(float(column["score"] or 0.0) for column in columns.values()), 3)
-    return {
-        "schema": "gamebench.mode5.leaderboard-columns.v1",
-        "columns": columns,
-        "total": measured if complete else None,
-        "measured_points": measured,
-        "status": "complete" if complete else "partial",
-    }
-
-
-_MODE5_BLOCKED_BY_BUILD = frozenset({
-    "unity_probe", "unity_mechanic_trace", "unity_runtime_stability",
-    "unity_auto_win_ready", "unity_input_dispatch", "unity_hidden_behavior",
-    "unity_source_behavior", "unity_counterfactual", "legacy_reference_trace",
-    "causal_witness", "null_no_win", "unity_evaluator_capture", "unity_vlm",
-    "unity_structure_fidelity", "unity_visual_fidelity", "cross_engine_fidelity",
-})
-_MODE5_EVALUATOR_OWNED_MARKERS = (
-    "no runnable", "not requested", "disabled by evaluator configuration",
-    "requires visual_judge",
-)
-
-
-def _mode5_normalize_candidate_blocked_items(items: Mapping[str, Item]) -> dict[str, Item]:
-
-
-    normalized = dict(items)
-    root: Item | None = None
-    for ident in ("unity_build", "unity_probe"):
-        candidate = normalized.get(ident)
-        if candidate is None:
-            continue
-        owner = _mode5_item_attribution(candidate)
-        if (candidate.verdict in {Verdict.FAILED, Verdict.SKIPPED}
-                and owner == Attribution.SUBMISSION.value):
-            root = candidate
-            break
-    if root is None:
-        return normalized
-    for ident in _MODE5_BLOCKED_BY_BUILD:
-        item = normalized.get(ident)
-        if item is None or item.verdict not in {Verdict.INCONCLUSIVE, Verdict.UNMEASURABLE}:
-            continue
-
-
-        owner = (item.attribution.value if item.attribution is not None
-                 else _mode5_evidence_attribution(item.evidence))
-        if owner in {Attribution.HARNESS.value, Attribution.UNATTRIBUTABLE.value}:
-            continue
-        detail = (item.detail or "").lower()
-        if any(marker in detail for marker in _MODE5_EVALUATOR_OWNED_MARKERS):
-            continue
-        normalized[ident] = replace(
-            item,
-            verdict=Verdict.FAILED,
-            credit=0.0,
-            attribution=Attribution.SUBMISSION,
-            detail=(item.detail or "") + f"; candidate failure propagated from {root.id}",
-            evidence={**item.evidence, "dependency_root": root.id},
-        )
-    return normalized
-
-
 def _score_mode5_result(result: Any, policy: RegistryPolicy) -> dict[str, Any]:
+    from .mode5.report import make_scorecard, missing_snapshot_scorecard
+    try:
+        return make_scorecard(result)
+    except ValueError as exc:
+        if "pre-execution controller static snapshot" not in str(exc):
+            raise
+        return missing_snapshot_scorecard(result)
 
 
-    mode = str(result.package.manifest.get("mode") or "")
-    if mode != "port":
-        raise ValueError(f"registry {policy.version!r} is defined only for Mode 5 / port")
-    game_id = str(result.package.manifest.get("game_id") or "")
-    items = _items_by_id(result.items)
-    if policy.mode5_delivery_zero:
-        items = _mode5_normalize_candidate_blocked_items(items)
-    specs = _category_specs(mode, policy.version)
-    infrastructure = _mode5_gate(
-        "infrastructure_readiness", _MODE5_INFRASTRUCTURE_GATES, items,
-        extra_rows=_mode5_environment_rows(items),
-    )
-    if policy.mode5_deliverable_gates_nonfatal:
-        submission_gate = _mode5_gate(
-            "submission_admissibility", _MODE5_ADMISSIBILITY_GATES, items,
-        )
-
-
-        deliverable_gate = _mode5_gate(
-            "candidate_deliverables", _MODE5_DELIVERABLE_GATES, items,
-        )
-        deliverable_gate["scoring_effect"] = (
-            "non-fatal: a refused or missing tape zeroes causal_witness and "
-            "stays in the denominator; the remaining 90 points are read normally"
-        )
-    else:
-        submission_gate = _mode5_gate(
-            "submission_admissibility", _MODE5_SUBMISSION_GATES, items,
-        )
-        deliverable_gate = None
-    validity_gate = _mode5_gate(
-        "causal_evidence_validity", _MODE5_VALIDITY_GATES, items,
-    )
-
-    category_rows: list[dict[str, Any]] = []
-    unmeasured: list[dict[str, Any]] = []
-    measured_weight = 0.0
-    earned_points = 0.0
-    for category in specs:
-        criteria: list[dict[str, Any]] = []
-        category_measured = 0.0
-        category_earned = 0.0
-        category_complete = True
-        for criterion in category.criteria:
-            leaves: list[dict[str, Any]] = []
-            points: list[float] = []
-            for source in criterion.sources:
-                point, leaf = _mode5_leaf(source.id, items)
-                leaves.append(leaf)
-                if point is None:
-                    category_complete = False
-                    unmeasured.append({
-                        "category": category.id,
-                        "criterion": criterion.id,
-                        "source": f"item:{source.id}",
-                        "step": leaf["detail"],
-                    })
-                else:
-                    points.append(point)
-            criterion_point = (
-                sum(points) / len(points)
-                if len(points) == len(criterion.sources) and points else None
-            )
-            if criterion_point is not None:
-                category_measured += criterion.weight
-                category_earned += criterion.weight * criterion_point
-            criteria.append({
-                "id": criterion.id,
-                "name": criterion.name,
-                "weight_within_category": criterion.weight,
-                "applicable": True,
-                "score": _point_dict_100(criterion_point),
-                "measured_source_share": (
-                    round(len(points) / len(criterion.sources), 6)
-                    if criterion.sources else 0.0
-                ),
-                "sources": leaves,
-            })
-        category_point = category_earned / 100.0 if category_complete else None
-        measured_fraction = category_measured / 100.0
-        measured_weight += category.weight * measured_fraction
-        earned_points += category.weight * category_earned / 100.0
-        category_rows.append({
-            "id": category.id,
-            "name": category.name,
-            "weight_in_total": category.weight,
-            "applicable": True,
-            "applicable_weight_within_category": 100.0,
-            "score": _point_dict_100(category_point),
-            "measured_weight_share": round(measured_fraction, 6),
-            "low_measurement_coverage": measured_fraction < 1.0,
-            "criteria": criteria,
-        })
-
-    quality_complete = not unmeasured
-    objective_category_ids = {
-        "core_mechanics", "playability_progression", "stability_lifecycle",
-    }
-    vlm_category_ids = {"content_structure", "visual_feedback"}
-    objective_rows = [row for row in category_rows if row["id"] in objective_category_ids]
-    vlm_rows = [row for row in category_rows if row["id"] in vlm_category_ids]
-    structure_rows = [row for row in category_rows if row["id"] == "content_structure"]
-    mdva_rows = [row for row in category_rows if row["id"] == "visual_feedback"]
-    objective_missing = [row for row in unmeasured
-                         if row.get("category") in objective_category_ids]
-    vlm_missing = [row for row in unmeasured
-                    if row.get("category") in vlm_category_ids]
-    objective_complete = not objective_missing
-    vlm_complete = not vlm_missing
-    objective_points = sum(
-        float(row["weight_in_total"]) * float((row.get("score") or {}).get("score") or 0.0) / 100.0
-        for row in objective_rows
-    )
-    vlm_points = sum(
-        float(row["weight_in_total"]) * float((row.get("score") or {}).get("score") or 0.0) / 100.0
-        for row in vlm_rows
-    )
-    gates_complete = all(
-        gate["status"] == "passed"
-        for gate in (infrastructure, submission_gate, validity_gate)
-    )
-    candidate_failure = submission_gate["status"] == "failed"
-    invalid_evidence = validity_gate["status"] == "failed"
-    infrastructure_incomplete = infrastructure["status"] != "passed"
-    gate_incomplete = (
-        not infrastructure_incomplete
-        and not candidate_failure
-        and not invalid_evidence
-        and not gates_complete
-    )
-
-
-    if policy.mode5_delivery_zero:
-        evaluator_holes = _mode5_evaluator_owned_holes(unmeasured, items)
-        coverage_incomplete = bool(evaluator_holes)
-    else:
-        coverage_incomplete = not quality_complete
-    if infrastructure_incomplete:
-        outcome_status = "infrastructure_inconclusive"
-        headline_point: float | None = None
-    elif candidate_failure and not coverage_incomplete:
-        outcome_status = "candidate_delivery_failure"
-        headline_point = 0.0
-    elif invalid_evidence and not coverage_incomplete:
-        outcome_status = "invalid_causal_evidence"
-        headline_point = 0.0
-    elif gate_incomplete or coverage_incomplete:
-        outcome_status = "evaluation_incomplete"
-        headline_point = None
-    else:
-        outcome_status = "scored"
-        headline_point = earned_points / 100.0
-
-    mechanic = items.get("unity_mechanic_trace")
-    witness = items.get("causal_witness")
-    hidden = items.get("unity_hidden_behavior")
-    functional_inputs = (mechanic, witness, hidden)
-    if any(item is None or item.verdict not in {Verdict.PASSED, Verdict.FAILED, Verdict.MALFORMED}
-           for item in functional_inputs):
-        functional_complete: bool | None = None
-    else:
-        functional_complete = all(
-            item is not None and item.verdict is Verdict.PASSED and item.credit >= 1.0
-            for item in functional_inputs
-        )
-
-    lower = earned_points
-    upper = earned_points + (100.0 - measured_weight)
-    measured_subset_rate = earned_points / measured_weight * 100.0 if measured_weight else None
-    weighted_total: dict[str, Any] = {
-        **_point_dict_100(headline_point, "complete" if headline_point is not None else "evaluation_incomplete"),
-        "headline_ceiling": 100.0,
-        "rule": headline_rule(policy.version),
-    }
-    if headline_point is None:
-        weighted_total["unmeasured"] = unmeasured
-        weighted_total["detail"] = outcome_status
-
-    strict_resolved = (
-        False if candidate_failure or invalid_evidence
-        else None if not gates_complete
-        else functional_complete
-    )
-    return {
-        "schema": MODE5_SCORECARD_SCHEMA,
-        "registry_version": policy.version,
-        "registry_status": policy.status,
-        "game_id": game_id,
-        "mode": mode,
-        "score_scope": "mode5_model_capability_only",
-        "outcome_status": outcome_status,
-        "gates": {
-            "infrastructure": infrastructure,
-            "submission": submission_gate,
-            "validity": validity_gate,
-            **({"deliverables": deliverable_gate} if deliverable_gate else {}),
-            **({
-                "vlm": {
-                    "status": "passed" if vlm_complete else "inconclusive",
-                    "domain": "visual",
-                    "failed_items": [],
-                    "unmeasured_items": vlm_missing,
-                    "scoring_effect": (
-                        "independent structure and visual-quality VLM domains, 15 points each; evaluator gaps require retry"
-                        if not vlm_complete else "measured"
-                    ),
-                }
-            } if policy.mode5_mdva_domain else {}),
-        },
-        "categories": category_rows,
-        "leaderboard": _mode5_table_summary(category_rows),
-        "weighted_total": weighted_total,
-        **({
-            "objective_total": {
-                "score": round(objective_points, 3) if objective_complete else None,
-                "ceiling": 70.0,
-                "headline_ceiling": 70.0,
-                "status": "complete" if objective_complete else "evaluation_incomplete",
-                "unmeasured": objective_missing,
-            },
-            "vlm_total": {
-                "score": round(vlm_points, 3) if vlm_complete else None,
-                "ceiling": 30.0,
-                "headline_ceiling": 30.0,
-                "status": "complete" if vlm_complete else "retry_required",
-                "protocols": {
-                    "structure": "paired-cross-engine-structure-v2",
-                    "mdva": "2026-09-20.game-rubric-v2",
-                },
-                "unmeasured": vlm_missing,
-            },
-            "structure_vlm_total": {
-                "score": round(sum(
-                    float(row["weight_in_total"]) * float((row.get("score") or {}).get("score") or 0.0) / 100.0
-                    for row in structure_rows
-                ), 3) if not any(
-                    row.get("category") == "content_structure" for row in vlm_missing
-                ) else None,
-                "ceiling": 15.0,
-                "status": "complete" if not any(
-                    row.get("category") == "content_structure" for row in vlm_missing
-                ) else "retry_required",
-            },
-            "mdva_vlm_total": {
-                "score": round(sum(
-                    float(row["weight_in_total"]) * float((row.get("score") or {}).get("score") or 0.0) / 100.0
-                    for row in mdva_rows
-                ), 3) if not any(
-                    row.get("category") == "visual_feedback" for row in vlm_missing
-                ) else None,
-                "ceiling": 15.0,
-                "status": "complete" if not any(
-                    row.get("category") == "visual_feedback" for row in vlm_missing
-                ) else "retry_required",
-                "groups": ((items.get("unity_vlm").evidence or {}).get("groups", {})
-                           if items.get("unity_vlm") else {}),
-            },
-        } if policy.mode5_mdva_domain else {}),
-        "evaluation_incomplete": headline_point is None,
-        "diagnostics": {
-            "fixed_weight_bounds": {
-                "lo": round(lower, 3),
-                "hi": round(upper, 3),
-                "scale": "0-100",
-            },
-            "measured_subset_rate": (
-                None if measured_subset_rate is None else round(measured_subset_rate, 3)
-            ),
-            "earned_points_floor": round(earned_points, 3),
-            "unmeasured_weight": round(100.0 - measured_weight, 3),
-            "note": (
-                "Diagnostics only; measured_subset_rate is not a score. Missing capability "
-                "weight is never removed or renormalised into the formal score."
-            ),
-        },
-        "measured_weight_share": round(measured_weight / 100.0, 6),
-        "ranking_eligible": (
-            headline_point is not None
-            and not infrastructure_incomplete
-            and quality_complete
-        ),
-        "ranking_basis": "mode5_full_capability" if quality_complete else "incomplete_capability_evidence",
-        "ranking_note": (
-            "Do not rank an incomplete Mode-5 capability card."
-            if headline_point is None
-            else ""
-        ),
-        "functional_complete": functional_complete,
-        "not_applicable_criteria": [],
-        "not_applicable_reasons": {},
-        "strict": {
-            "resolved": strict_resolved,
-            "status": "passed" if strict_resolved is True else "failed" if strict_resolved is False else "not_measured",
-            "failed_required_items": submission_gate["failed_items"] + validity_gate["failed_items"],
-            "not_measured_required_items": (
-                infrastructure["unmeasured_items"]
-                + submission_gate["unmeasured_items"]
-                + validity_gate["unmeasured_items"]
-            ),
-            "rule": "Mode-5 gates are conjunctive and zero-point; functional completeness cannot be bought back by presentation quality.",
-        },
-        "reading_rule": (
-            "Read zero-point gates first, then the five fixed-weight capability categories. "
-            "Unmeasured or evaluator-inconclusive capability evidence withholds the full score; "
-            "only pre-registered source-game inapplicability may alter criterion applicability."
-        ),
-    }
-
-
+#: Axis statuses that mean "the evaluator did not measure this", as opposed to
+#: "the submission did not earn it".  Weight sitting under one of these is
+#: unreachable by any submission, so it must not count towards the measured
+#: share or the reachable ceiling.
+#:
+#: ``legacy_composite`` belongs here even though it does award points: it reads
+#: a pre-redesign aggregate rather than the native evidence the axis is defined
+#: on, so counting it as measured overstates how much of the redesign is live.
 UNMEASURED_AXIS_STATUSES = frozenset({
     "placeholder_uncalibrated",
     "unverified_zero",
     "baseline_unavailable_zero",
     "not_instrumented_zero",
     "legacy_composite",
-
-
+    # Nothing left for this axis to check once the other axes have claimed
+    # every requirement.  No submission can earn the weight, and none is
+    # penalised for it, so it belongs with the unreachable rather than the
+    # unearned.
     "empty_denominator",
 })
 
-
+# These are missing required measurements. A deliberate placeholder or an
+# inapplicable task axis has no reading either, but does not make a run partial.
 INCOMPLETE_AXIS_STATUSES = frozenset({
     "unverified_zero", "baseline_unavailable_zero", "not_instrumented_zero",
     "evaluation_incomplete",
@@ -2265,8 +1671,18 @@ VISUAL_PLACEHOLDER_EARNED_POINTS = 5.0
 
 
 def _reachable_ceiling(axes: Mapping[str, Mapping[str, Any]]) -> dict[str, Any]:
+    """The most any submission could score under the axes as implemented.
 
+    A hard-coded ceiling hides the difference between "the candidate did not
+    earn these points" and "no candidate can": a mode whose evaluator has not
+    been built out yet reports the same ceiling as one that has, and the two
+    achievement rates then look comparable when they are not.
 
+    The placeholder axis contributes its fixed award rather than its weight,
+    and axes the evaluator cannot measure contribute nothing.  ``legacy_*``
+    axes do contribute, because they do award points today, but they are
+    reported separately so the caller can discount them.
+    """
     reachable = legacy = placeholder = unreachable = 0.0
     for row in axes.values():
         weight = float(row.get("weight_in_total") or 0.0)
@@ -2295,21 +1711,28 @@ def _reachable_ceiling(axes: Mapping[str, Mapping[str, Any]]) -> dict[str, Any]:
     }
 VISUAL_PLACEHOLDER_CREDIT = VISUAL_PLACEHOLDER_EARNED_POINTS / VISUAL_PLACEHOLDER_WEIGHT
 _REDESIGN_OBJECTIVE_WEIGHT_SCALE = 85.0 / 70.0
-
-
+#: Mode 2's scoring axes carry 68 base points, not 70: the two the other modes
+#: spend on a candidate-authored design contract have no counterpart when the
+#: GDD is frozen and evaluator-authored. Scaling that base to the same 85 caps
+#: all three modes at the same 90, instead of leaving Mode 2 short by the weight
+#: of a sentinel that has nothing to grade whenever the mapping is right.
 _MODE2_OBJECTIVE_WEIGHT_SCALE = 85.0 / 68.0
 
 
 def _redesign_objective_weight(base_weight: float) -> float:
-
+    """Keep the original objective ratios while moving 15 points to visual."""
     return round(base_weight * _REDESIGN_OBJECTIVE_WEIGHT_SCALE, 3)
 
 
 def _mode2_objective_weight(base_weight: float) -> float:
-
+    """Mode 2's objective ratios, scaled over its own 68-point base."""
     return round(base_weight * _MODE2_OBJECTIVE_WEIGHT_SCALE, 3)
 
 
+#: Seven assertions an empty scaffold already satisfies 58% of cannot be the
+#: largest objective axis: 12 -> 5, and the seven freed points go to the two
+#: axes that read certified-route evidence, which is what actually separates a
+#: playable submission from one that only looks like a game.
 MODE1_REDESIGN_WEIGHTS: dict[str, float] = {
     "universal_mechanics": _redesign_objective_weight(5.0),
     "asset_realization": _redesign_objective_weight(18.0),
@@ -2366,8 +1789,14 @@ MODE2_REDESIGN_WEIGHTS: dict[str, float] = {
     "hidden_scenarios": _mode2_objective_weight(4.0),
     "demo_validity": _mode2_objective_weight(3.0),
     "demo_coverage": _mode2_objective_weight(2.0),
-
-
+    # A reported sentinel, not a scoring axis. It answers "is every executable
+    # frozen-GDD requirement charged exactly once, by the axis that owns it?" --
+    # a property of the evaluator's mapping, not of the submission. Paying the
+    # candidate for it would hand out points nobody earned; withholding its
+    # weight capped Mode 2 at 87.572 while Modes 1 and 3 reached 90, and let a
+    # card with orphaned requirements report the higher ceiling of the two. It
+    # keeps its verdict and evidence; an orphan now withholds the whole card
+    # from ranking, which is what every other evaluator gap already does.
     "gdd_requirement_alignment": 0.0,
     "visual_placeholder": VISUAL_PLACEHOLDER_WEIGHT,
 }
@@ -2425,7 +1854,12 @@ def _read_json_mapping(path: Path | None) -> dict[str, Any]:
 
 
 def _mode4_difficulty_context(result: Any) -> dict[str, Any]:
+    """Read evaluator-owned case difficulty without making it a repair gate.
 
+    Fresh evaluations and arithmetic rescoring both retain the package root.
+    Tests and detached report consumers may inject ``mode4_context`` instead.
+    A stored scorecard is only a last-resort compatibility source.
+    """
 
     injected = getattr(result, "mode4_context", None)
     if isinstance(injected, Mapping):
@@ -2451,7 +1885,7 @@ def _mode4_difficulty_context(result: Any) -> dict[str, Any]:
 def _mode4_difficulty_evidence(
     result: Any, repair_score: float | None,
 ) -> dict[str, Any]:
-
+    """Keep correctness and provisional item difficulty on separate scales."""
 
     context = _mode4_difficulty_context(result)
     difficulty = context.get("difficulty") or {}
@@ -2481,7 +1915,13 @@ def _mode4_difficulty_evidence(
 
 
 def _mode1_evidence_context(result: Any, items: Mapping[str, Item]) -> dict[str, Any]:
+    """Recover Mode-1 rubric/census/demo evidence for fresh and stored reports.
 
+    New runs can read the package and reproduction paths attached to the live
+    result. ``eval/tools/rescore.py`` also supplies the stored report path, so
+    historical reports can be upgraded without rerunning the agent or engine.
+    Tests may inject ``mode1_context`` directly.
+    """
 
     injected = getattr(result, "mode1_context", None)
     context = dict(injected) if isinstance(injected, Mapping) else {}
@@ -2554,8 +1994,8 @@ def _mode1_evidence_context(result: Any, items: Mapping[str, Item]) -> dict[str,
         submission = getattr(result, "submission", None)
         demos_path = getattr(submission, "demos_path", None)
         context["feature_demos"] = protocol == "gamebench.feature-demos.v1" or demos_path is not None
-
-
+    # Certified-route replay readings sit beside the report, so axes that read
+    # them need the report's own location as well as the reproduction path.
     if report_path is not None and "report_path" not in context:
         context["report_path"] = str(report_path)
     return context
@@ -2584,8 +2024,9 @@ def _mode1_item_credit(items: Mapping[str, Item], item_id: str) -> float | None:
     if item.verdict in {
         Verdict.INCONCLUSIVE, Verdict.UNMEASURABLE, Verdict.UNOBSERVABLE,
     }:
-
-
+        # Redesign rules 1.2/3 and 1.2/4: evidence the submission failed to
+        # produce is a scored zero and stays in the denominator; evidence the
+        # evaluator failed to take stays inconclusive and stops ranking.
         if item.attribution is Attribution.SUBMISSION:
             return 0.0
         return None
@@ -2627,8 +2068,12 @@ def _mode1_rubric_group_credit(
 def _mode1_content_census_credit(
     context: Mapping[str, Any], *, scaffold: Mapping[str, int] | None = None,
 ) -> tuple[float | None, dict[str, Any]]:
+    """Rubric-required content the submission realises, against the reference.
 
-
+    ``scaffold`` subtracts what a mode's starting project already shipped, so a
+    submission cannot be paid for content it was handed.  Mode 1 and Mode 2
+    start from nothing and pass None; Mode 3 passes the scaffold's own census.
+    """
     rubric = context.get("rubric") or {}
     required = [str(value) for value in rubric.get("required_groups") or []]
     candidate_truth = context.get("candidate_truth") or {}
@@ -2648,8 +2093,10 @@ def _mode1_content_census_credit(
             row["scaffold_given"] = given
             row["candidate_raw"] = raw_candidate
         if scaffold is not None and remaining <= 0:
-
-
+            # The scaffold already meets the reference for this role, so there
+            # is no remaining work to grade.  Scoring it zero would penalise a
+            # submission for content it was never asked to add; leaving it in
+            # the denominator at full credit would pay for the same thing.
             row.update({"applicable": False,
                         "detail": "the scaffold already meets the reference for this role"})
             rows.append(row)
@@ -2676,8 +2123,12 @@ def _mode1_content_census_credit(
 
 
 def _scaffold_group_counts(context: Mapping[str, Any], game_id: str) -> dict[str, int] | None:
+    """The starting project's own census, if a frozen baseline exists for it.
 
-
+    Measured once per game rather than per cell: the scaffold is identical
+    across a game's cells, so running it during every evaluation would pay the
+    same engine cost dozens of times for an answer that cannot differ.
+    """
     injected = context.get("scaffold_truth")
     if isinstance(injected, Mapping):
         return _truth_group_counts(injected)
@@ -2694,8 +2145,14 @@ def _scaffold_group_counts(context: Mapping[str, Any], game_id: str) -> dict[str
 
 
 def _unreadable_reason(items: Mapping[str, Item] | None, axis_id: str) -> str | None:
+    """Why an axis has no reading, in the words of whatever failed to produce it.
 
-
+    A named zero that cannot say why it is blank is the thing this scorecard
+    exists to stop. The axis row carries what the axis *measures*; the reason
+    lives on the items that feed it, so read it back from there: the item that
+    shares the axis's name first, and otherwise the one reason every unread
+    item agrees on -- which is what a dead engine or a refused host looks like.
+    """
     if not items:
         return None
     unread = {
@@ -2715,8 +2172,16 @@ def _attribute_candidate_runtime_failure(
     axes: Mapping[str, dict[str, Any]], card: Mapping[str, Any],
     context: Mapping[str, Any],
 ) -> None:
+    """Keep a confirmed broken candidate in the runtime-score denominator.
 
-
+    O1 already distinguishes a completed, failed cold import from a missing
+    engine or timed-out import. Its failed rung establishes why downstream
+    runtime probes cannot run; those zeros are not evaluator coverage gaps.
+    A completed launch that explicitly failed to load every declared scene
+    establishes the same failure even when editor import succeeded. Partial
+    level failures do not establish why other missing probes failed.
+    Static checks and the separate VLM domain retain their own evidence.
+    """
     cold = next((row for row in card.get("channels", [])
                  if row.get("channel") == "O1"), {})
     interface = next((row for row in card.get("channels", [])
@@ -2746,8 +2211,9 @@ def _attribute_candidate_runtime_failure(
               "no engine reading: asset probe produced no engine usage report "
               "(returncode=1, timed_out=False,"
           )):
-
-
+        # The asset probe starts on the first declared scene. Cyber Survival's
+        # first scene failed to load while two later scenes remained playable;
+        # that explains this completed asset pass, not other missing probes.
         runtime_axes = ("asset_realization",)
         failure = "candidate_asset_start_scene_failed"
         explanation = "the asset probe's starting scene failed to load"
@@ -2761,16 +2227,17 @@ def _attribute_candidate_runtime_failure(
         and level.get("stop_reason") == "no_record"
         and not level.get("reached") for level in levels
     )):
-
-
+        # The loader retains invalid entries as diagnostic strings. Canopy Dash
+        # supplied JSON objects, so no declared level was a runnable address.
+        # Mixed valid/invalid levels and timed-out probes remain unmeasured.
         failure = "candidate_invalid_level_manifest"
         explanation = "every declared candidate level has an invalid scene address, preventing this runtime measurement"
         evidence = {"candidate_interface": dict(interface), "candidate_levels": levels}
     elif (interface.get("measured") is True and "levels=failed" in {
         part.strip() for part in str(interface.get("note") or "").split(";")
     } and assets.get("note") == "no engine reading: normalized interface has no level address"):
-
-
+        # O6 explicitly names this missing submission obligation. It does not
+        # establish the cause of unrelated missing runtime or visual readings.
         runtime_axes = ("asset_realization",)
         failure = "candidate_missing_level_manifest"
         explanation = "the candidate declared no playable level for the asset probe"
@@ -2793,8 +2260,24 @@ def _name_unreadable_axes(
     axes: Mapping[str, dict[str, Any]],
     items: Mapping[str, Item] | None = None,
 ) -> list[dict[str, Any]]:
+    """Turn an axis with no reading into a named zero instead of voiding the card.
 
+    An axis whose components did not all report left `credit` at None, and a
+    single None nulled the entire weighted total. One unread half of O4 cost
+    ember_and_tide its whole Mode-2 score; a submission whose project would not
+    cold-import cost volley_break its whole Mode-3 score -- in both cases every
+    other axis had a perfectly good reading and none of it was reported.
 
+    The reachable-ceiling machinery already expresses this, and expresses it
+    better: the axis earns nothing, its weight leaves the ceiling, and the
+    reason travels with the row. The card stays readable, and the cell is still
+    kept out of rankings -- by `ranking_eligible`, which the caller clears
+    whenever this function names anything.
+
+    Include axes already stored as named zeros, since their numeric credit
+    does not establish that a reading exists. Returns the rows in the shape
+    `weighted_total.unmeasured` wants.
+    """
     named: list[dict[str, Any]] = []
     for row in axes.values():
         if row["credit"] is not None and row["status"] not in INCOMPLETE_AXIS_STATUSES:
@@ -2807,8 +2290,8 @@ def _name_unreadable_axes(
             "category": "unreadable_axis",
             "criterion": row["id"],
             "source": row["id"],
-
-
+            # `step` is what a reader wants first: why is this blank. The axis's
+            # own description stays alongside it rather than displacing it.
             "step": reason or row["detail"],
             "axis_measures": row["detail"],
             **({"reason": reason} if reason else {}),
@@ -2858,8 +2341,12 @@ def _mode1_axis_row(
 def _mode1_gate_status(
     items: Mapping[str, Item], card: Mapping[str, Any], policy: RegistryPolicy,
 ) -> tuple[str, list[dict[str, Any]]]:
+    """Return the tiny cross-domain integrity gate plus visible local diagnostics.
 
-
+    Runtime coverage, interface completeness and optional probes affect only
+    the axes that consume them.  They stay in this report for auditability but
+    can no longer erase unrelated static or visual evidence.
+    """
     rows: list[dict[str, Any]] = []
     o1_interval, o1 = _source_interval(SourceSpec("ocard", "O1"), items, card, policy)
     o1_point = o1_interval.point if o1.get("point") is not None else None
@@ -2997,11 +2484,12 @@ def _score_mode1_redesign(result: Any, policy: RegistryPolicy) -> dict[str, Any]
             detail="required semantic-group coverage; base actions/endings are zero-point gates",
             evidence=rubric_evidence,
         ),
-
-
+        # Modes 2 and 3 were wired to the real reading when it was written;
+        # Mode 1 kept the placeholder it had before, so its 4.857 points were
         # `unverified_zero` in all 41 cells and left the reachable ceiling --
-
-
+        # not because the evidence was missing (19 of those cells carry both
+        # the idle and the ops state delta the separation needs) but because
+        # nothing ever asked for it.
         "numeric_contract": _mode1_axis_row(
             "numeric_contract",
             numeric if numeric_status == "measured" else 0.0,
@@ -3113,8 +2601,9 @@ def _score_mode1_redesign(result: Any, policy: RegistryPolicy) -> dict[str, Any]
     strict = _mode1_strict_status(
         items, evaluation_status, feature_demos=bool(context.get("feature_demos")),
     )
-
-
+    # `total` is now always a number, so completeness is "every axis reported"
+    # rather than "the sum came out": an axis the namer had to zero is still an
+    # axis with no reading, and must not enter a ranking.
     score_complete = not missing
     reachable = _reachable_ceiling(axes)
     weighted_total: dict[str, Any] = {
@@ -3152,8 +2641,10 @@ def _score_mode1_redesign(result: Any, policy: RegistryPolicy) -> dict[str, Any]
         "evaluation_incomplete": not score_complete,
         "diagnostic": {
             "measured_capability_weight": measured_weight,
-
-
+            # Only the visual axis is a placeholder now. `numeric_contract` was
+            # counted here while Mode 1 hard-coded it to zero; it reads the
+            # candidate-versus-matched-null contrast today, so listing its
+            # weight as a placeholder contradicted the axis row beside it.
             "placeholder_weight": VISUAL_PLACEHOLDER_WEIGHT,
             "note": (
                 "visual is fixed at 5/15; numeric_contract is measured from the "
@@ -3199,8 +2690,9 @@ def _demo_credits(
         if (credit := _mode1_item_credit(items, name)) is not None and credit <= 0
     ]
     if failed_inputs:
-
-
+        # A rejected input contract cannot earn valid-demo coverage, even if a
+        # legacy fallback happened to run. This says nothing about the game's
+        # features or independent evaluator readings.
         evidence.update(
             failure_code="candidate_demo_input_failed", input_failures=failed_inputs,
             detail="required demonstration input is missing, invalid, or idle",
@@ -3229,8 +2721,11 @@ def _content_structure_credit(
     census, census_evidence = _mode1_content_census_credit(context, scaffold=scaffold)
     topology, topology_source = _ocard_credit("O4", items, card, policy)
     spatial, spatial_source = _ocard_credit("O5", items, card, policy)
-
-
+    # Census drops out of the blend when a scaffold already meets the reference
+    # for every required role: there is no remaining content work to grade, and
+    # neither zero nor full credit for it would be a reading.  Renormalising
+    # over the components that do have a reading keeps the axis scoreable
+    # instead of voiding the whole card over one inapplicable part.
     census_applicable = not (
         scaffold is not None and census is None and census_evidence.get("graded_roles") == 0
     )
@@ -3263,6 +2758,14 @@ def _content_structure_credit(
     }
 
 
+#: Where each owning axis records the requirement atoms it actually graded.
+#: Prefix ownership says which axis *should* charge an atom; these paths say
+#: whether it did. The two are not the same question, and only the second one
+#: catches an axis whose denominator moved out from under a requirement.
+#:
+#: A path walks Mapping keys. `"[]"` marks the point where the value is a list
+#: of rows and the next key names the field to read from each row; without it
+#: the leaf is read as a list or mapping of names directly.
 GDD_ATOM_SINKS: dict[str, tuple[tuple[str, ...], ...]] = {
     "task_checkpoints": (
         ("milestones", "[]", "milestone"),
@@ -3278,7 +2781,7 @@ GDD_ATOM_SINKS: dict[str, tuple[tuple[str, ...], ...]] = {
 
 
 def _axis_graded_names(axes: Mapping[str, Mapping[str, Any]], axis_id: str) -> set[str]:
-
+    """Every requirement name the given axis put in a denominator."""
     evidence = (axes.get(axis_id) or {}).get("evidence") or {}
     names: set[str] = set()
     for path in GDD_ATOM_SINKS.get(axis_id, ()):
@@ -3308,8 +2811,17 @@ def _axis_graded_names(axes: Mapping[str, Mapping[str, Any]], axis_id: str) -> s
 def _gdd_atom_coverage(
     items: Mapping[str, Item], axes: Mapping[str, Mapping[str, Any]],
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Split the frozen GDD's atoms into graded and orphaned.
 
-
+    An atom is orphaned when the axis that owns its prefix never put it in a
+    denominator, and the rubric did not declare it unmeasurable. That is the
+    case prefix ownership alone cannot see: when `task_checkpoints` moved from
+    the brief's own `mechanic_checks` to certified-route milestones, the route
+    milestones are named after distance bands (`opening_band_250m`) and the GDD
+    atoms after mechanics (`mechanic:forward_run`), so three of canopy_dash's
+    requirements stopped being graded by anything while the alignment axis went
+    on reporting that every atom was charged exactly once.
+    """
     item = items.get("gdd_mechanics_observable")
     evidence = dict(item.evidence or {}) if item is not None else {}
     unmeasurable = {str(x) for x in (evidence.get("unmeasurable_mechanics") or ())}
@@ -3330,8 +2842,9 @@ def _gdd_atom_coverage(
             graded.append(entry)
         elif (rid.startswith("mechanic:")
               and {bare, rid} & _axis_graded_names(axes, "demo_coverage")):
-
-
+            # Feature demonstrations grade the frozen mechanic-check IDs.
+            # Certified routes use different milestone IDs. Recognize the
+            # existing denominator without adding another scoring term.
             entry.update(declared_axis=axis_id, owning_axis="demo_coverage")
             graded.append(entry)
         elif bare in unmeasurable or rid in unmeasurable:
@@ -3346,8 +2859,12 @@ def _gdd_unmapped_alignment_credit(
     items: Mapping[str, Item],
     axes: Mapping[str, Mapping[str, Any]] | None = None,
 ) -> tuple[float, dict[str, Any]]:
+    """Grade unassigned Mode-2 requirement atoms and verify owner coverage.
 
-
+    With ``axes`` supplied, every assigned atom must appear in its owner's
+    graded evidence. An unscored requirement retains its weight and prevents
+    a complete score rather than shrinking the denominator.
+    """
     item = items.get("gdd_mechanics_observable")
     if item is None:
         return 0.0, {"detail": "gdd_mechanics_observable item is missing"}
@@ -3359,8 +2876,12 @@ def _gdd_unmapped_alignment_credit(
         total_i = int(total)
         observed_i = int(observed)
     except (TypeError, ValueError):
-
-
+        # The evaluator does not emit the unmapped counts, but the atom lists
+        # it does emit carry the same information: an atom is unmapped exactly
+        # when no other axis claims its prefix.  Deriving them here beats
+        # scoring a named zero on evidence that is actually present, and it
+        # shares GDD_ATOM_AXIS_BY_PREFIX with the coverage table so the two
+        # can never disagree about which axis owns an atom.
         rows = [row for row in _gdd_atom_rows(evidence)
                 if row["primary_axis"] == "gdd_requirement_alignment"]
         total_i = len(rows)
@@ -3390,8 +2911,10 @@ def _gdd_unmapped_alignment_credit(
                            ", ".join(row["requirement_id"] for row in orphaned[:6]))
                     ),
                 }
-
-
+        # An empty denominator is not a perfect score.  Awarding the weight
+        # would hand out points no submission did anything to earn, and this
+        # axis exists precisely to avoid paying twice for one requirement --
+        # so it earns nothing and its weight leaves the reachable ceiling.
         return 0.0, {
             "unmapped_total": 0,
             "unmapped_observed": 0,
@@ -3411,25 +2934,33 @@ def _gdd_unmapped_alignment_credit(
     }
 
 
+#: Which Mode-2 axis already charges a frozen-GDD requirement atom, keyed by
+#: the atom id's prefix.  An atom whose prefix is absent here is charged on no
+#: other axis, and only those belong to `gdd_requirement_alignment`: the axis
+#: exists to score the remainder without paying twice for one requirement.
 GDD_ATOM_AXIS_BY_PREFIX = {
     "mechanic": "task_checkpoints",
     "group": "rubric_interface",
     "numeric": "numeric_contract",
 }
-
-
+#: Evidence fields that list requirement atoms: the status each implies, and
+#: the owning axis when the field's entries do not carry a resolvable prefix.
 GDD_ATOM_FIELDS = (
     ("observed", "pass", None),
     ("missing", "fail", None),
     ("untriggered", "unverified", None),
-
-
+    # The rubric lists the checks it declares unmeasurable by bare id rather
+    # than as `mechanic:<id>`. They are mechanic checks all the same, so the
+    # prefix lookup must not read the absent prefix as "no other axis charges
+    # this" and hand them to the alignment axis: that gave city_delivery a
+    # denominator of one it could never satisfy, and a reachable ceiling 2.428
+    # above every other Mode-2 cell, for declaring one check unmeasurable.
     ("unmeasurable_mechanics", "unverified", "task_checkpoints"),
 )
 
 
 def _gdd_atom_rows(evidence: Mapping[str, Any]) -> list[dict[str, Any]]:
-
+    """Every frozen-GDD requirement atom, with the axis that charges it."""
     rows: list[dict[str, Any]] = []
     for field, status, owner in GDD_ATOM_FIELDS:
         for raw in evidence.get(field) or []:
@@ -3492,11 +3023,15 @@ def _graded_stub_credit(item: Item | None) -> tuple[float | None, dict[str, Any]
     return float(item.credit), evidence
 
 
+#: A candidate run has to out-change its matched null by this factor before any
+#: numeric movement in it counts as candidate-caused.  An idle run still ticks
+#: clocks and settles physics, so a small non-zero delta is normal; what must
+#: not happen is the scored run looking like the idle one.
 NUMERIC_NULL_SEPARATION = 3.0
 
 
 def _numeric_series_movement(truth: Mapping[str, Any]) -> dict[str, dict[str, Any]]:
-
+    """Per-slot range over the candidate's own per-frame numeric samples."""
     moved: dict[str, dict[str, Any]] = {}
     for level in truth.get("levels") or []:
         if not isinstance(level, Mapping):
@@ -3521,7 +3056,7 @@ def _numeric_series_movement(truth: Mapping[str, Any]) -> dict[str, dict[str, An
 
 
 def _numeric_null_separation(items: Mapping[str, Item]) -> dict[str, Any]:
-
+    """How far the scored run diverged from its matched null."""
     item = items.get("anti_grant_diff")
     evidence = dict(item.evidence or {}) if item is not None else {}
     segments = evidence.get("segments")
@@ -3556,8 +3091,19 @@ def _numeric_null_separation(items: Mapping[str, Item]) -> dict[str, Any]:
 def _numeric_contract_credit(
     context: Mapping[str, Any], items: Mapping[str, Item],
 ) -> tuple[float | None, dict[str, Any], str]:
+    """Required numeric slots the candidate's own inputs demonstrably drive.
 
+    Declaring a slot proves nothing: every run in the corpus reports
+    ``numeric_resolution`` as ``declared``, so an axis keyed on declaration
+    would score a submission that merely names ``score`` the same as one that
+    changes it.  A slot is credited here only when the candidate's own frames
+    show it moving *and* the scored run separated from its matched null, so a
+    clock that ticks in an idle run cannot carry the axis.
 
+    Returns (credit, evidence, status).  Status stays ``unverified_zero`` when
+    the evidence needed to judge is absent, which keeps the weight out of the
+    reachable ceiling instead of silently charging the submission for it.
+    """
     required = [str(slot) for slot in (context.get("rubric") or {}).get("required_numeric_slots") or []]
     if not required:
         return 0.0, {"detail": "the rubric requires no numeric slot"}, "empty_denominator"
@@ -3603,7 +3149,7 @@ def _numeric_contract_credit(
 
 
 def _gt_route_readings(context: Mapping[str, Any], items: Mapping[str, Item]) -> list[Mapping[str, Any]]:
-
+    """Per-route results of replaying the certified routes on the submission."""
     injected = context.get("route_readings")
     if isinstance(injected, list):
         return [row for row in injected if isinstance(row, Mapping)]
@@ -3627,7 +3173,7 @@ def _gt_route_readings(context: Mapping[str, Any], items: Mapping[str, Item]) ->
 
 
 def _gt_route_specs(context: Mapping[str, Any], game_id: str) -> list[Route] | None:
-
+    """The expected routes, including the device gates on their milestones."""
     raw = context.get("route_specs")
     if not isinstance(raw, list):
         if not game_id:
@@ -3643,7 +3189,7 @@ def _gt_route_specs(context: Mapping[str, Any], game_id: str) -> list[Route] | N
 def _gt_route_verdicts(
     routes: Sequence[Route], context: Mapping[str, Any], items: Mapping[str, Item],
 ) -> dict[str, Item]:
-
+    """Apply the route producer's rules to saved readings, without replaying."""
     from ..routes.runner import RouteReading, verdict_for
 
     readings = {str(row.get("route_id") or ""): row for row in _gt_route_readings(context, items)}
@@ -3666,8 +3212,12 @@ def _gt_route_verdicts(
 def _hidden_scenario_credit(
     context: Mapping[str, Any], items: Mapping[str, Item], game_id: str,
 ) -> tuple[float | None, dict[str, Any], str]:
+    """Valid completed certified routes, gated by a measured no-input control.
 
-
+    The registered roster fixes the denominator. Route verdicts retain both
+    the anti-bypass gates and the distinction between submission failure and
+    evaluator gaps; merely reaching the terminal predicate is not a pass.
+    """
     routes = _gt_route_specs(context, game_id)
     if routes is None:
         return None, {"detail": "no certified route file is registered for this task"}, "not_instrumented_zero"
@@ -3726,7 +3276,7 @@ def _hidden_scenario_credit(
 def _candidate_truth_snapshot(
     context: Mapping[str, Any], items: Mapping[str, Item],
 ) -> dict[str, Any] | None:
-
+    """The engine-truth reading taken of the submission, as stored per cell."""
     injected = context.get("candidate_snapshot")
     if isinstance(injected, Mapping):
         return dict(injected)
@@ -3755,7 +3305,7 @@ def _candidate_truth_snapshot(
 def _scaffold_truth_snapshot(
     context: Mapping[str, Any], game_id: str,
 ) -> dict[str, Any] | None:
-
+    """The same reading taken of the starting project, frozen once per game."""
     injected = context.get("scaffold_snapshot")
     if isinstance(injected, Mapping):
         return dict(injected)
@@ -3769,8 +3319,12 @@ def _scaffold_truth_snapshot(
 
 
 def _u_class_point(payload: Mapping[str, Any], game_id: str, *, mode: str) -> float | None:
+    """U1-U7 over one snapshot, exemptions applied, H class deliberately absent.
 
-
+    Recomputed here rather than read off the stored channel row: the reproduction
+    card keeps O3 as thirteen scalars over U and H together, which is the mixture
+    this axis exists to undo.
+    """
     from ..assertions.exemptions import evaluate_universal
     from ..assertions.behavior_contracts import player_counts_for_mode, probe_plan
     from ..truth.snapshot import TruthSnapshot
@@ -3795,8 +3349,19 @@ def _universal_mechanics_credit(
     mode: str,
     scaffold_relative: bool,
 ) -> tuple[float | None, dict[str, Any], str]:
+    """The U class alone, which is what this axis was always defined as.
 
+    O3 mixes the seven universal assertions with the task's H class, and the H
+    class is also the disclosed checkpoint family, so the same assertion was
+    scored twice -- the double count the redesign's rule 5 forbids. H is now
+    scored once, on `task_checkpoints`, against certified-route milestones; this
+    axis keeps U and says so.
 
+    Mode 3 hands the candidate a working scaffold, so the absolute reading would
+    pay it for behaviour it was given. The frozen scaffold snapshot is read with
+    the same assertions and the credit is what the candidate added of the
+    headroom that was left.
+    """
     payload = _candidate_truth_snapshot(context, items)
     if payload is None:
         return None, {
@@ -3844,8 +3409,12 @@ def _universal_mechanics_credit(
 def _gt_milestone_credit(
     context: Mapping[str, Any], items: Mapping[str, Item], game_id: str,
 ) -> tuple[float | None, dict[str, Any], str]:
+    """Declared checkpoints reached on valid certified-route segments.
 
-
+    Reuse the route verdict's checkpoint-local device gates for partial
+    progress. Disclosed checks remain diagnostic and do not prove coverage of
+    a GDD requirement. A missing required replay leaves the axis incomplete.
+    """
     routes = _gt_route_specs(context, game_id)
     if routes is None:
         return None, {
@@ -3907,8 +3476,15 @@ def _gt_milestone_credit(
 
 
 def _graded_transformation_credit(item: Item | None) -> tuple[float | None, dict[str, Any]]:
+    """Fraction of transformation duties the submission discharged.
 
-
+    The axis is defined as graded over packaging, path, connection and runtime
+    duties, but the underlying item is pass/fail: one missed runtime duty
+    zeroed an axis whose static duties had almost all passed, so a submission
+    that discharged nine duties in ten scored the same as one that discharged
+    none.  The per-duty verdicts are already in the item's evidence, so grade
+    from those and keep the binary verdict for the gate that reads it.
+    """
     if item is None or item.verdict in {
         Verdict.INCONCLUSIVE, Verdict.UNMEASURABLE, Verdict.UNOBSERVABLE,
     }:
@@ -3948,8 +3524,10 @@ def _fixed_categories(
     for category_id, name, axis_ids in category_specs:
         rows = [dict(axes[axis_id]) for axis_id in axis_ids]
         weight = sum(float(row["weight_in_total"]) for row in rows)
-
-
+        # A category can hold nothing but reported sentinels -- Mode 2's
+        # alignment check is one -- and dividing a zero total into percentages
+        # is not a score anyone can read. Report the rows and leave the
+        # percentages out rather than inventing a denominator.
         scored = weight > 0.0
         score = (
             None if not scored or any(row["credit"] is None for row in rows)
@@ -3984,8 +3562,11 @@ def _fixed_categories(
 def _score_progressive_additive(
     result: Any, policy: RegistryPolicy, *, mode: str,
 ) -> dict[str, Any]:
+    """Fixed-weight Mode-2/3 successors built from the strongest current evidence.
 
-
+    Evidence the evaluator does not yet produce is kept at a named zero rather
+    than substituted with a duplicated legacy aggregate or renormalised away.
+    """
     items = _items_by_id(result.items)
     card = _reproduction_card(items)
     context = _mode1_evidence_context(result, items)
@@ -4010,8 +3591,9 @@ def _score_progressive_additive(
         context, items, checkpoint,
     )
     demo_status = "candidate_failure" if demo_evidence.get("failure_code") else "measured"
-
-
+    # The matched-null numeric reading cannot exist when the candidate did not
+    # provide usable input. Attribute that known failure as in Mode 1; valid
+    # inputs with absent telemetry must still remain an evaluator gap.
     ops_credits = (_mode1_item_credit(items, name)
                    for name in ("ops_present", "ops_valid", "ops_not_idle"))
     candidate_ops_failure = any(value is not None and value <= 0 for value in ops_credits)
@@ -4023,8 +3605,9 @@ def _score_progressive_additive(
         )
         rubric, rubric_evidence = _mode1_rubric_group_credit(context, items)
         numeric, numeric_evidence, numeric_status = _numeric_contract_credit(context, items)
-
-
+        # The sentinel needs what the owning axes actually graded, so it runs
+        # after they do. Passing their evidence directly keeps it independent
+        # of the order the axis rows happen to be assembled in.
         alignment, alignment_evidence = _gdd_unmapped_alignment_credit(items, {
             "task_checkpoints": {"evidence": milestone_evidence},
             "rubric_interface": {"evidence": rubric_evidence},
@@ -4118,8 +3701,9 @@ def _score_progressive_additive(
                 status=(
                     "unmapped_atoms"
                     if alignment_evidence.get("unmapped_total")
-
-
+                    # An orphaned requirement is the evaluator missing something,
+                    # so the weight stays in the reachable ceiling instead of
+                    # leaving it the way an honestly empty denominator does.
                     else "unscored_atoms"
                     if (alignment_evidence.get("coverage") or {}).get("atoms_orphaned")
                     else "empty_denominator"
@@ -4156,8 +3740,10 @@ def _score_progressive_additive(
             _content_structure_credit(context, items, card, policy, scaffold=scaffold_counts)
             if scaffold_counts is not None else (None, {})
         )
-
-
+        # A frozen baseline is necessary but not sufficient: topology and the
+        # spatial reading can still be absent.  Falling back to the named zero
+        # keeps the weight out of the reachable ceiling, where a None would
+        # instead void the entire card over one unreadable component.
         scaffold_content_ok = scaffold_counts is not None and scaffold_content is not None
         axes = {
             "universal_mechanics": _fixed_axis_row(
@@ -4296,8 +3882,10 @@ def _score_progressive_additive(
 
     _attribute_candidate_runtime_failure(axes, card, context)
     missing = _name_unreadable_axes(axes, items)
-
-
+    # The alignment sentinel carries no weight, so a named zero cannot express
+    # what it found. An orphaned requirement is the evaluator grading nothing
+    # where it promised to grade something: report it the way every other
+    # evaluator gap is reported, by withholding the card from ranking.
     alignment_row = axes.get("gdd_requirement_alignment")
     if alignment_row is not None and alignment_row.get("status") == "unscored_atoms":
         coverage = (alignment_row.get("evidence") or {}).get("coverage") or {}
@@ -4340,8 +3928,10 @@ def _score_progressive_additive(
         "categories": _fixed_categories(axes, category_specs),
         "axes": list(axes.values()),
         "weighted_total": weighted_total,
-
-
+        # `total` is always a number here -- every axis with no reading was
+        # already turned into a named zero -- so testing it left this flag
+        # permanently false while `weighted_total.status` said otherwise, and a
+        # consumer reading only the top-level field saw a complete card.
         "evaluation_incomplete": bool(missing),
         "diagnostic": {
             "measured_capability_weight": measured_weight,
@@ -4363,20 +3953,27 @@ def _score_progressive_additive(
     }
 
 
+#: The registry each mode is scored under when the caller names none. The
+#: redesigned rows were opt-in while they were being built; leaving them opt-in
+#: meant every default run kept scoring Modes 1-4 under `evidence1`, so the work
+#: this branch landed -- the U/H split, certified-route checkpoints, named zeros,
+#: the measured numeric contract -- reached no default report at all.
 DEFAULT_REGISTRY_BY_MODE: dict[str, str] = {
     "brief": MODE1_VLM_REGISTRY_VERSION,
     "gdd": MODE2_VLM_REGISTRY_VERSION,
     "skeleton": MODE3_VLM_REGISTRY_VERSION,
     "bugfix": MODE4_REDESIGN_REGISTRY_VERSION,
-
-
-    "port": MODE5_MDVA_REGISTRY_VERSION,
+    # One Community evidence-adjusted proxy registry for Mode 5.
+    "port": MODE5_RELEASE_REGISTRY_VERSION,
 }
 
 
 def _score_redesign_visual(card: dict[str, Any], result: Any) -> dict[str, Any]:
+    """Combine unchanged objective axes with the measured 15-point VLM axis.
 
-
+    Historical redesign registries retain their fixed placeholder. New registries
+    require this corpus's evidence protocol and report missing quality as null.
+    """
     from ..scard.game_visual import PROTOCOL
 
     visual = _items_by_id(result.items).get("task_visual")
@@ -4413,8 +4010,8 @@ def _score_redesign_visual(card: dict[str, Any], result: Any) -> dict[str, Any]:
     measured_weight = sum(row["weight_in_total"] for row in objective_axes
                           if row["status"] not in UNMEASURED_AXIS_STATUSES)
     measured_weight += VISUAL_PLACEHOLDER_WEIGHT if measured else 0.0
-
-
+    # A missing VLM reading does not become a measured zero or change the
+    # denominator. Keep the objective points readable in their own field.
     reachable_axes = {row["id"]: row for row in objective_axes}
     reachable_axes["task_visual"] = {**visual_axis,
                                      "status": "measured" if measured else "not_instrumented_zero"}
@@ -4442,7 +4039,8 @@ def _score_redesign_visual(card: dict[str, Any], result: Any) -> dict[str, Any]:
                             "credit": credit, "scale": "0-15", "ceiling": 15.0,
                             "weight_in_total": 15.0,
                             "earned_points": visual_points,
-                            "status": "complete" if measured else "retry_required"}
+                            "status": "complete" if measured else "retry_required",
+                            "variants": evidence.get("variants", {})}
     card["assessment_status"] = ("evaluation_incomplete" if objective_missing else
                                   "complete" if measured else "objective_only")
     card["evaluation_incomplete"] = bool(missing)
@@ -4485,8 +4083,9 @@ def _score_redesign_visual(card: dict[str, Any], result: Any) -> dict[str, Any]:
         for row in evaluator_failures if row.get("retryable", True)
     ]
     if not measured:
-
-
+        # Objective evaluator failures take precedence over a missing visual
+        # judgment.  `evaluation_pending` is reserved for an otherwise complete
+        # objective card that only needs its VLM domain resumed.
         card["weighted_total"]["status"] = (
             "evaluation_incomplete" if objective_missing else "evaluation_pending"
         )
@@ -4497,26 +4096,22 @@ def _score_redesign_visual(card: dict[str, Any], result: Any) -> dict[str, Any]:
 
 
 def default_registry_for_mode(mode: str) -> str:
-
+    """The registry row a mode is scored under when the caller names none."""
     return DEFAULT_REGISTRY_BY_MODE.get(mode, REGISTRY_VERSION)
 
 
 def score_task_result(result: Any, registry_version: str | None = None, *,
                       _objective_only: bool = False) -> dict[str, Any]:
+    """Score one result under an explicit or mode-selected registry version.
 
-
+    Each mode selects its own row from ``DEFAULT_REGISTRY_BY_MODE``. Passing an
+    explicit version re-scores historical reports under their original rules.
+    """
     mode = str(result.package.manifest.get("mode") or "")
     selected_version = registry_version or default_registry_for_mode(mode)
+    if mode == "port" and selected_version != MODE5_RELEASE_REGISTRY_VERSION:
+        raise ValueError("Mode 5 has one release scoring registry")
     policy = registry_policy(selected_version, mode=mode)
-    if (
-        policy.mode5_capability_only
-        and mode != "port"
-        and selected_version != MODE5_REGISTRY_VERSION
-    ):
-
-
-        selected_version = MODE34_REGISTRY_VERSION
-        policy = registry_policy(selected_version, mode=mode)
     if policy.mode5_capability_only:
         return _score_mode5_result(result, policy)
     if policy.mode1_redesign and mode == "brief":
@@ -4540,13 +4135,21 @@ def score_task_result(result: Any, registry_version: str | None = None, *,
     category_rows: list[dict[str, Any]] = []
     weighted_categories: list[tuple[float, Interval]] = []
     weighted_category_points: list[tuple[float, float | None]] = []
-
+    # (category weight, unearned share of the category's headline weight)
     category_unearned: list[tuple[float, float]] = []
     total_registered_weight = sum(spec.weight for spec in specs)
     total_measured_share = 0.0
     unmeasured: list[dict[str, Any]] = []
 
-
+    # A source that is not applicable in this cell (unobservable channel or
+    # item, uncalibrated S-card, all-exempt channel) is the same for every
+    # submission scored here. It leaves the score, the coverage denominator and
+    # the headline, and is listed in the row as such. A source that is
+    # applicable but produced no reading is an evaluator hole: the diagnostic
+    # interval keeps it as [0, weight], the headline is withheld. An
+    # *unearned* source (policy: uncalibrated S-card under calib3) is not
+    # applicable for coverage but keeps its registered weight in the headline
+    # at 0 and in the diagnostic interval as [0, weight].
     for spec in specs:
         criterion_rows: list[dict[str, Any]] = []
         weighted_criteria: list[tuple[float, Interval]] = []
@@ -4563,15 +4166,15 @@ def score_task_result(result: Any, registry_version: str | None = None, *,
             for source in criterion.sources:
                 interval, row = _source_interval(source, items, card, policy)
                 if _objective_only and (source.kind == "scard" or source.id in {
-                    "task_visual", "unity_vlm", "cross_engine_fidelity",
+                    "task_visual",
                 }):
                     interval = _empty_interval("inconclusive")
                     row = {"kind": source.kind, "id": source.id, "applicable": False,
                            "headline": "unearned", "status": "outside_objective_score",
                            "detail": "perceptual weight is reserved; this is not a complete composite score"}
                 if forced_reason:
-
-
+                    # Reported, not scored: the reading and its point stay on
+                    # the row for the reader, the row leaves every denominator.
                     row["applicable"] = False
                     row["not_applicable_reason"] = forced_reason
                     row.pop("headline", None)
@@ -4579,8 +4182,9 @@ def score_task_result(result: Any, registry_version: str | None = None, *,
                 source_rows.append(row)
                 if row["applicable"]:
                     source_intervals.append((1.0, interval))
-
-
+                    # The row decides whether the source has a reading: a
+                    # partially read channel has an `interval.point` but no
+                    # headline point.
                     point = interval.point if row.get("point") is not None else None
                     if point is None:
                         unmeasured.append({
@@ -4688,8 +4292,9 @@ def score_task_result(result: Any, registry_version: str | None = None, *,
     headline_point = _weighted_point(weighted_category_points)
     mode4_composition: dict[str, Any] | None = None
     if policy.mode34_applicability and mode == "bugfix":
-
-
+        # The six category rows above are the audit view; the headline is the
+        # product rule (see MODE34_HEADLINE_RULE), so an unrepaired build
+        # scores 0 however well it preserved what it did not touch.
         headline_point, mode4_composition = _mode4_product_headline(
             category_rows, graded=policy.mode4_graded,
             repair_item=items.get("repair_restoration_graded"),
@@ -4754,7 +4359,7 @@ def score_task_result(result: Any, registry_version: str | None = None, *,
     if policy.evidence_consistency:
         measured_perceptual = any(
             src.get("applicable") and src.get("point") is not None
-            and (src["kind"] == "scard" or src["id"] in {"unity_vlm", "cross_engine_fidelity"})
+            and (src["kind"] == "scard")
             for cat in category_rows for crit in cat["criteria"] for src in crit["sources"]
         )
         ranking_basis = "objective_and_calibrated_perceptual" if measured_perceptual else "objective_only"
@@ -4921,8 +4526,8 @@ def score_task_result(result: Any, registry_version: str | None = None, *,
             "objective_only" if objective["weighted_total"]["score"] is not None else
             "evaluation_incomplete"
         )
-
-
+        # Arithmetic rescoring also accepts historical visual1 items. Label
+        # the instrument that produced the evidence, not today's default judge.
         visual_item = items.get("task_visual")
         if visual_item is not None and (visual_item.evidence or {}).get("upstream_revision"):
             payload["visual_protocol"] = "GameCraft-adapted VLM; experimental; no GT or submitter description"
@@ -4989,15 +4594,6 @@ MODE34B_HEADLINE_RULE = (
 )
 
 
-MODE5_HEADLINE_RULE = (
-    "Mode-5-only fixed 100-point capability score: core mechanics 35, end-to-end "
-    "playability/progression 25, content/structure fidelity 15, visual/UI/feedback "
-    "fidelity 15, and runtime stability/lifecycle 10. Unity/editor/package/SDK/build "
-    "recipe and anti-grant checks are zero-point gates. Missing or evaluator-"
-    "inconclusive score evidence never leaves the denominator and withholds the full "
-    "score; candidate-caused delivery or causal-validity gate failure records zero."
-)
-
 MODE1_REDESIGN_HEADLINE_RULE = (
     "Mode-1-only fixed 100-point registry: zero-point execution/integrity gates surround "
     "85 objective capability points and a 15-point visual axis; the original objective "
@@ -5046,41 +4642,22 @@ MODE4_F2P_P2P_HEADLINE_RULE = (
 )
 
 
-MODE5_DELIVERY_ZERO_HEADLINE_RULE = (
-    MODE5_HEADLINE_RULE
-    + " A submission that fails a candidate admissibility gate scores a ranked 0 and "
-    "stays in the denominator, including when it left no capability readings behind: "
-    "a project that will not build, or will not answer the controller protocol, caused "
-    "that silence itself. Readings the evaluator owes -- an uncertified host, an "
-    "uncalibrated scenario suite, a judge that was not requested -- still withhold the "
-    "headline as INCONCLUSIVE, so an evaluator gap is never reported as a candidate zero. "
-    "The candidate's own demonstration tape is no longer one of those admissibility "
-    "gates: a missing or refused ops tape zeroes causal_witness, worth 10 of the 100 "
-    "points, and leaves the other 90 to be read by the evaluator driving the build."
-)
-
-
 def headline_rule(version: str | None = None) -> str:
     resolved = registry_policy(version).version
     if resolved in {MODE1_VLM_REGISTRY_VERSION, MODE2_VLM_REGISTRY_VERSION, MODE3_VLM_REGISTRY_VERSION}:
         return ("Fixed objective axes retain 85 points. Game-specific VLM quality contributes 15 points; "
                 "M/D/V/A internal weights are 10/18/27/45 percent. Direct per-item attainment is limited "
-                "by triggered caps, using the rubric's direct quality criteria. Missing objective or visual evidence withholds "
+                "by triggered caps; q² and q³ are diagnostics only. Missing objective or visual evidence withholds "
                 "the composite and ranking; strict completion remains independent.")
     if resolved == MODE4_F2P_P2P_REGISTRY_VERSION:
         return MODE4_F2P_P2P_HEADLINE_RULE
-    if resolved == MODE5_DELIVERY_ZERO_REGISTRY_VERSION:
-        return MODE5_DELIVERY_ZERO_HEADLINE_RULE
-    if resolved == MODE5_MDVA_REGISTRY_VERSION:
+    if resolved == MODE5_RELEASE_REGISTRY_VERSION:
         return (
-            "Mode-5-v2 corpus-calibrated headline: Objective capability is a fixed "
-            "70-point domain. Cross-engine structure and game-rubric visual quality are "
-            "independent 15-point VLM domains. Candidate failures score only the "
-            "affected domain; missing evaluator VLM evidence requires retry without "
-            "zeroing objective points or renormalising the denominator."
+            "Mode 5: fixed 35/25/15/15/10 evidence-adjusted proxy, no VLM; "
+            "runtime/editor/static/presence evidence coefficients 1/.8/.6/.25; "
+            "final goal requires causal runtime evidence. Model headline is "
+            "the arithmetic task mean; low-tail reliability is diagnostic only."
         )
-    if resolved == MODE5_REGISTRY_VERSION:
-        return MODE5_HEADLINE_RULE
     if resolved == MODE1_REDESIGN_REGISTRY_VERSION:
         return MODE1_REDESIGN_HEADLINE_RULE
     if resolved == MODE2_REDESIGN_REGISTRY_VERSION:
@@ -5146,11 +4723,6 @@ __all__ = [
     "MODE4_GATES",
     "MODE4_HEADLINE_RULE",
     "MODE4_REGISTRY_VERSION",
-    "MODE5_HEADLINE_RULE",
-    "MODE5_REGISTRY_VERSION",
-    "MODE5_DELIVERY_ZERO_REGISTRY_VERSION",
-    "MODE5_MDVA_REGISTRY_VERSION",
-    "HISTORICAL_MODE5_REGISTRIES",
     "MODE5_SCORECARD_SCHEMA",
     "MODE4_REGRESSION_WEIGHTS",
     "MODE4_REPAIR_CREDIT",

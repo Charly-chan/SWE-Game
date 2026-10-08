@@ -1,0 +1,973 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:b835d7808c01f313b07ab01c2bbc4a1584b0873563a342196bac4e0f75ca4220",
+  "game_id": "dogwalk",
+  "inputs": {
+    "certificate": {
+      "path": "tasks/dogwalk/certificate.rt1.json",
+      "sha256": "b626ef9efe308bdc9d226646c245c35118012dc79dcd3e93b5927b1ab6ac6699"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/dogwalk.md",
+      "sha256": "799d29a07ac0c3fca1d191b0188c9bcfdf3eb3d2f3a7afdf7e7847a39701529b"
+    },
+    "route": {
+      "path": "tasks/dogwalk/route.json",
+      "sha256": "45d5f570260b84af119ad1691f9b2bfe4f60009f00b664c79687e2c8aa1e179d"
+    },
+    "rubric": {
+      "entry_sha256": "8b75f2394f98ee373d85eca9a6f1e25bd021f1f998dbdf832c8b0e649ed8c558",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_collectible",
+        "gb_interactive",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/dogwalk/authored/source_obligations.json",
+      "sha256": "d5becd1c6769fb5fb3526b0a4be045df3e7d54b6cc3804f039e34664bb0e69b7"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "dogwalk-c2-the_cone_reaches_the_snowman.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "dogwalk-c2-the_cone_reaches_the_snowman.the_cone_is_in_her_hands",
+          "predicate": "device_state(collectible, 1, held, true)"
+        },
+        {
+          "id": "dogwalk-c2-the_cone_reaches_the_snowman.the_cone_is_on_the_snowman",
+          "predicate": "device_state(collectible, 1, placed, true)"
+        },
+        {
+          "id": "dogwalk-c2-the_cone_reaches_the_snowman.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_right",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed source/entities/player_entities/chocomel.gd:251: wake_up_progress_time += get_physics_process_delta_time()",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:3c29c9f3641f82750273dd8bafd4e22be0440977b8b17c05bef662e334b1eb90",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "dogwalk/C2/the_cone_reaches_the_snowman",
+      "scenario_id": "dogwalk-c2-the_cone_reaches_the_snowman",
+      "source_check_id": "owner-reviewed-dogwalk-c2-the_cone_reaches_the_snowman",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "the_cone_is_in_her_hands",
+            "predicate": "device_state(collectible, 1, held, true)"
+          },
+          {
+            "name": "the_cone_is_on_the_snowman",
+            "predicate": "device_state(collectible, 1, placed, true)"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "dogwalk-c3-all_five_decorations_placed.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "dogwalk-c3-all_five_decorations_placed.cone_placed",
+          "predicate": "device_state(collectible, 1, placed, true)"
+        },
+        {
+          "id": "dogwalk-c3-all_five_decorations_placed.shovel_placed",
+          "predicate": "device_state(collectible, 2, placed, true)"
+        },
+        {
+          "id": "dogwalk-c3-all_five_decorations_placed.tennis_ball_placed",
+          "predicate": "device_state(collectible, 0, placed, true)"
+        },
+        {
+          "id": "dogwalk-c3-all_five_decorations_placed.branch_placed",
+          "predicate": "device_state(collectible, 3, placed, true)"
+        },
+        {
+          "id": "dogwalk-c3-all_five_decorations_placed.ear_muffs_placed",
+          "predicate": "device_state(collectible, 4, placed, true)"
+        }
+      ],
+      "critical_action": "gb_down",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed source/entities/player_entities/chocomel.gd:251: wake_up_progress_time += get_physics_process_delta_time()",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:3c29c9f3641f82750273dd8bafd4e22be0440977b8b17c05bef662e334b1eb90",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "dogwalk/C3/all_five_decorations_placed",
+      "scenario_id": "dogwalk-c3-all_five_decorations_placed",
+      "source_check_id": "owner-reviewed-dogwalk-c3-all_five_decorations_placed",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "cone_placed",
+            "predicate": "device_state(collectible, 1, placed, true)"
+          },
+          {
+            "name": "shovel_placed",
+            "predicate": "device_state(collectible, 2, placed, true)"
+          },
+          {
+            "name": "tennis_ball_placed",
+            "predicate": "device_state(collectible, 0, placed, true)"
+          },
+          {
+            "name": "branch_placed",
+            "predicate": "device_state(collectible, 3, placed, true)"
+          },
+          {
+            "name": "ear_muffs_placed",
+            "predicate": "device_state(collectible, 4, placed, true)"
+          }
+        ],
+        "predicate": "numeric(progress) >= 5"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "dogwalk-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "dogwalk-l5-whole_game_clear.one_decoration_placed",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "dogwalk-l5-whole_game_clear.three_decorations_placed",
+          "predicate": "numeric(progress) >= 3"
+        },
+        {
+          "id": "dogwalk-l5-whole_game_clear.all_five_decorations_placed",
+          "predicate": "numeric(progress) >= 5"
+        },
+        {
+          "id": "dogwalk-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:3c29c9f3641f82750273dd8bafd4e22be0440977b8b17c05bef662e334b1eb90",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "dogwalk/L5/whole_game_clear",
+      "scenario_id": "dogwalk-l5-whole_game_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.45a7d5f57f",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.78158ef0f1",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.6a9e7249b3",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    }
+  ],
+  "policy_digest": "sha256:fcbee7d206035c9b9756701c8c3cca51ef252b98d4b40501ebfee2d690f42051",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 2960,
+      "capture_checkpoints": [
+        {
+          "id": "dogwalk-c2-the_cone_reaches_the_snowman.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "dogwalk-c2-the_cone_reaches_the_snowman.the_cone_is_in_her_hands",
+          "predicate": "device_state(collectible, 1, held, true)"
+        },
+        {
+          "id": "dogwalk-c2-the_cone_reaches_the_snowman.the_cone_is_on_the_snowman",
+          "predicate": "device_state(collectible, 1, placed, true)"
+        },
+        {
+          "id": "dogwalk-c2-the_cone_reaches_the_snowman.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_right",
+          "remove": "gb_right"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "the_cone_is_in_her_hands",
+            "predicate": "device_state(collectible, 1, held, true)"
+          },
+          {
+            "name": "the_cone_is_on_the_snowman",
+            "predicate": "device_state(collectible, 1, placed, true)"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "id": "dogwalk-c2-the_cone_reaches_the_snowman",
+      "policy": "strategy.movement.45a7d5f57f",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "dogwalk/C2/the_cone_reaches_the_snowman",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "the_cone_is_in_her_hands",
+            "predicate": "device_state(collectible, 1, held, true)"
+          },
+          {
+            "name": "the_cone_is_on_the_snowman",
+            "predicate": "device_state(collectible, 1, placed, true)"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 13060,
+      "capture_checkpoints": [
+        {
+          "id": "dogwalk-c3-all_five_decorations_placed.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "dogwalk-c3-all_five_decorations_placed.cone_placed",
+          "predicate": "device_state(collectible, 1, placed, true)"
+        },
+        {
+          "id": "dogwalk-c3-all_five_decorations_placed.shovel_placed",
+          "predicate": "device_state(collectible, 2, placed, true)"
+        },
+        {
+          "id": "dogwalk-c3-all_five_decorations_placed.tennis_ball_placed",
+          "predicate": "device_state(collectible, 0, placed, true)"
+        },
+        {
+          "id": "dogwalk-c3-all_five_decorations_placed.branch_placed",
+          "predicate": "device_state(collectible, 3, placed, true)"
+        },
+        {
+          "id": "dogwalk-c3-all_five_decorations_placed.ear_muffs_placed",
+          "predicate": "device_state(collectible, 4, placed, true)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_down",
+          "remove": "gb_down"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "cone_placed",
+            "predicate": "device_state(collectible, 1, placed, true)"
+          },
+          {
+            "name": "shovel_placed",
+            "predicate": "device_state(collectible, 2, placed, true)"
+          },
+          {
+            "name": "tennis_ball_placed",
+            "predicate": "device_state(collectible, 0, placed, true)"
+          },
+          {
+            "name": "branch_placed",
+            "predicate": "device_state(collectible, 3, placed, true)"
+          },
+          {
+            "name": "ear_muffs_placed",
+            "predicate": "device_state(collectible, 4, placed, true)"
+          }
+        ],
+        "predicate": "numeric(progress) >= 5"
+      },
+      "id": "dogwalk-c3-all_five_decorations_placed",
+      "policy": "strategy.movement.78158ef0f1",
+      "required_actions": [
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "dogwalk/C3/all_five_decorations_placed",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "cone_placed",
+            "predicate": "device_state(collectible, 1, placed, true)"
+          },
+          {
+            "name": "shovel_placed",
+            "predicate": "device_state(collectible, 2, placed, true)"
+          },
+          {
+            "name": "tennis_ball_placed",
+            "predicate": "device_state(collectible, 0, placed, true)"
+          },
+          {
+            "name": "branch_placed",
+            "predicate": "device_state(collectible, 3, placed, true)"
+          },
+          {
+            "name": "ear_muffs_placed",
+            "predicate": "device_state(collectible, 4, placed, true)"
+          }
+        ],
+        "predicate": "numeric(progress) >= 5"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 13312,
+      "capture_checkpoints": [
+        {
+          "id": "dogwalk-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "dogwalk-l5-whole_game_clear.one_decoration_placed",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "dogwalk-l5-whole_game_clear.three_decorations_placed",
+          "predicate": "numeric(progress) >= 3"
+        },
+        {
+          "id": "dogwalk-l5-whole_game_clear.all_five_decorations_placed",
+          "predicate": "numeric(progress) >= 5"
+        },
+        {
+          "id": "dogwalk-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "one_decoration_placed",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "three_decorations_placed",
+            "predicate": "numeric(progress) >= 3"
+          },
+          {
+            "name": "all_five_decorations_placed",
+            "predicate": "numeric(progress) >= 5"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "dogwalk-l5-whole_game_clear",
+      "policy": "strategy.movement.6a9e7249b3",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "dogwalk/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

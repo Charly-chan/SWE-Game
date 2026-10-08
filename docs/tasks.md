@@ -47,13 +47,13 @@ interface maps task actions, levels, semantic roles, numeric state, and endings
 to the Unity implementation. Godot node paths and source-file organization are
 not required.
 
-The evaluator builds the project in the licensed Unity **6000.3.23f1** environment
+The evaluator builds the project in the licensed Unity **6000.3.23f1** Community Docker environment
 and runs the submitted inputs, matched no-input controls, and hidden scenarios.
 Its injected probe captures raw state and visual evidence; the evaluator applies
 the task predicates and computes scores. Build, interface, runtime, and evidence
 requirements are specified in the [porting contract](../eval/interface/UNITY_PORT_CONTRACT.md),
-[evaluation specification](reference/MODE5_EVALUATION.md), and
-[Unity runtime guide](reference/UNITY_MODE5.md).
+[scoring protocol](reference/MODE5_RELEASE_PROTOCOL.md), and
+[Community Docker guide](reference/MODE5_RELEASE.md).
 
 <a id="feature-demonstrations"></a>
 

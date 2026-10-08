@@ -1,0 +1,16 @@
+{
+  "blockers": [],
+  "game_id": "gunfire_dungeon",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "gunfire_dungeon-c1-floor_1_clear",
+    "gunfire_dungeon-c2-floor_2_clear",
+    "gunfire_dungeon-c3-floor_3_clear",
+    "gunfire_dungeon-c4-final_boss_clear",
+    "gunfire_dungeon-l5-whole_run_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:273e977c5db9f7f0f90e418232e4f3174eb6dcd4b2a872c06fd97a950d4d7903"
+}

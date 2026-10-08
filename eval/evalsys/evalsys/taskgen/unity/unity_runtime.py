@@ -39,6 +39,18 @@ _EVALUATOR_BUILTIN_MODULES = {
 
 
     "com.unity.modules.audio": "1.0.0",
+    "com.unity.modules.animation": "1.0.0",
+    "com.unity.modules.particlesystem": "1.0.0",
+    "com.unity.modules.ui": "1.0.0",
+}
+
+
+_EVALUATOR_OFFLINE_TOOLCHAIN_PACKAGES = {
+    "com.unity.sysroot": "/opt/gamebench/unity-packages/com.unity.sysroot@2.0.10",
+    "com.unity.sysroot.linux-x86_64": "/opt/gamebench/unity-packages/com.unity.sysroot.linux-x86_64@2.0.9",
+    "com.unity.toolchain.linux-x86_64": "/opt/gamebench/unity-packages/com.unity.toolchain.linux-x86_64@2.0.11",
+    "com.unity.sysroot.base": "/opt/gamebench/unity-packages/com.unity.sysroot.base@1.1.0",
+    "com.unity.toolchain.linux-x86_64-linux": "/opt/gamebench/unity-packages/com.unity.toolchain.linux-x86_64-linux@1.1.0",
 }
 
 
@@ -53,6 +65,12 @@ def _ensure_evaluator_builtin_modules(project: Path) -> None:
         if package_id not in dependencies:
             dependencies[package_id] = version
             changed = True
+    if all(Path(path).is_dir() for path in _EVALUATOR_OFFLINE_TOOLCHAIN_PACKAGES.values()):
+        for package_id, path in _EVALUATOR_OFFLINE_TOOLCHAIN_PACKAGES.items():
+            local_reference = f"file:{path}"
+            if dependencies.get(package_id) != local_reference:
+                dependencies[package_id] = local_reference
+                changed = True
     if changed:
         payload["dependencies"] = dict(sorted(dependencies.items()))
         manifest_path.write_text(
@@ -132,7 +150,7 @@ def build_unity_submission(
     environment_profile: UnityEnvironmentProfile | Mapping[str, Any] | None = None,
     trusted_fixture: bool = False,
 ) -> UnityBuildResult:
-
+    """Build a Linux player with evaluator-owned code and structured outcomes."""
     project = project.resolve()
     out_dir = out_dir.resolve()
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -143,7 +161,7 @@ def build_unity_submission(
     ):
         return UnityBuildResult(
             "inconclusive",
-            profile.detail or "certified disposable Unity VM profile is unavailable",
+            profile.detail or "Community Docker evaluator profile is unavailable",
             None,
             requested,
             None,
@@ -188,8 +206,9 @@ def build_unity_submission(
     player_dir = out_dir / "player"
     executable = player_dir / "game.x86_64"
     try:
-
-
+        # These paths are evaluator-owned.  A repeated evaluation must prove
+        # that *this* Unity invocation produced the player rather than inherit
+        # a successful artifact or log from an earlier attempt.
         if player_dir.exists():
             shutil.rmtree(player_dir)
         if log_path.exists():
@@ -208,12 +227,21 @@ def build_unity_submission(
             Path(__file__).with_name("unity_runtime_probe.cs"),
             probe_dir / "GameBenchmarkEvaluatorProbe.cs",
         )
+        shutil.copy2(
+            Path(__file__).with_name("unity_visual_probe.cs"),
+            probe_dir / "GameBenchmarkEvaluatorVisualCapture.cs",
+        )
         scene_paths = _build_scenes(manifest)
         (editor_dir / "GameBenchmarkEvaluatorBuild.cs").write_text(
-            _render_builder(scene_paths, executable), encoding="utf-8"
+            _render_builder(
+                scene_paths, executable,
+                include_candidate_scenes=profile.environment_class == "community-docker",
+            ),
+            encoding="utf-8",
         )
-
-
+        # Only this candidate-owned scratch is exposed to the candidate process
+        # to the reduced Unity identity. Hidden package/controller data remains
+        # owned by the trusted evaluator identity.
         grant_candidate_access((workspace, player_dir, log_path.parent))
         command = candidate_process_command((
             str(binary),
@@ -228,7 +256,10 @@ def build_unity_submission(
             str(log_path),
         ))
         try:
-            process = run_candidate_process(command, timeout=timeout)
+            # Unity writes its detailed diagnostics to -logFile. Roslyn helpers
+            # can outlive the Editor and hold inherited stdio pipes open, so
+            # captured stdout/stderr would wait for an unrelated helper exit.
+            process = run_candidate_process(command, timeout=timeout, capture_output=False)
         except subprocess.TimeoutExpired:
             return UnityBuildResult(
                 "inconclusive",
@@ -262,6 +293,18 @@ def build_unity_submission(
             return UnityBuildResult(
                 "inconclusive",
                 "Unity licensing infrastructure prevented the evaluator build",
+                str(binary),
+                requested,
+                observed,
+                command,
+                process.returncode,
+                str(log_path),
+                None,
+            )
+        if process.returncode in {137, -9}:
+            return UnityBuildResult(
+                "inconclusive",
+                "Unity build process was killed (exit 137/SIGKILL); check evaluator memory and OOM logs",
                 str(binary),
                 requested,
                 observed,
@@ -324,10 +367,24 @@ def _csharp_string(value: str) -> str:
     return '"' + value.replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
-def _render_builder(scenes: Sequence[str], executable: Path) -> str:
+def _render_builder(
+    scenes: Sequence[str], executable: Path, *, include_candidate_scenes: bool = False,
+) -> str:
     scene_array = ",\n            ".join(_csharp_string(item) for item in scenes)
     output = _csharp_string(str(executable))
+    candidate_scenes = """
+        // Mode-5 v3 declares playable levels but has no ending-scene field.
+        // Include all candidate-owned scenes so normal SceneManager transitions
+        // can load result/menu scenes. Declared scenes retain their first slots.
+        scenes = scenes.Concat(
+            AssetDatabase.FindAssets("t:Scene", new[] { "Assets" })
+                .Select(AssetDatabase.GUIDToAssetPath)
+                .Where(path => path.StartsWith("Assets/", StringComparison.Ordinal))
+                .OrderBy(path => path, StringComparer.Ordinal)
+        ).Distinct(StringComparer.Ordinal).ToArray();
+""" if include_candidate_scenes else ""
     return f"""using System;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
 
@@ -335,9 +392,21 @@ public static class GameBenchmarkEvaluatorBuild
 {{
     public static void BuildLinux()
     {{
+        var backend = Environment.GetEnvironmentVariable("GB_UNITY_SCRIPTING_BACKEND");
+        if (!string.IsNullOrWhiteSpace(backend))
+        {{
+            var targetGroup = BuildPipeline.GetBuildTargetGroup(BuildTarget.StandaloneLinux64);
+            if (string.Equals(backend, "IL2CPP", StringComparison.OrdinalIgnoreCase))
+                PlayerSettings.SetScriptingBackend(targetGroup, ScriptingImplementation.IL2CPP);
+            else if (string.Equals(backend, "Mono", StringComparison.OrdinalIgnoreCase))
+                PlayerSettings.SetScriptingBackend(targetGroup, ScriptingImplementation.Mono2x);
+            else
+                throw new Exception("Unsupported GB_UNITY_SCRIPTING_BACKEND: " + backend);
+        }}
         string[] scenes = new string[] {{
             {scene_array}
         }};
+        {candidate_scenes}
         var options = new BuildPlayerOptions
         {{
             scenes = scenes,

@@ -15,6 +15,9 @@ from pathlib import Path
 from typing import Any, Iterable, Mapping, Sequence
 
 
+from .mode5.docker_license import host_machine_identity_mount
+
+
 DEFAULT_SANDBOX_IMAGE = os.environ.get("GB_SANDBOX_IMAGE") or "gamebench-agent:godot-4.5.1"
 DOCKER_BIN = os.environ.get("GB_DOCKER_BIN") or "docker"
 
@@ -39,6 +42,8 @@ CONTAINER_ENV_KEYS = (
     "PATH",
     "HOME",
     "GODOT_BIN",
+    "UNITY_BIN",
+    "UNITY_LICENSE_SERVER",
     "CODEX_HOME",
     "CLAUDE_CONFIG_DIR",
     "GB_TASK_WORKSPACE",
@@ -47,6 +52,8 @@ CONTAINER_ENV_KEYS = (
     "GB_SANDBOX_IMAGE_ID",
     "GB_REAL_TIMEOUT",
     "GB_CHILD_TIMEOUT_CAP_S",
+    "GB_UNITY_LICENSE_PROVIDER",
+    "GB_UNITY_LICENSE_PROBE_PASSED",
     "LLM_MODEL",
 )
 
@@ -161,12 +168,17 @@ def render_env_file(values: Mapping[str, str]) -> str:
 
 
 class DockerSandbox:
+    """A single-use container that hosts one coding-agent run."""
 
-
-    def __init__(self, *, image: str, log_path: Path, cell: str) -> None:
+    def __init__(
+        self, *, image: str, log_path: Path, cell: str,
+        host_machine_identity: bool = False,
+    ) -> None:
         self.image = image
         self.log_path = log_path
         self.cell = cell
+        self.host_machine_identity = host_machine_identity
+        self.unity_workspace = False
         self.name = f"gb-agent-{os.getpid()}-{uuid.uuid4().hex[:8]}"
         self.client_env = client_env()
         self.image_id: str | None = None
@@ -176,11 +188,17 @@ class DockerSandbox:
         self._started = False
         self._closed = False
         self._env_file: Path | None = None
+        self.unity_license: dict[str, Any] = {
+            "provider": None, "configured": False, "probe_passed": False,
+        }
 
-
+    # ---- plumbing -------------------------------------------------------
     def _log(self, text: str) -> None:
+        """Append to ``agent/sandbox.log``.
 
-
+        Docker client chatter is kept out of the agent's own stdout/stderr so the
+        event and usage artifacts stay transport-agnostic.
+        """
         try:
             self.log_path.parent.mkdir(parents=True, exist_ok=True)
             with self.log_path.open("a", encoding="utf-8") as handle:
@@ -229,8 +247,11 @@ class DockerSandbox:
 
     @property
     def docker(self) -> str:
+        """Absolute host path to the docker client.
 
-
+        Resolved against the *host* PATH and cached, because the agent's PATH is
+        later replaced with the container's, where ``docker`` does not exist.
+        """
         if self._docker is None:
             found = shutil.which(DOCKER_BIN, path=os.environ.get("PATH"))
             if not found:
@@ -251,7 +272,9 @@ class DockerSandbox:
         argv = [self.docker, "exec"]
         if interactive:
             argv.append("-i")
-        argv += ["-w", workdir, "--user", f"{os.getuid()}:{os.getgid()}"]
+        uid = int(getattr(os, "getuid", lambda: 1000)())
+        gid = int(getattr(os, "getgid", lambda: 1000)())
+        argv += ["-w", workdir, "--user", f"{uid}:{gid}"]
         if env_file is not None:
             argv += ["--env-file", str(env_file)]
         argv.append(self.name)
@@ -268,7 +291,18 @@ class DockerSandbox:
         argv = self.exec_argv(args, interactive=stdin is not None)[1:]
         return self._run(argv, stdin=stdin, timeout=timeout, check=check)
 
+    def read_text(self, path: str, *, max_bytes: int = 64 * 1024) -> str | None:
+        """Read a bounded UTF-8 artifact from the live container, if present."""
+        script = (
+            "import pathlib,sys; p=pathlib.Path(sys.argv[1]); "
+            "sys.stdout.buffer.write(p.read_bytes()[:int(sys.argv[2])])"
+        )
+        proc = self._exec(
+            ["python3", "-c", script, path, str(max_bytes)], timeout=60, check=False,
+        )
+        return proc.stdout if proc.returncode == 0 else None
 
+    # ---- lifecycle ------------------------------------------------------
     def start(self) -> None:
         version = self._run(
             ["version", "--format", "{{.Server.Version}}"], timeout=60, check=False
@@ -280,14 +314,19 @@ class DockerSandbox:
                 "--agent-sandbox docker needs a reachable daemon"
             )
         self._log(f"daemon {version.stdout.strip()} image {self.image}")
-
-
+        # A finite keepalive would add a failure mode this sandbox exists to
+        # remove: with no --budget there is no bound to derive, and a container
+        # expiring mid-agent would look like the agent produced nothing.
+        # Liveness is bounded by close() and by the labelled orphan sweep.
         self._run(
             [
                 "run", "-d", "--name", self.name,
                 "--label", f"{LABEL_SANDBOX}=agent",
                 "--label", f"{LABEL_CELL}={self.cell}",
                 "--label", f"{LABEL_PID}={os.getpid()}",
+                *host_machine_identity_mount(
+                    "existing-home" if self.host_machine_identity else "",
+                ),
                 self.image, "sleep", "infinity",
             ],
             timeout=START_TIMEOUT_S,
@@ -306,8 +345,8 @@ class DockerSandbox:
                 check=False,
             )
             if state.returncode == 0 and state.stdout.strip() == "true":
-
-
+                # docker cp rejects a container that is merely created, so the
+                # readiness gate has to precede any transfer.
                 if self._run(["exec", self.name, "true"], timeout=60, check=False).returncode == 0:
                     return
             time.sleep(2)
@@ -332,15 +371,93 @@ class DockerSandbox:
         self.image_id = ident.stdout.strip() or None
 
     def _bootstrap(self) -> None:
-
-
+        # Images may declare a non-root USER. Bootstrap as container root,
+        # then let exec_argv run the agent as the harness user.
+        uid = int(getattr(os, "getuid", lambda: 1000)())
+        gid = int(getattr(os, "getgid", lambda: 1000)())
         script = (
             f"mkdir -p {CONTAINER_WORKSPACE} {CONTAINER_HOME}/codex "
             f"{CONTAINER_HOME}/claude {CONTAINER_BIN} && "
-            f"chown -R {os.getuid()}:{os.getgid()} {CONTAINER_WORKSPACE} "
+            f"chown -R {uid}:{gid} {CONTAINER_WORKSPACE} "
             f"{CONTAINER_HOME} {CONTAINER_BIN}"
         )
         self._run(["exec", "--user", "0:0", self.name, "sh", "-c", script], timeout=120)
+
+    def configure_unity_license(
+        self, *, provider: str, source: Path | None = None, endpoint: str = ""
+    ) -> dict[str, Any]:
+        """Copy only private entitlement state into this disposable container."""
+        uid = int(getattr(os, "getuid", lambda: 1000)())
+        gid = int(getattr(os, "getgid", lambda: 1000)())
+        # This is a path *inside a Linux container*.  Keep it as a POSIX string;
+        # pathlib.Path would turn it into ``\\opt\\...`` on a Windows coordinator.
+        target_home = CONTAINER_HOME
+        self._run(["exec", "--user", "0:0", self.name, "mkdir", "-p", target_home], timeout=60)
+        probe_extra: list[str] = []
+        probe_env = ["env", f"HOME={target_home}"]
+        if provider == "file":
+            if source is None or not source.is_file():
+                raise DockerSandboxError("configured Unity license file is unavailable")
+            with tempfile.TemporaryDirectory(prefix="gb-unity-license-") as temp:
+                staged = Path(temp) / ("license" + source.suffix.lower())
+                shutil.copy2(source, staged)
+                self._run(["cp", str(staged), f"{self.name}:{target_home}/license.ulf"], timeout=60)
+            self._run(["exec", "--user", "0:0", self.name, "chown", "-R",
+                       f"{uid}:{gid}", target_home], timeout=60)
+            probe_extra = ["-manualLicenseFile", f"{target_home}/license.ulf"]
+            metadata = {"provider": "file", "configured": True,
+                        "format": source.suffix.lower().lstrip("."), "probe_passed": True}
+        elif provider == "existing-home":
+            if source is None or not source.is_dir():
+                raise DockerSandboxError("configured Unity home is unavailable")
+            with tempfile.TemporaryDirectory(prefix="gb-unity-home-") as temp:
+                staged_root = Path(temp)
+                copied = False
+                for relative in (Path(".local/share/unity3d"), Path(".config/unity3d")):
+                    candidate = source / relative
+                    if candidate.is_dir():
+                        shutil.copytree(candidate, staged_root / relative)
+                        copied = True
+                if not copied:
+                    raise DockerSandboxError("dedicated Unity home contains no Unity license state")
+                self._run(["cp", f"{staged_root}{os.sep}.", f"{self.name}:{target_home}/"], timeout=300)
+            self._run(["exec", "--user", "0:0", self.name, "chown", "-R",
+                       f"{uid}:{gid}", target_home], timeout=60)
+            metadata = {"provider": "existing-home", "configured": True, "probe_passed": True}
+        elif provider == "floating":
+            if not endpoint:
+                raise DockerSandboxError("floating Unity license endpoint is empty")
+            probe_env.append(f"UNITY_LICENSE_SERVER={endpoint}")
+            metadata = {"provider": "floating", "configured": True, "probe_passed": True}
+        else:
+            raise DockerSandboxError(f"unsupported Unity license provider {provider!r}")
+        # Probe an isolated empty project, not /workspace. Unity otherwise
+        # creates Packages/ProjectSettings/Library beside the task materials,
+        # confusing project discovery and the Agent's scaffold selection.
+        license_probe = "/tmp/gamebench-agent-license-probe"
+        self._exec(["mkdir", "-p", license_probe + "/Assets"], timeout=60)
+        proc = self._exec([
+            *probe_env, "unity", "-batchmode", "-nographics", "-quit",
+            "-projectPath", license_probe,
+            *probe_extra, "-logFile", "-",
+        ], timeout=300, check=False)
+        lowered = ((proc.stdout or "") + "\n" + (proc.stderr or "")).lower()
+        if proc.returncode or any(marker in lowered for marker in (
+            "no valid unity editor license", "failed to activate/update license",
+            "license is invalid", "licensing client timed out",
+            "failed to connect to licensing client",
+        )):
+            raise DockerSandboxError("Unity license probe failed in agent container")
+        if provider == "file":
+            # Unity has imported the entitlement into its own state.  The raw
+            # operator-supplied file is no longer needed and must not remain
+            # readable by the coding agent.
+            self._run([
+                "exec", "--user", "0:0", self.name, "rm", "-f",
+                f"{target_home}/license.ulf",
+            ], timeout=60)
+        self.unity_license = metadata
+        return dict(metadata)
 
     def probe_facts(
         self,
@@ -349,14 +466,14 @@ class DockerSandbox:
         versioned: Mapping[str, list[str]],
         home: str = CONTAINER_HOME,
     ) -> ContainerFacts:
-
+        """Measure the container once and cache the result."""
         if self.facts is not None:
             return self.facts
         request = json.dumps(
             {"tools": list(tools), "versioned": dict(versioned), "home": home}
         )
-
-
+        # python3 -c keeps the script and its stdin request separate: the source
+        # arrives as an argument, the JSON on stdin.
         proc = self._exec(
             ["python3", "-c", _PROBE_PY], stdin=request, timeout=180, check=False
         )
@@ -383,8 +500,13 @@ class DockerSandbox:
         return self.facts
 
     def which(self, name: str, _env: Mapping[str, str] | None = None) -> str | None:
+        """Resolve an executable *inside* the container.
 
-
+        The host's :func:`shutil.which` cannot do this: it would search the host
+        filesystem, and once the agent's PATH has been replaced with the
+        container's it would mostly find nothing and occasionally find the wrong
+        host binary.
+        """
         if self.facts is not None:
             found = self.facts.path_of(name)
             if found:
@@ -394,8 +516,14 @@ class DockerSandbox:
         return resolved[-1] if proc.returncode == 0 and resolved else None
 
     def install_child_timeout_shim(self, *, source: str, cap_s: int) -> tuple[str, str]:
+        """Install the child-timeout shim and return ``(path_entry, real_timeout)``.
 
-
+        Installed in two places because Codex runs child commands through
+        ``bash -lc`` and /etc/profile rebuilds PATH: environment *variables*
+        survive a login shell, PATH does not.  ``CONTAINER_BIN`` covers direct
+        children of ``docker exec``; ``/usr/local/bin`` covers the login shell,
+        where it precedes the ``/usr/bin`` that holds the real timeout.
+        """
         facts = self.facts
         if facts is None:
             raise DockerSandboxError("probe the sandbox before installing the shim")
@@ -407,7 +535,7 @@ class DockerSandbox:
         shim_dirs = [CONTAINER_BIN, "/usr/local/bin"]
         real_dir = str(Path(real_timeout).parent)
         entries = [entry for entry in facts.login_path.split(":") if entry]
-
+        # Refuse to install a cap that silently does nothing.
         if real_dir in entries:
             real_index = entries.index(real_dir)
             if not any(
@@ -432,8 +560,21 @@ class DockerSandbox:
         return CONTAINER_BIN, real_timeout
 
     def install_godot(self, source: Path, *, want_prefix: str) -> str:
+        """Put the evaluator's pinned Godot into the container and return its path.
 
+        The image ships its own Godot at ``/usr/local/bin/godot``, which is a
+        different release from the one the evaluator scores with.  Leaving that
+        split in place biases results in one direction: the agent verifies its
+        submission against an engine the evaluator will not use, so a version-only
+        difference reads as a broken game.  Copying the pinned binary in removes
+        the split entirely.
 
+        The image's own path is *overwritten* rather than shadowed by a PATH
+        entry.  Codex runs children through ``bash -lc`` and /etc/profile rebuilds
+        PATH, so a bare ``godot`` would otherwise still find the image's copy; and
+        overwriting keeps one single answer for ``godot``, ``$GODOT_BIN`` and the
+        in-container ``which`` the probe uses.  The container is single-use.
+        """
         target = "/usr/local/bin/godot"
         with tempfile.TemporaryDirectory() as staging:
             local = Path(staging) / "godot"
@@ -451,7 +592,7 @@ class DockerSandbox:
                 "the image's nor the evaluator's"
             )
         self._log(f"godot {first} injected at {target} (was the image's build)")
-
+        # Any probe taken before the swap is now stale.
         self.facts = None
         return target
 
@@ -470,8 +611,8 @@ class DockerSandbox:
 
     def copy_in(self, host_dir: Path) -> None:
         self._run(["cp", f"{host_dir}{os.sep}.", f"{self.name}:{CONTAINER_WORKSPACE}"])
-
-
+        # docker cp creates root-owned files by default, after bootstrap has
+        # already assigned the empty directory to the harness user.
         self._run(["exec", "--user", "0:0", self.name, "chown", "-R",
                    f"{os.getuid()}:{os.getgid()}", CONTAINER_WORKSPACE], timeout=120)
         check = self._exec(
@@ -484,8 +625,15 @@ class DockerSandbox:
         self.transfer["in"] = _tree_stats(host_dir)
 
     def copy_out(self, host_dir: Path) -> None:
+        """Replace ``host_dir`` with the container's workspace, atomically.
 
-
+        A merge would leave files the agent deleted in the container alive on the
+        host.  Modes that ship a Godot project at the workspace root would then
+        present a stale ``project.godot`` beside the new submission, and
+        ``project_root`` resolves that ambiguity by picking the wrong tree -- a
+        silent misgrade.  So the copy lands in a sibling staging directory and is
+        swapped in only once it is complete.
+        """
         host_dir = host_dir.resolve()
         staging = host_dir.parent / f".{host_dir.name}.incoming"
         stale = host_dir.parent / f".{host_dir.name}.stale"
@@ -493,8 +641,26 @@ class DockerSandbox:
             shutil.rmtree(path, ignore_errors=True)
         staging.mkdir(parents=True)
         try:
-            self._run(["cp", f"{self.name}:{CONTAINER_WORKSPACE}", str(staging)])
             produced = staging / Path(CONTAINER_WORKSPACE).name
+            if self.unity_workspace:
+                # Unity caches are not submissions. Copying thousands of cache
+                # files through WSL/Windows can exceed the transport deadline.
+                # Preserve all authored files, using validated archive extraction.
+                from .mode5.docker_environment import DockerClient, CommunityDockerError
+                try:
+                    DockerClient(self.docker).copy_from_directory(
+                        self.name, CONTAINER_WORKSPACE, produced, timeout=600,
+                        exclude=tuple(
+                            "./" + project + name
+                            for project in ("", "submission/", "submission/game/", "target_unity/")
+                            for name in ("Library", "Temp", "obj", "Logs", ".git", ".godot")
+                        ),
+                    )
+                except CommunityDockerError as exc:
+                    raise DockerSandboxError(str(exc)) from exc
+                self.transfer["omitted_unity_caches"] = True
+            else:
+                self._run(["cp", f"{self.name}:{CONTAINER_WORKSPACE}", str(staging)])
             if not produced.is_dir():
                 raise DockerSandboxError(
                     f"docker cp produced no {CONTAINER_WORKSPACE} directory"
@@ -508,8 +674,17 @@ class DockerSandbox:
             shutil.rmtree(stale, ignore_errors=True)
 
     def close(self, *, copy_out_to: Path | None = None) -> Exception | None:
+        """Copy the workspace back, then destroy the container.
 
+        Returns the copy-out failure, if any, rather than raising: the caller
+        decides whether it is the primary error (the agent had exited cleanly, so
+        this is the only thing that went wrong) or a footnote to an error that
+        already happened.
 
+        Removal is unconditional and last.  ``subprocess.run(timeout=…)`` kills
+        only the local ``docker exec`` client; the process inside the container
+        keeps running, so ``docker rm -f`` is the only reliable way to stop it.
+        """
         if self._closed:
             return None
         self._closed = True

@@ -1,0 +1,834 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:41e36fbc6c20579c5f6d202f51731804c0ce01d09978c3832dfcfb295cc03860",
+  "game_id": "super_dungeon_delve",
+  "inputs": {
+    "certificate": {
+      "path": "tasks/super_dungeon_delve/certificate.rt1.json",
+      "sha256": "234933c111f464855a4c03dd035e335023ac3c8f0d95d02d986f6ea88c16390d"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/super_dungeon_delve.md",
+      "sha256": "12f64b87406c097f849511169fb4a76cc77e516758d343766a1323130bc0d6a7"
+    },
+    "route": {
+      "path": "tasks/super_dungeon_delve/route.json",
+      "sha256": "56853bfbd051f59fb4ebc31644e7b3422d259b0dcbc8d19dd102ed93c4673bea"
+    },
+    "rubric": {
+      "entry_sha256": "c8a951d45237a2c3d881b01d2c4274a402d84be3ce42798cd01d6de45f53b2b3",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_enemy",
+        "gb_collectible",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/super_dungeon_delve/authored/source_obligations.json",
+      "sha256": "1cdf1bfc99aaea1fcdcc6004b08ffb3ce2e21fd7172410ee7ed536d062188ac8"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "super_dungeon_delve-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "super_dungeon_delve-l5-whole_game_clear.second_floor",
+          "predicate": "numeric(progress) >= 2"
+        },
+        {
+          "id": "super_dungeon_delve-l5-whole_game_clear.fourth_floor",
+          "predicate": "numeric(progress) >= 4"
+        },
+        {
+          "id": "super_dungeon_delve-l5-whole_game_clear.dungeon_cleared",
+          "predicate": "whole_game_clear()"
+        },
+        {
+          "id": "super_dungeon_delve-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed source/core/start-menu.gd:100: $Label0.text = \"Generating Dungeon ...\"",
+      "reference_trace": "route.json",
+      "reference_trace_sha256": "sha256:56853bfbd051f59fb4ebc31644e7b3422d259b0dcbc8d19dd102ed93c4673bea",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "super_dungeon_delve/L5/whole_game_clear",
+      "scenario_id": "super_dungeon_delve-l5-whole_game_clear",
+      "source_check_id": "owner-reviewed-super_dungeon_delve-l5-whole_game_clear",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "second_floor",
+            "predicate": "numeric(progress) >= 2"
+          },
+          {
+            "name": "fourth_floor",
+            "predicate": "numeric(progress) >= 4"
+          },
+          {
+            "name": "dungeon_cleared",
+            "predicate": "whole_game_clear()"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "super_dungeon_delve-l5-whole_game_clear--milestone-second_floor.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "super_dungeon_delve-l5-whole_game_clear--milestone-second_floor.goal",
+          "predicate": "numeric(progress) >= 2"
+        }
+      ],
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed source/core/start-menu.gd:100: $Label0.text = \"Generating Dungeon ...\"",
+      "reference_trace": "route.json",
+      "reference_trace_sha256": "sha256:56853bfbd051f59fb4ebc31644e7b3422d259b0dcbc8d19dd102ed93c4673bea",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "super_dungeon_delve/L5/whole_game_clear",
+      "scenario_id": "super_dungeon_delve-l5-whole_game_clear--milestone-second_floor",
+      "source_check_id": "owner-reviewed-super_dungeon_delve-l5-whole_game_clear--milestone-second_floor",
+      "source_goal": {
+        "predicate": "numeric(progress) >= 2"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "super_dungeon_delve-l5-whole_game_clear--milestone-fourth_floor.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "super_dungeon_delve-l5-whole_game_clear--milestone-fourth_floor.goal",
+          "predicate": "numeric(progress) >= 4"
+        }
+      ],
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "",
+      "reference_trace_sha256": "",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "super_dungeon_delve/L5/whole_game_clear",
+      "scenario_id": "super_dungeon_delve-l5-whole_game_clear--milestone-fourth_floor",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.65bbe73935",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    }
+  ],
+  "policy_digest": "sha256:d6db65fcd09b507c886765ade597bcfeda2b9f0decd59d6190ffaca07bf7b568",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "route.json",
+      "budget_frames": 4085,
+      "capture_checkpoints": [
+        {
+          "id": "super_dungeon_delve-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "super_dungeon_delve-l5-whole_game_clear.second_floor",
+          "predicate": "numeric(progress) >= 2"
+        },
+        {
+          "id": "super_dungeon_delve-l5-whole_game_clear.fourth_floor",
+          "predicate": "numeric(progress) >= 4"
+        },
+        {
+          "id": "super_dungeon_delve-l5-whole_game_clear.dungeon_cleared",
+          "predicate": "whole_game_clear()"
+        },
+        {
+          "id": "super_dungeon_delve-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_jump",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "second_floor",
+            "predicate": "numeric(progress) >= 2"
+          },
+          {
+            "name": "fourth_floor",
+            "predicate": "numeric(progress) >= 4"
+          },
+          {
+            "name": "dungeon_cleared",
+            "predicate": "whole_game_clear()"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "super_dungeon_delve-l5-whole_game_clear",
+      "policy": "strategy.traversal.65bbe73935",
+      "required_actions": [
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "super_dungeon_delve/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "second_floor",
+            "predicate": "numeric(progress) >= 2"
+          },
+          {
+            "name": "fourth_floor",
+            "predicate": "numeric(progress) >= 4"
+          },
+          {
+            "name": "dungeon_cleared",
+            "predicate": "whole_game_clear()"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "route.json",
+      "budget_frames": 4085,
+      "capture_checkpoints": [
+        {
+          "id": "super_dungeon_delve-l5-whole_game_clear--milestone-second_floor.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "super_dungeon_delve-l5-whole_game_clear--milestone-second_floor.goal",
+          "predicate": "numeric(progress) >= 2"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_jump",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "predicate": "numeric(progress) >= 2"
+      },
+      "id": "super_dungeon_delve-l5-whole_game_clear--milestone-second_floor",
+      "policy": "strategy.traversal.65bbe73935",
+      "required_actions": [
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "super_dungeon_delve/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "predicate": "numeric(progress) >= 2"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "",
+      "budget_frames": 4085,
+      "capture_checkpoints": [
+        {
+          "id": "super_dungeon_delve-l5-whole_game_clear--milestone-fourth_floor.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "super_dungeon_delve-l5-whole_game_clear--milestone-fourth_floor.goal",
+          "predicate": "numeric(progress) >= 4"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_jump",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "predicate": "numeric(progress) >= 4"
+      },
+      "id": "super_dungeon_delve-l5-whole_game_clear--milestone-fourth_floor",
+      "policy": "strategy.traversal.65bbe73935",
+      "required_actions": [
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "super_dungeon_delve/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

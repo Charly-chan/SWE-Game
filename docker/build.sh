@@ -26,15 +26,7 @@ if [[ "$target" == godot || "$target" == all ]]; then
     cleanup; build_context=
 fi
 if [[ "$target" == unity || "$target" == all ]]; then
-    if [[ -n "$unity_archives" ]]; then
-        # Same filesystem as the archives: staging uses hard links, not multi-GB copies.
-        build_context=$(mktemp -d "$unity_archives/.gamebench-docker.XXXXXX")
-        cp "$docker_dir/Dockerfile.unity-local" "$build_context/Dockerfile"
-        ln "$unity_archives/Unity-6000.3.23f1.tar.xz" "$build_context/"
-        ln "$unity_archives/UnitySetup-Linux-IL2CPP-Support-for-Editor-6000.3.23f1.tar.xz" "$build_context/"
-    else
-        build_context=$(mktemp -d)
-        cp "$docker_dir/Dockerfile.unity" "$build_context/Dockerfile"
-    fi
-    docker build --network host --platform linux/amd64 --build-arg HTTP_PROXY --build-arg HTTPS_PROXY --build-arg NO_PROXY -t gamebench-agent:unity-6000.3.23f1 "$build_context"
+    unity_args=(mode5 setup)
+    [[ -z "$unity_archives" ]] || unity_args+=(--unity-archives "$unity_archives" --no-download)
+    "$repo_dir/gb" "${unity_args[@]}"
 fi

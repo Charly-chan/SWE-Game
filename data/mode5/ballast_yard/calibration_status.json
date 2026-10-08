@@ -1,0 +1,15 @@
+{
+  "blockers": [],
+  "game_id": "ballast_yard",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "ballast_yard-c1-intake_skip_stack_and_shutter",
+    "ballast_yard-c2-sorting_plate_conveyor_and_shutter",
+    "ballast_yard-c3-deep_glass_ball_plate_and_chute",
+    "ballast_yard-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:d9988dc655febf9a050df310114cfe27e3b50148377c8cc5198c61b6bc0d17b3"
+}

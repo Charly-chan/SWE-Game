@@ -1,0 +1,15 @@
+{
+  "blockers": [],
+  "game_id": "cyber_survival",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "cyber_survival-c1-underdeck_terminal_and_extract",
+    "cyber_survival-c2-coolant_terminal_and_extract",
+    "cyber_survival-c3-spire_terminal_and_extract",
+    "cyber_survival-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:e0c7d8aeecb213044a5811151812d9a1f13c396bf0cadcb2f80bbd94b2e01469"
+}

@@ -1,0 +1,14 @@
+{
+  "blockers": [],
+  "game_id": "city_delivery",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "city_delivery-c1-morning_route_clear",
+    "city_delivery-c2-cold_chain_clear",
+    "city_delivery-c3-peak_load_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:c8ec3391e436f1b932b28c3aacb6739c1bfbc703982860cce601e08daca55399"
+}

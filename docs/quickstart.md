@@ -86,7 +86,7 @@ submission with the auto-selected engine, and writes `summary.csv`,
 
 Use `--game all` to run every catalog game. Allowed modes are `brief`, `gdd`,
 `skeleton`, `bugfix`, and `port`; harnesses are `codex` and `claude`. Mode 5
-needs the certified Unity evaluation environment; use `--eval off` to defer scoring. `--provider`
+uses [Community Docker](reference/MODE5_RELEASE.md); setup and doctor prepare its licensed toolchain. `--provider`
 defaults to `auto`: the key file decides the route (a filled `OPENAI_BASE_URL`
 / `ANTHROPIC_BASE_URL` selects that gateway, empty selects the official
 endpoint). `--provider openai` forces Codex's native OpenAI account (codex
@@ -153,8 +153,9 @@ VLM calls are disabled by default. Modes 1–3 use the corresponding
 `2026-09-19.modeN-vlm1` registry: 85 objective points plus 15 VLM points.
 Without a complete visual reading, `objective_total.score` remains available
 and `weighted_total.score` is null. Missing required objective evidence also
-keeps the composite incomplete. Mode 4 defaults to
-`2026-09-15.mode4-redesign1`; Mode 5 to `2026-09-20.mode5-mdva-domain1`.
+keeps the composite incomplete for Modes 1–3. Mode 4 defaults to
+`2026-09-15.mode4-redesign1`; Mode 5 uses `2026-10.mode5-evidence-five-visual1`,
+which publishes a non-VLM evidence proxy and leaves `official_total` null.
 
 For paid visual assessment, configure the external file selected by
 `GB_API_ENV` (or `~/.config/gamebench/gb_api.env`). For example, to use the

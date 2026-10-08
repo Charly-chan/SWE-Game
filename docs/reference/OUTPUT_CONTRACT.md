@@ -34,24 +34,33 @@ when a harness fails before it starts.
 
 ## Mode `port` cells
 
-Mode `port` (Mode 5, Godot to Unity) runs one cell per game with the four-part
-cell name and the same `summary.csv` columns (`case_id` empty). Its cells differ
-in content, not layout:
+`gb mode5 run` retains `package/`, `agent/`, the original `submission/`, and
+`evaluation/`. The authoritative report is `evaluation/report.json`; retained
+captures are in `evaluation/runtime-evidence/`. `artifact-manifest.json` validates
+artifact paths and sizes. `mode5-state.json` records resumable phases, and
+summary files preserve registry, environment, model and budget grouping.
 
 - `submission/` is a Unity project, not a Godot one: `Assets/`, `Packages/`,
   `ProjectSettings/` (with `ProjectVersion.txt` = `6000.3.23f1`),
   `Assets/GameBenchmark/gb_interface.json`, `ops.json`, `BUILD.md`, and
   `collection.json`.
-- `evaluation/unity_runtime/` is the evaluator-owned copy of the project that
-  the Unity editor built, with `unity_build.log`, the Linux player, and the
-  probe frames and MP4 from the witness, null, and hidden-route replays. It is
-  present only when an editor was found; with no editor, wrong version, or no
-  licence, `report.json` records `unity_build` as `inconclusive` and every
-  runtime item as `inconclusive`, and `weighted_total` is `null`
-  (`status=evaluation_incomplete`).
-- `results/<run_id>/unity_preflight/editor.log` is the log of the licence probe
-  `run_benchmark.sh` runs before launching agents; a live port run does not
-  proceed without it.
+- New runs use the [Community Docker contract](MODE5_RELEASE_PROTOCOL.md).
+  Doctor validates the fixed licensed Unity toolchain before Agent execution;
+  only the Community evaluator's retained evidence is used.
+- `evaluation/runtime-evidence/` retains evaluator-owned runtime logs, frames,
+  and witness video. `artifact-manifest.json` records paths and byte sizes.
+  The evaluator rebuilds in its own offline container; the Agent's Player is
+  not accepted as evaluation evidence.
+- `mode5-state.json` records Community phases. Reports identify
+  `environment_class=community-docker`, `paper_compatible=false`, and registry
+  `2026-10.mode5-evidence-five-visual1`. Five fixed component weights are 35/25/15/15/10.
+  The non-VLM evidence-adjusted proxy reports a total out of 100, with explicit
+  evidence coefficients and evaluator-owned visual implementation-correspondence
+  measurements; `official_total` remains null. The Visual component is non-VLM and
+  can use runtime captures, with static evidence still discounted by its coefficient.
+  Infrastructure or integrity failures withhold ranking eligibility. A candidate
+  compilation failure preserves admissible static points, not runtime credit.
+  See [Mode 5 scoring](MODE5_SCORING.md) for the full scoring contract.
 
 ## Paper terminology and serialized fields
 

@@ -1,0 +1,14 @@
+{
+  "blockers": [],
+  "game_id": "toon_shooter",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "toon_shooter-c1-yard_combat_and_extract",
+    "toon_shooter-l5-whole_game_clear",
+    "toon_shooter-c1-yard_combat_and_extract--milestone-arena_1_combat_proved"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:6d09f7f25dfc27408a80f474ff8eea4b33fb09d4848c4113fa0ed54fce071318"
+}

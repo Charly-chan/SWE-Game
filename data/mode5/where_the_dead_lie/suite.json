@@ -1,0 +1,1060 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:4f5fe8cb8ad2d376d3b81c5c46bfef2d55758e84b0db43a5bf53cb1521dcb3da",
+  "game_id": "where_the_dead_lie",
+  "input_contract": {
+    "analog_axes": [],
+    "required_actions": [
+      "gb_left",
+      "gb_right",
+      "gb_up",
+      "gb_down",
+      "gb_jump",
+      "gb_action",
+      "look_down",
+      "look_up",
+      "turn_left",
+      "turn_right"
+    ],
+    "schema_version": 3,
+    "supported_actions": [
+      "gb_left",
+      "gb_right",
+      "gb_up",
+      "gb_down",
+      "gb_jump",
+      "gb_action",
+      "gb_attack",
+      "gb_dash",
+      "look_down",
+      "look_up",
+      "turn_left",
+      "turn_right"
+    ]
+  },
+  "inputs": {
+    "certificate": {
+      "path": "tasks/where_the_dead_lie/certificate.rt1.json",
+      "sha256": "a2bea07181a9e921747cbe83431aeb129be4e5d21b1974aee6b5bc6d705b4105"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/where_the_dead_lie.md",
+      "sha256": "077ac685992e1c3d5bd9fe0f31ea2b821e39d423d3873c8477dd2af17469c7ec"
+    },
+    "port_input_contract": {
+      "analog_axes": [],
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "look_down",
+        "look_up",
+        "turn_left",
+        "turn_right"
+      ],
+      "schema_version": 3,
+      "supported_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_attack",
+        "gb_dash",
+        "look_down",
+        "look_up",
+        "turn_left",
+        "turn_right"
+      ]
+    },
+    "route": {
+      "path": "tasks/where_the_dead_lie/route.json",
+      "sha256": "ac6207459edd87b3234606783020ac5f610a39a3dff956fd3efb3368db48a213"
+    },
+    "rubric": {
+      "entry_sha256": "a35eb1311f6bf82afd9d42340675f9399727525a27ce6a7ed3fa30773670581c",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_interactive",
+        "gb_collectible",
+        "gb_hazard",
+        "gb_door",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/where_the_dead_lie/authored/source_obligations.json",
+      "sha256": "e544164aa10b0103bbf917344e2815e817e8ff7766cb756ea0baafca163405a6"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "where_the_dead_lie-c2-puzzle_restored.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "where_the_dead_lie-c2-puzzle_restored.goal",
+          "predicate": "numeric(progress) >= 3"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed Scenes/Objects/puzzle_control_panel.gd:32: if not _open or GameDataManager.data.phase != WhereGameData.PUZZLE:",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:080237b1e3aa4990c53202d76d317155afdb0f0b8c18bec701bc5627f9037684",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "where_the_dead_lie/C2/puzzle_restored",
+      "scenario_id": "where_the_dead_lie-c2-puzzle_restored",
+      "source_check_id": "owner-reviewed-where_the_dead_lie-c2-puzzle_restored",
+      "source_goal": {
+        "predicate": "numeric(progress) >= 3"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "turn_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "turn_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "look_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "turn_right",
+                "look_up"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "where_the_dead_lie-c3-first_key.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "where_the_dead_lie-c3-first_key.goal",
+          "predicate": "numeric(progress) >= 4"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:080237b1e3aa4990c53202d76d317155afdb0f0b8c18bec701bc5627f9037684",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "where_the_dead_lie/C3/first_key",
+      "scenario_id": "where_the_dead_lie-c3-first_key",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "turn_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "turn_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "look_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "turn_right",
+                "look_up"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "where_the_dead_lie-c4-second_key_and_exit_armed.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "where_the_dead_lie-c4-second_key_and_exit_armed.goal",
+          "predicate": "numeric(progress) >= 5"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed Scenes/Objects/exit_door.gd:102: print(\"[Where] exit armed; gate open\")",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:080237b1e3aa4990c53202d76d317155afdb0f0b8c18bec701bc5627f9037684",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "where_the_dead_lie/C4/second_key_and_exit_armed",
+      "scenario_id": "where_the_dead_lie-c4-second_key_and_exit_armed",
+      "source_check_id": "owner-reviewed-where_the_dead_lie-c4-second_key_and_exit_armed",
+      "source_goal": {
+        "predicate": "numeric(progress) >= 5"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "turn_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "turn_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "look_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "where_the_dead_lie-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "where_the_dead_lie-l5-whole_game_clear.generators_started",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "where_the_dead_lie-l5-whole_game_clear.puzzle_unlocked",
+          "predicate": "numeric(progress) >= 2"
+        },
+        {
+          "id": "where_the_dead_lie-l5-whole_game_clear.puzzle_solved",
+          "predicate": "numeric(progress) >= 3"
+        },
+        {
+          "id": "where_the_dead_lie-l5-whole_game_clear.first_key_collected",
+          "predicate": "numeric(progress) >= 4"
+        },
+        {
+          "id": "where_the_dead_lie-l5-whole_game_clear.exit_armed",
+          "predicate": "numeric(progress) >= 5"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:080237b1e3aa4990c53202d76d317155afdb0f0b8c18bec701bc5627f9037684",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "where_the_dead_lie/L5/whole_game_clear",
+      "scenario_id": "where_the_dead_lie-l5-whole_game_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "turn_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "look_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "turn_left",
+                "look_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "look_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "turn_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "turn_left",
+                "look_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "turn_right",
+                "look_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "look_up",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "canonical_action": "turn_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "turn_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "look_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "turn_right",
+            "look_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.937800f851",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "turn_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "turn_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "look_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "turn_right",
+              "look_up"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "turn_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "turn_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "look_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "turn_right",
+            "look_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.8bf1195bfa",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "turn_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "turn_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "look_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "turn_right",
+              "look_up"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "turn_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "turn_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "look_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.7046e3ba5f",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "turn_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "turn_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "look_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "turn_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "look_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "turn_left",
+            "look_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "look_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "turn_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "turn_left",
+            "look_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "turn_right",
+            "look_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "look_up",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.6ef2e28ae0",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "turn_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "look_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "turn_left",
+              "look_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "look_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "turn_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "turn_left",
+              "look_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "turn_right",
+              "look_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "look_up",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    }
+  ],
+  "policy_digest": "sha256:9fc7b54df4bfcc45c68cd54fb37957982d1668bba7df1b5a02f4036a2537f250",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 2160,
+      "capture_checkpoints": [
+        {
+          "id": "where_the_dead_lie-c2-puzzle_restored.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "where_the_dead_lie-c2-puzzle_restored.goal",
+          "predicate": "numeric(progress) >= 3"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "predicate": "numeric(progress) >= 3"
+      },
+      "id": "where_the_dead_lie-c2-puzzle_restored",
+      "policy": "strategy.traversal.937800f851",
+      "required_actions": [
+        "gb_action",
+        "gb_jump",
+        "gb_up",
+        "look_down",
+        "look_up",
+        "turn_left",
+        "turn_right"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "where_the_dead_lie/C2/puzzle_restored",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "predicate": "numeric(progress) >= 3"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 3460,
+      "capture_checkpoints": [
+        {
+          "id": "where_the_dead_lie-c3-first_key.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "where_the_dead_lie-c3-first_key.goal",
+          "predicate": "numeric(progress) >= 4"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "predicate": "numeric(progress) >= 4"
+      },
+      "id": "where_the_dead_lie-c3-first_key",
+      "policy": "strategy.movement.8bf1195bfa",
+      "required_actions": [
+        "gb_action",
+        "gb_up",
+        "look_down",
+        "look_up",
+        "turn_left",
+        "turn_right"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "where_the_dead_lie/C3/first_key",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 6860,
+      "capture_checkpoints": [
+        {
+          "id": "where_the_dead_lie-c4-second_key_and_exit_armed.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "where_the_dead_lie-c4-second_key_and_exit_armed.goal",
+          "predicate": "numeric(progress) >= 5"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "predicate": "numeric(progress) >= 5"
+      },
+      "id": "where_the_dead_lie-c4-second_key_and_exit_armed",
+      "policy": "strategy.movement.7046e3ba5f",
+      "required_actions": [
+        "gb_action",
+        "gb_up",
+        "look_down",
+        "turn_left",
+        "turn_right"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "where_the_dead_lie/C4/second_key_and_exit_armed",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "predicate": "numeric(progress) >= 5"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 8300,
+      "capture_checkpoints": [
+        {
+          "id": "where_the_dead_lie-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "where_the_dead_lie-l5-whole_game_clear.generators_started",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "where_the_dead_lie-l5-whole_game_clear.puzzle_unlocked",
+          "predicate": "numeric(progress) >= 2"
+        },
+        {
+          "id": "where_the_dead_lie-l5-whole_game_clear.puzzle_solved",
+          "predicate": "numeric(progress) >= 3"
+        },
+        {
+          "id": "where_the_dead_lie-l5-whole_game_clear.first_key_collected",
+          "predicate": "numeric(progress) >= 4"
+        },
+        {
+          "id": "where_the_dead_lie-l5-whole_game_clear.exit_armed",
+          "predicate": "numeric(progress) >= 5"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "generators_started",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "puzzle_unlocked",
+            "predicate": "numeric(progress) >= 2"
+          },
+          {
+            "name": "puzzle_solved",
+            "predicate": "numeric(progress) >= 3"
+          },
+          {
+            "name": "first_key_collected",
+            "predicate": "numeric(progress) >= 4"
+          },
+          {
+            "name": "exit_armed",
+            "predicate": "numeric(progress) >= 5"
+          },
+          {
+            "name": "run_completed",
+            "predicate": "whole_game_clear()"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "where_the_dead_lie-l5-whole_game_clear",
+      "policy": "strategy.traversal.6ef2e28ae0",
+      "required_actions": [
+        "gb_action",
+        "gb_jump",
+        "gb_up",
+        "look_down",
+        "look_up",
+        "turn_left",
+        "turn_right"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "where_the_dead_lie/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

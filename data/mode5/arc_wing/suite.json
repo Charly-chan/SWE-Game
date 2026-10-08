@@ -1,0 +1,789 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:697d24b7b0a5524c8714a46ea132ddeff92bc2183569744d29c9756d5b14f3cf",
+  "game_id": "arc_wing",
+  "inputs": {
+    "certificate": {
+      "path": "tasks/arc_wing/certificate.rt1.json",
+      "sha256": "cf4e4ecbc8ea62a54d1d4e9eab182d08299ca71283a3dbd79323e300c0cb48c4"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/arc_wing.md",
+      "sha256": "869809cac30c1f9b4d1ec1c9ccdd16328904a9add3f09997b7974e381a41e22e"
+    },
+    "route": {
+      "path": "tasks/arc_wing/route.json",
+      "sha256": "2242773bddb49ae90aeb477289c12dfbdd5d9ba24b1cb62a3fe59772f37592db"
+    },
+    "rubric": {
+      "entry_sha256": "8fcd64dd31d267a7a58d55597c454eaf64fefd109a655f5efb02b02cbd9fc42f",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_enemy",
+        "gb_hazard",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/arc_wing/authored/source_obligations.json",
+      "sha256": "8de4c1db1fc38eb44fc9f9f9790781e3cdf3e2e329812b787cfee8ce9fbc3939"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "budget_frames": 6400,
+      "calibrated_policy_sha256": "sha256:babdd1b6f26888db4f4ccca5e46b1ab033fea46fa6248cdd0de1544f4ab63f41",
+      "capture_checkpoints": [
+        {
+          "id": "c1_start",
+          "kind": "run_start"
+        },
+        {
+          "id": "cloudline_scored_kills",
+          "predicate": "numeric(score) >= 1000"
+        },
+        {
+          "id": "c1_goal",
+          "predicate": "alive(gb_checkpoint)"
+        }
+      ],
+      "counterfactual_id": "remove_vulcan",
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "The reference reaches seven live enemies and observes scored enemy removal.",
+      "reference_trace": "arc_wing/C1",
+      "reference_trace_sha256": "sha256:c7cf3b3324e760e52f8a9b745d73861f1cb8a6150954caccb50259201a838391",
+      "reviewer": "mode5-calibration-20260908",
+      "route_id": "arc_wing/C1/cloudline_enemy_script_and_gate",
+      "scenario_id": "arc_cloudline_scored_formation",
+      "source_check_id": "cloudline_dense_scored_formation",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "source_dense_cloudline",
+            "predicate": "count(gb_enemy) >= 7"
+          },
+          {
+            "baseline": "previous_row",
+            "name": "source_scored_enemy_removal",
+            "predicate": "count_delta(gb_enemy) < 0"
+          }
+        ],
+        "predicate": "numeric_delta(score) >= 7500"
+      },
+      "strategy": {
+        "fallback_actions": [
+          "gb_jump",
+          "gb_left",
+          "gb_right",
+          "gb_action",
+          "gb_up"
+        ],
+        "parameters": {
+          "engage_sequence": [
+            {
+              "action": "gb_jump",
+              "hold_frames": 30
+            },
+            {
+              "action": "gb_left",
+              "hold_frames": 14
+            },
+            {
+              "action": "gb_jump",
+              "hold_frames": 30
+            },
+            {
+              "action": "gb_right",
+              "hold_frames": 14
+            },
+            {
+              "action": "gb_action",
+              "hold_frames": 54
+            },
+            {
+              "action": "",
+              "hold_frames": 1,
+              "value": 0
+            }
+          ],
+          "fallback_sequence": [
+            {
+              "action": "gb_up",
+              "hold_frames": 18
+            },
+            {
+              "action": "gb_right",
+              "hold_frames": 12
+            }
+          ],
+          "target_role": "gb_enemy"
+        },
+        "type": "combat"
+      },
+      "verified": true
+    },
+    {
+      "budget_frames": 6400,
+      "calibrated_policy_sha256": "sha256:babdd1b6f26888db4f4ccca5e46b1ab033fea46fa6248cdd0de1544f4ab63f41",
+      "capture_checkpoints": [
+        {
+          "id": "c2_start",
+          "kind": "run_start"
+        },
+        {
+          "id": "salt_flats_scored_kills",
+          "predicate": "numeric(score) >= 1000"
+        },
+        {
+          "id": "c2_goal",
+          "predicate": "alive(gb_checkpoint)"
+        }
+      ],
+      "counterfactual_id": "remove_salt_flats_fire",
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "gdd_explicit"
+      ],
+      "route_id": "arc_wing/C2/salt_flats_enemy_script_and_gate",
+      "scenario_id": "arc_salt_flats_scored_formation",
+      "strategy": {
+        "fallback_actions": [
+          "gb_jump",
+          "gb_left",
+          "gb_right",
+          "gb_action",
+          "gb_up"
+        ],
+        "parameters": {
+          "engage_sequence": [
+            {
+              "action": "gb_jump",
+              "hold_frames": 30
+            },
+            {
+              "action": "gb_left",
+              "hold_frames": 14
+            },
+            {
+              "action": "gb_jump",
+              "hold_frames": 30
+            },
+            {
+              "action": "gb_right",
+              "hold_frames": 14
+            },
+            {
+              "action": "gb_action",
+              "hold_frames": 54
+            },
+            {
+              "action": "",
+              "hold_frames": 1,
+              "value": 0
+            }
+          ],
+          "fallback_sequence": [
+            {
+              "action": "gb_up",
+              "hold_frames": 18
+            },
+            {
+              "action": "gb_right",
+              "hold_frames": 12
+            }
+          ],
+          "target_role": "gb_enemy"
+        },
+        "type": "combat"
+      }
+    },
+    {
+      "budget_frames": 4800,
+      "calibrated_policy_sha256": "sha256:a18e1245821fc890c58f7648426bccb9db064dfa7fb55c98eea8a33986c52fed",
+      "capture_checkpoints": [
+        {
+          "id": "c3_start",
+          "kind": "run_start"
+        },
+        {
+          "id": "opening_skimmer_waves_cleared",
+          "predicate": "numeric_delta(score) >= 1100"
+        },
+        {
+          "id": "mine_field_and_bulwarks_survived",
+          "predicate": "numeric_delta(score) >= 1400"
+        },
+        {
+          "id": "c3_goal",
+          "predicate": "numeric_delta(score) >= 1800"
+        }
+      ],
+      "counterfactual_id": "approach_without_vulcan",
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "The reference reaches nine live enemies and observes scored enemy removal.",
+      "reference_trace": "arc_wing/C3",
+      "reference_trace_sha256": "sha256:65736f57d2cf73d4154fa79d014cd9a67c4af5bab15aab9e9b0c460eba763826",
+      "reviewer": "mode5-calibration-20260908",
+      "route_id": "arc_wing/C3/warden_approach_script_and_mine_field",
+      "scenario_id": "arc_warden_approach_composition",
+      "source_check_id": "warden_approach_dense_scored_formation",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "source_dense_warden_approach",
+            "predicate": "count(gb_enemy) >= 9"
+          },
+          {
+            "baseline": "previous_row",
+            "name": "source_approach_enemy_removal",
+            "predicate": "count_delta(gb_enemy) < 0"
+          }
+        ],
+        "predicate": "numeric_delta(score) >= 1900"
+      },
+      "strategy": {
+        "fallback_actions": [
+          "gb_jump",
+          "gb_left",
+          "gb_right",
+          "gb_down",
+          "gb_up"
+        ],
+        "parameters": {
+          "engage_sequence": [
+            {
+              "action": "gb_jump",
+              "hold_frames": 36
+            },
+            {
+              "action": "gb_left",
+              "hold_frames": 18
+            },
+            {
+              "action": "gb_jump",
+              "hold_frames": 36
+            },
+            {
+              "action": "gb_right",
+              "hold_frames": 18
+            },
+            {
+              "action": "gb_down",
+              "hold_frames": 10
+            }
+          ],
+          "fallback_sequence": [
+            {
+              "action": "gb_jump",
+              "hold_frames": 24
+            },
+            {
+              "action": "gb_up",
+              "hold_frames": 10
+            }
+          ],
+          "target_role": "gb_enemy"
+        },
+        "type": "combat"
+      },
+      "verified": true
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 18,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 12,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.combat.de415f89c4",
+      "parameters": {
+        "engage_sequence": [
+          {
+            "action": "gb_jump",
+            "hold_frames": 30
+          },
+          {
+            "action": "gb_left",
+            "hold_frames": 14
+          },
+          {
+            "action": "gb_jump",
+            "hold_frames": 30
+          },
+          {
+            "action": "gb_right",
+            "hold_frames": 14
+          },
+          {
+            "action": "gb_action",
+            "hold_frames": 54
+          },
+          {
+            "action": "",
+            "hold_frames": 1,
+            "value": 0
+          }
+        ],
+        "fallback_sequence": [
+          {
+            "action": "gb_up",
+            "hold_frames": 18
+          },
+          {
+            "action": "gb_right",
+            "hold_frames": 12
+          }
+        ],
+        "target_role": "gb_enemy"
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 30,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 14,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 30,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 14,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 54,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "",
+              "hold_frames": 1,
+              "value": 0
+            }
+          ],
+          "when": "alive(gb_enemy)"
+        }
+      ],
+      "strategy_type": "combat"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 24,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 10,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.combat.e78780941c",
+      "parameters": {
+        "engage_sequence": [
+          {
+            "action": "gb_jump",
+            "hold_frames": 36
+          },
+          {
+            "action": "gb_left",
+            "hold_frames": 18
+          },
+          {
+            "action": "gb_jump",
+            "hold_frames": 36
+          },
+          {
+            "action": "gb_right",
+            "hold_frames": 18
+          },
+          {
+            "action": "gb_down",
+            "hold_frames": 10
+          }
+        ],
+        "fallback_sequence": [
+          {
+            "action": "gb_jump",
+            "hold_frames": 24
+          },
+          {
+            "action": "gb_up",
+            "hold_frames": 10
+          }
+        ],
+        "target_role": "gb_enemy"
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 36,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 18,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 36,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 18,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 10,
+              "value": 1.0
+            }
+          ],
+          "when": "alive(gb_enemy)"
+        }
+      ],
+      "strategy_type": "combat"
+    }
+  ],
+  "policy_digest": "sha256:f916f62bc99ec2ff15cd4ce015a6e9232b0269b376f1193ce7d0ca4596239ea1",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "arc_wing/C1",
+      "budget_frames": 6400,
+      "capture_checkpoints": [
+        {
+          "id": "c1_start",
+          "kind": "run_start"
+        },
+        {
+          "id": "cloudline_scored_kills",
+          "predicate": "numeric(score) >= 1000"
+        },
+        {
+          "id": "c1_goal",
+          "predicate": "alive(gb_checkpoint)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove_vulcan",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "cloudline_scored_kills",
+            "predicate": "numeric(score) >= 1000"
+          }
+        ],
+        "predicate": "alive(gb_checkpoint)"
+      },
+      "id": "arc_cloudline_scored_formation",
+      "policy": "strategy.combat.de415f89c4",
+      "required_actions": [
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "score"
+      ],
+      "required_roles": [
+        "gb_checkpoint",
+        "gb_player"
+      ],
+      "route_id": "arc_wing/C1/cloudline_enemy_script_and_gate",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "source_dense_cloudline",
+            "predicate": "count(gb_enemy) >= 7"
+          },
+          {
+            "baseline": "previous_row",
+            "name": "source_scored_enemy_removal",
+            "predicate": "count_delta(gb_enemy) < 0"
+          }
+        ],
+        "predicate": "numeric_delta(score) >= 7500"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "",
+      "budget_frames": 6400,
+      "capture_checkpoints": [
+        {
+          "id": "c2_start",
+          "kind": "run_start"
+        },
+        {
+          "id": "salt_flats_scored_kills",
+          "predicate": "numeric(score) >= 1000"
+        },
+        {
+          "id": "c2_goal",
+          "predicate": "alive(gb_checkpoint)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove_salt_flats_fire",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "gdd_explicit"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "salt_flats_scored_kills",
+            "predicate": "numeric(score) >= 1000"
+          }
+        ],
+        "predicate": "alive(gb_checkpoint)"
+      },
+      "id": "arc_salt_flats_scored_formation",
+      "policy": "strategy.combat.de415f89c4",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "score"
+      ],
+      "required_roles": [
+        "gb_checkpoint",
+        "gb_player"
+      ],
+      "route_id": "arc_wing/C2/salt_flats_enemy_script_and_gate",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 1
+    },
+    {
+      "authoring_record": "arc_wing/C3",
+      "budget_frames": 4800,
+      "capture_checkpoints": [
+        {
+          "id": "c3_start",
+          "kind": "run_start"
+        },
+        {
+          "id": "opening_skimmer_waves_cleared",
+          "predicate": "numeric_delta(score) >= 1100"
+        },
+        {
+          "id": "mine_field_and_bulwarks_survived",
+          "predicate": "numeric_delta(score) >= 1400"
+        },
+        {
+          "id": "c3_goal",
+          "predicate": "numeric_delta(score) >= 1800"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "approach_without_vulcan",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "opening_skimmer_waves_cleared",
+            "predicate": "numeric_delta(score) >= 1100"
+          },
+          {
+            "name": "mine_field_and_bulwarks_survived",
+            "predicate": "numeric_delta(score) >= 1400"
+          }
+        ],
+        "predicate": "numeric_delta(score) >= 1800"
+      },
+      "id": "arc_warden_approach_composition",
+      "policy": "strategy.combat.e78780941c",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "score"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "arc_wing/C3/warden_approach_script_and_mine_field",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "source_dense_warden_approach",
+            "predicate": "count(gb_enemy) >= 9"
+          },
+          {
+            "baseline": "previous_row",
+            "name": "source_approach_enemy_removal",
+            "predicate": "count_delta(gb_enemy) < 0"
+          }
+        ],
+        "predicate": "numeric_delta(score) >= 1900"
+      },
+      "start_level": 2
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

@@ -10,20 +10,22 @@ from unittest import mock
 
 from evalsys.taskgen.evaluate import (
     evaluate_task,
-    _unity_fidelity_score_items,
     _unity_hidden_behavior_items,
     _unity_mechanic_trace_item,
     _unity_runtime_items,
     _unity_runtime_stability_item,
 )
 from evalsys.taskgen.package import TaskPackage, write_json
+from evalsys.taskgen.scorecard import MODE5_RELEASE_REGISTRY_VERSION
+
+
 from evalsys.taskgen.submission import load_unity_submission, parse_unity_ops
 from evalsys.taskgen.unity.unity_interface import MANIFEST_RELATIVE, UNITY_ACTIONS
 from evalsys.taskgen.unity.unity_runtime import UnityBuildResult
 from evalsys.taskgen.unity.unity_probe import PROTOCOL, UnityProbeRun, UnityRuntimeSuite
 from evalsys.taskgen.unity.unity_sdk import build_scaffold_digest_manifest
 from evalsys.interface.model import AnalogAxis
-from evalsys.verdict import Verdict
+from evalsys.verdict import Attribution, Verdict
 
 
 def _unity_submission(root: Path) -> Path:
@@ -108,6 +110,7 @@ def _package(root: Path) -> TaskPackage:
                 "required_analog_axes": [],
                 "required_groups": ["gb_player", "gb_goal"],
                 "required_numeric_slots": ["health"],
+                "mechanic_checks": [{"id": "damage", "measurable": True, "observable": {"predicate": "numeric_delta(health) < 0"}}],
                 "require_failure_ending": True,
             },
         },
@@ -176,38 +179,18 @@ class UnitySubmissionTests(unittest.TestCase):
 
 
 class Mode5EvaluatorTests(unittest.TestCase):
-    def test_failed_complete_witness_zeros_structure_without_calling_vlm(self) -> None:
+    def test_failed_witness_does_not_create_vlm_or_structure_judgments(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             suite = UnityRuntimeSuite(
-                status="pass",
-                detail="fixture suite passed",
-                witness=self._probe_run(root, "submitted_witness", reached=False),
-                matched_null=self._probe_run(root, "matched_null", reached=False),
-                mash=None,
-                auto_win=self._probe_run(root, "auto_win_ready", reached=False),
+                "pass", "fixture", self._probe_run(root, "witness", reached=False),
+                self._probe_run(root, "null", reached=False), None,
             )
-            with mock.patch(
-                "evalsys.taskgen.evaluate.judge_cross_engine_fidelity",
-                side_effect=AssertionError("candidate completion gate must precede the API"),
-            ):
-                items = _unity_runtime_items(
-                    suite,
-                    rubric={"mechanics": []},
-                    visual_judge="vlm",
-                    out=root / "visual",
-                    game_id="fixture",
-                    levels=["Assets/Scenes/Level1.unity"],
-                    reference_video=None,
-                    task_context="fixture",
-                    mode5_mdva=True,
-                    package=None,
-                )
+            items = _unity_runtime_items(suite, rubric={}, visual_judge="none", out=root,
+                                         game_id="fixture", levels=[], reference_video=None, task_context="")
             by_id = {item.id: item for item in items}
             self.assertEqual(Verdict.FAILED, by_id["causal_witness"].verdict)
-            self.assertEqual(Verdict.FAILED, by_id["unity_structure_fidelity"].verdict)
-            self.assertEqual(0.0, by_id["unity_structure_fidelity"].credit)
-            self.assertFalse(by_id["unity_structure_fidelity"].evidence["api_called"])
+            self.assertNotIn("unity_structure_fidelity", by_id)
 
     def test_unity_mechanics_are_graded_from_rubric_not_probe_completion(self) -> None:
         run = UnityProbeRun(
@@ -238,16 +221,7 @@ class Mode5EvaluatorTests(unittest.TestCase):
         self.assertEqual(0.5, item.credit)
         self.assertEqual(["enemy"], item.evidence["reached"])
 
-    def test_paired_fidelity_is_split_into_structure_and_visual_credit(self) -> None:
-        items = _unity_fidelity_score_items({"criteria": [
-            {"id": "asset_identity", "credit": 0.5},
-            {"id": "scene_progression", "credit": 0.75},
-            {"id": "ui_and_feedback", "credit": 1.0},
-            {"id": "overall_visual_fidelity", "credit": 0.5},
-        ]})
-        self.assertEqual(0.625, items[0].credit)
-        self.assertEqual(Verdict.UNOBSERVABLE, items[1].verdict)
-        self.assertEqual(0.0, items[1].credit)
+
 
     def test_runtime_stability_grades_clean_independent_cold_runs(self) -> None:
         from dataclasses import replace
@@ -286,6 +260,71 @@ class Mode5EvaluatorTests(unittest.TestCase):
                     if payload.get("missing_observations") else Verdict.INCONCLUSIVE
                 )
                 self.assertEqual(expected, item.verdict)
+
+    def test_missing_candidate_input_control_is_not_infrastructure_inconclusive(self) -> None:
+        from dataclasses import replace
+
+        root = Path("fixture")
+        base = self._probe_run(root, "witness", reached=False)
+        ablation = replace(
+            self._probe_run(root, "ablation", reached=False, counterfactual=True),
+            status="fail",
+            detail=(
+                "controller protocol failed: input dispatch failed: "
+                "action has no enabled ButtonControl: gb_right"
+            ),
+            reading={},
+        )
+        suite = UnityRuntimeSuite(
+            "pass", "fixture", base, base, None, counterfactuals=(ablation,)
+        )
+        item = next(
+            item for item in _unity_hidden_behavior_items(suite)
+            if item.id == "unity_counterfactual"
+        )
+        self.assertEqual(Verdict.FAILED, item.verdict)
+        self.assertEqual(Attribution.SUBMISSION, item.attribution)
+
+        runtime_failure = replace(
+            ablation,
+            detail=("Unity runtime emitted errors: Scene 'ResultScreen' "
+                    "couldn't be loaded because it has not been added to the build"),
+        )
+        suite = replace(suite, counterfactuals=(runtime_failure,))
+        item = next(
+            item for item in _unity_hidden_behavior_items(suite)
+            if item.id == "unity_counterfactual"
+        )
+        self.assertEqual(Verdict.FAILED, item.verdict)
+        self.assertEqual(Attribution.SUBMISSION, item.attribution)
+
+        transport_failure = replace(ablation, detail="controller protocol failed: socket closed")
+        suite = replace(suite, counterfactuals=(transport_failure,))
+        item = next(
+            item for item in _unity_hidden_behavior_items(suite)
+            if item.id == "unity_counterfactual"
+        )
+        self.assertEqual(Verdict.INCONCLUSIVE, item.verdict)
+
+    def test_source_scenario_failure_keeps_source_provenance(self) -> None:
+        from dataclasses import replace
+
+        root = Path("fixture")
+        base = self._probe_run(root, "witness", reached=False)
+        source = replace(
+            self._probe_run(root, "source", reached=False, behavior=True),
+            status="fail",
+            detail="controller protocol failed: candidate input unavailable",
+            reading={"evidence_basis": ["source_derived"]},
+        )
+        suite = UnityRuntimeSuite(
+            "pass", "fixture", base, base, None, hidden_behaviors=(source,)
+        )
+        item = next(
+            item for item in _unity_hidden_behavior_items(suite)
+            if item.id == "unity_source_behavior"
+        )
+        self.assertEqual(Verdict.FAILED, item.verdict)
 
     @staticmethod
     def _probe_run(
@@ -369,7 +408,7 @@ class Mode5EvaluatorTests(unittest.TestCase):
             package = _package(root)
             submission = _unity_submission(root)
             result = evaluate_task(
-                package.root, submission, engine="off", visual_judge="vlm"
+                package.root, submission, engine="off", visual_judge="none"
             )
             by_id = {item.id: item for item in result.items}
 
@@ -403,23 +442,15 @@ class Mode5EvaluatorTests(unittest.TestCase):
                 "causal_witness",
                 "null_no_win",
                 "unity_evaluator_capture",
-                "unity_vlm",
-                "cross_engine_fidelity",
             ):
                 self.assertEqual(Verdict.INCONCLUSIVE, by_id[check_id].verdict, check_id)
-            self.assertEqual(
-                Verdict.UNOBSERVABLE,
-                by_id["extended_mash_no_win"].verdict,
-            )
             self.assertEqual("not_measured", result.eligibility_status)
             self.assertFalse(result.comparable)
             self.assertIsNone(result.resolved)
-            self.assertIn("Unity build disabled", by_id["unity_vlm"].detail)
-            self.assertNotIn("{reason}", by_id["unity_vlm"].detail)
             wire = result.to_dict()
             self.assertEqual("gamebench.taskgen.report.v4", wire["report_schema"])
-            self.assertEqual("mode5_model_capability_only", wire["score_scope"])
-            self.assertEqual("evaluation_incomplete", wire["headline"]["status"])
+            self.assertEqual("mode5_evidence_adjusted_proxy", wire["score_scope"])
+            self.assertEqual("integrity_failed", wire["headline"]["status"])
             self.assertIsNone(wire["headline"]["score"])
             self.assertFalse(wire["headline"]["ranking_eligible"])
             self.assertEqual(wire["headline"], wire["score"])
@@ -471,13 +502,14 @@ class Mode5EvaluatorTests(unittest.TestCase):
                 encoding="utf-8",
             )
             with mock.patch("evalsys.taskgen.evaluate.build_unity_submission") as build:
-                result = evaluate_task(package.root, submission, engine="on")
+                result = evaluate_task(package.root, submission, engine="on",
+                                       registry_version=MODE5_RELEASE_REGISTRY_VERSION)
             by_id = {item.id: item for item in result.items}
             self.assertEqual(Verdict.FAILED, by_id["unity_anti_grant_static"].verdict)
-
-
-            self.assertNotEqual(Verdict.SKIPPED, by_id["unity_build"].verdict)
-            build.assert_called_once()
+            # Release rejects high-confidence anti-grant before importing
+            # candidate code into Unity. Historical score readers stay separate.
+            self.assertEqual(Verdict.SKIPPED, by_id["unity_build"].verdict)
+            build.assert_not_called()
 
     def test_sdk_tamper_refuses_unity_import(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -497,11 +529,12 @@ class Mode5EvaluatorTests(unittest.TestCase):
             )
             sdk_file.write_text("class CandidateReplacement {}\n", encoding="utf-8")
             with mock.patch("evalsys.taskgen.evaluate.build_unity_submission") as build:
-                result = evaluate_task(package.root, submission, engine="on")
+                result = evaluate_task(package.root, submission, engine="on",
+                                       registry_version=MODE5_RELEASE_REGISTRY_VERSION)
             by_id = {item.id: item for item in result.items}
             self.assertEqual(Verdict.FAILED, by_id["unity_sdk_integrity"].verdict)
-            self.assertNotEqual(Verdict.SKIPPED, by_id["unity_build"].verdict)
-            build.assert_called_once()
+            self.assertEqual(Verdict.SKIPPED, by_id["unity_build"].verdict)
+            build.assert_not_called()
 
     def test_missing_build_and_idle_ops_are_submission_failures(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -598,7 +631,7 @@ class Mode5EvaluatorTests(unittest.TestCase):
                 package = _package(root)
                 submission = _unity_submission(root)
                 build = UnityBuildResult(
-                    status=status,
+                    status=status,  # type: ignore[arg-type]
                     detail=f"fixture {status}",
                     unity_bin="/fake/Unity" if status == "fail" else None,
                     requested_version="6000.3.23f1",
@@ -699,11 +732,11 @@ class Mode5EvaluatorTests(unittest.TestCase):
                 self.assertEqual(Verdict.PASSED, by_id[check_id].verdict, check_id)
             self.assertEqual(Verdict.UNOBSERVABLE, by_id["extended_mash_no_win"].verdict)
             self.assertEqual(Verdict.INCONCLUSIVE, by_id["unity_evaluator_capture"].verdict)
-            self.assertEqual(Verdict.UNOBSERVABLE, by_id["unity_vlm"].verdict)
-            self.assertEqual(Verdict.UNOBSERVABLE, by_id["cross_engine_fidelity"].verdict)
+            self.assertNotIn("unity_vlm", by_id)
             self.assertTrue(result.comparable)
-
-
+            # The synthetic package deliberately omits a frozen scaffold
+            # integrity record, so mechanics are comparable while overall
+            # eligibility remains not measured.
             self.assertIsNone(result.resolved)
             self.assertTrue(result.engine["runtime_probe_ran"])
 

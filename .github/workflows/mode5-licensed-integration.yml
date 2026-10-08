@@ -1,0 +1,50 @@
+name: Mode 5 trusted licensed integration
+
+# Never run candidate code or licensed state on a pull_request runner.
+# Repository owners configure a protected environment and a dedicated runner.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mode5-licensed-integration
+  cancel-in-progress: false
+
+jobs:
+  integration:
+    runs-on: [self-hosted, Linux, gamebench-mode5]
+    environment: mode5-licensed
+    timeout-minutes: 120
+    defaults:
+      run:
+        working-directory: eval/evalsys
+    env:
+      PYTHONPATH: .
+      GB_RUN_MODE5_DOCKER_INTEGRATION: '1'
+      GB_MODE5_HOME: ${{ secrets.GB_MODE5_HOME }}
+      GB_MODE5_INTEGRATION_PACKAGE: ${{ secrets.GB_MODE5_INTEGRATION_PACKAGE }}
+      GB_MODE5_INTEGRATION_POSITIVE_SUBMISSION: ${{ secrets.GB_MODE5_INTEGRATION_POSITIVE_SUBMISSION }}
+      GB_MODE5_INTEGRATION_AUTOWIN_SUBMISSION: ${{ secrets.GB_MODE5_INTEGRATION_AUTOWIN_SUBMISSION }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          lfs: false
+      - name: Require dedicated licensed inputs
+        run: |
+          test -n "$GB_MODE5_HOME"
+          test -d "$GB_MODE5_HOME"
+          test -d "$GB_MODE5_INTEGRATION_PACKAGE"
+          test -d "$GB_MODE5_INTEGRATION_POSITIVE_SUBMISSION"
+      - name: Check active image and entitlement
+        run: python -m evalsys.taskgen.mode5.community_cli doctor --state-dir "$GB_MODE5_HOME" --json
+      - name: Run real Unity integration
+        run: python -m pytest tests/integration/test_mode5_community_docker.py -q --junitxml=mode5-integration.xml
+      - name: Upload only test verdicts
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: mode5-integration-verdicts
+          path: eval/evalsys/mode5-integration.xml
+          if-no-files-found: warn

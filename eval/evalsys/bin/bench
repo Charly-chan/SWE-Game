@@ -156,24 +156,37 @@ def cmd_report(args: argparse.Namespace) -> int:
     return 0
 
 def cmd_gen_task(args: argparse.Namespace) -> int:
-    """Download a fixed visible/ + hidden/ task package."""
+    """Write a visible/ + hidden/ task package. See eval/docs/TASKGEN_HARNESS.md."""
     from evalsys.taskgen import GenerateError, generate_task
+    from evalsys.taskgen.modes import parse_mode
+
     try:
-        package = generate_task(args.game, mode=args.mode, out=args.out, mutations=args.mutations, assets=args.assets, score_against_source=args.score_against_source, case_id=args.case_id, playtest_kit=args.playtest_kit == 'on', reference_video=args.reference_video == 'on')
+        package = generate_task(
+            args.game,
+            mode=args.mode,
+            out=args.out,
+            mutations=args.mutations,
+            assets=args.assets,
+            score_against_source=args.score_against_source,
+            case_id=args.case_id,
+            playtest_kit=args.playtest_kit == "on",
+            reference_video=args.reference_video == "on",
+            community_scaffold=parse_mode(args.mode).id == "port",
+        )
     except (GenerateError, FileNotFoundError, ValueError) as exc:
-        print(f'gen-task refused: {exc}', file=sys.stderr)
+        print(f"gen-task refused: {exc}", file=sys.stderr)
         return 2
-    print(f'task package -> {package.root}')
+    print(f"task package -> {package.root}")
     print(f"  mode     {package.manifest.get('mode')}")
     print(f"  game     {package.manifest.get('game_id')}")
     print(f"  playtest {package.manifest.get('playtest_kit')}")
     print(f"  reference_video {package.manifest.get('reference_video')}")
-    blockers = package.manifest.get('blockers') or []
+    blockers = package.manifest.get("blockers") or []
     if blockers:
-        print('  blockers')
+        print("  blockers")
         for item in blockers:
-            print(f'    - {item}')
-    print('  handoff  give the model visible/ only')
+            print(f"    - {item}")
+    print("  handoff  give the model visible/ only")
     return 0
 
 def cmd_rescore_visuals(args: argparse.Namespace) -> int:
@@ -187,18 +200,6 @@ def cmd_rescore_visuals(args: argparse.Namespace) -> int:
     print(json.dumps({'score': card['weighted_total']['score'], 'status': card['weighted_total']['status'], 'visual': card.get('visual_total') or card.get('mdva_vlm_total')}, ensure_ascii=False))
     return 0 if not card['evaluation_incomplete'] else 1
 
-def cmd_finalize_mode5(args: argparse.Namespace) -> int:
-    """Finalize the host side of the offline Unity VM handoff."""
-    from evalsys.taskgen.mode5.finalize import finalize_mode5
-    try:
-        final = finalize_mode5(args.report, args.package, args.artifacts, args.out)
-    except (OSError, ValueError, RuntimeError, tarfile.TarError) as exc:
-        print(f'evaluator_failed: {exc}', file=sys.stderr)
-        Path(args.out).mkdir(parents=True, exist_ok=True)
-        (Path(args.out) / 'production_status.json').write_text(json.dumps({'status': 'evaluator_failed', 'detail': str(exc)}, indent=2) + '\n', encoding='utf-8')
-        return 2
-    print(json.dumps({'status': 'scored', 'score': final['headline']['score'], 'registry_version': final['registry_version']}, ensure_ascii=False))
-    return 0
 
 def cmd_eval_task(args: argparse.Namespace) -> int:
     os.environ.setdefault('GB_SCRATCH_ROOT', '/tmp/swe-game/gb_taskgen_scratch')
@@ -206,29 +207,33 @@ def cmd_eval_task(args: argparse.Namespace) -> int:
     os.environ.setdefault('GODOT_BIN', '/opt/godot451-bin/godot')
     from evalsys.taskgen import evaluate_task
     from evalsys.taskgen.evaluate import EvalTaskError
-    from evalsys.taskgen.scorecard import MODE5_MDVA_REGISTRY_VERSION
-    vm_mode = getattr(args, 'unity_vm', 'auto')
+    from evalsys.taskgen.mode5.scoring import REGISTRY_VERSION as mode5_registry
     try:
-        package_manifest = json.loads((Path(args.package).resolve() / 'manifest.json').read_text(encoding='utf-8'))
+        package_manifest = json.loads(
+            (Path(args.package).resolve() / "manifest.json").read_text(encoding="utf-8")
+        )
     except (OSError, ValueError, json.JSONDecodeError):
         package_manifest = {}
-    wants_vm = platform.system().lower() == 'windows' and str(package_manifest.get('mode') or '') == 'port' and (args.engine != 'off') and (vm_mode != 'off')
-    if wants_vm:
-        if args.registry not in (None, MODE5_MDVA_REGISTRY_VERSION):
-            print(f'eval-task refused: Mode 5 is frozen to {MODE5_MDVA_REGISTRY_VERSION}; historical registries are only valid for offline report rescore', file=sys.stderr)
+    if str(package_manifest.get("mode") or "") == "port":
+        if args.registry not in (None, mode5_registry):
+            print("eval-task refused: unsupported Mode 5 registry", file=sys.stderr)
             return 2
-        runner = Path(__file__).resolve().parents[2] / 'infra' / 'unity' / 'host_runner' / 'Invoke-UnityCandidateEvaluation.ps1'
-        infra_ready = runner.is_file() and Path('D:/gamebench-unity-vm/license-exchange/ubuntu2404-unity6000.3.23f1-personal-license-scrubbed.qcow2').is_file()
-        if vm_mode == 'on' and (not infra_ready):
-            print('eval-task refused: certified Unity VM runner is unavailable', file=sys.stderr)
-            return 2
-        if infra_ready:
+        internal_controller = (
+            platform.system().lower() == "linux"
+            and os.environ.get("GB_UNITY_ENVIRONMENT_PROFILE") == "/controller/environment-profile.json"
+            and Path(args.package).resolve() == Path("/controller/package")
+            and Path("/controller/environment-profile.json").is_file()
+        )
+        if not internal_controller:
             if not args.out:
-                print('eval-task refused: --out is required for Unity VM evaluation', file=sys.stderr)
+                print("eval-task refused: --out is required for independent Mode 5 evaluation", file=sys.stderr)
                 return 2
-            command = ['powershell.exe', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', str(runner), '-Package', str(Path(args.package).resolve()), '-Submission', str(Path(args.submission).resolve()), '-Out', str(Path(args.out).resolve()), '-VisualJudge', args.visual_judge, '-RegistryVersion', MODE5_MDVA_REGISTRY_VERSION]
-            process = subprocess.run(command, text=True, encoding='utf-8', errors='replace', check=False)
-            return process.returncode
+            from evalsys.taskgen.mode5.community_cli import main as mode5_main
+            return mode5_main([
+                "evaluate", "--package", args.package, "--submission", args.submission,
+                "--out", args.out, "--fidelity-judge", args.visual_judge,
+            ])
+
     try:
         result = evaluate_task(args.package, args.submission, engine=args.engine, score_against_source=True if args.score_against_source else None, visual_judge=args.visual_judge, out=args.out, registry_version=args.registry)
     except (EvalTaskError, FileNotFoundError, ValueError) as exc:
@@ -261,21 +266,75 @@ def cmd_eval_task(args: argparse.Namespace) -> int:
 def cmd_run_task_matrix(args: argparse.Namespace) -> int:
     """Generate, run, collect, evaluate, and summarize selected game x mode cases."""
     from evalsys.taskgen import AgentConfig, MatrixError, run_matrix
-    agent = AgentConfig(backend=args.agent_backend, command=args.agent_command, env_file=args.agent_env_file, model=args.model, base_url=args.agent_base_url, key_env=args.agent_key_env, effort=args.agent_effort, timeout_s=args.agent_timeout, sandbox=args.agent_sandbox, docker_image=args.agent_docker_image, provider=args.agent_provider, auth_file=args.agent_auth_file, dry_run=args.agent_dry_run)
-    if args.agent_dry_run and (not args.generate_only):
-        print('run-task-matrix refused: --agent-dry-run requires --generate-only', file=sys.stderr)
+    from evalsys.taskgen.modes import parse_mode
+
+    if not args.generate_only and (not args.mode or any(parse_mode(value).id == "port" for value in args.mode)):
+        print("Mode 5 runs use gb mode5 run (or run_benchmark.sh --mode port); the generic host matrix path is retired", file=sys.stderr)
+        return 2
+
+    agent = AgentConfig(
+        backend=args.agent_backend,
+        command=args.agent_command,
+        env_file=args.agent_env_file,
+        model=args.model,
+        base_url=args.agent_base_url,
+        key_env=args.agent_key_env,
+        effort=args.agent_effort,
+        timeout_s=args.agent_timeout,
+        sandbox=args.agent_sandbox,
+        docker_image=args.agent_docker_image,
+        provider=args.agent_provider,
+        auth_file=args.agent_auth_file,
+        dry_run=args.agent_dry_run,
+    )
+    if args.agent_dry_run and not args.generate_only:
+        print("run-task-matrix refused: --agent-dry-run requires --generate-only", file=sys.stderr)
         return 2
     try:
-        summary = run_matrix(args.out, game_ids=args.game, modes=args.mode, case_ids=args.case_id, agent=agent, engine=args.engine, visual_judge=args.visual_judge, resume=args.resume, generate_only=args.generate_only, catalog_path=args.catalog, playtest_kit=args.playtest_kit == 'on', single_cell=args.single_cell, reference_video=args.reference_video == 'on', evaluate=args.eval == 'on')
+        summary = run_matrix(
+            args.out,
+            game_ids=args.game,
+            modes=args.mode,
+            case_ids=args.case_id,
+            agent=agent,
+            engine=args.engine,
+            visual_judge=args.visual_judge,
+            resume=args.resume,
+            generate_only=args.generate_only,
+            catalog_path=args.catalog,
+            playtest_kit=args.playtest_kit == "on",
+            single_cell=args.single_cell,
+            reference_video=args.reference_video == "on",
+            evaluate=args.eval == "on",
+            community_scaffold=not args.mode or any(parse_mode(value).id == "port" for value in args.mode),
+        )
     except (MatrixError, FileNotFoundError, ValueError) as exc:
-        print(f'run-task-matrix refused: {exc}', file=sys.stderr)
+        print(f"run-task-matrix refused: {exc}", file=sys.stderr)
         return 2
-    print(f'matrix -> {Path(args.out).resolve()}')
-    print(f"  selected {summary['total_selected']} reported {summary['reported']} counts={summary['counts']}")
-    denominators = summary.get('denominators') or {}
-    print(f"  denominators planned={denominators.get('planned_cells', 0)} material_ready={denominators.get('material_ready_cells', 0)} agent_attempted={denominators.get('agent_attempted_cells', 0)} submission_produced={denominators.get('submission_produced_cells', 0)} verifier_measured={denominators.get('verifier_measured_cells', 0)} resolved_yes={denominators.get('resolved_yes', 0)} resolved_no={denominators.get('resolved_no', 0)} not_measured={denominators.get('resolved_not_measured', 0)}")
-    counts = summary.get('counts') or {}
-    incomplete = int(counts.get('failed', 0)) + int(counts.get('package_blocked', 0)) + int(denominators.get('resolved_no', 0)) + int(denominators.get('resolved_not_measured', 0))
+    print(f"matrix -> {Path(args.out).resolve()}")
+    print(
+        f"  selected {summary['total_selected']} reported {summary['reported']} "
+        f"counts={summary['counts']}"
+    )
+    denominators = summary.get("denominators") or {}
+    print(
+        "  denominators "
+        f"planned={denominators.get('planned_cells', 0)} "
+        f"material_ready={denominators.get('material_ready_cells', 0)} "
+        f"agent_attempted={denominators.get('agent_attempted_cells', 0)} "
+        f"submission_produced={denominators.get('submission_produced_cells', 0)} "
+        f"verifier_measured={denominators.get('verifier_measured_cells', 0)} "
+        f"resolved_yes={denominators.get('resolved_yes', 0)} "
+        f"resolved_no={denominators.get('resolved_no', 0)} "
+        f"not_measured={denominators.get('resolved_not_measured', 0)}"
+    )
+    counts = summary.get("counts") or {}
+    incomplete = (
+        int(counts.get("failed", 0))
+        + int(counts.get("package_blocked", 0))
+        + int(denominators.get("resolved_no", 0))
+        + int(denominators.get("resolved_not_measured", 0))
+    )
     return 1 if incomplete else 0
 
 def cmd_scan_grant(args: argparse.Namespace) -> int:
@@ -377,7 +436,6 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument('--submission', required=True)
     s.add_argument('--out', default=None)
     s.add_argument('--engine', default='auto', choices=['auto', 'on', 'off'])
-    s.add_argument('--unity-vm', default='auto', choices=['auto', 'on', 'off'], help='on Windows, delegate Mode 5 runtime to the certified disposable VM')
     s.add_argument('--visual-judge', default='none', choices=['none', 'local', 'vlm'], help='attach evaluator-owned frame evidence; uncalibrated and outside resolved')
     s.add_argument('--score-against-source', action='store_true')
     s.add_argument('--registry', default=None, metavar='VERSION', help='mode-specific registry (Modes 1–3 default to 2026-09-19.modeN-vlm1; use --visual-judge vlm for a complete composite score)')
@@ -390,12 +448,6 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument('--submission', default=None)
     s.add_argument('--record-missing', action='store_true')
     s.set_defaults(func=cmd_rescore_visuals)
-    s = sub.add_parser('finalize-mode5', help='finalize retained offline Unity evidence on the host and publish a numeric score')
-    s.add_argument('--report', required=True, help='objective report produced inside the VM')
-    s.add_argument('--package', required=True, help='frozen task package')
-    s.add_argument('--artifacts', required=True, help='verified evaluation-artifacts.tar.gz')
-    s.add_argument('--out', required=True, help='host finalization output directory')
-    s.set_defaults(func=cmd_finalize_mode5)
     s = sub.add_parser('run-task-matrix', help='run resumable fixed task downloads, coding agent runs, evaluation, and summary')
     s.add_argument('--out', required=True, help='matrix run directory')
     s.add_argument('--catalog', default=str(Path(__file__).resolve().parents[3] / 'catalog.json'))

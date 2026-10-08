@@ -1,0 +1,15 @@
+{
+  "blockers": [],
+  "game_id": "twin_holds",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "twin_holds-c1-score_route",
+    "twin_holds-c2-castle_capture_route",
+    "twin_holds-c3-advanced_score_route",
+    "twin_holds-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:5e4e80a1b1afe051e09cb21684866fb24cdf47246a387e15a76934fb9c92934b"
+}

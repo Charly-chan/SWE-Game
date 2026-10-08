@@ -1,0 +1,1485 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:73513ad32c05a5cf4ebc5b3c8d5a47200946c7a716fb8cdae90d91396f31a64c",
+  "game_id": "kindle_relay",
+  "inputs": {
+    "certificate": {
+      "path": "tasks/kindle_relay/certificate.rt1.json",
+      "sha256": "16eb65fea4ae121cce3cf36bf54198206f19d280cced2c1c0f94899fffec4218"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/kindle_relay.md",
+      "sha256": "4ad56a794f6639d36249f44a3a2e3af586dda7dfd159c5cd51c8418a4596fceb"
+    },
+    "route": {
+      "path": "tasks/kindle_relay/route.json",
+      "sha256": "b626ff29aad16652c205ef5b8acce57bde3deb108e1fc00032e1e54af1b46329"
+    },
+    "rubric": {
+      "entry_sha256": "bba0dc812e68ed638a0a62be0482c4d6d7f62e36557ec8ed3a630194dc7d9109",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_collectible",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/kindle_relay/authored/source_obligations.json",
+      "sha256": "2dbee726e0aebc11699d8dee7a9814747f17720644d8b4175e84943404f972bf"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "kindle_relay-c2-coast_second_light.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "kindle_relay-c2-coast_second_light.second_beacon_lit",
+          "predicate": "numeric(progress) >= 4"
+        },
+        {
+          "id": "kindle_relay-c2-coast_second_light.goal",
+          "predicate": "numeric(progress) >= 4"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed world/planet_world.gd:893: _call_progress += delta / CALL_TRAVEL",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:335e3abc6e09de2f751fefa726faefea2cae7fa3661c207842148d473bb83c52",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "kindle_relay/C2/coast_second_light",
+      "scenario_id": "kindle_relay-c2-coast_second_light",
+      "source_check_id": "owner-reviewed-kindle_relay-c2-coast_second_light",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "second_beacon_lit",
+            "predicate": "numeric(progress) >= 4"
+          }
+        ],
+        "predicate": "numeric(progress) >= 4"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "kindle_relay-c3-valley_glass_field.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "kindle_relay-c3-valley_glass_field.third_beacon_lit",
+          "predicate": "numeric(progress) >= 6"
+        },
+        {
+          "id": "kindle_relay-c3-valley_glass_field.goal",
+          "predicate": "numeric(progress) >= 6"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed world/planet_world.gd:893: _call_progress += delta / CALL_TRAVEL",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:335e3abc6e09de2f751fefa726faefea2cae7fa3661c207842148d473bb83c52",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "kindle_relay/C3/valley_glass_field",
+      "scenario_id": "kindle_relay-c3-valley_glass_field",
+      "source_check_id": "owner-reviewed-kindle_relay-c3-valley_glass_field",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "third_beacon_lit",
+            "predicate": "numeric(progress) >= 6"
+          }
+        ],
+        "predicate": "numeric(progress) >= 6"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "kindle_relay-c4-valley_west_ridge.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "kindle_relay-c4-valley_west_ridge.fourth_beacon_lit",
+          "predicate": "numeric(progress) >= 8"
+        },
+        {
+          "id": "kindle_relay-c4-valley_west_ridge.goal",
+          "predicate": "numeric(progress) >= 8"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:335e3abc6e09de2f751fefa726faefea2cae7fa3661c207842148d473bb83c52",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "kindle_relay/C4/valley_west_ridge",
+      "scenario_id": "kindle_relay-c4-valley_west_ridge",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "kindle_relay-c5-summit_south_crown.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "kindle_relay-c5-summit_south_crown.fifth_beacon_lit",
+          "predicate": "numeric(progress) >= 10"
+        },
+        {
+          "id": "kindle_relay-c5-summit_south_crown.goal",
+          "predicate": "numeric(progress) >= 10"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:335e3abc6e09de2f751fefa726faefea2cae7fa3661c207842148d473bb83c52",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "kindle_relay/C5/summit_south_crown",
+      "scenario_id": "kindle_relay-c5-summit_south_crown",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "kindle_relay-c6-summit_final_light.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "kindle_relay-c6-summit_final_light.sixth_beacon_lit",
+          "predicate": "numeric(progress) >= 12"
+        },
+        {
+          "id": "kindle_relay-c6-summit_final_light.goal",
+          "predicate": "numeric(progress) >= 12"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:335e3abc6e09de2f751fefa726faefea2cae7fa3661c207842148d473bb83c52",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "kindle_relay/C6/summit_final_light",
+      "scenario_id": "kindle_relay-c6-summit_final_light",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "kindle_relay-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "kindle_relay-l5-whole_game_clear.coast_pair_lit",
+          "predicate": "numeric(progress) >= 4"
+        },
+        {
+          "id": "kindle_relay-l5-whole_game_clear.valley_pair_lit",
+          "predicate": "numeric(progress) >= 8"
+        },
+        {
+          "id": "kindle_relay-l5-whole_game_clear.summit_pair_lit",
+          "predicate": "numeric(progress) >= 12"
+        },
+        {
+          "id": "kindle_relay-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:335e3abc6e09de2f751fefa726faefea2cae7fa3661c207842148d473bb83c52",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "kindle_relay/L5/whole_game_clear",
+      "scenario_id": "kindle_relay-l5-whole_game_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_up",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.ee4a62fd24",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.47419a144d",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.2d8c9077e2",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.a74b8ce237",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.5ab04b10be",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_up",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.210afa426d",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_up",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    }
+  ],
+  "policy_digest": "sha256:9d13eac0a3eb1ffeb0919aad65f94829c10a40a694377b26fbb75043e0ce532b",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 671,
+      "capture_checkpoints": [
+        {
+          "id": "kindle_relay-c2-coast_second_light.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "kindle_relay-c2-coast_second_light.second_beacon_lit",
+          "predicate": "numeric(progress) >= 4"
+        },
+        {
+          "id": "kindle_relay-c2-coast_second_light.goal",
+          "predicate": "numeric(progress) >= 4"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "second_beacon_lit",
+            "predicate": "numeric(progress) >= 4"
+          }
+        ],
+        "predicate": "numeric(progress) >= 4"
+      },
+      "id": "kindle_relay-c2-coast_second_light",
+      "policy": "strategy.traversal.ee4a62fd24",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_right"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "kindle_relay/C2/coast_second_light",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "second_beacon_lit",
+            "predicate": "numeric(progress) >= 4"
+          }
+        ],
+        "predicate": "numeric(progress) >= 4"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 1645,
+      "capture_checkpoints": [
+        {
+          "id": "kindle_relay-c3-valley_glass_field.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "kindle_relay-c3-valley_glass_field.third_beacon_lit",
+          "predicate": "numeric(progress) >= 6"
+        },
+        {
+          "id": "kindle_relay-c3-valley_glass_field.goal",
+          "predicate": "numeric(progress) >= 6"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "third_beacon_lit",
+            "predicate": "numeric(progress) >= 6"
+          }
+        ],
+        "predicate": "numeric(progress) >= 6"
+      },
+      "id": "kindle_relay-c3-valley_glass_field",
+      "policy": "strategy.traversal.47419a144d",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "kindle_relay/C3/valley_glass_field",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "third_beacon_lit",
+            "predicate": "numeric(progress) >= 6"
+          }
+        ],
+        "predicate": "numeric(progress) >= 6"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 2274,
+      "capture_checkpoints": [
+        {
+          "id": "kindle_relay-c4-valley_west_ridge.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "kindle_relay-c4-valley_west_ridge.fourth_beacon_lit",
+          "predicate": "numeric(progress) >= 8"
+        },
+        {
+          "id": "kindle_relay-c4-valley_west_ridge.goal",
+          "predicate": "numeric(progress) >= 8"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "fourth_beacon_lit",
+            "predicate": "numeric(progress) >= 8"
+          }
+        ],
+        "predicate": "numeric(progress) >= 8"
+      },
+      "id": "kindle_relay-c4-valley_west_ridge",
+      "policy": "strategy.traversal.2d8c9077e2",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "kindle_relay/C4/valley_west_ridge",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 2957,
+      "capture_checkpoints": [
+        {
+          "id": "kindle_relay-c5-summit_south_crown.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "kindle_relay-c5-summit_south_crown.fifth_beacon_lit",
+          "predicate": "numeric(progress) >= 10"
+        },
+        {
+          "id": "kindle_relay-c5-summit_south_crown.goal",
+          "predicate": "numeric(progress) >= 10"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "fifth_beacon_lit",
+            "predicate": "numeric(progress) >= 10"
+          }
+        ],
+        "predicate": "numeric(progress) >= 10"
+      },
+      "id": "kindle_relay-c5-summit_south_crown",
+      "policy": "strategy.traversal.a74b8ce237",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "kindle_relay/C5/summit_south_crown",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 4155,
+      "capture_checkpoints": [
+        {
+          "id": "kindle_relay-c6-summit_final_light.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "kindle_relay-c6-summit_final_light.sixth_beacon_lit",
+          "predicate": "numeric(progress) >= 12"
+        },
+        {
+          "id": "kindle_relay-c6-summit_final_light.goal",
+          "predicate": "numeric(progress) >= 12"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "sixth_beacon_lit",
+            "predicate": "numeric(progress) >= 12"
+          }
+        ],
+        "predicate": "numeric(progress) >= 12"
+      },
+      "id": "kindle_relay-c6-summit_final_light",
+      "policy": "strategy.traversal.5ab04b10be",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "kindle_relay/C6/summit_final_light",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 4800,
+      "capture_checkpoints": [
+        {
+          "id": "kindle_relay-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "kindle_relay-l5-whole_game_clear.coast_pair_lit",
+          "predicate": "numeric(progress) >= 4"
+        },
+        {
+          "id": "kindle_relay-l5-whole_game_clear.valley_pair_lit",
+          "predicate": "numeric(progress) >= 8"
+        },
+        {
+          "id": "kindle_relay-l5-whole_game_clear.summit_pair_lit",
+          "predicate": "numeric(progress) >= 12"
+        },
+        {
+          "id": "kindle_relay-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "coast_pair_lit",
+            "predicate": "numeric(progress) >= 4"
+          },
+          {
+            "name": "valley_pair_lit",
+            "predicate": "numeric(progress) >= 8"
+          },
+          {
+            "name": "summit_pair_lit",
+            "predicate": "numeric(progress) >= 12"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "kindle_relay-l5-whole_game_clear",
+      "policy": "strategy.traversal.210afa426d",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "kindle_relay/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

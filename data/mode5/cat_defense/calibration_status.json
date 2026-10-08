@@ -1,0 +1,14 @@
+{
+  "blockers": [],
+  "game_id": "cat_defense",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "cat_opening_two_pad_economy",
+    "cat_cargo_freight_then_extract",
+    "cat_last_stand_two_pad_boss_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:ce8b9a94345d7e9a1b46a7938f5cc2db9dfd59284c77fa03cc2422fea84f4a3c"
+}

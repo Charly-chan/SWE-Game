@@ -33,6 +33,9 @@ from .docker_sandbox import (
 from .evaluate import evaluate_task
 from .generate import GenerateError, PLAYTEST_KIT_CREATED_AT, _write_created_at, generate_task
 from .mode4.mode4_cases import active_mode4_cases
+from .mode5.path_safety import reject_links
+
+
 from .modes import MODES, PORT, Mode, parse_mode
 from .package import TaskPackage, write_json
 from .unity.unity_interface import find_unity_project
@@ -267,9 +270,16 @@ def run_matrix(
     single_cell: bool = False,
     reference_video: bool = True,
     evaluate: bool = True,
+    community_scaffold: bool = False,
 ) -> dict[str, Any]:
+    """Run the selected cases.
 
-
+    ``single_cell`` is the layout ``run_benchmark.sh`` uses: exactly one case
+    whose ``package/ workspace/ agent/ submission/ evaluation/ state.json`` land
+    directly under ``out`` (the cell directory), while the frozen configuration
+    and the matrix summaries go to ``out/matrix/``.  The default layout keeps
+    the historical ``out/runs/<game>/<mode>[/<case>]/`` tree.
+    """
     root = Path(out).resolve()
     meta_root = root / "matrix" if single_cell else root
     if root.exists() and any(root.iterdir()) and not resume:
@@ -297,6 +307,7 @@ def run_matrix(
         resume=resume,
         playtest_kit=playtest_kit,
         reference_video=reference_video,
+        community_scaffold=community_scaffold,
     )
     results: list[CaseResult] = []
     for selected in cases:
@@ -321,6 +332,7 @@ def run_matrix(
             playtest_kit=playtest_kit,
             reference_video=reference_video,
             evaluate=evaluate,
+            community_scaffold=community_scaffold,
         )
         results.append(result)
         _write_matrix_summary(meta_root, results, total=len(cases))
@@ -337,6 +349,7 @@ def _write_or_validate_run(
     resume: bool,
     playtest_kit: bool = False,
     reference_video: bool = True,
+    community_scaffold: bool = False,
 ) -> None:
     path = root / "run.json"
     selected = [
@@ -372,6 +385,8 @@ def _write_or_validate_run(
     }
     if agent.sandbox == "docker":
         frozen["agent"]["docker_image"] = agent.docker_image
+    if community_scaffold:
+        frozen["mode5_scaffold"] = "community-builtins-v2"
     current_commit = _git_commit()
     if path.is_file():
         existing = json.loads(path.read_text(encoding="utf-8"))
@@ -381,8 +396,11 @@ def _write_or_validate_run(
         recorded_commit = str(existing.get("benchmark_commit") or "")
         drifted = bool(recorded_commit and current_commit and recorded_commit != current_commit)
         if drifted:
-
-
+            # The check cannot tell a scoring-only change from one that moves the
+            # prompt, the package or the harness, so by default it refuses either
+            # way. An operator who has audited the diff and found nothing the
+            # agent can see may name the frozen commit to proceed; the override
+            # is recorded in run.json so the mixture is never silent.
             allowed = os.environ.get(RESUME_ACROSS_COMMITS_ENV, "").strip()
             if allowed != recorded_commit:
                 raise MatrixError(
@@ -514,6 +532,7 @@ def _run_case(
     playtest_kit: bool = False,
     reference_video: bool = True,
     evaluate: bool = True,
+    community_scaffold: bool = False,
 ) -> CaseResult:
     state_path = root / "state.json"
     previous: dict[str, Any] = {}
@@ -564,6 +583,7 @@ def _run_case(
                 case_id=case_id,
                 playtest_kit=playtest_kit,
                 reference_video=reference_video,
+                community_scaffold=community_scaffold,
             )
             result.durations_s["generate"] = round(time.monotonic() - started, 3)
             package = TaskPackage.read(package_dir)
@@ -581,8 +601,17 @@ def _run_case(
             resume and workspace.is_dir() and workspace_ready.is_file()
         )
         if prior_phase == "agent" and not agent_completed:
-
-
+            # A failed agent leaves half-written files behind, and handing them
+            # back makes the next attempt a different experiment: the model now
+            # starts from work it cannot account for. Discarding them is the
+            # right default.
+            #
+            # It is the wrong default when the agent was cut off by something
+            # outside the submission -- a gateway that ran out of quota mid-run
+            # -- and hours of real work is sitting in the workspace. Then the
+            # operator may choose to hand it back, but the choice has to be
+            # explicit and it has to be visible afterwards: the cell keeps a
+            # marker so nobody later mistakes it for a clean single-shot run.
             if os.environ.get(REUSE_AGENT_WORKSPACE_ENV) == "1" and reuse_workspace:
                 (root / REUSED_WORKSPACE_MARKER).write_text(
                     "the agent phase failed and its workspace was handed back "
@@ -647,7 +676,7 @@ def _run_case(
             collect_submission(workspace, submission, mode=mode)
 
         if not evaluate:
-
+            # Keep this resumable: "completed" would skip a later --eval on.
             result.status = "submitted"
             result.phase = "submitted"
             result.resolved = None
@@ -891,14 +920,18 @@ os.execv(real_timeout, [real_timeout, *args])
 '''
 
 
-def _child_timeout_cap(timeout_s: int | None) -> int:
+def _child_timeout_cap(timeout_s: int | None, *, mode: str | None = None) -> int:
+    if mode == "port":
+        # Unity cold import/build is substantially slower than a Godot check.
+        # Keep it bounded without imposing the shared two-minute ceiling.
+        return min(1200, max(120, timeout_s // 4)) if timeout_s is not None else 1200
     if timeout_s is None:
         return CHILD_TIMEOUT_CAP_MAX_S
     return min(CHILD_TIMEOUT_CAP_MAX_S, max(30, timeout_s // 10))
 
 
-def _deadline_prompt(timeout_s: int | None) -> str:
-    command_cap = _child_timeout_cap(timeout_s)
+def _deadline_prompt(timeout_s: int | None, *, mode: str | None = None) -> str:
+    command_cap = _child_timeout_cap(timeout_s, mode=mode)
     if timeout_s is None:
         deadline = (
             "The coding-agent process has no external wall-clock timeout: the harness "
@@ -1013,6 +1046,19 @@ def _agent_environment(
                 else None
             ),
         },
+        "unity": {
+            "path": env.get("UNITY_BIN"),
+            "version": (
+                probe.tool_version([env["UNITY_BIN"], "-version"])
+                if env.get("UNITY_BIN")
+                else None
+            ),
+        },
+        "unity_license": {
+            "provider": env.get("GB_UNITY_LICENSE_PROVIDER") or None,
+            "configured": bool(env.get("GB_UNITY_LICENSE_PROVIDER")),
+            "probe_passed": env.get("GB_UNITY_LICENSE_PROBE_PASSED") == "1",
+        },
         "home": home or None,
         "home_writable": bool(home and probe.dir_writable(home)),
         "display": env.get("DISPLAY") or None,
@@ -1023,11 +1069,11 @@ def _agent_environment(
         "child_timeout_cap_s": child_timeout_cap_s,
         "uname": probe.uname(),
         "image_id": env.get("GB_SANDBOX_IMAGE_ID"),
-
-
+        #: Where the facts above were measured, so a reader can tell a container
+        #: snapshot from a host one instead of assuming the harness's own rootfs.
         "measured_in": probe.location,
-
-
+        #: The Godot the *evaluator* will score with, always measured on the host.
+        #: Under sandbox=docker this differs from ``godot`` above.
         "evaluator_godot": (
             _tool_version([str(EVALUATOR_GODOT), "--version"])
             if EVALUATOR_GODOT.is_file()
@@ -1043,17 +1089,22 @@ def _environment_prompt(snapshot: Mapping[str, Any]) -> str:
     unity = snapshot.get("unity") or {}
     unity_note = ""
     if unity.get("path"):
-        license_configured = (snapshot.get("unity_license") or {}).get("configured", False)
+        license_state = snapshot.get("unity_license") or {}
+        license_configured = license_state.get("configured", False)
+        license_probed = license_state.get("probe_passed", False)
         unity_note = (
             f"Unity: {unity.get('version') or 'unknown'} at `{unity['path']}`. "
-            f"Unity license file {'supplied' if license_configured else 'not supplied'}; "
-            "editor import/build has not been probed by the harness. "
+            f"Unity entitlement {'is configured' if license_configured else 'is not configured'} "
+            f"and its batchmode probe {'passed' if license_probed else 'has not passed'}. "
+            "Run the bounded import/compile command in `ENVIRONMENT.md` before submission. "
         )
     tools = snapshot.get("tools") or {}
     absent = ", ".join(sorted(name for name, present in tools.items() if not present))
     display = snapshot.get("display")
-
-
+    # Fired by the data, not by the sandbox mode: whenever the Godot the agent
+    # develops against is not the one the evaluator scores with, say so.  Under
+    # sandbox=docker that is the image's Godot vs the host's; on a formal host it
+    # catches a GODOT_BIN that has drifted from the pinned evaluator binary.
     evaluator = snapshot.get("evaluator_godot")
     mismatch = ""
     if evaluator and godot.get("version") and evaluator != godot.get("version"):
@@ -1701,20 +1752,30 @@ def _docker_image_for_mode(config: AgentConfig, mode: str | None) -> str:
 def _start_docker_sandbox(
     workspace: Path, log_dir: Path, config: AgentConfig, *, mode: str | None = None
 ) -> DockerSandbox:
-
+    """Bring up the container and load the workspace into it."""
     if config.backend == "codex" and _codex_provider_kind(config) == "openai":
-
-
+        # The openai provider carries ~/.codex/auth.json into the sandbox.
+        # Copying a personal credential into a container on a shared daemon is
+        # not something to do implicitly, and silently ignoring auth_file would
+        # surface later as an opaque 401.
         raise MatrixError(
             "--agent-sandbox docker supports only --agent-provider custom; the "
             "openai provider needs ~/.codex/auth.json inside the sandbox, which "
             "the docker driver does not implement"
         )
+    provider = os.environ.get("GB_UNITY_LICENSE_PROVIDER", "").strip() if mode == "port" else ""
+    license_file = os.environ.get("GB_UNITY_LICENSE_FILE", "").strip() if mode == "port" else ""
+    config_root = os.environ.get("GB_UNITY_CONFIG_ROOT", "").strip() if mode == "port" else ""
+    endpoint = os.environ.get("GB_UNITY_FLOATING_ENDPOINT", "").strip() if mode == "port" else ""
+    provider = provider or ("file" if license_file else "existing-home" if config_root
+                            else "floating" if endpoint else "")
     sandbox = DockerSandbox(
         image=_docker_image_for_mode(config, mode),
         log_path=log_dir / "sandbox.log",
         cell=log_dir.parent.name,
+        host_machine_identity=mode == "port" and provider == "existing-home",
     )
+    sandbox.unity_workspace = mode == "port"
     try:
         sandbox.start()
         sandbox.copy_in(workspace)
@@ -1722,13 +1783,42 @@ def _start_docker_sandbox(
             "tools": AGENT_ENV_TOOLS,
             "versioned": {
                 "godot": ["--version"],
+                **({"unity": ["-version"]} if mode == "port" else {}),
                 "codex": ["--version"],
                 "claude": ["--version"],
             },
         }
         facts = sandbox.probe_facts(**probe_request)
-
-
+        if mode == "port":
+            unity = facts.path_of("unity")
+            version = facts.versions.get("unity") or ""
+            if not unity:
+                raise DockerSandboxError(
+                    "Mode 5 agent image does not provide the `unity` executable"
+                )
+            if "6000.3.23f1" not in version:
+                raise DockerSandboxError(
+                    "Mode 5 agent image Unity version mismatch: expected "
+                    f"6000.3.23f1, observed {version or 'no version output'}"
+                )
+            if not provider:
+                raise AgentProcessError(
+                    "agent_environment_invalid", 78,
+                    "Mode 5 requires a configured Unity license provider before the Agent starts",
+                )
+            try:
+                sandbox.configure_unity_license(
+                    provider=provider,
+                    source=Path(license_file or config_root) if (license_file or config_root) else None,
+                    endpoint=endpoint,
+                )
+            except DockerSandboxError as exc:
+                raise AgentProcessError("agent_environment_invalid", 78, str(exc)) from exc
+        # The sandbox image is expected to already carry the evaluator's pinned
+        # Godot.  When it does not -- an older image, or an override -- fall back
+        # to injecting the host's copy, so the agent never develops against a
+        # different engine from the one that scores it.  A version-only mismatch
+        # would otherwise read as a broken submission.
         installed = facts.versions.get("godot") or ""
         if not installed.startswith(PINNED_GODOT_VERSION):
             pinned = _pinned_evaluator_godot()
@@ -1744,10 +1834,14 @@ def _start_docker_sandbox(
 def run_coding_agent(
     workspace: Path, log_dir: Path, config: AgentConfig, *, mode: str | None = None
 ) -> int:
+    """Run the coding agent, optionally inside a sandbox container.
 
-
+    The sandbox is owned here rather than inside the body so that every exit
+    path -- clean return, typed AgentProcessError, wall-clock timeout, an
+    unexpected exception, KeyboardInterrupt -- tears the container down.
+    """
     if config.sandbox not in AGENT_SANDBOXES:
-
+        # Fail before anything is created or written.
         raise MatrixError(f"unknown agent sandbox {config.sandbox!r}")
     sandbox: DockerSandbox | None = None
     if config.sandbox == "docker" and not config.dry_run:
@@ -1755,7 +1849,9 @@ def run_coding_agent(
         sandbox = _start_docker_sandbox(workspace, log_dir, config, mode=mode)
     agent_exit: int | None = None
     try:
-        agent_exit = _run_coding_agent(workspace, log_dir, config, sandbox)
+        agent_exit = _run_coding_agent(
+            workspace, log_dir, config, sandbox, mode=mode,
+        )
         return agent_exit
     finally:
         if sandbox is not None:
@@ -1763,8 +1859,12 @@ def run_coding_agent(
             if sandbox.transfer:
                 write_json(log_dir / "transfer.json", sandbox.transfer)
             if copy_failure is not None and agent_exit == 0:
-
-
+                # The agent finished cleanly, so this transport failure is the
+                # only thing that went wrong.  Reporting it as such matters:
+                # staying silent would let collect_submission raise "agent
+                # returned no project.godot" and blame the model for a broken
+                # copy.  When the agent had already failed, the original error
+                # is the real cause and is left to propagate.
                 raise AgentProcessError(
                     "agent_transport_error",
                     125,
@@ -1791,7 +1891,11 @@ def _pump_stream(stream, sink, secrets, collected: list[str]) -> None:
 
 def _run_agent_streamed(command: list[str], *, cwd, env, input: str | None,
                         timeout: float | None, log_dir, secrets):
+    """Run the agent, writing its transcript to disk as it is produced.
 
+    Raises ``subprocess.TimeoutExpired`` carrying whatever was captured, so the
+    callers' existing timeout handling keeps working unchanged.
+    """
 
     if subprocess.run is not _REAL_SUBPROCESS_RUN:
         result = subprocess.run(
@@ -1837,9 +1941,46 @@ def _run_agent_streamed(command: list[str], *, cwd, env, input: str | None,
             raise subprocess.TimeoutExpired(
                 command, timeout, output="".join(out_parts), stderr="".join(err_parts),
             ) from None
+        except BaseException:
+            # Operator cancellation must not close transcript sinks while the
+            # pump threads are still writing, or leave the local CLI running.
+            proc.kill()
+            proc.wait()
+            for pump in pumps:
+                pump.join(timeout=10)
+            raise
         for pump in pumps:
             pump.join(timeout=30)
     return proc.returncode, "".join(out_parts), "".join(err_parts)
+
+
+def _unity_selfcheck_snapshot(sandbox: DockerSandbox) -> dict[str, str]:
+    expected = ("scaffold_import", "script_compile", "linux_player_build", "player_smoke")
+    result = {name: "not_run" for name in expected}
+    try:
+        text = sandbox.read_text(f"{CONTAINER_WORKSPACE}/.selfcheck/status.json")
+        raw = json.loads(text) if text else {}
+    except (AttributeError, TypeError, ValueError):
+        raw = {}
+    if isinstance(raw, Mapping) and raw.get("schema") == "gamebench.mode5-agent-selfcheck.v1":
+        for name in expected:
+            value = str(raw.get(name) or "not_run")
+            result[name] = value if value in {"pass", "fail", "not_run"} else "invalid"
+    return result
+
+
+def _agent_process_environment() -> dict[str, str]:
+    env = dict(os.environ)
+    # These coordinator-only values may contain private host paths or the
+    # unredacted floating endpoint. The sandbox setup consumes them before the
+    # Agent starts. A floating Agent receives only Unity's required
+    # UNITY_LICENSE_SERVER variable later.
+    for private_name in (
+        "GB_UNITY_LICENSE_FILE", "GB_UNITY_CONFIG_ROOT",
+        "GB_UNITY_FLOATING_ENDPOINT",
+    ):
+        env.pop(private_name, None)
+    return env
 
 
 def _run_coding_agent(
@@ -1847,12 +1988,14 @@ def _run_coding_agent(
     log_dir: Path,
     config: AgentConfig,
     sandbox: DockerSandbox | None = None,
+    *,
+    mode: str | None = None,
 ) -> int:
     log_dir.mkdir(parents=True, exist_ok=True)
     prompt = workspace / "PROMPT.md"
     if not prompt.is_file():
         raise MatrixError(f"workspace lacks PROMPT.md: {workspace}")
-    env = dict(os.environ)
+    env = _agent_process_environment()
     env_values = _load_env_file(config.env_file)
     for key, value in env_values.items():
         env.setdefault(key, value)
@@ -1875,8 +2018,8 @@ def _run_coding_agent(
     probe: EnvironmentProbe | None = None
     which = _host_which
     if sandbox is not None:
-
-
+        # The host assignments above name host paths that do not exist in the
+        # container: undo them from the measured container facts.
         facts = sandbox.facts
         assert facts is not None
         godot = facts.path_of("godot")
@@ -1884,6 +2027,22 @@ def _run_coding_agent(
             env["GODOT_BIN"] = godot
         else:
             env.pop("GODOT_BIN", None)
+        unity = facts.path_of("unity")
+        if unity:
+            env["UNITY_BIN"] = unity
+        else:
+            env.pop("UNITY_BIN", None)
+        if mode == "port":
+            env["GB_UNITY_LICENSE_PROVIDER"] = str(
+                sandbox.unity_license.get("provider") or ""
+            )
+            env["GB_UNITY_LICENSE_PROBE_PASSED"] = (
+                "1" if sandbox.unity_license.get("probe_passed") else "0"
+            )
+            if sandbox.unity_license.get("provider") == "floating":
+                env["UNITY_LICENSE_SERVER"] = os.environ.get(
+                    "GB_UNITY_FLOATING_ENDPOINT", ""
+                )
         env["PATH"] = facts.login_path
         env["GB_SANDBOX_IMAGE_ID"] = sandbox.image_id or ""
         probe = _docker_probe(sandbox)
@@ -1907,8 +2066,12 @@ def _run_coding_agent(
         command = [part.format(**replacements) for part in shlex.split(config.command)]
     elif backend == "codex":
         command = _codex_command(visible_workspace, config, env, which)
-
-
+        # The provider credential remains available to Codex itself, while the
+        # shell_environment_policy above removes it from model-spawned commands.
+        # Each attempt gets its own authentication/cache root.  In the unshare
+        # runner the private tmpfs hides the host directory; in the debug
+        # sandbox=none path the finally block below removes it; under docker the
+        # home lives in the container and dies with it.
         carry_auth = (
             _codex_provider_kind(config) == "openai"
             and not env.get("OPENAI_API_KEY")
@@ -1917,8 +2080,8 @@ def _run_coding_agent(
             env["CODEX_HOME"] = f"{CONTAINER_HOME}/codex"
             env["HOME"] = CONTAINER_HOME
         elif carry_auth:
-
-
+            # The sandbox overmounts /tmp; a home that must carry auth.json
+            # into the sandbox has to live somewhere the sandbox can see.
             home_root = Path(AGENT_HOME_ROOT_VISIBLE)
             home_root.mkdir(parents=True, exist_ok=True)
             codex_home = Path(
@@ -1933,7 +2096,7 @@ def _run_coding_agent(
         if codex_home is not None:
             env["CODEX_HOME"] = str(codex_home)
             env["HOME"] = str(codex_home)
-        child_timeout_cap_s = _child_timeout_cap(config.timeout_s)
+        child_timeout_cap_s = _child_timeout_cap(config.timeout_s, mode=mode)
     elif backend == "claude":
         command = _claude_command(visible_workspace, config, env, which)
         if sandbox is not None:
@@ -1979,13 +2142,14 @@ def _run_coding_agent(
                 (claude_home / ".credentials.json").chmod(0o600)
             env["CLAUDE_CONFIG_DIR"] = str(claude_home)
             env["HOME"] = str(claude_home)
-        child_timeout_cap_s = _child_timeout_cap(config.timeout_s)
+        child_timeout_cap_s = _child_timeout_cap(config.timeout_s, mode=mode)
     else:
         raise MatrixError(f"unknown agent backend {config.backend!r}")
 
     if sandbox is not None:
-
-
+        # Prepared before env.json is written so the recorded snapshot is exactly
+        # what the container receives -- including the shim on PATH -- rather
+        # than a host environment that merely resembles it.
         try:
             if child_timeout_cap_s is not None:
                 shim_dir, real_timeout = sandbox.install_child_timeout_shim(
@@ -1996,8 +2160,10 @@ def _run_coding_agent(
                 env["PATH"] = f"{shim_dir}{os.pathsep}{env.get('PATH', '')}"
         except DockerSandboxError as exc:
             raise AgentProcessError("agent_transport_error", 125, str(exc)) from exc
-
-
+        # An allowlist, not a filter: host-only values (proxies, DISPLAY, host
+        # PATH entries) must not leak into the container, which reaches the model
+        # gateway directly.  `env` is rebound so env.json, the redaction set and
+        # subprocess all agree on one dict.
         env = {
             key: str(value)
             for key, value in env.items()
@@ -2016,7 +2182,7 @@ def _run_coding_agent(
     if backend in {"codex", "claude"}:
         prompt_input = (
             prompt_text
-            + _deadline_prompt(config.timeout_s)
+            + _deadline_prompt(config.timeout_s, mode=mode)
             + _environment_prompt(environment)
         )
     (log_dir / "prompt.md").write_text(
@@ -2075,8 +2241,8 @@ exec "$@"
             raise AgentProcessError("agent_transport_error", 125, str(exc)) from exc
     elif config.sandbox not in AGENT_SANDBOXES:
         # Defence in depth: run_coding_agent already rejects unknown modes before
-
-
+        # anything is created.  Reached with sandbox="docker" only on a dry run,
+        # where there is no container and the inner argv is what should be shown.
         raise MatrixError(f"unknown agent sandbox {config.sandbox!r}")
 
     secret_values = {
@@ -2108,8 +2274,9 @@ exec "$@"
             },
             "cwd": str(workspace),
             "dry_run": bool(config.dry_run),
-
-
+            #: Sandbox provenance.  Recorded here rather than on AgentConfig or
+            #: the frozen run.json agent block, because those are compared key by
+            #: key on --resume and a new key would invalidate every in-flight run.
             "sandbox_image": (
                 sandbox.image
                 if sandbox is not None
@@ -2131,8 +2298,9 @@ exec "$@"
         returncode, out_text, err_text = _run_agent_streamed(
             command,
             cwd=workspace,
-
-
+            # The docker client needs the *host* environment: `env` now names
+            # container paths for HOME and PATH, which would make the CLI look
+            # for a nonexistent host config dir and could hide `docker` itself.
             env=sandbox.client_env if sandbox is not None else env,
             input=prompt_input,
             timeout=config.timeout_s,
@@ -2158,11 +2326,14 @@ exec "$@"
             "agent_timeout", 124, f"coding agent timed out after {config.timeout_s}s"
         )
     finally:
+        if mode == "port" and sandbox is not None:
+            environment["unity_selfcheck"] = _unity_selfcheck_snapshot(sandbox)
+            write_json(log_dir / "env.json", environment)
         if codex_home is not None:
             shutil.rmtree(codex_home, ignore_errors=True)
         if claude_home is not None and claude_home_is_temporary:
             shutil.rmtree(claude_home, ignore_errors=True)
-
+    # stdout.log / stderr.log were written line by line while the agent ran.
     _write_agent_artifacts(
         log_dir,
         backend=backend,
@@ -2177,8 +2348,9 @@ exec "$@"
             f"coding agent exited with status {returncode}",
         )
     if backend == "claude" and not config.dry_run and _harness_is_frozen(env):
-
-
+        # A clean exit under the wrong harness is the failure this catches:
+        # it produces a submission that looks scoreable but answers a
+        # different question than its neighbours.
         _assert_claude_harness(_claude_runtime_fingerprint(out_text), env)
     return 0
 
@@ -2211,6 +2383,10 @@ def collect_submission(
     candidate = workspace / "submission"
     source_root = candidate if candidate.is_dir() else workspace
     if resolved.id == PORT.id:
+        try:
+            reject_links(source_root, label="Mode 5 workspace")
+        except ValueError as exc:
+            raise MatrixError(str(exc)) from exc
         project = find_unity_project(source_root)
         if not _unity_project_ready(project):
             raise MatrixError(
@@ -2255,8 +2431,10 @@ def collect_submission(
             if source.is_file():
                 shutil.copy2(source, out / name)
                 break
-
-
+    # The evaluator and the route driver read `res://gb_levels.json`, i.e. the
+    # manifest beside project.godot.  The prompt's layout diagram also allows it
+    # at the submission root, so a root-level manifest is moved into the project
+    # when the project itself ships none (a project-level file always wins).
     rescued_interface_files: list[str] = []
     if project.resolve() != source_root.resolve():
         for name in ROOT_RESCUED_INTERFACE_FILES:

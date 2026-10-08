@@ -246,37 +246,18 @@ def test_explicit_historical_registry_keeps_legacy_key_support(entrypoint, tmp_p
     assert capture.exists()
 
 
-def test_mode5_default_validates_both_structure_and_mdva_transports(entrypoint, tmp_path):
+
+
+
+
+
+
+def test_mode5_rejects_vlm_before_engine(entrypoint, tmp_path):
     run, capture = entrypoint
     (tmp_path / "package/manifest.json").write_text(json.dumps({"mode": "port", "game_id": "fixture"}))
     result = run("--visual-judge", "vlm", extra_env={"GAMEBENCH_VLM_PROVIDER": "responses"})
-    assert result.returncode == 0, result.stderr
-    assert capture.exists()
-
-
-@pytest.mark.parametrize(("extra_env", "message"), [
-    ({"GAMEBENCH_VLM_PROVIDER": "anthropic", "GAMEBENCH_CLAUDE_CODE_BIN": "/missing/claude"},
-     "GAMEBENCH_CLAUDE_CODE_BIN"),
-    ({"GAMEBENCH_VLM_PROVIDER": "claude_code", "GAMEBENCH_CLAUDE_CODE_BIN": sys.executable},
-     "structure VLM requires"),
-])
-def test_mode5_rejects_an_unavailable_visual_transport_before_engine(entrypoint, tmp_path, extra_env, message):
-    run, capture = entrypoint
-    (tmp_path / "package/manifest.json").write_text(json.dumps({"mode": "port", "game_id": "fixture"}))
-    result = run("--visual-judge", "vlm", extra_env=extra_env)
     assert result.returncode == 2
-    assert message in result.stderr
-    assert not capture.exists()
-
-
-def test_mode5_preflight_rejects_an_unused_legacy_key(entrypoint, tmp_path):
-    run, capture = entrypoint
-    (tmp_path / "package/manifest.json").write_text(json.dumps({"mode": "port", "game_id": "fixture"}))
-    result = run("--visual-judge", "vlm", extra_env={
-        "GB_API_ENV": str(tmp_path / "missing.env"), "MICU_API_KEY": "legacy-test-only",
-    })
-    assert result.returncode == 2
-    assert "structure VLM needs a key" in result.stderr
+    assert "does not use a VLM judge" in result.stderr
     assert not capture.exists()
 
 

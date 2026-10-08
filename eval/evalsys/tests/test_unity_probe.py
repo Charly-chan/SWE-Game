@@ -26,6 +26,7 @@ from evalsys.taskgen.unity.unity_probe import (
     _counterfactual_budget,
     _diagnostic_smoke_ops,
     _probe_wall_timeout,
+    _scenario_provenance,
     _select_hidden_behavior_inputs,
     run_unity_runtime_suite,
 )
@@ -193,6 +194,19 @@ class UnityProbeTests(unittest.TestCase):
             policy="fixture",
             goal=Goal("won()"),
         )
+
+    def test_scenario_provenance_survives_candidate_input_failure(self) -> None:
+        from dataclasses import replace
+
+        scenario = replace(
+            self._behavior("fixture-source"), evidence_basis=("source_derived",)
+        )
+        counterfactual = UnityCounterfactual(id="remove-right", remove="gb_right")
+        metadata = _scenario_provenance(scenario, counterfactual)
+        self.assertEqual(["source_derived"], metadata["evidence_basis"])
+        self.assertEqual("fixture", metadata["policy_id"])
+        self.assertEqual("remove-right", metadata["counterfactual_id"])
+        self.assertEqual({}, _scenario_provenance(None, None))
 
     def test_hidden_selection_matches_all_functional_obligations_except_l5_root(self) -> None:
         root = Path("fixture")
@@ -398,12 +412,12 @@ class UnityProbeTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             profile = UnityEnvironmentProfile(
-                profile_id="certified-fixture",
-                environment_class="linux-vm-certified",
+                profile_id="mode5-community-docker-v1",
+                environment_class="community-docker",
                 platform="Ubuntu 24.04",
                 score_eligible=True,
-                certified=True,
-                certification_status="certified",
+                certified=False,
+                certification_status="community-validated",
                 graphical_profile="xvfb-mesa",
                 image_digest="sha256:fixture-image",
                 guest_os="ubuntu-24.04-x86_64",
@@ -415,7 +429,7 @@ class UnityProbeTests(unittest.TestCase):
                 display="xvfb",
                 renderer="mesa-llvmpipe",
                 mesa_version="fixture-mesa",
-                network_policy="loopback-only",
+                network_policy="candidate-and-evaluator-offline",
                 limits={
                     "cpus": 4,
                     "memory_mb": 8192,

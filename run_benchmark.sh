@@ -17,6 +17,8 @@ usage: ./run_benchmark.sh --game <id|all> --mode <brief|gdd|skeleton|bugfix|port
        [--visual-judge none|local|vlm] [--case-id <bugfix case id>]
        [--reference-video on|off] [--eval on|off]
        [--sandbox unshare|docker|none] [--docker-image <tag>]
+       [--profile community-docker] [--mode5-state-dir <dir>]
+       [--docker <docker-cli>]
        [--concurrency 3] [--out results/<run_id>] [--dry-run] [--resume]
 
 Generates reusable task packages, runs cells through a detached bounded
@@ -34,39 +36,42 @@ accepts off: omit the reference gameplay video from the agent's inputs.
 Assets, brief, GB interface, agent output and evaluation remain unchanged.
 This is not --visual-judge none. Use separate --out directories for the two arms.
 
-Mode port (Mode 5, Godot -> Unity) evaluates each submission by building it
-with the Unity 6000.3.23f1 editor, so a live port run first resolves the
-editor (UNITY_BIN, then PATH, then /opt/Unity/Editor/Unity and
-/opt/unity/Editor/Unity) and runs a licence probe; it stops before any agent
-launches if either is missing. --dry-run only packages and needs no Unity.
+Mode port (Mode 5, Godot -> Unity) delegates to gb mode5 run using the sole
+Community Docker profile. Run gb mode5 setup/doctor first. Unity 6000.3.23f1
+is provided in the verified Agent image and rebuilt by an independent offline
+evaluator. --dry-run only
+packages and needs no Unity; it is not execution or scoring evidence.
 
 --eval defaults to on. --eval off runs the agents and keeps package/,
 submission/, agent/ and films/ per cell but skips evaluation (no evaluation/
-directory, no scores in summary.csv) and, for --mode port, skips the Unity
-preflight. Evaluate later on a machine that has the evaluator's requirements:
+directory, no scores in summary.csv). Live Mode 5 requires --eval on; its
+candidate/evaluator execution stays on the Community path. Other modes can
+evaluate later on a machine that has the evaluator's requirements:
   ./evaluate.sh <cell>/package <cell>/submission --out <cell>/evaluation
 
 --visual-judge defaults to none (engine-only evaluation). vlm reuses the
 cell's own model route as the S-card judge and needs that key; local attaches
 image diagnostics without a model.
 
---sandbox defaults to unshare, the formal condition. docker runs each agent in
+For Modes 1-4, --sandbox defaults to unshare, the formal condition. docker runs each agent in
 a throwaway container instead; use it on hosts whose capability bounding set
 lacks CAP_SYS_ADMIN, where unshare --mount and Codex's own bwrap sandbox cannot
 start at all. The image follows the mode -- GB_SANDBOX_IMAGE (Godot) for Modes
-1-4 and GB_UNITY_SANDBOX_IMAGE (Unity) for Mode 5, both overridable with
+1-4, overridable with
 --docker-image; build local tags with ./docker/build.sh all. Only the task
 workspace enters the container and the coordinator still runs on the host. The
 container hides every host path, but its toolchain is not the pinned one and the
 image is a mutable registry tag, so docker runs are never formally eligible and
 their scores must not be pooled with unshare scores. Pair it with --eval off and
-evaluate on a pinned host; Mode 5 under docker requires --eval off because
-formal Unity scoring uses the separate certified VM runner (docker/README.md).
+evaluate on a pinned host. Live Mode 5 uses its image-lock and independent
+Community evaluator instead; it is not paper-environment certified.
 none is debug-only. Orphaned containers: bash eval/tools/gb_docker_sweep.sh.
 
---budget is off by default: each cell runs until the agent itself stops, and
+For Modes 1-4, --budget is off by default: each cell runs until the agent itself stops, and
 the cell records budget null plus the measured wall time. --budget <seconds>
-is an explicit opt-in hard cap on the agent process.
+is an explicit opt-in hard cap on the agent process. Live Mode 5 defaults to
+a fixed 7200-second budget; explicit positive --budget overrides it and the
+report records the actual budget.
 
 --provider defaults to auto: the api env file (.gb_api.env.example → copy,
 fill, ./setup.sh --check-auth) decides the route. Codex: OPENAI_BASE_URL set →
@@ -85,6 +90,7 @@ GAME="" MODE="" HARNESS="" MODEL="" PROVIDER="auto" BUDGET="" REASONING=high
 KIT=off VISUAL_JUDGE=none CASE_ID="" CONCURRENCY=3 OUT="" DRY_RUN=0 RESUME=0
 REFERENCE_VIDEO=on EVAL=on
 SANDBOX=unshare DOCKER_IMAGE=""
+PROFILE="" MODE5_STATE_DIR="" DOCKER_BIN="${GB_DOCKER_BIN:-docker}"
 while [ $# -gt 0 ]; do
   case "$1" in
     --game) GAME="${2:-}"; shift ;;
@@ -100,6 +106,9 @@ while [ $# -gt 0 ]; do
     --eval) EVAL="${2:-}"; shift ;;
     --sandbox) SANDBOX="${2:-}"; shift ;;
     --docker-image) DOCKER_IMAGE="${2:-}"; shift ;;
+    --profile) PROFILE="${2:-}"; shift ;;
+    --mode5-state-dir) MODE5_STATE_DIR="${2:-}"; shift ;;
+    --docker) DOCKER_BIN="${2:-}"; shift ;;
     --case-id) CASE_ID="${2:-}"; shift ;;
     --concurrency) CONCURRENCY="${2:-}"; shift ;;
     --out) OUT="${2:-}"; shift ;;
@@ -121,6 +130,13 @@ case "$VISUAL_JUDGE" in none|local|vlm) ;; *) printf 'error: invalid --visual-ju
 case "$REFERENCE_VIDEO" in on|off) ;; *) printf 'error: invalid --reference-video (on|off)\n' >&2; exit 2 ;; esac
 case "$EVAL" in on|off) ;; *) printf 'error: invalid --eval (on|off)\n' >&2; exit 2 ;; esac
 case "$SANDBOX" in unshare|docker|none) ;; *) printf 'error: invalid --sandbox (unshare|docker|none)\n' >&2; exit 2 ;; esac
+if [ -n "$PROFILE" ] && [ "$PROFILE" != community-docker ]; then
+  printf 'error: invalid --profile\n' >&2; exit 2
+fi
+if [ "$MODE" = port ] && [ -z "$PROFILE" ]; then PROFILE=community-docker; fi
+if [ "$PROFILE" = community-docker ] && [ "$MODE" != port ]; then
+  printf 'error: --profile community-docker applies only to --mode port\n' >&2; exit 2
+fi
 if [ -n "$DOCKER_IMAGE" ] && [ "$SANDBOX" != docker ]; then
   printf 'error: --docker-image requires --sandbox docker\n' >&2; exit 2
 fi
@@ -128,9 +144,6 @@ if [ "$SANDBOX" = docker ]; then
   # Settle on one effective tag here so the preflight below probes the very image
   # the cells run in.
   DOCKER_IMAGE="$(gb_sandbox_image_for_mode "$MODE" "$DOCKER_IMAGE")"
-  if [ "$MODE" = port ] && [ "$EVAL" = on ]; then
-    printf 'error: Docker Mode 5 requires --eval off; formal Unity scoring runs in the certified VM.\n' >&2; exit 2
-  fi
 fi
 if [ "$REFERENCE_VIDEO" = off ] && [ "$MODE" != brief ]; then
   printf 'error: --reference-video off applies only to --mode brief (Mode 1)\n' >&2
@@ -207,6 +220,66 @@ route_summary() {
   fi
 }
 
+# The release Mode-5 profile is deliberately a thin delegation.  Package
+# generation, the licensed Unity Agent container, the fresh offline evaluator,
+# resume validation, and reporting all stay in the independently tested Python
+# implementation behind `gb mode5`; this entry point only expands --game all.
+if [ "$MODE" = port ] && [ "$PROFILE" = community-docker ]; then
+  [ "$EVAL" = on ] || [ "$DRY_RUN" = 1 ] || {
+    printf 'error: --profile community-docker requires --eval on\n' >&2; exit 2; }
+  [ "$VISUAL_JUDGE" != local ] || {
+    printf 'error: Mode 5 fidelity judge supports none or vlm, not local\n' >&2; exit 2; }
+  route_summary
+  mkdir -p "$OUT/cells"
+  if [ "$GAME" = all ]; then
+    mapfile -t MODE5_GAMES < <("$GB_PYTHON" - "$HERE/catalog.json" <<'PY'
+import json, sys
+for row in json.load(open(sys.argv[1], encoding="utf-8")):
+    print(row["id"])
+PY
+)
+  else
+    MODE5_GAMES=("$GAME")
+  fi
+  "$GB_PYTHON" - "$OUT/run.json" "$MODEL" "$HARNESS" "$PROVIDER" <<'PY'
+import json, pathlib, sys
+path = pathlib.Path(sys.argv[1])
+path.write_text(json.dumps({
+    "schema": "gamebench.mode5-community-run.v1",
+    "profile": "community-docker", "paper_compatible": False,
+    "params": {"mode": "port"},
+    "model": sys.argv[2], "harness": sys.argv[3], "provider": sys.argv[4],
+}, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+PY
+  for game in "${MODE5_GAMES[@]}"; do
+    safe_model="${MODEL//\//_}"
+    cell="$OUT/cells/${game}__port__${HARNESS}__${safe_model}"
+    if [ "$DRY_RUN" = 1 ]; then
+      "$HERE/gb" mode5 generate --game "$game" --out "$cell/package"
+      printf 'Mode 5 package preview: %s (no harness launched)\n' "$cell"
+      continue
+    fi
+    mode5_args=(mode5 run --game "$game" --out "$cell" --harness "$HARNESS"
+      --model "$MODEL" --agent-provider "$AGENT_PROVIDER" --agent-effort "$REASONING"
+      --docker "$DOCKER_BIN" --fidelity-judge "$VISUAL_JUDGE")
+    [ -z "$MODE5_STATE_DIR" ] || mode5_args+=(--state-dir "$MODE5_STATE_DIR")
+    [ -z "$BASE_URL" ] || mode5_args+=(--agent-base-url "$BASE_URL")
+    [ -z "$KEY_ENV" ] || mode5_args+=(--agent-key-env "$KEY_ENV")
+    [ ! -f "$API_ENV" ] || mode5_args+=(--agent-env-file "$API_ENV")
+    [ -z "$AUTH_FILE" ] || mode5_args+=(--agent-auth-file "$AUTH_FILE")
+    [ -z "$BUDGET" ] || mode5_args+=(--agent-timeout "$BUDGET")
+    [ "$RESUME" = 0 ] || mode5_args+=(--resume)
+    "$HERE/gb" "${mode5_args[@]}"
+  done
+  if [ "$DRY_RUN" = 1 ]; then
+    printf 'Mode 5 Community package preview complete; no Docker, license probe, or model call.\n'
+    exit 0
+  fi
+  "$HERE/gb" mode5 summarize "$OUT"
+  printf 'Mode 5 Community Docker results: %s\n' "$OUT"
+  exit 0
+fi
+
 # Docker sandbox preflight. Every cell needs the daemon and the image, so fail
 # once here rather than once per cell after paying container startup. The pull is
 # serialized on purpose: concurrent cells racing a cold pull all wait anyway.
@@ -249,54 +322,7 @@ if [ "$SANDBOX" = docker ] && [ "$DRY_RUN" = 0 ]; then
   fi
 fi
 
-# Mode 5 preflight. Every port cell is evaluated by building the submission
-# with the Unity 6000.3.23f1 editor; with no editor or no licence every runtime
-# item comes back inconclusive and the agent spend is wasted, so resolve the
-# editor and probe the licence once, before any package or agent. --eval off
-# defers evaluation to another machine, so the probe is skipped.
-if [ "$MODE" = port ] && [ "$DRY_RUN" = 0 ] && [ "$EVAL" = on ]; then
-  UNITY_PREFLIGHT="$OUT/unity_preflight"
-  rm -rf "$UNITY_PREFLIGHT" && mkdir -p "$UNITY_PREFLIGHT"
-  unity_help='  Mode 5 needs Unity 6000.3.23f1 with Linux Build Support and an activated licence; see docs/running.md "Mode 5" and ./setup.sh --check (row "unity (optional, Mode 5)").'
-  UNITY_RESOLVED="$("$GB_PYTHON" - <<'PY'
-from evalsys.taskgen.unity.unity_runtime import observed_unity_version, unity_available
-binary = unity_available()
-if binary is None:
-    raise SystemExit(0)
-print(f"{binary}\t{observed_unity_version(binary) or ''}")
-PY
-)" || exit 2
-  if [ -z "$UNITY_RESOLVED" ]; then
-    printf 'error: --mode port: no Unity editor found (UNITY_BIN=%s; also tried unity-editor/Unity on PATH, /opt/Unity/Editor/Unity, /opt/unity/Editor/Unity).\n%s\n  Fix: export UNITY_BIN=/path/to/6000.3.23f1/Editor/Unity\n' \
-      "${UNITY_BIN:-<unset>}" "$unity_help" >&2
-    exit 2
-  fi
-  IFS=$'\t' read -r UNITY_EDITOR UNITY_VERSION <<<"$UNITY_RESOLVED"
-  if [ "$UNITY_VERSION" != 6000.3.23f1 ]; then
-    printf 'error: --mode port: %s reports version %s, but port packages target 6000.3.23f1 and the evaluator marks any other editor inconclusive.\n%s\n' \
-      "$UNITY_EDITOR" "${UNITY_VERSION:-unknown}" "$unity_help" >&2
-    exit 2
-  fi
-  # Licence probe: same pattern as the evaluator build (batchmode, no graphics,
-  # quit). An unlicensed editor prints "No valid Unity Editor license" and exits
-  # in a few seconds; a licensed one creates the empty project and exits 0.
-  unity_log="$UNITY_PREFLIGHT/editor.log"
-  unity_rc=0
-  timeout 300 "$UNITY_EDITOR" -batchmode -nographics -quit \
-    -createProject "$UNITY_PREFLIGHT/project" -logFile - >"$unity_log" 2>&1 || unity_rc=$?
-  if grep -qiE 'No valid Unity Editor license|Failed to activate/update license|license is invalid' "$unity_log"; then
-    printf 'error: --mode port: %s has no valid licence (editor exit %s; log %s).\n  Activate a Personal licence by signing in through Unity Hub on this host as the user that runs run_benchmark.sh; the manual .alf/.ulf route is not offered for Personal.\n%s\n' \
-      "$UNITY_EDITOR" "$unity_rc" "$unity_log" "$unity_help" >&2
-    exit 2
-  fi
-  if [ "$unity_rc" -ne 0 ]; then
-    printf 'error: --mode port: licence probe of %s exited %s without a licence verdict (log %s).\n%s\n' \
-      "$UNITY_EDITOR" "$unity_rc" "$unity_log" "$unity_help" >&2
-    exit 2
-  fi
-  export UNITY_BIN="$UNITY_EDITOR"
-  printf 'unity: %s (%s) licence ok; UNITY_BIN exported for the evaluator\n' "$UNITY_EDITOR" "$UNITY_VERSION"
-fi
+# Mode 5 setup/doctor and Unity execution are owned solely by gb mode5.
 
 # One row per cell: "<game>\t<case_id>". case_id is empty outside bugfix.
 CELL_ROWS_TEXT="$("$GB_PYTHON" - "$HERE/catalog.json" "$GAME" "$MODE" "$CASE_ID" <<'PY'
@@ -438,8 +464,10 @@ for row in "${CELL_ROWS[@]}"; do
     else
       gb_ensure_reference_project "$game"
     fi
+    GEN_RESUME=()
+    [ "$RESUME" = 1 ] && GEN_RESUME+=(--resume)
     "$GB_PYTHON" "$GB_BENCH" run-task-matrix --out "$cell" "${COMMON[@]}" \
-      --generate-only $([ "$DRY_RUN" = 1 ] && printf '%s' --agent-dry-run) || gen_rc=$?
+      "${GEN_RESUME[@]}" --generate-only $([ "$DRY_RUN" = 1 ] && printf '%s' --agent-dry-run) || gen_rc=$?
   elif [ "$RESUME" = 1 ]; then
     if [ "$DRY_RUN" = 1 ] && [ ! -f "$cell/agent/request.json" ]; then
       "$GB_PYTHON" "$GB_BENCH" run-task-matrix --out "$cell" "${COMMON[@]}" \

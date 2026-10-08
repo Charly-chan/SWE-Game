@@ -11,21 +11,18 @@ export GB_ROOT="$HERE"
 
 usage() {
   cat <<'EOF'
-usage: ./scripts/run_coding.sh <game> <brief|gdd|skeleton|bugfix|port> <claude|codex>
+usage: ./scripts/run_coding.sh <game> <brief|gdd|skeleton|bugfix> <claude|codex>
                        [--budget SECONDS] [--out DIR] [--dry-run]
                        [--sandbox unshare|docker|none] [--docker-image TAG]
                        [--eval on|off]
 
 The process is launched detached. Its task package, workspace, agent artifacts,
 submission, and evaluation are written below DIR/runs/<game>/<mode>/.
-Mode port additionally needs a licensed Unity 6000.3.23f1 editor; run
-./setup.sh --unity for the manual licensing steps.
 --sandbox defaults to unshare (formal). Docker runs use the mode-specific
 toolchain image described in docker/README.md. The published images pin their
 toolchains; the current protocol marks Docker agent runs formally ineligible.
 The none sandbox is debug-only.
-Use --sandbox docker --eval off for Mode 5 and transfer the submission to
-the certified VM for formal scoring.
+For Mode 5, use ./gb mode5 run with the Community Docker profile.
 EOF
 }
 
@@ -49,7 +46,7 @@ while [ $# -gt 0 ]; do
   shift
 done
 
-case "$MODE" in brief|gdd|skeleton|bugfix|port) ;; *) gb_die "mode must be brief, gdd, skeleton, bugfix, or port" ;; esac
+case "$MODE" in brief|gdd|skeleton|bugfix) ;; *) gb_die "mode must be brief, gdd, skeleton, or bugfix; use ./gb mode5 run for port" ;; esac
 case "$HARNESS" in claude|codex) ;; *) gb_die "harness must be claude or codex" ;; esac
 case "$AGENT_SANDBOX" in unshare|docker|none) ;; *) gb_die "sandbox must be unshare, docker, or none" ;; esac
 case "$EVAL" in on|off) ;; *) gb_die "--eval must be on or off" ;; esac
@@ -59,9 +56,6 @@ fi
 # The image follows the mode unless --docker-image names one; see gb_env.sh.
 if [ "$AGENT_SANDBOX" = docker ]; then
   DOCKER_IMAGE="$(gb_sandbox_image_for_mode "$MODE" "$DOCKER_IMAGE")"
-  if [ "$MODE" = port ] && [ "$EVAL" = on ]; then
-    gb_die "Docker Mode 5 requires --eval off; formal scoring uses the certified VM"
-  fi
 fi
 case "$BUDGET" in ''|*[!0-9]*) gb_die "--budget must be a positive integer" ;; esac
 [ "$BUDGET" -gt 0 ] || gb_die "--budget must be a positive integer"

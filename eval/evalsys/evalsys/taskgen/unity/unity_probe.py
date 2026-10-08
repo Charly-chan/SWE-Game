@@ -90,6 +90,7 @@ class UnityProbeRun:
         reading = dict(self.reading)
         rows = list(reading.pop("rows", ()) or ())
         events = list(reading.pop("events", ()) or ())
+        errors = list(reading.pop("errors", ()) or ())
         behavior = reading.get("behavior_result")
         if isinstance(behavior, Mapping):
             behavior = dict(behavior)
@@ -100,6 +101,8 @@ class UnityProbeRun:
             reading["behavior_result"] = behavior
         reading["row_count"] = len(rows)
         reading["event_count"] = len(events)
+        reading["error_count"] = len(errors)
+        reading["error_examples"] = errors[:8]
         reading["first_frame"] = rows[0].get("f") if rows else None
         reading["last_frame"] = rows[-1].get("f") if rows else None
         event_counts: dict[str, int] = {}
@@ -168,7 +171,7 @@ def run_unity_runtime_suite(
     diagnostic_smoke: bool = False,
     visual_capture_requested: bool = False,
 ) -> UnityRuntimeSuite:
-
+    """Run the fixed M5 intervention suite against one freshly-built player."""
     player = Path(executable).resolve()
     root = Path(out_dir).resolve()
     root.mkdir(parents=True, exist_ok=True)
@@ -184,7 +187,7 @@ def run_unity_runtime_suite(
             **{
                 **profile.to_dict(),
                 "detail": (
-                    "graphical runtime requires the certified Xvfb/GPU profile; "
+                    "graphical runtime requires the Community Xvfb/GPU profile; "
                     "headless -nographics fallback is forbidden"
                 ),
             }
@@ -240,32 +243,27 @@ def run_unity_runtime_suite(
             environment={**profile.to_dict(), "diagnostic_smoke": True},
             auto_win=None,
         )
-
-
-    witness_blocked = _candidate_witness_blocked(witness)
-    if witness_blocked:
-        matched_null = _dependency_skipped_run(
-            root, "matched_null", "matched_null", depends_on="submitted_witness",
-        )
-    else:
-        matched_null = _run_probe(
-            player,
-            manifest,
-            _matched_null_ops(ops),
-            root / "matched_null",
-            run_id="matched_null",
-            kind="matched_null",
-            start_level=0,
-            target_scenes=(_ending_scene(manifest, "success"),),
-            capture=False,
-            timeout=timeout,
-            xvfb_bin=xvfb,
-            ffmpeg_bin=ffmpeg_bin,
-            time_scale=semantic_scale,
-        )
+    # A broken submitted tape does not prove that an independent evaluator
+    # scenario is broken. Run each cold-start scenario on its own evidence.
+    matched_null = _run_probe(
+        player,
+        manifest,
+        _matched_null_ops(ops),
+        root / "matched_null",
+        run_id="matched_null",
+        kind="matched_null",
+        start_level=0,
+        target_scenes=(_ending_scene(manifest, "success"),),
+        capture=True,
+        timeout=timeout,
+        xvfb_bin=xvfb,
+        ffmpeg_bin=ffmpeg_bin,
+        time_scale=semantic_scale,
+    )
     auto_win_horizon = min(AUTO_WIN_MAX_FRAMES, max(AUTO_WIN_MIN_FRAMES, horizon))
-
-
+    # The matched-null run is a strictly stronger no-input observation than the
+    # old short auto-win duplicate: it starts from the same cold scene and lasts
+    # for the complete witness horizon. Reuse it when it produced a reading.
     if matched_null.status == "pass":
         auto_win = replace(
             matched_null,
@@ -273,8 +271,9 @@ def run_unity_runtime_suite(
             kind="auto_win",
             detail="reused complete matched-null horizon as auto-win control",
         )
-
-
+        # Keep the reused control's artifact contract discoverable under its
+        # own run id. Older callers and audits expect auto_win/plan.json even
+        # when no second Player launch is needed.
         auto_win_root = root / "auto_win"
         auto_win_root.mkdir(parents=True, exist_ok=True)
         if Path(matched_null.plan_path).is_file():
@@ -321,7 +320,7 @@ def run_unity_runtime_suite(
         )
 
     hidden: list[UnityProbeRun] = []
-    for route in (() if witness_blocked else _hidden_routes(hidden_route_path)):
+    for route in _hidden_routes(hidden_route_path):
         level_index = int((route.get("start") or {}).get("level") or 0)
         route_ops = _ops_from_route(route)
         if not route_ops or not (0 <= level_index < len(manifest.levels)):
@@ -347,7 +346,7 @@ def run_unity_runtime_suite(
 
     hidden_behaviors: list[UnityProbeRun] = []
     counterfactual_runs: list[UnityProbeRun] = []
-    behavior_inputs = () if witness_blocked else _select_hidden_behavior_inputs(
+    behavior_inputs = _select_hidden_behavior_inputs(
         _hidden_behavior_inputs(hidden_behavior_dir)
     )
     for scenario, policy_path in behavior_inputs:
@@ -363,9 +362,8 @@ def run_unity_runtime_suite(
                 kind="hidden_behavior",
                 start_level=scenario.start_level,
                 target_scenes=(),
-
-
-                capture=False,
+                # Sample trusted checkpoints, not a judge-owned video.
+                capture=True,
                 timeout=timeout,
                 xvfb_bin=xvfb,
                 ffmpeg_bin=ffmpeg_bin,
@@ -434,36 +432,8 @@ def run_unity_runtime_suite(
     )
 
 
-def _candidate_witness_blocked(witness: UnityProbeRun) -> bool:
 
 
-    if witness.status not in {"fail", "error"}:
-        return False
-    reading = witness.reading if isinstance(witness.reading, Mapping) else {}
-    return str(reading.get("attribution") or "") != "infrastructure"
-
-
-def _dependency_skipped_run(
-    root: Path, run_id: str, kind: str, *, depends_on: str,
-) -> UnityProbeRun:
-
-
-    run_root = root / run_id
-    return UnityProbeRun(
-        run_id=run_id,
-        kind=kind,
-        status="inconclusive",
-        detail=(
-            f"not executed: {depends_on} failed on the candidate, so this probe "
-            "could only repeat that failure"
-        ),
-        command=(),
-        returncode=None,
-        plan_path=str(run_root / "plan.json"),
-        result_path=str(run_root / "result.json"),
-        log_path=str(run_root / "player.log"),
-        reading={"attribution": "submission", "dependency_root": depends_on},
-    )
 
 
 def _diagnostic_skipped_run(root: Path, run_id: str, kind: str) -> UnityProbeRun:
@@ -487,7 +457,7 @@ def _infrastructure_refusal_suite(
     root: Path,
     profile: UnityEnvironmentProfile,
 ) -> UnityRuntimeSuite:
-    detail = profile.detail or "Unity runtime environment is not certified"
+    detail = profile.detail or "Unity runtime environment is not ready"
 
     def refused(run_id: str, kind: str) -> UnityProbeRun:
         run_root = root / run_id
@@ -520,96 +490,27 @@ def _infrastructure_refusal_suite(
     )
 
 
-def judge_unity_capture(
-    frame_paths: Sequence[str],
-    *,
-    judge_kind: str,
-    out_dir: str | Path,
-    project: str,
-    levels: Sequence[str],
-    reference_video: str | Path | None = None,
-    task_context: str = "",
-    frame_scenes: Mapping[str, str] | None = None,
-) -> tuple[RuntimeStatus, str, dict[str, Any]]:
+def _scenario_provenance(
+    scenario: UnityHiddenBehaviorScenario | None,
+    counterfactual: UnityCounterfactual | None,
+) -> dict[str, Any]:
+    """Keep evaluator-owned scenario identity even if candidate input fails."""
 
-    kind = (judge_kind or "none").strip().lower()
-    if kind in {"", "none", "off"}:
-        return "inconclusive", "Unity visual judge was not requested", {}
-    if kind not in {"local", "vlm"}:
-        return "inconclusive", f"unknown visual judge {judge_kind!r}", {}
-    if not frame_paths:
-        return "inconclusive", "evaluator-owned Unity capture produced no PNG frames", {}
-    try:
-        from ...scard.judge import (
-            JudgeContext,
-            LocalHeuristicJudge,
-            load_frame,
-            vlm_scard_judge_from_env,
-            write_judge_report,
-            judge_n_times,
-            ChannelJudgement,
-        )
-        from ...verdict import Verdict
-        from ...scard.calibration import calibration_from_env
-        from ...scard.reference import reference_video_frames
-        from ...scard.scorer import score_scard
-
-        frames = [
-            load_frame(
-                path,
-                source="evalsys.taskgen.unity_probe",
-                point_id=f"unity_{index}",
-                level=(frame_scenes or {}).get(Path(path).name, ""),
-            )
-            for index, path in enumerate(frame_paths)
-        ]
-        judge = vlm_scard_judge_from_env() if kind == "vlm" else LocalHeuristicJudge()
-        destination = Path(out_dir).resolve()
-        destination.mkdir(parents=True, exist_ok=True)
-        reference, reference_note = reference_video_frames(reference_video, destination / "reference_frames")
-        captured_levels = tuple(dict.fromkeys(frame.level for frame in frames if frame.level in levels))
-        context = JudgeContext(
-            project=project,
-            tier="M5",
-            modality="unity_port",
-            levels=captured_levels,
-            reference_frames=reference,
-            note=(
-                "evaluator-owned Unity temporal samples; mechanics and success are "
-                "scored from runtime state, never from this visual reading. " + reference_note
-                + ("\nTask requirements:\n" + task_context if task_context else "")
-                + ("\nFewer than two playable levels are identified in the captured frames; "
-                   "cross-level consistency is unobservable." if len(captured_levels) < 2 else "")
-            ),
-        )
-        reading = judge_n_times(judge, frames, context, n=2 if kind == "vlm" else 1)
-        report_path = write_judge_report(reading, destination, name="unity_visual_judge")
-        calibration, calibration_note = calibration_from_env(judge)
-        scored_reading = reading
-        if len(captured_levels) < 2:
-
-
-            verdict = Verdict.INCONCLUSIVE if len(levels) >= 2 else Verdict.UNOBSERVABLE
-            scored_reading = [replace(run, channels={**run.channels, "S3": ChannelJudgement(
-                "S3", verdict, None, "fewer than two playable levels identified in capture",
-            )}) for run in reading.runs]
-        scard = score_scard(scored_reading, objective_o1=True, project=project,
-                            calibration=calibration, notes=(calibration_note, reference_note))
-        scard.write(destination / "unity_scard.json")
-        credit = scard.interval.point
-        evidence = reading.to_dict() | {
-            "report_path": str(report_path), "scard": scard.to_dict(),
-            "calibration_state": scard.calibration_state.value, "visual_credit": credit,
-        }
-        if credit is None:
-            return "inconclusive", "Unity visual judge produced no quality measurement", evidence
-        return (
-            "pass",
-            f"Unity visual quality={credit:.3f}; {scard.calibration_state.value}; outside mechanics resolution",
-            evidence,
-        )
-    except Exception as exc:
-        return "inconclusive", f"Unity visual judge could not run: {exc}", {}
+    if scenario is None:
+        return {}
+    return {
+        "evidence_basis": list(scenario.evidence_basis),
+        "policy_id": scenario.policy,
+        "graded_milestones": [
+            milestone.name for milestone in scenario.goal.milestones
+        ] + ([
+            milestone.name for milestone in scenario.source_goal.milestones
+        ] if scenario.source_goal is not None else []),
+        "counterfactual_id": counterfactual.id if counterfactual is not None else "",
+        "counterfactual_expect_goal": (
+            counterfactual.expect_goal if counterfactual is not None else None
+        ),
+    }
 
 
 def _run_probe(
@@ -652,8 +553,10 @@ def _run_probe(
         start_level=start_level,
     )
     write_json(plan_path, config)
-
-
+    scenario_provenance = _scenario_provenance(scenario, counterfactual)
+    # The trusted controller owns hidden policy state, but the reduced player
+    # identity must be able to create its Unity log and Xvfb artifacts in this
+    # candidate-only run directory.
     grant_candidate_access((out_dir,))
 
     xvfb = _resolve_tool(xvfb_bin, "xvfb-run")
@@ -724,16 +627,21 @@ def _run_probe(
             launch = [str(xvfb), "-a", *base]
         command = list(candidate_process_command(launch))
         wall_started = time.monotonic()
+        launcher_path = out_dir / "launcher.log"
         try:
+            launcher_handle = launcher_path.open("w", encoding="utf-8", errors="replace")
             process = subprocess.Popen(
                 command,
                 text=True,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
+                stdout=launcher_handle,
+                stderr=subprocess.STDOUT,
                 env=os.environ.copy(),
                 start_new_session=os.name == "posix",
             )
+            launcher_handle.close()
         except OSError as exc:
+            if "launcher_handle" in locals():
+                launcher_handle.close()
             return UnityProbeRun(
                 run_id, kind, "inconclusive", f"evaluator could not execute player: {exc}",
                 tuple(command), None, str(plan_path), str(result_path), str(log_path), None,
@@ -750,17 +658,20 @@ def _run_probe(
             session.handshake()
             session.receive_ready()
             initial_row = session.receive_observation()["row"]
-
-
+            # Process/Xvfb/scene startup is nearly constant and dominates a
+            # short clock sentinel.  Measure acceleration only after the probe
+            # is ready and the evaluator begins advancing simulation.
             active_started = time.monotonic()
             steps = 0
             behavior_result = None
             captured_checkpoint_ids: set[str] = set()
+            visual_captures: list[dict[str, Any]] = []
 
             def capture_checkpoint(checkpoint_id: str) -> None:
-                if not capture or checkpoint_id in captured_checkpoint_ids:
+                if not capture or checkpoint_id in captured_checkpoint_ids or len(captured_checkpoint_ids) >= 32:
                     return
-                sequence = session.send_capture(checkpoint_id)
+                state = dict(session.rows[-1]) if session.rows else {}
+                sequence = session.send_capture(checkpoint_id, visual_audit=True)
                 capture_ack = session.receive_ack("capture_ack", sequence)
                 png = base64.b64decode(str(capture_ack.get("png_base64") or ""), validate=True)
                 digest = "sha256:" + hashlib.sha256(png).hexdigest()
@@ -772,6 +683,18 @@ def _run_probe(
                 frame_path.write_bytes(png)
                 capture_paths.append(str(frame_path.resolve()))
                 captured_checkpoint_ids.add(checkpoint_id)
+                # Older trusted fixtures may provide the PNG capture without the
+                # optional visual probe record. Preserve the capture and runtime
+                # result; visual correspondence simply has no measurement for it.
+                visual = capture_ack.get("visual")
+                if isinstance(visual, dict) and visual.get("schema") == "gamebench.mode5.visual-capture.v1":
+                    visual_captures.append({"record": visual, "state": state,
+                                            "frame_path": str(frame_path.resolve()),
+                                            "checkpoint_id": checkpoint_id, "run_id": run_id,
+                                            "start_level": start_level})
+                    write_json(capture_dir / (frame_path.stem + ".visual.json"), visual_captures[-1])
+            if capture:
+                capture_checkpoint("run_start")
             if scenario is not None:
                 if policy is None:
                     raise UnityControllerProtocolError(
@@ -882,6 +805,7 @@ def _run_probe(
                 steps = len(behavior_result.actions)
                 reached = behavior_result.goal_reached
             else:
+                visual_stride = max(1, (len(normalized_ops) + 15) // 16)
                 for op in normalized_ops:
                     for actions, axes, frames in _command_segments(op, manifest):
                         scalar = actions[0] if len(actions) == 1 else ""
@@ -892,8 +816,10 @@ def _run_probe(
                         acknowledgement = session.receive_ack("action_ack", sequence)
                         session.receive_through_frame(int(acknowledgement["end_frame"]))
                         steps += 1
-
-
+                    if capture and steps % visual_stride == 0:
+                        capture_checkpoint(f"step_{steps}")
+            # A fixed post-settle window catches delayed outcomes without sending
+            # the hidden target or expected verdict to the player.
             sequence = session.send_action("", 0.0, 18)
             acknowledgement = session.receive_ack("action_ack", sequence)
             session.receive_through_frame(int(acknowledgement["end_frame"]))
@@ -914,16 +840,10 @@ def _run_probe(
             reading["_active_wall_seconds"] = round(
                 max(0.0, time.monotonic() - active_started), 6
             )
+            reading["visual_captures"] = visual_captures
             if behavior_result is not None:
                 reading["behavior_result"] = behavior_result.to_dict()
-                reading["evidence_basis"] = list(scenario.evidence_basis)
-                reading["policy_id"] = scenario.policy
-                reading["counterfactual_id"] = (
-                    counterfactual.id if counterfactual is not None else ""
-                )
-                reading["counterfactual_expect_goal"] = (
-                    counterfactual.expect_goal if counterfactual is not None else None
-                )
+                reading.update(scenario_provenance)
             write_json(result_path, reading)
         except (OSError, ValueError, KeyError, UnityControllerProtocolError) as exc:
             controller_error = str(exc)
@@ -932,27 +852,23 @@ def _run_probe(
                     session.stop("driver_error", wait_for_ack=True)
                 except (OSError, UnityControllerProtocolError):
                     pass
-            reading = {}
+            reading = dict(scenario_provenance)
             reached = None
         finally:
             try:
-                stdout, stderr = process.communicate(timeout=10)
+                process.wait(timeout=10)
             except subprocess.TimeoutExpired:
                 terminate_candidate_process_tree(process)
                 try:
-                    stdout, stderr = process.communicate(timeout=5)
+                    process.wait(timeout=5)
                 except subprocess.TimeoutExpired:
                     terminate_candidate_process_tree(process, force=True)
-                    stdout, stderr = process.communicate()
-            (out_dir / "launcher.log").write_text(
-                "\n".join(part for part in (stdout, stderr) if part),
-                encoding="utf-8",
-                errors="replace",
-            )
+                    process.wait()
+            terminate_candidate_process_tree(process, force=True)
             if isinstance(reading, dict):
                 reading["_wall_seconds"] = round(max(0.0, time.monotonic() - wall_started), 6)
 
-    combined = "\n".join(part for part in (stdout, stderr, _read_text(log_path)) if part)
+    combined = "\n".join(part for part in (_read_text(launcher_path), _read_text(log_path)) if part)
     lowered = combined.lower()
     if any(marker in lowered for marker in _DISPLAY_INFRASTRUCTURE):
         return UnityProbeRun(
@@ -960,7 +876,9 @@ def _run_probe(
             tuple(command), process.returncode, str(plan_path), str(result_path), str(log_path), None,
         )
     if controller_error:
-        status: RuntimeStatus = "inconclusive" if "timed out" in controller_error.lower() else "fail"
+        # A launched Player that never answers the control channel is a
+        # candidate protocol failure, not an evaluator infrastructure gap.
+        status: RuntimeStatus = "fail"
         detail = "controller protocol failed: " + controller_error
         return UnityProbeRun(
             run_id, kind, status, detail, tuple(command), process.returncode,
@@ -979,10 +897,19 @@ def _run_probe(
         if full_video.is_file() and full_video.stat().st_size > 0
         else _encode_video(frames, out_dir / "candidate_capture.mp4", ffmpeg_bin)
     )
+    if not reading.get("rows"):
+        return UnityProbeRun(
+            run_id, kind, "fail", "candidate produced no usable semantic rows",
+            tuple(command), process.returncode, str(plan_path), str(result_path), str(log_path),
+            reached, frames, video, reading,
+        )
     runtime_errors = [str(item) for item in reading.get("errors") or []]
     if runtime_errors:
+        # LogError and recoverable exceptions are evidence for stability. A
+        # completed semantic stream remains usable for mechanics/behavior.
         return UnityProbeRun(
-            run_id, kind, "fail", "Unity runtime emitted errors: " + "; ".join(runtime_errors[:8]),
+            run_id, kind, "pass",
+            f"semantic stream completed with {len(runtime_errors)} runtime error(s)",
             tuple(command), process.returncode, str(plan_path), str(result_path), str(log_path),
             reached, frames, video, reading,
         )

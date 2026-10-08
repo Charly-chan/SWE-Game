@@ -117,56 +117,13 @@ def test_missing_current_judge_key_stops_before_recording(tmp_path, monkeypatch)
     assert not (tmp_path / "new").exists()
 
 
-@pytest.mark.parametrize("registry_source", ["stored", "explicit", "upgrade"])
-@pytest.mark.parametrize("provider_failure", [False, True])
-def test_mode5_rescore_replaces_mdva_and_retains_objective_and_structure(tmp_path, registry_source, provider_failure):
-    from evalsys.taskgen.scorecard import MODE5_MDVA_REGISTRY_VERSION
-    from evalsys.verdict import inconclusive, passed
-    from test_mode5_frozen_fixture import fixture
 
+
+def test_mode5_rescore_uses_community_rejudge(tmp_path):
     source, _film = saved_report(tmp_path)
-    result = fixture(passed("unity_structure_fidelity", credit=.6),
-                     inconclusive("unity_vlm", detail="visual judge pending"))
-    data = {"mode": "port", "game_id": "frozen-fixture", "resolved": True,
-            "items": [item.to_dict() for item in result.items], "engine": {},
-            "headline": {"score": 100}, "score": {"score": 100},
-            "production_status": "scored"}
-    options = {}
-    if registry_source == "stored":
-        data["scorecard"] = {"registry_version": MODE5_MDVA_REGISTRY_VERSION}
-    elif registry_source == "explicit":
-        options["registry_version"] = MODE5_MDVA_REGISTRY_VERSION
-    else:
-        options["game_rubric"] = True
-    source.write_text(json.dumps(data))
-    original = source.read_bytes()
-    inputs = tmp_path / "demonstrations/visual_inputs.json"
-    manifest = json.loads(inputs.read_text())
-    manifest.update(game_rubric={"requirements": []}, game_id="frozen-fixture", mode="port")
-    inputs.write_text(json.dumps(manifest))
-    mdva = (inconclusive("task_visual", detail="provider unavailable") if provider_failure
-            else passed("task_visual", credit=.4))
-    with patch("evalsys.scard.game_visual.judge_game_visual", return_value=mdva), \
-         patch("evalsys.taskgen.visual_rescore.capture_task_visuals", side_effect=AssertionError("No engine rerun")), \
-         patch("evalsys.taskgen.visual_rescore.judge_saved_visuals", side_effect=AssertionError("No legacy judge")):
-        scored = rescore_visuals(source, tmp_path / "new", judge=object(), **options)
-    card = scored["scorecard"]
-    assert card["registry_version"] == MODE5_MDVA_REGISTRY_VERSION
-    assert card["objective_total"]["score"] == 70.0
-    assert card["structure_vlm_total"]["score"] == 9.0
-    assert card["mdva_vlm_total"]["score"] == (None if provider_failure else 6.0)
-    assert card["weighted_total"]["score"] == (None if provider_failure else 85.0)
-    assert scored["score"] == scored["headline"]
-    assert scored["headline"]["score"] == card["weighted_total"]["score"]
-    assert scored["production_status"] == ("evaluator_failed" if provider_failure else "scored")
-    assert card["evaluation_incomplete"] is provider_failure
-    retained = [item for item in scored["items"] if item["id"] != "unity_vlm"]
-    assert retained == [item for item in data["items"] if item["id"] != "unity_vlm"]
-    assert sum(item["id"] == "unity_vlm" for item in scored["items"]) == 1
-    assert source.read_bytes() == original
-    if not provider_failure:
-        with pytest.raises(ValueError, match="completed output already exists"):
-            rescore_visuals(source, tmp_path / "new", judge=object(), **options)
+    source.write_text(json.dumps({"mode": "port", "game_id": "fixture"}))
+    with pytest.raises(ValueError, match="gb mode5 rejudge"):
+        rescore_visuals(source, tmp_path / "new")
 
 
 def test_real_movie_uses_upstream_bounded_frame_sampler(tmp_path):

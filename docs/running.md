@@ -2,7 +2,7 @@
 
 本指南介绍依赖安装、模型连接、批量运行和结果保存。本版支持五种模式：
 `brief`、`gdd`、`skeleton`、`bugfix`，以及 Mode 5 `port`（Godot→Unity）。`port` 另需 Unity
-6000.3.23f1 编辑器和已激活的许可证（§9）。Mode 5 运行时状态以固定任务包内的 readiness attestation 为准。40 个 Unity suite 已校准；`shadow_walker` 仍为 pending，不能进入正式排名。
+6000.3.23f1 工具链与有效许可（§9）。运行前核对固定任务包内的校准状态；未校准任务不能进入正式排名。
 
 报告中的**客观行为评测（Objective Behavioral Evaluation）**对应运行与状态检查，
 **感知质量评审（Perceptual Quality Assessment）**对应视觉质量读数。
@@ -12,8 +12,8 @@
 
 ## 1. 机器
 
-- 任务下载和 Mode 1–4 评测使用 Linux x86_64（Ubuntu 22.04 已验证）。Mode 5 正式评测使用
-  Windows/QEMU 宿主启动认证 Ubuntu guest，详见 §9。
+- 任务下载和评测使用 Linux x86_64（Ubuntu 22.04/24.04）。Mode 5 使用已授权的
+  Community Docker 工具链，Windows 用户在 WSL2 内运行，详见 §9。
 - root 或 sudo（`setup.sh` 装 apt 包、`/opt/godot-4.5.1`、`/opt/gamebench`）。
 - 内核允许非特权 user namespaces：`unshare --user --map-root-user --mount --pid --fork --mount-proc true`
   要成功；`setup.sh --check` 的 `user namespaces` 行会告诉你。
@@ -221,49 +221,27 @@ shell 工具调用与返回结果，并记录代理版本及被忽略的参数�
 
 不要压缩前删除任何 `submission/`。打包：`tar -I zstd -cf results_<run_id>.tar.zst results/<run_id>`。
 
-## 9. Mode 5 (port): Unity
+## 9. Mode 5 (port): Community Docker
 
-**Docker 覆盖 Mode 1–5**：`./docker/build.sh all` 构建 Godot 和 Unity 两个 agent
-镜像，运行时加 `--sandbox docker`，脚本按模式选择镜像。可用 `--docker-image TAG`
-指定自己的工具镜像。批量脚本使用 `AGENT_SANDBOX=docker`（可选 `DOCKER_IMAGE=TAG`）。
-宿主机仍负责生成公开任务包、调度和收集提交，容器运行 coding agent 与其自测命令。
-具体安装和运行方式见 [Docker 指南](../docker/README.md)。
+Mode 5 使用 [独立 Community 工作流](reference/MODE5_RELEASE.md)。在 Linux/WSL 上运行
+`./gb mode5 setup` 和 `./gb mode5 doctor`，通过授权与真实构建检查后，
+`./gb mode5 run` 完成移植、独立构建、客观评测与证据保留。
+`run_benchmark.sh --mode port` 转发到相同流程；`--dry-run` 只预览固定任务包。
 
-Mode 5 让 agent 把一款 Godot 游戏移植到 Unity；一格一款游戏（41 格），格目录
-`cells/<game>__port__<harness>__<model>/`，其余 flag、`summary.csv`、输出内容与 Mode 1–3 相同。
-镜像包含 **Unity Editor 6000.3.23f1** 和 Linux IL2CPP 模块。Docker 命令使用 `--eval off`，
-生成并收集提交：
-
-```bash
-./docker/build.sh all
-./run_benchmark.sh --game all --mode port --harness codex --model "$MODEL_ID" --sandbox docker --eval off --dry-run
-./run_benchmark.sh --game shadow_walker --mode port --harness codex --model "$MODEL_ID" --provider openai --sandbox docker --eval off --out results/smoke_port
-./run_benchmark.sh --game all --mode port --harness codex --model "$MODEL_ID" --provider openai --sandbox docker --eval off --concurrency 2 --out results/codex_model_port
-```
-
-`--dry-run` 生成任务包和请求，不启动容器、不检查镜像内工具，也不调用模型。容器内执行 Unity 导入、构建和运行
-需要有效许可证。已有适用于该容器的许可证文件可通过 `GB_UNITY_LICENSE_FILE` 配置，runner
-会在该次容器的私有 HOME 写入；支持格式及 Unity 官方许可条件见
-[Docker 许可说明](../docker/README.md)。
-
-**交付与正式评测**：agent 提交 Unity 工程（`Assets/ Packages/ ProjectSettings/`）、
-`Assets/GameBenchmark/gb_interface.json`、`ops.json` 和 `BUILD.md`。保留 §8 要求的整个
-`results/<run_id>/`。将完整 cell 的 `package/` 和最终 `submission/` 转到已有 Windows/QEMU
-宿主，在那里使用 `bench eval-task --unity-vm on` 启动认证 Ubuntu VM；完整命令见
-[Docker 指南](../docker/README.md)，VM 配置见 [Unity 基础设施](../eval/infra/unity/README.md)。
-正式 evaluator 负责构建、回放提交路线与隐藏场景、采集画面，并生成报告。
+五项权重为 35/25/15/15/10，registry 为 `2026-10.mode5-evidence-five-visual1`。
+评测按独立运行、Editor、静态支持和文件存在证据计分；Visual 使用 evaluator
+自有的 `visual_implementation_correspondence` 测量，不调用 VLM，也不测感知或美学相似度。
+运行时实现对应证据可取得完整 15 分；代理总分使用固定分母，`official_total` 为 null。
+保留证据可用 `gb mode5 rejudge` 按相同 registry 重评。
+预算、恢复、许可及运行环境边界见用户指南和 [评分协议](reference/MODE5_RELEASE_PROTOCOL.md)。
 
 ## Limitations
 
-- Mode 5 正式评分仍要求认证 VM 与完整评测读数；无有效许可证时不能验证 Unity 导入、
-  编译和运行。Docker 工具自测不替代正式评测。
-- 当前矩阵直接调用 evaluator，未接入 Windows VM 分发。本机 Unity 许可证检查通过也不能
-  建立正式评分环境；Mode 5 的 Docker 入口要求 `--eval off`，正式评测使用上述 VM 入口。
-- `--visual-judge` 默认 `none`；可使用独立 `evaluate.sh` 为保留的提交补充视觉评审。
-- `bugfix --game all` 的 82 个 active case 逐个生成任务包；每格的引擎核验时间取决于路线。
-- Modes 1–3 默认 `2026-09-19.modeN-vlm1`，Mode 4 默认 `2026-09-15.mode4-redesign1`；
-  VLM 默认关闭，前三种模式的完整综合分会为空，客观分在 `objective_total` 中保留。
-  原始 `submission/` 与任务包需一并保留，评分机制变化后用新输出目录重新评测。
+- Unity 授权与 Docker preflight 必须通过；环境失败不能记作模型 0 分。
+- 代理总分不等于论文官方总分；Visual 是实现对应证据分，可在运行时义务全部验证时取得 15/15，不能解释为感知或美学相似度。
+- Community 环境标记 `paper_compatible=false`；完整模式均分要求固定 41 游戏全部完成测量。
+- Modes 1–3 默认 `2026-09-19.modeN-vlm1`，Mode 4 默认 `2026-09-15.mode4-redesign1`。
+  原始提交、固定任务包与评分配置应随结果保留。
 
 ## Harbor orchestration
 

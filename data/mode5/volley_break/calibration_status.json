@@ -1,0 +1,15 @@
+{
+  "blockers": [],
+  "game_id": "volley_break",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "volley_break-c1-first_serve_set_win",
+    "volley_break-c2-shard_fall_set_win",
+    "volley_break-c3-match_point_set_win",
+    "volley_break-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:2285fa6d428c40812af31ee48ac4bd0068e7b466dd7f53b9166037477b3ec9bd"
+}

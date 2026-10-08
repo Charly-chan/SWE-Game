@@ -14,11 +14,12 @@ import pytest
 ROOT = Path(__file__).resolve().parents[3]
 
 
-@pytest.mark.parametrize("mode", ["brief", "gdd", "skeleton", "bugfix", "port"])
+@pytest.mark.parametrize("mode", ["brief", "gdd", "skeleton", "bugfix"])
 def test_docker_modes_select_image_without_host_unity(entrypoint, mode):
     run, capture, out = entrypoint
-
-
+    # The tags come from the environment (gb_env.sh ships the site defaults), so
+    # pin both here: what this asserts is the mode-to-engine rule, not one site's
+    # registry path.
     godot_image, unity_image = "probe-registry/godot:test", "probe-registry/unity:test"
     result = run("--game", "canopy_dash", "--mode", mode, "--sandbox", "docker",
                  "--eval", "off", "--dry-run",
@@ -38,18 +39,10 @@ def test_docker_modes_select_image_without_host_unity(entrypoint, mode):
     assert manifest["harness_cli_versions"] == {"claude": None, "codex": None}
 
 
-def test_docker_port_refuses_local_scoring_before_any_work(entrypoint):
-    run, capture, out = entrypoint
-    result = run("--game", "shadow_walker", "--mode", "port", "--sandbox", "docker")
-    assert result.returncode == 2
-    assert "requires --eval off" in result.stderr
-    assert not capture.exists()
-    assert not out.exists()
 
 
 @pytest.mark.parametrize("mode,expected", [
     ("brief", "gamebench-agent:godot-4.5.1"),
-    ("port", "gamebench-agent:unity-6000.3.23f1"),
 ])
 def test_docker_defaults_match_locally_built_images(entrypoint, mode, expected):
     run, capture, _out = entrypoint
@@ -58,6 +51,7 @@ def test_docker_defaults_match_locally_built_images(entrypoint, mode, expected):
                  extra_env={"GB_SANDBOX_IMAGE": "", "GB_UNITY_SANDBOX_IMAGE": ""})
     assert result.returncode == 0, result.stderr
     for args in map(json.loads, capture.read_text().splitlines()):
+        assert args[args.index("--agent-docker-image") + 1] == expected
         assert args[args.index("--agent-docker-image") + 1] == expected
 
 
@@ -104,12 +98,24 @@ def entrypoint(tmp_path):
     ):
         shutil.copyfile(ROOT / rel, repo / rel)
     (repo / "eval/evalsys/bin/bench").write_text(FAKE_BENCH, encoding="utf-8")
+    (repo / "gb").write_text(
+        "#!/usr/bin/env bash\n"
+        "\"$GB_PYTHON\" - \"$@\" <<'PY'\n"
+        "import json, os, sys\n"
+        "from pathlib import Path\n"
+        "if '--out' in sys.argv: Path(sys.argv[sys.argv.index('--out') + 1]).mkdir(parents=True, exist_ok=True)\n"
+        "with open(os.environ['CAPTURE'], 'a', encoding='utf-8') as fh:\n"
+        "    fh.write(json.dumps(sys.argv[1:]) + '\\n')\n"
+        "PY\n",
+        encoding="utf-8",
+    )
+    (repo / "gb").chmod(0o755)
     (repo / "scripts").mkdir()
     (repo / "scripts/fetch_reference_data.py").write_text(
         "import json, os, sys\n"
         "with open(os.environ['DOWNLOAD_CAPTURE'], 'a') as f: f.write(json.dumps(sys.argv[1:]) + '\\n')\n"
     )
-
+    # run_benchmark.sh records `git rev-parse HEAD` of its own checkout.
     git_env = {
         "GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@t", "GIT_COMMITTER_NAME": "t",
         "GIT_COMMITTER_EMAIL": "t@t", "HOME": str(tmp_path), "GIT_CONFIG_GLOBAL": "/dev/null",
@@ -148,18 +154,17 @@ def entrypoint(tmp_path):
 def test_port_dry_run_enumerates_one_cell_per_catalog_game(entrypoint):
     run, capture, out = entrypoint
     catalog = json.loads((ROOT / "catalog.json").read_text(encoding="utf-8"))
-
+    # Packaging needs no Unity: a bogus UNITY_BIN must not stop a dry-run.
     result = run("--game", "all", "--mode", "port", "--dry-run",
                  extra_env={"UNITY_BIN": "/nonexistent/Editor/Unity"})
     assert result.returncode == 0, result.stderr
     calls = [json.loads(line) for line in capture.read_text().splitlines()]
     assert len(calls) == len(catalog) == 41
-    assert all(args[args.index("--mode") + 1] == "port" for args in calls)
-    assert all("--generate-only" in args and "--agent-dry-run" in args for args in calls)
+    assert all(args[:2] == ["mode5", "generate"] for args in calls)
     assert {args[args.index("--game") + 1] for args in calls} == {row["id"] for row in catalog}
-    assert result.stdout.count("harness argv:") == 41
+    assert result.stdout.count("Mode 5 package preview:") == 41
     assert "no harness launched" in result.stdout
-
+    # Same cell layout as the other per-game modes: <game>__port__<harness>__<model>.
     cells = sorted(p.name for p in (out / "cells").iterdir())
     assert cells[0] == f"{sorted(row['id'] for row in catalog)[0]}__port__codex__m"
     assert json.loads((out / "run.json").read_text())["params"]["mode"] == "port"
@@ -171,6 +176,25 @@ def test_port_dry_run_single_game(entrypoint):
     assert result.returncode == 0, result.stderr
     calls = [json.loads(line) for line in capture.read_text().splitlines()]
     assert [args[args.index("--game") + 1] for args in calls] == ["shadow_walker"]
+
+
+def test_port_community_profile_delegates_to_standalone_mode5_cli(entrypoint):
+    run, capture, out = entrypoint
+    result = run(
+        "--game", "shadow_walker", "--mode", "port",
+        "--profile", "community-docker", "--mode5-state-dir", "/private/state",
+        "--docker", "docker-custom",
+    )
+    assert result.returncode == 0, result.stderr
+    calls = [json.loads(line) for line in capture.read_text(encoding="utf-8").splitlines()]
+    run_call = calls[0]
+    assert run_call[:2] == ["mode5", "run"]
+    assert run_call[run_call.index("--state-dir") + 1] == "/private/state"
+    assert run_call[run_call.index("--docker") + 1] == "docker-custom"
+    assert calls[-1][:2] == ["mode5", "summarize"]
+    manifest = json.loads((out / "run.json").read_text(encoding="utf-8"))
+    assert manifest["profile"] == "community-docker"
+    assert manifest["paper_compatible"] is False
 
 
 def test_bugfix_does_not_download_an_agent_invisible_reference_movie(entrypoint, tmp_path):
@@ -216,49 +240,31 @@ def test_no_video_cli_refuses_modes_other_than_brief(entrypoint, mode):
     assert not capture.exists()
 
 
-def test_port_live_run_fails_fast_without_unity_editor(entrypoint):
+
+
+
+
+
+
+def test_port_rejects_unknown_profile_before_any_work(entrypoint):
     run, capture, out = entrypoint
-    result = run("--game", "all", "--mode", "port",
-                 extra_env={"UNITY_BIN": "/nonexistent/Editor/Unity"})
+    result = run("--game", "shadow_walker", "--mode", "port", "--profile", "unknown")
     assert result.returncode == 2
-    assert "no Unity editor found" in result.stderr
-    assert "UNITY_BIN=/nonexistent/Editor/Unity" in result.stderr
-    assert "docs/running.md" in result.stderr
-
+    assert "invalid --profile" in result.stderr
     assert not capture.exists()
-    assert not (out / "queue.tsv").exists()
+    assert not out.exists()
 
 
-def test_port_live_run_fails_fast_when_editor_reports_no_licence(entrypoint, tmp_path):
-    run, capture, out = entrypoint
-    fake = tmp_path / "Editor" / "Unity"
-    fake.parent.mkdir()
-    fake.write_text(
-        "#!/usr/bin/env bash\n"
-        "case \" $* \" in *' -version '*) echo 6000.3.23f1; exit 0;; esac\n"
-        "echo 'No valid Unity Editor license found. Please activate your license.'\n"
-        "exit 1\n",
-        encoding="utf-8",
-    )
-    fake.chmod(0o755)
-    result = run("--game", "shadow_walker", "--mode", "port", extra_env={"UNITY_BIN": str(fake)})
-    assert result.returncode == 2
-    assert "has no valid licence" in result.stderr
-    assert "Unity Hub" in result.stderr
-    assert (out / "unity_preflight" / "editor.log").is_file()
-    assert not capture.exists()
-
-
-def test_port_live_run_rejects_other_editor_versions(entrypoint, tmp_path):
+def test_port_live_run_uses_community_without_host_editor(entrypoint):
     run, capture, _ = entrypoint
-    fake = tmp_path / "Editor" / "Unity"
-    fake.parent.mkdir()
-    fake.write_text("#!/usr/bin/env bash\necho 6000.0.13f1\n", encoding="utf-8")
-    fake.chmod(0o755)
-    result = run("--game", "shadow_walker", "--mode", "port", extra_env={"UNITY_BIN": str(fake)})
-    assert result.returncode == 2
-    assert "reports version 6000.0.13f1" in result.stderr
-    assert not capture.exists()
+    result = run("--game", "shadow_walker", "--mode", "port",
+                 extra_env={"UNITY_BIN": "/nonexistent/Editor/Unity"})
+    assert result.returncode == 0, result.stderr
+    calls = [json.loads(line) for line in capture.read_text().splitlines()]
+    assert calls[0][:2] == ["mode5", "run"]
+    # No override: the canonical Python CLI owns the 7200-second default.
+    assert "--agent-timeout" not in calls[0]
+    assert calls[0][calls[0].index("--fidelity-judge") + 1] == "none"
 
 
 def _route(capture):

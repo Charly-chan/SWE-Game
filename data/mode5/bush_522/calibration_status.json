@@ -1,0 +1,14 @@
+{
+  "blockers": [],
+  "game_id": "bush_522",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "bush_522-l5-whole_game_clear",
+    "bush_522-c1-qualifying_checkpoint_starts_return",
+    "bush_522-l5-whole_game_clear--milestone-qualifying_checkpoint"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:fe5f0b3e2d5e1343788ace2bbea0743229ff3009cb3b23830dd222d8449a5c07"
+}

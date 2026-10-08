@@ -1,0 +1,14 @@
+{
+  "blockers": [],
+  "game_id": "soccer_course",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "soccer_course-l5-whole_game_clear",
+    "soccer_course-l5-whole_game_clear--milestone-opening_goal",
+    "soccer_course-l5-whole_game_clear--milestone-regulation_match_won"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:a3007a0602bde6d462a70c527f0c518367ed2a4ba16912cae07d12ebfb2e940e"
+}

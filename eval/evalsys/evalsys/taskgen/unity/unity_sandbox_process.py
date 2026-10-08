@@ -1,6 +1,14 @@
 
 
 
+"""Process isolation hooks for the Community Unity evaluator.
+
+The evaluator supplies an argv prefix that drops candidate-facing Unity
+processes to an unprivileged identity. The controller keeps hidden policy and
+output mounts private.
+"""
+
+
 from __future__ import annotations
 
 import json
@@ -29,29 +37,48 @@ def candidate_process_command(command: Sequence[str]) -> tuple[str, ...]:
 
 
 def run_candidate_process(
-    command: Sequence[str], *, timeout: int
+    command: Sequence[str], *, timeout: int, capture_output: bool = True,
 ) -> subprocess.CompletedProcess[str]:
+    """Run a candidate command and tear down its whole wrapper tree on timeout.
 
+    The evaluator prefixes Unity with an identity and resource wrapper. Killing
+    only the outer process leaves Unity holding the captured pipes open, which
+    can make ``subprocess.run(timeout=...)`` wait forever after its deadline.
+    A new POSIX session gives the evaluator a process group it can reliably
+    terminate without affecting the trusted controller.
+    """
 
     argv = tuple(str(item) for item in command)
     process = subprocess.Popen(
         argv,
         text=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
+        stdout=subprocess.PIPE if capture_output else subprocess.DEVNULL,
+        stderr=subprocess.PIPE if capture_output else subprocess.DEVNULL,
         start_new_session=os.name == "posix",
     )
     try:
-        stdout, stderr = process.communicate(timeout=timeout)
+        if capture_output:
+            stdout, stderr = process.communicate(timeout=timeout)
+        else:
+            process.wait(timeout=timeout)
+            stdout, stderr = "", ""
     except subprocess.TimeoutExpired as exc:
         if os.name == "posix":
             os.killpg(process.pid, signal.SIGKILL)
         else:
             process.kill()
-        stdout, stderr = process.communicate()
+        if capture_output:
+            stdout, stderr = process.communicate()
+        else:
+            process.wait()
+            stdout, stderr = "", ""
         raise subprocess.TimeoutExpired(
             argv, timeout, output=stdout, stderr=stderr
         ) from exc
+    if not capture_output:
+        # Unity's compiler helpers can outlive the Editor. They are no longer
+        # needed after its exit and must not leak into later runtime probes.
+        terminate_candidate_process_tree(process, force=True)
     return subprocess.CompletedProcess(argv, process.returncode, stdout, stderr)
 
 
@@ -80,7 +107,7 @@ def candidate_identity() -> tuple[int, int] | None:
     if not uid and not gid:
         return None
     if not uid.isdecimal() or not gid.isdecimal():
-        raise ValueError("certified VM candidate UID/GID must be decimal integers")
+        raise ValueError("candidate UID/GID must be decimal integers")
     return int(uid), int(gid)
 
 

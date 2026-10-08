@@ -1,0 +1,15 @@
+{
+  "blockers": [],
+  "game_id": "where_the_dead_lie",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "where_the_dead_lie-c2-puzzle_restored",
+    "where_the_dead_lie-c3-first_key",
+    "where_the_dead_lie-c4-second_key_and_exit_armed",
+    "where_the_dead_lie-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:4f5fe8cb8ad2d376d3b81c5c46bfef2d55758e84b0db43a5bf53cb1521dcb3da"
+}

@@ -15,12 +15,17 @@ from ..taskgen.package import write_json
 
 class SWEGameVerifier(BaseVerifier):
     def __init__(self, *, engine="auto", visual_judge="none",
-                 registry_version=None, collect_only=False, **kwargs):
+                 registry_version=None, collect_only=False,
+                 mode5_profile="auto", mode5_state_dir=None,
+                 docker="docker", **kwargs):
         super().__init__(**kwargs)
         self.engine = engine
         self.visual_judge = visual_judge
         self.registry_version = registry_version
         self.collect_only = collect_only
+        self.mode5_profile = mode5_profile
+        self.mode5_state_dir = mode5_state_dir
+        self.docker = docker
 
     async def verify(self) -> VerifierResult:
         out = self.trial_paths.verifier_dir
@@ -37,7 +42,10 @@ class SWEGameVerifier(BaseVerifier):
             command += ["--registry-version", self.registry_version]
         if self.collect_only:
             command += ["--collect-only"]
-
+        command += ["--mode5-profile", self.mode5_profile, "--docker", self.docker]
+        if self.mode5_state_dir:
+            command += ["--mode5-state-dir", self.mode5_state_dir]
+        # A process group lets Harbor's verifier timeout stop Godot descendants.
         with (out / "eval.stdout.log").open("wb") as stdout, \
                 (out / "eval.stderr.log").open("wb") as stderr:
             process = await asyncio.create_subprocess_exec(
@@ -60,7 +68,7 @@ class SWEGameVerifier(BaseVerifier):
                 "status": "evaluator_error", "rewards": None, "resolved": None,
                 "exit_code": code})
             raise RuntimeError(f"evalsys exited {code}; see {out / 'eval.stderr.log'}")
-        record = json.loads((out / "swe-game.json").read_text())
+        record = json.loads((out / "swe-game.json").read_text(encoding="utf-8"))
         if record["rewards"] is not None:
             write_json(out / "reward.json", record["rewards"])
         return VerifierResult(rewards=record["rewards"])

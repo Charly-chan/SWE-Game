@@ -1,5 +1,9 @@
+"""Score a submission against a taskgen package.
 
-
+Static gates always run. Engine gates run when Godot is on PATH / GODOT_BIN
+and `--engine` is not `off`. A missing engine is `inconclusive`, never a
+zero: that is our gap, not the submission's (same rule as a missing LLM key).
+"""
 
 from __future__ import annotations
 
@@ -93,10 +97,9 @@ from .unity.unity_probe import (
     PROTOCOL as UNITY_PROBE_PROTOCOL,
     UnityProbeRun,
     UnityRuntimeSuite,
-    judge_unity_capture,
     run_unity_runtime_suite,
 )
-from .unity.unity_fidelity import judge_cross_engine_fidelity, unity_fidelity_preflight
+from .mode5.adapter import snapshot_static, snapshot_runtime
 from .unity.unity_antigrant import scan_unity_antigrant
 from .unity.unity_sdk import validate_scaffold_integrity
 
@@ -111,7 +114,7 @@ _UNRESOLVED_VERDICTS = frozenset({
 
 
 def _walk_evidence(value: Any):
-
+    """Yield nested evidence values without imposing producer-specific shapes."""
     if isinstance(value, Mapping):
         yield value
         for nested in value.values():
@@ -122,8 +125,13 @@ def _walk_evidence(value: Any):
 
 
 def _root_cause_metadata(item: Item) -> dict[str, str] | None:
+    """Stable report-only cluster and cause class for an unresolved item.
 
-
+    Producers may supply ``root_cause_class`` explicitly. Otherwise a repeated
+    script error or route stop supplies the cluster signature, which lets the
+    strict trace/witness pair report one runtime defect without changing either
+    item's score.
+    """
     if item.verdict not in _UNRESOLVED_VERDICTS:
         return None
     mappings = list(_walk_evidence(item.evidence))
@@ -225,7 +233,7 @@ def _reporting_summary(
 
 
 def _finding_loci(findings: list[Any]) -> str:
-
+    """file:line list for CLI — do not hide the grant site behind a 120-char cut."""
     bits: list[str] = []
     for item in findings[:8]:
         path = getattr(item, "path", "") or ""
@@ -238,7 +246,7 @@ def _finding_loci(findings: list[Any]) -> str:
 
 
 class EvalTaskError(RuntimeError):
-    pass
+    """Package or submission could not be opened; not a scored failure."""
 
 
 @dataclass
@@ -248,20 +256,27 @@ class TaskEvalResult:
     items: list[Item] = field(default_factory=list)
     engine: dict[str, Any] = field(default_factory=dict)
     limits: tuple[str, ...] = LIMITS
-
-
+    #: Brief mode: what the statement asked for, as far as the scorecard
+    #: needs it (`layout_constraint` keeps O5 a score axis under calib4).
     brief_context: dict[str, Any] = field(default_factory=dict)
-
-
+    #: `S4_replay`: the VLM's reading of the submission's own replay
+    #: (`scard.replay`).  Reported separately, weight 0; never in the headline.
     replay_reading: dict[str, Any] | None = None
-
-
+    #: Scorecard registry row this result is scored under (``None`` = the
+    #: scorecard default, ``2026-09-11.evidence1``).  `bench eval-task --registry`
+    #: / `rescore.py --registry` opt into older loadable rows, including
+    #: ``2026-09-05.mode4`` and the intermediate ``2026-09-08.mode34``.
     registry_version: str | None = None
 
     @property
     def interval(self):
+        """Diagnostic interval over behavioral checks only.
 
-
+        Static contract compliance and optional reference fidelity are not
+        exchangeable with playability.  Keeping them out of this interval
+        prevents a submission from compensating for a failed clear with files
+        that merely exist.
+        """
         return score_items(self.behavior_items)
 
     @property
@@ -287,11 +302,13 @@ class TaskEvalResult:
 
     @property
     def resolved(self) -> bool | None:
-
+        """Strict task outcome; diagnostic scores never substitute for a failed gate."""
         mode = str(self.package.manifest.get("mode") or "")
         if mode == "port":
-
-
+            # Mode 5 is fail-closed: an unobservable evaluator-private behavior
+            # or counterfactual is not a PASS.  Older code collected these ids
+            # as `not_measured_required_items` but still returned True because
+            # the generic interval silently dropped out-of-denominator items.
             required = verifier_profile(mode).strict_ids
             by_id = {item.id: item for item in self.items}
             for item_id in required:
@@ -355,7 +372,7 @@ class TaskEvalResult:
         }
         if mode == "port":
             top_score: dict[str, Any] = dict(headline)
-            score_scope = "mode5_model_capability_only"
+            score_scope = "mode5_evidence_adjusted_proxy"
         else:
             top_score = interval.to_dict()
             score_scope = "behavior_only_diagnostic"
@@ -477,8 +494,9 @@ def evaluate_task(
     )
     reproduction_out = Path(out).resolve() / "reproduction" if out else None
     if reproduction_out is not None and reproduction_out.exists():
-
-
+        # ``eval-task --out`` is an overwrite-style report destination.  Keep
+        # its evaluator-owned reproduction subtree consistent with the new
+        # report instead of retaining a card from an earlier attempt.
         shutil.rmtree(reproduction_out)
     scratch_tag = f"eval-{pkg.manifest.get('game_id') or 'task'}-{mode.id}"
     with isolated_taskgen_scratch(scratch_tag) as scratch_root:
@@ -490,8 +508,11 @@ def evaluate_task(
             engine_payload.update(_run_engine(mode, pkg, sub, oracle, items))
             stops = evaluator_side_stops(engine_payload)
             if stops:
-
-
+                # One retry, in its own scratch root and with every wall
+                # deadline scaled up. An evaluator-side stop (timeout, launch
+                # failure, scratch collision) says nothing about the
+                # submission; if it repeats, the headline is withheld as
+                # `evaluation_incomplete` rather than read as an interval.
                 first_attempt = {
                     "scratch": str(scratch_root),
                     "evaluator_side_stops": stops,
@@ -600,7 +621,7 @@ def evaluate_task(
 def _submission_design(
     mode: Mode, sub: Submission, oracle: dict[str, Any], engine_payload: Mapping[str, Any],
 ) -> dict[str, Any]:
-
+    """Submission-authored inputs for the reproduction step (brief O4, S4_replay)."""
     design: dict[str, Any] = {
         "witness": dict(engine_payload.get("ops_env") or {}) or None,
     }
@@ -609,7 +630,7 @@ def _submission_design(
     if needs_ops(mode) and sub.ops and engine_payload.get("ran"):
         try:
             interface = load_submission_interface(sub.project)
-        except Exception:
+        except Exception:  # an unreadable interface already failed `interface`
             interface = None
         if interface is not None:
             design.update({
@@ -634,7 +655,7 @@ def _replay_reading_from_items(items: list[Item]) -> dict[str, Any] | None:
 
 
 def _brief_context(pkg: TaskPackage) -> dict[str, Any]:
-
+    """Read the brief statement once for the scorecard's brief-mode rules."""
     statement = pkg.visible / "statement.md"
     text = statement.read_text(encoding="utf-8", errors="replace") if statement.is_file() else ""
     return {
@@ -653,12 +674,11 @@ def _evaluate_unity_port(
     out: str | Path | None,
     registry_version: str | None = None,
 ) -> TaskEvalResult:
-
+    """Evaluate M5 with static, build, intervention and visual evidence layers."""
     report = validate_unity_interface(sub.project)
     items: list[Item] = []
-    fidelity_preflight = unity_fidelity_preflight(
-        requested=(visual_judge or "").strip().lower() == "vlm"
-    )
+    if visual_judge not in {"none", "off", ""}:
+        raise ValueError("Mode 5 uses the fixed non-VLM evidence proxy")
     static_items = _unity_static_items(report)
     items.extend(static_items)
     items.append(_task_gdd_contract_item(oracle))
@@ -674,6 +694,14 @@ def _evaluate_unity_port(
     anti_grant_item = _unity_anti_grant_static_item(sub)
     items.append(anti_grant_item)
 
+    static_snapshot = snapshot_static(
+        sub.project, baseline=pkg.visible / "target_unity",
+        rubric=oracle.get("rubric") or {},
+        interface=report.manifest.to_dict() if report.manifest else {},
+        ops_valid=any(item.id == "ops_valid" and item.verdict is Verdict.PASSED for item in items),
+        ops_nonidle=any(item.id == "ops_not_idle" and item.verdict is Verdict.PASSED for item in items),
+        reference_project=pkg.visible / "source_godot",
+    )
     ephemeral = out is None
     provisioned_runtime_root = os.environ.get("GB_UNITY_RUNTIME_ROOT", "").strip()
     runtime_out = (
@@ -687,7 +715,13 @@ def _evaluate_unity_port(
         shutil.rmtree(runtime_out)
     runtime_out.mkdir(parents=True, exist_ok=True)
     suite: UnityRuntimeSuite | None = None
+    visual_reading: dict[str, Any] | None = None
     try:
+        # SDK/evaluator integrity is an execution boundary, not a capability
+        # reading. Never build code that replaced the probe or smuggled evaluator
+        # expectations to obtain a visual capture.
+        hard_gate_ids = {"unity_layout", "unity_sdk_integrity", "no_eval_smuggling",
+                         "no_bundled_godot_runtime", "unity_anti_grant_static"}
         runtime_blockers = [
             item for item in (
                 *static_items,
@@ -696,11 +730,7 @@ def _evaluate_unity_port(
                 sdk_integrity_item,
                 anti_grant_item,
             )
-            if item.id in {
-
-
-                "unity_layout",
-            } and item.verdict is Verdict.FAILED
+            if item.id in hard_gate_ids and item.verdict is Verdict.FAILED
         ]
         if runtime_blockers:
             blocked_by = runtime_blockers[0].id
@@ -726,7 +756,7 @@ def _evaluate_unity_port(
         ):
             suite = run_unity_runtime_suite(
                 str(build_payload["executable"]),
-                report.manifest,
+                report.manifest,  # type: ignore[arg-type]
                 sub.ops,
                 runtime_out / "runs",
                 hidden_route_path=(
@@ -750,15 +780,30 @@ def _evaluate_unity_port(
                     visual_judge=visual_judge,
                     out=runtime_out / "visual",
                     game_id=str(pkg.manifest.get("game_id") or ""),
-                    levels=[item.scene for item in report.manifest.levels],
+                    levels=[item.scene for item in report.manifest.levels],  # type: ignore[union-attr]
                     reference_video=_reference_video(pkg),
                     task_context=_visual_task_context(pkg, oracle),
-                    mode5_mdva=registry_policy(registry_version).mode5_mdva_domain,
-                    package=pkg,
-                    task_visual_rubric=(oracle.get("rubric") or {})
-                    if registry_policy(registry_version).task_visual else None,
                 )
             )
+            from .mode5.visual_measure import measure_visual
+            try:
+                visual_reading = measure_visual(static_snapshot, suite)
+            except Exception as exc:  # optional visual measurement must retain the report
+                visual_reading = {
+                    "schema": "gamebench.mode5.visual-reading.v1",
+                    "complete": False,
+                    "metric": "visual_implementation_correspondence",
+                    "policy": {},
+                    "observations": [],
+                    "diagnostics": [{
+                        "status": "error",
+                        "reason": f"visual measurement unavailable: {type(exc).__name__}: {exc}",
+                    }],
+                    "measurements": {},
+                    "ocr_binary": None,
+                    "vlm_used": False,
+                    "perceptual_similarity_measured": False,
+                }
         else:
             reason = _unity_runtime_unavailable_reason(build_payload)
             items.extend(_unity_runtime_unavailable_items(reason, visual_judge))
@@ -777,7 +822,9 @@ def _evaluate_unity_port(
                 "ran": build_payload.get("status") in {"pass", "fail"},
                 "build": build_payload,
                 "runtime_probe_ran": suite is not None,
-                "fidelity_preflight": fidelity_preflight,
+                "mode5_static": static_snapshot,
+                "mode5_runtime": snapshot_runtime(suite) if suite is not None else {},
+                "mode5_visual": visual_reading,
                 "runtime": suite.to_dict() if suite is not None else None,
             },
             registry_version=registry_version,
@@ -832,53 +879,11 @@ def _unity_runtime_unavailable_reason(build: dict[str, Any]) -> str:
 
 
 def _unity_runtime_unavailable_items(reason: str, visual_judge: str) -> list[Item]:
-    visual_requested = (visual_judge or "none").strip().lower() not in {"", "none", "off"}
-    cross_engine_requested = (visual_judge or "none").strip().lower() == "vlm"
-    return [
-        inconclusive("unity_probe", detail=reason),
-        inconclusive("unity_mechanic_trace", detail=reason),
-        inconclusive("unity_runtime_stability", detail=reason),
-        inconclusive("unity_auto_win_ready", detail=reason),
-        inconclusive("unity_input_dispatch", detail=reason),
-        inconclusive("unity_hidden_behavior", detail=reason),
-        inconclusive("unity_source_behavior", detail=reason),
-        inconclusive("unity_counterfactual", detail=reason),
-        inconclusive("legacy_reference_trace", detail=reason),
-        inconclusive("causal_witness", detail=reason),
-        inconclusive("null_no_win", detail=reason),
-        unobservable(
-            "extended_mash_no_win",
-            detail="Unity manifest v1 declares no task-specific extra actions to mash",
-        ),
-        inconclusive(
-            "unity_evaluator_capture",
-            detail="no evaluator-owned Unity candidate recording was captured: " + reason,
-        ),
-        (inconclusive if visual_requested else unobservable)(
-            "unity_vlm",
-            detail=(
-                f"visual_judge={visual_judge!r} requested, but no evaluator-owned "
-                f"Unity frames exist: {reason}"
-                if visual_requested else "Unity visual judging was disabled by evaluator configuration"
-            ),
-        ),
-        (inconclusive if cross_engine_requested else unobservable)(
-            "cross_engine_fidelity",
-            detail=(
-                "cross-engine objective and audiovisual comparison was not run"
-                if cross_engine_requested else
-                "paired cross-engine fidelity was disabled by evaluator configuration"
-            ),
-        ),
-        (inconclusive if cross_engine_requested else unobservable)(
-            "unity_structure_fidelity",
-            detail=(reason if cross_engine_requested else "paired cross-engine fidelity was not requested"),
-        ),
-        (inconclusive if cross_engine_requested else unobservable)(
-            "unity_visual_fidelity",
-            detail=(reason if cross_engine_requested else "paired cross-engine fidelity was not requested"),
-        ),
-    ]
+    return [inconclusive(ident, detail=reason) for ident in (
+        "unity_probe", "unity_mechanic_trace", "unity_runtime_stability", "unity_auto_win_ready",
+        "unity_input_dispatch", "unity_hidden_behavior", "unity_source_behavior", "unity_counterfactual",
+        "legacy_reference_trace", "causal_witness", "null_no_win", "unity_evaluator_capture",
+    )]
 
 
 def _unity_runtime_items(
@@ -891,29 +896,33 @@ def _unity_runtime_items(
     levels: list[str],
     reference_video: Path | None,
     task_context: str,
-    task_visual_rubric: Mapping[str, Any] | None = None,
-    mode5_mdva: bool = False,
-    package: TaskPackage | None = None,
 ) -> list[Item]:
     witness = suite.witness
     items: list[Item] = [_unity_probe_item(witness)]
-    items.append(_unity_mechanic_trace_item(witness, rubric))
+    items.append(_unity_mechanic_obligations_item(suite, rubric))
     items.append(_unity_runtime_stability_item(suite))
     items.append(_unity_auto_win_item(suite.auto_win))
-    items.append(_unity_input_dispatch_item(witness, suite.matched_null))
+    input_item = _unity_input_dispatch_item(witness, suite.matched_null)
+    items.append(input_item)
     items.extend(_unity_hidden_behavior_items(suite))
     items.append(_unity_route_item(suite))
 
     if witness.status == "pass" and suite.matched_null.status == "pass":
         causal_item = _causal_witness_item(
-            _unity_reading(witness),
-            _unity_reading(suite.matched_null),
+            _unity_reading(witness), _unity_reading(suite.matched_null),
         )
         items.append(causal_item)
         items.append(_null_item(_unity_reading(suite.matched_null)))
     else:
         detail = "witness and matched-null probe executions did not both complete"
-        causal_item = inconclusive("causal_witness", detail=detail, evidence=suite.to_dict())
+        causal_item = (
+            failed(
+                "causal_witness", detail=detail,
+                attribution=Attribution.SUBMISSION, evidence=suite.to_dict(),
+            )
+            if any(run.status == "fail" for run in (witness, suite.matched_null))
+            else inconclusive("causal_witness", detail=detail, evidence=suite.to_dict())
+        )
         items.append(causal_item)
         items.append(inconclusive("null_no_win", detail=detail, evidence=suite.matched_null.to_dict()))
 
@@ -973,173 +982,24 @@ def _unity_runtime_items(
             )
         )
 
-    mode5_vlm_requested = (
-        mode5_mdva
-        and (visual_judge or "").strip().lower() == "vlm"
-    )
-    mdva_item_appended = False
-    if mode5_vlm_requested:
-        if package is not None and suite.video_path:
-            try:
-                from ..scard.game_visual import judge_game_visual
-                from .visual_materials import prepare_visual_manifest
-                from dataclasses import replace as dataclass_replace
-                manifest = prepare_visual_manifest(
-                    package,
-                    {"demonstrations": [{
-                        "id": "unity-runtime",
-                        "film": {"mp4": str(suite.video_path)},
-                    }], "runtime_facts": {
-                        "owner": "evaluator",
-                        "capture_scope": "complete submitted witness execution",
-                        "witness_status": witness.status,
-                        "stop_reason": witness.reading.get("stop_reason"),
-                        "objective_completion": (
-                            "passed" if causal_item.verdict is Verdict.PASSED else
-                            "failed" if causal_item.verdict is Verdict.FAILED else
-                            "inconclusive"
-                        ),
-                        "objective_completion_detail": causal_item.detail,
-                    }},
-                    out / "mdva_inputs",
-                )
-                mdva_item = judge_game_visual(manifest, out / "mdva_judgments")
-                mdva_item = dataclass_replace(
-                    mdva_item, id="unity_vlm",
-                    detail="Mode-5 game-rubric MDVA VLM assessment; objective runtime readings remain separate",
-                )
-                items.append(mdva_item)
-                mdva_item_appended = True
-                judge_status = "pass" if mdva_item.verdict is Verdict.PASSED else "inconclusive"
-                judge_detail = mdva_item.detail
-                judge_evidence = mdva_item.evidence
-            except Exception as exc:
-                judge_status, judge_detail, judge_evidence = (
-                    "inconclusive", f"Mode-5 MDVA VLM could not run: {exc}", {}
-                )
-        else:
-            judge_status, judge_detail, judge_evidence = (
-                "inconclusive",
-                "Mode-5 MDVA requires an evaluator-owned complete witness recording",
-                {"owner": "evaluator", "capture_available": bool(suite.video_path)},
-            )
-    else:
-        judge_status, judge_detail, judge_evidence = judge_unity_capture(
-        suite.frame_paths,
-        judge_kind="none" if task_visual_rubric is not None else visual_judge,
-        out_dir=out,
-        project=game_id,
-        levels=levels,
-        reference_video=reference_video,
-        task_context=task_context,
-        frame_scenes={
-            f"frame_{int(sample['frame']):06d}.png": str(sample.get("scene") or "")
-            for sample in witness.reading.get("samples") or [] if "frame" in sample
-        },
-        )
-    if mdva_item_appended:
-        pass
-    elif judge_status == "pass":
-        items.append(passed("unity_vlm", credit=float(judge_evidence["visual_credit"]),
-                            detail=judge_detail, evidence=judge_evidence))
-    elif judge_status == "fail":
-        items.append(failed("unity_vlm", detail=judge_detail, evidence=judge_evidence))
-    else:
-        visual_disabled = (visual_judge or "").strip().lower() in {"", "none", "off"}
-        items.append(
-            (unobservable if visual_disabled else inconclusive)(
-                "unity_vlm", detail=judge_detail, evidence=judge_evidence
-            )
-        )
-    if task_visual_rubric is not None:
-        items.append(_unity_task_visual_item(
-            suite, out, rubric=task_visual_rubric, visual_judge=visual_judge,
-        ))
-    structure_gate_failed = causal_item.verdict is Verdict.FAILED
-    if structure_gate_failed and task_visual_rubric is None:
-        gate_detail = (
-            "candidate completed the evaluator-owned witness execution without producing "
-            "a valid whole-game completion path; cross-engine progression is a measured zero"
-        )
-        gate_evidence = {
-            "owner": "candidate",
-            "gate": "candidate_completion_path",
-            "causal_witness": causal_item.to_dict(),
-            "api_called": False,
-        }
-        items.append(failed(
-            "cross_engine_fidelity", detail=gate_detail, evidence=gate_evidence,
-        ))
-        items.append(failed(
-            "unity_structure_fidelity", detail=gate_detail, evidence=gate_evidence,
-        ))
-        items.append(unobservable(
-            "unity_visual_fidelity",
-            detail="Mode-5 v2 visual quality is measured by the independent MDVA domain",
-        ))
-    elif (visual_judge or "").strip().lower() == "vlm" and task_visual_rubric is None:
-        fidelity = judge_cross_engine_fidelity(
-            reference_video,
-            witness.frame_paths,
-            candidate_video=suite.video_path,
-            out_dir=out / "cross_engine",
-            game_id=game_id,
-            task_context=task_context,
-        )
-        if fidelity.status == "measured" and fidelity.credit is not None:
-            fidelity_evidence = fidelity.to_dict()
-            items.append(
-                passed(
-                    "cross_engine_fidelity",
-                    credit=fidelity.credit,
-                    detail=(
-                        f"GT-conditioned paired visual fidelity={fidelity.credit:.3f}; "
-                        "uncalibrated and outside mechanics resolution"
-                    ),
-                    evidence=fidelity_evidence,
-                )
-            )
-            items.extend(_unity_fidelity_score_items(fidelity_evidence))
-        else:
-            items.append(
-                inconclusive(
-                    "cross_engine_fidelity",
-                    detail=fidelity.detail,
-                    attribution=Attribution.HARNESS,
-                    evidence=fidelity.to_dict(),
-                )
-            )
-            items.append(inconclusive("unity_structure_fidelity", detail=fidelity.detail, attribution=Attribution.HARNESS))
-            items.append(inconclusive("unity_visual_fidelity", detail=fidelity.detail, attribution=Attribution.HARNESS))
-    else:
-        items.append(
-            unobservable(
-                "cross_engine_fidelity",
-                detail=("GT-paired fidelity is not part of the GameCraft-adapted visual protocol"
-                        if task_visual_rubric is not None else
-                        "GT-conditioned paired visual fidelity requires visual_judge='vlm'"),
-            )
-        )
-        items.append(unobservable(
-            "unity_structure_fidelity",
-            detail="paired cross-engine fidelity was not requested",
-        ))
-        items.append(unobservable(
-            "unity_visual_fidelity",
-            detail="paired cross-engine fidelity was not requested",
-        ))
     return items
 
 
 def _unity_mechanic_trace_item(run: UnityProbeRun, rubric: dict[str, Any]) -> Item:
+    """Grade GDD mechanics from the submitted whole-game witness stream.
 
-
+    Probe completion is only a runtime gate.  The mechanic score comes from
+    the implementation-neutral rubric predicates actually observed in rows.
+    A predicate that cannot be observed earns no credit; removing it from the
+    denominator made a successful probe indistinguishable from perfect game
+    mechanics.
+    """
     checkpoints = rubric_milestones(rubric)
     if not checkpoints:
         return inconclusive(
             "unity_mechanic_trace", detail="hidden rubric has no executable mechanic checks"
         )
-    if run.status != "pass" or not run.reading.get("rows"):
+    if not run.reading.get("rows"):
         return inconclusive(
             "unity_mechanic_trace",
             detail="Unity witness produced no complete semantic row stream",
@@ -1173,9 +1033,68 @@ def _unity_mechanic_trace_item(run: UnityProbeRun, rubric: dict[str, Any]) -> It
     )
 
 
+def _unity_mechanic_obligations_item(
+    suite: UnityRuntimeSuite, rubric: dict[str, Any],
+) -> Item:
+    """Best independently observed evidence per calibrated GDD obligation.
+
+    A trigger is worth half only when that obligation declares a trigger; mere
+    manifest claims, elapsed time, and input dispatch never count as mechanics.
+    """
+    checkpoints = rubric_milestones(rubric)
+    if not checkpoints:
+        return inconclusive(
+            "unity_mechanic_trace", detail="hidden rubric has no executable mechanic checks",
+        )
+    runs = [suite.witness, *suite.hidden_behaviors]
+    readings: list[dict[str, Any]] = []
+    credit_by_check = {check.name: 0.0 for check in checkpoints}
+    route = Route.from_dict({
+        "route_id": "unity/mechanic-obligations", "tier": 2,
+        "goal": {"predicate": "whole_game_clear()",
+                 "observations": [check.to_dict() for check in checkpoints]},
+    })
+    for run in runs:
+        if not run.reading.get("rows"):
+            continue
+        observed = reading_from_report(route, run.reading, log="")
+        reached = set(observed.observations_reached)
+        triggered = set(observed.observations_triggered)
+        for check in checkpoints:
+            point = 1.0 if check.name in reached else 0.0
+            credit_by_check[check.name] = max(credit_by_check[check.name], point)
+        readings.append({
+            "run_id": run.run_id, "reached": sorted(reached),
+            "triggered": sorted(triggered),
+        })
+    if not readings:
+        if any(run.status == "fail" for run in runs):
+            return failed(
+                "unity_mechanic_trace", detail="candidate produced no usable mechanic stream",
+                attribution=Attribution.SUBMISSION,
+            )
+        return inconclusive(
+            "unity_mechanic_trace", detail="no evaluator-observable mechanic stream",
+        )
+    credit = sum(credit_by_check.values()) / len(checkpoints)
+    null_reading = reading_from_report(route, suite.matched_null.reading, log="") if suite.matched_null.reading.get("rows") else None
+    return passed(
+        "unity_mechanic_trace", credit=credit,
+        detail=f"{sum(value > 0 for value in credit_by_check.values())}/{len(checkpoints)} mechanic obligations have observable progress",
+        evidence={"credits": credit_by_check, "runs": readings,
+                  "matched_null_reached": sorted(null_reading.observations_reached) if null_reading else [],
+                  "rule": "verified effect=1; trigger alone or absent=0"},
+    )
+
+
 def _unity_runtime_stability_item(suite: UnityRuntimeSuite) -> Item:
+    """Grade clean independent candidate cold runs, not evaluator compliance.
 
-
+    The witness and evaluator-private positive scenarios each start a fresh
+    Player process.  Behavior success is scored elsewhere; this item asks only
+    whether the candidate stayed alive, emitted a semantic stream and avoided
+    runtime errors throughout those independent lifecycles.
+    """
     runs = [suite.witness, *suite.hidden_behaviors]
     if not runs:
         return inconclusive(
@@ -1189,8 +1108,8 @@ def _unity_runtime_stability_item(suite: UnityRuntimeSuite) -> Item:
         semantic_rows = list(run.reading.get("rows") or ())
         errors = list(run.reading.get("errors") or ())
         healthy = run.status == "pass" and bool(semantic_rows) and not errors
-
-
+        # Explicit candidate launch failures are measured zeros even when
+        # they produce no stream. Missing evaluator readings retain coverage.
         owner = str(run.reading.get("attribution") or "")
         candidate_failure = (
             run.status == "fail" and owner not in {"infrastructure", "harness", "unattributable"}
@@ -1205,7 +1124,8 @@ def _unity_runtime_stability_item(suite: UnityRuntimeSuite) -> Item:
             "kind": run.kind,
             "status": run.status,
             "semantic_rows": len(semantic_rows),
-            "errors": errors,
+            "error_count": len(errors),
+            "error_examples": errors[:8],
             "clean": healthy,
             "measured": measured,
         }
@@ -1242,40 +1162,6 @@ def _unity_runtime_stability_item(suite: UnityRuntimeSuite) -> Item:
         detail=f"{clean}/{len(runs)} candidate cold runs completed with semantic rows and no runtime errors",
         evidence=evidence,
     )
-
-
-def _unity_fidelity_score_items(evidence: Mapping[str, Any]) -> list[Item]:
-
-    credits = {
-        str(row.get("id")): float(row["credit"])
-        for row in evidence.get("criteria") or []
-        if isinstance(row, Mapping) and isinstance(row.get("credit"), (int, float))
-    }
-
-    def grouped(item_id: str, criterion_ids: tuple[str, ...]) -> Item:
-        missing = [name for name in criterion_ids if name not in credits]
-        if missing:
-            return inconclusive(
-                item_id,
-                detail="paired VLM returned no reading for " + ", ".join(missing),
-                attribution=Attribution.HARNESS,
-                evidence=dict(evidence),
-            )
-        credit = sum(credits[name] for name in criterion_ids) / len(criterion_ids)
-        return passed(
-            item_id,
-            credit=credit,
-            detail=f"paired VLM credit={credit:.3f} from {', '.join(criterion_ids)}",
-            evidence={"criteria": {name: credits.get(name) for name in criterion_ids}},
-        )
-
-    return [
-        grouped("unity_structure_fidelity", ("asset_identity", "scene_progression")),
-        unobservable(
-            "unity_visual_fidelity",
-            detail="Mode-5 v2 visual/UI quality is measured by the independent MDVA domain",
-        ),
-    ]
 
 
 def _unity_input_dispatch_item(run: UnityProbeRun, matched_null: UnityProbeRun) -> Item:
@@ -1369,7 +1255,7 @@ def _behavior_run_verdict(run: UnityProbeRun) -> str:
         return "inconclusive" if run.status == "inconclusive" else "fail"
     result = run.reading.get("behavior_result") or {}
     if isinstance(result, Mapping) and result.get("missing_observations"):
-        return "unobservable"
+        return "fail" if _missing_public_contract_observations(run) else "unobservable"
     if (not isinstance(result, Mapping)
             or result.get("status") not in {"pass", "fail"}
             or not isinstance(result.get("goal_reached"), bool)):
@@ -1380,13 +1266,19 @@ def _behavior_run_verdict(run: UnityProbeRun) -> str:
 
 
 def _behavior_run_attribution(run: UnityProbeRun) -> str:
+    """Separate candidate evidence from policy/observer/infrastructure holes.
 
+    Hidden behavior inputs are admitted only after the independent calibration
+    gate in ``unity_probe._hidden_behavior_inputs``. A clean, observable miss
+    therefore belongs to the candidate; an unavailable observation or malformed
+    evaluator result never does.
+    """
 
     if run.status != "pass":
         return "infrastructure_failed" if run.status == "inconclusive" else "candidate_failed"
     result = run.reading.get("behavior_result") or {}
     if isinstance(result, Mapping) and result.get("missing_observations"):
-        return "observation_inconclusive"
+        return "candidate_failed" if _missing_public_contract_observations(run) else "observation_inconclusive"
     if (
         not isinstance(result, Mapping)
         or result.get("status") not in {"pass", "fail"}
@@ -1397,7 +1289,29 @@ def _behavior_run_attribution(run: UnityProbeRun) -> str:
     return "passed" if result["status"] == "pass" else "candidate_failed"
 
 
-def _aggregate_behavior_item(item_id: str, runs: list[UnityProbeRun]) -> Item:
+def _missing_public_contract_observations(run: UnityProbeRun) -> bool:
+    """A declared public telemetry slot missing from a completed run is candidate-owned.
+
+    Optional geometry/device observations still remain evaluator-unobservable.
+    The controller command carries the public manifest's required slots/roles,
+    so this classification does not inspect any hidden scenario expectation.
+    """
+    result = run.reading.get("behavior_result") or {}
+    missing = result.get("missing_observations") if isinstance(result, Mapping) else None
+    if not isinstance(missing, list) or not missing or not run.reading.get("rows"):
+        return False
+    declared: set[str] = set()
+    for argument in run.command:
+        if argument.startswith("--gb-numeric-slots="):
+            declared.update("numeric:" + name for name in argument.split("=", 1)[1].split(",") if name)
+        elif argument.startswith("--gb-required-roles="):
+            declared.update("role:" + name for name in argument.split("=", 1)[1].split(",") if name)
+    return all(str(name) in declared for name in missing)
+
+
+def _aggregate_behavior_item(
+    item_id: str, runs: list[UnityProbeRun],
+) -> Item:
     if not runs:
         return inconclusive(item_id, detail="package has no runnable hidden behavior scenarios")
     statuses = {run.run_id: _behavior_run_verdict(run) for run in runs}
@@ -1450,37 +1364,13 @@ def _aggregate_behavior_item(item_id: str, runs: list[UnityProbeRun]) -> Item:
     )
 
 
-def _mode5_scenarios_blocked_by_candidate(suite: UnityRuntimeSuite) -> bool:
-
-
-    reading = suite.witness.reading if isinstance(suite.witness.reading, Mapping) else {}
-    return (
-        suite.witness.status in {"fail", "error"}
-        and str(reading.get("attribution") or "") != "infrastructure"
-    )
-
-
-def _unity_hidden_behavior_items(suite: UnityRuntimeSuite) -> list[Item]:
+def _unity_hidden_behavior_items(
+    suite: UnityRuntimeSuite,
+) -> list[Item]:
     runs = list(suite.hidden_behaviors)
-    blocked = _mode5_scenarios_blocked_by_candidate(suite)
-    if blocked and not runs:
-        blocked_detail = (
-            "evaluator-owned scenarios were not run: the candidate witness failed, "
-            "so they could only repeat that failure"
-        )
-        blocked_evidence = {
-            "attribution": Attribution.SUBMISSION.value,
-            "dependency_root": "submitted_witness",
-        }
-        return [
-            inconclusive("unity_hidden_behavior", detail=blocked_detail,
-                         attribution=Attribution.SUBMISSION, evidence=blocked_evidence),
-            inconclusive("unity_source_behavior", detail=blocked_detail,
-                         attribution=Attribution.SUBMISSION, evidence=blocked_evidence),
-            inconclusive("unity_counterfactual", detail=blocked_detail,
-                         attribution=Attribution.SUBMISSION, evidence=blocked_evidence),
-        ]
-    hidden_item = _aggregate_behavior_item("unity_hidden_behavior", runs)
+    hidden_item = _aggregate_behavior_item(
+        "unity_hidden_behavior", runs,
+    )
     source_runs = [
         run for run in runs
         if "source_derived" in set(run.reading.get("evidence_basis") or ())
@@ -1526,7 +1416,27 @@ def _unity_hidden_behavior_items(suite: UnityRuntimeSuite) -> list[Item]:
             expected = bool(run.reading.get("counterfactual_expect_goal", False))
             if run.status == "pass" and reached != expected:
                 mismatches.append(run.run_id)
-        if infrastructure:
+        candidate_runtime_failures = [
+            run for run in infrastructure
+            if run.status == "fail"
+            and (
+                "input dispatch failed: action has no enabled buttoncontrol:"
+                in run.detail.lower()
+                or run.detail.startswith("Unity runtime emitted errors:")
+                or run.detail.startswith("candidate player exited with code ")
+            )
+        ]
+        if infrastructure and len(candidate_runtime_failures) == len(infrastructure):
+            counterfactual_item = failed(
+                "unity_counterfactual",
+                detail=(
+                    "counterfactual commands could not complete because the "
+                    "candidate failed at runtime"
+                ),
+                attribution=Attribution.SUBMISSION,
+                evidence={"runs": [run.to_dict() for run in counterfactuals]},
+            )
+        elif infrastructure:
             counterfactual_item = inconclusive(
                 "unity_counterfactual",
                 detail="one or more counterfactual executions did not complete",
@@ -1545,31 +1455,6 @@ def _unity_hidden_behavior_items(suite: UnityRuntimeSuite) -> list[Item]:
                 evidence={"runs": [run.to_dict() for run in counterfactuals]},
             )
     return [hidden_item, source_item, counterfactual_item]
-def _unity_task_visual_item(suite, out, *, rubric, visual_judge):
-    from ..scard.replay import ReplayFilm, movie_frame_count
-    from ..scard.task_visual import aggregate_task_visual
-    from .demonstrations import judge_saved_visuals
-
-    try:
-        paths = list(suite.frame_paths)
-        times = [int(Path(path).stem.split("_")[-1]) / 60 for path in paths]
-        directory = out / "task_visual"
-        directory.mkdir(parents=True, exist_ok=True)
-        film = ReplayFilm(directory=str(directory), frames=paths, frame_times_s=times,
-                          mp4=suite.video_path or "",
-                          duration_s=movie_frame_count(Path(suite.video_path))[1] if suite.video_path else 0,
-                          stop_reason=str(suite.witness.reading.get("stop_reason") or ""))
-        manifest = {"schema_version": 1, "rubric": rubric,
-                    "demonstrations": [{"id": "unity-whole-run", "film": film.to_dict()}]}
-        write_json(out / "task_visual" / "visual_inputs.json", manifest)
-        if visual_judge != "vlm":
-            return aggregate_task_visual([], rubric)
-        rows = judge_saved_visuals(manifest, directory / "judgments")
-    except Exception as exc:
-        rows = [{"id": "unity-whole-run", "reading": {"status": "unavailable", "detail": str(exc)}}]
-    return aggregate_task_visual(rows, rubric)
-
-
 def _unity_probe_item(run: UnityProbeRun) -> Item:
     if run.status == "pass":
         return passed("unity_probe", detail=run.detail, evidence=run.to_dict())
@@ -1584,16 +1469,14 @@ def _unity_auto_win_item(run: UnityProbeRun | None) -> Item:
             "unity_auto_win_ready",
             detail="evaluator-owned bounded no-input run was not available",
         )
-    if run.status == "fail":
-        return failed("unity_auto_win_ready", detail=run.detail, evidence=run.to_dict())
-    if run.status != "pass":
-        return inconclusive("unity_auto_win_ready", detail=run.detail, evidence=run.to_dict())
     if run.won:
         return failed(
             "unity_auto_win_ready",
             detail="candidate reached success during the bounded cold-start no-input horizon",
             evidence=run.to_dict(),
         )
+    if run.status != "pass":
+        return inconclusive("unity_auto_win_ready", detail=run.detail, evidence=run.to_dict())
     return passed(
         "unity_auto_win_ready",
         detail="bounded cold-start no-input horizon completed without success",
@@ -1641,8 +1524,8 @@ def _unity_route_item(suite: UnityRuntimeSuite) -> Item:
 
 
 def _unity_reading(run: UnityProbeRun) -> dict[str, Any]:
-
-
+    # `won` is the only win signal. The final scene is evidence, not a stop
+    # reason: a scene named `GoalRoom` must not read as a win.
     return {
         "reached": run.won,
         "stop_reason": "goal_reached" if run.won else "horizon",
@@ -1879,7 +1762,11 @@ def _unity_sdk_integrity_item(pkg: TaskPackage, sub: Submission) -> Item:
         expected = payload.get("files") if isinstance(payload, dict) else None
         if not isinstance(expected, dict) or not expected:
             raise ValueError("files must be a non-empty object")
-        report = validate_scaffold_integrity(sub.project, expected)
+        community = payload.get("profile_id") == "mode5-community-docker-v1"
+        report = validate_scaffold_integrity(
+            sub.project, expected,
+            reference_project=pkg.visible / "target_unity" if community else None,
+        )
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         return inconclusive(
             "unity_sdk_integrity",
@@ -1889,18 +1776,18 @@ def _unity_sdk_integrity_item(pkg: TaskPackage, sub: Submission) -> Item:
     if not report.ok:
         return failed(
             "unity_sdk_integrity",
-            detail="immutable Unity SDK/scaffold digest mismatch; Unity import/build is refused",
+            detail="protected Unity SDK or required scaffold configuration was changed; Unity import/build is refused",
             evidence=evidence,
         )
     return passed(
         "unity_sdk_integrity",
-        detail="immutable Unity SDK/scaffold matches evaluator-owned hidden digests",
+        detail="protected Unity SDK and required scaffold configuration are valid",
         evidence=evidence,
     )
 
 
 def _port_no_smuggling_item(sub: Submission) -> Item:
-
+    """Reject evaluator artefacts while allowing ordinary in-game route data."""
     blocked: list[str] = []
     for value in sub.smuggled:
         rel = Path(value)
@@ -1924,7 +1811,7 @@ def _port_no_smuggling_item(sub: Submission) -> Item:
 
 
 def _no_bundled_godot_runtime_item(sub: Submission) -> Item:
-
+    """A Mode-5 result must be a Unity port, not a Unity launcher for Godot."""
     bundled: list[str] = []
     for path in sub.project.rglob("*"):
         if not path.is_file():
@@ -1950,7 +1837,7 @@ def _transformation_contract_item(
     sub: Submission,
     items: list[Item],
 ) -> Item:
-
+    """Resolve static restoration duties and existing runtime verdicts together."""
     path = pkg.hidden / "transformation.json"
     if not path.is_file():
         return inconclusive(
@@ -2012,7 +1899,7 @@ def _transformation_contract_item(
 
 
 def _verifier_profile_item(mode: Mode, items: list[Item]) -> Item:
-
+    """Fail the evaluator closed when a mode-specific verifier stage vanished."""
     profile = verifier_profile(mode)
     observed = {item.id for item in items}
     missing = missing_strict_items(mode, observed)
@@ -2048,8 +1935,16 @@ def refresh_rubric_observables(
     game_id: str,
     catalog: dict[str, dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
+    """Re-read each checkpoint's *measurement* from the current rubric catalog.
 
-
+    The frozen oracle records what was generated. A checkpoint's `observable`
+    (predicate, baseline) is the evaluator's hidden measurement method, not
+    part of the contract disclosed to the agent, so a corrected method applies
+    to a re-evaluation from raw artifacts. Claims, ids, required groups, slots
+    and levels are the disclosed contract and are left exactly as frozen; a
+    check that no longer exists in the catalog, or a game the catalog does not
+    know, keeps its frozen observable. The report carries what was swapped.
+    """
     rubric = oracle.get("rubric")
     if not isinstance(rubric, dict) or not game_id:
         return oracle
@@ -2189,7 +2084,7 @@ def _task_gdd_contract_item(oracle: dict[str, Any]) -> Item:
 
 
 def _brief_gdd_grounding_item(sub: Submission, oracle: dict[str, Any]) -> Item:
-
+    """Require the authored Mode-1 GDD to retain the hidden public control contract."""
     if sub.gdd_path is None:
         return skipped("brief_gdd_grounding", detail="GDD.md is missing")
     rubric = oracle.get("rubric") or {}
@@ -2207,8 +2102,8 @@ def _brief_gdd_grounding_item(sub: Submission, oracle: dict[str, Any]) -> Item:
     ):
         absent = sorted(set(rubric.get(rubric_key) or ()) - set(declared.get(key) or ()))
         missing.extend(f"{key}:{value}" for value in absent)
-
-
+    # The brief never names extended-action ids, so the authored GDD is held to
+    # the count the statement published rather than to the reference game's ids.
     count_finding = extended_action_count_finding(
         len(declared.get("extended_actions") or ()), rubric
     )
@@ -2331,8 +2226,8 @@ def _interface_item(sub: Submission) -> Item:
 
 def _anti_grant_item(sub: Submission, mode: Mode, oracle: dict[str, Any]) -> Item:
     report = scan_tree(sub.project)
-
-
+    # Modes 1–3: only blocking harness_flags. auto_win_ready is a separate
+    # evaluate item so a _ready victory jump is not counted twice.
     flags = [
         f
         for f in report.findings
@@ -2614,8 +2509,9 @@ def _surface_item(sub: Submission, surface: dict[str, Any]) -> Item:
             evidence={"original": original_n, "now": now_n},
         )
     missing = sorted(original_scripts - now_scripts)
-
-
+    # Allow new files; disallow dropping more than half of named scripts, already
+    # covered by the count. Missing a handful of stubs is reported but the hard
+    # fail is collapse or missing project.godot, which layout already caught.
     if missing and len(missing) > max(2, original_n // 5):
         return failed(
             "surface",
@@ -2711,8 +2607,9 @@ def _run_engine(
                 oracle.get("bugfix_preflight") or {}, play.get("gold") or {}
             )
         )
-
-
+        # Graded per-target-route restoration (fidelity item, outside `resolved`).
+        # Reads the same honest replay as repair_differential so a partial fix
+        # scores partially without weakening the strict gate.
         items.append(
             repair_restoration_item(
                 oracle.get("bugfix_preflight") or {}, play.get("gold") or {}
@@ -2733,7 +2630,7 @@ def _run_engine(
         payload.update(play)
         payload["demonstration_summary"] = summary
         items.extend(demonstration_items(summary))
-
+        # Controls are required for every segment, not merely a favourable one.
         for item_id, factory in (("null_no_win", lambda p: _null_item(p.get("null") or {})),
                                  ("extended_mash_no_win", lambda p: _mash_item(p.get("extended_mash") or {})),
                                  ("anti_grant_diff", _diff_item)):
@@ -2741,7 +2638,7 @@ def _run_engine(
             bad = next((r for r in readings if r.verdict is Verdict.FAILED), None)
             hole = next((r for r in readings if r.verdict not in {Verdict.PASSED, Verdict.UNOBSERVABLE}), None)
             item = bad or hole or readings[0]
-
+            # Preserve each independently measured control in report evidence.
             item.evidence = {"segments": [r.to_dict() for r in readings]}
             if item_id == "anti_grant_diff" and any(row["flag_only_checks"] for row in summary["segments"]):
                 item = failed(item_id, detail="some feature checks were observed only with harness flags",
@@ -2796,6 +2693,7 @@ def _run_engine(
     return payload
 
 
+#: Items produced by the engine pass; replaced wholesale by a retry.
 ENGINE_ITEM_IDS = frozenset({
     "demonstrations_complete",
     "null_no_win",
@@ -2810,16 +2708,22 @@ ENGINE_ITEM_IDS = frozenset({
     "repair_restoration_graded",
 })
 
-
+#: Every evaluator-owned wall deadline is multiplied by this on the one retry.
 RETRY_BUDGET_SCALE = 2.0
 
-
+#: `run_self_play` / `run_bugfix_gates` reasons that no retry can change.
 _NON_RETRYABLE_ENGINE_REASONS = ("no Godot binary",)
 
 
 def evaluator_side_stops(payload: Mapping[str, Any], *, _depth: int = 0) -> list[str]:
+    """Name every evaluator-side stop recorded in an engine payload.
 
-
+    A reading whose `stop_reason` is in `routes.runner.HARNESS_STOPS` (timeout,
+    launch_failed, driver_error, no_report, ...) was ended by the harness, not
+    the game; an engine that did not run for a reason other than a missing
+    Godot binary is the same kind of stop. The list is empty when every
+    reading the engine attempted was taken.
+    """
     from ..routes.runner import HARNESS_STOPS
 
     stops: list[str] = []
@@ -2854,8 +2758,10 @@ def evaluator_side_stops(payload: Mapping[str, Any], *, _depth: int = 0) -> list
 
 
 def _engine_skipped(mode: Mode, reason: str) -> list[Item]:
-
-
+    # An engine that would not run is the evaluator failing to take a reading,
+    # never the submission failing to earn one. Say so on the item: without it
+    # every consumer downstream has to guess, and the scorecard was guessing
+    # "candidate" by default.
     def skipped(item_id: str) -> Item:
         return inconclusive(item_id, detail=reason, attribution=Attribution.HARNESS)
 
@@ -2961,8 +2867,21 @@ def _repair_differential_item(preflight: dict[str, Any], repaired: dict[str, Any
 
 
 def repair_restoration_item(preflight: dict[str, Any], repaired: dict[str, Any]) -> Item:
+    """Graded per-target-route restoration credit for a Mode-4 repair.
 
+    ``repair_differential`` is the strict, binary gate (every target restored
+    AND every regression/negative-control preserved) and is unchanged; it, with
+    ``gold_replay``, still decides ``resolved``.  This item reads the SAME honest
+    repaired replay and reports the *fraction* of preregistered target routes the
+    submission actually restored, so a partial fix scores partially.  It is a
+    fidelity item (outside ``resolved``), never a gate.
 
+    A repair that restores some targets but breaks a preserved regression or the
+    negative control is not a partial success -- it changed behaviour elsewhere --
+    so credit is 0 in that case (matching the strict fail), with the breakage in
+    the evidence.  Infrastructure gaps or a replay that did not run are
+    ``inconclusive``, exactly like the strict item.
+    """
     if not preflight.get("ready"):
         return inconclusive(
             "repair_restoration",
@@ -3002,8 +2921,8 @@ def repair_restoration_item(preflight: dict[str, Any], repaired: dict[str, Any])
     restored = [route_id for route_id in target if status_of(route_id) == "pass"]
     regression_failed = sorted(r for r in regression if status_of(r) != "pass")
     negative_failed = sorted(r for r in negative if status_of(r) != "pass")
-
-
+    # The contract target (feature_kept) is scored by feature_kept and is not a
+    # replay route; targets here are the frozen route targets.
     total = len(target)
     evidence = {
         "restored_targets": restored,
@@ -3046,8 +2965,13 @@ def repair_restoration_graded_item(
     preflight: dict[str, Any], repaired: dict[str, Any],
     route_definitions: list[dict[str, Any]] | None = None,
 ) -> Item:
+    """Mode34b fidelity: restored target assertions, independent of regressions.
 
-
+    Definitions come from the evaluator's frozen route file, never submission
+    declarations. Assertion grading requires source, mutant, and submission
+    checks for every target route; otherwise the whole item uses route credit.
+    Strict repair gates are unchanged.
+    """
     from ..routes.schema import Milestone
 
     item_id = "repair_restoration_graded"
@@ -3083,8 +3007,8 @@ def repair_restoration_graded_item(
             if checks and key not in reading:
                 return None
             for index, check in enumerate(checks):
-
-
+                # Use the replay schema's names, including m1/m2 defaults for
+                # the supported predicate-string shorthand in frozen files.
                 name = Milestone.from_value(check, index).name
                 present = name in (reading.get(key) or [])
                 result[f"{kind}:{name}"] = not present if kind == "invariants" else present
@@ -3145,8 +3069,9 @@ def _mechanic_trace_item(reading: dict[str, Any], rubric: dict[str, Any]) -> Ite
             detail="hidden rubric has no executable ordered checkpoints",
         )
     if not reading:
-
-
+        # The engine ran (checked by the caller), so an absent reading means the
+        # candidate's own tape produced nothing to observe. Redesign rule 1.2/3:
+        # submission-caused missing evidence is a zero, not an evaluator gap.
         return inconclusive(
             "mechanic_trace",
             detail="no candidate trace reading",
@@ -3162,8 +3087,12 @@ def _mechanic_trace_item(reading: dict[str, Any], rubric: dict[str, Any]) -> Ite
         if (check.get("observable") or {}).get("required_on_witness") is False
     }
     missing = [item for item in expected if item not in set(reached)]
-
-
+    # A conditional checkpoint ("contact with a hazard reduces health") can
+    # only be witnessed on a trace where its trigger happened. A whole-game
+    # witness that never met the precondition leaves that checkpoint
+    # untriggered: unobservable on this witness, not a missing mechanic. A
+    # reading recorded before triggers existed carries no trigger census and
+    # keeps the unconditional rule.
     untriggered = (
         [item for item in missing if item in conditional and item not in triggered]
         if "observations_triggered" in reading
@@ -3227,8 +3156,26 @@ def gdd_mechanics_observable_item(
     numeric_values: Mapping[str, Any],
     trace_reading: Mapping[str, Any] | None,
 ) -> Item:
+    """calib4 gdd-mode ``mode_specific``: the Task GDD's mechanics, observed.
 
+    The Task GDD is the evaluator's document and every submission passed its
+    audit (`task_gdd_contract`) at 100, so that criterion never separated two
+    submissions.  This one is submission-side.  Everything the Task GDD names
+    as a mechanic or observable -- the hidden rubric's executable
+    ``mechanic_checks``, ``required_groups`` and ``required_numeric_slots`` --
+    must be observable in the submission: a group present in its scenes, a
+    declared numeric slot the route driver can resolve, or a trace checkpoint
+    that fired on the submission's own witness.  Credit is the fraction
+    observed; the item is graded, never a strict gate (it is a fidelity item,
+    outside ``resolved``).
 
+    A conditional checkpoint whose trigger never happened on the witness did
+    not fire and is therefore not observed here (listed under ``untriggered``);
+    `mechanic_trace` forgives it for the strict verdict, this fraction does not
+    forgive it for the score, because a mechanic the tape never exercised was
+    not shown to exist.  Mechanic checks the rubric marks unmeasurable or
+    non-executable are outside the denominator and listed.
+    """
     milestones = rubric_milestones(rubric)
     groups = [str(g) for g in rubric.get("required_groups") or []]
     slots = [str(s) for s in rubric.get("required_numeric_slots") or []]
@@ -3245,7 +3192,7 @@ def gdd_mechanics_observable_item(
         )
     if milestones and not trace_reading:
         # Same attribution as `mechanic_trace`: the engine ran, the candidate
-
+        # tape did not produce a trace, so this is a submission-caused zero.
         return inconclusive(
             "gdd_mechanics_observable",
             detail="no candidate trace reading, so no checkpoint could be observed",
@@ -3377,11 +3324,11 @@ def _causal_witness_item(
     witness: dict[str, Any],
     matched_null: dict[str, Any],
 ) -> Item:
-
+    """Credit a candidate tape only when removing its actions removes the clear."""
     evidence = {"witness": witness, "matched_null": matched_null}
     if not witness or not matched_null:
-
-
+        # The engine ran, so a wholly absent reading means the candidate never
+        # supplied a runnable tape. That is the submission's gap, not ours.
         return inconclusive(
             "causal_witness",
             detail=(
@@ -3392,8 +3339,8 @@ def _causal_witness_item(
             attribution=Attribution.SUBMISSION,
         )
     if reading_unmeasured(witness) or reading_unmeasured(matched_null):
-
-
+        # A launch failure or scratch collision is our stop, not the game's;
+        # it says nothing about whether the ops clear.
         return inconclusive(
             "causal_witness",
             detail=(
@@ -3457,12 +3404,18 @@ def _diff_item(play: dict[str, Any]) -> Item:
     if reading_unmeasured(play.get("idle_env")) or reading_unmeasured(play.get("idle_flagged")):
         return inconclusive("anti_grant_diff", detail="idle pair was not taken", evidence=evidence)
     if reading_unmeasured(play.get("ops_env")) or reading_unmeasured(play.get("ops_flagged")):
-
-
+        # The contract is the ops pair (submitted ops in modes 1-3, the
+        # registered L5 in mode 4) plus the idle pair. Idle alone is not a
+        # pass: a route file or L5 that never ran cannot be said not to
+        # diverge.
         unavailable = play.get("ops_pair_unavailable")
         if unavailable:
-
-
+            # Which half of the contract went missing, and whose doing it was,
+            # are different questions. An invalid or absent tape is the
+            # submission's doing: it owes a runnable tape and did not deliver
+            # one, so the contract fails rather than going unmeasured. Calling
+            # this `inconclusive` charged the evaluator for a submission defect
+            # and voided the whole card instead of costing it points.
             return failed(
                 "anti_grant_diff",
                 detail=(
@@ -3514,7 +3467,7 @@ def _gold_item(gold: dict[str, Any]) -> Item:
             detail=(
                 f"{len(passed_ids)} route(s) cleared without --gb-route-plan, "
                 f"but the corpus has no genuine_clear stamp ({reason}). "
-                "Mode 4 requires a verified full-clear "
+                "Mode 4 cannot credit a repair until recertify writes that "
                 "attestation. This is a corpus gap, not a pass."
             ),
             evidence={"genuine_clear": genuine, "rt1_passed": passed_ids},
@@ -3530,8 +3483,17 @@ def _gold_item(gold: dict[str, Any]) -> Item:
 
 
 def _reproduction_unmeasured(item: Item) -> list[str]:
+    """Evaluator-side holes in a reproduction item: crash, or unmeasured channels.
 
-
+    `EvaluationRefused` is a preflight invariant (a submission-side refusal)
+    and is not retried; every other exception and every channel the O-card
+    scorer lists as `unmeasurable` (probe crashed, import timed out, no
+    snapshot) is our stop. So is a channel read only in part: an
+    `inconclusive` rung inside an otherwise measured channel (arc_wing/gdd
+    Codex 2026-09-03, O1 `draws_nontrivial` after the capture's import pass
+    crashed) is the same evaluator-side failure at rung granularity, and the
+    scorecard withholds the headline for it, so it must get the same retry.
+    """
     if item.verdict is Verdict.INCONCLUSIVE:
         detail = item.detail
         if detail.startswith("evaluate refused") or "engine is off" in detail:
@@ -3568,7 +3530,7 @@ def _reproduction_item_with_retry(
     out: str | Path | None = None,
     design: Mapping[str, Any] | None = None,
 ) -> Item:
-
+    """`_reproduction_item`, retried once when the evaluator left a hole."""
     extra: dict[str, Any] = {"design": design} if design is not None else {}
     item = _reproduction_item(sub, pkg, want_engine, visual_judge=visual_judge, out=out, **extra)
     holes = _reproduction_unmeasured(item)
@@ -3601,8 +3563,13 @@ def _reproduction_item(
     out: str | Path | None = None,
     design: Mapping[str, Any] | None = None,
 ) -> Item:
+    """Run the source-conditioned O-card (and S-card) on the submission.
 
-
+    `design` carries the submission-authored inputs the brief-mode O4 path
+    and the `S4_replay` filmer need: `gdd_text`, `witness` (the causal
+    witness reading as a dict), `ops` (the parsed tape), `predicate`,
+    `milestones` and `interface`.  See `evalsys.evaluate.evaluate_project`.
+    """
     if not want_engine:
         return inconclusive(
             "reproduction",
@@ -3611,14 +3578,15 @@ def _reproduction_item(
     task_id = str(pkg.manifest.get("game_id") or "")
     try:
         from ..evaluate import EvaluationRefused, evaluate_project
-    except Exception as exc:
+    except Exception as exc:  # pragma: no cover - import surface
         return inconclusive("reproduction", detail=f"evaluate_project unavailable: {exc}")
     design = dict(design or {})
     try:
         mode = str(pkg.manifest.get("mode") or "")
         tier = "D2" if mode == "brief" else "D3"
-
-
+        # O6 denominator: files the running game could load. Licences,
+        # pack thumbnails and archives are handed to the model but no engine
+        # loads them, so they are not something the probe can ever observe.
         supplied_assets = [str(path) for path in o6_denominator(pkg.visible / "assets")]
         replay_filmer = None
         if design.get("ops") and design.get("interface") is not None:
@@ -3654,8 +3622,10 @@ def _reproduction_item(
         return inconclusive("reproduction", detail=f"evaluate error: {exc}")
     lo = float(getattr(package.card, "objective_lo", 0.0) or 0.0)
     full_card = package.card.to_dict()
-
-
+    # Keep the complete scoring structure in taskgen reports without copying
+    # the potentially very large route/frame provenance into every matrix
+    # summary.  The authoritative full card (including provenance) is the
+    # adjacent ``card.json`` named below.
     card = {
         key: full_card.get(key)
         for key in (
@@ -3688,8 +3658,10 @@ def _reproduction_item(
             "path": str(package.path),
             "card_path": str(package.path / "card.json"),
             "lo": lo,
-
-
+            # Preserve the complete O1--O9 channel vector, interval coverage,
+            # measured-weight share, and S-card state.  The scalar credit stays
+            # above for compatibility, but is no longer the only matrix-facing
+            # representation of source-conditioned fidelity.
             "card": card,
         },
     )
@@ -3714,20 +3686,16 @@ BEHAVIOR_ITEM_IDS = frozenset({
 FIDELITY_ITEM_IDS = frozenset({
     "task_visual",
     "reproduction",
-
-
+    # Graded fraction of Task-GDD mechanics observed (calib4 gdd mode_specific);
+    # a score, not a strict gate.
     "gdd_mechanics_observable",
-
-
+    # Graded fraction of Mode-4 target routes restored by the repair; a score,
+    # not a strict gate (repair_differential stays the binary gate).
     "repair_restoration",
     "legacy_reference_trace",
     "repair_restoration_graded",
-    "cross_engine_fidelity",
     "edit_radius",
     "unity_evaluator_capture",
-    "unity_vlm",
-    "unity_structure_fidelity",
-    "unity_visual_fidelity",
     "unity_runtime_stability",
     "unity_source_behavior",
 })
@@ -3753,8 +3721,12 @@ def _eligibility_status(items: list[Item]) -> str:
 
 
 def _comparable(items: list[Item]) -> bool:
+    """False when playability was not measured.
 
-
+    Inconclusive items leave the denominator, so a static-only run can print
+    score_lo=1.0 with coverage 1.0. That number is not a playthrough. The
+    comparable flag exists so nobody ranks models on it.
+    """
     measured = False
     for item in items:
         if item.verdict in {Verdict.INCONCLUSIVE, Verdict.UNMEASURABLE, Verdict.SKIPPED}:
@@ -3765,7 +3737,7 @@ def _comparable(items: list[Item]) -> bool:
 
 
 def _render_replay_reading(reading: Mapping[str, Any]) -> list[str]:
-
+    """The `S4_replay` block of report.md: weight 0, reported beside the card."""
     film = reading.get("film") or {}
     judge = reading.get("judge") or {}
     lines = [
@@ -3808,21 +3780,20 @@ def _render_replay_reading(reading: Mapping[str, Any]) -> list[str]:
 
 
 def render_report(result: TaskEvalResult) -> str:
+    if result.package.manifest.get("mode") == "port":
+        from .mode5.report import make_scorecard, render_scorecard
+        return render_scorecard(make_scorecard(result))
     interval = result.interval
     comparable = result.comparable
     resolved = result.resolved
     resolved_text = "not_measured" if resolved is None else ("yes" if resolved else "no")
     profile = verifier_profile(str(result.package.manifest.get("mode") or ""))
-
+    # `getattr`: tests render stand-in results without the field.
     scorecard = score_task_result(
         result, registry_version=getattr(result, "registry_version", None),
     )
     ranking_text = "yes" if scorecard["ranking_eligible"] else "no"
-    mode5_card = scorecard.get("score_scope") == "mode5_model_capability_only"
-    ranking_meaning = (
-        "complete fixed-weight capability result"
-        if mode5_card else "measurement coverage, not contract"
-    )
+    ranking_meaning = "measurement coverage, not contract"
     lines = [
         f"# taskgen eval — {result.package.manifest.get('mode')} / "
         f"{result.package.manifest.get('game_id')}",
@@ -3852,13 +3823,15 @@ def render_report(result: TaskEvalResult) -> str:
             headline = "composite_score=not_measured; assessment_status=objective_only"
     lines.extend(
         [
-            f"## {'Mode 5 capability' if mode5_card else 'Hierarchical'} scorecard "
+            f"## Hierarchical scorecard "
             f"({scorecard['registry_version']})",
             "",
             f"{headline}; "
             f"headline_ceiling={weighted['headline_ceiling']:.3f}; "
-
-
+            # Without the reachable ceiling the headline is unreadable: a card
+            # whose engine never ran shows 11.071 against 90 and looks like a
+            # 12% submission, when it earned most of the 13.5 points anything
+            # could have earned. Print what was actually on offer.
             + (
                 f"currently_reachable_ceiling="
                 f"{weighted['currently_reachable_ceiling']:.3f}; "
@@ -3909,29 +3882,12 @@ def render_report(result: TaskEvalResult) -> str:
             f"- `{entry['source']}` ({entry['category']}/{entry['criterion']}): {entry['step']}"
             for entry in weighted.get("unmeasured") or []
         )
-        if mode5_card:
-            diagnostics = scorecard["diagnostics"]
-            bounds = diagnostics["fixed_weight_bounds"]
-            lines.extend([
-                "",
-                f"earned_points_floor={diagnostics['earned_points_floor']:.3f} / 100; "
-                f"possible_range={bounds['lo']:.3f}..{bounds['hi']:.3f}; "
-                f"measured_weight={100.0 - diagnostics['unmeasured_weight']:.3f} / 100. "
-                "These are diagnostics, not a ranking score.",
-            ])
         lines.append("")
     lines.extend(
         [
-            (
-                "The Mode 5 total contains only model capability; editor/package/build and "
-                "causal-validity checks are zero-point gates. Missing capability evidence "
-                "owned by the evaluator withholds the total without shrinking its denominator; "
-                "candidate build/runtime failures are decided zeros in the affected leaves."
-                if mode5_card else
-                "The weighted total is diagnostic. The strict mode profile remains conjunctive; "
-                "a visual or content score cannot compensate for a false clear, missing mechanic, "
-                "or repair regression."
-            ),
+            "The weighted total is diagnostic. The strict mode profile remains conjunctive; "
+            "a visual or content score cannot compensate for a false clear, missing mechanic, "
+            "or repair regression.",
             "",
             "| category | weight | score / 100 | measured share |",
             "|---|---:|---:|---:|",
@@ -3940,8 +3896,10 @@ def render_report(result: TaskEvalResult) -> str:
     for category in scorecard["categories"]:
         score = category["score"]["score"]
         rendered = "incomplete" if score is None else f"{score:.3f}"
-
-
+        # A category can hold nothing but reported sentinels (Mode 2's alignment
+        # check), in which case it carries no weight and has no coverage share.
+        # Rendering a missing share as 0.000 would read as "measured nothing"
+        # when the truth is "there was nothing here to measure".
         share = category.get("measured_weight_share")
         share_text = "-" if share is None else f"{share:.3f}"
         weight = category.get("weight_in_total") or 0.0
@@ -3949,28 +3907,6 @@ def render_report(result: TaskEvalResult) -> str:
             f"| {category['name']} | {weight:.0f}% | "
             f"{rendered} | {share_text} |"
         )
-    leaderboard = scorecard.get("leaderboard") if mode5_card else None
-    if leaderboard:
-        lines.extend([
-            "",
-            "### Public Mode 5 leaderboard columns",
-            "",
-            "| 机制与需求 | 内容与素材 | 可玩性与演示 | Mode 专属能力 | 规则总分 |",
-            "|---:|---:|---:|---:|---:|",
-        ])
-        columns = leaderboard.get("columns") or {}
-        values = []
-        for key in (
-            "mechanism_and_requirements", "content_and_assets",
-            "playability_and_demo", "mode_specific",
-        ):
-            value = (columns.get(key) or {}).get("score")
-            values.append("—" if value is None else f"{float(value):.3f}")
-        total = leaderboard.get("total")
-        lines.append(
-            "| " + " | ".join(values + ["—" if total is None else f"{float(total):.3f}"]) + " |"
-        )
-        lines.append("")
     lines.append("")
     reasons = scorecard.get("not_applicable_reasons") or {}
     if reasons:

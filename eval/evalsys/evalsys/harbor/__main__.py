@@ -5,6 +5,9 @@ import argparse
 from datetime import datetime
 from importlib.metadata import version
 import json
+import os
+
+
 from pathlib import Path
 import subprocess
 import sys
@@ -19,8 +22,12 @@ def main() -> int:
     export.add_argument("--package", type=Path, required=True)
     export.add_argument("--out", type=Path, required=True)
     export.add_argument("--image")
-    export.add_argument("--agent-timeout", type=int, default=1800)
+    export.add_argument("--agent-timeout", type=int,
+                        help="Agent budget: defaults to 7200s for Mode 5, 1800s for Modes 1-4")
     export.add_argument("--verifier-timeout", type=int, default=3600)
+    export.add_argument("--mode5-profile", choices=("auto", "community-docker"),
+                        default="auto")
+    export.add_argument("--mode5-state-dir", type=Path)
     score = commands.add_parser("grade", help="Collect and evaluate one workspace")
     score.add_argument("--package", type=Path, required=True)
     score.add_argument("--workspace", type=Path, required=True)
@@ -37,6 +44,10 @@ def main() -> int:
         sub.add_argument("--visual-judge", choices=("none", "local", "vlm"), default="none")
         sub.add_argument("--registry-version")
         sub.add_argument("--collect-only", action="store_true")
+        sub.add_argument("--mode5-profile", choices=("auto", "community-docker"),
+                         default="auto")
+        sub.add_argument("--mode5-state-dir", type=Path)
+        sub.add_argument("--docker", default="docker")
     summary = commands.add_parser("summarize")
     summary.add_argument("job", type=Path)
     args = vars(parser.parse_args())
@@ -61,12 +72,36 @@ def main() -> int:
                "--jobs-dir", str(args["jobs_dir"].resolve()),
                "--job-name", args["job_name"], "--n-concurrent", str(args["n_concurrent"]),
                "--verifier", "evalsys.harbor.verifier:SWEGameVerifier"]
-        for key in ("engine", "visual_judge", "registry_version", "collect_only"):
+        for key in ("engine", "visual_judge", "registry_version", "collect_only",
+                    "mode5_profile", "mode5_state_dir", "docker"):
             if args[key] is not None:
-                cli += ["--verifier-kwarg", f"{key}={json.dumps(args[key])}"]
+                value = str(args[key]) if isinstance(args[key], Path) else args[key]
+                cli += ["--verifier-kwarg", f"{key}={json.dumps(value)}"]
         result = None
+        child_env = None
+        automatic_state = (
+            args["mode5_state_dir"].expanduser().resolve()
+            if args["mode5_state_dir"] else Path.home() / ".cache" / "gamebench" / "mode5"
+        )
+        if args["mode5_profile"] == "community-docker" or (
+            args["mode5_profile"] == "auto" and (automatic_state / "license-provider.json").is_file()
+        ):
+            state = (
+                args["mode5_state_dir"].expanduser().resolve()
+                if args["mode5_state_dir"]
+                else Path.home() / ".cache" / "gamebench" / "mode5"
+            )
+            license_config = json.loads(
+                (state / "license-provider.json").read_text(encoding="utf-8")
+            )
+            if license_config.get("provider") == "floating":
+                endpoint = str(license_config.get("endpoint") or "")
+                if not endpoint or "\n" in endpoint or "\r" in endpoint:
+                    parser.error("active floating Unity license endpoint is invalid")
+                child_env = os.environ.copy()
+                child_env["GB_UNITY_FLOATING_ENDPOINT"] = endpoint
         try:
-            code = subprocess.call(cli)
+            code = subprocess.call(cli, **({"env": child_env} if child_env else {}))
         finally:
             if job.exists():
                 result = summarize(job)

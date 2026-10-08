@@ -1,0 +1,417 @@
+{
+  "games": {
+    "3d_platformer": {
+      "calibration_status.json": {
+        "sha256": "4cc9d26e92014aa42febf3c34f682d784e7fefd7d57ad4365197e11e85b31544",
+        "size": 555
+      },
+      "suite.json": {
+        "sha256": "159bad508ebb944880ad99f73477901209ba949982dab04a8e2b49d62af18852",
+        "size": 49020
+      }
+    },
+    "arc_wing": {
+      "calibration_status.json": {
+        "sha256": "aa9bdce8966fae2389f50ca124c2fd80fe2ea943fbb24d8013d9752c35b1f815",
+        "size": 401
+      },
+      "suite.json": {
+        "sha256": "f5c3ac17ec16410cf85cb5a13e52371c8bb3fccafe67c04130f4af993a5b7e24",
+        "size": 20383
+      }
+    },
+    "ballast_yard": {
+      "calibration_status.json": {
+        "sha256": "fcd309b9be87123115340fa1e73d74a70b1990f5ea67d0888dc574f96e05ca6e",
+        "size": 495
+      },
+      "suite.json": {
+        "sha256": "6944ea8a1d938b7f5b26d4acd003c85cc861f8004c171faeca16d293f8646daa",
+        "size": 24442
+      }
+    },
+    "bush_522": {
+      "calibration_status.json": {
+        "sha256": "c5ff2762bcf9bb56d680ad69657f7a235460d047ea87faa7712dbc58a9829532",
+        "size": 445
+      },
+      "suite.json": {
+        "sha256": "c7e33182b65bb52b71568e3f5c9d364b918ce9490c304f4dd39de05815a50d8d",
+        "size": 67212
+      }
+    },
+    "canopy_dash": {
+      "calibration_status.json": {
+        "sha256": "82db188ef58b1f3c0bcc1c690ebbb919bf91efda893d70cac80ea620da20e534",
+        "size": 463
+      },
+      "suite.json": {
+        "sha256": "9df939c4d1c57069b73a135d39046cdf49f3f949e63f6d84ee55b68457b39a67",
+        "size": 23846
+      }
+    },
+    "cat_defense": {
+      "calibration_status.json": {
+        "sha256": "8d8238e63d636161a1a742b06407996121ef77df641dc083a1a7bdd248f1c8a4",
+        "size": 402
+      },
+      "suite.json": {
+        "sha256": "21004817ef673cf8767153b34181e0dbde6cffe37a6d10791ea85c222b773d60",
+        "size": 24854
+      }
+    },
+    "city_delivery": {
+      "calibration_status.json": {
+        "sha256": "5aa9798aea2e5c4eb6bd62e4eb0802fcad40e7c081e7343eb72e575d05e8054f",
+        "size": 415
+      },
+      "suite.json": {
+        "sha256": "3bbda55b7e8c3596e1cbee7bf72cf3ac4553cf4bbcf08348377d2a4cfebcc6f3",
+        "size": 21106
+      }
+    },
+    "citycab_rush": {
+      "calibration_status.json": {
+        "sha256": "34171c57848df2cf501279e90bbd3f803a4dfce60d76d94d9ba6c206ac94d906",
+        "size": 456
+      },
+      "suite.json": {
+        "sha256": "e78ca319dac3ec1dcb998002111aa29233004daa85bd282b2e4874f2c671aeef",
+        "size": 42693
+      }
+    },
+    "cyber_survival": {
+      "calibration_status.json": {
+        "sha256": "0a62cf74c45ba1c3459d62b265dbdc1440ea9c180a210338d6818f9fe7fdd80c",
+        "size": 495
+      },
+      "suite.json": {
+        "sha256": "39e7d1ecca49b4f245e438bd46f7c6a645e4b99a9b5170dbaa0069d51cf5ded0",
+        "size": 27568
+      }
+    },
+    "deepgrid": {
+      "calibration_status.json": {
+        "sha256": "7fd694ea554de1d7cfd67b1b0215c5f5555900dbf848cc748074a0c71080a084",
+        "size": 515
+      },
+      "suite.json": {
+        "sha256": "25f18aaf98682faea55687b7572a8f30d8ffbb591cfa2111b8acc62d55912655",
+        "size": 47669
+      }
+    },
+    "dogwalk": {
+      "calibration_status.json": {
+        "sha256": "36d654fe1b62459be8ab24c1c8c9252e4f369841e11d12ae44f4502916adb05c",
+        "size": 412
+      },
+      "suite.json": {
+        "sha256": "9547d219cedbb8a020446c7f8d59351d86709f66f3fa42df88fdffbd731a13f9",
+        "size": 26043
+      }
+    },
+    "dont_stop": {
+      "calibration_status.json": {
+        "sha256": "175be023d30254faada187e91d7b283d0db837c988a23c3c99935921bb450e42",
+        "size": 445
+      },
+      "suite.json": {
+        "sha256": "dd7d0a26d511264aa50cf52c092be73ebbf95365153f5929ec86a58cf9aa82d3",
+        "size": 76617
+      }
+    },
+    "dungeon_escape": {
+      "calibration_status.json": {
+        "sha256": "3332ce208a8cb9adfbde3a4e10e4ae958d675a9d71c134680c7b51d3d45023cc",
+        "size": 411
+      },
+      "suite.json": {
+        "sha256": "9bb78f4c957b6ea8e4158a941ef6d31041554bdce15d7be83a7c31f0529c8cae",
+        "size": 35892
+      }
+    },
+    "ember_and_tide": {
+      "calibration_status.json": {
+        "sha256": "d6a6eebaebfa327b0b1d134d49fa15d1ebf02ee46b1f9f6739aa7167ec6574b4",
+        "size": 582
+      },
+      "suite.json": {
+        "sha256": "efd6d6bf10f23e2c976f198975f580b9b718fafa9bab3f1b811701d3d9f802c2",
+        "size": 47032
+      }
+    },
+    "gentlemans_adventure": {
+      "calibration_status.json": {
+        "sha256": "c2e5286a459c0cee77c0c91ee25bc7be76a18e7bc0a88e7537a81895085f06cf",
+        "size": 495
+      },
+      "suite.json": {
+        "sha256": "e6453104245debe909ece8bae8e89bef43c14a1f694b31c46cfa245aa274ab4d",
+        "size": 28125
+      }
+    },
+    "gunfire_dungeon": {
+      "calibration_status.json": {
+        "sha256": "38bd061b1948ae9538591eba8ab72633c07566987f7a121dad5d20597bee8242",
+        "size": 497
+      },
+      "suite.json": {
+        "sha256": "36871ea3828dfe577f3c10a6195d9ff9a679b4804d1b516b0f8ac6b89a69b2ab",
+        "size": 110595
+      }
+    },
+    "harvest_ledger": {
+      "calibration_status.json": {
+        "sha256": "ea57c17a4625ce3f726f0a007317dcc7b835558e197ae23ee848446a3f826468",
+        "size": 486
+      },
+      "suite.json": {
+        "sha256": "548297e3195aebcc9c5acc5243ae40ec37656d18a06b7c3dbb6b945cc7e4d3f0",
+        "size": 34706
+      }
+    },
+    "hazard_circuit": {
+      "calibration_status.json": {
+        "sha256": "7c76b03d8a9bf8d15398f55a709015b919e33d6b15abe0a01f4233545736366c",
+        "size": 609
+      },
+      "suite.json": {
+        "sha256": "be27f5298eb8c5c776b185375afe9d87bc4e337e59a5f77ff0840a21f109e624",
+        "size": 41881
+      }
+    },
+    "hive_flight": {
+      "calibration_status.json": {
+        "sha256": "0cb96d3406675dc62dd3e32dcd540f261b0cd312994f3ceed8fdf638d90efbda",
+        "size": 452
+      },
+      "suite.json": {
+        "sha256": "4a2a7b53a91e97b64e5c6d048472dc3df7b320033657bcbe0daca9b5ec51490e",
+        "size": 18852
+      }
+    },
+    "hurry_curry": {
+      "calibration_status.json": {
+        "sha256": "b3113b0d6e731dfb38b5a0f0284df94bd4ac128e2a0b2f9a27493a538f93a321",
+        "size": 457
+      },
+      "suite.json": {
+        "sha256": "83a7991014c3318de032212b9ed14fffcc6c72dac88e085b5ae3eee5a8eee895",
+        "size": 30985
+      }
+    },
+    "kindle_relay": {
+      "calibration_status.json": {
+        "sha256": "c43b0f8ee6a6ae9c0c0af1972e18d487796749d91e7ce42760a3f5fc2b005ef3",
+        "size": 538
+      },
+      "suite.json": {
+        "sha256": "8588454e4c4f131a5f217fdacfd715c25103fd68c345f6467e96b31938896bf0",
+        "size": 36547
+      }
+    },
+    "ninja_roguelite": {
+      "calibration_status.json": {
+        "sha256": "1a3357d54946cb09e05de77a970c1c6c58837b5138d4fac4977d719dfbcd70e6",
+        "size": 472
+      },
+      "suite.json": {
+        "sha256": "277cde8e92d82f4af09d215318f40870fa4ac6544f222eaafa2c2e2647e7066f",
+        "size": 38887
+      }
+    },
+    "pixel_platformer": {
+      "calibration_status.json": {
+        "sha256": "98ae20402fa5babb69f040389dac264144fbbbcfa68a08e51a5f1c1cc805c4ba",
+        "size": 472
+      },
+      "suite.json": {
+        "sha256": "97afc4aa4de10443cca815001ba6733760f2fc8cca3187fef0a93b0cec257939",
+        "size": 28284
+      }
+    },
+    "pixel_platformer_v2": {
+      "calibration_status.json": {
+        "sha256": "9eefb866fb8268c59c18a510063117d0502ce209233a77baedf4b2da09f21fe8",
+        "size": 481
+      },
+      "suite.json": {
+        "sha256": "2c5d8007d964b86436d38d8988c8f9b57b19d8ba91bab1544678beec1913ba16",
+        "size": 21504
+      }
+    },
+    "pixel_sabotage": {
+      "calibration_status.json": {
+        "sha256": "c88a0349e7593dcb4965a8373f1341fb5960b8f5e7f6c6ed8a357c915bc8967a",
+        "size": 484
+      },
+      "suite.json": {
+        "sha256": "3bb2914b3d6ecbb35a956cdf986ea7a11fafd8339d13b9f47875cc3d3df13464",
+        "size": 26942
+      }
+    },
+    "pulse_lane": {
+      "calibration_status.json": {
+        "sha256": "246da498a67ae12f47fca0a6b998084a2d50bcee1a574c829c87294658f02fa9",
+        "size": 451
+      },
+      "suite.json": {
+        "sha256": "3bf9e08f4e7dce31825fac7502a3d4c37d10bcf3b10a5dfbc146cf35c044b800",
+        "size": 35466
+      }
+    },
+    "racing": {
+      "calibration_status.json": {
+        "sha256": "168929e1cef9d21091b3271d27e232bab3ef615c0fa95954e1a5534f9180454e",
+        "size": 425
+      },
+      "suite.json": {
+        "sha256": "5645f15f257a976794dcafc3e084954c3f82f458caad9901ab03baede48b55c6",
+        "size": 27366
+      }
+    },
+    "relic_runner": {
+      "calibration_status.json": {
+        "sha256": "34a24b49af81ba76d8ca6a40f3f49d70b00986f12e9f31e7b1cc4f4c24e4d740",
+        "size": 472
+      },
+      "suite.json": {
+        "sha256": "8338cb2bc34bd242fb5dfe85a4c8af4581fadd13b4a0e59c60b6b2241c04d79e",
+        "size": 32240
+      }
+    },
+    "sands_of_the_restless": {
+      "calibration_status.json": {
+        "sha256": "42006693da70d12518ab7af6696c77a65807095390b5e81fb2a8d3377e696324",
+        "size": 462
+      },
+      "suite.json": {
+        "sha256": "a89fc6d71428fc090945f704411f24d5836e8ab7388ca34f2f39920627d19ec3",
+        "size": 28040
+      }
+    },
+    "shadow_walker": {
+      "calibration_status.json": {
+        "sha256": "d415566490767d2e6856e35740fb3eeff2ecd5b4a9fcdace6741acbd6a745bfa",
+        "size": 472
+      },
+      "suite.json": {
+        "sha256": "569741648d23d4c7168b1062f0a3f0f0ff0e06ee8f80862affffb79c4307f46c",
+        "size": 24222
+      }
+    },
+    "soccer_course": {
+      "calibration_status.json": {
+        "sha256": "cf4cc59ab7e96e07831d09c4ca9948df872c00d247477c21844c7c64fe70f5c9",
+        "size": 469
+      },
+      "suite.json": {
+        "sha256": "1958e1ec6353dfbae2690a77546c8569210ec304a4f609c07a3f28909813e794",
+        "size": 22620
+      }
+    },
+    "sprout_market": {
+      "calibration_status.json": {
+        "sha256": "f2a3f6c299c3c05bb5d126c825f10b264a8d4b29a5d65989cc04e75d18f283ae",
+        "size": 547
+      },
+      "suite.json": {
+        "sha256": "ef08fb77566826a46e4c22a17433852aee0bebca21476b7c902324c23fa3b208",
+        "size": 34607
+      }
+    },
+    "super_dungeon_delve": {
+      "calibration_status.json": {
+        "sha256": "10797ee7c3ce9b7ebeb867e4742ffd5a2922ce1030c5251cb18f72b55a5b6cc5",
+        "size": 485
+      },
+      "suite.json": {
+        "sha256": "1cbd6cf8ca9857d7d92864680107265dae92a3d7c75c8305e8d46a0d45e7d2c2",
+        "size": 21446
+      }
+    },
+    "terraforge": {
+      "calibration_status.json": {
+        "sha256": "7e401eeab61316e1b7500e3471b0d00ce52e95c4046c86fae41042e781d0ebd9",
+        "size": 461
+      },
+      "suite.json": {
+        "sha256": "3cce89a806f72521ddc0d226fbfee003e2724b3b41014fd82579982a669ae0d9",
+        "size": 34732
+      }
+    },
+    "tiny_rts": {
+      "calibration_status.json": {
+        "sha256": "81e106bd43d377cabddca67541c90a65411716f10e85f1f252286131e97ab989",
+        "size": 394
+      },
+      "suite.json": {
+        "sha256": "b0f4cbca806ac8ca922dc9242e86192f8c19d2b5f1dbcc92ee972749b3e33093",
+        "size": 35352
+      }
+    },
+    "toon_shooter": {
+      "calibration_status.json": {
+        "sha256": "f93678a43ebb15ea9e97a23d8da23d49a4fd81bf0775d528857d12d176f7a696",
+        "size": 456
+      },
+      "suite.json": {
+        "sha256": "8cbb43d9dac98db067544468a6c59f487026fd6352895525c1ff76a0a7ffb8f2",
+        "size": 372477
+      }
+    },
+    "twin_holds": {
+      "calibration_status.json": {
+        "sha256": "e7361330c26c1e6a22ca84323364bdda6b511c782785fd47b811126181e6590b",
+        "size": 442
+      },
+      "suite.json": {
+        "sha256": "d277b47948e39fc75d59cf4ac50a7ea942a93c4b18aee4b915c8f3ec06564df0",
+        "size": 34527
+      }
+    },
+    "vaultline": {
+      "calibration_status.json": {
+        "sha256": "5897fadf5c3f7334996573a9be52fa1d4364c9ad864743e38ccc86d637f8a38f",
+        "size": 399
+      },
+      "suite.json": {
+        "sha256": "50eb557ed0bd91e8ea1d620d8fa043cfb7b056460a3dc83363bff65821211b94",
+        "size": 22172
+      }
+    },
+    "volley_break": {
+      "calibration_status.json": {
+        "sha256": "a5eb0bc2153efc8d1f8bfd6b3e164bcb29264d4e27d4e7bb40f953e21357ece6",
+        "size": 457
+      },
+      "suite.json": {
+        "sha256": "e78974bd5eb44a0002bce65c91b4ad0d757c0be42a2ad8d94c42185ce47c5553",
+        "size": 27798
+      }
+    },
+    "where_the_dead_lie": {
+      "calibration_status.json": {
+        "sha256": "f338c05e4bd4e2fde81955c1acd55b5cc50388f2fec1994aba8b4d715ee6401b",
+        "size": 480
+      },
+      "suite.json": {
+        "sha256": "9966f97ea634fe63a3cb6dce68aeca748464c344722f3955a1b1ac5e0c98479b",
+        "size": 27140
+      }
+    },
+    "wizard_chase": {
+      "calibration_status.json": {
+        "sha256": "4ef29ab32512f316341ec5d015d3227c1dc667c9021d5becaba4068f998b75ed",
+        "size": 523
+      },
+      "suite.json": {
+        "sha256": "571447f77d897f36a52729348b24c1a5ef70da72df65062bb9555e917c50edbe",
+        "size": 42154
+      }
+    }
+  },
+  "schema_version": 1,
+  "source_commit": "01f4a2c1254fe98659a72e1ae61c523344475a36",
+  "version": "2026-10.mode5-calibrated-v3"
+}

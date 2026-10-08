@@ -1,0 +1,14 @@
+{
+  "blockers": [],
+  "game_id": "sands_of_the_restless",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "sands_of_the_restless-c1-necropolis_courtyard_quota",
+    "sands_of_the_restless-c2-chamber_of_ascent_quota",
+    "sands_of_the_restless-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:1e4966fa5702133f5b6cd75ea0cfe31da571195d266954f5eee9b195b854bf05"
+}

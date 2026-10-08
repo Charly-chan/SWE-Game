@@ -1,6 +1,9 @@
 
 
 
+"""Mode-5 Community execution environment classification."""
+
+
 from __future__ import annotations
 
 import os
@@ -44,6 +47,7 @@ class UnityEnvironmentProfile:
     license_mechanism: str = ""
     certification_record_digest: str = ""
     preflight_passed: bool = False
+    paper_compatible: bool = False
 
     def to_dict(self) -> dict[str, Any]:
         value = asdict(self)
@@ -54,41 +58,28 @@ class UnityEnvironmentProfile:
     def readiness_errors(self) -> tuple[str, ...]:
         errors: list[str] = []
         required = {
-            "guest_os": self.guest_os,
-            "kernel": self.kernel,
-            "hypervisor": self.hypervisor,
             "unity_changeset": self.unity_changeset,
-            "package_lock_digest": self.package_lock_digest,
             "image_digest": self.image_digest,
             "display": self.display,
             "renderer": self.renderer,
-            "mesa_version": self.mesa_version,
-            "graphical_profile": self.graphical_profile,
             "license_mechanism": self.license_mechanism,
-            "certification_record_digest": self.certification_record_digest,
         }
         errors.extend(name for name, value in required.items() if not value)
-        if self.environment_class != "linux-vm-certified":
+        if self.environment_class != "community-docker":
             errors.append("environment_class")
         if self.editor_version != UNITY_V2_CANDIDATE_VERSION:
             errors.append("editor_version")
-        if self.certification_status != "certified" or not self.certified:
-            errors.append("certification_status")
-        if not self.score_eligible:
-            errors.append("score_eligible")
+        if self.network_policy != "candidate-and-evaluator-offline":
+            errors.append("network_policy")
         if not self.preflight_passed:
             errors.append("preflight_passed")
-        if not self.unity_modules:
-            errors.append("unity_modules")
-        if self.network_policy != "loopback-only":
-            errors.append("network_policy")
-        for name in ("package_lock_digest", "image_digest", "certification_record_digest"):
-            if getattr(self, name) and not str(getattr(self, name)).startswith("sha256:"):
-                errors.append(name + "_format")
-        limits = self.limits or {}
-        for name in ("cpus", "memory_mb", "disk_mb", "wall_seconds"):
-            if int(limits.get(name, 0) or 0) <= 0:
+        if self.paper_compatible:
+            errors.append("paper_compatible")
+        for name in ("cpus", "memory_mb", "wall_seconds"):
+            if int((self.limits or {}).get(name, 0) or 0) <= 0:
                 errors.append("limits." + name)
+        if self.image_digest and not self.image_digest.startswith("sha256:"):
+            errors.append("image_digest_format")
         return tuple(dict.fromkeys(errors))
 
     @property
@@ -116,8 +107,8 @@ def detect_unity_environment() -> UnityEnvironmentProfile:
             environment_class="local-windows",
             platform=platform.platform(),
             detail=(
-                "Windows is a static/unit-test host only; score-eligible Unity import, "
-                "build, player execution, and capture require linux-vm-certified"
+                "Windows is a static/unit-test host only; Unity import, build, "
+                "player execution, and capture run in the Community Docker evaluator"
             ),
         )
     if _is_wsl():
@@ -135,13 +126,13 @@ def detect_unity_environment() -> UnityEnvironmentProfile:
             profile_id="local-linux-uncertified",
             environment_class="local-linux-uncertified",
             platform=platform.platform(),
-            detail="Linux host has no certified disposable-VM profile",
+            detail="Linux host is not the Community Docker evaluator",
         )
     return UnityEnvironmentProfile(
         profile_id="unsupported-local-platform",
         environment_class="unsupported-local-platform",
         platform=platform.platform(),
-        detail="Mode 5 runtime is supported only by a certified Ubuntu VM",
+        detail="Mode 5 runtime requires the Community Docker evaluator",
     )
 
 
@@ -192,6 +183,7 @@ def coerce_environment_profile(
         license_mechanism=str(value.get("license_mechanism") or ""),
         certification_record_digest=str(value.get("certification_record_digest") or ""),
         preflight_passed=bool(value.get("preflight_passed", False)),
+        paper_compatible=bool(value.get("paper_compatible", False)),
     )
 
 
