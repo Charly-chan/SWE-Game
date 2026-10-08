@@ -1,6 +1,6 @@
 # 游戏总览
 
-SWE-Game 包含 41 款参考游戏。下表列出游戏类型、工程规模和参考录像；各游戏截图见后续条目。
+SWE-Game 包含 41 款参考游戏。下表列出游戏类型和视角；各游戏截图见后续条目。
 
 视角分布：2D 24 款、3D 9 款、3D first-person 5 款、3D third-person 3 款。
 
@@ -94,8 +94,6 @@ SWE-Game 包含 41 款参考游戏。下表列出游戏类型、工程规模和�
 
 **Canopy Dash — game design document** · Behind-the-back 3D endless runner (three-lane, jump / slide / turn) · 3D
 
-
-_磁盘上没有任何截图——这个工程从未被抓过帧。_
 
 ![canopy_dash](docs/assets/gallery/canopy_dash.png)
 
@@ -385,8 +383,6 @@ First-person voxel sandbox with a finite, seeded crafting objective · 3D first-
 
 **Bannerfall: Tiny Kingdoms** · 2D 俯视即时战略（RTS），键盘完备操作，英雄带队制。 · 2D
 
-
-_磁盘上没有任何截图——这个工程从未被抓过帧。_
 
 ![tiny_rts](docs/assets/gallery/tiny_rts.png)
 
