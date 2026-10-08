@@ -35,8 +35,8 @@ and art (45%). Items receive direct continuous 0–1 scores
 under the rubric’s full, partial, and zero-credit criteria and applicable caps.
 The frozen scoring policy distinguishes missing core relationships from local
 finishing deficiencies using their importance, scope, and severity. The
-`2026-10-08.demonstrated-quality-v4` policy retains lower direct partial-credit
-references and declared deficiency ceilings. Every applicable item receives a
+`2026-10-09.demonstrated-quality-v5` policy gives more credit to substantive
+partial completion while retaining the declared deficiency ceilings. Every applicable item receives a
 numeric score: entirely unshown achievement receives 0, partial demonstrations
 earn their evidenced credit, and 1 requires every applicable full-credit condition
 to be demonstrated. Only evidenced conditional inapplicability uses null. See the
