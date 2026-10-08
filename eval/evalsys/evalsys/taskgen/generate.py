@@ -8,6 +8,7 @@ import time
 from ..frozen_data import ROOT, install_task, load_manifest
 from .modes import Mode, parse_mode
 from .package import TaskPackage, write_json
+from .visual_materials import freeze_visual_rubric
 
 PLAYTEST_KIT_CREATED_AT = '.created_at'
 
@@ -45,6 +46,8 @@ def generate_task(game: str | Path, *, mode: str | Mode, out: str | Path,
     dest = Path(out).absolute()
     try:
         install_task(game_id, variant, dest)
+        if resolved.id in {"brief", "gdd", "skeleton", "port"} and reference_video:
+            freeze_visual_rubric(dest / "hidden", game_id)
         package = TaskPackage.read(dest)
     except (OSError, ValueError, RuntimeError) as exc:
         raise GenerateError(str(exc)) from exc

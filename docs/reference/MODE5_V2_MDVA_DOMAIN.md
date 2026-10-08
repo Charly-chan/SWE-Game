@@ -1,4 +1,4 @@
-# Mode 5-v2: objective 70 + structure VLM 15 + MDVA VLM 15
+# Mode 5-v2: objective 70 + structure VLM 15 + visual-quality VLM 15
 
 普通使用者请先看 [Mode 5 评测规范](MODE5_EVALUATION.md) 和
 [Mode 5 使用手册](MODE5_RUNBOOK.md)；本文保留 v2 域隔离的设计细节。
@@ -10,8 +10,8 @@ Registry: `2026-09-20.mode5-mdva-domain1`
 Mode 5 used to mix evaluator capture and the VLM reading inside the 15-point
 visual category, while static hard gates could prevent the visual reading from
 running at all. This revision keeps two isolated VLM leaves: 15 points for
-cross-engine structure and 15 points for game-rubric MDVA. The MDVA leaf keeps
-the four M/D/V/A groups underneath it.
+cross-engine structure and 15 points for game-rubric visual quality. The visual-quality leaf keeps
+the four paper-defined rubric groups underneath it.
 
 ## Domains and gates
 
@@ -47,20 +47,20 @@ Unity witness at the same normalized whole-run positions. Hidden-scenario frames
 are not mixed into this progression comparison. Legacy results without a full
 candidate film may fall back to explicitly labelled witness screenshots.
 
-### MDVA VLM domain (15 points)
+### visual-quality VLM domain (15 points)
 
 The VLM domain is one score leaf, `unity_vlm`, and is internally grouped as:
 
 | Group | Meaning | Weight inside VLM |
 |---|---|---:|
-| M | mechanic presentation and readable action | 10% |
-| D | design/content/layout presentation | 18% |
-| V | visual fidelity, UI, feedback and atmosphere | 27% |
-| A | audiovisual polish and overall finish | 45% |
+| M | Visible mechanics | 10% |
+| D | Design and content | 18% |
+| V | Functional visual communication | 27% |
+| A | Art | 45% |
 
 The evaluator owns the capture. The judge receives candidate frames/video,
 reference frames/video, frozen rubric clauses, task context and evaluator-owned
-runtime coverage facts. Mechanics and success are never inferred from pixels;
+runtime coverage facts. Hidden behavior and input causality are not inferred from pixels;
 an objective completion result may only resolve whether an exhausted scope is a
 measured shortfall or missing evidence.
 

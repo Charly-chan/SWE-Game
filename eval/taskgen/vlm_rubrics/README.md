@@ -6,3 +6,29 @@ the task video and evaluator-captured candidate gameplay.
 
 The response schema, missing-evidence handling, and weights are documented in the
 [scoring specification](../../../docs/reference/HIERARCHICAL_MULTI_EVIDENCE_SCORECARD.md).
+
+## Demonstrated visual quality
+
+The `2026-10-08.demonstrated-quality-v4` policy assigns a direct continuous score
+from 0 to 1 to every applicable item. Entirely unshown achievement receives 0;
+partial demonstrations earn credit for the required achievements they show.
+Full credit requires positive evidence for every applicable full-credit condition.
+Only explicitly conditional, evidenced not-applicable items use null.
+
+Record unshown requirements in `missing_evidence` and condition-level coverage
+checks. Record only observed shortcomings in `deficiencies`; missing evidence
+does not prove that a feature is absent. The policy takes precedence over older
+item-level wording that treated missing evidence as an unscored item. Missing
+recordings, provider failures and invalid judge responses remain incomplete
+assessments.
+
+The frozen policy provides direct partial-credit references and each item retains
+its declared deficiency ceilings. Apply a ceiling only when its triggering
+condition is observed. The host averages applicable items, including valid zero
+scores, without an exponent or alternative-score conversion. Group weights are
+visible mechanics 10%, design and content 18%, functional visual communication
+27%, and art 45%.
+
+New task packages freeze the policy and rubric version. Rejudging retained
+recordings under this policy produces a new assessment; previously saved
+judgments keep their original evidence and scores.

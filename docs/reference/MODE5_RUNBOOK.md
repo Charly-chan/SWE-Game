@@ -139,7 +139,7 @@ $env:MODE5_VLM_KEY = '<secret>'
 | counterfactual | intervention result |
 | Objective 汇总 | `objective_total`、各 item |
 | structure VLM | cross-engine fidelity evidence |
-| MDVA | `mdva_judgments/`、VLM response evidence |
+| 视觉质量 | `mdva_judgments/`、VLM response evidence |
 | 最终输出 | `report.json`、`report.md`、artifact manifest |
 
 ## 9. 如何读报告
@@ -175,7 +175,7 @@ structure_vlm_total.score: 0
 mdva_vlm_total.score: 7.4
 ```
 
-结构域 0 是候选通关路径失败造成的真实 0；MDVA 仍可独立评价画面。
+结构域 0 是候选通关路径失败造成的真实 0；视觉质量仍可独立评价画面。
 
 ### 认证环境失败
 

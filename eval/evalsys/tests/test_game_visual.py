@@ -8,9 +8,9 @@ from unittest.mock import patch
 import pytest
 
 from evalsys.scard.game_visual import (
-    GROUP_WEIGHTS, PROTOCOL, RESPONSE_SCHEMA_VERSION, SCORE_EXPONENT,
+    GROUP_WEIGHTS, PROTOCOL, RESPONSE_SCHEMA_VERSION,
     aggregate_game_visual, build_response_contract, build_response_json_schema,
-    final_credit, judge_game_visual,
+    final_credit, judge_game_visual, visual_report,
     validate_judgment, validate_response_items,
 )
 from evalsys.taskgen.scorecard import (
@@ -93,12 +93,19 @@ def reading(q=.8):
     return aggregate_game_visual(rubric, rows)
 
 
-def test_curve_comparison_applies_caps_after_each_curve_without_cubing_the_cap():
+@pytest.mark.parametrize("score", [0.0, .2, .5, .8, 1.0])
+def test_direct_credit_preserves_rubric_score(score):
+    assert final_credit(score, [], []) == score
+
+
+def test_direct_credit_applies_only_triggered_deficiency_caps():
     item = criterion()
     row = validate_judgment(judgment(item, .9, capped=True), item, {"C001F0001"})
-    assert row["variants"] == {"direct": .5, "squared": .5, "cubic": .5}
-    assert final_credit(.8, [], item["caps"], exponent=1) == .8
-    assert final_credit(.8, [], item["caps"], exponent=3) == pytest.approx(.512)
+    assert row["attainment"] == .9
+    assert row["credit"] == .5
+    assert "variants" not in row
+    assert final_credit(.4, [item["caps"][0]["id"]], item["caps"]) == .4
+    assert final_credit(None, [], item["caps"]) is None
 
 
 @pytest.mark.parametrize(("q", "capped"), [(.8, False), (.9, True), (1.0, False)])
@@ -113,7 +120,6 @@ def test_v2_clause_ids_preserve_v1_scoring_exactly(q, capped):
     assert errors == {}
     assert rows[item["id"]]["attainment"] == v1["attainment"]
     assert rows[item["id"]]["credit"] == v1["credit"]
-    assert rows[item["id"]]["variants"] == v1["variants"]
     assert rows[item["id"]]["applied_caps"] == v1["applied_caps"]
     assert rows[item["id"]]["validation_shadow"]["score_equivalent"] is True
 
@@ -155,7 +161,85 @@ def test_v2_explicit_outcome_must_match_validated_fields():
         [item], {"C001F0001"}, "A",
     )
     assert normalized == {}
-    assert "disagrees with validated status measured" in errors["A1"]
+    assert "explicit measured/not_applicable outcome" in errors["A1"]
+
+
+def test_tiny_rts_resource_loop_gets_partial_credit_without_filmed_supply_limit():
+    item = next(r for r in json.loads((CORPUS / "tiny_rts/rubric.json").read_text())["requirements"]
+                if r["id"] == "M2")
+    row = v2_judgment(item, .75)
+    row.update(strengths=["Gathering increases resources; spending creates a new unit nearby."],
+               deficiencies=[], deficiency_checks=[],
+               missing_evidence="The adopted supply limit is never reached in the recording.",
+               score_rationale="The collection and spending loop is demonstrated; supply-limit blocking is unshown.")
+    row["high_score_checks"] = [
+        {"requirement_id": f"M2.high.{i}", "status": "supported" if i < 3 else "unknown",
+         "frames": ["C001F0001"] if i < 3 else [],
+         "observation": "Visible resource and unit consequence." if i < 3 else "No supply-limit event shown."}
+        for i in (1, 2, 3)
+    ]
+    rows, errors = validate_response_items(
+        {"schema_version": RESPONSE_SCHEMA_VERSION, "items": [row]},
+        [item], {"C001F0001"}, "M",
+    )
+    assert errors == {}
+    assert rows["M2"]["credit"] == .75
+    assert rows["M2"]["status"] == "measured"
+    assert rows["M2"]["deficiencies"] == []
+    row["attainment"] = 1
+    _, errors = validate_response_items(
+        {"schema_version": RESPONSE_SCHEMA_VERSION, "items": [row]},
+        [item], {"C001F0001"}, "M",
+    )
+    assert "Full attainment lacks full-credit evidence" in errors["M2"]
+
+
+def test_entirely_unshown_achievement_is_zero_and_stays_in_group_average():
+    item = criterion("V")
+    row = v2_judgment(item, 0)
+    row.update(evidence_frames=[], strengths=[], deficiencies=[], deficiency_checks=[],
+               missing_evidence="No frame shows the required interface state.",
+               score_rationale="None of the item's required achievement was demonstrated.")
+    row["high_score_checks"][0].update(status="unknown", frames=[], observation="Required state not shown.")
+    row["cap_checks"][0].update(frames=[], reason="Unshown state does not establish a hierarchy failure.")
+    response = {"schema_version": RESPONSE_SCHEMA_VERSION, "items": [row]}
+    rows, errors = validate_response_items(response, [item], {"C001F0001"}, "V")
+    assert errors == {}
+    assert rows["V1"]["credit"] == 0
+    rubric = {"requirements": [criterion(g) for g in GROUP_WEIGHTS]}
+    other = {i["id"]: validate_judgment(judgment(i, 1), i, {"C001F0001"})
+             for i in rubric["requirements"] if i["group"] != "V"}
+    result = aggregate_game_visual(rubric, {**other, **rows})
+    assert result.verdict is Verdict.PASSED
+    assert result.credit == pytest.approx(.73)
+    row["attainment"] = None
+    _, errors = validate_response_items(response, [item], {"C001F0001"}, "V")
+    assert "Applicable items need numeric attainment" in errors["V1"]
+    row.update(attainment=.1, evidence_frames=["C001F0001"])
+    _, errors = validate_response_items(response, [item], {"C001F0001"}, "V")
+    assert "Positive attainment needs demonstrated strengths" in errors["V1"]
+
+
+def test_canopy_completion_can_be_partial_when_arrival_is_unshown():
+    item = next(r for r in json.loads((CORPUS / "canopy_dash/rubric.json").read_text())["requirements"]
+                if r["id"] == "M5")
+    row = v2_judgment(item, .18)
+    row.update(strengths=["The success screen and R-key replay entry are visible."],
+               deficiencies=[], deficiency_checks=[],
+               missing_evidence="The endpoint arrival required by full_credit and its subsequent two seconds are unshown.",
+               score_rationale="The completion display earns credit, but the required arrival-to-result flow is unshown.")
+    row["high_score_checks"] = [
+        {"requirement_id": f"M5.high.{i}", "status": "supported" if i < 3 else "not_applicable",
+         "frames": ["C001F0001"],
+         "observation": "Success and replay entry are visible." if i < 3 else "The screen adopts no result statistics."}
+        for i in (1, 2, 3)
+    ]
+    rows, errors = validate_response_items(
+        {"schema_version": RESPONSE_SCHEMA_VERSION, "items": [row]},
+        [item], {"C001F0001"}, "M",
+    )
+    assert errors == {}
+    assert rows["M5"]["credit"] == .18
 
 
 def test_v2_cannot_select_a_non_registered_na_clause():
@@ -286,13 +370,30 @@ def test_continuous_group_weights_and_unknown_item_preserve_denominators():
     rows = {i["id"]: validate_judgment(judgment(i, .8 if i["group"] == "M" else 1), i, {"C001F0001"})
             for i in rubric["requirements"]}
     item = aggregate_game_visual(rubric, rows)
-    assert item.credit == pytest.approx(.9 + .1 * .8 ** SCORE_EXPONENT)
-    assert item.evidence["variants"]["direct"] == pytest.approx(.98)
+    assert item.credit == pytest.approx(.9 + .1 * .8)
+    assert item.evidence["scoring"]["method"] == "direct_continuous"
+    assert "variants" not in item.evidence
+    assert all("variants" not in group for group in item.evidence["groups"].values())
     del rows["V1"]
     missing = aggregate_game_visual(rubric, rows)
     assert missing.verdict is Verdict.INCONCLUSIVE
     assert missing.evidence["unmeasured"] == ["V1"]
     assert missing.evidence["groups"]["V"]["credit"] is None
+
+
+def test_retained_readings_keep_direct_credit_without_obsolete_diagnostics():
+    rubric = {"requirements": [criterion("A")]}
+    row = validate_judgment(judgment(rubric["requirements"][0], .8), rubric["requirements"][0], {"C001F0001"})
+    row["variants"] = {"direct": .8, "squared": .64, "cubic": .512}
+    result = aggregate_game_visual(rubric, {"A1": row}, evidence={
+        "score_curve": {"exponent": 1}, "variants": row["variants"],
+    })
+    assert result.credit == .8
+    assert result.evidence["criteria"]["A1"]["credit"] == .8
+    assert "variants" not in result.evidence["criteria"]["A1"]
+    assert "variants" not in result.evidence and "score_curve" not in result.evidence
+    assert "variants" in row  # Retained input evidence is not rewritten.
+    assert "direct rubric judgment" in "\n".join(visual_report(result))
 
 
 def test_not_applicable_needs_an_actual_conditional_clause_and_is_not_unknown():
@@ -315,9 +416,9 @@ def test_actual_visual_score_replaces_five_points_and_old_registry_stays_identic
     result.items.append(reading(.8))
     new = score_task_result(result)
     assert new["registry_version"] == MODE2_VLM_REGISTRY_VERSION
-    assert new["weighted_total"]["score"] == pytest.approx(round(old["weighted_total"]["score"] - 5 + 15 * .8 ** SCORE_EXPONENT, 3))
-    assert new["visual_total"]["score"] == pytest.approx(15 * .8 ** SCORE_EXPONENT)
-    assert new["visual_total"]["credit"] == pytest.approx(.8 ** SCORE_EXPONENT)
+    assert new["weighted_total"]["score"] == pytest.approx(round(old["weighted_total"]["score"] - 5 + 15 * .8, 3))
+    assert new["visual_total"]["score"] == pytest.approx(15 * .8)
+    assert new["visual_total"]["credit"] == pytest.approx(.8)
     assert new["weighted_total"]["headline_ceiling"] == 100
     assert new["strict"] == old["strict"]
     assert new["ranking_eligible"]
@@ -354,7 +455,7 @@ def test_new_visual_registries_preserve_each_modes_objective_axes(mode, registry
     old = score_task_result(result, registry)
     result.items.append(reading(.7))
     new = score_task_result(result)
-    assert new["visual_total"]["score"] == pytest.approx(15 * .7 ** SCORE_EXPONENT)
+    assert new["visual_total"]["score"] == pytest.approx(15 * .7)
     assert [row for row in new["axes"] if row["id"] != "task_visual"] == [
         row for row in old["axes"] if row["id"] != "visual_placeholder"]
     assert new["strict"] == old["strict"]
@@ -384,12 +485,23 @@ def test_frozen_corpus_contains_all_games_and_resolvable_reference_ids():
     count = 0
     for path in paths:
         rubric = json.loads(path.read_text())
+        policy = rubric["scoring_policy"]
+        assert policy["method"] == "direct_continuous"
+        assert policy["version"] == rubric["rubric_version"]
+        assert policy["range"] == [0, 1]
+        assert policy["version"] == "2026-10-08.demonstrated-quality-v4"
+        assert [row["credit_range"] for row in policy["direct_score_references"]] == [
+            [0.01, 0.05], [0.05, 0.20], [0.20, 0.40], [0.45, 0.65], [0.70, 0.90],
+        ]
+        assert set(policy["group_guidance"]) == set(GROUP_WEIGHTS)
+        assert "score_curve" not in rubric
         source = json.loads(path.with_name("source.json").read_text())
         ids = {row["id"] for row in source["reference_video"]["frames"] + source["provided_assets"]["frames"]}
         for item in rubric["requirements"]:
             count += 1
             assert item["group"] in GROUP_WEIGHTS
             assert item["high_score_requirements"]
+            assert all(0 <= cap["max_credit"] <= .15 for cap in item["caps"])
             for basis in item["basis"]:
                 assert set(basis.get("frame_ids", [])) <= ids
         for frame in source["provided_assets"]["frames"]:
@@ -404,10 +516,38 @@ def test_rubric_is_frozen_only_under_evaluator_hidden_directory(tmp_path):
     contract = json.loads((tmp_path / "hidden/vlm/response_contract.json").read_text())
     assert contract["schema_version"] == RESPONSE_SCHEMA_VERSION
     assert contract["requirements"][0]["response_ids"]["deduction_clauses"]
+    rubric = json.loads((tmp_path / "hidden/vlm/rubric.json").read_text())
+    assert contract["scoring_policy"] == rubric["scoring_policy"]
     assert not (tmp_path / "visible").exists()
     pkg = SimpleNamespace(manifest={"mode": "brief", "reference_video": "off"})
     with pytest.raises(ValueError, match="ablation"):
         prepare_visual_manifest(pkg, {}, tmp_path / "evidence")
+
+
+@pytest.mark.parametrize("mode", ["brief", "port"])
+def test_frozen_quality_policy_reaches_the_judge_and_report(mode, tmp_path):
+    rubric = json.loads((CORPUS / "shadow_walker/rubric.json").read_text())
+    policy = rubric["scoring_policy"]
+    item = criterion()
+    rubric["requirements"] = [item]
+    manifest = {"game_id": "shadow_walker", "mode": mode,
+                "game_rubric": rubric, "response_contract": build_response_contract(rubric),
+                "demonstrations": [{"id": "one"}]}
+
+    class Judge:
+        def score(self, prompt, images, folder):
+            request = json.loads("{\n" + prompt.rsplit("\n\n{\n", 1)[1])
+            assert request["scoring_policy"] == policy
+            assert request["requirements"][0]["full_credit"] == item["full_credit"]
+            return {"items": [judgment(item, .8)]}, {"requested_model": "test"}
+
+    with patch("evalsys.taskgen.visual_materials.prepare_candidate_frames", return_value=[{"id": "C001F0001"}]), \
+         patch("evalsys.taskgen.visual_materials.evidence_images", return_value=({}, [])):
+        result = judge_game_visual(manifest, tmp_path, judge=Judge())
+    assert result.verdict is Verdict.PASSED
+    assert result.credit == .8
+    assert result.evidence["scoring"]["policy_version"] == policy["version"]
+    assert "variants" not in result.evidence
 
 
 def test_judge_sees_all_segments_and_isolates_provider_failure_per_group(tmp_path):
@@ -455,19 +595,21 @@ def test_reference_frame_extraction_clamps_timestamp_to_last_decodable_frame(tmp
 
 def test_judge_permits_one_contract_repair_without_inventing_scores(tmp_path):
     item = criterion()
-    manifest = {"game_id": "fixture", "mode": "brief", "game_rubric": {"requirements": [item]},
+    policy = {"version": "test-direct-policy", "method": "direct_continuous"}
+    manifest = {"game_id": "fixture", "mode": "brief", "game_rubric": {"requirements": [item], "scoring_policy": policy},
                 "demonstrations": [{"id": "one"}]}
     calls = []
 
     class Judge:
         def score(self, prompt, images, folder):
             calls.append(prompt)
+            assert '"scoring_policy": ' + json.dumps(policy, indent=2).replace("\n", "\n  ") in prompt
             row = judgment(item, .8)
             if len(calls) == 1:
                 row["deficiencies"] = []
                 row["deduction_checks"] = []
             else:
-                assert "Partial attainment needs an observed deficiency" in prompt
+                assert "Sub-full attainment needs an observed deficiency or a specific unshown requirement" in prompt
                 assert "Do not invent a defect" in prompt
             return {"items": [row]}, {"requested_model": "test"}
 
@@ -476,7 +618,7 @@ def test_judge_permits_one_contract_repair_without_inventing_scores(tmp_path):
         result = judge_game_visual(manifest, tmp_path, judge=Judge())
     assert len(calls) == 2
     assert result.verdict is Verdict.PASSED
-    assert result.credit == pytest.approx(.8 ** SCORE_EXPONENT)
+    assert result.credit == pytest.approx(.8)
 
 
 def test_judge_retries_one_transient_transport_failure(tmp_path):
@@ -748,3 +890,42 @@ def test_mdva_responses_transport_honours_model_effort_and_json_contract(tmp_pat
     assert record["transport"] == "openai_responses"
     assert (tmp_path / "responses/request.json").is_file()
     assert (tmp_path / "responses/result.json").is_file()
+
+
+@pytest.mark.parametrize("mode,video,case_id,uses_vlm", [
+    ("brief", True, "", True), ("gdd", True, "", True),
+    ("skeleton", True, "", True), ("port", True, "", True),
+    ("brief", False, "", False), ("bugfix", True, "case-1", False),
+])
+def test_fixed_task_install_freezes_current_visual_policy(mode, video, case_id, uses_vlm, tmp_path):
+    from evalsys.taskgen.generate import generate_task
+    from evalsys.taskgen.package import write_json
+
+    old_rubric = {"game_id": "shadow_walker", "rubric_version": "frozen-release"}
+    def install(game_id, variant, dest):
+        (dest / "visible").mkdir(parents=True)
+        (dest / "hidden").mkdir()
+        for name in ("HANDOFF.md", "PROMPT.md", "visible/PROMPT.md"):
+            (dest / name).write_text("Fixed agent task\n")
+        (dest / "hidden/objective.json").write_text("fixed objective checks\n")
+        write_json(dest / "manifest.json", {"schema_version": 1, "game_id": game_id,
+                                             "mode": mode, "reference_video": "on" if video else "off"})
+        write_json(dest / "hidden/vlm/rubric.json", old_rubric)
+        write_json(dest / "hidden/vlm/response_contract.json", {"rubric_version": "frozen-release"})
+
+    with patch("evalsys.taskgen.generate.load_manifest", return_value={
+        "games": {"shadow_walker": {"cases": ["case-1"]}},
+    }), patch("evalsys.taskgen.generate.install_task", side_effect=install):
+        pkg = generate_task("shadow_walker", mode=mode, out=tmp_path / "task",
+                            reference_video=video, case_id=case_id)
+    rubric = json.loads((pkg.hidden / "vlm/rubric.json").read_text())
+    contract = json.loads((pkg.hidden / "vlm/response_contract.json").read_text())
+    if uses_vlm:
+        assert rubric["rubric_version"] == "2026-10-08.demonstrated-quality-v4"
+        assert contract["scoring_policy"] == rubric["scoring_policy"]
+        assert "score_curve" not in rubric
+    else:
+        assert rubric == old_rubric
+        assert contract == {"rubric_version": "frozen-release"}
+    assert (pkg.visible / "PROMPT.md").read_text() == "Fixed agent task\n"
+    assert (pkg.hidden / "objective.json").read_text() == "fixed objective checks\n"

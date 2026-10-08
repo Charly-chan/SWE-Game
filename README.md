@@ -112,9 +112,9 @@ The following tables reproduce **Table 3** of the [paper](https://arxiv.org/html
 Evaluation combines two evidence domains:
 
 - **Objective Behavioral Evaluation** executes the submitted project and checks input responses, observable mechanics, progression, and mode-specific requirements. Matched no-input controls help determine whether demonstrated behavior depends on player action.
-- **Perceptual Quality Assessment** assesses visual presentation, readability, and feedback from captured gameplay when a visual judge is enabled.
+- **Perceptual Quality Assessment** uses the paper’s four rubric groups: visible mechanics, design and content, functional visual communication, and art.
 
-The three construction tasks allocate 85 objective points and 15 game-specific VLM points. Bug Repair measures behavioral restoration and preservation. Godot-to-Unity Porting allocates 70 objective points, 15 structure VLM points, and 15 MDVA VLM points. Strict completion (`resolved`) is reported separately from the graded score.
+The three construction tasks allocate 85 objective points and 15 game-specific VLM points. Bug Repair measures behavioral restoration and preservation. Godot-to-Unity Porting allocates 70 objective points, 15 structure VLM points, and 15 visual-quality VLM points. Strict completion (`resolved`) is reported separately from the graded score.
 
 Visual judging is disabled by default. A complete construction or porting score requires VLM evidence; otherwise the composite remains null. See the [scoring specification](docs/reference/HIERARCHICAL_MULTI_EVIDENCE_SCORECARD.md) for weights and registries, and [paper Section 4.5](https://arxiv.org/html/2609.33678v1#S4.SS5) for human agreement studies. For reproducibility, record the evaluator commit, registry, model, harness, budget, input settings, and judge configuration.
 

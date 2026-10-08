@@ -1,4 +1,4 @@
-
+"""Game-specific visual readings for generation and cross-engine port tasks."""
 from __future__ import annotations
 
 import json
@@ -10,9 +10,8 @@ from ..verdict import Item, inconclusive, passed
 
 PROTOCOL = "2026-09-19.game-rubric-v1"
 GROUP_WEIGHTS = {"M": 0.10, "D": 0.18, "V": 0.27, "A": 0.45}
-
-
-SCORE_EXPONENT = 1
+GROUP_NAMES = {"M": "Visible mechanics", "D": "Design and content",
+               "V": "Functional visual communication", "A": "Art"}
 PROMPT_PATH = Path(__file__).with_name("game_visual_judge.md")
 RESPONSE_SCHEMA_VERSION = "2026-09-20.game-rubric-v2"
 
@@ -79,6 +78,7 @@ def build_response_contract(rubric):
         "schema_version": RESPONSE_SCHEMA_VERSION,
         "rubric_version": rubric.get("rubric_version"),
         "game_id": rubric.get("game_id"),
+        **({"scoring_policy": rubric["scoring_policy"]} if "scoring_policy" in rubric else {}),
         "requirements": [_v2_requirement(item) for item in rubric.get("requirements", [])],
     }
 
@@ -101,7 +101,7 @@ def build_response_json_schema(requirements):
             ] + (["event_witnesses"] if _requires_event_witness(item) else []),
             "properties": {
                 "item_id": {"const": item["id"]},
-                "outcome": {"enum": ["measured", "not_applicable", "unknown"]},
+                "outcome": {"enum": ["measured", "not_applicable"]},
                 "applicability": {
                     "type": "object", "additionalProperties": False,
                     "required": ["status", "condition_id", "observation"],
@@ -206,8 +206,8 @@ def normalize_v2_judgment(row, item):
     out = dict(row)
     out["id"] = row.get("item_id", row.get("id"))
     outcome = row.get("outcome")
-    if outcome not in {"measured", "not_applicable", "unknown"}:
-        raise ValueError("v2 item needs explicit measured/not_applicable/unknown outcome")
+    if outcome not in {"measured", "not_applicable"}:
+        raise ValueError("v2 item needs explicit measured/not_applicable outcome; unshown achievement scores 0")
     applicability = row.get("applicability")
     if isinstance(applicability, dict):
         out["applicability"] = applicability.get("status", "applicable")
@@ -268,10 +268,11 @@ def normalize_v2_judgment(row, item):
     return out
 
 
-def final_credit(attainment, applied_caps, caps, *, exponent=SCORE_EXPONENT):
+def final_credit(attainment, applied_caps, caps):
+    """Use the rubric judgment directly, bounded by observed deficiency caps."""
     if attainment is None:
         if applied_caps:
-            raise ValueError("Unknown evidence cannot trigger a deficiency cap")
+            raise ValueError("An unscored item cannot trigger a deficiency cap")
         return None
     if (type(attainment) not in (int, float) or not math.isfinite(attainment)
             or not 0 <= attainment <= 1):
@@ -279,7 +280,7 @@ def final_credit(attainment, applied_caps, caps, *, exponent=SCORE_EXPONENT):
     ceilings = {cap["id"]: cap["max_credit"] for cap in caps}
     if any(key not in ceilings for key in applied_caps):
         raise ValueError("Unknown cap id")
-    return min([attainment ** exponent] + [ceilings[key] for key in applied_caps])
+    return min([attainment] + [ceilings[key] for key in applied_caps])
 
 
 def validate_judgment(row, item, frame_ids):
@@ -327,18 +328,29 @@ def validate_judgment(row, item, frame_ids):
     if applicability == "not_applicable" and any(c["status"] != "not_applicable" for c in checks):
         raise ValueError("Not-applicable item cannot claim attainment")
     if q is None:
-        if applicability == "applicable" and not row.get("missing_evidence"):
-            raise ValueError("Unknown needs a specific coverage limitation")
+        if applicability == "applicable":
+            raise ValueError("Applicable items need numeric attainment; entirely unshown achievement scores 0")
     else:
-        if not refs or row.get("missing_evidence") or not row.get("score_rationale"):
+        missing = row.get("missing_evidence", "")
+        unshown = [c for c in checks if c["status"] == "unknown"]
+        positive = [c for c in checks if c["status"] in {"supported", "partial"}]
+        entirely_unshown = bool(unshown) and all(
+            c["status"] in {"unknown", "not_applicable"} for c in checks
+        )
+        if (not row.get("score_rationale")
+                or (not refs and not (q == 0 and entirely_unshown and missing))):
             raise ValueError("Measured attainment needs evidence and a rationale")
+        if unshown and (not missing or any(not c.get("observation") for c in unshown)):
+            raise ValueError("Unshown conditions need specific missing_evidence and observations")
+        if q > 0 and (not strengths or not positive):
+            raise ValueError("Positive attainment needs demonstrated strengths and a supported or partial condition")
         if q == 1:
-            if (deficiencies or caps or not strengths
+            if (deficiencies or caps or missing or not strengths
                     or not any(c["status"] == "supported" for c in checks)
                     or any(c["status"] not in {"supported", "not_applicable"} for c in checks)):
                 raise ValueError("Full attainment lacks full-credit evidence")
-        elif not deficiencies:
-            raise ValueError("Partial attainment needs an observed deficiency")
+        elif not deficiencies and not missing:
+            raise ValueError("Sub-full attainment needs an observed deficiency or a specific unshown requirement")
     if _requires_event_witness(item) and q == 1:
         witnesses = row.get("event_witnesses")
         if not isinstance(witnesses, list) or not witnesses:
@@ -391,11 +403,9 @@ def validate_judgment(row, item, frame_ids):
             raise ValueError("Triggered caps need candidate evidence")
     if {c["id"] for c in cap_checks if c["triggered"]} != set(caps):
         raise ValueError("cap_checks and applied_caps disagree")
-    variants = {name: final_credit(q, caps, item["caps"], exponent=power)
-                for name, power in (("direct", 1), ("squared", 2), ("cubic", 3))}
     return {**row, "applicability": applicability,
-            "status": "not_applicable" if applicability == "not_applicable" else "unknown" if q is None else "measured",
-            "credit": final_credit(q, caps, item["caps"]), "variants": variants}
+            "status": "not_applicable" if applicability == "not_applicable" else "measured",
+            "credit": final_credit(q, caps, item["caps"])}
 
 
 def validate_response_items(response, items, frame_ids, group):
@@ -445,7 +455,7 @@ def validate_response_items(response, items, frame_ids, group):
 
 
                 shadow = validate_judgment(dict(value), lookup[item_id], frame_ids)
-                keys = ("applicability", "attainment", "applied_caps", "credit", "variants")
+                keys = ("applicability", "attainment", "applied_caps", "credit")
                 if any(shadow.get(key) != value.get(key) for key in keys):
                     raise ValueError("v1/v2 shadow validation mismatch")
                 value["validation_shadow"] = {
@@ -456,11 +466,6 @@ def validate_response_items(response, items, frame_ids, group):
                 **value, "title": lookup[item_id]["title"], "group": group,
                 "owner": "candidate", "failure_code": None,
             }
-            if value["status"] == "unknown":
-                errors[item_id] = (
-                    "The judge returned unknown; evaluator coverage must be repaired or retried"
-                )
-                normalized.pop(item_id, None)
         except (ValueError, TypeError, KeyError) as exc:
             errors[item_id] = str(exc)
     for item_id in set(lookup) - seen:
@@ -469,14 +474,22 @@ def validate_response_items(response, items, frame_ids, group):
 
 
 def aggregate_game_visual(rubric, judgments, *, detail="", evidence=None) -> Item:
-
+    """Average applicable items, including unshown zeros; retain technical gaps."""
+    # Resumed judgments can retain obsolete diagnostic fields. Preserve their
+    # actual credit while emitting the current direct-score report.
+    judgments = {key: {field: value for field, value in row.items() if field != "variants"}
+                 for key, row in judgments.items()}
     evidence = {**(evidence or {}), "protocol": PROTOCOL,
                 "response_schema_version": RESPONSE_SCHEMA_VERSION,
                 "rubric_version": rubric.get("rubric_version"),
                 "validation_status": "mode5_v2_corpus_calibrated",
                 "group_weights": GROUP_WEIGHTS,
-                "score_curve": {"exponent": SCORE_EXPONENT, "caps_scale": "final_score"},
+                "scoring": {"method": "direct_continuous", "range": [0, 1],
+                            "caps_scale": "item_credit",
+                            "policy_version": (rubric.get("scoring_policy") or {}).get("version")},
                 "criteria": judgments}
+    evidence.pop("variants", None)
+    evidence.pop("score_curve", None)
     groups = {}
     missing = []
     for group, weight in GROUP_WEIGHTS.items():
@@ -490,18 +503,14 @@ def aggregate_game_visual(rubric, judgments, *, detail="", evidence=None) -> Ite
             if row.get("status") != "measured":
                 missing.append(item["id"])
         measured = applicable and all(key not in missing for key in applicable)
-        groups[group] = {"weight": weight, "applicable_items": applicable,
+        groups[group] = {"name": GROUP_NAMES[group], "weight": weight, "applicable_items": applicable,
                          "status": "complete" if measured else "retry_required" if applicable else "not_applicable",
-                         "credit": sum(judgments[k]["credit"] for k in applicable) / len(applicable) if measured else None,
-                         "variants": {name: sum(judgments[k]["variants"][name] for k in applicable) / len(applicable)
-                                      for name in ("direct", "squared", "cubic")} if measured else {}}
+                         "credit": sum(judgments[k]["credit"] for k in applicable) / len(applicable) if measured else None}
     evidence.update(groups=groups, unmeasured=missing)
     active = [g for g in groups.values() if g["status"] != "not_applicable"]
     if missing or not active:
         return inconclusive("task_visual", detail=detail or "Missing VLM evidence: " + ", ".join(missing), evidence=evidence)
     denom = sum(g["weight"] for g in active)
-    evidence["variants"] = {name: sum(g["weight"] * g["variants"][name] for g in active) / denom
-                            for name in ("direct", "squared", "cubic")}
     return passed("task_visual", credit=sum(g["weight"] * g["credit"] for g in active) / denom,
                   detail="Game-specific GT-conditioned VLM assessment; Mode5-v2 corpus calibration is complete", evidence=evidence)
 
@@ -567,8 +576,10 @@ def judge_game_visual(manifest, out: Path, *, judge=None) -> Item:
                 request_requirements = [contract_items[item["id"]] for item in items]
                 prompt = PROMPT_PATH.read_text(encoding="utf-8") + "\n\n" + json.dumps({
                     "game_id": manifest["game_id"], "mode": manifest["mode"],
+                    "rubric_group": GROUP_NAMES[group],
                     "runtime_facts": manifest.get("runtime_facts", {}),
                     "task_map": rubric.get("task_map", {}),
+                    "scoring_policy": rubric.get("scoring_policy", {}),
                     "reference_limits": rubric.get("reference_limits", []),
                     "response_schema_version": RESPONSE_SCHEMA_VERSION,
                     "requirements": request_requirements,
@@ -624,8 +635,10 @@ def judge_game_visual(manifest, out: Path, *, judge=None) -> Item:
                     repair_requirements = [contract_items[item["id"]] for item in pending]
                     repair_prompt = PROMPT_PATH.read_text(encoding="utf-8") + "\n\n" + json.dumps({
                         "game_id": manifest["game_id"], "mode": manifest["mode"],
+                        "rubric_group": GROUP_NAMES[group],
                         "runtime_facts": manifest.get("runtime_facts", {}),
                         "task_map": rubric.get("task_map", {}),
+                        "scoring_policy": rubric.get("scoring_policy", {}),
                         "reference_limits": rubric.get("reference_limits", []),
                         "response_schema_version": RESPONSE_SCHEMA_VERSION,
                         "requirements": repair_requirements,
@@ -636,8 +649,10 @@ def judge_game_visual(manifest, out: Path, *, judge=None) -> Item:
                     repair_prompt += ("\nRecheck the pixels and frozen clauses; return every requested item in "
                                       f"{RESPONSE_SCHEMA_VERSION}. Select only supplied response_ids; do not copy quotes. "
                                       "Do not invent a defect to justify a reserved sub-full score. If evidence "
-                                      "supports all conditions, 1 is valid; if the item cannot be judged, use null. "
-                                      "Sampling uncertainty alone is not a deficiency. Retain valid observations. "
+                                      "supports all conditions, 1 is valid. Every applicable item needs a numeric "
+                                      "score: entirely unshown achievement is 0; partial demonstration earns only "
+                                      "its demonstrated credit. Explain unshown requirements in missing_evidence "
+                                      "without inventing an observed defect. Retain valid observations. "
                                       "For every deficiency, include exactly one deficiency_checks entry using a "
                                       "supplied clause_id. For an inapplicable item, select a condition_id from "
                                       "whole_item_applicability; for an inapplicable high-score condition, use its "
@@ -720,7 +735,7 @@ def judge_game_visual(manifest, out: Path, *, judge=None) -> Item:
                 judgments[item["id"]] = {
                     "id": item["id"], "title": item["title"], "group": item["group"],
                     "status": "measured", "owner": "candidate", "failure_code": exc.code,
-                    "attainment": 0.0, "credit": 0.0, "variants": {"direct": 0.0, "squared": 0.0, "cubic": 0.0},
+                    "attainment": 0.0, "credit": 0.0,
                     "evidence_frames": [], "strengths": [],
                     "deficiencies": [exc.detail], "applied_caps": [],
                 }
@@ -752,12 +767,12 @@ def visual_report(item: Item) -> list[str]:
     lines = ["## Perceptual Quality Assessment", "",
              "Game-specific rubric; reference video and supplied asset previews accompany candidate evidence.",
              "Machine-evaluable Mode5-v2 corpus calibration is complete; any separate human-study calibration is not a task readiness gate.", "",
-             f"Status: {item.verdict.value}. Curve exponent: {(evidence.get('score_curve') or {}).get('exponent')}.", "",
-             "| Item | Attainment q | Cap ids | Final credit (0–1) |",
+             f"Status: {item.verdict.value}. Scoring: direct rubric judgment with applicable caps.", "",
+             "| Item | Rubric score | Cap ids | Final credit (0–1) |",
              "|---|---:|---|---:|"]
     for key, row in evidence.get("criteria", {}).items():
         lines.append(f"| {key} | {row.get('attainment')} | {', '.join(row.get('applied_caps', []))} | {row.get('credit')} |")
     for group, row in evidence.get("groups", {}).items():
-        lines.append(f"- {group}: {row['credit']}; weight {row['weight']:.0%}; {row['status']}")
+        lines.append(f"- {GROUP_NAMES.get(group, group)}: {row['credit']}; weight {row['weight']:.0%}; {row['status']}")
     lines.extend(["", item.detail, ""])
     return lines
