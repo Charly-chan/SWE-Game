@@ -86,7 +86,7 @@ settings 必须含 API credential 和模型配置；纯 OAuth 登录不等于该
 
 默认 Agent 固定预算 **7200 秒 / 120 分钟**，用 `--agent-timeout SECONDS` 设置正整数预算；0 不表示无限。Unity 子命令上限 1200 秒，evaluator 有独立超时。预算只限制 Agent，不是整条链路的总耗时；不同预算的结果不混排，也不代表论文原实验预算。
 
-Mode 5 使用 `codex/mode5-main-integration` 提交 `01f4a2c1` 中的新版校准合同，41 个游戏均为 `calibrated/runtime_ready`。校准合同和 Community scaffold 在发布时写入固定包；运行时下载、校验并安装，不临时重编译 suite 或改造 scaffold。
+Mode 5 的 41 个游戏均为 `calibrated/runtime_ready`。校准合同和 Community scaffold 包含在固定任务包中；运行时下载、校验并安装。
 
 Windows 用户在 WSL 内使用上述同样的命令。推荐把仓库、虚拟环境和输出放在 Linux 原生目录；`/mnt/c`、`/mnt/d` 的大量 Unity 缓存 I/O 可能明显更慢。每次新 shell 重新设置 `GB_PYTHON`，或直接使用已激活的虚拟环境。
 
@@ -136,7 +136,7 @@ RUN/
 ```
 
 主入口 `run_benchmark.sh --mode port` 也转发到同一 Community evaluator。
-`--dry-run` 只通过同一 Community 生成器预览任务包，不要求宿主机安装模型 CLI，
+`--dry-run` 通过同一 Community 流程预览任务包，不要求宿主机安装模型 CLI，
 不启动 Docker/Agent，不验证授权，也不生成评测成绩。
 
 ## 5. 当前评分边界

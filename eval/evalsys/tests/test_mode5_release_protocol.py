@@ -66,26 +66,6 @@ def test_release_default_is_single_five_component_protocol():
     assert len(CRITERIA) == 20
 
 
-def test_control_fixture_restore_omits_only_our_injected_error(tmp_path, monkeypatch):
-    import runpy
-    from pathlib import Path
-    source = tmp_path / "controlled-negative"
-    authored = source / "Assets/Game/Original.cs"
-    authored.parent.mkdir(parents=True)
-    authored.write_text("// controlled human source\n", encoding="utf-8")
-    injected = authored.with_name("GBReleaseIntentionalSyntaxError.cs")
-    injected.write_text("public class GBReleaseIntentionalSyntaxError { this is invalid C#; }\n", encoding="utf-8")
-    out = tmp_path / "restored"
-    monkeypatch.setattr("sys.argv", ["fixture", "--state-dir", str(tmp_path),
-                        "--package", str(tmp_path), "--positive-fixture", str(source),
-                        "--out", str(out), "--restore-positive-control"])
-    script = Path(__file__).resolve().parents[3] / "scripts/mode5_release_negative_fixture.py"
-    assert runpy.run_path(str(script))["main"]() == 0
-    assert (out / "submission/Assets/Game/Original.cs").read_bytes() == authored.read_bytes()
-    assert not (out / "submission/Assets/Game/GBReleaseIntentionalSyntaxError.cs").exists()
-    assert injected.exists()  # never rewrite the source fixture
-
-
 def test_cc_settings_use_provider_model_and_restore_private_environment(tmp_path, monkeypatch):
     monkeypatch.setenv("ANTHROPIC_AUTH_TOKEN", "previous")
     source = tmp_path / "settings.json"

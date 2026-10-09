@@ -1,8 +1,7 @@
 # Third-party Python dependencies of eval/evalsys and eval/tools.
 # Everything else imported by the tree is the standard library (Python >= 3.10).
-# Versions are the ones the reference host evaluated live0903/live0904 with;
-# the lower bounds are what the code actually needs, the upper bounds keep a
-# fresh clone on the same major series.
+# Lower bounds reflect evaluator requirements; upper bounds keep fresh installs
+# on supported major versions.
 numpy>=1.26,<3
 Pillow>=10,<13
 jsonschema>=4.17,<5

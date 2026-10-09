@@ -83,7 +83,7 @@ SWE-Game 包含 41 款参考游戏。下表列出游戏类型和视角；各游�
 
 **Bush 522** · 3D 飞行模拟 / 探索高分游戏 · 3D third-person
 
-`Bush 522` 是第三人称 3D 检查点飞行课程。玩家在 **4–8 min** 的一局中驾驶一架真实 `RigidBody3D` 灌木飞机，从跑道起飞、管理油门和姿态、寻找红色检查点并减速着陆。交付规模为 **1 independently addressable level**、64 个确定性检查点、1 架飞机及 2 个独立结局。
+`Bush 522` 是第三人称 3D 检查点飞行游戏。玩家驾驶飞机从跑道起飞，管理油门和姿态，寻找红色检查点并减速着陆。
 
 
 ![bush_522](docs/assets/gallery/bush_522.png)
@@ -92,7 +92,7 @@ SWE-Game 包含 41 款参考游戏。下表列出游戏类型和视角；各游�
 
 ## canopy_dash
 
-**Canopy Dash — game design document** · Behind-the-back 3D endless runner (three-lane, jump / slide / turn) · 3D
+**Canopy Dash** · Behind-the-back 3D endless runner (three-lane, jump / slide / turn) · 3D
 
 
 ![canopy_dash](docs/assets/gallery/canopy_dash.png)
@@ -154,9 +154,9 @@ Deepgrid is a **subterranean automated data vault**. It sealed itself from the i
 
 ## dogwalk
 
-**DOGWALK — CodingBenchmark GDD** · 单人第三人称 3D 开放空地探索与搬运差事 · 3D
+**DOGWALK** · 单人第三人称 3D 开放空地探索与搬运差事 · 3D
 
-上游是 Blender Studio 的 *DOGWALK*（CC BY 4.0）。切片保留原作最有价值的玩法核心： **牵引绳是一条会绕树缠绕的真实绳索**，**Pinda 是有自己意志的同伴而不是跟随的贴图**。 这两点在计划 §9.3 中被明确列为不可简化项，因此上游的 `pinda.gd`（3403 行）、 `chocomel.gd`（1307 行）和 `leash.gd`（502 行）原样保留运行，只在被删区域会导致 崩溃的分支上做记录在案的改动。
+基于 Blender Studio 的 *DOGWALK*（CC BY 4.0）。玩家在开放空地中探索和搬运物品，与有自主行为的同伴 Pinda 配合，并处理会绕树缠绕的牵引绳。
 
 
 ![dogwalk](docs/assets/gallery/dogwalk.png)
@@ -167,7 +167,7 @@ Deepgrid is a **subterranean automated data vault**. It sealed itself from the i
 
 2D 俯视科幻射击 · 2D
 
-Scale tier / 规模档位: **S** — 1 independently addressable course, 1 player, 1 full combat round, 1 exit, and 2 distinct ending scenes.
+单人俯视科幻射击游戏，包含一轮战斗、一个出口和两种结局。
 
 
 ![dont_stop](docs/assets/gallery/dont_stop.png)
@@ -207,7 +207,7 @@ Ember & Tide is a two-avatar co-operative elemental puzzle platformer for one pl
 
 **枪火地牢** · 2D 俯视地牢射击。 · 2D
 
-本作把权威规格 `game_description.md` 落成可启动的 Godot 4.5.1 工程。玩家在房间图里清敌、开门、买枪、打 Boss，生命归零则回标题并清掉本局临时进度。
+玩家在房间图里清敌、开门、买枪、打 Boss，生命归零则回标题并清掉本局临时进度。
 
 
 ![gunfire_dungeon](docs/assets/gallery/gunfire_dungeon.png)
@@ -243,7 +243,7 @@ Ember & Tide is a two-avatar co-operative elemental puzzle platformer for one pl
 
 ## hurry_curry
 
-**HURRY CURRY! — Junior Kitchen CodingBenchmark GDD** · 单人 3D 时间规划/烹饪交互 · 3D
+**HURRY CURRY! — Junior Kitchen** · 单人 3D 时间规划/烹饪交互 · 3D
 
 
 ![hurry_curry](docs/assets/gallery/hurry_curry.png)
@@ -263,7 +263,7 @@ Kindle Relay is a 6–8 minute third-person exploration game on one continuous s
 
 ## ninja_roguelite
 
-**GDD — 灯明の見張り / LANTERN VIGIL** · 俯视 2D 动作 roguelite（run-based，单局制） · 2D
+**灯明の見張り / LANTERN VIGIL** · 俯视 2D 动作 roguelite（run-based，单局制） · 2D
 
 
 ![ninja_roguelite](docs/assets/gallery/ninja_roguelite.png)
@@ -321,7 +321,7 @@ The whole game is one question asked eight times a lap: *how late can I brake?* 
 
 **Relic Runner** · Top-down 2D dungeon errand-runner: clear a room, carry the thing, don't get hit · 2D
 
-The spec's "Intentionally excluded scope" list is treated as a hard ceiling: no multiplayer, no save files, no controller/touch, no difficulty settings, no randomisation of any kind, no projectiles, no second weapon, no monster pathfinding, no respawns, no sprint/dash, no two-item carrying, no minimap, no dynamic lighting, nothing beyond the three levels. Anything in that list that this project *could* have added and did not is not a defect.
+Clear rooms, carry objects, and avoid damage across three dungeon levels.
 
 
 ![relic_runner](docs/assets/gallery/relic_runner.png)
@@ -350,7 +350,7 @@ Genre: First-person survival wave shooter with exploration and purchases.
 
 ## soccer_course
 
-**Soccer Course GDD** · Top-down pixel soccer action game · 2D
+**Soccer Course** · Top-down pixel soccer action game · 2D
 
 Soccer Course 是俯视像素足球动作赛：玩家控制法国队的一名场上球员，抢球、传球、射门并在真实球门判定区得分。标准锦标赛和 Bench 独立比赛均为 **2 min**，完整三轮约 **6–10 min**；内容规模为 1 个可独立进入球场、8 支国家队和 3 轮淘汰赛。核心幻想是用简洁方向与双动作输入完成一次可读的团队进攻并守住完整比赛结果。
 
@@ -392,7 +392,7 @@ First-person voxel sandbox with a finite, seeded crafting objective · 3D first-
 
 **SCRAPLINE SIEGE** · Third-person 3D arena shooter, wave-based siege defence · 3D third-person
 
-The wave and par numbers above were wrong in the previous revision in a way worth recording, because it is the failure mode this rewrite exists to catch: they described a *design intention* (1 / 2 / 2 waves, par 42 / 40+55 / 38+70) that the implementation had moved past months earlier, and nothing ever compared the two. `core/tuning.gd` is the only place wave composition lives, so §5 is now transcribed from it rather than written alongside it.
+Defend an arena against successive enemy waves in a third-person 3D shooter.
 
 
 ![toon_shooter](docs/assets/gallery/toon_shooter.png)
@@ -430,7 +430,7 @@ Threats are static or on a fixed deterministic cycle, so a failed attempt is alw
 
 ## where_the_dead_lie
 
-**Where The Dead Lie — CodingBenchmark GDD** · 单人第一人称 3D 恐怖探索与资源搜索 · 3D first-person
+**Where The Dead Lie** · 单人第一人称 3D 恐怖探索与资源搜索 · 3D first-person
 
 
 ![where_the_dead_lie](docs/assets/gallery/where_the_dead_lie.png)
@@ -441,7 +441,7 @@ Threats are static or on a fixed deterministic cycle, so a failed attempt is alw
 
 **Wizard Chase** · 2D 俯视单屏迷宫追逐 · 2D
 
-Wizard Chase is a top-down, single-screen maze-chase game about a wizard stealing treasure from five increasingly hostile dungeon rooms. A complete run is estimated at **8–12 minutes** (design target; revise after the first certified L5 recording). The fixed scope tier is **5 rooms**, one continuous run, four enemy archetypes, two timed-hazard families, and one defensive spell. The player begins outside each maze, crosses the threshold to start the chase, clears all coins (code gate: `get_total_coins_left()==0`), exits through the opened door, and wins only after Room 5.
+Wizard Chase is a top-down, single-screen maze-chase game about a wizard stealing treasure from five increasingly hostile dungeon rooms. The player faces four enemy archetypes and two timed-hazard families, with one defensive spell. Collect all coins in each room to open its exit and complete all five rooms to win.
 
 
 ![wizard_chase](docs/assets/gallery/wizard_chase.png)
@@ -454,4 +454,3 @@ Wizard Chase is a top-down, single-screen maze-chase game about a wizard stealin
 
 
 ![sprout_market](docs/assets/gallery/sprout_market.png)
-
