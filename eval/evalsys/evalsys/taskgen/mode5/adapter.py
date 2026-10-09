@@ -330,8 +330,11 @@ def finish_scoring(
     if build.get("status") == "pass":
         if not isinstance(visual, Mapping) or visual.get("schema") != "gamebench.mode5.visual-reading.v1":
             infra_ok = False
-        else:
-            infra_ok &= visual.get("complete") is True
+        if isinstance(visual, Mapping) and visual.get("schema") == "gamebench.mode5.visual-reading.v1":
+            # Missing candidate captures can retain proxy points only when the
+            # visual reader itself completed. Older incomplete readings have
+            # no failure attribution and must continue to withhold ranking.
+            infra_ok &= visual.get("infrastructure_complete", visual.get("complete")) is True
             for row in visual.get("observations") or []:
                 name = row["criterion"]
                 if not name.startswith("visual.") or name not in expected:

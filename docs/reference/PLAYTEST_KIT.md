@@ -152,5 +152,3 @@ capture settings.
   `demos.json` manifest; explicit tapes can still be replayed individually.
 - The kit provides debugging evidence, not a benchmark score. This update has
   no completed before/after score comparison establishing a coding benefit.
-
-Previous design decisions and v1/v2 experiment results are retained in

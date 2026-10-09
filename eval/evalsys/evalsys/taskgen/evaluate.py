@@ -807,12 +807,14 @@ def _evaluate_unity_port(
                 visual_reading = {
                     "schema": "gamebench.mode5.visual-reading.v1",
                     "complete": False,
+                    "infrastructure_complete": False,
                     "metric": "visual_implementation_correspondence",
                     "policy": {},
                     "observations": [],
                     "diagnostics": [{
                         "status": "error",
                         "reason": f"visual measurement unavailable: {type(exc).__name__}: {exc}",
+                        "attribution": "infrastructure",
                     }],
                     "measurements": {},
                     "ocr_binary": None,

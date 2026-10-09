@@ -6,7 +6,6 @@ replay inputs and capture evidence. Candidate submissions must not include them.
 - `gb_probe.gd`, `gb_truth_driver.gd`: objective state observations.
 - `gb_route_driver.gd`: fixed input route replay.
 - `gb_capture_probe.gd`: visual evidence capture.
-- `nav/`: navigation geometry and planning.
 
 Evaluation reports record the SHA-256 of the runtime instruments.
 

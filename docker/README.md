@@ -43,6 +43,14 @@ docker tag ghcr.io/charly-chan/swe-game-public:godot-4.5.1 gamebench-agent:godot
 The local aliases match the runner defaults. Alternatively, pass the full GHCR
 image name with `--docker-image`. Published images also have an engine tag
 suffixed with the 12-character source revision for reproducible selection.
+For example, the `v1.0.0` publication is available as
+`ghcr.io/charly-chan/swe-game-public:godot-4.5.1-eb1cad45eef3`.
+For a recorded run, select that revision tag (or its registry digest) explicitly
+with `--docker-image` and save `docker image inspect --format '{{.Id}}' IMAGE`
+alongside the evaluator commit. The unsuffixed engine tag can be republished.
+Local Mode 5 builds use the image IDs recorded in
+`~/.cache/gamebench/mode5/image-lock.json` (or the selected `--state-dir`);
+preserve this lock with the run's provenance, without including license files.
 
 The runner uses an image already available to the selected Docker daemon and
 pulls only when it is missing. Rebuild or pull explicitly to update a cached tag.

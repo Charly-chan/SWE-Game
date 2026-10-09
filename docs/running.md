@@ -207,7 +207,20 @@ shell 工具调用与返回结果，并记录代理版本及被忽略的参数�
 
 ## 8. 保存与复现
 
-整个 `results/<run_id>/` 目录，按 [`docs/reference/OUTPUT_CONTRACT.md`](reference/OUTPUT_CONTRACT.md)：
+分片运行可用 `bash eval/tools/gb_shard_run.sh --mode brief --model MODEL --out results/brief`，
+五模式顺序运行可用 `bash run_five_modes.sh codex MODEL results/all-modes`。
+分片默认评测；模式 1–4 默认使用正式的 `unshare` 环境，若明确使用 Docker，
+设置 `GB_GODOT_SANDBOX=docker`（五模式脚本）或传 `--sandbox docker`（单模式脚本）。
+Mode 5 始终使用 Community Docker，默认只并行运行一个 Unity 分片；
+只有在许可及机器容量允许时才设置 `GB_MODE5_JOBS`。Mode 1–3 默认没有 VLM
+判读，结果只含客观读数，`weighted_total.score` 仍为空，不能作为完整总分排名。
+正常完成评测但未通关（`resolved=false`）的任务保留分数，运行器返回成功并继续后续模式。
+执行流程失败、缺失 worker 结果或评测报告时返回非零；`--merge` 要求所有预期分片完成，
+仅需查看已完成部分时显式传 `--allow-partial`。合并目录中的 cell 是指向
+`shards/` 的符号链接；归档时保存整个分片输出根目录，而非只保存 `merged/`。
+
+保留整个 `results/<run_id>/` 目录，内容遵循
+[`docs/reference/OUTPUT_CONTRACT.md`](reference/OUTPUT_CONTRACT.md)：
 
 - `run.json`、`summary.csv`、`summary.json`、`leaderboard.md`
 - 每格 `cells/<game>__<mode>__<harness>__<model>[__<case_id>]/`：
@@ -238,6 +251,7 @@ Mode 5 使用 [独立 Community 工作流](reference/MODE5_RELEASE.md)。在 Lin
 ## 运行与结果配置
 
 - Unity 授权与 Docker preflight 必须通过；环境失败保留为缺测状态。
+- 候选程序缺少有效画面时，已取得的证据分数仍保留；视觉测量器本身出错时总分缺测且不参与排名。
 - Visual 按实现对应证据计分，运行时义务全部验证时可取得 15/15。
 - 完整模型均分要求固定 41 游戏全部完成测量，并记录 `community-docker` 环境及评分 registry。
 - Modes 1–3 默认 `2026-09-19.modeN-vlm1`，Mode 4 默认 `2026-09-15.mode4-redesign1`。
