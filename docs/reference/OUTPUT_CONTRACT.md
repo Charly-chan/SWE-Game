@@ -52,15 +52,21 @@ summary files preserve registry, environment, model and budget grouping.
   The evaluator rebuilds in its own offline container; the Agent's Player is
   not accepted as evaluation evidence.
 - `mode5-state.json` records Community phases. Reports identify
-  `environment_class=community-docker`, `paper_compatible=false`, and registry
+  `environment_class=community-docker` and registry
   `2026-10.mode5-evidence-five-visual1`. Five fixed component weights are 35/25/15/15/10.
-  The non-VLM evidence-adjusted proxy reports a total out of 100, with explicit
+  The non-VLM evidence-adjusted score reports a total out of 100, with explicit
   evidence coefficients and evaluator-owned visual implementation-correspondence
-  measurements; `official_total` remains null. The Visual component is non-VLM and
+  measurements. The Visual component is non-VLM and
   can use runtime captures, with static evidence still discounted by its coefficient.
   Infrastructure or integrity failures withhold ranking eligibility. A candidate
   compilation failure preserves admissible static points, not runtime credit.
-  See [Mode 5 scoring](MODE5_SCORING.md) for the full scoring contract.
+  `weighted_total.score` is the release task score (0–100). The compatibility
+  fields `paper_compatible=false` and `official_total=null` identify the
+  Community protocol; they do not mean the release score is missing.
+  `score_scope=mode5_evidence_adjusted_proxy` and `earned_proxy_points` retain
+  their serialized names for existing consumers. See [Mode 5 scoring](MODE5_SCORING.md)
+  for the full scoring contract and [version information](../releasing.md)
+  for published result provenance.
 
 ## Paper terminology and serialized fields
 

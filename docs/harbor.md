@@ -25,8 +25,8 @@ docker buildx version
 ```
 
 See [Docker setup](../docker/README.md) for the Unity image and image publishing.
-The exporter defaults to the versioned GHCR toolchain tags. Use `--image` with
-the local image, as below, when the registry image is unavailable.
+The Godot exporter defaults to the public image with Codex. Use `--image` with
+the local image, as below, for a build that also includes Claude Code.
 
 ## Export existing task packages
 
@@ -178,17 +178,18 @@ Then run:
 The host verifier loads the digest-pinned image lock and passing doctor result,
 collects the submission, and calls the same fresh, offline evaluator-container API
 used by `./gb mode5 evaluate`. It uses the single Community scoring registry.
-The resulting record carries `environment_class=community-docker`,
-`paper_compatible=false`, and `ranking_scope=mode5-community-evidence-five-visual1`.
+The resulting record carries `environment_class=community-docker`
+and `ranking_scope=mode5-community-evidence-five-visual1`.
 The registry is `2026-10.mode5-evidence-five-visual1`, with fixed 35/25/15/15/10 weights.
-The five-component evidence proxy uses no VLM. Visual uses evaluator-owned
+The five-component evidence score uses no VLM. Visual uses evaluator-owned
 implementation-correspondence measurements from runtime captures, with discounted
 Editor/static/presence fallback evidence; it does not measure perceptual or aesthetic
-similarity. `official_total=null` and no exact paper reproduction is asserted.
+similarity. Read `weighted_total.score` for the 0–100 task score; serialized
+fields are described in the [output contract](reference/OUTPUT_CONTRACT.md).
 Model summaries use the full-catalog arithmetic task mean, with separate
 low-tail and 70/30 reliability diagnostics. Partial-catalog means are diagnostic
 only. Repeated attempts are averaged within each game only when every attempt
-has a valid proxy reading; an unscored attempt withholds that game's complete
+has a valid score reading; an unscored attempt withholds that game's complete
 reading rather than being dropped. Missing games withhold the main mean.
 
 Harbor itself owns the Agent container. For a saved `floating` provider, export adds

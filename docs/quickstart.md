@@ -161,7 +161,7 @@ Without a complete visual reading, `objective_total.score` remains available
 and `weighted_total.score` is null. Missing required objective evidence also
 keeps the composite incomplete for Modes 1–3. Mode 4 defaults to
 `2026-09-15.mode4-redesign1`; Mode 5 uses `2026-10.mode5-evidence-five-visual1`,
-which publishes a non-VLM evidence proxy and leaves `official_total` null.
+which reports a non-VLM evidence-adjusted score on a 0–100 scale.
 
 For paid visual assessment, configure the external file selected by
 `GB_API_ENV` (or `~/.config/gamebench/gb_api.env`). For example, to use the

@@ -22,7 +22,7 @@ The default Agent budget is 7200 seconds. Each Unity child command is capped at 
 
 ## Scoring registry
 
-Every release report identifies registry `2026-10.mode5-evidence-five-visual1`, ranking scope `mode5-community-evidence-five-visual1`, environment `community-docker`, `paper_compatible=false` and `official_total=null`.
+Every release report identifies registry `2026-10.mode5-evidence-five-visual1`, ranking scope `mode5-community-evidence-five-visual1`, environment `community-docker`. Serialized score fields are defined in the [output contract](OUTPUT_CONTRACT.md).
 
 | Component | Weight | Evidence sources |
 | --- | ---: | --- |
@@ -34,11 +34,11 @@ Every release report identifies registry `2026-10.mode5-evidence-five-visual1`, 
 
 Each criterion has evaluator-owned frozen obligations. Evidence coefficients are runtime verified 1.00, editor verified 0.80, static supported 0.60 and file presence only 0.25. Failed or missing evidence receives zero for that obligation. Denominators never come from candidate claims or file counts.
 
-The fixed proxy total is the weighted sum of the five component percentages. Mechanics and Playability have non-runtime ceilings. Visual uses evaluator-owned `visual_implementation_correspondence` measurements: runtime captures can verify implementation correspondence for the frozen visual obligations, while Editor/static/presence evidence remains discounted. This is not VLM or perceptual/aesthetic similarity scoring, and the proxy is not a paper-equivalent official score. Visual can receive its full 15-point weight when its runtime obligations are independently verified; the fixed denominator remains in force.
+The fixed score total is the weighted sum of the five component percentages. Mechanics and Playability have non-runtime ceilings. Visual uses evaluator-owned `visual_implementation_correspondence` measurements: runtime captures can verify implementation correspondence for the frozen visual obligations, while Editor/static/presence evidence remains discounted. Visual measures implementation correspondence without VLM calls; perceptual and aesthetic similarity are outside this metric. Visual can receive its full 15-point weight when its runtime obligations are independently verified; the fixed denominator remains in force.
 
 ## Outcome and ranking
 
-Proxy points and the strict runtime outcome are separate fields. A task is ranking eligible only when the evaluator environment and integrity gates pass and the complete release evidence is present. A candidate build failure preserves independent static facts while making runtime obligations fail. An evaluator or transport failure withholds the headline rather than assigning a model zero.
+Component points and the strict runtime outcome are separate fields. A task is ranking eligible only when the evaluator environment and integrity gates pass and the complete release evidence is present. A candidate build failure preserves independent static facts while making runtime obligations fail. An evaluator or transport failure withholds the headline rather than assigning a model zero.
 
 A model summary uses the arithmetic mean over the fixed 41-game task set. Low-tail diagnostics are reported beside the mean and do not replace it. Reports from another registry, environment profile, harness or budget cannot be silently pooled.
 

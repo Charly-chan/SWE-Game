@@ -4,8 +4,9 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2609.33678-b31b1b.svg)](https://arxiv.org/abs/2609.33678)
 [![Dataset](https://img.shields.io/badge/🤗%20Dataset-SWE--Game-yellow)](https://huggingface.co/datasets/Charly-chan/SWE-Game)
+[![License](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
 
-41 reference games · 5 task types · 246 released tasks
+**v1.0.0** · 41 reference games · 5 task types · 246 tasks
 
 [Tasks](#tasks) · [Main Results](#main-results) · [Evaluation](#evaluation) · [Quick Start](#quick-start) · [Game Gallery](GAMES.md) · [Dataset](#reference-data) · [Repository](#repository-structure) · [Documentation](#documentation) · [Citation](#citation)
 
@@ -41,14 +42,14 @@ Five task types vary the information available to the agent and the development 
 | **Brief-to-Game** | Design and build a game | Brief, assets, reference video | Game design document and Godot project | 41 |
 | **GDD-to-Game** | Implement a specified game | Game design document, assets, reference video | Godot project | 41 |
 | **Skeleton Completion** | Complete a game from a minimal framework | Code skeleton, task requirements, assets, reference video | Completed Godot project | 41 |
-| **Bug Repair** | Repair a game while preserving its behavior | Faulty project, gameplay requirements, bug report | Repaired Godot project | 82 active cases |
+| **Bug Repair** | Repair a game while preserving its behavior | Faulty project, gameplay requirements, bug report | Repaired Godot project | 82 |
 | **Godot-to-Unity Porting** | Preserve a game's behavior across engines | Godot source, design document, assets, reference video, Unity interface | Unity project and build instructions | 41 |
 
-Counts describe this fixed release. The paper evaluates 247 tasks, including 83 Bug Repair cases; this release includes 82 repair cases. See the [task protocol](docs/tasks.md) for submission requirements and [catalog](catalog.json) for game identifiers.
+See the [task protocol](docs/tasks.md) for submission requirements, the [catalog](catalog.json) for game identifiers, and [version information](docs/releasing.md) for the task inventory and scoring configuration.
 
 ## Main Results
 
-The following tables reproduce **Table 3** of the [paper](https://arxiv.org/html/2609.33678v1#S4.T3). Scores range from **0 to 100**, with higher values indicating better performance. The paper evaluates 247 tasks, including 83 Bug Repair cases; this fixed release contains 82 repair cases. Models use their respective agent frameworks as described in [Section 4.1](https://arxiv.org/html/2609.33678v1#S4.SS1).
+The following tables reproduce **Table 3** of the [paper](https://arxiv.org/html/2609.33678v1#S4.T3). Scores range from **0 to 100**, with higher values indicating better performance. The experiment configuration and agent frameworks are described in [Section 4.1](https://arxiv.org/html/2609.33678v1#S4.SS1); [version information](docs/releasing.md#published-results) records the result-set provenance.
 
 ### Brief-to-Game
 
@@ -114,9 +115,9 @@ Evaluation combines two evidence domains:
 - **Objective Behavioral Evaluation** executes the submitted project and checks input responses, observable mechanics, progression, and mode-specific requirements. Matched no-input controls help determine whether demonstrated behavior depends on player action.
 - **Perceptual Quality Assessment** uses the paper’s four rubric groups: visible mechanics, design and content, functional visual communication, and art.
 
-The three construction tasks allocate 85 objective points and 15 game-specific VLM points. Bug Repair measures behavioral restoration and preservation. Godot-to-Unity Porting uses registry `2026-10.mode5-evidence-five-visual1`: Mechanics 35, Playability 25, Structure 15, Visual 15, Stability 10. It uses a non-VLM evidence-adjusted proxy with a separate strict runtime outcome. Its model leaderboard uses the arithmetic task mean, alongside low-tail diagnostics. See the [Mode 5 scoring contract](docs/reference/MODE5_SCORING.md).
+The three construction tasks allocate 85 objective points and 15 game-specific VLM points. Bug Repair measures behavioral restoration and preservation. Godot-to-Unity Porting scores Mechanics 35, Playability 25, Structure 15, Visual 15, and Stability 10 using independently collected runtime, Editor, and artifact evidence. Its Visual component measures implementation correspondence, and its leaderboard uses the arithmetic task mean. See the [Mode 5 scoring contract](docs/reference/MODE5_SCORING.md).
 
-Visual judging is disabled by default for construction tasks; their complete score requires VLM evidence. Mode 5 uses no VLM: Visual is a static artifact proxy and reports `paper_compatible=false`, `official_total=null`. Record the evaluator commit, registry, model, harness, budget, task materials and input settings for reproducibility. See the [scoring specification](docs/reference/HIERARCHICAL_MULTI_EVIDENCE_SCORECARD.md).
+For construction tasks, enable `--visual-judge vlm` to obtain the complete score; visual judging is disabled by default. Brief Design scoring is optional: use `--brief-design on` to include authored GDD quality. Mode 5 uses the fixed `2026-10.mode5-evidence-five-visual1` protocol without a VLM. Record the evaluator commit, registry, model, harness, budget, task materials, and input settings with each run. See the [scoring specification](docs/reference/HIERARCHICAL_MULTI_EVIDENCE_SCORECARD.md).
 
 ## Quick Start
 
@@ -141,7 +142,7 @@ MODEL_ID="your-model-id"
 # Download one fixed task package and inspect the agent command without calling a model.
 ./run_benchmark.sh --game wizard_chase --mode brief \
   --harness codex --model "$MODEL_ID" --dry-run \
-  --out results/brief-preview
+  --out results/brief-dry-run
 
 # Run the agent and retain its submission for evaluation on a separate machine.
 ./run_benchmark.sh --game wizard_chase --mode brief \
@@ -221,6 +222,12 @@ execution, and submission evaluation.
 | [Evaluation overview (中文)](docs/evaluation.md) | Behavioral and perceptual evaluation |
 | [Godot-to-Unity Porting](docs/reference/MODE5_RELEASE.md) | Cross-engine setup and evaluation |
 | [Documentation index](docs/README.md) | All guides and detailed contracts |
+
+## License
+
+Project-owned benchmark code and documentation are licensed under [Apache-2.0](LICENSE).
+Reference games, assets, recordings, and reused code retain their component licenses;
+see [third-party notices](THIRD_PARTY_NOTICES.md).
 
 ## Citation
 

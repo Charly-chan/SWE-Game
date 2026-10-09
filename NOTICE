@@ -1,0 +1,11 @@
+SWE-Game
+Copyright 2026 SWE-Game contributors
+
+Project-owned benchmark code and documentation are licensed under the
+Apache License, Version 2.0. See LICENSE.
+
+Third-party code, reference games, assets, fonts, and recordings retain their
+respective licenses and attribution requirements. See THIRD_PARTY_NOTICES.md
+and the component license files. The root license does not relicense those
+materials. GameCraft-Bench attribution is preserved in
+eval/evalsys/gamecraft_bench/NOTICE.

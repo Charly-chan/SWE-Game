@@ -14,8 +14,8 @@ from ..taskgen.mode5.scoring import REGISTRY_VERSION as MODE5_REGISTRY_VERSION
 
 from ..taskgen.package import TaskPackage, write_json
 
-GODOT_IMAGE = "ghcr.io/charly-chan/swe-game:godot-4.5.1"
-UNITY_IMAGE = "ghcr.io/charly-chan/swe-game:unity-6000.3.23f1"
+GODOT_IMAGE = "ghcr.io/charly-chan/swe-game-public:godot-4.5.1"
+UNITY_IMAGE = "gamebench-mode5-agent:6000.3.23f1-v1"
 
 
 def export_task(package: Path, out: Path, *, image: str | None = None,

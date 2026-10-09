@@ -58,7 +58,7 @@ jobs:
         run: python ../../scripts/fetch_reference_data.py --game all
 
       - name: Check repository release hygiene
-        run: python ../../scripts/check_release.py --with-data
+        run: python ../../scripts/check_release.py --with-data --require-license
 
       - name: Install Godot 4.5.1
         run: |

@@ -5,6 +5,7 @@ LABEL org.gamebench.agent.mode="godot"
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ARG NODE_VERSION=22.22.0
 ARG GODOT_URL=https://github.com/godotengine/godot/releases/download/4.5.1-stable/Godot_v4.5.1-stable_linux.x86_64.zip
+ARG INCLUDE_CLAUDE=1
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     ca-certificates curl unzip xz-utils git git-lfs jq ripgrep \
@@ -20,15 +21,20 @@ RUN curl --retry 5 --retry-delay 3 --connect-timeout 30 -fsSL "https://nodejs.or
 
 # npm can abort halfway through the large native CLI tarballs. Retry once using
 # the download cache from that attempt; keep the completed Node layer reusable.
-RUN for attempt in 1 2; do \
+RUN case "$INCLUDE_CLAUDE" in 0|1) ;; *) exit 2 ;; esac \
+    && packages=(@openai/codex@0.153.4 @openai/codex-linux-x64@npm:@openai/codex@0.153.4-linux-x64) \
+    && if [[ "$INCLUDE_CLAUDE" == 1 ]]; then \
+      packages+=(@anthropic-ai/claude-code@2.1.222 @anthropic-ai/claude-code-linux-x64@2.1.222); \
+    fi \
+    && for attempt in 1 2; do \
       npm install --prefix /opt/gamebench-tools --no-fund --no-audit --omit=dev \
-        --fetch-retries=5 \
-        @anthropic-ai/claude-code@2.1.222 @anthropic-ai/claude-code-linux-x64@2.1.222 \
-        @openai/codex@0.153.4 @openai/codex-linux-x64@npm:@openai/codex@0.153.4-linux-x64 \
+        --fetch-retries=5 "${packages[@]}" \
       && break; \
       test "$attempt" -lt 2 || exit 1; \
     done \
-    && ln -s /opt/gamebench-tools/node_modules/.bin/claude /usr/local/bin/claude \
+    && if [[ "$INCLUDE_CLAUDE" == 1 ]]; then \
+      ln -s /opt/gamebench-tools/node_modules/.bin/claude /usr/local/bin/claude; \
+    fi \
     && ln -s /opt/gamebench-tools/node_modules/.bin/codex /usr/local/bin/codex \
     && npm cache clean --force
 

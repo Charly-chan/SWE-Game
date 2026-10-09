@@ -8,12 +8,14 @@ VLM calls are not required or used by this scoring protocol.
 
 ## Metric contract
 
-The release metric is an **evidence-adjusted proxy**, not a claim of identical
-execution conditions or measurements to the paper. Every report identifies
-`2026-10.mode5-evidence-five-visual1`, `environment_class = community-docker`, and
-`paper_compatible = false`. `official_total` remains `null`: the visual component
-is an artifact proxy, not verified rendered similarity. A proxy leaderboard
-must say so explicitly.
+The release metric is an **evidence-adjusted score** on a 0–100 scale. Every
+report identifies registry `2026-10.mode5-evidence-five-visual1` and environment
+`community-docker`. The five components below assess independently verified
+implementation and behavior. Visual measures implementation correspondence;
+perceptual and aesthetic similarity are outside this metric. Use
+`weighted_total.score` for the task score and retain the registry with results.
+See the [output contract](OUTPUT_CONTRACT.md) for serialized fields and
+[version information](../releasing.md) for published result provenance.
 
 | Component | Raw points | Published subcriteria |
 | --- | ---: | --- |
@@ -98,8 +100,7 @@ measure, not a VLM or perceptual/aesthetic similarity score.
 
 The implementation imposes no separate Visual ceiling. When the corresponding
 runtime obligations are independently verified, Visual can reach its full 15-point
-weight and the fixed-denominator proxy can reach 100/100. `official_total` remains
-null and `paper_compatible` remains false.
+weight and the fixed-denominator score can reach 100/100.
 
 ### Stability and failures
 
@@ -111,7 +112,7 @@ lifecycle credit.
 
 Candidate compilation/runtime failure is local to dependent obligations.
 Evaluator infrastructure failure makes the task unrankable (`total = null`),
-while retaining earned proxy points as diagnostics. Integrity failure is a hard
+while retaining earned score points as diagnostics. Integrity failure is a hard
 gate, also unrankable; static scores never authorize executing an unsafe project.
 
 ## Model aggregation
@@ -133,8 +134,8 @@ arithmetic task mean. Low-tail mean and 70/30 reliability are adjacent diagnosti
 columns only: they never replace the ranking metric or select another pipeline.
 The same low-tail task set is used for component diagnostics. Missing tasks
 withhold the complete model mean; `partial_mean_score` is explicitly diagnostic.
-No reproduction of historical paper numbers is asserted without rescoring the
-original submissions under this frozen protocol.
+Published comparisons must identify the task inventory and frozen scoring
+protocol used for each result set.
 
 ## Implementation and verification
 

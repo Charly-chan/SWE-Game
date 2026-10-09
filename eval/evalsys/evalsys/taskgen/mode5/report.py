@@ -66,7 +66,7 @@ def make_scorecard(result: Any) -> dict[str, Any]:
     weighted = {
         "score": score["total"], "scale": "0-100", "headline_ceiling": 100.0,
         "status": score["status"],
-        "rule": "Fixed 35/25/15/15/10 evidence-adjusted proxy; no VLM or paper equivalence.",
+        "rule": "Fixed 35/25/15/15/10 evidence-adjusted score from independently collected evidence.",
     }
     resolved = result.resolved
     from ..content.verifier_profiles import verifier_profile
@@ -81,7 +81,7 @@ def make_scorecard(result: Any) -> dict[str, Any]:
         "outcome_status": score["status"], "official_total": None,
         "paper_compatible": False, "ranking_scope": RANKING_SCOPE,
         "ranking_eligible": score["ranking_eligible"],
-        "ranking_note": "Evidence-adjusted implementation/correspondence score, not perceptual similarity or a paper-equivalent total.",
+        "ranking_note": "Evidence-adjusted implementation and behavior score; Visual measures implementation correspondence.",
         "components": score["components"], "categories": categories,
         "weighted_total": weighted, "headline": {**weighted,
             "ranking_eligible": score["ranking_eligible"], "ranking_scope": RANKING_SCOPE},
@@ -135,10 +135,10 @@ def render_scorecard(card: Mapping[str, Any]) -> str:
         f"# Mode 5 / {card['game_id']}", "",
         f"Registry: `{REGISTRY_VERSION}`; environment: `community-docker`.", "",
         f"Score mode: `{reading['score_mode']}`; status: `{reading['status']}`.",
-        "No VLM. Visual measures implementation and reference correspondence; not perceptual appearance similarity. Paper compatibility is not asserted.", "",
-        f"Proxy total: {'unrankable' if total is None else f'{total:.3f} / 100'}. "
-        f"Earned proxy points: {reading['earned_proxy_points']:.3f}. Official total: not measured.",
-        f"Strict runtime outcome: `{card['strict']['status']}` (separate from proxy points).", "",
+        "Visual measures implementation and reference correspondence using runtime, Editor, and artifact evidence. This protocol uses no VLM.", "",
+        f"Evidence-adjusted score: {'unrankable' if total is None else f'{total:.3f} / 100'}. "
+        f"Earned component points: {reading['earned_proxy_points']:.3f}.",
+        f"Strict runtime outcome: `{card['strict']['status']}` (reported separately from component points).", "",
         "| Component | Weight | Points | Percent |", "| --- | ---: | ---: | ---: |",
     ]
     for name, component in reading["components"].items():
