@@ -58,9 +58,9 @@ The following tables reproduce **Table 3** of the [paper](https://arxiv.org/html
   <thead>
     <tr>
       <th align="left" width="170">Model</th>
-      <th align="right" width="145">Mechanics</th>
+      <th align="right" width="145">Mech.</th>
       <th align="right" width="145">Content</th>
-      <th align="right" width="145">Playability</th>
+      <th align="right" width="145">Play.</th>
       <th align="right" width="145">VLM</th>
       <th align="right" width="70">Total</th>
     </tr>
@@ -81,9 +81,9 @@ The following tables reproduce **Table 3** of the [paper](https://arxiv.org/html
   <thead>
     <tr>
       <th align="left" width="170">Model</th>
-      <th align="right" width="145">Mechanics</th>
+      <th align="right" width="145">Mech.</th>
       <th align="right" width="145">Content</th>
-      <th align="right" width="145">Playability</th>
+      <th align="right" width="145">Play.</th>
       <th align="right" width="145">VLM</th>
       <th align="right" width="70">Total</th>
     </tr>
@@ -104,9 +104,9 @@ The following tables reproduce **Table 3** of the [paper](https://arxiv.org/html
   <thead>
     <tr>
       <th align="left" width="170">Model</th>
-      <th align="right" width="116">Mechanics</th>
+      <th align="right" width="116">Mech.</th>
       <th align="right" width="116">Content</th>
-      <th align="right" width="116">Playability</th>
+      <th align="right" width="116">Play.</th>
       <th align="right" width="116">Scaffold</th>
       <th align="right" width="116">VLM</th>
       <th align="right" width="70">Total</th>
@@ -151,8 +151,8 @@ The following tables reproduce **Table 3** of the [paper](https://arxiv.org/html
   <thead>
     <tr>
       <th align="left" width="170">Model</th>
-      <th align="right" width="116">Mechanics</th>
-      <th align="right" width="116">Playability</th>
+      <th align="right" width="116">Mech.</th>
+      <th align="right" width="116">Play.</th>
       <th align="right" width="116">Structure</th>
       <th align="right" width="116">Visual</th>
       <th align="right" width="116">Stability</th>
@@ -169,7 +169,7 @@ The following tables reproduce **Table 3** of the [paper](https://arxiv.org/html
   </tbody>
 </table>
 
-**Reading the table.** Bold marks the best result in each column within a task. Content includes asset realization; Design assesses the authored GDD; Scaffold assesses completion and integration. For construction tasks, Mechanics includes certified reference-input routes, and Playability covers demonstration validity, feature coverage, and behavior relative to matched no-input controls. Totals follow [Section 3.4](https://arxiv.org/html/2609.33678v1#S3.SS4); Bug Repair totals average per-task products of the component factors.
+**Reading the table.** Mech. = Mechanics; Play. = Playability. Bold marks the best result in each column within a task. Content includes asset realization; Design assesses the authored GDD; Scaffold assesses completion and integration. For construction tasks, Mechanics includes certified reference-input routes, and Playability covers demonstration validity, feature coverage, and behavior relative to matched no-input controls. Totals follow [Section 3.4](https://arxiv.org/html/2609.33678v1#S3.SS4); Bug Repair totals average per-task products of the component factors.
 
 ## Evaluation
 
