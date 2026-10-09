@@ -13,7 +13,7 @@ usage() {
   cat <<'EOF'
 usage: ./evaluate.sh <package_dir> <submission_dir> [--out DIR]
                      [--visual-judge vlm|local|none] [--score-against-source]
-                     [--registry VERSION]
+                     [--registry VERSION] [--brief-design on|off]
        ./evaluate.sh --rescore <report.json> [rescore.py options]
        ./evaluate.sh --judge-visuals <report.json> --out DIR [--record-missing]
                      [--registry VERSION] [--package DIR] [--submission DIR]
@@ -31,6 +31,10 @@ scores are continuous 0-1 with caps; q^3 is diagnostic only. Missing VLM reading
 leave an objective contribution and a null composite. Mode 4 defaults to
 2026-09-15.mode4-redesign1; Mode 5 uses the fixed 2026-10.mode5-evidence-five-visual1 registry; older Mode 5 registries are rejected.
 Historical registries remain available with --registry.
+Brief Design scoring defaults to off for current Brief registries. Use
+--brief-design on to score GDD quality and interface declarations. With Design
+off, the remaining objective axes keep their ratios and total 85 points;
+visual quality keeps 15 points. GDD submission and brief grounding remain required.
 --score-against-source turns on Objective Behavioral Evaluation for a package
 that was generated without it; full Godot headline scoring needs those objective
 channels too. It changes which channels are measured and can move
@@ -73,12 +77,14 @@ OUT=""
 VISUAL_JUDGE="${GB_VISUAL_JUDGE:-none}"
 SCORE_AGAINST_SOURCE=0
 SCORE_REGISTRY=""
+BRIEF_DESIGN=""
 while [ $# -gt 0 ]; do
   case "$1" in
     --out) [ $# -ge 2 ] || gb_die "--out needs a directory"; OUT="$2"; shift ;;
     --visual-judge) [ $# -ge 2 ] || gb_die "--visual-judge needs vlm, local, or none"; VISUAL_JUDGE="$2"; shift ;;
     --score-against-source) SCORE_AGAINST_SOURCE=1 ;;
     --registry) [ $# -ge 2 ] || gb_die "--registry needs a version"; SCORE_REGISTRY="$2"; shift ;;
+    --brief-design) [ $# -ge 2 ] || gb_die "--brief-design needs on or off"; BRIEF_DESIGN="$2"; shift ;;
     -h|--help) usage; exit 0 ;;
     *) gb_die "unknown option $1 (try --help)" ;;
   esac
@@ -87,6 +93,10 @@ done
 case "$VISUAL_JUDGE" in
   vlm|local|none) ;;
   *) gb_die "--visual-judge must be vlm, local, or none" ;;
+esac
+case "$BRIEF_DESIGN" in
+  ""|on|off) ;;
+  *) gb_die "--brief-design must be on or off" ;;
 esac
 
 [ -d "$PACKAGE" ] || gb_die "package directory does not exist: $PACKAGE"
@@ -140,6 +150,9 @@ if [ "$SCORE_AGAINST_SOURCE" = 1 ]; then
 fi
 if [ -n "$SCORE_REGISTRY" ]; then
   VISUAL_ARGS+=(--registry "$SCORE_REGISTRY")
+fi
+if [ -n "$BRIEF_DESIGN" ]; then
+  VISUAL_ARGS+=(--brief-design "$BRIEF_DESIGN")
 fi
 mkdir -p "$(dirname "$OUT")"
 set +e

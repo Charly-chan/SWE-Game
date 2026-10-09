@@ -263,6 +263,7 @@ def run_matrix(
     agent: AgentConfig = AgentConfig(),
     engine: str = "auto",
     visual_judge: str = "none",
+    brief_design: bool = False,
     resume: bool = False,
     generate_only: bool = False,
     catalog_path: str | Path = CATALOG_PATH,
@@ -304,6 +305,7 @@ def run_matrix(
         agent=agent,
         engine=engine,
         visual_judge=visual_judge,
+        brief_design=brief_design,
         resume=resume,
         playtest_kit=playtest_kit,
         reference_video=reference_video,
@@ -327,6 +329,7 @@ def run_matrix(
             agent=agent,
             engine=engine,
             visual_judge=visual_judge,
+            brief_design=brief_design,
             resume=resume,
             generate_only=generate_only,
             playtest_kit=playtest_kit,
@@ -347,6 +350,7 @@ def _write_or_validate_run(
     engine: str,
     visual_judge: str,
     resume: bool,
+    brief_design: bool = False,
     playtest_kit: bool = False,
     reference_video: bool = True,
     community_scaffold: bool = False,
@@ -383,6 +387,8 @@ def _write_or_validate_run(
         "playtest_kit": "on" if playtest_kit else "off",
         "reference_video": "on" if reference_video else "off",
     }
+    if any(case.mode.id == "brief" for case in cases):
+        frozen["brief_design"] = "on" if brief_design else "off"
     if agent.sandbox == "docker":
         frozen["agent"]["docker_image"] = agent.docker_image
     if community_scaffold:
@@ -391,6 +397,8 @@ def _write_or_validate_run(
     if path.is_file():
         existing = json.loads(path.read_text(encoding="utf-8"))
         comparable = {key: existing.get(key) for key in frozen}
+        if "brief_design" in frozen:
+            comparable["brief_design"] = existing.get("brief_design", "on")
         if comparable != frozen:
             raise MatrixError("--resume configuration differs from frozen run.json")
         recorded_commit = str(existing.get("benchmark_commit") or "")
@@ -529,6 +537,7 @@ def _run_case(
     visual_judge: str,
     resume: bool,
     generate_only: bool,
+    brief_design: bool = False,
     playtest_kit: bool = False,
     reference_video: bool = True,
     evaluate: bool = True,
@@ -695,6 +704,7 @@ def _run_case(
                 submission,
                 engine=engine,
                 visual_judge=visual_judge,
+                brief_design=brief_design,
                 out=root / "evaluation",
             )
         result.durations_s["evaluate"] = round(time.monotonic() - started, 3)

@@ -235,7 +235,12 @@ def cmd_eval_task(args: argparse.Namespace) -> int:
             ])
 
     try:
-        result = evaluate_task(args.package, args.submission, engine=args.engine, score_against_source=True if args.score_against_source else None, visual_judge=args.visual_judge, out=args.out, registry_version=args.registry)
+        result = evaluate_task(
+            args.package, args.submission, engine=args.engine,
+            score_against_source=True if args.score_against_source else None,
+            visual_judge=args.visual_judge, out=args.out, registry_version=args.registry,
+            brief_design=None if args.brief_design is None else args.brief_design == "on",
+        )
     except (EvalTaskError, FileNotFoundError, ValueError) as exc:
         print(f'eval-task refused: {exc}', file=sys.stderr)
         return 2
@@ -299,6 +304,7 @@ def cmd_run_task_matrix(args: argparse.Namespace) -> int:
             agent=agent,
             engine=args.engine,
             visual_judge=args.visual_judge,
+            brief_design=args.brief_design == "on",
             resume=args.resume,
             generate_only=args.generate_only,
             catalog_path=args.catalog,
@@ -439,6 +445,7 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument('--visual-judge', default='none', choices=['none', 'local', 'vlm'], help='attach evaluator-owned frame evidence; uncalibrated and outside resolved')
     s.add_argument('--score-against-source', action='store_true')
     s.add_argument('--registry', default=None, metavar='VERSION', help='mode-specific registry (Modes 1–3 default to 2026-09-19.modeN-vlm1; use --visual-judge vlm for a complete composite score)')
+    s.add_argument('--brief-design', choices=['on', 'off'], default=None, help='include Brief GDD quality and interface Design scoring (default: off for current Brief registries)')
     s.set_defaults(func=cmd_eval_task)
     s = sub.add_parser('rescore-visuals', help='judge retained evaluator movies with the game-specific VLM rubric')
     s.add_argument('--report', required=True)
@@ -472,6 +479,7 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument('--agent-dry-run', action='store_true', help='with --generate-only: also write agent/{request,env}.json and prompt.md exactly as the run would, without starting the CLI')
     s.add_argument('--resume', action='store_true', help='reuse completed phases and continue incomplete cases')
     s.add_argument('--playtest-kit', default='off', choices=['on', 'off'], help='ship visible/playtest/ in generated packages (modes 1-3); recorded in run.json and manifest.json. Default off = the live0904 baseline condition')
+    s.add_argument('--brief-design', default='off', choices=['on', 'off'], help='include Brief Design scoring; frozen in run.json (default: off)')
     s.add_argument('--single-cell', action='store_true', help='exactly one game x mode x case: write package/ workspace/ agent/ submission/ evaluation/ directly under --out (run_benchmark.sh layout)')
     s.add_argument('--reference-video', default='on', choices=['on', 'off'], help='Mode 1 only: off withholds the input reference video; evaluation and output demos are unchanged')
     s.add_argument('--eval', default='on', choices=['on', 'off'], help='off keeps each collected submission without evaluating it; --resume --eval on evaluates the retained submission')

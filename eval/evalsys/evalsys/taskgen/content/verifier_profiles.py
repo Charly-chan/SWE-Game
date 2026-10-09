@@ -3,7 +3,7 @@
 
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 from typing import Any
 
 from ..modes import Mode, parse_mode
@@ -22,6 +22,8 @@ COMMON_BEHAVIOR = frozenset({
     "extended_mash_no_win",
     "anti_grant_diff",
 })
+
+BRIEF_DESIGN_ITEMS = frozenset({"authored_gdd_quality", "authored_gdd_interface"})
 
 
 @dataclass(frozen=True)
@@ -148,16 +150,25 @@ PROFILES: dict[str, ModeVerifierProfile] = {
 }
 
 
-def verifier_profile(mode: str | Mode) -> ModeVerifierProfile:
+def verifier_profile(mode: str | Mode, *, brief_design: bool = True) -> ModeVerifierProfile:
     resolved = mode if isinstance(mode, Mode) else parse_mode(mode)
-    return PROFILES[resolved.id]
+    profile = PROFILES[resolved.id]
+    if resolved.id == "brief" and not brief_design:
+        return replace(
+            profile,
+            eligibility_ids=profile.eligibility_ids - BRIEF_DESIGN_ITEMS,
+            purpose="judge brief grounding, executable self-clear causality, and GT-conditioned product fidelity",
+        )
+    return profile
 
 
 def missing_strict_items(
     mode: str | Mode,
     observed_ids: set[str] | frozenset[str],
+    *,
+    brief_design: bool = True,
 ) -> tuple[str, ...]:
-    profile = verifier_profile(mode)
+    profile = verifier_profile(mode, brief_design=brief_design)
     return tuple(sorted(profile.strict_ids - set(observed_ids)))
 
 

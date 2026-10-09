@@ -76,7 +76,7 @@ from .transformation import (
     audit_mode3_submission,
     audit_mode4_submission,
 )
-from .content.verifier_profiles import missing_strict_items, verifier_profile
+from .content.verifier_profiles import BRIEF_DESIGN_ITEMS, missing_strict_items, verifier_profile
 from .mode5.attribution import _attribute_mode5_items, _cascade_mode5_root_failure
 from .mode5.pipeline import phase_order as mode5_phase_order
 from .scorecard import (
@@ -267,6 +267,9 @@ class TaskEvalResult:
     #: / `rescore.py --registry` opt into older loadable rows, including
     #: ``2026-09-05.mode4`` and the intermediate ``2026-09-08.mode34``.
     registry_version: str | None = None
+    #: Historical constructed results include Design; evaluate_task selects the
+    #: default for new evaluations and writes the choice into report.json.
+    brief_design: bool = True
 
     @property
     def interval(self):
@@ -290,6 +293,8 @@ class TaskEvalResult:
     @property
     def eligibility_items(self) -> list[Item]:
         excluded = BEHAVIOR_ITEM_IDS | FIDELITY_ITEM_IDS
+        if self.package.manifest.get("mode") == "brief" and not self.brief_design:
+            excluded = excluded | BRIEF_DESIGN_ITEMS
         return [item for item in self.items if item.id not in excluded]
 
     @property
@@ -343,7 +348,7 @@ class TaskEvalResult:
     def to_dict(self) -> dict[str, Any]:
         interval = self.interval
         mode = str(self.package.manifest.get("mode") or "")
-        profile = verifier_profile(mode)
+        profile = verifier_profile(mode, brief_design=self.brief_design)
         scorecard = score_task_result(self, registry_version=self.registry_version)
         scorecard["witness_protocol"] = "gamebench.feature-demos.v1" if self.submission.demos_path else "whole-game-ops"
         strict_ids = profile.strict_ids
@@ -380,6 +385,7 @@ class TaskEvalResult:
             "report_schema": REPORT_SCHEMA,
             "metric_schema": "gamebench.taskgen.outcome.v2",
             "mode": mode,
+            **({"brief_design": self.brief_design} if mode == "brief" else {}),
             "verifier_profile": profile_payload,
             "game_id": self.package.manifest.get("game_id"),
             "package": str(self.package.root),
@@ -431,11 +437,19 @@ def evaluate_task(
     visual_judge: str = "none",
     out: str | Path | None = None,
     registry_version: str | None = None,
+    brief_design: bool | None = None,
 ) -> TaskEvalResult:
     pkg = TaskPackage.read(package)
     mode = parse_mode(str(pkg.manifest.get("mode") or ""))
     registry_version = registry_version or default_registry_for_mode(mode.id)
     policy = registry_policy(registry_version, mode=mode.id)
+    if mode.id == "brief":
+        if brief_design is None:
+            brief_design = not policy.mode1_redesign
+        elif not brief_design and not policy.mode1_redesign:
+            raise ValueError("--brief-design off requires a Mode-1 redesign or VLM registry")
+    else:
+        brief_design = True
     sub = (
         load_unity_submission(submission)
         if mode.id == "port"
@@ -605,13 +619,14 @@ def evaluate_task(
     if mode.id in {"skeleton", "bugfix"}:
         items.append(_transformation_contract_item(mode, pkg, sub, items))
 
-    items.append(_verifier_profile_item(mode, items))
+    items.append(_verifier_profile_item(mode, items, brief_design=brief_design))
 
     result = TaskEvalResult(
         pkg, sub, items=items, engine=engine_payload,
         brief_context=_brief_context(pkg) if mode.id == "brief" else {},
         replay_reading=_replay_reading_from_items(items),
         registry_version=registry_version,
+        brief_design=brief_design,
     )
     if out:
         result.write(out)
@@ -1898,11 +1913,13 @@ def _transformation_contract_item(
     )
 
 
-def _verifier_profile_item(mode: Mode, items: list[Item]) -> Item:
+def _verifier_profile_item(
+    mode: Mode, items: list[Item], *, brief_design: bool = True,
+) -> Item:
     """Fail the evaluator closed when a mode-specific verifier stage vanished."""
-    profile = verifier_profile(mode)
+    profile = verifier_profile(mode, brief_design=brief_design)
     observed = {item.id for item in items}
-    missing = missing_strict_items(mode, observed)
+    missing = missing_strict_items(mode, observed, brief_design=brief_design)
     if missing:
         return inconclusive(
             "verifier_profile_complete",
@@ -3787,7 +3804,10 @@ def render_report(result: TaskEvalResult) -> str:
     comparable = result.comparable
     resolved = result.resolved
     resolved_text = "not_measured" if resolved is None else ("yes" if resolved else "no")
-    profile = verifier_profile(str(result.package.manifest.get("mode") or ""))
+    profile = verifier_profile(
+        str(result.package.manifest.get("mode") or ""),
+        brief_design=getattr(result, "brief_design", True),
+    )
     # `getattr`: tests render stand-in results without the field.
     scorecard = score_task_result(
         result, registry_version=getattr(result, "registry_version", None),
@@ -3808,6 +3828,8 @@ def render_report(result: TaskEvalResult) -> str:
     ]
     if scorecard.get("ranking_note"):
         lines.extend([f"ranking_note: {scorecard['ranking_note']}", ""])
+    if "brief_design" in scorecard:
+        lines.extend([f"Brief Design scoring: {'on' if scorecard['brief_design'] else 'off'}", ""])
     lines.extend([f"visual_protocol: {scorecard.get('visual_protocol', 'legacy S-card')}", ""])
     weighted = scorecard["weighted_total"]
     if weighted["score"] is None:

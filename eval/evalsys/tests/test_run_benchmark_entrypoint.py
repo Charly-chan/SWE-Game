@@ -222,6 +222,23 @@ def test_mode1_no_video_dry_run_records_condition_and_preserves_visual_judge(ent
     assert json.loads((out / "run.json").read_text())["params"]["reference_video"] == "off"
 
 
+@pytest.mark.parametrize("choice", [None, "off", "on"])
+def test_brief_design_choice_reaches_worker_and_is_frozen(entrypoint, choice):
+    run, capture, out = entrypoint
+    options = [] if choice is None else ["--brief-design", choice]
+    result = run("--game", "canopy_dash", "--mode", "brief", "--dry-run", *options)
+    assert result.returncode == 0, result.stderr
+    expected = choice or "off"
+    calls = [json.loads(line) for line in capture.read_text().splitlines()]
+    assert calls[0][calls[0].index("--brief-design") + 1] == expected
+    assert json.loads((out / "run.json").read_text())["params"]["brief_design"] == expected
+    other = "on" if expected == "off" else "off"
+    resumed = run("--game", "canopy_dash", "--mode", "brief", "--dry-run", "--resume",
+                  "--brief-design", other)
+    assert resumed.returncode != 0
+    assert "brief_design differs" in resumed.stderr
+
+
 def test_mode1_cannot_resume_video_arm_in_the_no_video_directory(entrypoint):
     run, _capture, _out = entrypoint
     first = run("--game", "canopy_dash", "--mode", "brief", "--reference-video", "off", "--dry-run")
@@ -583,7 +600,8 @@ class Evaluation:
     items = []
 
     def to_dict(self):
-        return {"resolved": self.resolved, "behavior": {"score": {"lo": 1, "hi": 1, "coverage": 1}},
+        return {"resolved": self.resolved, "brief_design": self.brief_design,
+                "behavior": {"score": {"lo": 1, "hi": 1, "coverage": 1}},
                 "comparable": True, "scorecard": {"resolved": self.resolved, "registry_version": "fixture"}}
 
 def evaluate(package, submission, *, out, **kwargs):
@@ -591,6 +609,7 @@ def evaluate(package, submission, *, out, **kwargs):
     if os.environ.get("EVALUATOR_OUTCOME") == "error":
         raise RuntimeError("fixture evaluator failed")
     result = Evaluation()
+    result.brief_design = kwargs["brief_design"]
     Path(out).mkdir(parents=True)
     (Path(out) / "report.json").write_text(json.dumps(result.to_dict()))
     return result
@@ -667,14 +686,15 @@ def test_live_eval_off_then_resume_evaluates_once_without_rerunning_agent(live_e
     assert json.loads((out / "run.json").read_text())["params"]["evaluation"] == "on"
 
 
-@pytest.mark.parametrize("options", [(), ("--eval", "on")])
+@pytest.mark.parametrize("options", [(), ("--eval", "on"), ("--brief-design", "on")])
 def test_live_eval_on_and_completed_resume_keep_the_first_report(live_entrypoint, options):
     run, _out, cell = live_entrypoint
     result, events = run(*options)
     assert result.returncode == 0, result.stdout + result.stderr
     assert events == ["generate", "agent", "evaluate"]
     first = (cell / "evaluation/report.json").read_bytes()
-    result, events = run("--eval", "on", "--resume")
+    assert json.loads(first)["brief_design"] is ("--brief-design" in options)
+    result, events = run(*options, "--eval", "on", "--resume")
     assert result.returncode == 0, result.stdout + result.stderr
     assert events == ["generate", "agent", "evaluate"]
     assert (cell / "evaluation/report.json").read_bytes() == first
