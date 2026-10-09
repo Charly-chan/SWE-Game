@@ -1,0 +1,17 @@
+{
+  "blockers": [],
+  "game_id": "sprout_market",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "sprout_market-c1-opening_carrot_shift",
+    "sprout_market-c3-third_fixture_shift",
+    "sprout_market-c4-fourth_fixture_shift",
+    "sprout_market-c6-sixth_fixture_shift",
+    "sprout_market-c7-seventh_shift",
+    "sprout_market-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:8178ff937ff89991d188c308fff114444bd21286cfcdc8ef578e5901a401831d"
+}

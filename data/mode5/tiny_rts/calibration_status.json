@@ -1,0 +1,14 @@
+{
+  "blockers": [],
+  "game_id": "tiny_rts",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "tiny_rts-c1-riverwatch_banner",
+    "tiny_rts-c2-emberfield_banner",
+    "tiny_rts-c3-bannerfall_keep"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:b0b58c3bcc83970961a9c50737c291b698dec9722bb5741fadd1a8f299594091"
+}

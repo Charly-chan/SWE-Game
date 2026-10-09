@@ -14,7 +14,7 @@ from typing import Any, Mapping, Sequence
 
 
 PROTOCOL = "gamebench.unity-controller.v1"
-MAX_MESSAGE_BYTES = 1024 * 1024
+MAX_MESSAGE_BYTES = 4 * 1024 * 1024
 MESSAGE_TYPES = frozenset({
     "hello", "ready", "observation", "action", "action_ack",
     "action_batch", "action_batch_ack",
@@ -178,7 +178,7 @@ class UnityControllerSession:
         self.channel.send({"type": "action_batch", "sequence": sequence, "batch": steps})
         return sequence
 
-    def send_capture(self, checkpoint_id: str) -> int:
+    def send_capture(self, checkpoint_id: str, *, visual_audit: bool = False) -> int:
         if not checkpoint_id:
             raise UnityControllerProtocolError("capture checkpoint id is required")
         sequence = self.next_command_sequence
@@ -187,6 +187,7 @@ class UnityControllerSession:
             "type": "capture",
             "sequence": sequence,
             "checkpoint_id": checkpoint_id,
+            "visual_audit": visual_audit,
         })
         return sequence
 

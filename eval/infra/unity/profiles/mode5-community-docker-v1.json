@@ -1,0 +1,28 @@
+{
+  "schema": "gamebench.mode5-environment-profile.v1",
+  "profile_id": "mode5-community-docker-v1",
+  "environment_class": "community-docker",
+  "paper_compatible": false,
+  "platform": "linux-x86_64",
+  "unity_editor": "6000.3.23f1",
+  "unity_changeset": "09d2ecc7fb28",
+  "build_target": "StandaloneLinux64",
+  "scripting_backend": "Mono",
+  "network_policy": "candidate-and-evaluator-offline",
+  "renderer": "mesa-llvmpipe",
+  "display": "xvfb-960x540",
+  "limits": {
+    "cpus": 8,
+    "memory_mb": 27648,
+    "wall_seconds": 3600
+  },
+  "required_preflight": [
+    "image_digest",
+    "unity_version",
+    "license",
+    "scaffold_import",
+    "script_compile",
+    "linux_player_build",
+    "player_smoke"
+  ]
+}

@@ -14,7 +14,7 @@ with each result. Scores from different modes or versions have different meaning
 | 2 · GDD | `2026-09-19.mode2-vlm1` | 85 objective + 15 game-specific VLM |
 | 3 · Skeleton | `2026-09-19.mode3-vlm1` | 85 objective + 15 game-specific VLM |
 | 4 · Bugfix | `2026-09-15.mode4-redesign1` | Differential repair with integrity and regression factors |
-| 5 · Port | `2026-09-20.mode5-mdva-domain1` | 70 objective + 15 structure VLM + 15 visual quality |
+| 5 · Port | `2026-10.mode5-evidence-five-visual1` | Mechanics 35 + Playability 25 + Structure 15 + Visual 15 + Stability 10 |
 
 Visual judging is disabled by default. Modes 1–3 and 5 retain measured objective
 scores when VLM evidence is missing; their complete composite remains `null`.
@@ -73,16 +73,19 @@ Repair inputs and submission requirements are described in the
 
 ## Mode 5
 
-Objective evidence allocates 35 points to mechanisms and semantic consistency,
-25 to playability and completion, and 10 to stability and lifecycle behavior.
-Structure fidelity and visual quality each contribute 15 VLM points. The domains have
-fixed denominators and report missing evidence independently.
+The Community evaluator publishes one fixed 35/25/15/15/10 evidence-adjusted
+proxy. Twenty subcriteria use runtime/editor/static/presence coefficients
+1.00/0.80/0.60/0.25. Visual uses evaluator-owned implementation-
+correspondence measurements, not a VLM or perceptual/aesthetic similarity score.
+Runtime captures can earn the full Visual component when the frozen obligations are
+independently verified; static evidence remains discounted. Compilation failure
+preserves independent static evidence, while final-goal credit requires causal
+runtime verification. Integrity/infrastructure failures remain unrankable.
 
-An infrastructure failure yields an inconclusive result. A candidate failure
-can yield a measured zero in the affected domain. Objective failure does not
-prevent visual assessment when valid candidate frames are available. See the
-[Mode 5 evaluation specification](MODE5_EVALUATION.md) and
-[v2 domain contract](MODE5_V2_MDVA_DOMAIN.md) for gates, weights, and report fields.
+The model headline is the full-catalog arithmetic task mean. Low-tail mean and
+70/30 reliability are diagnostic columns only. Missing tasks cannot silently
+shrink the headline denominator. See the [scoring contract](MODE5_SCORING.md),
+[Release protocol](MODE5_RELEASE_PROTOCOL.md) and [runbook](MODE5_RELEASE.md).
 
 ## Reading reports
 
@@ -108,5 +111,5 @@ package and submission.
 The paper reports human agreement studies for behavioral and perceptual
 evaluation in [Section 4.5](https://arxiv.org/html/2609.33678v1#S4.SS5).
 Reproducing a score requires the recorded registry, rubric, judge model, and
-video sampling configuration. Godot-to-Unity Porting also requires the certified
-Unity environment. 
+video sampling configuration. Community porting requires the validated Docker toolchain and effective license.
+It reports `paper_compatible=false`; matching paper weights does not certify equivalent methods or results.

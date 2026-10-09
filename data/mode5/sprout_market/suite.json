@@ -1,0 +1,1351 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:8178ff937ff89991d188c308fff114444bd21286cfcdc8ef578e5901a401831d",
+  "game_id": "sprout_market",
+  "inputs": {
+    "certificate": {
+      "path": "tasks/sprout_market/certificate.rt1.json",
+      "sha256": "9544f2fb6604b5ac5401da64a9493e9170ff4c950109e9b61483a28ea4143571"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/sprout_market.md",
+      "sha256": "3f9888bd1675fbf51eb372a4da5259fa814e5e232cbfe636994124baf8d6e593"
+    },
+    "route": {
+      "path": "tasks/sprout_market/route.json",
+      "sha256": "d826d18285130468e5f85ce96474e017764a651c08b13efc1b0dd688306cd318"
+    },
+    "rubric": {
+      "entry_sha256": "fde1154616a4ab3b176276540f3a2cc110c4e8860f5cd4cbf6fb86bc7abb9efd",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_collectible",
+        "gb_interactive",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/sprout_market/authored/source_obligations.json",
+      "sha256": "d024cee5fecda1b6e17b4133edf84dfdd192411135d87cbdd81cbb38661d4604"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "sprout_market-c1-opening_carrot_shift.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "sprout_market-c1-opening_carrot_shift.shift_1_quota_cleared",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "sprout_market-c1-opening_carrot_shift.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed core/run_state.gd:71: unlocked_slots = slots_open_at_shift(shift_index)",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:889ea431070d1e10342796ed0e6710182f0a11590b9f15d8c3892bca9c0c0576",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "sprout_market/C1/opening_carrot_shift",
+      "scenario_id": "sprout_market-c1-opening_carrot_shift",
+      "source_check_id": "owner-reviewed-sprout_market-c1-opening_carrot_shift",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "shift_1_quota_cleared",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "sprout_market-c3-third_fixture_shift.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "sprout_market-c3-third_fixture_shift.shift_3_quota_cleared",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "sprout_market-c3-third_fixture_shift.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed core/run_state.gd:71: unlocked_slots = slots_open_at_shift(shift_index)",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:889ea431070d1e10342796ed0e6710182f0a11590b9f15d8c3892bca9c0c0576",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "sprout_market/C3/third_fixture_shift",
+      "scenario_id": "sprout_market-c3-third_fixture_shift",
+      "source_check_id": "owner-reviewed-sprout_market-c3-third_fixture_shift",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "shift_3_quota_cleared",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "sprout_market-c4-fourth_fixture_shift.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "sprout_market-c4-fourth_fixture_shift.shift_4_quota_cleared",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "sprout_market-c4-fourth_fixture_shift.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:889ea431070d1e10342796ed0e6710182f0a11590b9f15d8c3892bca9c0c0576",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "sprout_market/C4/fourth_fixture_shift",
+      "scenario_id": "sprout_market-c4-fourth_fixture_shift",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "sprout_market-c6-sixth_fixture_shift.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "sprout_market-c6-sixth_fixture_shift.shift_6_quota_cleared",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "sprout_market-c6-sixth_fixture_shift.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:889ea431070d1e10342796ed0e6710182f0a11590b9f15d8c3892bca9c0c0576",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "sprout_market/C6/sixth_fixture_shift",
+      "scenario_id": "sprout_market-c6-sixth_fixture_shift",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "sprout_market-c7-seventh_shift.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "sprout_market-c7-seventh_shift.shift_7_quota_cleared",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "sprout_market-c7-seventh_shift.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:889ea431070d1e10342796ed0e6710182f0a11590b9f15d8c3892bca9c0c0576",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "sprout_market/C7/seventh_shift",
+      "scenario_id": "sprout_market-c7-seventh_shift",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "sprout_market-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "sprout_market-l5-whole_game_clear.opening_shift_cleared",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "sprout_market-l5-whole_game_clear.campaign_terminal_win",
+          "predicate": "whole_game_clear()"
+        },
+        {
+          "id": "sprout_market-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:889ea431070d1e10342796ed0e6710182f0a11590b9f15d8c3892bca9c0c0576",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "sprout_market/L5/whole_game_clear",
+      "scenario_id": "sprout_market-l5-whole_game_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.d21fa4df40",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.d40c585c15",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.412466fb76",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    }
+  ],
+  "policy_digest": "sha256:682ccc8e8343445c1442c6eae35652f875f160ea3f7a0bcf477e3d6a9dd2c519",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 2622,
+      "capture_checkpoints": [
+        {
+          "id": "sprout_market-c1-opening_carrot_shift.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "sprout_market-c1-opening_carrot_shift.shift_1_quota_cleared",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "sprout_market-c1-opening_carrot_shift.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "shift_1_quota_cleared",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "id": "sprout_market-c1-opening_carrot_shift",
+      "policy": "strategy.movement.d21fa4df40",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "sprout_market/C1/opening_carrot_shift",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "shift_1_quota_cleared",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 2994,
+      "capture_checkpoints": [
+        {
+          "id": "sprout_market-c3-third_fixture_shift.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "sprout_market-c3-third_fixture_shift.shift_3_quota_cleared",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "sprout_market-c3-third_fixture_shift.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "shift_3_quota_cleared",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "id": "sprout_market-c3-third_fixture_shift",
+      "policy": "strategy.movement.d21fa4df40",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "sprout_market/C3/third_fixture_shift",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "shift_3_quota_cleared",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 3234,
+      "capture_checkpoints": [
+        {
+          "id": "sprout_market-c4-fourth_fixture_shift.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "sprout_market-c4-fourth_fixture_shift.shift_4_quota_cleared",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "sprout_market-c4-fourth_fixture_shift.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "shift_4_quota_cleared",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "id": "sprout_market-c4-fourth_fixture_shift",
+      "policy": "strategy.movement.d40c585c15",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "sprout_market/C4/fourth_fixture_shift",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 3714,
+      "capture_checkpoints": [
+        {
+          "id": "sprout_market-c6-sixth_fixture_shift.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "sprout_market-c6-sixth_fixture_shift.shift_6_quota_cleared",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "sprout_market-c6-sixth_fixture_shift.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "shift_6_quota_cleared",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "id": "sprout_market-c6-sixth_fixture_shift",
+      "policy": "strategy.movement.d40c585c15",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "sprout_market/C6/sixth_fixture_shift",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 3954,
+      "capture_checkpoints": [
+        {
+          "id": "sprout_market-c7-seventh_shift.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "sprout_market-c7-seventh_shift.shift_7_quota_cleared",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "sprout_market-c7-seventh_shift.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "shift_7_quota_cleared",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "id": "sprout_market-c7-seventh_shift",
+      "policy": "strategy.movement.d40c585c15",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "sprout_market/C7/seventh_shift",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 28000,
+      "capture_checkpoints": [
+        {
+          "id": "sprout_market-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "sprout_market-l5-whole_game_clear.opening_shift_cleared",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "sprout_market-l5-whole_game_clear.campaign_terminal_win",
+          "predicate": "whole_game_clear()"
+        },
+        {
+          "id": "sprout_market-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "opening_shift_cleared",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "campaign_terminal_win",
+            "predicate": "whole_game_clear()"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "sprout_market-l5-whole_game_clear",
+      "policy": "strategy.traversal.412466fb76",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "sprout_market/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

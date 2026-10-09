@@ -1,0 +1,17 @@
+{
+  "blockers": [],
+  "game_id": "kindle_relay",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "kindle_relay-c2-coast_second_light",
+    "kindle_relay-c3-valley_glass_field",
+    "kindle_relay-c4-valley_west_ridge",
+    "kindle_relay-c5-summit_south_crown",
+    "kindle_relay-c6-summit_final_light",
+    "kindle_relay-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:73513ad32c05a5cf4ebc5b3c8d5a47200946c7a716fb8cdae90d91396f31a64c"
+}

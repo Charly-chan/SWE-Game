@@ -13,7 +13,7 @@ from evalsys.taskgen.unity.unity_interface import (
     UnityInterfaceManifest,
     UnityLevel,
 )
-from evalsys.taskgen.unity.unity_runtime import build_unity_submission
+from evalsys.taskgen.unity.unity_runtime import _render_builder, build_unity_submission
 from evalsys.taskgen.unity.unity_environment import UnityEnvironmentProfile
 
 
@@ -76,6 +76,9 @@ if mode == "license":
 if mode == "fail":
     log.write_text("C# compiler error", encoding="utf-8")
     raise SystemExit(1)
+if mode == "killed":
+    log.write_text("build interrupted", encoding="utf-8")
+    raise SystemExit(137)
 if mode == "empty":
     log.write_text("returned zero without a player", encoding="utf-8")
     raise SystemExit(0)
@@ -84,6 +87,8 @@ packages = __import__('json').loads((project / "Packages/manifest.json").read_te
 if packages.get("dependencies", {}).get("com.unity.modules.audio") != "1.0.0":
     raise SystemExit(5)
 source = (project / "Assets/Editor/GameBenchmarkEvaluatorBuild.cs").read_text(encoding="utf-8")
+assert "GB_UNITY_SCRIPTING_BACKEND" in source
+assert "if (!string.IsNullOrWhiteSpace(backend))" in source
 probe = project / "Assets/GameBenchmarkEvaluator/GameBenchmarkEvaluatorProbe.cs"
 if not probe.is_file() or "gamebench.unity-controller.v1" not in probe.read_text(encoding="utf-8"):
     raise SystemExit(4)
@@ -103,6 +108,17 @@ raise SystemExit(0)
 
 
 class UnityRuntimeTests(unittest.TestCase):
+    def test_community_builder_includes_candidate_owned_ending_scenes_only_in_community(self) -> None:
+        scenes = ("Assets/Game/Scenes/Level1.unity",)
+        default = _render_builder(scenes, Path("/out/game.x86_64"))
+        community = _render_builder(
+            scenes, Path("/out/game.x86_64"), include_candidate_scenes=True,
+        )
+        self.assertNotIn('AssetDatabase.FindAssets("t:Scene"', default)
+        self.assertIn('AssetDatabase.FindAssets("t:Scene"', community)
+        self.assertIn("Distinct(StringComparer.Ordinal)", community)
+        self.assertIn('"Assets/Game/Scenes/Level1.unity"', community)
+
     def test_injected_probe_forces_background_player_loop(self) -> None:
         probe = (
             Path(__file__).resolve().parents[1]
@@ -183,6 +199,19 @@ class UnityRuntimeTests(unittest.TestCase):
             self.assertEqual("fail", result.status)
             self.assertEqual(1, result.returncode)
             self.assertEqual("submission", result.attribution)
+
+    @unittest.skipIf(os.name == "nt", "POSIX fake executable; Windows refusal is tested separately")
+    def test_killed_editor_is_infrastructure_not_submission_failure(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            result = build_unity_submission(
+                _project(root), _manifest(), root / "out",
+                unity_bin=_fake_unity(root, "killed"),
+                environment_profile=LOCAL_LINUX, trusted_fixture=True,
+            )
+            self.assertEqual("inconclusive", result.status)
+            self.assertEqual(137, result.returncode)
+            self.assertEqual("infrastructure", result.attribution)
 
     @unittest.skipIf(os.name == "nt", "POSIX fake executable; Windows refusal is tested separately")
     def test_repeated_build_cannot_reuse_old_player(self) -> None:

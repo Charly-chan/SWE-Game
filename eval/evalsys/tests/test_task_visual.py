@@ -126,7 +126,7 @@ def test_visual_credit_changes_headline_but_not_strict_or_old_registry():
     assert before == score_task_result(result, EVIDENCE_REGISTRY_VERSION)
     assert after["objective_total"]["score"] == 88.75
     assert after["assessment_status"] == "complete"
-    for mode in ("brief", "gdd", "skeleton", "port"):
+    for mode in ("brief", "gdd", "skeleton"):
         visual = next(c for c in _category_specs(mode, VISUAL_REGISTRY_VERSION) if c.id == "visual_experience")
         assert all(s.kind != "scard" for c in visual.criteria for s in c.sources)
 
@@ -162,16 +162,12 @@ def test_missing_behavior_is_not_hidden_by_the_objective_projection():
     assert score["assessment_status"] == "evaluation_incomplete"
 
 
-def test_unity_native_items_can_produce_a_headline_without_a_godot_card():
-    ids = set(verifier_profile("port").strict_ids) | {"verifier_profile_complete"}
-    ids |= {s.id for c in _category_specs("port", VISUAL_REGISTRY_VERSION) for k in c.criteria for s in k.sources if s.kind == "item"}
-    result = SimpleNamespace(package=SimpleNamespace(manifest={"mode": "port", "game_id": "fixture"}),
-                             items=[passed(i) for i in ids if i != "task_visual"], resolved=True)
-    result.items.append(aggregate_task_visual([row("a")], RUBRIC))
-    score = score_task_result(result, VISUAL_REGISTRY_VERSION)
-
-    assert score["weighted_total"]["score"] == 85
-    assert not score["evaluation_incomplete"]
+def test_port_cannot_use_a_perceptual_scoring_registry():
+    with pytest.raises(ValueError, match="fixed Community release"):
+        _category_specs("port", VISUAL_REGISTRY_VERSION)
+    result = SimpleNamespace(package=SimpleNamespace(manifest={"mode": "port", "game_id": "fixture"}))
+    with pytest.raises(ValueError, match="one release scoring registry"):
+        score_task_result(result, VISUAL_REGISTRY_VERSION)
 
 
 @pytest.mark.parametrize("name", ["noop", "revert", "regress", "revert_wide"])

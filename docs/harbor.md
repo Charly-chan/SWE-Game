@@ -127,7 +127,7 @@ is never used as the benchmark reward.
 The summary groups results by agent and CLI version, provider, model, task mode, registry,
 scale, and score scope. Every mean includes its scored/total coverage and the
 unscored count; do not compare conditional means without those counts. No
-criterion weights are changed. `mean_score` averages eligible attempts within
+criterion weights are changed. For Modes 1–4, `mean_score` averages eligible attempts within
 each repair case, then cases within each game, then games equally, so games
 with more repair cases do not get extra weight. `mean_trial_score` is a separate
 diagnostic. Failed setup/collection attempts stay in the same group's coverage
@@ -142,18 +142,67 @@ benchmark reporting. The SWE-Game wrapper exits nonzero when Harbor records a
 trial exception. Exit zero still does not imply a valid or successful submission;
 inspect the recorded statuses, eligibility, and strict completion results.
 
-## Mode 5 and deferred evaluation
+## Mode 5: Community Docker
 
-Export Mode 5 with `--image gamebench-agent:unity-6000.3.23f1`. The same
-collection pipeline produces a Unity submission. Mode 5 always returns
-`deferred` with reason `certified_unity_vm_required`, never a fabricated score.
-Other modes can use `run --collect-only` to defer grading as well.
+Harbor uses the same independent Community evaluator and five-component registry.
+Export requires a passing doctor state and a **floating** license provider; Harbor
+does not inject private file or existing-home activation into its agent container.
+Those providers use the supported `gb mode5 run` workflow. The default Mode 5 agent
+budget is 7200 seconds (120 minutes) and can be overridden explicitly.
 
-Keep the exported `evaluator/package/` and collected `verifier/submission/`
-together. Transfer them through the existing [certified Unity evaluation
-workflow](running.md), which uses a Windows host to launch the certified Ubuntu
-VM (`bench eval-task --unity-vm on`). The Harbor integration does not schedule
-that remote VM or import its resulting score automatically.
+```bash
+python -m evalsys.harbor export --package /absolute/package --out /absolute/task \
+  --mode5-profile community-docker --mode5-state-dir /absolute/private/state
+```
+
+The exporter reads the local lock and writes the immutable `sha256:...` Agent image ID into
+Harbor's native `[environment].docker_image`. It intentionally omits a Dockerfile because
+BuildKit interprets `FROM sha256:...` as a registry name; Harbor starts the already-built local
+image ID directly and uploads only `environment/` public task files into its workdir.
+The export is rejected if the saved doctor result is missing, failed, belongs to
+a different Agent image, or does not use the floating provider. Mode 5 Agent
+budget defaults to 7200 seconds; explicitly set `--agent-timeout` to override it.
+Then run:
+
+```bash
+./scripts/run_harbor.sh run \
+  --path /absolute/path/to/mode5-dataset \
+  --jobs-dir /absolute/path/to/harbor-jobs \
+  --job-name mode5-community \
+  --mode5-profile community-docker \
+  --mode5-state-dir "$HOME/.cache/gamebench/mode5" \
+  --docker "${GB_DOCKER_BIN:-docker}" \
+  -- --agent codex --model "$MODEL_ID"
+```
+
+The host verifier loads the digest-pinned image lock and passing doctor result,
+collects the submission, and calls the same fresh, offline evaluator-container API
+used by `./gb mode5 evaluate`. It uses the single Community scoring registry.
+The resulting record carries `environment_class=community-docker`,
+`paper_compatible=false`, and `ranking_scope=mode5-community-evidence-five-visual1`.
+The registry is `2026-10.mode5-evidence-five-visual1`, with fixed 35/25/15/15/10 weights.
+The five-component evidence proxy uses no VLM. Visual uses evaluator-owned
+implementation-correspondence measurements from runtime captures, with discounted
+Editor/static/presence fallback evidence; it does not measure perceptual or aesthetic
+similarity. `official_total=null` and no exact paper reproduction is asserted.
+Model summaries use the full-catalog arithmetic task mean, with separate
+low-tail and 70/30 reliability diagnostics. Partial-catalog means are diagnostic
+only. Repeated attempts are averaged within each game only when every attempt
+has a valid proxy reading; an unscored attempt withholds that game's complete
+reading rather than being dropped. Missing games withhold the main mean.
+
+Harbor itself owns the Agent container. For a saved `floating` provider, export adds
+only `${GB_UNITY_FLOATING_ENDPOINT}` and a pre-Agent Unity healthcheck to the task;
+the wrapper reads the endpoint from private Mode 5 state and supplies it only in the
+Harbor child process environment. The endpoint is not written into the dataset or
+command line. A failed entitlement probe stops the trial before the model starts.
+
+Never bake a license into an image or task. Harbor 0.23's portable task schema has no
+private host-file mount for a `.ulf` or dedicated Unity home. Therefore the standalone
+`./gb mode5 run` path is the supported one-command workflow for `file` and
+`existing-home`; this adapter rejects their export rather than assuming that an
+external secret-mount extension exists. Do not copy licensing material into
+`environment/` or encode them as environment variables.
 
 ## Validation and limitations
 
@@ -173,4 +222,4 @@ Harbor changes orchestration; it does not repair a model endpoint that loops,
 returns malformed tool calls, or terminates before producing a project. Keep
 the native trace when diagnosing those failures. This integration targets
 local Docker jobs; distributed hosts require the same evaluator dependencies
-and corpus paths. Mode 5 formal runtime scoring remains external.
+and corpus paths. Mode 5 runtime grading uses the independently provisioned Community evaluator.

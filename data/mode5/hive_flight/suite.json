@@ -1,0 +1,682 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:dcacdb0fc5c46ed11194c130be74740129959428c537398db263fb5f11902f8c",
+  "game_id": "hive_flight",
+  "inputs": {
+    "certificate": {
+      "path": "tasks/hive_flight/certificate.rt1.json",
+      "sha256": "26a48ef346399d3909e9bfb6b048a6dc8d421154ff035aeed48eaafa90a44312"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/hive_flight.md",
+      "sha256": "1d9dbf7c9d970b9788191318649accdf52421be8418a8cb3c19b9b6a38180763"
+    },
+    "route": {
+      "path": "tasks/hive_flight/route.json",
+      "sha256": "870f5e4a447b7a72d37b7a9e854b8fcae77c6e3da9cb622ea415a099dc5d3924"
+    },
+    "rubric": {
+      "entry_sha256": "fbb0dd07361135a2c9718edf46d6cdab7bdfeec2b0120b26792d0a133097b93b",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_hazard",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/hive_flight/authored/source_obligations.json",
+      "sha256": "8ea6240a3f915a595dae066926c8fd9df59b5542a39e2ec5136212da022887b8"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "hive_flight-c1-startled_hush_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "hive_flight-c1-startled_hush_clear.reached_level_1_goal",
+          "predicate": "contact(goal, 0)"
+        },
+        {
+          "id": "hive_flight-c1-startled_hush_clear.goal",
+          "predicate": "contact(goal, 0)"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed scripts/world/level.gd:72: Diag.emit(\"level_start\", {\"level\": level_id, \"hive_m\": data[\"hive_m\"],",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:f969980fe936f7af17934d3fe66a49f8f589dffaaec4b8e56ab9b2dea0ab79a9",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "hive_flight/C1/startled_hush_clear",
+      "scenario_id": "hive_flight-c1-startled_hush_clear",
+      "source_check_id": "owner-reviewed-hive_flight-c1-startled_hush_clear",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "reached_level_1_goal",
+            "predicate": "contact(goal, 0)"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "hive_flight-c2-broken_boughs_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "hive_flight-c2-broken_boughs_clear.reached_level_2_goal",
+          "predicate": "contact(goal, 0)"
+        },
+        {
+          "id": "hive_flight-c2-broken_boughs_clear.goal",
+          "predicate": "contact(goal, 0)"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed scripts/world/level.gd:72: Diag.emit(\"level_start\", {\"level\": level_id, \"hive_m\": data[\"hive_m\"],",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:f969980fe936f7af17934d3fe66a49f8f589dffaaec4b8e56ab9b2dea0ab79a9",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "hive_flight/C2/broken_boughs_clear",
+      "scenario_id": "hive_flight-c2-broken_boughs_clear",
+      "source_check_id": "owner-reviewed-hive_flight-c2-broken_boughs_clear",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "reached_level_2_goal",
+            "predicate": "contact(goal, 0)"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "hive_flight-c3-swarms_reach_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "hive_flight-c3-swarms_reach_clear.reached_level_3_goal",
+          "predicate": "contact(goal, 0)"
+        },
+        {
+          "id": "hive_flight-c3-swarms_reach_clear.goal",
+          "predicate": "contact(goal, 0)"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:f969980fe936f7af17934d3fe66a49f8f589dffaaec4b8e56ab9b2dea0ab79a9",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "hive_flight/C3/swarms_reach_clear",
+      "scenario_id": "hive_flight-c3-swarms_reach_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "hive_flight-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "hive_flight-l5-whole_game_clear.level_1_goal_reached",
+          "predicate": "contact(goal, 0)"
+        },
+        {
+          "id": "hive_flight-l5-whole_game_clear.entered_level_2",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "hive_flight-l5-whole_game_clear.level_2_goal_reached",
+          "predicate": "contact(goal, 0)"
+        },
+        {
+          "id": "hive_flight-l5-whole_game_clear.entered_level_3",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "hive_flight-l5-whole_game_clear.level_3_goal_reached",
+          "predicate": "contact(goal, 0)"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:f969980fe936f7af17934d3fe66a49f8f589dffaaec4b8e56ab9b2dea0ab79a9",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "hive_flight/L5/whole_game_clear",
+      "scenario_id": "hive_flight-l5-whole_game_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.fc5694e807",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    }
+  ],
+  "policy_digest": "sha256:ce21b3fd287eb224dd8267edb9745aaeef8519e879acb8194ab07c007daa0f59",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 886,
+      "capture_checkpoints": [
+        {
+          "id": "hive_flight-c1-startled_hush_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "hive_flight-c1-startled_hush_clear.reached_level_1_goal",
+          "predicate": "contact(goal, 0)"
+        },
+        {
+          "id": "hive_flight-c1-startled_hush_clear.goal",
+          "predicate": "contact(goal, 0)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "reached_level_1_goal",
+            "predicate": "contact(goal, 0)"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "id": "hive_flight-c1-startled_hush_clear",
+      "policy": "strategy.traversal.fc5694e807",
+      "required_actions": [
+        "gb_action",
+        "gb_jump",
+        "gb_right"
+      ],
+      "required_numeric": [],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "hive_flight/C1/startled_hush_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "reached_level_1_goal",
+            "predicate": "contact(goal, 0)"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 1127,
+      "capture_checkpoints": [
+        {
+          "id": "hive_flight-c2-broken_boughs_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "hive_flight-c2-broken_boughs_clear.reached_level_2_goal",
+          "predicate": "contact(goal, 0)"
+        },
+        {
+          "id": "hive_flight-c2-broken_boughs_clear.goal",
+          "predicate": "contact(goal, 0)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "reached_level_2_goal",
+            "predicate": "contact(goal, 0)"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "id": "hive_flight-c2-broken_boughs_clear",
+      "policy": "strategy.traversal.fc5694e807",
+      "required_actions": [
+        "gb_action",
+        "gb_jump",
+        "gb_right"
+      ],
+      "required_numeric": [],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "hive_flight/C2/broken_boughs_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "reached_level_2_goal",
+            "predicate": "contact(goal, 0)"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "start_level": 1
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 1366,
+      "capture_checkpoints": [
+        {
+          "id": "hive_flight-c3-swarms_reach_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "hive_flight-c3-swarms_reach_clear.reached_level_3_goal",
+          "predicate": "contact(goal, 0)"
+        },
+        {
+          "id": "hive_flight-c3-swarms_reach_clear.goal",
+          "predicate": "contact(goal, 0)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "reached_level_3_goal",
+            "predicate": "contact(goal, 0)"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "id": "hive_flight-c3-swarms_reach_clear",
+      "policy": "strategy.traversal.fc5694e807",
+      "required_actions": [
+        "gb_action",
+        "gb_jump",
+        "gb_right"
+      ],
+      "required_numeric": [],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "hive_flight/C3/swarms_reach_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 2
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 5000,
+      "capture_checkpoints": [
+        {
+          "id": "hive_flight-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "hive_flight-l5-whole_game_clear.level_1_goal_reached",
+          "predicate": "contact(goal, 0)"
+        },
+        {
+          "id": "hive_flight-l5-whole_game_clear.entered_level_2",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "hive_flight-l5-whole_game_clear.level_2_goal_reached",
+          "predicate": "contact(goal, 0)"
+        },
+        {
+          "id": "hive_flight-l5-whole_game_clear.entered_level_3",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "hive_flight-l5-whole_game_clear.level_3_goal_reached",
+          "predicate": "contact(goal, 0)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "level_1_goal_reached",
+            "predicate": "contact(goal, 0)",
+            "required_devices": [
+              "L1/goal#0"
+            ]
+          },
+          {
+            "name": "entered_level_2",
+            "predicate": "levels_visited() >= 2",
+            "required_devices": [
+              "L1/goal#0"
+            ]
+          },
+          {
+            "name": "level_2_goal_reached",
+            "predicate": "contact(goal, 0)",
+            "required_devices": [
+              "L2/goal#0"
+            ]
+          },
+          {
+            "name": "entered_level_3",
+            "predicate": "levels_visited() >= 3",
+            "required_devices": [
+              "L2/goal#0"
+            ]
+          },
+          {
+            "name": "level_3_goal_reached",
+            "predicate": "contact(goal, 0)",
+            "required_devices": [
+              "L3/goal#0"
+            ]
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "hive_flight-l5-whole_game_clear",
+      "policy": "strategy.traversal.fc5694e807",
+      "required_actions": [
+        "gb_action",
+        "gb_jump",
+        "gb_right"
+      ],
+      "required_numeric": [],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "hive_flight/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

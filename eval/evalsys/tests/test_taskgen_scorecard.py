@@ -27,9 +27,7 @@ from evalsys.taskgen.scorecard import (
     MODE4_REDESIGN_REGISTRY_VERSION,
     MODE4_GATES,
     MODE4_REGISTRY_VERSION,
-    MODE5_REGISTRY_VERSION,
-    MODE5_DELIVERY_ZERO_REGISTRY_VERSION,
-    MODE5_MDVA_REGISTRY_VERSION,
+    MODE5_RELEASE_REGISTRY_VERSION,
     MODE5_SCORECARD_SCHEMA,
     MODE4_REGRESSION_WEIGHTS,
     MODE4_REPAIR_CREDIT,
@@ -123,123 +121,13 @@ def score_pilot2(result):
 
 
 class TaskgenScorecardTests(unittest.TestCase):
+    """Structure of the card and the pilot2 rules, scored under the pilot2 registry."""
 
 
-    def test_port_probe_and_capture_do_not_award_quality_points(self) -> None:
-        ids = {
-            "unity_layout", "unity_build", "unity_interface", "ops_present", "ops_valid",
-            "ops_not_idle", "no_eval_smuggling", "no_bundled_godot_runtime",
-            "verifier_profile_complete", "causal_witness", "null_no_win",
-            "unity_auto_win_ready", "task_gdd_contract", "port_contract_alignment",
-            "build_recipe",
-            "unity_sdk_integrity", "unity_anti_grant_static", "unity_input_dispatch",
-            "unity_source_behavior",
-        }
-        items = [passed(item_id) for item_id in ids]
-        items.extend([
-            passed("unity_probe"),
-            passed("unity_evaluator_capture"),
-            passed("unity_mechanic_trace", credit=1 / 3),
-            passed("unity_runtime_stability"),
-            unobservable("unity_hidden_behavior"),
-            unobservable("unity_counterfactual"),
-            unobservable("unity_structure_fidelity"),
-            unobservable("unity_visual_fidelity"),
-            unobservable("cross_engine_fidelity"),
-        ])
-        result = SimpleNamespace(
-            package=SimpleNamespace(manifest={"mode": "port", "game_id": "fixture"}),
-            items=items,
-            resolved=True,
-        )
-        card = score_task_result(result)
-        mechanics = _category(card, "core_mechanics")
-        self.assertEqual(33.333, mechanics["score"]["score"])
-        self.assertEqual(MODE5_SCORECARD_SCHEMA, card["schema"])
-        self.assertEqual(MODE5_MDVA_REGISTRY_VERSION, card["registry_version"])
-        self.assertIsNone(card["weighted_total"]["score"])
-        self.assertEqual("evaluation_incomplete", card["weighted_total"]["status"])
-        self.assertEqual(0.55, card["measured_weight_share"])
-        self.assertEqual({"lo": 31.667, "hi": 76.667, "scale": "0-100"},
-                         card["diagnostics"]["fixed_weight_bounds"])
-        self.assertIn("measured_subset_rate", card["diagnostics"])
-        self.assertNotIn("measured_only_score", card["diagnostics"])
-        self.assertFalse(card["ranking_eligible"])
-        self.assertEqual("evaluation_incomplete", card["outcome_status"])
 
-    def test_complete_mode5_card_scores_only_five_capability_categories(self) -> None:
-        gates = {
-            "task_gdd_contract", "verifier_profile_complete", "unity_layout",
-            "unity_interface", "unity_sdk_integrity", "port_contract_alignment",
-            "ops_present", "ops_valid", "ops_not_idle", "no_eval_smuggling",
-            "no_bundled_godot_runtime", "build_recipe", "unity_anti_grant_static",
-            "unity_build", "unity_probe", "unity_input_dispatch",
-            "unity_auto_win_ready", "null_no_win", "unity_counterfactual",
-            "unity_source_behavior",
-        }
-        items = [passed(item_id) for item_id in gates]
-        items.extend([
-            passed("unity_mechanic_trace", credit=0.8),
-            passed("causal_witness"),
-            passed("unity_hidden_behavior", credit=0.5),
-            passed("unity_structure_fidelity", credit=0.6),
-            passed("unity_vlm", credit=0.4),
-            passed("unity_runtime_stability", credit=0.75),
-        ])
-        result = SimpleNamespace(
-            package=SimpleNamespace(manifest={"mode": "port", "game_id": "fixture"}),
-            items=items,
-            resolved=False,
-        )
-        card = score_task_result(result)
-        self.assertEqual(68.0, card["weighted_total"]["score"])
-        self.assertEqual("scored", card["outcome_status"])
-        self.assertEqual(1.0, card["measured_weight_share"])
-        self.assertTrue(card["ranking_eligible"])
-        self.assertFalse(card["functional_complete"])
-        self.assertEqual(
-            {"core_mechanics", "playability_progression", "content_structure",
-             "visual_feedback", "stability_lifecycle"},
-            {row["id"] for row in card["categories"]},
-        )
 
-    def test_mode5_build_failure_is_a_candidate_zero_not_an_evaluator_hole(self) -> None:
-        items = [passed(item_id) for item_id in {
-            "task_gdd_contract", "verifier_profile_complete", "unity_layout",
-            "unity_interface", "unity_sdk_integrity", "port_contract_alignment",
-            "ops_present", "ops_valid", "ops_not_idle", "no_eval_smuggling",
-            "no_bundled_godot_runtime", "build_recipe", "unity_anti_grant_static",
-            "unity_probe", "unity_input_dispatch", "unity_auto_win_ready",
-            "null_no_win", "unity_counterfactual", "unity_source_behavior",
-            "unity_runtime_stability", "unity_hidden_behavior",
-            "unity_structure_fidelity", "unity_vlm",
-        }]
-        items.append(failed("unity_build"))
-        items.extend([
-            inconclusive("unity_probe", detail="Unity build did not produce a runnable player"),
-            inconclusive("unity_mechanic_trace", detail="Unity build did not produce a runnable player"),
-            inconclusive("unity_runtime_stability", detail="Unity build did not produce a runnable player"),
-            inconclusive("unity_auto_win_ready", detail="Unity build did not produce a runnable player"),
-            inconclusive("unity_input_dispatch", detail="Unity build did not produce a runnable player"),
-            inconclusive("unity_hidden_behavior", detail="Unity build did not produce a runnable player"),
-            inconclusive("unity_source_behavior", detail="Unity build did not produce a runnable player"),
-            inconclusive("unity_counterfactual", detail="Unity build did not produce a runnable player"),
-            inconclusive("causal_witness", detail="Unity build did not produce a runnable player"),
-            inconclusive("null_no_win", detail="Unity build did not produce a runnable player"),
-            inconclusive("unity_evaluator_capture", detail="Unity build did not produce a runnable player"),
-            inconclusive("unity_structure_fidelity", detail="Unity build did not produce a runnable player"),
-            inconclusive("unity_vlm", detail="Unity build did not produce a runnable player"),
-        ])
-        result = SimpleNamespace(
-            package=SimpleNamespace(manifest={"mode": "port", "game_id": "fixture"}),
-            items=items,
-            resolved=False,
-        )
-        card = score_task_result(result)
-        self.assertEqual(0.0, card["weighted_total"]["score"])
-        self.assertEqual("candidate_delivery_failure", card["outcome_status"])
-        self.assertTrue(card["ranking_eligible"])
-        assert card["leaderboard"]["status"] == "complete"
+
+
 
     def test_six_categories_are_each_reported_on_a_100_point_scale(self) -> None:
         card = score_pilot2(_result(calibrated=True))
@@ -259,8 +147,8 @@ class TaskgenScorecardTests(unittest.TestCase):
         self.assertTrue(card["ranking_eligible"])
 
     def test_old_registry_stays_loadable_and_unknown_versions_are_refused(self) -> None:
-
-
+        # evidence1 remains the fallback row for a mode with no redesigned
+        # successor; experimental visual1 remains selectable.
         self.assertEqual(EVIDENCE_REGISTRY_VERSION, REGISTRY_VERSION)
         self.assertEqual(
             (PILOT_REGISTRY_VERSION, CALIB_REGISTRY_VERSION, CALIB4_REGISTRY_VERSION,
@@ -271,27 +159,27 @@ class TaskgenScorecardTests(unittest.TestCase):
              MODE1_VLM_REGISTRY_VERSION, MODE2_VLM_REGISTRY_VERSION, MODE3_VLM_REGISTRY_VERSION,
              MODE4_REDESIGN_REGISTRY_VERSION,
              MODE4_F2P_P2P_REGISTRY_VERSION,
-             MODE5_REGISTRY_VERSION, MODE5_DELIVERY_ZERO_REGISTRY_VERSION,
-             MODE5_MDVA_REGISTRY_VERSION),
+             MODE5_RELEASE_REGISTRY_VERSION),
             REGISTRY_VERSIONS,
         )
-
-
+        # Each mode now selects its own redesigned row when the caller names
+        # none. Leaving them opt-in meant a default run kept scoring under
+        # evidence1, so none of the redesigned evidence reached a default report.
         self.assertEqual(
             {
                 "brief": MODE1_VLM_REGISTRY_VERSION,
                 "gdd": MODE2_VLM_REGISTRY_VERSION,
                 "skeleton": MODE3_VLM_REGISTRY_VERSION,
                 "bugfix": MODE4_REDESIGN_REGISTRY_VERSION,
-                "port": MODE5_MDVA_REGISTRY_VERSION,
+                "port": MODE5_RELEASE_REGISTRY_VERSION,
             },
             DEFAULT_REGISTRY_BY_MODE,
         )
         self.assertEqual(REGISTRY_VERSION, default_registry_for_mode("unknown-mode"))
         default = score_task_result(_result(calibrated=True))
         self.assertEqual(MODE2_VLM_REGISTRY_VERSION, default["registry_version"])
-
-
+        # An explicit version still re-scores a historical report under its
+        # original rules.
         self.assertEqual(
             EVIDENCE_REGISTRY_VERSION,
             score_task_result(
@@ -314,8 +202,12 @@ class TaskgenScorecardTests(unittest.TestCase):
             score_task_result(_result(), registry_version="2020-01-01.nope")
 
     def test_uncalibrated_scard_is_visible_and_ranking_is_objective_only(self) -> None:
-
-
+        """No calibration report exists, so the S-card criterion is the same
+        for every submission: listed, not score-bearing, and not a hole that
+        counts against coverage. Otherwise the visual category could never
+        reach 80% and ranking_eligible was false for everyone, including runs
+        whose objective channels were fully measured. (pilot2: the weight is
+        renormalised away; calib3 keeps it as unearned, see CalibratedRegistryTests.)"""
         card = score_pilot2(_result(calibrated=False))
         visual = next(
             row for row in card["categories"]
@@ -348,8 +240,8 @@ class TaskgenScorecardTests(unittest.TestCase):
         by_id = {row["id"]: row for row in design["criteria"]}
         self.assertFalse(by_id["asset_realization"]["applicable"])
         self.assertTrue(by_id["topology_progression"]["applicable"])
-
-
+        # O6 gone from both denominators; O4 stays as [0, 35] of the remaining 65
+        # in the diagnostic interval, and withholds the headline.
         self.assertEqual(65.0, design["applicable_weight_within_category"])
         self.assertAlmostEqual(30 / 65, design["measured_weight_share"], places=6)
         self.assertAlmostEqual(30 / 65 * 100, design["interval"]["lo"], places=2)
@@ -368,8 +260,9 @@ class TaskgenScorecardTests(unittest.TestCase):
         self.assertIn("lo", card["diagnostic"]["weighted_total_interval"])
 
     def test_a_stored_o10_row_changes_no_headline_under_either_registry(self) -> None:
-
-
+        """Cards written before 2026-09-04 carry an unobservable O10 row. Neither
+        calib3 nor pilot2 ever referenced O10, so re-scoring such a card must give
+        the same headline as a fresh O1-O9 card, and no criterion may source it."""
         for scorer in (score_task_result, score_pilot2):
             baseline = scorer(_result(calibrated=True))
             result = _result(calibrated=True)
@@ -382,10 +275,9 @@ class TaskgenScorecardTests(unittest.TestCase):
             self.assertEqual(baseline["categories"], with_o10["categories"])
         for version in REGISTRY_VERSIONS:
             modes = ("port",) if version in {
-                MODE5_REGISTRY_VERSION, MODE5_DELIVERY_ZERO_REGISTRY_VERSION,
-                MODE5_MDVA_REGISTRY_VERSION,
+                MODE5_RELEASE_REGISTRY_VERSION,
             } else (
-                "brief", "gdd", "skeleton", "bugfix", "port"
+                "brief", "gdd", "skeleton", "bugfix"
             )
             for mode in modes:
                 sources = {
@@ -408,8 +300,8 @@ class TaskgenScorecardTests(unittest.TestCase):
         card = score_task_result(result, registry_version=EVIDENCE_REGISTRY_VERSION)
         self.assertEqual("failed", card["strict"]["status"])
         self.assertIn("causal_witness", card["strict"]["not_measured_required_items"])
-
-
+        # An evaluator-side inconclusive item is a hole: no headline number,
+        # and the report names the item and its step.
         self.assertIsNone(card["weighted_total"]["score"])
         self.assertGreater(card["diagnostic"]["weighted_total_interval"]["lo"], 80.0)
         steps = [entry["step"] for entry in card["weighted_total"]["unmeasured"]]
@@ -608,25 +500,22 @@ LIVE_POST_FIX_CELLS = (
 
 
 class CalibratedRegistryTests(unittest.TestCase):
-
+    """Registry `2026-09-04.calib3` (older row): weight off free items, squared
+    credit on graded O-channels, uncalibrated S-card counted as unearned."""
 
     def test_weights_sum_to_100_in_every_mode_and_version(self) -> None:
         for version in REGISTRY_VERSIONS:
             modes = ("port",) if version in {
-                MODE5_REGISTRY_VERSION, MODE5_DELIVERY_ZERO_REGISTRY_VERSION,
-                MODE5_MDVA_REGISTRY_VERSION,
+                MODE5_RELEASE_REGISTRY_VERSION,
             } else (
-                "brief", "gdd", "skeleton", "bugfix", "port"
+                "brief", "gdd", "skeleton", "bugfix"
             )
             for mode in modes:
                 specs = _category_specs(mode, version)
-                self.assertEqual(5 if version in {
-                    MODE5_REGISTRY_VERSION, MODE5_DELIVERY_ZERO_REGISTRY_VERSION,
-                    MODE5_MDVA_REGISTRY_VERSION,
-                } else 6,
+                self.assertEqual(5 if version == MODE5_RELEASE_REGISTRY_VERSION else 6,
                                  len(specs), (version, mode))
                 self.assertAlmostEqual(100.0, sum(spec.weight for spec in specs), msg=(version, mode))
-
+        # The calibrated criterion sets sum to 100 within every category.
         for mode in ("brief", "gdd", "skeleton"):
             for spec in _category_specs(mode, CALIB_REGISTRY_VERSION):
                 self.assertAlmostEqual(
@@ -659,8 +548,8 @@ class CalibratedRegistryTests(unittest.TestCase):
                 self.assertEqual(1.0, criterion.credit_exponent)
 
     def test_six_live_cells_order_as_the_fault_analysis_and_land_in_the_band(self) -> None:
-
-
+        """The calib3 calibration record (§2.2 of the scorecard doc); scored
+        under calib3 explicitly; later rows retain their own expectations."""
         scores = []
         for name, expected, result in LIVE_POST_FIX_CELLS:
             card = score_task_result(result, registry_version=CALIB_REGISTRY_VERSION)
@@ -671,19 +560,19 @@ class CalibratedRegistryTests(unittest.TestCase):
             score = card["weighted_total"]["score"]
             self.assertAlmostEqual(expected, score, delta=0.02, msg=name)
             scores.append((name, score, card["strict"]["resolved"]))
-
+        # arc_wing/claude best, arc_wing/codex worst, strictly ordered throughout.
         for (name_a, a, _), (name_b, b, _) in zip(scores, scores[1:]):
             self.assertGreater(a, b + 1.0, (name_a, name_b))
         self.assertTrue(41 <= scores[-1][1] <= 72 and scores[0][1] <= 72)
         self.assertEqual([True, True, True, True, False, False], [r for _, _, r in scores])
-
+        # Under pilot2 the same cards put cat_defense/claude above arc_wing/claude.
         pilot = [score_pilot2(result)["weighted_total"]["score"] for _, _, result in LIVE_POST_FIX_CELLS]
         self.assertGreater(pilot[1], pilot[0])
         self.assertAlmostEqual(88.18, pilot[0], delta=0.02)
         self.assertAlmostEqual(88.49, pilot[1], delta=0.02)
 
     def test_perfect_card_reaches_the_ceiling_without_and_90_plus_with_a_calibrated_scard(self) -> None:
-
+        # Zero strict failures, every O1-O7 rung passed, O8/O9 unobservable as on the live tasks.
         objective_only = score_task_result(_live_cell("gdd", {}), registry_version=EVIDENCE_REGISTRY_VERSION)
         self.assertEqual(85.0, objective_only["weighted_total"]["score"])
         self.assertEqual(85.0, objective_only["weighted_total"]["headline_ceiling"])
@@ -693,20 +582,20 @@ class CalibratedRegistryTests(unittest.TestCase):
         self.assertEqual(0.0, visual["score"]["score"])
         self.assertFalse(visual["applicable"])
         self.assertEqual(1.0, visual["unearned_weight_share"])
-
+        # The unearned axis is outside coverage: still ranking-eligible, objective_only.
         self.assertTrue(objective_only["ranking_eligible"])
         self.assertEqual("objective_only", objective_only["ranking_basis"])
         self.assertIn("visual_experience/calibrated_surface", objective_only["not_applicable_criteria"])
-
+        # ... and inside the diagnostic interval as [0, 15].
         self.assertEqual(100.0, objective_only["diagnostic"]["weighted_total_interval"]["hi"])
         self.assertAlmostEqual(85.0, objective_only["diagnostic"]["weighted_total_interval"]["lo"], places=2)
-
+        # Same card with O9 measured: only the S-card's 75 % of 15 is unearned.
         with_o9 = score_task_result(_result(calibrated=False), registry_version=EVIDENCE_REGISTRY_VERSION)
         self.assertEqual(88.75, with_o9["weighted_total"]["score"])
         self.assertEqual(88.75, with_o9["weighted_total"]["headline_ceiling"])
         self.assertEqual(25.0, _category(with_o9, "visual_experience")["score"]["score"])
         self.assertEqual(0.75, _category(with_o9, "visual_experience")["unearned_weight_share"])
-
+        # Calibrated S-card: nothing unearned, ceiling 100, 90+ reached.
         calibrated = score_task_result(_result(calibrated=True, scard=0.8), registry_version=EVIDENCE_REGISTRY_VERSION)
         self.assertEqual(100.0, calibrated["weighted_total"]["headline_ceiling"])
         self.assertNotIn("unearned", calibrated["weighted_total"])
@@ -723,9 +612,9 @@ class CalibratedRegistryTests(unittest.TestCase):
         self.assertAlmostEqual((5 / 6) ** 2 * 100, source["headline_credit"], places=2)
         self.assertEqual(2.0, source["credit_exponent"])
         self.assertAlmostEqual((5 / 6) ** 2 * 100, deterministic["score"]["score"], places=2)
-
+        # One O3 family costs 18 x (1 - (5/6)^2) = 5.5 headline points, not 3.0.
         self.assertAlmostEqual(85.0 - 30 * 0.6 * (1 - (5 / 6) ** 2), card["weighted_total"]["score"], places=2)
-
+        # A failed strict item is a plain 0 on its criterion (12.5 causal_witness points).
         failed_witness = _live_cell("gdd", {}, failed_items=("causal_witness",), resolved=False)
         card = score_task_result(failed_witness, registry_version=EVIDENCE_REGISTRY_VERSION)
         self.assertEqual(85.0 - 25 * 0.5, card["weighted_total"]["score"])
@@ -734,8 +623,9 @@ class CalibratedRegistryTests(unittest.TestCase):
         self.assertEqual("failed", card["strict"]["status"])
 
     def test_ranking_note_names_the_contract_failure_beside_ranking_eligible(self) -> None:
-
-
+        """cat_defense/gdd Codex (live0904): eligibility=failed (`health_writable`)
+        next to ranking_eligible=true.  Both stay as they are -- coverage vs
+        contract -- but the card must say so in one place."""
         result = _live_cell(
             "gdd", {}, failed_items=("health_writable", "mechanic_trace"), resolved=False
         )
@@ -749,9 +639,9 @@ class CalibratedRegistryTests(unittest.TestCase):
         self.assertIn("eligibility=failed (health_writable)", note)
         self.assertIn("failed required items: mechanic_trace", note)
         self.assertIn("NOT resolved", note)
-
+        # Weights and the headline are untouched by the note.
         self.assertEqual(85.0 - 30 * 0.4, card["weighted_total"]["score"])
-
+        # A resolved, eligible card carries no note; an incomplete card neither.
         clean = score_task_result(_live_cell("gdd", {}), registry_version=EVIDENCE_REGISTRY_VERSION)
         self.assertTrue(clean["ranking_eligible"])
         self.assertEqual("", clean["ranking_note"])
@@ -1091,9 +981,9 @@ class Mode34RegistryTests(unittest.TestCase):
             self.assertFalse(registry_policy(version).mode34_applicability, version)
         self.assertIn("repair_credit x gates x regression_mean", headline_rule(MODE34_REGISTRY_VERSION))
         self.assertNotIn("repair_credit", headline_rule(MODE4_REGISTRY_VERSION))
-
-
-        for mode in ("brief", "gdd", "skeleton", "bugfix", "port"):
+        # Weights are mode4's in every mode; the only registry-row change is
+        # the dropped bugfix duplicate of `feature_kept`.
+        for mode in ("brief", "gdd", "skeleton", "bugfix"):
             for m4, m34 in zip(_category_specs(mode, MODE4_REGISTRY_VERSION),
                                _category_specs(mode, MODE34_REGISTRY_VERSION)):
                 self.assertEqual(m4.weight, m34.weight, (mode, m4.id))

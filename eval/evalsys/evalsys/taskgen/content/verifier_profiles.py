@@ -114,7 +114,7 @@ PROFILES: dict[str, ModeVerifierProfile] = {
         purpose=(
             "judge a Godot-to-Unity port's static submission contract, "
             "self-clear causality, executable runtime behavior, and "
-            "cross-engine product fidelity"
+            "reference-grounded evidence-adjusted artifact and runtime fidelity"
         ),
         eligibility_ids=OPS_ELIGIBILITY
         | frozenset({
@@ -140,11 +140,7 @@ PROFILES: dict[str, ModeVerifierProfile] = {
         }),
         fidelity_ids=frozenset({
             "legacy_reference_trace",
-            "cross_engine_fidelity",
             "unity_evaluator_capture",
-            "unity_vlm",
-            "unity_structure_fidelity",
-            "unity_visual_fidelity",
             "unity_runtime_stability",
             "unity_source_behavior",
         }),

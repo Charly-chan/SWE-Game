@@ -21,7 +21,7 @@ from evalsys.taskgen.scorecard import (
     registry_policy, score_task_result,
     EVIDENCE_REGISTRY_VERSION,
     VISUAL_REGISTRY_VERSION,
-    MODE5_REGISTRY_VERSION,
+    MODE5_RELEASE_REGISTRY_VERSION,
 )
 from evalsys.verdict import Verdict, failed, inconclusive, passed
 from test_taskgen_scorecard import _fixture, _criterion, _replace_item
@@ -216,7 +216,7 @@ def test_registry_and_fidelity_registration():
             VISUAL_REGISTRY_VERSION,
         }:
             assert not registry_policy(version).mode4_graded
-    for mode in ("brief", "gdd", "skeleton", "bugfix", "port"):
+    for mode in ("brief", "gdd", "skeleton", "bugfix"):
         before = _category_specs(mode, MODE34_REGISTRY_VERSION)
         after = _category_specs(mode, MODE34B_REGISTRY_VERSION)
         assert [(s.id, s.weight, [(c.id, c.weight) for c in s.criteria]) for s in before] == [
@@ -285,7 +285,7 @@ def test_new_metric_does_not_change_older_rows(kind):
     without_metric = deepcopy(result)
     without_metric.items = [i for i in without_metric.items if i.id != "edit_radius"]
     for version in REGISTRY_VERSIONS:
-        if version == MODE5_REGISTRY_VERSION:
+        if version == MODE5_RELEASE_REGISTRY_VERSION:
             with pytest.raises(ValueError, match="only for Mode 5 / port"):
                 score_task_result(result, version)
         elif version not in {

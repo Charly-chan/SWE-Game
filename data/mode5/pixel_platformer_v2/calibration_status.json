@@ -1,0 +1,15 @@
+{
+  "blockers": [],
+  "game_id": "pixel_platformer_v2",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "pixel_platformer_v2-c1-room_a_yard",
+    "pixel_platformer_v2-c2-through_pipeworks",
+    "pixel_platformer_v2-c3-through_ironworks",
+    "pixel_platformer_v2-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:819b366998123eb223faeadded40c0c38310055e39871fb007e97152b5a771e8"
+}

@@ -210,12 +210,15 @@ Claude Code 可通过 `GAMEBENCH_CLAUDE_CODE_BIN` 指定可执行文件。
 | 2 gdd | `2026-09-19.mode2-vlm1` |
 | 3 skeleton | `2026-09-19.mode3-vlm1` |
 | 4 bugfix | `2026-09-15.mode4-redesign1` |
-| 5 port | `2026-09-20.mode5-mdva-domain1` |
+| 5 port | `2026-10.mode5-evidence-five-visual1` |
 
 前三种模式使用 85 分客观能力和 15 分真实 VLM 读数，视觉证据协议为
 `2026-09-19.game-rubric-v1`。Mode 4 按修复、门槛与回归保护计分，不获得视觉分。
-Mode 5 使用 70 分客观能力、15 分跨引擎结构和 15 分视觉质量评分，见
-[Mode 5 v2 协议](reference/MODE5_V2_MDVA_DOMAIN.md)。
+Mode 5 使用 35/25/15/15/10 五项固定权重，基于独立运行、Editor、静态支持和
+文件存在证据发布非 VLM 代理分。Visual 使用 evaluator 自有的
+`visual_implementation_correspondence` 测量；运行时实现对应证据可取得完整 15/15，
+静态与文件证据仍按系数折算，不测感知或美学相似度。`official_total` 为 null。见
+[Mode 5 评分规范](reference/MODE5_SCORING.md)。
 较早的 `modeN-redesign1`、`evidence1` 和 `visual1` 仍能用 `--registry` 显式复算；
 它们保留自己的权重和占位规则。比较分数时必须同时固定任务模式、registry、rubric 和判官模型。
 
@@ -236,7 +239,6 @@ Mode 5 使用 70 分客观能力、15 分跨引擎结构和 15 分视觉质量�
   `unscored_requirement`，需要补齐评测映射；不能把已有客观小分当成完整成绩。
 - 历史 visual1 不接收 GT，使用 20 秒观察窗口；它的上游解析器会把漏答填 0，
   max 聚合也存在多段机会偏差。这些历史规则不适用于当前游戏专属 rubric。
-- Mode 5 按[评测规范](reference/MODE5_EVALUATION.md)报告，正式评测需要
-  指定 Unity 版本与许可证。其采样画面视频不等于原始逐帧录像，运动／反馈评审仍需单独验证。
-
+- Mode 5 按[Release 协议](reference/MODE5_RELEASE_PROTOCOL.md)报告，正式评测需要
+  Community Docker、固定 Unity 版本与有效许可。默认客观分满分 70；Structure/Visual 缺测时完整总分为 null。`paper_compatible=false`，Community 结果与论文历史结果分开比较。
 

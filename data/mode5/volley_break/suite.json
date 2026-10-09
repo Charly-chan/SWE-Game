@@ -1,0 +1,1096 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:2285fa6d428c40812af31ee48ac4bd0068e7b466dd7f53b9166037477b3ec9bd",
+  "game_id": "volley_break",
+  "inputs": {
+    "certificate": {
+      "path": "tasks/volley_break/certificate.rt1.json",
+      "sha256": "026782eacd4f9a57aa5570f0f97796e4e068463de26e6f3a147bf1880ca25a48"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/volley_break.md",
+      "sha256": "f6f2f56a24bc83154514321a579e396f1d3d8a626d5fc6bf2064e75f7292595e"
+    },
+    "route": {
+      "path": "tasks/volley_break/route.json",
+      "sha256": "d89b2a66cee5c375ec92fb639c5c6f7a9d7721c880ce6036cd5807f2d37495a8"
+    },
+    "rubric": {
+      "entry_sha256": "9639f3dcc45d3dfe104de099104b2d6491535d19f943c7d937b7120d0a0c89a1",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_enemy",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/volley_break/authored/source_obligations.json",
+      "sha256": "be82fb1b84de7247d036fa141d04ffb75833045c1488b692faf512d1cf85bebc"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "volley_break-c1-first_serve_set_win.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "volley_break-c1-first_serve_set_win.first_serve_score_reached",
+          "predicate": "numeric(score) >= 5"
+        },
+        {
+          "id": "volley_break-c1-first_serve_set_win.goal",
+          "predicate": "numeric(score) >= 5"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed game/src/core/match_state.gd:80: run_break_score += int(result.get(\"break_score\", 0))",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:35600f39230f4528f94b61e648a62ce14885a3f8e4c6fba12c65df40f5ab4c0d",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "volley_break/C1/first_serve_set_win",
+      "scenario_id": "volley_break-c1-first_serve_set_win",
+      "source_check_id": "owner-reviewed-volley_break-c1-first_serve_set_win",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "first_serve_score_reached",
+            "predicate": "numeric(score) >= 5"
+          }
+        ],
+        "predicate": "numeric(score) >= 5"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "combat"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "volley_break-c2-shard_fall_set_win.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "volley_break-c2-shard_fall_set_win.shard_fall_score_reached",
+          "predicate": "numeric(score) >= 5"
+        },
+        {
+          "id": "volley_break-c2-shard_fall_set_win.goal",
+          "predicate": "numeric(score) >= 5"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed game/src/core/match_state.gd:80: run_break_score += int(result.get(\"break_score\", 0))",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:35600f39230f4528f94b61e648a62ce14885a3f8e4c6fba12c65df40f5ab4c0d",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "volley_break/C2/shard_fall_set_win",
+      "scenario_id": "volley_break-c2-shard_fall_set_win",
+      "source_check_id": "owner-reviewed-volley_break-c2-shard_fall_set_win",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "shard_fall_score_reached",
+            "predicate": "numeric(score) >= 5"
+          }
+        ],
+        "predicate": "numeric(score) >= 5"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "combat"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "volley_break-c3-match_point_set_win.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "volley_break-c3-match_point_set_win.match_point_score_reached",
+          "predicate": "numeric(score) >= 5"
+        },
+        {
+          "id": "volley_break-c3-match_point_set_win.goal",
+          "predicate": "numeric(score) >= 5"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:35600f39230f4528f94b61e648a62ce14885a3f8e4c6fba12c65df40f5ab4c0d",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "volley_break/C3/match_point_set_win",
+      "scenario_id": "volley_break-c3-match_point_set_win",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "combat"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "volley_break-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "volley_break-l5-whole_game_clear.first_serve_won",
+          "predicate": "numeric(score) >= 5"
+        },
+        {
+          "id": "volley_break-l5-whole_game_clear.entered_shard_fall",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "volley_break-l5-whole_game_clear.shard_fall_won",
+          "predicate": "numeric(score) >= 5"
+        },
+        {
+          "id": "volley_break-l5-whole_game_clear.entered_match_point",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "volley_break-l5-whole_game_clear.match_point_won",
+          "predicate": "numeric(score) >= 5"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:35600f39230f4528f94b61e648a62ce14885a3f8e4c6fba12c65df40f5ab4c0d",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "volley_break/L5/whole_game_clear",
+      "scenario_id": "volley_break-l5-whole_game_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.combat.b1d2c45ed6",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1,
+              "value": 1.0
+            }
+          ],
+          "when": "alive(gb_enemy)"
+        }
+      ],
+      "strategy_type": "combat"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.combat.08cfeda2ce",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1,
+              "value": 1.0
+            }
+          ],
+          "when": "alive(gb_enemy)"
+        }
+      ],
+      "strategy_type": "combat"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.combat.3767b0510a",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1,
+              "value": 1.0
+            }
+          ],
+          "when": "alive(gb_enemy)"
+        }
+      ],
+      "strategy_type": "combat"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.6ce9276440",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    }
+  ],
+  "policy_digest": "sha256:0d719c67edca50baf5ae7d1c2c45928d850963b0953933d97d5cee5ce3f15a52",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 3809,
+      "capture_checkpoints": [
+        {
+          "id": "volley_break-c1-first_serve_set_win.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "volley_break-c1-first_serve_set_win.first_serve_score_reached",
+          "predicate": "numeric(score) >= 5"
+        },
+        {
+          "id": "volley_break-c1-first_serve_set_win.goal",
+          "predicate": "numeric(score) >= 5"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "first_serve_score_reached",
+            "predicate": "numeric(score) >= 5"
+          }
+        ],
+        "predicate": "numeric(score) >= 5"
+      },
+      "id": "volley_break-c1-first_serve_set_win",
+      "policy": "strategy.combat.b1d2c45ed6",
+      "required_actions": [
+        "gb_action",
+        "gb_left",
+        "gb_right"
+      ],
+      "required_numeric": [
+        "score"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "volley_break/C1/first_serve_set_win",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "first_serve_score_reached",
+            "predicate": "numeric(score) >= 5"
+          }
+        ],
+        "predicate": "numeric(score) >= 5"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 2038,
+      "capture_checkpoints": [
+        {
+          "id": "volley_break-c2-shard_fall_set_win.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "volley_break-c2-shard_fall_set_win.shard_fall_score_reached",
+          "predicate": "numeric(score) >= 5"
+        },
+        {
+          "id": "volley_break-c2-shard_fall_set_win.goal",
+          "predicate": "numeric(score) >= 5"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "shard_fall_score_reached",
+            "predicate": "numeric(score) >= 5"
+          }
+        ],
+        "predicate": "numeric(score) >= 5"
+      },
+      "id": "volley_break-c2-shard_fall_set_win",
+      "policy": "strategy.combat.08cfeda2ce",
+      "required_actions": [
+        "gb_action",
+        "gb_left",
+        "gb_right"
+      ],
+      "required_numeric": [
+        "score"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "volley_break/C2/shard_fall_set_win",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "shard_fall_score_reached",
+            "predicate": "numeric(score) >= 5"
+          }
+        ],
+        "predicate": "numeric(score) >= 5"
+      },
+      "start_level": 1
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 4559,
+      "capture_checkpoints": [
+        {
+          "id": "volley_break-c3-match_point_set_win.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "volley_break-c3-match_point_set_win.match_point_score_reached",
+          "predicate": "numeric(score) >= 5"
+        },
+        {
+          "id": "volley_break-c3-match_point_set_win.goal",
+          "predicate": "numeric(score) >= 5"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "match_point_score_reached",
+            "predicate": "numeric(score) >= 5"
+          }
+        ],
+        "predicate": "numeric(score) >= 5"
+      },
+      "id": "volley_break-c3-match_point_set_win",
+      "policy": "strategy.combat.3767b0510a",
+      "required_actions": [
+        "gb_action",
+        "gb_jump",
+        "gb_left",
+        "gb_right"
+      ],
+      "required_numeric": [
+        "score"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "volley_break/C3/match_point_set_win",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 2
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 36000,
+      "capture_checkpoints": [
+        {
+          "id": "volley_break-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "volley_break-l5-whole_game_clear.first_serve_won",
+          "predicate": "numeric(score) >= 5"
+        },
+        {
+          "id": "volley_break-l5-whole_game_clear.entered_shard_fall",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "volley_break-l5-whole_game_clear.shard_fall_won",
+          "predicate": "numeric(score) >= 5"
+        },
+        {
+          "id": "volley_break-l5-whole_game_clear.entered_match_point",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "volley_break-l5-whole_game_clear.match_point_won",
+          "predicate": "numeric(score) >= 5"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "first_serve_won",
+            "predicate": "numeric(score) >= 5"
+          },
+          {
+            "name": "entered_shard_fall",
+            "predicate": "levels_visited() >= 2"
+          },
+          {
+            "name": "shard_fall_won",
+            "predicate": "numeric(score) >= 5"
+          },
+          {
+            "name": "entered_match_point",
+            "predicate": "levels_visited() >= 3"
+          },
+          {
+            "name": "match_point_won",
+            "predicate": "numeric(score) >= 5"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "volley_break-l5-whole_game_clear",
+      "policy": "strategy.traversal.6ce9276440",
+      "required_actions": [
+        "gb_action",
+        "gb_jump",
+        "gb_left",
+        "gb_right"
+      ],
+      "required_numeric": [
+        "score"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "volley_break/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

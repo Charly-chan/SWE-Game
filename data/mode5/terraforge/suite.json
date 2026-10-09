@@ -1,0 +1,1406 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:0b394ccca8214bf641809e493b0ee13aaa91e723b128b4cdfe5cc6b4e82bfa5c",
+  "game_id": "terraforge",
+  "input_contract": {
+    "analog_axes": [
+      {
+        "id": "look_y",
+        "max": 1.0,
+        "min": -1.0,
+        "steps": 17,
+        "why": "camera pitch is a continuous axis; six verbs yaw and walk but cannot look 89 degrees to climb out of the cave"
+      }
+    ],
+    "required_actions": [
+      "gb_left",
+      "gb_right",
+      "gb_up",
+      "gb_down",
+      "gb_jump",
+      "gb_action",
+      "quick_craft",
+      "place"
+    ],
+    "schema_version": 3,
+    "supported_actions": [
+      "gb_left",
+      "gb_right",
+      "gb_up",
+      "gb_down",
+      "gb_jump",
+      "gb_action",
+      "gb_attack",
+      "gb_dash",
+      "quick_craft",
+      "place"
+    ]
+  },
+  "inputs": {
+    "certificate": {
+      "path": "tasks/terraforge/certificate.rt1.json",
+      "sha256": "58c8cc7fad72800b44511c025a8e748fcd0367df63520816b0e0e07a4ede9a97"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/terraforge.md",
+      "sha256": "031b4e79978cd9ef35d55fde376d376db23e6e094bc9fc267023a8f1f13d5e31"
+    },
+    "port_input_contract": {
+      "analog_axes": [
+        {
+          "id": "look_y",
+          "max": 1.0,
+          "min": -1.0,
+          "steps": 17,
+          "why": "camera pitch is a continuous axis; six verbs yaw and walk but cannot look 89 degrees to climb out of the cave"
+        }
+      ],
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "quick_craft",
+        "place"
+      ],
+      "schema_version": 3,
+      "supported_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_attack",
+        "gb_dash",
+        "quick_craft",
+        "place"
+      ]
+    },
+    "route": {
+      "path": "tasks/terraforge/route.json",
+      "sha256": "b2890836a30499d39b1f0d1c154bc449390ed79ee3c690587bf491a7a9cb75cf"
+    },
+    "rubric": {
+      "entry_sha256": "f566e780391806207f466cead215e869abb42da3dd46f48f6e7a70c03406a8c5",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_enemy",
+        "gb_hazard",
+        "gb_collectible",
+        "gb_interactive",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/terraforge/authored/source_obligations.json",
+      "sha256": "388c37570682a58e509140cf2f5aed6346f016158ac0ec57dc3dd49b38d0cd1d"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "terraforge-c1-objectives_and_forge_pedestal.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "terraforge-c1-objectives_and_forge_pedestal.artifact_victory_scene",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "terraforge-c1-objectives_and_forge_pedestal.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed actors/player_interaction.gd:319: mining_progress.emit(clampf(mine_time / maxf(mine_needed, 0.0001), 0.0, 1.0))",
+      "reference_trace": "authored/forge_six_verb_tape.json",
+      "reference_trace_sha256": "sha256:46cbd9cf722cab453cef386c8d32102908bdc4fc6ab5410a8bd95f5e5464ec89",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "terraforge/C1/objectives_and_forge_pedestal",
+      "scenario_id": "terraforge-c1-objectives_and_forge_pedestal",
+      "source_check_id": "owner-reviewed-terraforge-c1-objectives_and_forge_pedestal",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "artifact_victory_scene",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -1.0
+              },
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -1.0
+              },
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -0.875
+              },
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": 1.0
+              },
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "quick_craft",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "place",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -0.625
+              },
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -1.0
+              },
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -0.75
+              },
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": 1.0
+              },
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": 0.625
+              },
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": 0.625
+              },
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": 0.875
+              },
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -0.625
+              },
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -0.75
+              },
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": 1.0
+              },
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "terraforge-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "terraforge-l5-whole_game_clear.artifact_victory_scene",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "terraforge-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed actors/player_interaction.gd:319: mining_progress.emit(clampf(mine_time / maxf(mine_needed, 0.0001), 0.0, 1.0))",
+      "reference_trace": "authored/forge_six_verb_tape.json",
+      "reference_trace_sha256": "sha256:46cbd9cf722cab453cef386c8d32102908bdc4fc6ab5410a8bd95f5e5464ec89",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "terraforge/L5/whole_game_clear",
+      "scenario_id": "terraforge-l5-whole_game_clear",
+      "source_check_id": "owner-reviewed-terraforge-l5-whole_game_clear",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "artifact_victory_scene",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -1.0
+              },
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -1.0
+              },
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -0.875
+              },
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": 1.0
+              },
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "quick_craft",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "place",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -0.625
+              },
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -1.0
+              },
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -0.75
+              },
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": 1.0
+              },
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": 0.625
+              },
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": 0.625
+              },
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": 0.875
+              },
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -0.625
+              },
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -0.75
+              },
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": 1.0
+              },
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "terraforge-c1-objectives_and_forge_pedestal--milestone-artifact_victory_scene.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "terraforge-c1-objectives_and_forge_pedestal--milestone-artifact_victory_scene.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/forge_six_verb_tape.json",
+      "reference_trace_sha256": "sha256:46cbd9cf722cab453cef386c8d32102908bdc4fc6ab5410a8bd95f5e5464ec89",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "terraforge/C1/objectives_and_forge_pedestal",
+      "scenario_id": "terraforge-c1-objectives_and_forge_pedestal--milestone-artifact_victory_scene",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -1.0
+              },
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -1.0
+              },
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -0.875
+              },
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": 1.0
+              },
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "quick_craft",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "place",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -0.625
+              },
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -1.0
+              },
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -0.75
+              },
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": 1.0
+              },
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": 0.625
+              },
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": 0.625
+              },
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": 0.875
+              },
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -0.625
+              },
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": -0.75
+              },
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "axes": {
+                "look_y": 1.0
+              },
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "axes": {
+            "look_y": -1.0
+          },
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "axes": {
+            "look_y": -1.0
+          },
+          "canonical_action": "",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "axes": {
+            "look_y": -0.875
+          },
+          "canonical_action": "",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "axes": {
+            "look_y": 1.0
+          },
+          "canonical_action": "",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "quick_craft",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "place",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "axes": {
+            "look_y": -0.625
+          },
+          "canonical_action": "",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "axes": {
+            "look_y": -1.0
+          },
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "axes": {
+            "look_y": -0.75
+          },
+          "canonical_action": "",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "axes": {
+            "look_y": 1.0
+          },
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "axes": {
+            "look_y": 0.625
+          },
+          "canonical_action": "",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "axes": {
+            "look_y": 0.625
+          },
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "axes": {
+            "look_y": 0.875
+          },
+          "canonical_action": "",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "axes": {
+            "look_y": -0.625
+          },
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "axes": {
+            "look_y": -0.75
+          },
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "axes": {
+            "look_y": 1.0
+          },
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.9271fad399",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "axes": {
+              "look_y": -1.0
+            },
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "axes": {
+              "look_y": -1.0
+            },
+            "hold_frames": 1
+          },
+          {
+            "axes": {
+              "look_y": -0.875
+            },
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "axes": {
+              "look_y": 1.0
+            },
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "quick_craft",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "place",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "axes": {
+              "look_y": -0.625
+            },
+            "hold_frames": 1
+          },
+          {
+            "axes": {
+              "look_y": -1.0
+            },
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "axes": {
+              "look_y": -0.75
+            },
+            "hold_frames": 1
+          },
+          {
+            "axes": {
+              "look_y": 1.0
+            },
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "axes": {
+              "look_y": 0.625
+            },
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "axes": {
+              "look_y": 0.625
+            },
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "axes": {
+              "look_y": 0.875
+            },
+            "hold_frames": 1
+          },
+          {
+            "axes": {
+              "look_y": -0.625
+            },
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "axes": {
+              "look_y": -0.75
+            },
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "axes": {
+              "look_y": 1.0
+            },
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    }
+  ],
+  "policy_digest": "sha256:7607c833681c7db642c793a882c51941d4b45fc11b7a536c64cce35faa5cd902",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/forge_six_verb_tape.json",
+      "budget_frames": 28800,
+      "capture_checkpoints": [
+        {
+          "id": "terraforge-c1-objectives_and_forge_pedestal.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "terraforge-c1-objectives_and_forge_pedestal.artifact_victory_scene",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "terraforge-c1-objectives_and_forge_pedestal.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "artifact_victory_scene",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "id": "terraforge-c1-objectives_and_forge_pedestal",
+      "policy": "strategy.traversal.9271fad399",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "place",
+        "quick_craft"
+      ],
+      "required_axes": [
+        "look_y"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "terraforge/C1/objectives_and_forge_pedestal",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "artifact_victory_scene",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/forge_six_verb_tape.json",
+      "budget_frames": 28800,
+      "capture_checkpoints": [
+        {
+          "id": "terraforge-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "terraforge-l5-whole_game_clear.artifact_victory_scene",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "terraforge-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "artifact_victory_scene",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "terraforge-l5-whole_game_clear",
+      "policy": "strategy.traversal.9271fad399",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "place",
+        "quick_craft"
+      ],
+      "required_axes": [
+        "look_y"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "terraforge/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "artifact_victory_scene",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/forge_six_verb_tape.json",
+      "budget_frames": 28800,
+      "capture_checkpoints": [
+        {
+          "id": "terraforge-c1-objectives_and_forge_pedestal--milestone-artifact_victory_scene.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "terraforge-c1-objectives_and_forge_pedestal--milestone-artifact_victory_scene.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "predicate": "numeric(progress) >= 1"
+      },
+      "id": "terraforge-c1-objectives_and_forge_pedestal--milestone-artifact_victory_scene",
+      "policy": "strategy.traversal.9271fad399",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "place",
+        "quick_craft"
+      ],
+      "required_axes": [
+        "look_y"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "terraforge/C1/objectives_and_forge_pedestal",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

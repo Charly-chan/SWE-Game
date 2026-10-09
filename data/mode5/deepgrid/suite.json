@@ -1,0 +1,1941 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:0bb1eaf4c98e87f7c69644efcc8389ca6df92e4de4fbb15cebdd89b15e2f1dce",
+  "game_id": "deepgrid",
+  "inputs": {
+    "certificate": {
+      "path": "tasks/deepgrid/certificate.rt1.json",
+      "sha256": "54bd5a0a4523b9ce3b19ca9250739ae54ac5a049343542c5c3b487991992bd7e"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/deepgrid.md",
+      "sha256": "7a5026493195f015301735449bf0890330b0c34250e4e0e734e361bb68384ce9"
+    },
+    "route": {
+      "path": "tasks/deepgrid/route.json",
+      "sha256": "2511a80cf92811b9dc8c00b9be958a345c876651a2a9c09d75400cb2f43ad5bb"
+    },
+    "rubric": {
+      "entry_sha256": "eb17505e13653b7f7abea8202bba9993abd11f66a4d3712e7a6505178f4628c2",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_enemy",
+        "gb_door",
+        "gb_collectible",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/deepgrid/authored/source_obligations.json",
+      "sha256": "7288c3228359f1f935905844d25c3be6c30b858e10eab9e82d2753fc1838e4ea"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "deepgrid-c1-floor_1_interlock.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "deepgrid-c1-floor_1_interlock.floor_1_cleared",
+          "predicate": "numeric_delta(progress) >= 1"
+        },
+        {
+          "id": "deepgrid-c1-floor_1_interlock.goal",
+          "predicate": "numeric_delta(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed core/run_state.gd:128: progress_changed.emit()",
+      "reference_trace": "authored/tape_per_floor.json",
+      "reference_trace_sha256": "sha256:443d89d50cc375f93e6e423fe44a57e5fc3ddbcc291a4588383977790b1c9859",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "deepgrid/C1/floor_1_interlock",
+      "scenario_id": "deepgrid-c1-floor_1_interlock",
+      "source_check_id": "owner-reviewed-deepgrid-c1-floor_1_interlock",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "floor_1_cleared",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_jump",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_jump",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "deepgrid-c2-floor_2_interlock.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "deepgrid-c2-floor_2_interlock.floor_2_cleared",
+          "predicate": "numeric_delta(progress) >= 1"
+        },
+        {
+          "id": "deepgrid-c2-floor_2_interlock.goal",
+          "predicate": "numeric_delta(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed core/run_state.gd:128: progress_changed.emit()",
+      "reference_trace": "authored/tape_per_floor.json",
+      "reference_trace_sha256": "sha256:443d89d50cc375f93e6e423fe44a57e5fc3ddbcc291a4588383977790b1c9859",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "deepgrid/C2/floor_2_interlock",
+      "scenario_id": "deepgrid-c2-floor_2_interlock",
+      "source_check_id": "owner-reviewed-deepgrid-c2-floor_2_interlock",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "floor_2_cleared",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_jump",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_jump",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "deepgrid-c3-floor_3_interlock.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "deepgrid-c3-floor_3_interlock.floor_3_cleared",
+          "predicate": "numeric_delta(progress) >= 1"
+        },
+        {
+          "id": "deepgrid-c3-floor_3_interlock.goal",
+          "predicate": "numeric_delta(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape_per_floor.json",
+      "reference_trace_sha256": "sha256:443d89d50cc375f93e6e423fe44a57e5fc3ddbcc291a4588383977790b1c9859",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "deepgrid/C3/floor_3_interlock",
+      "scenario_id": "deepgrid-c3-floor_3_interlock",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_jump",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_jump",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "deepgrid-c5-floor_5_interlock.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "deepgrid-c5-floor_5_interlock.floor_5_cleared",
+          "predicate": "numeric_delta(progress) >= 1"
+        },
+        {
+          "id": "deepgrid-c5-floor_5_interlock.goal",
+          "predicate": "numeric_delta(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape_per_floor.json",
+      "reference_trace_sha256": "sha256:443d89d50cc375f93e6e423fe44a57e5fc3ddbcc291a4588383977790b1c9859",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "deepgrid/C5/floor_5_interlock",
+      "scenario_id": "deepgrid-c5-floor_5_interlock",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "deepgrid-c6-floor_6_overseer_interlock.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "deepgrid-c6-floor_6_overseer_interlock.floor_6_cleared",
+          "predicate": "numeric_delta(progress) >= 1"
+        },
+        {
+          "id": "deepgrid-c6-floor_6_overseer_interlock.goal",
+          "predicate": "numeric_delta(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape_per_floor.json",
+      "reference_trace_sha256": "sha256:443d89d50cc375f93e6e423fe44a57e5fc3ddbcc291a4588383977790b1c9859",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "deepgrid/C6/floor_6_overseer_interlock",
+      "scenario_id": "deepgrid-c6-floor_6_overseer_interlock",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "deepgrid-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "deepgrid-l5-whole_game_clear.floor_1_cleared",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "deepgrid-l5-whole_game_clear.entered_floor_2",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "deepgrid-l5-whole_game_clear.floor_2_cleared",
+          "predicate": "numeric(progress) >= 2"
+        },
+        {
+          "id": "deepgrid-l5-whole_game_clear.entered_floor_3",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "deepgrid-l5-whole_game_clear.floor_3_cleared",
+          "predicate": "numeric(progress) >= 3"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:4f5ef12b9e78711dfc6d3cea35a5db306088788e79711f4c9d7252619b0a45c1",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "deepgrid/L5/whole_game_clear",
+      "scenario_id": "deepgrid-l5-whole_game_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_jump",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_jump",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_up",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_jump",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_jump",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.6dae91157d",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_jump",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_jump",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_jump",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_jump",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.19161c76c7",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_jump",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_jump",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_jump",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_jump",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.453c70c78f",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_jump",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_jump",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.a38df2271c",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.f9ae4bdb8e",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_jump",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_jump",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_up",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.5ed22e939d",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_jump",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_jump",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    }
+  ],
+  "policy_digest": "sha256:6d1dfb471fb0664d76187ddf027862c287fb552a5e6c0b62044993826fbd9998",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape_per_floor.json",
+      "budget_frames": 2506,
+      "capture_checkpoints": [
+        {
+          "id": "deepgrid-c1-floor_1_interlock.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "deepgrid-c1-floor_1_interlock.floor_1_cleared",
+          "predicate": "numeric_delta(progress) >= 1"
+        },
+        {
+          "id": "deepgrid-c1-floor_1_interlock.goal",
+          "predicate": "numeric_delta(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_1_cleared",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "id": "deepgrid-c1-floor_1_interlock",
+      "policy": "strategy.traversal.6dae91157d",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "deepgrid/C1/floor_1_interlock",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "floor_1_cleared",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape_per_floor.json",
+      "budget_frames": 1908,
+      "capture_checkpoints": [
+        {
+          "id": "deepgrid-c2-floor_2_interlock.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "deepgrid-c2-floor_2_interlock.floor_2_cleared",
+          "predicate": "numeric_delta(progress) >= 1"
+        },
+        {
+          "id": "deepgrid-c2-floor_2_interlock.goal",
+          "predicate": "numeric_delta(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_2_cleared",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "id": "deepgrid-c2-floor_2_interlock",
+      "policy": "strategy.traversal.19161c76c7",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "deepgrid/C2/floor_2_interlock",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "floor_2_cleared",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "start_level": 1
+    },
+    {
+      "authoring_record": "authored/tape_per_floor.json",
+      "budget_frames": 2505,
+      "capture_checkpoints": [
+        {
+          "id": "deepgrid-c3-floor_3_interlock.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "deepgrid-c3-floor_3_interlock.floor_3_cleared",
+          "predicate": "numeric_delta(progress) >= 1"
+        },
+        {
+          "id": "deepgrid-c3-floor_3_interlock.goal",
+          "predicate": "numeric_delta(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_3_cleared",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "id": "deepgrid-c3-floor_3_interlock",
+      "policy": "strategy.traversal.453c70c78f",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "deepgrid/C3/floor_3_interlock",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 2
+    },
+    {
+      "authoring_record": "authored/tape_per_floor.json",
+      "budget_frames": 2664,
+      "capture_checkpoints": [
+        {
+          "id": "deepgrid-c5-floor_5_interlock.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "deepgrid-c5-floor_5_interlock.floor_5_cleared",
+          "predicate": "numeric_delta(progress) >= 1"
+        },
+        {
+          "id": "deepgrid-c5-floor_5_interlock.goal",
+          "predicate": "numeric_delta(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_5_cleared",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "id": "deepgrid-c5-floor_5_interlock",
+      "policy": "strategy.traversal.a38df2271c",
+      "required_actions": [
+        "gb_action",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "deepgrid/C5/floor_5_interlock",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 4
+    },
+    {
+      "authoring_record": "authored/tape_per_floor.json",
+      "budget_frames": 1750,
+      "capture_checkpoints": [
+        {
+          "id": "deepgrid-c6-floor_6_overseer_interlock.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "deepgrid-c6-floor_6_overseer_interlock.floor_6_cleared",
+          "predicate": "numeric_delta(progress) >= 1"
+        },
+        {
+          "id": "deepgrid-c6-floor_6_overseer_interlock.goal",
+          "predicate": "numeric_delta(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_6_cleared",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "id": "deepgrid-c6-floor_6_overseer_interlock",
+      "policy": "strategy.traversal.f9ae4bdb8e",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "deepgrid/C6/floor_6_overseer_interlock",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 5
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 25800,
+      "capture_checkpoints": [
+        {
+          "id": "deepgrid-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "deepgrid-l5-whole_game_clear.floor_1_cleared",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "deepgrid-l5-whole_game_clear.entered_floor_2",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "deepgrid-l5-whole_game_clear.floor_2_cleared",
+          "predicate": "numeric(progress) >= 2"
+        },
+        {
+          "id": "deepgrid-l5-whole_game_clear.entered_floor_3",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "deepgrid-l5-whole_game_clear.floor_3_cleared",
+          "predicate": "numeric(progress) >= 3"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_1_cleared",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "entered_floor_2",
+            "predicate": "levels_visited() >= 2"
+          },
+          {
+            "name": "floor_2_cleared",
+            "predicate": "numeric(progress) >= 2"
+          },
+          {
+            "name": "entered_floor_3",
+            "predicate": "levels_visited() >= 3"
+          },
+          {
+            "name": "floor_3_cleared",
+            "predicate": "numeric(progress) >= 3"
+          },
+          {
+            "name": "entered_floor_4",
+            "predicate": "levels_visited() >= 4"
+          },
+          {
+            "name": "floor_4_cleared",
+            "predicate": "numeric(progress) >= 4"
+          },
+          {
+            "name": "entered_floor_5",
+            "predicate": "levels_visited() >= 5"
+          },
+          {
+            "name": "floor_5_cleared",
+            "predicate": "numeric(progress) >= 5"
+          },
+          {
+            "name": "entered_floor_6",
+            "predicate": "levels_visited() >= 6"
+          },
+          {
+            "name": "floor_6_cleared",
+            "predicate": "numeric(progress) >= 6"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "deepgrid-l5-whole_game_clear",
+      "policy": "strategy.traversal.5ed22e939d",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "deepgrid/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

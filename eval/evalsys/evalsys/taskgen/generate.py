@@ -20,7 +20,8 @@ class GenerateError(ValueError):
 def generate_task(game: str | Path, *, mode: str | Mode, out: str | Path,
                   mutations: str = 'auto', assets: str = 'copy',
                   score_against_source: bool = False, case_id: str = '',
-                  playtest_kit: bool = False, reference_video: bool = True) -> TaskPackage:
+                  playtest_kit: bool = False, reference_video: bool = True,
+                  community_scaffold: bool = False) -> TaskPackage:
 
     resolved = mode if isinstance(mode, Mode) else parse_mode(mode)
     if mutations != 'auto' or assets != 'copy':
@@ -49,6 +50,9 @@ def generate_task(game: str | Path, *, mode: str | Mode, out: str | Path,
         if resolved.id in {"brief", "gdd", "skeleton", "port"} and reference_video:
             freeze_visual_rubric(dest / "hidden", game_id)
         package = TaskPackage.read(dest)
+        if resolved.id == 'port':
+            from .mode5.release_data import validate_released_package
+            validate_released_package(package, ROOT)
     except (OSError, ValueError, RuntimeError) as exc:
         raise GenerateError(str(exc)) from exc
     if score_against_source:

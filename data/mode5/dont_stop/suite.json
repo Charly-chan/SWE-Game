@@ -1,0 +1,3368 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:d4c32da9eed25e7a9227034ae9bb1031db419dc2573a0c4064f86671d36641e5",
+  "game_id": "dont_stop",
+  "input_contract": {
+    "analog_axes": [],
+    "required_actions": [
+      "gb_left",
+      "gb_right",
+      "gb_up",
+      "gb_down",
+      "gb_jump",
+      "gb_action",
+      "aim_up",
+      "aim_down",
+      "aim_left",
+      "aim_right",
+      "reload"
+    ],
+    "schema_version": 3,
+    "supported_actions": [
+      "gb_left",
+      "gb_right",
+      "gb_up",
+      "gb_down",
+      "gb_jump",
+      "gb_action",
+      "gb_attack",
+      "gb_dash",
+      "aim_up",
+      "aim_down",
+      "aim_left",
+      "aim_right",
+      "reload"
+    ]
+  },
+  "inputs": {
+    "certificate": {
+      "path": "tasks/dont_stop/certificate.rt1.json",
+      "sha256": "f3481a0d5ea040d2fdfe88f55fca71c85e8bd03eb911856c64b190e5cfc8fe6c"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/dont_stop.md",
+      "sha256": "2ee15edd2574e5f269789005cfed861ba8fa25b28e87a20bb3dabc2bb1c2143c"
+    },
+    "port_input_contract": {
+      "analog_axes": [],
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "aim_up",
+        "aim_down",
+        "aim_left",
+        "aim_right",
+        "reload"
+      ],
+      "schema_version": 3,
+      "supported_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_attack",
+        "gb_dash",
+        "aim_up",
+        "aim_down",
+        "aim_left",
+        "aim_right",
+        "reload"
+      ]
+    },
+    "route": {
+      "path": "tasks/dont_stop/route.json",
+      "sha256": "834071b21532f001d8ba7b25c49c449a9809308029387192f93bba1aac79b39a"
+    },
+    "rubric": {
+      "entry_sha256": "8fb1bc2f0bac01021e904f3356464da11ee522bb37808601960d4b3e6a66a550",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/dont_stop/authored/source_obligations.json",
+      "sha256": "09a0e2742862927d7e0d0dceec3214e9bc0c7d183851d690b0cab8592b30ed1b"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "dont_stop-c1-first_round_real_kill.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "dont_stop-c1-first_round_real_kill.first_native_kill_recorded",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "dont_stop-c1-first_round_real_kill.goal",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed source/bench/bench_level.gd:59: if round_complete == 1 and health > 0 and progress <= GOAL_RADIUS and score >= REQUIRED_KILLS:",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:6c48d4ada65977811e33859bced11114bef4847089c15f239ddb6c706120e494",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "dont_stop/C1/first_round_real_kill",
+      "scenario_id": "dont_stop-c1-first_round_real_kill",
+      "source_check_id": "owner-reviewed-dont_stop-c1-first_round_real_kill",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "first_native_kill_recorded",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_jump",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_action",
+                "gb_jump",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_jump",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_jump",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_jump",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "aim_right",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "aim_right",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "aim_right",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_jump",
+                "aim_right",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "aim_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "aim_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_jump",
+                "aim_right",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_jump",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_jump",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "aim_right"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "combat"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "dont_stop-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "dont_stop-l5-whole_game_clear.survived_real_damage",
+          "predicate": "numeric(health) < 5 and numeric(health) > 0"
+        },
+        {
+          "id": "dont_stop-l5-whole_game_clear.combat_kill_recorded",
+          "predicate": "numeric(score) >= 24"
+        },
+        {
+          "id": "dont_stop-l5-whole_game_clear.native_round_complete",
+          "predicate": "numeric(timer) >= 1"
+        },
+        {
+          "id": "dont_stop-l5-whole_game_clear.terminal_victory_scene",
+          "predicate": "whole_game_clear()"
+        },
+        {
+          "id": "dont_stop-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed source/bench/bench_level.gd:59: if round_complete == 1 and health > 0 and progress <= GOAL_RADIUS and score >= REQUIRED_KILLS:",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:6c48d4ada65977811e33859bced11114bef4847089c15f239ddb6c706120e494",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "dont_stop/L5/whole_game_clear",
+      "scenario_id": "dont_stop-l5-whole_game_clear",
+      "source_check_id": "owner-reviewed-dont_stop-l5-whole_game_clear",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "survived_real_damage",
+            "predicate": "numeric(health) < 5 and numeric(health) > 0"
+          },
+          {
+            "name": "combat_kill_recorded",
+            "predicate": "numeric(score) >= 24"
+          },
+          {
+            "name": "native_round_complete",
+            "predicate": "numeric(timer) >= 1"
+          },
+          {
+            "name": "terminal_victory_scene",
+            "predicate": "whole_game_clear()"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_jump",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_action",
+                "gb_jump",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_jump",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_jump",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_jump",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "aim_right",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "aim_right",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "aim_right",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_jump",
+                "aim_right",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "aim_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "aim_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_jump",
+                "aim_right",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_jump",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_jump",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "aim_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_jump",
+                "aim_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_jump",
+                "aim_right",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_jump",
+                "aim_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump",
+                "aim_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_action",
+                "gb_jump",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_jump",
+                "aim_left",
+                "aim_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_action",
+                "gb_jump",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_jump",
+                "aim_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_jump",
+                "aim_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_jump",
+                "aim_right",
+                "aim_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_action",
+                "gb_jump",
+                "aim_right",
+                "aim_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "aim_left",
+                "aim_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "aim_left",
+                "aim_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump",
+                "aim_left",
+                "aim_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "aim_left",
+                "aim_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "aim_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "aim_left",
+                "aim_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "aim_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "aim_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "gb_jump",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "gb_jump",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_jump",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "aim_right",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "aim_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "aim_right",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "aim_right",
+                "aim_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "aim_right",
+                "aim_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "aim_right",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "aim_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "aim_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_action",
+                "aim_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "aim_left",
+                "aim_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "aim_left",
+                "aim_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_jump",
+                "aim_left",
+                "aim_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "reload",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "dont_stop-c1-first_round_real_kill--milestone-first_native_kill_recorded.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "dont_stop-c1-first_round_real_kill--milestone-first_native_kill_recorded.goal",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:6c48d4ada65977811e33859bced11114bef4847089c15f239ddb6c706120e494",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "dont_stop/C1/first_round_real_kill",
+      "scenario_id": "dont_stop-c1-first_round_real_kill--milestone-first_native_kill_recorded",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_jump",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_action",
+                "gb_jump",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_jump",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_jump",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_jump",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "aim_right",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "aim_right",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "aim_right",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_jump",
+                "aim_right",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "aim_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "aim_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "aim_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_jump",
+                "aim_right",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_jump",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_jump",
+                "aim_left",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump",
+                "aim_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "aim_right"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "combat"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_jump",
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_action",
+            "gb_jump",
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_jump",
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_jump",
+            "aim_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_jump",
+            "aim_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "aim_right",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "aim_right",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "aim_right",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_jump",
+            "aim_right",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "aim_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "aim_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "aim_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "aim_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "aim_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_jump",
+            "aim_right",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_jump",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_jump",
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_jump",
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_jump",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "aim_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.combat.c61d4b9274",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump",
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_action",
+              "gb_jump",
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump",
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump",
+              "aim_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump",
+              "aim_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "aim_right",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "aim_right",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "aim_right",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump",
+              "aim_right",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "aim_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "aim_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "aim_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "aim_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "aim_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump",
+              "aim_right",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump",
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump",
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "aim_right"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1,
+              "value": 1.0
+            }
+          ],
+          "when": "alive(gb_enemy)"
+        }
+      ],
+      "strategy_type": "combat"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_jump",
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_action",
+            "gb_jump",
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_jump",
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_jump",
+            "aim_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_jump",
+            "aim_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "aim_right",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "aim_right",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "aim_right",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_jump",
+            "aim_right",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "aim_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "aim_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "aim_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "aim_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "aim_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_jump",
+            "aim_right",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_jump",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_jump",
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_jump",
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_jump",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "aim_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_jump",
+            "aim_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_jump",
+            "aim_right",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_jump",
+            "aim_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_jump",
+            "aim_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "aim_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_action",
+            "gb_jump",
+            "aim_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_jump",
+            "aim_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_jump",
+            "aim_left",
+            "aim_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_action",
+            "gb_jump",
+            "aim_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_jump",
+            "aim_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_jump",
+            "aim_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_jump",
+            "aim_right",
+            "aim_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_action",
+            "gb_jump",
+            "aim_right",
+            "aim_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "aim_left",
+            "aim_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "aim_left",
+            "aim_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_jump",
+            "aim_left",
+            "aim_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "aim_left",
+            "aim_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "aim_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "aim_left",
+            "aim_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "aim_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "aim_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "gb_jump",
+            "aim_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "gb_jump",
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "aim_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "aim_left",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "aim_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_jump",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "aim_right",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "aim_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "aim_right",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "aim_right",
+            "aim_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "aim_right",
+            "aim_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "aim_right",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "aim_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "aim_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_action",
+            "aim_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "aim_left",
+            "aim_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "aim_left",
+            "aim_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_jump",
+            "aim_left",
+            "aim_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "aim_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "reload",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.ad37577f41",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump",
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_action",
+              "gb_jump",
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump",
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump",
+              "aim_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump",
+              "aim_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "aim_right",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "aim_right",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "aim_right",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump",
+              "aim_right",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "aim_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "aim_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "aim_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "aim_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "aim_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump",
+              "aim_right",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump",
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump",
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "aim_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump",
+              "aim_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump",
+              "aim_right",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump",
+              "aim_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump",
+              "aim_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "aim_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_action",
+              "gb_jump",
+              "aim_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump",
+              "aim_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump",
+              "aim_left",
+              "aim_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_action",
+              "gb_jump",
+              "aim_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump",
+              "aim_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump",
+              "aim_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump",
+              "aim_right",
+              "aim_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_action",
+              "gb_jump",
+              "aim_right",
+              "aim_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "aim_left",
+              "aim_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "aim_left",
+              "aim_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump",
+              "aim_left",
+              "aim_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "aim_left",
+              "aim_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "aim_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "aim_left",
+              "aim_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "aim_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "aim_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump",
+              "aim_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "gb_jump",
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "aim_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "aim_left",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "aim_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "aim_right",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "aim_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "aim_right",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "aim_right",
+              "aim_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "aim_right",
+              "aim_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "aim_right",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "aim_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "aim_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_action",
+              "aim_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "aim_left",
+              "aim_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "aim_left",
+              "aim_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump",
+              "aim_left",
+              "aim_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "aim_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "reload",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    }
+  ],
+  "policy_digest": "sha256:8d627d11d2ccdca0eff646fd10869fa24b8ec68d979887bb78e3263ee94828fb",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 1260,
+      "capture_checkpoints": [
+        {
+          "id": "dont_stop-c1-first_round_real_kill.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "dont_stop-c1-first_round_real_kill.first_native_kill_recorded",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "dont_stop-c1-first_round_real_kill.goal",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "first_native_kill_recorded",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "id": "dont_stop-c1-first_round_real_kill",
+      "policy": "strategy.combat.c61d4b9274",
+      "required_actions": [
+        "aim_down",
+        "aim_left",
+        "aim_right",
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "score"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "dont_stop/C1/first_round_real_kill",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "first_native_kill_recorded",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 6000,
+      "capture_checkpoints": [
+        {
+          "id": "dont_stop-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "dont_stop-l5-whole_game_clear.survived_real_damage",
+          "predicate": "numeric(health) < 5 and numeric(health) > 0"
+        },
+        {
+          "id": "dont_stop-l5-whole_game_clear.combat_kill_recorded",
+          "predicate": "numeric(score) >= 24"
+        },
+        {
+          "id": "dont_stop-l5-whole_game_clear.native_round_complete",
+          "predicate": "numeric(timer) >= 1"
+        },
+        {
+          "id": "dont_stop-l5-whole_game_clear.terminal_victory_scene",
+          "predicate": "whole_game_clear()"
+        },
+        {
+          "id": "dont_stop-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "survived_real_damage",
+            "predicate": "numeric(health) < 5 and numeric(health) > 0"
+          },
+          {
+            "name": "combat_kill_recorded",
+            "predicate": "numeric(score) >= 24"
+          },
+          {
+            "name": "native_round_complete",
+            "predicate": "numeric(timer) >= 1"
+          },
+          {
+            "name": "terminal_victory_scene",
+            "predicate": "whole_game_clear()"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "dont_stop-l5-whole_game_clear",
+      "policy": "strategy.traversal.ad37577f41",
+      "required_actions": [
+        "aim_down",
+        "aim_left",
+        "aim_right",
+        "aim_up",
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "reload"
+      ],
+      "required_numeric": [
+        "health",
+        "score",
+        "timer"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "dont_stop/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "survived_real_damage",
+            "predicate": "numeric(health) < 5 and numeric(health) > 0"
+          },
+          {
+            "name": "combat_kill_recorded",
+            "predicate": "numeric(score) >= 24"
+          },
+          {
+            "name": "native_round_complete",
+            "predicate": "numeric(timer) >= 1"
+          },
+          {
+            "name": "terminal_victory_scene",
+            "predicate": "whole_game_clear()"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 1260,
+      "capture_checkpoints": [
+        {
+          "id": "dont_stop-c1-first_round_real_kill--milestone-first_native_kill_recorded.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "dont_stop-c1-first_round_real_kill--milestone-first_native_kill_recorded.goal",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "predicate": "numeric(score) >= 1"
+      },
+      "id": "dont_stop-c1-first_round_real_kill--milestone-first_native_kill_recorded",
+      "policy": "strategy.combat.c61d4b9274",
+      "required_actions": [
+        "aim_down",
+        "aim_left",
+        "aim_right",
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "score"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "dont_stop/C1/first_round_real_kill",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

@@ -96,6 +96,10 @@ def validate_unity_semantic_report(report: Mapping[str, Any]) -> None:
         previous_frame = frame
         for field in ("g", "o", "n", "d", "s"):
             _mapping(row.get(field), f"rows[{index}].{field}")
+        if "rc" in row:
+            for role, count in _mapping(row["rc"], f"rows[{index}].rc").items():
+                if not isinstance(role, str) or isinstance(count, bool) or not isinstance(count, int) or count < 0:
+                    raise UnitySemanticReportError("rendered-role counts must be nonnegative integers")
         signature = _mapping(row.get("s"), f"rows[{index}].s")
         missing_signature = sorted(_SIGNATURE_FIELDS - set(signature))
         if missing_signature:

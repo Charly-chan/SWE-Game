@@ -114,13 +114,13 @@ Evaluation combines two evidence domains:
 - **Objective Behavioral Evaluation** executes the submitted project and checks input responses, observable mechanics, progression, and mode-specific requirements. Matched no-input controls help determine whether demonstrated behavior depends on player action.
 - **Perceptual Quality Assessment** uses the paper’s four rubric groups: visible mechanics, design and content, functional visual communication, and art.
 
-The three construction tasks allocate 85 objective points and 15 game-specific VLM points. Bug Repair measures behavioral restoration and preservation. Godot-to-Unity Porting allocates 70 objective points, 15 structure VLM points, and 15 visual-quality VLM points. Strict completion (`resolved`) is reported separately from the graded score.
+The three construction tasks allocate 85 objective points and 15 game-specific VLM points. Bug Repair measures behavioral restoration and preservation. Godot-to-Unity Porting uses registry `2026-10.mode5-evidence-five-visual1`: Mechanics 35, Playability 25, Structure 15, Visual 15, Stability 10. It uses a non-VLM evidence-adjusted proxy with a separate strict runtime outcome. Its model leaderboard uses the arithmetic task mean, alongside low-tail diagnostics. See the [Mode 5 scoring contract](docs/reference/MODE5_SCORING.md).
 
-Visual judging is disabled by default. A complete construction or porting score requires VLM evidence; otherwise the composite remains null. See the [scoring specification](docs/reference/HIERARCHICAL_MULTI_EVIDENCE_SCORECARD.md) for weights and registries, and [paper Section 4.5](https://arxiv.org/html/2609.33678v1#S4.SS5) for human agreement studies. For reproducibility, record the evaluator commit, registry, model, harness, budget, input settings, and judge configuration.
+Visual judging is disabled by default for construction tasks; their complete score requires VLM evidence. Mode 5 uses no VLM: Visual is a static artifact proxy and reports `paper_compatible=false`, `official_total=null`. Record the evaluator commit, registry, model, harness, budget, task materials and input settings for reproducibility. See the [scoring specification](docs/reference/HIERARCHICAL_MULTI_EVIDENCE_SCORECARD.md).
 
 ## Quick Start
 
-The runner targets Linux x86-64 (Ubuntu 22.04/24.04), with root or sudo and user-namespace support. Setup installs Godot **4.5.1** and the pinned agent CLIs. Porting evaluation additionally requires a licensed Unity **6000.3.23f1** [certified VM](eval/infra/unity/README.md).
+The runner targets Linux x86-64 (Ubuntu 22.04/24.04), with root or sudo and user-namespace support. Setup installs Godot **4.5.1** and the pinned agent CLIs. Porting uses the [Community Docker workflow](docs/reference/MODE5_RELEASE.md), with licensed Unity **6000.3.23f1** in independent agent and evaluator containers.
 
 ```bash
 git clone --depth 1 https://github.com/Charly-chan/SWE-Game.git
@@ -161,6 +161,21 @@ Pass the downloaded task package and the corresponding submission directory:
 ```
 
 Use `--visual-judge vlm` for visual assessment. Reports and scores are written under the selected output directory; see the [output contract](docs/reference/OUTPUT_CONTRACT.md). Rescoring and adding visual evidence to saved runs are covered in [evaluation commands](docs/quickstart.md#evaluation-commands).
+
+### Mode 5: Community Docker
+
+```bash
+./gb mode5 setup
+./gb mode5 doctor --license-provider existing-home --unity-config-root "$HOME"
+./gb mode5 run --game cat_defense --harness claude \
+  --claude-settings "$HOME/.claude/settings.json" --out /absolute/results/cat-defense-port
+```
+
+Setup and doctor prepare the locally built, licensed toolchain. Run installs a fixed task,
+launches the agent, rebuilds its submission in a fresh offline evaluator, and retains
+runtime evidence and reports. See the [Mode 5 guide](docs/reference/MODE5_RELEASE.md).
+Mode 5 fixed packages include the Community scaffold and the updated calibrated
+runtime contracts for all 41 games. The default agent budget is 7200 seconds.
 
 ## Reference Data
 
@@ -204,7 +219,7 @@ execution, and submission evaluation.
 | [Runner guide](docs/running.md) | Providers, batch execution, and reproducibility |
 | [Task protocol](docs/tasks.md) | Inputs and submission requirements |
 | [Evaluation overview (中文)](docs/evaluation.md) | Behavioral and perceptual evaluation |
-| [Godot-to-Unity Porting](docs/reference/UNITY_MODE5.md) | Cross-engine setup and evaluation |
+| [Godot-to-Unity Porting](docs/reference/MODE5_RELEASE.md) | Cross-engine setup and evaluation |
 | [Documentation index](docs/README.md) | All guides and detailed contracts |
 
 ## Citation

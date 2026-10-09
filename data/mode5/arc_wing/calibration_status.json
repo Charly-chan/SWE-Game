@@ -1,0 +1,14 @@
+{
+  "blockers": [],
+  "game_id": "arc_wing",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "arc_cloudline_scored_formation",
+    "arc_salt_flats_scored_formation",
+    "arc_warden_approach_composition"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:697d24b7b0a5524c8714a46ea132ddeff92bc2183569744d29c9756d5b14f3cf"
+}

@@ -21,6 +21,93 @@ LOCKED_PROJECT_FILES = (
 )
 
 
+def enable_community_engine_modules(project: str | Path) -> None:
+    """Enable pinned, offline built-in engine modules in a Community copy.
+
+    Unity 6000.3.23f1 ships these packages in BuiltInPackages, so ordinary UI, Tilemap, audio,
+    animation, particle, navigation and terrain code compiles without registry
+    access. Both package files enter the hidden immutable scaffold digest.
+    The Community copy also seeds the missing SDK script .meta, otherwise the
+    Agent's first Unity import generates an unexpected file in the immutable
+    SDK directory and the evaluator rejects an otherwise unchanged scaffold.
+    """
+
+    packages = Path(project) / "Packages"
+    manifest_path = packages / "manifest.json"
+    lock_path = packages / "packages-lock.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    lock = json.loads(lock_path.read_text(encoding="utf-8"))
+    dependencies = manifest.get("dependencies")
+    locked = lock.get("dependencies")
+    if not isinstance(dependencies, dict) or not isinstance(locked, dict):
+        raise ValueError("Unity scaffold package metadata is malformed")
+    if "com.unity.modules.ui" not in locked or "com.unity.modules.imgui" not in locked:
+        raise ValueError("Unity scaffold lacks built-in UI prerequisites")
+    for name, required in COMMUNITY_BUILTIN_DEPENDENCIES.items():
+        version = "2.0.0" if name == "com.unity.ugui" else "1.0.0"
+        dependencies[name] = version
+        locked[name] = {
+            "version": version,
+            "depth": 0,
+            "source": "builtin",
+            "dependencies": dict(required),
+        }
+    locked["com.unity.modules.ui"]["depth"] = 1
+    manifest["dependencies"] = dict(sorted(dependencies.items()))
+    lock["dependencies"] = dict(sorted(locked.items()))
+    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    lock_path.write_text(json.dumps(lock, indent=2) + "\n", encoding="utf-8")
+    sdk_root = Path(project) / "Assets" / "GameBenchmarkSDK"
+    if not (sdk_root / "GBObservableState.cs").is_file():
+        raise FileNotFoundError("Community scaffold is missing GBObservableState.cs")
+    (sdk_root / "GBObservableState.cs.meta").write_text(
+        _COMMUNITY_OBSERVABLE_META, encoding="utf-8",
+    )
+
+
+_COMMUNITY_OBSERVABLE_META = """fileFormatVersion: 2
+guid: 9ed673e25c767f688b51aa07532277cb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData:
+  assetBundleName:
+  assetBundleVariant:
+"""
+
+
+COMMUNITY_BUILTIN_DEPENDENCIES: Mapping[str, Mapping[str, str]] = {
+    "com.unity.ugui": {
+        "com.unity.modules.ui": "1.0.0",
+        "com.unity.modules.imgui": "1.0.0",
+    },
+    "com.unity.modules.ai": {},
+    "com.unity.modules.animation": {},
+    "com.unity.modules.audio": {},
+    "com.unity.modules.director": {
+        "com.unity.modules.audio": "1.0.0",
+        "com.unity.modules.animation": "1.0.0",
+    },
+    "com.unity.modules.particlesystem": {},
+    "com.unity.modules.screencapture": {"com.unity.modules.imageconversion": "1.0.0"},
+    "com.unity.modules.terrain": {},
+    "com.unity.modules.terrainphysics": {
+        "com.unity.modules.physics": "1.0.0",
+        "com.unity.modules.terrain": "1.0.0",
+    },
+    "com.unity.modules.tilemap": {"com.unity.modules.physics2d": "1.0.0"},
+    "com.unity.modules.unitywebrequest": {},
+    "com.unity.modules.video": {
+        "com.unity.modules.audio": "1.0.0",
+        "com.unity.modules.ui": "1.0.0",
+        "com.unity.modules.unitywebrequest": "1.0.0",
+    },
+}
+
+
 def immutable_scaffold_paths(project: str | Path) -> tuple[str, ...]:
 
     root = Path(project).resolve()
@@ -93,6 +180,7 @@ def scaffold_manifest_digest(manifest: Mapping[str, str]) -> str:
 def validate_scaffold_integrity(
     project: str | Path,
     expected: Mapping[str, str],
+    *, reference_project: str | Path | None = None,
 ) -> ScaffoldIntegrityReport:
     root = Path(project).resolve()
     normalized = {_safe_relative(path): str(digest) for path, digest in expected.items()}
@@ -100,8 +188,26 @@ def validate_scaffold_integrity(
     changed: list[str] = []
     for relative, digest in sorted(normalized.items()):
         path = root / Path(relative)
+        if reference_project is not None and path.suffix == ".meta":
+            continue  # Unity owns importer metadata, not benchmark gameplay.
         if not path.is_file():
             missing.append(relative)
+        elif reference_project is not None:
+            reference = Path(reference_project) / relative
+            if relative.endswith("packages-lock.json"):
+                continue  # generated resolution metadata; manifest is checked
+            if path.suffix in {".json", ".asmdef", ".inputactions"}:
+                if json.loads(path.read_text(encoding="utf-8")) != json.loads(reference.read_text(encoding="utf-8")):
+                    changed.append(relative)
+            elif relative.endswith("ProjectVersion.txt"):
+                wanted = next(line for line in reference.read_text().splitlines() if line.startswith("m_EditorVersion:"))
+                if wanted not in path.read_text().splitlines():
+                    changed.append(relative)
+            elif path.suffix == ".cs":
+                if path.read_text(encoding="utf-8").strip() != reference.read_text(encoding="utf-8").strip():
+                    changed.append(relative)
+            elif sha256_file(path) != digest:
+                changed.append(relative)
         elif sha256_file(path) != digest:
             changed.append(relative)
 
@@ -115,7 +221,8 @@ def validate_scaffold_integrity(
     return ScaffoldIntegrityReport(
         tuple(missing),
         tuple(changed),
-        tuple(sorted(actual_sdk - expected_sdk)),
+        tuple(sorted(path for path in actual_sdk - expected_sdk
+                     if reference_project is None or not path.endswith(".meta"))),
     )
 
 
@@ -126,6 +233,8 @@ __all__ = [
     "TARGET_UNITY_ROOT",
     "ScaffoldIntegrityReport",
     "build_scaffold_digest_manifest",
+    "COMMUNITY_BUILTIN_DEPENDENCIES",
+    "enable_community_engine_modules",
     "immutable_scaffold_paths",
     "scaffold_manifest_digest",
     "sha256_file",

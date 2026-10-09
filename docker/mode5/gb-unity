@@ -1,0 +1,270 @@
+#!/usr/bin/env python3
+"""Public, non-scoring Unity self-check helper for Mode 5 agents."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+from pathlib import Path
+import re
+import shutil
+import signal
+import subprocess
+import sys
+import tempfile
+
+
+UNITY = os.environ.get("UNITY_BIN", "/opt/unity/6000.3.23f1/Editor/Unity")
+BUILD_TEMPLATE = Path("/opt/gamebench/mode5/GBCommunityBuild.cs")
+STATUS_SCHEMA = "gamebench.mode5-agent-selfcheck.v1"
+FAILURE_PATTERN = re.compile(
+    r"error\s+CS\d+|No valid Unity Editor license|Failed to activate/update license|"
+    r"license is invalid|Licensing Client timed out|Failed to connect to licensing client",
+    re.IGNORECASE,
+)
+PLAYER_FAILURE_PATTERN = re.compile(
+    r"\b[A-Za-z_]\w*Exception\s*:|UnityEngine\.Debug[:.]LogError\b|"
+    r"fatal error|segmentation fault|Assertion failed",
+    re.IGNORECASE,
+)
+
+
+def public_unity_log(text: str) -> str:
+    """Retain compiler/build diagnostics without licensing identifiers."""
+    private = re.compile(
+        r"licensing::|license serial|entitlement|access.?token|refresh.?token|machine.?id|unityconnect::",
+        re.IGNORECASE,
+    )
+    return "\n".join(line for line in text.splitlines() if not private.search(line)) + "\n"
+
+
+def _workspace() -> Path:
+    return Path(os.environ.get("GB_TASK_WORKSPACE", "/workspace")).resolve()
+
+
+def _status_path() -> Path:
+    return _workspace() / ".selfcheck" / "status.json"
+
+
+def _read_status() -> dict[str, object]:
+    path = _status_path()
+    try:
+        raw = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        raw = {}
+    return {
+        "schema": STATUS_SCHEMA,
+        "scaffold_import": raw.get("scaffold_import", "not_run"),
+        "script_compile": raw.get("script_compile", "not_run"),
+        "linux_player_build": raw.get("linux_player_build", "not_run"),
+        "player_smoke": raw.get("player_smoke", "not_run"),
+    }
+
+
+def _write_status(**updates: str) -> None:
+    path = _status_path()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {**_read_status(), **updates}
+    temp = path.with_suffix(".json.tmp")
+    temp.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    temp.replace(path)
+
+
+def _project(value: str) -> Path:
+    project = Path(value).resolve()
+    if not all((project / name).exists() for name in ("Assets", "Packages", "ProjectSettings")):
+        raise ValueError("expected a Unity project with Assets/, Packages/, and ProjectSettings/")
+    return project
+
+
+def _scripting_backend() -> str:
+    lock_path = _workspace() / "environment.lock.json"
+    try:
+        lock = json.loads(lock_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ValueError(f"missing or invalid task environment lock: {lock_path}") from exc
+    if lock.get("schema") != "gamebench.mode5-task-environment.v1":
+        raise ValueError("unsupported task environment lock schema")
+    backend = lock.get("scripting_backend")
+    if backend not in ("Mono", "IL2CPP"):
+        raise ValueError("task scripting_backend must be Mono or IL2CPP")
+    return backend
+
+
+def _unity(project: Path, extra: list[str], timeout: int) -> None:
+    with tempfile.NamedTemporaryFile(prefix="gb-unity-", suffix=".log", delete=False) as handle:
+        log = Path(handle.name)
+    try:
+        command = [
+            UNITY, "-batchmode", "-nographics", "-quit",
+            "-projectPath", str(project), *extra, "-logFile", str(log),
+        ]
+        try:
+            # Unity child processes can retain inherited pipes after the editor
+            # exits. The explicit log file is authoritative; do not wait on pipes
+            # or leak licensing stdout into the Agent transcript.
+            unity_env = dict(os.environ)
+            # Community targets Mono: do not auto-migrate/download the optional
+            # IL2CPP SDK on every cold import. These switches are provided by
+            # the pinned Editor's LinuxStandalone support module.
+            unity_env["UNITY_DISABLE_LINUX_TOOLCHAIN_MIGRATOR"] = "1"
+            unity_env["UNITY_DISABLE_LINUX_AUTO_TOOLCHAIN_INSTALLATION"] = "1"
+            process = subprocess.run(command, timeout=timeout, check=False, env=unity_env,
+                                     stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        except subprocess.TimeoutExpired as exc:
+            raise RuntimeError(f"Unity self-check exceeded {timeout}s") from exc
+        text = log.read_text(encoding="utf-8", errors="replace") if log.is_file() else ""
+        if text:
+            sys.stdout.write(public_unity_log(text))
+        if process.returncode or FAILURE_PATTERN.search(text):
+            raise RuntimeError("Unity import/compile/build self-check failed")
+    finally:
+        log.unlink(missing_ok=True)
+
+
+def import_project(project: Path, timeout: int) -> None:
+    try:
+        _unity(project, [], timeout)
+    except Exception:
+        _write_status(scaffold_import="fail", script_compile="fail")
+        raise
+    _write_status(scaffold_import="pass", script_compile="pass")
+
+
+def build_project(project: Path, output_dir: Path, timeout: int) -> Path:
+    backend = _scripting_backend()
+    import_project(project, timeout)
+    editor = project / "Assets" / "Editor"
+    helper = editor / "__GameBenchCommunitySelfCheck.cs"
+    executable = output_dir.resolve() / "GameBenchSelfCheck.x86_64"
+    editor.mkdir(parents=True, exist_ok=True)
+    if helper.exists() or helper.with_suffix(".cs.meta").exists():
+        raise RuntimeError("reserved GameBench self-check helper path already exists")
+    shutil.copy2(BUILD_TEMPLATE, helper)
+    old_output = os.environ.get("GB_UNITY_BUILD_OUTPUT")
+    old_backend = os.environ.get("GB_UNITY_SCRIPTING_BACKEND")
+    os.environ["GB_UNITY_BUILD_OUTPUT"] = str(executable)
+    os.environ["GB_UNITY_SCRIPTING_BACKEND"] = backend
+    try:
+        _unity(
+            project,
+            ["-executeMethod", "GameBench.Community.Editor.SelfCheckBuild.BuildLinuxPlayer"],
+            timeout,
+        )
+        if not executable.is_file():
+            raise RuntimeError("Unity reported success but wrote no Linux Player")
+    except Exception:
+        _write_status(
+            scaffold_import="fail", script_compile="fail", linux_player_build="fail"
+        )
+        raise
+    finally:
+        helper.unlink(missing_ok=True)
+        helper.with_suffix(".cs.meta").unlink(missing_ok=True)
+        if old_output is None:
+            os.environ.pop("GB_UNITY_BUILD_OUTPUT", None)
+        else:
+            os.environ["GB_UNITY_BUILD_OUTPUT"] = old_output
+        if old_backend is None:
+            os.environ.pop("GB_UNITY_SCRIPTING_BACKEND", None)
+        else:
+            os.environ["GB_UNITY_SCRIPTING_BACKEND"] = old_backend
+    _write_status(
+        scaffold_import="pass", script_compile="pass", linux_player_build="pass"
+    )
+    return executable
+
+
+def _stop_player(process: subprocess.Popen) -> None:
+    # xvfb-run can exit before its Player. Clean the group even when the wrapper
+    # already exited, so no orphan inherits the Agent's stream after a smoke.
+    if os.name == "posix":
+        try:
+            os.killpg(process.pid, signal.SIGTERM)
+        except ProcessLookupError:
+            pass
+    elif process.poll() is None:
+        process.terminate()
+    try:
+        process.wait(timeout=5)
+    except subprocess.TimeoutExpired:
+        if os.name == "posix":
+            try:
+                os.killpg(process.pid, signal.SIGKILL)
+            except ProcessLookupError:
+                pass
+        else:
+            process.kill()
+        process.wait(timeout=5)
+    finally:
+        if os.name == "posix":
+            try:
+                os.killpg(process.pid, signal.SIGKILL)
+            except ProcessLookupError:
+                pass
+
+
+def smoke_player(player: Path, timeout: int) -> None:
+    if not player.is_file():
+        raise ValueError("Linux Player is missing; run gb-unity build first")
+    command = [
+        "xvfb-run", "-a", "-s", "-screen 0 960x540x24", str(player),
+        "-screen-fullscreen", "0", "-screen-width", "960", "-screen-height", "540",
+        "-logFile", "-",
+    ]
+    reached_horizon = False
+    with tempfile.TemporaryFile(mode="w+b") as log:
+        process = subprocess.Popen(command, stdout=log, stderr=subprocess.STDOUT,
+                                   start_new_session=os.name == "posix")
+        try:
+            try:
+                process.wait(timeout=timeout)
+            except subprocess.TimeoutExpired:
+                reached_horizon = True
+        finally:
+            _stop_player(process)
+        log.seek(0)
+        text = log.read().decode("utf-8", "replace")
+    if text:
+        sys.stdout.write(public_unity_log(text))
+    if PLAYER_FAILURE_PATTERN.search(text) or FAILURE_PATTERN.search(text):
+        _write_status(player_smoke="fail")
+        raise RuntimeError("Linux Player smoke emitted runtime errors; inspect the sanitized log")
+    if not reached_horizon and process.returncode:
+        _write_status(player_smoke="fail")
+        raise RuntimeError(f"Linux Player smoke failed with exit {process.returncode}")
+    _write_status(player_smoke="pass")
+    print("Bounded startup smoke passed; gameplay/interface evaluation is still required.")
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(prog="gb-unity")
+    parser.add_argument("command", choices=("check", "import", "build", "smoke"))
+    parser.add_argument("project")
+    parser.add_argument("--out", type=Path)
+    parser.add_argument("--timeout", type=int, default=900)
+    parser.add_argument("--player", type=Path)
+    args = parser.parse_args()
+    if args.timeout <= 0:
+        parser.error("--timeout must be positive")
+    try:
+        project = _project(args.project)
+        output = args.out or (_workspace() / ".selfcheck" / "build")
+        if args.command == "import":
+            import_project(project, args.timeout)
+        elif args.command == "build":
+            build_project(project, output, args.timeout)
+        elif args.command == "smoke":
+            player = args.player or output.resolve() / "GameBenchSelfCheck.x86_64"
+            smoke_player(player.resolve(), min(args.timeout, 120))
+        else:
+            build_project(project, output, args.timeout)
+        return 0
+    except (OSError, RuntimeError, ValueError) as exc:
+        print(f"gb-unity: {exc}", file=sys.stderr)
+        return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

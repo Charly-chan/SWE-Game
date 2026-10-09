@@ -44,6 +44,7 @@ internal sealed class GBControllerCommand
     public float[] axis_values;
     public int hold_frames;
     public string checkpoint_id;
+    public bool visual_audit;
     public string reason;
     public GBControllerAction[] batch;
 }
@@ -51,7 +52,7 @@ internal sealed class GBControllerCommand
 public sealed class GameBenchmarkEvaluatorProbe : MonoBehaviour
 {
     private const string Protocol = "gamebench.unity-controller.v1";
-    private const int MaxMessageBytes = 1024 * 1024;
+    private const int MaxMessageBytes = 4 * 1024 * 1024;
     private const int SettleFrames = 6;
     private const int PlayerDiscoveryFrames = 300;
 
@@ -105,6 +106,7 @@ public sealed class GameBenchmarkEvaluatorProbe : MonoBehaviour
     private Bounds frozenBounds;
     private Vector3 lastPlayerPosition;
     private bool hasLastPlayerPosition;
+    private bool visualAuditBusy;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void Bootstrap()
@@ -353,6 +355,22 @@ public sealed class GameBenchmarkEvaluatorProbe : MonoBehaviour
 
     private IEnumerator HandleCapture(GBControllerCommand command)
     {
+        GBVisualCaptureRecord visual = null;
+        if (command.visual_audit)
+        {
+            visualAuditBusy = true;
+            ApplyEvaluatorClock();
+            try
+            {
+                yield return GameBenchmarkEvaluatorVisualCapture.Capture(command.checkpoint_id,
+                    physicsFrame, requiredRoles, record => visual = record);
+            }
+            finally
+            {
+                visualAuditBusy = false;
+                ApplyEvaluatorClock();
+            }
+        }
         yield return new WaitForEndOfFrame();
         Texture2D texture = null;
         try
@@ -367,7 +385,8 @@ public sealed class GameBenchmarkEvaluatorProbe : MonoBehaviour
                 Send("{\"type\":\"capture_ack\",\"sequence\":" + command.sequence +
                      ",\"frame\":" + physicsFrame + ",\"checkpoint_id\":" +
                      Quote(command.checkpoint_id ?? "") + ",\"bytes_digest\":\"sha256:" + digest +
-                     "\",\"png_base64\":" + Quote(Convert.ToBase64String(png)) + "}");
+                     "\",\"png_base64\":" + Quote(Convert.ToBase64String(png)) +
+                     (visual == null ? "" : ",\"visual\":" + JsonUtility.ToJson(visual)) + "}");
             }
         }
         catch (Exception exception) { Fatal("capture failed: " + exception.Message); }
@@ -391,6 +410,14 @@ public sealed class GameBenchmarkEvaluatorProbe : MonoBehaviour
             var entities = ActiveEntities();
             RecordEntityLifecycle(entities);
             var groups = GroupCensus(entities);
+            // Native component inspection also covers procedural entities.
+            // This is content structure, not rendered appearance or fidelity.
+            var renderedGroups = GroupCensus(entities.Where(entity =>
+                entity.GetComponentsInChildren<Renderer>().Any(renderer =>
+                    renderer != null && renderer.enabled && renderer.gameObject.activeInHierarchy &&
+                    renderer.GetComponentInParent<GBEntity>() == entity &&
+                    renderer.bounds.size.sqrMagnitude > 0.000001f &&
+                    (!(renderer is SpriteRenderer) || ((SpriteRenderer)renderer).sprite != null))));
             var overlaps = Overlaps(entities);
             var deviceObservation = ObserveDevices(entities);
             var player = entities.FirstOrDefault(item => item.Role == "gb_player");
@@ -402,6 +429,7 @@ public sealed class GameBenchmarkEvaluatorProbe : MonoBehaviour
             hasLastPlayerPosition = true;
             var frame = physicsFrame;
             var row = "{\"f\":" + frame + ",\"g\":" + IntMap(groups) +
+                ",\"rc\":" + IntMap(renderedGroups) +
                 ",\"o\":" + BoolMap(overlaps) + ",\"px\":" + Number(position.x) +
                 ",\"py\":" + Number(position.y) + ",\"pz\":" + Number(position.z) +
                 ",\"n\":" + NumericMap() + ",\"wgc\":" + Bool(wholeGameClear) +
@@ -780,8 +808,9 @@ public sealed class GameBenchmarkEvaluatorProbe : MonoBehaviour
 
     private void ApplyEvaluatorClock()
     {
+        GameBenchmarkEvaluatorVisualCapture.AttachAudioTaps();
         if (evaluatorTimeScale < 1.0f) evaluatorTimeScale = 1.0f;
-        Time.timeScale = evaluatorTimeScale;
+        Time.timeScale = visualAuditBusy ? 0.0f : evaluatorTimeScale;
         // A larger timeScale should advance fixed-update simulation faster,
         // while preserving the candidate's nominal physics step.
         Application.targetFrameRate = evaluatorTimeScale > 1.0f ? -1 : 60;

@@ -9,7 +9,7 @@ def reference_video_frames(
 ) -> tuple[tuple[Frame, ...], str]:
     if video is None or not Path(video).is_file():
         return (), "GT reference video unavailable; candidate-only visual reading"
-    from ..taskgen.unity.unity_fidelity import extract_reference_frames
+    from .reference_video import extract_reference_frames
 
     try:
         paths, times = extract_reference_frames(video, out, max_frames=max_frames)

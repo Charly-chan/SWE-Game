@@ -1,0 +1,15 @@
+{
+  "blockers": [],
+  "game_id": "pixel_sabotage",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "pixel_sabotage-c2-guarded_corridor_to_keycard",
+    "pixel_sabotage-c3-keycard_gated_door",
+    "pixel_sabotage-c4-checkpoint_switch_and_door11",
+    "pixel_sabotage-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:fd4698f55dee37f46586c49aafa83f46d6ec8e816b362d3e6ceee63b08cec605"
+}

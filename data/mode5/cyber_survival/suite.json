@@ -1,0 +1,1081 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:e0c7d8aeecb213044a5811151812d9a1f13c396bf0cadcb2f80bbd94b2e01469",
+  "game_id": "cyber_survival",
+  "input_contract": {
+    "analog_axes": [],
+    "required_actions": [
+      "gb_left",
+      "gb_right",
+      "gb_up",
+      "gb_down",
+      "gb_jump",
+      "gb_action",
+      "turn_left",
+      "turn_right",
+      "emp_pulse"
+    ],
+    "schema_version": 3,
+    "supported_actions": [
+      "gb_left",
+      "gb_right",
+      "gb_up",
+      "gb_down",
+      "gb_jump",
+      "gb_action",
+      "gb_attack",
+      "gb_dash",
+      "turn_left",
+      "turn_right",
+      "emp_pulse"
+    ]
+  },
+  "inputs": {
+    "certificate": {
+      "path": "tasks/cyber_survival/certificate.rt1.json",
+      "sha256": "f1458a27cacf6c4c8ae67b40acea89bb387693173c22ba53df77f026d9407ffe"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/cyber_survival.md",
+      "sha256": "548e38b95c55c7415f6f4fb6092b2f154e313c46e8800ad4d3afff810cee46d4"
+    },
+    "port_input_contract": {
+      "analog_axes": [],
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "turn_left",
+        "turn_right",
+        "emp_pulse"
+      ],
+      "schema_version": 3,
+      "supported_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_attack",
+        "gb_dash",
+        "turn_left",
+        "turn_right",
+        "emp_pulse"
+      ]
+    },
+    "route": {
+      "path": "tasks/cyber_survival/route.json",
+      "sha256": "f2f3f736c587bbaf5166452347e9deadfdb7e62a78409c9fe5019b8aeaa0efde"
+    },
+    "rubric": {
+      "entry_sha256": "f22560c37294f326172e7a0f18050f138cff5cfd8ff2156f55ac4b8082ba2b9b",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_enemy",
+        "gb_hazard",
+        "gb_collectible",
+        "gb_interactive",
+        "gb_checkpoint",
+        "gb_door",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/cyber_survival/authored/source_obligations.json",
+      "sha256": "ccfe692dbd936169423aa4a5a2178aff6d7ec831538847c430e9367844a24aeb"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "cyber_survival-c1-underdeck_terminal_and_extract.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "cyber_survival-c1-underdeck_terminal_and_extract.underdeck_terminal_secured",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "cyber_survival-c1-underdeck_terminal_and_extract.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed actors/network_terminal.gd:43: progress_changed.emit(progress)",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:290c48e141c5b1cc3fc9b21c24e024543c8a140fcd94d70fa0c0b2839e0269ef",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "cyber_survival/C1/underdeck_terminal_and_extract",
+      "scenario_id": "cyber_survival-c1-underdeck_terminal_and_extract",
+      "source_check_id": "owner-reviewed-cyber_survival-c1-underdeck_terminal_and_extract",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "underdeck_terminal_secured",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "cyber_survival-c2-coolant_terminal_and_extract.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "cyber_survival-c2-coolant_terminal_and_extract.coolant_terminal_secured",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "cyber_survival-c2-coolant_terminal_and_extract.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed actors/network_terminal.gd:43: progress_changed.emit(progress)",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:290c48e141c5b1cc3fc9b21c24e024543c8a140fcd94d70fa0c0b2839e0269ef",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "cyber_survival/C2/coolant_terminal_and_extract",
+      "scenario_id": "cyber_survival-c2-coolant_terminal_and_extract",
+      "source_check_id": "owner-reviewed-cyber_survival-c2-coolant_terminal_and_extract",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "coolant_terminal_secured",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "cyber_survival-c3-spire_terminal_and_extract.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "cyber_survival-c3-spire_terminal_and_extract.spire_terminal_secured",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "cyber_survival-c3-spire_terminal_and_extract.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:290c48e141c5b1cc3fc9b21c24e024543c8a140fcd94d70fa0c0b2839e0269ef",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "cyber_survival/C3/spire_terminal_and_extract",
+      "scenario_id": "cyber_survival-c3-spire_terminal_and_extract",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "emp_pulse",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "cyber_survival-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "cyber_survival-l5-whole_game_clear.underdeck_cleared",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "cyber_survival-l5-whole_game_clear.coolant_cleared",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "cyber_survival-l5-whole_game_clear.spire_cleared",
+          "predicate": "whole_game_clear()"
+        },
+        {
+          "id": "cyber_survival-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:290c48e141c5b1cc3fc9b21c24e024543c8a140fcd94d70fa0c0b2839e0269ef",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "cyber_survival/L5/whole_game_clear",
+      "scenario_id": "cyber_survival-l5-whole_game_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "emp_pulse",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.480225f04b",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.11b5a058ec",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "emp_pulse",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.cfd4784a10",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "emp_pulse",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "emp_pulse",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.08ca172883",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "emp_pulse",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    }
+  ],
+  "policy_digest": "sha256:4f3a6244d933ac37ac1f858d74d711efd7033c08571486f0ff7b70109098303c",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 1884,
+      "capture_checkpoints": [
+        {
+          "id": "cyber_survival-c1-underdeck_terminal_and_extract.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "cyber_survival-c1-underdeck_terminal_and_extract.underdeck_terminal_secured",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "cyber_survival-c1-underdeck_terminal_and_extract.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "underdeck_terminal_secured",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "id": "cyber_survival-c1-underdeck_terminal_and_extract",
+      "policy": "strategy.movement.480225f04b",
+      "required_actions": [
+        "gb_action",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "cyber_survival/C1/underdeck_terminal_and_extract",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "underdeck_terminal_secured",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 2376,
+      "capture_checkpoints": [
+        {
+          "id": "cyber_survival-c2-coolant_terminal_and_extract.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "cyber_survival-c2-coolant_terminal_and_extract.coolant_terminal_secured",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "cyber_survival-c2-coolant_terminal_and_extract.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "coolant_terminal_secured",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "id": "cyber_survival-c2-coolant_terminal_and_extract",
+      "policy": "strategy.movement.11b5a058ec",
+      "required_actions": [
+        "gb_action",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "cyber_survival/C2/coolant_terminal_and_extract",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "coolant_terminal_secured",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "start_level": 1
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 2990,
+      "capture_checkpoints": [
+        {
+          "id": "cyber_survival-c3-spire_terminal_and_extract.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "cyber_survival-c3-spire_terminal_and_extract.spire_terminal_secured",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "cyber_survival-c3-spire_terminal_and_extract.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "spire_terminal_secured",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "id": "cyber_survival-c3-spire_terminal_and_extract",
+      "policy": "strategy.movement.cfd4784a10",
+      "required_actions": [
+        "emp_pulse",
+        "gb_action",
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "cyber_survival/C3/spire_terminal_and_extract",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 2
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 10200,
+      "capture_checkpoints": [
+        {
+          "id": "cyber_survival-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "cyber_survival-l5-whole_game_clear.underdeck_cleared",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "cyber_survival-l5-whole_game_clear.coolant_cleared",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "cyber_survival-l5-whole_game_clear.spire_cleared",
+          "predicate": "whole_game_clear()"
+        },
+        {
+          "id": "cyber_survival-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "underdeck_cleared",
+            "predicate": "levels_visited() >= 2"
+          },
+          {
+            "name": "coolant_cleared",
+            "predicate": "levels_visited() >= 3"
+          },
+          {
+            "name": "spire_cleared",
+            "predicate": "whole_game_clear()"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "cyber_survival-l5-whole_game_clear",
+      "policy": "strategy.movement.08ca172883",
+      "required_actions": [
+        "emp_pulse",
+        "gb_action",
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "cyber_survival/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

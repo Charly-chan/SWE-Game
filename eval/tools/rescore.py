@@ -11,6 +11,8 @@ from types import SimpleNamespace
 
 from evalsys.taskgen.evaluate import REPORT_SCHEMA
 from evalsys.taskgen.scorecard import REGISTRY_VERSIONS, score_task_result
+from evalsys.taskgen.mode5.adapter import SNAPSHOT_SCHEMA
+from evalsys.taskgen.mode5.score import CRITERIA, REGISTRY_VERSION as MODE5_REGISTRY_VERSION
 from evalsys.verdict import Attribution, Item
 from evalsys.report.terminology import display_terms
 
@@ -23,6 +25,16 @@ def rebuild(report: dict, report_path: Path | None = None) -> SimpleNamespace:
         if raw.get("attribution"):
             raw["attribution"] = Attribution(raw["attribution"])
         items.append(Item(**raw))
+    engine = dict(report.get("engine") or {})
+    if report.get("mode") == "port" and "mode5_static" not in engine:
+        engine["mode5_static"] = {
+            "schema": SNAPSHOT_SCHEMA,
+            "registry_version": MODE5_REGISTRY_VERSION,
+            "obligations": {name: [name + "/unmeasured"] for name in CRITERIA},
+            "observations": {name: [] for name in CRITERIA},
+            "graph": {"complete": False},
+            "inspection_complete": False,
+        }
     return SimpleNamespace(
         package=SimpleNamespace(
             manifest={
@@ -32,6 +44,7 @@ def rebuild(report: dict, report_path: Path | None = None) -> SimpleNamespace:
             root=Path(str(report.get("package"))) if report.get("package") else None,
         ),
         items=items,
+        engine=engine,
         resolved=report.get("resolved"),
         stored_report=report,
         report_path=report_path,
@@ -55,11 +68,11 @@ def upgrade_score_contract(report: dict, scorecard: dict) -> None:
         "score": weighted.get("score"),
         "scale": weighted.get("scale") or "0-100",
         "ranking_eligible": bool(scorecard.get("ranking_eligible")),
-        "score_scope": "mode5_model_capability_only",
+        "score_scope": scorecard.get("score_scope", "mode5_evidence_adjusted_proxy"),
     }
     report["headline"] = headline
     report["score"] = dict(headline)
-    report["score_scope"] = "mode5_model_capability_only"
+    report["score_scope"] = headline["score_scope"]
 
 
 def main() -> int:

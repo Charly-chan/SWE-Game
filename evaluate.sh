@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Evaluate a generated task package and its corresponding saved submission.
 # Runs the shared evaluator and writes scores and evidence under --out.
-# See docs/quickstart.md for engine, Unity VM, and visual-judge options.
+# See docs/quickstart.md for engine, Community Docker, and visual-judge options.
 set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -29,7 +29,7 @@ Modes 1-3 default to 2026-09-19.mode1-vlm1 / mode2-vlm1 / mode3-vlm1:
 recordings, the task's GT reference frames and provided asset examples. Item
 scores are continuous 0-1 with caps; q^3 is diagnostic only. Missing VLM readings
 leave an objective contribution and a null composite. Mode 4 defaults to
-2026-09-15.mode4-redesign1; Mode 5 to 2026-09-20.mode5-mdva-domain1.
+2026-09-15.mode4-redesign1; Mode 5 uses the fixed 2026-10.mode5-evidence-five-visual1 registry; older Mode 5 registries are rejected.
 Historical registries remain available with --registry.
 --score-against-source turns on Objective Behavioral Evaluation for a package
 that was generated without it; full Godot headline scoring needs those objective
@@ -117,16 +117,9 @@ try:
     mode = manifest["mode"]
     selected = sys.argv[1] or default_registry_for_mode(mode)
     policy = registry_policy(selected, mode=mode)
-    if policy.mode5_mdva_domain:
-        from evalsys.taskgen.unity.unity_fidelity import unity_fidelity_preflight
-        from evalsys.scard.rubric_judge import rubric_judge_from_env
-        fidelity = unity_fidelity_preflight(requested=True)
-        if fidelity["status"] == "invalid_provider":
-            raise ValueError("Mode 5 structure VLM requires GAMEBENCH_VLM_PROVIDER=responses or anthropic")
-        if not fidelity["credential_available"]:
-            raise ValueError("Mode 5 structure VLM needs a key in GAMEBENCH_VLM_KEY_ENV or a provider key variable")
-        rubric_judge_from_env().validate_configuration()
-    elif policy.task_visual and (policy.mode1_redesign or policy.progressive_redesign_mode):
+    if policy.mode5_capability_only:
+        raise ValueError("Mode 5 Community evaluation does not use a VLM judge")
+    if policy.task_visual and (policy.mode1_redesign or policy.progressive_redesign_mode):
         from evalsys.scard.rubric_judge import rubric_judge_from_env
         rubric_judge_from_env().validate_configuration()
     elif selected == VISUAL_REGISTRY_VERSION:

@@ -1,0 +1,4917 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:273e977c5db9f7f0f90e418232e4f3174eb6dcd4b2a872c06fd97a950d4d7903",
+  "game_id": "gunfire_dungeon",
+  "input_contract": {
+    "analog_axes": [
+      {
+        "id": "look_x",
+        "max": 1.0,
+        "min": -1.0,
+        "steps": 17,
+        "why": "mouse aim / camera yaw is a continuous axis; four discrete aim keys cannot hold a bearing"
+      },
+      {
+        "id": "look_y",
+        "max": 1.0,
+        "min": -1.0,
+        "steps": 17,
+        "why": "mouse aim / camera pitch; a cave exit or ADS pitch is not a button"
+      }
+    ],
+    "required_actions": [
+      "gb_left",
+      "gb_right",
+      "gb_up",
+      "gb_down",
+      "gb_jump",
+      "gb_action",
+      "reload",
+      "interact",
+      "use_prop",
+      "switch_weapon",
+      "aim_up",
+      "aim_down",
+      "aim_left",
+      "aim_right",
+      "aim_lock"
+    ],
+    "schema_version": 3,
+    "supported_actions": [
+      "gb_left",
+      "gb_right",
+      "gb_up",
+      "gb_down",
+      "gb_jump",
+      "gb_action",
+      "gb_attack",
+      "gb_dash",
+      "reload",
+      "interact",
+      "use_prop",
+      "switch_weapon",
+      "aim_up",
+      "aim_down",
+      "aim_left",
+      "aim_right",
+      "aim_lock"
+    ]
+  },
+  "inputs": {
+    "certificate": {
+      "path": "tasks/gunfire_dungeon/certificate.rt1.json",
+      "sha256": "f54d1b1199553ec9f513afca83c0ca2b76a91a551f01fd0508a29a92c08818f7"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/gunfire_dungeon.md",
+      "sha256": "d43f8a01857265b5a18d590bba4d19b76d9b287d8ca39182270582f50d03fe81"
+    },
+    "port_input_contract": {
+      "analog_axes": [
+        {
+          "id": "look_x",
+          "max": 1.0,
+          "min": -1.0,
+          "steps": 17,
+          "why": "mouse aim / camera yaw is a continuous axis; four discrete aim keys cannot hold a bearing"
+        },
+        {
+          "id": "look_y",
+          "max": 1.0,
+          "min": -1.0,
+          "steps": 17,
+          "why": "mouse aim / camera pitch; a cave exit or ADS pitch is not a button"
+        }
+      ],
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "reload",
+        "interact",
+        "use_prop",
+        "switch_weapon",
+        "aim_up",
+        "aim_down",
+        "aim_left",
+        "aim_right",
+        "aim_lock"
+      ],
+      "schema_version": 3,
+      "supported_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_attack",
+        "gb_dash",
+        "reload",
+        "interact",
+        "use_prop",
+        "switch_weapon",
+        "aim_up",
+        "aim_down",
+        "aim_left",
+        "aim_right",
+        "aim_lock"
+      ]
+    },
+    "route": {
+      "path": "tasks/gunfire_dungeon/route.json",
+      "sha256": "b0af93dcb3d4eb31c93fd32d5ecf8be006fe287a9c7473a7141e5b752df82c9d"
+    },
+    "rubric": {
+      "entry_sha256": "ac2717b9aac6d0333313f5855cf1e60fa000498546d092e5b434f93e8b3e26cd",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_enemy",
+        "gb_collectible",
+        "gb_interactive",
+        "gb_door",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/gunfire_dungeon/authored/source_obligations.json",
+      "sha256": "857278a3f60a3743a504d9799a82a423d249abd64205ba78cd6a9210fb0ed175"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "gunfire_dungeon-c1-floor_1_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "gunfire_dungeon-c1-floor_1_clear.floor_1_rooms_cleared",
+          "predicate": "numeric_delta(progress) >= 3"
+        },
+        {
+          "id": "gunfire_dungeon-c1-floor_1_clear.goal",
+          "predicate": "numeric_delta(progress) >= 3"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed scripts/autoload/GameManager.gd:63: RunData.floor_index += 1",
+      "reference_trace": "authored/tape_floor1.json",
+      "reference_trace_sha256": "sha256:4871b85651499c4c1f7f5368dfc2e8d9672ba597d64dd510b818068a4adf0e9b",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "gunfire_dungeon/C1/floor_1_clear",
+      "scenario_id": "gunfire_dungeon-c1-floor_1_clear",
+      "source_check_id": "owner-reviewed-gunfire_dungeon-c1-floor_1_clear",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "floor_1_rooms_cleared",
+            "predicate": "numeric_delta(progress) >= 3"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 3"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "interact",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "aim_lock",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "gunfire_dungeon-c2-floor_2_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "gunfire_dungeon-c2-floor_2_clear.floor_2_rooms_cleared",
+          "predicate": "numeric_delta(progress) >= 3"
+        },
+        {
+          "id": "gunfire_dungeon-c2-floor_2_clear.goal",
+          "predicate": "numeric_delta(progress) >= 3"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed scripts/autoload/GameManager.gd:63: RunData.floor_index += 1",
+      "reference_trace": "authored/tape_floor2.json",
+      "reference_trace_sha256": "sha256:be39de7059e225c13f0500ea10c80ff2d245c0df72cc952a4953827a38e62b52",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "gunfire_dungeon/C2/floor_2_clear",
+      "scenario_id": "gunfire_dungeon-c2-floor_2_clear",
+      "source_check_id": "owner-reviewed-gunfire_dungeon-c2-floor_2_clear",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "floor_2_rooms_cleared",
+            "predicate": "numeric_delta(progress) >= 3"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 3"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "interact",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "gunfire_dungeon-c3-floor_3_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "gunfire_dungeon-c3-floor_3_clear.floor_3_rooms_cleared",
+          "predicate": "numeric_delta(progress) >= 3"
+        },
+        {
+          "id": "gunfire_dungeon-c3-floor_3_clear.goal",
+          "predicate": "numeric_delta(progress) >= 3"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape_floor3.json",
+      "reference_trace_sha256": "sha256:644b013de988460f2388676962bcf520c6b11836031348904f041160a99fa38c",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "gunfire_dungeon/C3/floor_3_clear",
+      "scenario_id": "gunfire_dungeon-c3-floor_3_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "interact",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "aim_lock",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "gunfire_dungeon-c4-final_boss_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "gunfire_dungeon-c4-final_boss_clear.final_arena_cleared",
+          "predicate": "numeric_delta(progress) >= 1"
+        },
+        {
+          "id": "gunfire_dungeon-c4-final_boss_clear.goal",
+          "predicate": "numeric_delta(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape_floor4.json",
+      "reference_trace_sha256": "sha256:e2656d1fcc1a77d887d1329b98621a66e7a842e18d83ea1addf0866f9619b13c",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "gunfire_dungeon/C4/final_boss_clear",
+      "scenario_id": "gunfire_dungeon-c4-final_boss_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_right",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "gunfire_dungeon-l5-whole_run_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "gunfire_dungeon-l5-whole_run_clear.floor_1_cleared",
+          "predicate": "numeric(progress) >= 3"
+        },
+        {
+          "id": "gunfire_dungeon-l5-whole_run_clear.entered_floor_2",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "gunfire_dungeon-l5-whole_run_clear.floor_2_cleared",
+          "predicate": "numeric(progress) >= 6"
+        },
+        {
+          "id": "gunfire_dungeon-l5-whole_run_clear.entered_floor_3",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "gunfire_dungeon-l5-whole_run_clear.floor_3_cleared",
+          "predicate": "numeric(progress) >= 9"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:1d3d49d3dd6aa78b94a03b372075ca7b97f4a78674c08f97c0f985f3435dbfb4",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "gunfire_dungeon/L5/whole_run_clear",
+      "scenario_id": "gunfire_dungeon-l5-whole_run_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "interact",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "aim_lock",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "switch_weapon",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_jump",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "aim_lock",
+                "reload"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_action",
+                "gb_jump",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_action",
+                "aim_lock",
+                "use_prop"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "aim_lock"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "interact",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "aim_lock",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.6c45d4c2e0",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "interact",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "aim_lock",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "interact",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.a16ae8f285",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "interact",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "interact",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "aim_lock",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.5c7171eaf2",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "interact",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "aim_lock",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_right",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.afb7ee6251",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_right",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "interact",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "aim_lock",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "switch_weapon",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_jump",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "aim_lock",
+            "reload"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_action",
+            "gb_jump",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_action",
+            "aim_lock",
+            "use_prop"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "aim_lock"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.0f7b97ed55",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "interact",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "aim_lock",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "switch_weapon",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "aim_lock",
+              "reload"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_action",
+              "gb_jump",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_action",
+              "aim_lock",
+              "use_prop"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "aim_lock"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    }
+  ],
+  "policy_digest": "sha256:9d26a7c5b6fb4b5fa7adf81bd78377415f58268338221651fde6325d8e1cd50f",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape_floor1.json",
+      "budget_frames": 4010,
+      "capture_checkpoints": [
+        {
+          "id": "gunfire_dungeon-c1-floor_1_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "gunfire_dungeon-c1-floor_1_clear.floor_1_rooms_cleared",
+          "predicate": "numeric_delta(progress) >= 3"
+        },
+        {
+          "id": "gunfire_dungeon-c1-floor_1_clear.goal",
+          "predicate": "numeric_delta(progress) >= 3"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_1_rooms_cleared",
+            "predicate": "numeric_delta(progress) >= 3"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 3"
+      },
+      "id": "gunfire_dungeon-c1-floor_1_clear",
+      "policy": "strategy.traversal.6c45d4c2e0",
+      "required_actions": [
+        "aim_lock",
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "interact",
+        "reload"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "gunfire_dungeon/C1/floor_1_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "floor_1_rooms_cleared",
+            "predicate": "numeric_delta(progress) >= 3"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 3"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape_floor2.json",
+      "budget_frames": 4472,
+      "capture_checkpoints": [
+        {
+          "id": "gunfire_dungeon-c2-floor_2_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "gunfire_dungeon-c2-floor_2_clear.floor_2_rooms_cleared",
+          "predicate": "numeric_delta(progress) >= 3"
+        },
+        {
+          "id": "gunfire_dungeon-c2-floor_2_clear.goal",
+          "predicate": "numeric_delta(progress) >= 3"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_2_rooms_cleared",
+            "predicate": "numeric_delta(progress) >= 3"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 3"
+      },
+      "id": "gunfire_dungeon-c2-floor_2_clear",
+      "policy": "strategy.traversal.a16ae8f285",
+      "required_actions": [
+        "aim_lock",
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "interact",
+        "reload"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "gunfire_dungeon/C2/floor_2_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "floor_2_rooms_cleared",
+            "predicate": "numeric_delta(progress) >= 3"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 3"
+      },
+      "start_level": 1
+    },
+    {
+      "authoring_record": "authored/tape_floor3.json",
+      "budget_frames": 8943,
+      "capture_checkpoints": [
+        {
+          "id": "gunfire_dungeon-c3-floor_3_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "gunfire_dungeon-c3-floor_3_clear.floor_3_rooms_cleared",
+          "predicate": "numeric_delta(progress) >= 3"
+        },
+        {
+          "id": "gunfire_dungeon-c3-floor_3_clear.goal",
+          "predicate": "numeric_delta(progress) >= 3"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_3_rooms_cleared",
+            "predicate": "numeric_delta(progress) >= 3"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 3"
+      },
+      "id": "gunfire_dungeon-c3-floor_3_clear",
+      "policy": "strategy.traversal.5c7171eaf2",
+      "required_actions": [
+        "aim_lock",
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "interact",
+        "reload"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "gunfire_dungeon/C3/floor_3_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 2
+    },
+    {
+      "authoring_record": "authored/tape_floor4.json",
+      "budget_frames": 6625,
+      "capture_checkpoints": [
+        {
+          "id": "gunfire_dungeon-c4-final_boss_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "gunfire_dungeon-c4-final_boss_clear.final_arena_cleared",
+          "predicate": "numeric_delta(progress) >= 1"
+        },
+        {
+          "id": "gunfire_dungeon-c4-final_boss_clear.goal",
+          "predicate": "numeric_delta(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "final_arena_cleared",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "id": "gunfire_dungeon-c4-final_boss_clear",
+      "policy": "strategy.traversal.afb7ee6251",
+      "required_actions": [
+        "aim_lock",
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "reload"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "gunfire_dungeon/C4/final_boss_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 3
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 30200,
+      "capture_checkpoints": [
+        {
+          "id": "gunfire_dungeon-l5-whole_run_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "gunfire_dungeon-l5-whole_run_clear.floor_1_cleared",
+          "predicate": "numeric(progress) >= 3"
+        },
+        {
+          "id": "gunfire_dungeon-l5-whole_run_clear.entered_floor_2",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "gunfire_dungeon-l5-whole_run_clear.floor_2_cleared",
+          "predicate": "numeric(progress) >= 6"
+        },
+        {
+          "id": "gunfire_dungeon-l5-whole_run_clear.entered_floor_3",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "gunfire_dungeon-l5-whole_run_clear.floor_3_cleared",
+          "predicate": "numeric(progress) >= 9"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_1_cleared",
+            "predicate": "numeric(progress) >= 3"
+          },
+          {
+            "name": "entered_floor_2",
+            "predicate": "levels_visited() >= 2"
+          },
+          {
+            "name": "floor_2_cleared",
+            "predicate": "numeric(progress) >= 6"
+          },
+          {
+            "name": "entered_floor_3",
+            "predicate": "levels_visited() >= 3"
+          },
+          {
+            "name": "floor_3_cleared",
+            "predicate": "numeric(progress) >= 9"
+          },
+          {
+            "name": "entered_final_arena",
+            "predicate": "levels_visited() >= 4"
+          },
+          {
+            "name": "final_boss_cleared",
+            "predicate": "numeric(progress) >= 10"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "gunfire_dungeon-l5-whole_run_clear",
+      "policy": "strategy.traversal.0f7b97ed55",
+      "required_actions": [
+        "aim_lock",
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "interact",
+        "reload",
+        "switch_weapon",
+        "use_prop"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "gunfire_dungeon/L5/whole_run_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

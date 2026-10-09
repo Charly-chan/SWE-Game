@@ -1,0 +1,1694 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:b66d0bcedc74889c8a7bc2d3c92024631708133dc91835f51214881cfbc66a31",
+  "game_id": "wizard_chase",
+  "inputs": {
+    "certificate": {
+      "path": "tasks/wizard_chase/certificate.rt1.json",
+      "sha256": "944a19895c19f6427d1f3db646e9fb9590a2d3d5be3d0aa4d2e4a47b63ab4649"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/wizard_chase.md",
+      "sha256": "e84b1843739ae9074091f72a6157e13f7e6a05c551fb6a6376c6847e824076c1"
+    },
+    "route": {
+      "path": "tasks/wizard_chase/route.json",
+      "sha256": "333dcb932a0d77e6b7c2aad9b971c80811280f3ac42866eb6398b108ebb855f1"
+    },
+    "rubric": {
+      "entry_sha256": "151346d9f2710879376344a724642f6213b8606770064c640ff8dce384ba1cc1",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_enemy",
+        "gb_hazard",
+        "gb_collectible",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/wizard_chase/authored/source_obligations.json",
+      "sha256": "2fcee756dea6b562477044683c5d662357f3ba62d8ce4cff618883b19479bb90"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "wizard_chase-c1-room_one_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "wizard_chase-c1-room_one_clear.room_one_set_collected",
+          "predicate": "collected_all(gb_collectible)"
+        },
+        {
+          "id": "wizard_chase-c1-room_one_clear.goal",
+          "predicate": "collected_all(gb_collectible)"
+        }
+      ],
+      "critical_action": "gb_down",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed world/overlay/treasure/Treasure.gd:206: marker.add_to_group(\"gb_collectible\")",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:1abf8e08fac57ece35f46194aed9175c074605e2384cbc0b52e1c64bc0714684",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "wizard_chase/C1/room_one_clear",
+      "scenario_id": "wizard_chase-c1-room_one_clear",
+      "source_check_id": "owner-reviewed-wizard_chase-c1-room_one_clear",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "room_one_set_collected",
+            "predicate": "collected_all(gb_collectible)"
+          }
+        ],
+        "predicate": "collected_all(gb_collectible)"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "wizard_chase-c2-room_two_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "wizard_chase-c2-room_two_clear.room_two_set_collected",
+          "predicate": "collected_all(gb_collectible)"
+        },
+        {
+          "id": "wizard_chase-c2-room_two_clear.goal",
+          "predicate": "collected_all(gb_collectible)"
+        }
+      ],
+      "critical_action": "gb_down",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed world/overlay/treasure/Treasure.gd:206: marker.add_to_group(\"gb_collectible\")",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:1abf8e08fac57ece35f46194aed9175c074605e2384cbc0b52e1c64bc0714684",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "wizard_chase/C2/room_two_clear",
+      "scenario_id": "wizard_chase-c2-room_two_clear",
+      "source_check_id": "owner-reviewed-wizard_chase-c2-room_two_clear",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "room_two_set_collected",
+            "predicate": "collected_all(gb_collectible)"
+          }
+        ],
+        "predicate": "collected_all(gb_collectible)"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "wizard_chase-c3-room_three_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "wizard_chase-c3-room_three_clear.room_three_set_collected",
+          "predicate": "collected_all(gb_collectible)"
+        },
+        {
+          "id": "wizard_chase-c3-room_three_clear.goal",
+          "predicate": "collected_all(gb_collectible)"
+        }
+      ],
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:1abf8e08fac57ece35f46194aed9175c074605e2384cbc0b52e1c64bc0714684",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "wizard_chase/C3/room_three_clear",
+      "scenario_id": "wizard_chase-c3-room_three_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "wizard_chase-c4-room_four_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "wizard_chase-c4-room_four_clear.room_four_set_collected",
+          "predicate": "collected_all(gb_collectible)"
+        },
+        {
+          "id": "wizard_chase-c4-room_four_clear.goal",
+          "predicate": "collected_all(gb_collectible)"
+        }
+      ],
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:1abf8e08fac57ece35f46194aed9175c074605e2384cbc0b52e1c64bc0714684",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "wizard_chase/C4/room_four_clear",
+      "scenario_id": "wizard_chase-c4-room_four_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "wizard_chase-c5-room_five_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "wizard_chase-c5-room_five_clear.room_five_set_collected",
+          "predicate": "collected_all(gb_collectible)"
+        },
+        {
+          "id": "wizard_chase-c5-room_five_clear.goal",
+          "predicate": "collected_all(gb_collectible)"
+        }
+      ],
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:1abf8e08fac57ece35f46194aed9175c074605e2384cbc0b52e1c64bc0714684",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "wizard_chase/C5/room_five_clear",
+      "scenario_id": "wizard_chase-c5-room_five_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "wizard_chase-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "wizard_chase-l5-whole_game_clear.entered_room_two",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "wizard_chase-l5-whole_game_clear.entered_room_three",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "wizard_chase-l5-whole_game_clear.entered_room_four",
+          "predicate": "levels_visited() >= 4"
+        },
+        {
+          "id": "wizard_chase-l5-whole_game_clear.entered_room_five",
+          "predicate": "levels_visited() >= 5"
+        },
+        {
+          "id": "wizard_chase-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:1abf8e08fac57ece35f46194aed9175c074605e2384cbc0b52e1c64bc0714684",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "wizard_chase/L5/whole_game_clear",
+      "scenario_id": "wizard_chase-l5-whole_game_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.847b792eb1",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.943577f8c9",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.f873ff6027",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.0ae2c1fc2d",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.915431eb08",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.e772e5d702",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    }
+  ],
+  "policy_digest": "sha256:ae29c50d6bd6d06eab55c5e97c3c991f0d36dbead8006578bddd4f8e9fc82552",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 3159,
+      "capture_checkpoints": [
+        {
+          "id": "wizard_chase-c1-room_one_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "wizard_chase-c1-room_one_clear.room_one_set_collected",
+          "predicate": "collected_all(gb_collectible)"
+        },
+        {
+          "id": "wizard_chase-c1-room_one_clear.goal",
+          "predicate": "collected_all(gb_collectible)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_down",
+          "remove": "gb_down"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "room_one_set_collected",
+            "predicate": "collected_all(gb_collectible)"
+          }
+        ],
+        "predicate": "collected_all(gb_collectible)"
+      },
+      "id": "wizard_chase-c1-room_one_clear",
+      "policy": "strategy.movement.847b792eb1",
+      "required_actions": [
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [],
+      "required_roles": [
+        "gb_collectible",
+        "gb_player"
+      ],
+      "route_id": "wizard_chase/C1/room_one_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "room_one_set_collected",
+            "predicate": "collected_all(gb_collectible)"
+          }
+        ],
+        "predicate": "collected_all(gb_collectible)"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 4417,
+      "capture_checkpoints": [
+        {
+          "id": "wizard_chase-c2-room_two_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "wizard_chase-c2-room_two_clear.room_two_set_collected",
+          "predicate": "collected_all(gb_collectible)"
+        },
+        {
+          "id": "wizard_chase-c2-room_two_clear.goal",
+          "predicate": "collected_all(gb_collectible)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_down",
+          "remove": "gb_down"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "room_two_set_collected",
+            "predicate": "collected_all(gb_collectible)"
+          }
+        ],
+        "predicate": "collected_all(gb_collectible)"
+      },
+      "id": "wizard_chase-c2-room_two_clear",
+      "policy": "strategy.movement.943577f8c9",
+      "required_actions": [
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [],
+      "required_roles": [
+        "gb_collectible",
+        "gb_player"
+      ],
+      "route_id": "wizard_chase/C2/room_two_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "room_two_set_collected",
+            "predicate": "collected_all(gb_collectible)"
+          }
+        ],
+        "predicate": "collected_all(gb_collectible)"
+      },
+      "start_level": 1
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 3301,
+      "capture_checkpoints": [
+        {
+          "id": "wizard_chase-c3-room_three_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "wizard_chase-c3-room_three_clear.room_three_set_collected",
+          "predicate": "collected_all(gb_collectible)"
+        },
+        {
+          "id": "wizard_chase-c3-room_three_clear.goal",
+          "predicate": "collected_all(gb_collectible)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_jump",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "room_three_set_collected",
+            "predicate": "collected_all(gb_collectible)"
+          }
+        ],
+        "predicate": "collected_all(gb_collectible)"
+      },
+      "id": "wizard_chase-c3-room_three_clear",
+      "policy": "strategy.traversal.f873ff6027",
+      "required_actions": [
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [],
+      "required_roles": [
+        "gb_collectible",
+        "gb_player"
+      ],
+      "route_id": "wizard_chase/C3/room_three_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 2
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 2745,
+      "capture_checkpoints": [
+        {
+          "id": "wizard_chase-c4-room_four_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "wizard_chase-c4-room_four_clear.room_four_set_collected",
+          "predicate": "collected_all(gb_collectible)"
+        },
+        {
+          "id": "wizard_chase-c4-room_four_clear.goal",
+          "predicate": "collected_all(gb_collectible)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_jump",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "room_four_set_collected",
+            "predicate": "collected_all(gb_collectible)"
+          }
+        ],
+        "predicate": "collected_all(gb_collectible)"
+      },
+      "id": "wizard_chase-c4-room_four_clear",
+      "policy": "strategy.traversal.0ae2c1fc2d",
+      "required_actions": [
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [],
+      "required_roles": [
+        "gb_collectible",
+        "gb_player"
+      ],
+      "route_id": "wizard_chase/C4/room_four_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 3
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 4902,
+      "capture_checkpoints": [
+        {
+          "id": "wizard_chase-c5-room_five_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "wizard_chase-c5-room_five_clear.room_five_set_collected",
+          "predicate": "collected_all(gb_collectible)"
+        },
+        {
+          "id": "wizard_chase-c5-room_five_clear.goal",
+          "predicate": "collected_all(gb_collectible)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_jump",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "room_five_set_collected",
+            "predicate": "collected_all(gb_collectible)"
+          }
+        ],
+        "predicate": "collected_all(gb_collectible)"
+      },
+      "id": "wizard_chase-c5-room_five_clear",
+      "policy": "strategy.traversal.915431eb08",
+      "required_actions": [
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [],
+      "required_roles": [
+        "gb_collectible",
+        "gb_player"
+      ],
+      "route_id": "wizard_chase/C5/room_five_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 4
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 20000,
+      "capture_checkpoints": [
+        {
+          "id": "wizard_chase-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "wizard_chase-l5-whole_game_clear.entered_room_two",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "wizard_chase-l5-whole_game_clear.entered_room_three",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "wizard_chase-l5-whole_game_clear.entered_room_four",
+          "predicate": "levels_visited() >= 4"
+        },
+        {
+          "id": "wizard_chase-l5-whole_game_clear.entered_room_five",
+          "predicate": "levels_visited() >= 5"
+        },
+        {
+          "id": "wizard_chase-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_jump",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "entered_room_two",
+            "predicate": "levels_visited() >= 2",
+            "required_devices": [
+              "L1/collectible#0"
+            ]
+          },
+          {
+            "name": "entered_room_three",
+            "predicate": "levels_visited() >= 3",
+            "required_devices": [
+              "L2/collectible#0"
+            ]
+          },
+          {
+            "name": "entered_room_four",
+            "predicate": "levels_visited() >= 4",
+            "required_devices": [
+              "L3/collectible#0"
+            ]
+          },
+          {
+            "name": "entered_room_five",
+            "predicate": "levels_visited() >= 5",
+            "required_devices": [
+              "L4/collectible#0"
+            ]
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "wizard_chase-l5-whole_game_clear",
+      "policy": "strategy.traversal.e772e5d702",
+      "required_actions": [
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "wizard_chase/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

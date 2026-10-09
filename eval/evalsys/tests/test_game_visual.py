@@ -915,7 +915,8 @@ def test_fixed_task_install_freezes_current_visual_policy(mode, video, case_id, 
 
     with patch("evalsys.taskgen.generate.load_manifest", return_value={
         "games": {"shadow_walker": {"cases": ["case-1"]}},
-    }), patch("evalsys.taskgen.generate.install_task", side_effect=install):
+    }), patch("evalsys.taskgen.generate.install_task", side_effect=install), \
+            patch("evalsys.taskgen.mode5.release_data.validate_released_package"):
         pkg = generate_task("shadow_walker", mode=mode, out=tmp_path / "task",
                             reference_video=video, case_id=case_id)
     rubric = json.loads((pkg.hidden / "vlm/rubric.json").read_text())

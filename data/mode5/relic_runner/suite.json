@@ -1,0 +1,1274 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:778d0c3eafc17b3ed7bb36b20880c6625ebfb85119f9bf6dcca180e2f14ec47a",
+  "game_id": "relic_runner",
+  "inputs": {
+    "certificate": {
+      "path": "tasks/relic_runner/certificate.rt1.json",
+      "sha256": "79cf21fa9f15c782e869fb38b1bed1ef560541a57d7a082841037f909dd3991c"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/relic_runner.md",
+      "sha256": "6fa13e8121f754532529a376e07d239149e998369dfc28cf7ca83b8809d3b538"
+    },
+    "route": {
+      "path": "tasks/relic_runner/route.json",
+      "sha256": "fb3f299ab921765ef00f79cfedb5484bde1af59a05eb40130b48a1cd4f8ec3fe"
+    },
+    "rubric": {
+      "entry_sha256": "db09fd68675988d37b68fe405317b13388f6207b7bb935b1931b607976e2efc6",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_enemy",
+        "gb_collectible",
+        "gb_interactive",
+        "gb_door",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/relic_runner/authored/source_obligations.json",
+      "sha256": "71330ca123ab064519d84c0f51222ab02235dde0a93c19756f285ae07e2dc732"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "relic_runner-c1-level_1_key_relic_altar.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "relic_runner-c1-level_1_key_relic_altar.collected_level_1_key",
+          "predicate": "numeric_delta(keys_collected) >= 1"
+        },
+        {
+          "id": "relic_runner-c1-level_1_key_relic_altar.goal",
+          "predicate": "contact(goal, 0)"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:6dce89428da2c81bad17e6fe0dee5257da166056ba57bb229c893538b6b65a23",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "relic_runner/C1/level_1_key_relic_altar",
+      "scenario_id": "relic_runner-c1-level_1_key_relic_altar",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "relic_runner-c2-level_2_keys_relic_altar.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "relic_runner-c2-level_2_keys_relic_altar.collected_level_2_first_key",
+          "predicate": "numeric_delta(keys_collected) >= 1"
+        },
+        {
+          "id": "relic_runner-c2-level_2_keys_relic_altar.collected_level_2_second_key",
+          "predicate": "numeric(keys_collected) >= 2"
+        },
+        {
+          "id": "relic_runner-c2-level_2_keys_relic_altar.goal",
+          "predicate": "contact(goal, 0)"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed scripts/level.gd:162: keys_collected += 1",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:6dce89428da2c81bad17e6fe0dee5257da166056ba57bb229c893538b6b65a23",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "relic_runner/C2/level_2_keys_relic_altar",
+      "scenario_id": "relic_runner-c2-level_2_keys_relic_altar",
+      "source_check_id": "owner-reviewed-relic_runner-c2-level_2_keys_relic_altar",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "collected_level_2_first_key",
+            "predicate": "numeric_delta(keys_collected) >= 1"
+          },
+          {
+            "name": "collected_level_2_second_key",
+            "predicate": "numeric(keys_collected) >= 2"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "relic_runner-c3-level_3_keys_relic_altar.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "relic_runner-c3-level_3_keys_relic_altar.collected_level_3_first_key",
+          "predicate": "numeric_delta(keys_collected) >= 1"
+        },
+        {
+          "id": "relic_runner-c3-level_3_keys_relic_altar.collected_level_3_all_keys",
+          "predicate": "numeric(keys_collected) >= 3"
+        },
+        {
+          "id": "relic_runner-c3-level_3_keys_relic_altar.goal",
+          "predicate": "contact(goal, 0)"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed scripts/level.gd:162: keys_collected += 1",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:6dce89428da2c81bad17e6fe0dee5257da166056ba57bb229c893538b6b65a23",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "relic_runner/C3/level_3_keys_relic_altar",
+      "scenario_id": "relic_runner-c3-level_3_keys_relic_altar",
+      "source_check_id": "owner-reviewed-relic_runner-c3-level_3_keys_relic_altar",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "collected_level_3_first_key",
+            "predicate": "numeric_delta(keys_collected) >= 1"
+          },
+          {
+            "name": "collected_level_3_all_keys",
+            "predicate": "numeric(keys_collected) >= 3"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "relic_runner-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "relic_runner-l5-whole_game_clear.entered_level_2",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "relic_runner-l5-whole_game_clear.entered_level_3",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "relic_runner-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:6dce89428da2c81bad17e6fe0dee5257da166056ba57bb229c893538b6b65a23",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "relic_runner/L5/whole_game_clear",
+      "scenario_id": "relic_runner-l5-whole_game_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.2ee638e0c5",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.6d5bf79312",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.95833fa323",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.c0b4cc5362",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    }
+  ],
+  "policy_digest": "sha256:d77bab3119904fa18461c9b5d5f4f9c761013c731cb9d63ca2620ee5cacfb65d",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 1088,
+      "capture_checkpoints": [
+        {
+          "id": "relic_runner-c1-level_1_key_relic_altar.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "relic_runner-c1-level_1_key_relic_altar.collected_level_1_key",
+          "predicate": "numeric_delta(keys_collected) >= 1"
+        },
+        {
+          "id": "relic_runner-c1-level_1_key_relic_altar.goal",
+          "predicate": "contact(goal, 0)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "collected_level_1_key",
+            "predicate": "numeric_delta(keys_collected) >= 1"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "id": "relic_runner-c1-level_1_key_relic_altar",
+      "policy": "strategy.traversal.2ee638e0c5",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "keys_collected"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "relic_runner/C1/level_1_key_relic_altar",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 2023,
+      "capture_checkpoints": [
+        {
+          "id": "relic_runner-c2-level_2_keys_relic_altar.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "relic_runner-c2-level_2_keys_relic_altar.collected_level_2_first_key",
+          "predicate": "numeric_delta(keys_collected) >= 1"
+        },
+        {
+          "id": "relic_runner-c2-level_2_keys_relic_altar.collected_level_2_second_key",
+          "predicate": "numeric(keys_collected) >= 2"
+        },
+        {
+          "id": "relic_runner-c2-level_2_keys_relic_altar.goal",
+          "predicate": "contact(goal, 0)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "collected_level_2_first_key",
+            "predicate": "numeric_delta(keys_collected) >= 1"
+          },
+          {
+            "name": "collected_level_2_second_key",
+            "predicate": "numeric(keys_collected) >= 2"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "id": "relic_runner-c2-level_2_keys_relic_altar",
+      "policy": "strategy.traversal.6d5bf79312",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "keys_collected"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "relic_runner/C2/level_2_keys_relic_altar",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "collected_level_2_first_key",
+            "predicate": "numeric_delta(keys_collected) >= 1"
+          },
+          {
+            "name": "collected_level_2_second_key",
+            "predicate": "numeric(keys_collected) >= 2"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "start_level": 1
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 3768,
+      "capture_checkpoints": [
+        {
+          "id": "relic_runner-c3-level_3_keys_relic_altar.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "relic_runner-c3-level_3_keys_relic_altar.collected_level_3_first_key",
+          "predicate": "numeric_delta(keys_collected) >= 1"
+        },
+        {
+          "id": "relic_runner-c3-level_3_keys_relic_altar.collected_level_3_all_keys",
+          "predicate": "numeric(keys_collected) >= 3"
+        },
+        {
+          "id": "relic_runner-c3-level_3_keys_relic_altar.goal",
+          "predicate": "contact(goal, 0)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "collected_level_3_first_key",
+            "predicate": "numeric_delta(keys_collected) >= 1"
+          },
+          {
+            "name": "collected_level_3_all_keys",
+            "predicate": "numeric(keys_collected) >= 3"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "id": "relic_runner-c3-level_3_keys_relic_altar",
+      "policy": "strategy.traversal.95833fa323",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "keys_collected"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "relic_runner/C3/level_3_keys_relic_altar",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "collected_level_3_first_key",
+            "predicate": "numeric_delta(keys_collected) >= 1"
+          },
+          {
+            "name": "collected_level_3_all_keys",
+            "predicate": "numeric(keys_collected) >= 3"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "start_level": 2
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 11000,
+      "capture_checkpoints": [
+        {
+          "id": "relic_runner-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "relic_runner-l5-whole_game_clear.entered_level_2",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "relic_runner-l5-whole_game_clear.entered_level_3",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "relic_runner-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "entered_level_2",
+            "predicate": "levels_visited() >= 2"
+          },
+          {
+            "name": "entered_level_3",
+            "predicate": "levels_visited() >= 3"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "relic_runner-l5-whole_game_clear",
+      "policy": "strategy.traversal.c0b4cc5362",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "relic_runner/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}
