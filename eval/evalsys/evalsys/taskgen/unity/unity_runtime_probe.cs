@@ -605,6 +605,9 @@ public sealed class GameBenchmarkEvaluatorProbe : MonoBehaviour
             foreach (var a in left2)
                 foreach (var b in right2)
                 {
+                    // Nested entity markers can share a descendant collider.
+                    // A collider overlapping itself is not contact evidence.
+                    if (a == b) continue;
                     var distance = Physics2D.Distance(a, b);
                     if (distance.isValid && (distance.isOverlapped || distance.distance <= 0.0f))
                         return true;
@@ -623,6 +626,7 @@ public sealed class GameBenchmarkEvaluatorProbe : MonoBehaviour
             foreach (var a in left3)
                 foreach (var b in right3)
                 {
+                    if (a == b) continue;
                     if (Physics.ComputePenetration(
                         a, a.transform.position, a.transform.rotation,
                         b, b.transform.position, b.transform.rotation,

@@ -108,6 +108,28 @@ def test_effect_observed_before_crash_remains_local_credit(tmp_path):
     assert criterion(result, "playability.final_goal")["points"] == 0
 
 
+def test_candidate_controller_close_keeps_proxy_score_when_visual_capture_is_incomplete(tmp_path):
+    """A candidate protocol failure must not be published as evaluator failure."""
+    snapshot, items = fixture(tmp_path)
+    engine = runtime_engine()
+    engine["runtime"]["witness"]["status"] = "fail"
+    engine["runtime"]["witness"]["reading"] = {
+        "row_count": 0,
+        "error_count": 0,
+        "error_examples": [],
+    }
+    engine["runtime"]["witness"]["detail"] = (
+        "controller protocol failed: peer closed the controller channel"
+    )
+    engine["mode5_visual"]["complete"] = False
+
+    result = finish_scoring(snapshot, items=items, engine=engine)
+
+    assert result["status"] == "scored_proxy"
+    assert result["total"] is not None
+    assert result["ranking_eligible"] is True
+
+
 @pytest.mark.parametrize("null_won", [True, False])
 def test_whole_game_clear_requires_causal_control(tmp_path, null_won):
     snapshot, items = fixture(tmp_path)

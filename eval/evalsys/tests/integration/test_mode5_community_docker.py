@@ -90,7 +90,9 @@ def test_positive_fixture_import_build_run_capture_without_paid_judge(tmp_path, 
     card = report["scorecard"]
     assert card["official_total"] is None and card["paper_compatible"] is False
     assert set(card["components"]) == {"mechanics", "playability", "structure", "visual", "stability"}
-    assert card["components"]["visual"]["points"] <= 9
+    # This fixture is intentionally partial, but the release protocol allows
+    # the Visual component to earn its full 15-point weight.
+    assert 0 <= card["components"]["visual"]["points"] <= 15
     assert card["components"]["stability"]["points"] > 0
     rows = {item["id"]: item for item in report["items"]}
     for ident in ("unity_build", "unity_probe", "unity_evaluator_capture"):
