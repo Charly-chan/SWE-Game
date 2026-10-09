@@ -25,7 +25,7 @@ docker run --rm --env "INCLUDE_CLAUDE=$include_claude" --entrypoint bash gameben
         claude --version
     else
         if command -v claude >/dev/null || command -v unity >/dev/null; then
-            printf '%s\n' 'Unexpected CLI in public Godot image' >&2
+            printf "%s\n" "Unexpected CLI in public Godot image" >&2
             exit 1
         fi
         test ! -e /opt/gamebench-tools/node_modules/@anthropic-ai/claude-code
