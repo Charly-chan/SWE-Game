@@ -106,6 +106,8 @@ def entrypoint(tmp_path):
         "if '--out' in sys.argv: Path(sys.argv[sys.argv.index('--out') + 1]).mkdir(parents=True, exist_ok=True)\n"
         "with open(os.environ['CAPTURE'], 'a', encoding='utf-8') as fh:\n"
         "    fh.write(json.dumps(sys.argv[1:]) + '\\n')\n"
+        "if sys.argv[1:3] == ['mode5', 'run'] and os.environ.get('FAKE_GB_RUN_RC'):\n"
+        "    raise SystemExit(int(os.environ['FAKE_GB_RUN_RC']))\n"
         "PY\n",
         encoding="utf-8",
     )
@@ -195,6 +197,18 @@ def test_port_community_profile_delegates_to_standalone_mode5_cli(entrypoint):
     manifest = json.loads((out / "run.json").read_text(encoding="utf-8"))
     assert manifest["profile"] == "community-docker"
     assert manifest["paper_compatible"] is False
+
+
+def test_port_community_profile_propagates_a_failed_agent_run(entrypoint):
+    run, capture, _out = entrypoint
+    result = run(
+        "--game", "shadow_walker", "--mode", "port",
+        extra_env={"FAKE_GB_RUN_RC": "2"},
+    )
+    assert result.returncode == 2
+    assert "Mode 5 run failed" in result.stderr
+    calls = [json.loads(line) for line in capture.read_text().splitlines()]
+    assert len(calls) == 1 and calls[0][:2] == ["mode5", "run"]
 
 
 def test_port_resume_only_applies_to_started_game(entrypoint):
@@ -687,6 +701,26 @@ esac
         return result, events
 
     return live, out, out / "cells/canopy_dash__brief__codex__m"
+
+
+def test_scheduler_without_worker_status_is_failure(live_entrypoint, tmp_path):
+    run, _out, _cell = live_entrypoint
+    setsid = tmp_path / "tools/setsid"
+    setsid.write_text("#!/bin/sh\nexit 0\n")
+    setsid.chmod(0o755)
+    result, events = run("--eval", "off")
+    assert result.returncode == 1
+    assert "scheduler reported 0/1 worker results" in result.stderr
+    assert events == ["generate"]
+
+
+def test_summary_failure_is_failure(live_entrypoint, tmp_path):
+    run, _out, _cell = live_entrypoint
+    (tmp_path / "repo/eval/tools/summarize_results.py").write_text("raise SystemExit(7)\n")
+    result, events = run("--eval", "off")
+    assert result.returncode == 1
+    assert "could not summarize results" in result.stderr
+    assert events == ["generate", "agent"]
 
 
 def test_live_eval_off_then_resume_evaluates_once_without_rerunning_agent(live_entrypoint):

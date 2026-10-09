@@ -141,7 +141,9 @@ if [ "$MERGE" = 1 ]; then
       target="$merged/cells/$(basename "$cell")"
       [ ! -e "$target" ] && [ ! -L "$target" ] || {
         printf 'error: merged cell name collision: %s\n' "$target" >&2; exit 2; }
-      ln -s "$cell" "$target" || exit 2
+      # Keep the merged view valid when the complete output root is archived
+      # and extracted elsewhere.
+      ln -s "../../shards/$game/cells/$(basename "$cell")" "$target" || exit 2
       n=$((n+1))
     done
     included_games+=("$game")

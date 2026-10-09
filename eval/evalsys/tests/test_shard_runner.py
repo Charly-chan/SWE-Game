@@ -86,6 +86,9 @@ exit "$rc"
         self.assertEqual(merged["schema"], "gamebench.shard-merge.v1")
         self.assertEqual(merged["included_games"], ["alpha", "beta"])
         self.assertFalse(merged["partial"])
+        archived = self.root / "archived"
+        shutil.move(out, archived)
+        self.assertTrue((archived / "merged/cells/alpha__brief/submission").is_dir())
         deferred = self.shard("--mode", "brief", "--model", "model",
                               "--out", str(self.root / "deferred"), "--games", "alpha",
                               "--eval", "off")
