@@ -489,9 +489,9 @@ def test_frozen_corpus_contains_all_games_and_resolvable_reference_ids():
         assert policy["method"] == "direct_continuous"
         assert policy["version"] == rubric["rubric_version"]
         assert policy["range"] == [0, 1]
-        assert policy["version"] == "2026-10-09.demonstrated-quality-v5"
+        assert policy["version"] == "2026-10-08.demonstrated-quality-v4"
         assert [row["credit_range"] for row in policy["direct_score_references"]] == [
-            [0.01, 0.05], [0.10, 0.30], [0.40, 0.60], [0.65, 0.80], [0.85, 0.95],
+            [0.01, 0.05], [0.05, 0.20], [0.20, 0.40], [0.45, 0.65], [0.70, 0.90],
         ]
         assert set(policy["group_guidance"]) == set(GROUP_WEIGHTS)
         assert "score_curve" not in rubric
@@ -922,7 +922,7 @@ def test_fixed_task_install_freezes_current_visual_policy(mode, video, case_id, 
     rubric = json.loads((pkg.hidden / "vlm/rubric.json").read_text())
     contract = json.loads((pkg.hidden / "vlm/response_contract.json").read_text())
     if uses_vlm:
-        assert rubric["rubric_version"] == "2026-10-09.demonstrated-quality-v5"
+        assert rubric["rubric_version"] == "2026-10-08.demonstrated-quality-v4"
         assert contract["scoring_policy"] == rubric["scoring_policy"]
         assert "score_curve" not in rubric
     else:

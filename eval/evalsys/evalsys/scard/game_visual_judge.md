@@ -59,12 +59,9 @@ unfinished presentation is only a partial realization of the affected item.
 One polished component cannot compensate for that item's missing core relationship.
 Explain the difference between an isolated minor flaw and a missing or broadly
 defective component. When scoring_policy supplies direct_score_references, use
-those direct-credit references to interpret partial attainment. They are
+those lower direct-credit references to interpret partial attainment. They are
 not extra requirements, mandatory bins or automatic awards; choose a continuous
-value from the actual importance, scope and severity of the observed gaps. Give
-substantive credit to core accomplishments that are demonstrated even when the
-result has clear presentation or finishing gaps. Recurrence or broad coverage
-alone does not turn a minor defect into failure of a core relationship. A
+value from the actual importance, scope and severity of the observed gaps. A
 functioning prototype or an implementation with important unfinished relations
 must not receive the reference values reserved for complete work. Use the current
 item ceilings, not remembered values from an older rubric. Do not invent a new
