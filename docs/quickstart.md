@@ -149,6 +149,12 @@ Evaluate a generated package and submission with the auto-selected engine:
 ./evaluate.sh /path/to/package /path/to/submission --out /path/to/evaluation
 ```
 
+Brief Design scoring is optional and defaults to off. Add `--brief-design on`
+to score authored GDD quality and interface declarations. The same switch is
+available on `run_benchmark.sh`. With Design off, the other objective axes are
+proportionally weighted to 85 points and VLM retains 15 points. Reports record
+the setting; GDD submission and brief grounding remain required.
+
 VLM calls are disabled by default. Modes 1–3 use the corresponding
 `2026-09-19.modeN-vlm1` registry: 85 objective points plus 15 VLM points.
 Without a complete visual reading, `objective_total.score` remains available
@@ -236,7 +242,13 @@ Godot:
 ```bash
 ./evaluate.sh --rescore /path/to/report.json
 # Add --write to replace its scorecard; a .pre-rescore backup is kept.
+# Compare Brief scoring without Design using the saved measurements.
+./evaluate.sh --rescore /path/to/report.json --brief-design off --out-dir /path/to/scores
 ```
+
+Rescoring without `--brief-design` preserves the saved setting. Reports created
+before the option existed are treated as Design on. Adding visual judgments to
+a saved report also preserves its Design setting.
 
 Environment overrides are documented in `.gb_api.env.example` and
 `eval/tools/gb_env.sh`. Evaluations can need several GB of scratch space; set

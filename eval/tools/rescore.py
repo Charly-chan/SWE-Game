@@ -55,6 +55,44 @@ def upgrade_score_contract(report: dict, scorecard: dict) -> None:
 
 
     report["report_schema"] = REPORT_SCHEMA
+    if report.get("mode") == "brief" and "brief_design" in scorecard:
+        from evalsys.taskgen.content.verifier_profiles import verifier_profile
+        from evalsys.taskgen.evaluate import TaskEvalResult, _reporting_summary
+
+        rebuilt = rebuild(report)
+        design = scorecard["brief_design"]
+        evaluated = TaskEvalResult(
+            rebuilt.package, SimpleNamespace(), items=rebuilt.items, brief_design=design,
+        )
+        profile = verifier_profile("brief", brief_design=design)
+        profile_payload = profile.to_dict()
+        strict_ids = profile.strict_ids
+        if any(item.id == "demonstrations_complete" for item in rebuilt.items):
+            strict_ids = strict_ids | {"demonstrations_complete"}
+            profile_payload["behavior_ids"] = sorted(
+                set(profile_payload["behavior_ids"]) | {"demonstrations_complete"}
+            )
+        reporting = _reporting_summary(
+            rebuilt.items, strict_ids=strict_ids, resolved=evaluated.resolved,
+        )
+        eligibility_ids = {item.id for item in evaluated.eligibility_items}
+        report.update(
+            brief_design=design, resolved=evaluated.resolved,
+            verifier_profile=profile_payload, resolution=reporting,
+            eligibility={
+                "status": evaluated.eligibility_status,
+                "items": [row for row in report.get("items", []) if row["id"] in eligibility_ids],
+            },
+        )
+        scorecard["reporting"] = reporting
+        scorecard["strict"]["failing_items"] = reporting["failing_strict_items"]
+        weighted = scorecard["weighted_total"]
+        report["headline"] = {
+            "status": weighted["status"], "score": weighted["score"],
+            "scale": weighted.get("scale", "0-100"),
+            "ranking_eligible": scorecard["ranking_eligible"],
+            "score_scope": scorecard["score_scope"],
+        }
     if report.get("mode") != "port":
         return
     old_score = report.get("score")
@@ -96,6 +134,10 @@ def main() -> int:
         help="write the fresh scorecard as <out-dir>/<report-parent-name>.scorecard.json "
              "instead of touching the report (rescoring cells under another registry row)",
     )
+    parser.add_argument(
+        "--brief-design", choices=("on", "off"), default=None,
+        help="override Brief Design scoring; omitted preserves the report setting (older reports: on)",
+    )
     args = parser.parse_args()
 
     for name in args.reports:
@@ -103,10 +145,13 @@ def main() -> int:
         report = json.loads(path.read_text(encoding="utf-8"))
         old = report.get("scorecard") or {}
         fresh = score_task_result(
-            rebuild(report, path), registry_version=args.registry_version
+            rebuild(report, path), registry_version=args.registry_version,
+            brief_design=None if args.brief_design is None else args.brief_design == "on",
         )
         old_total = old.get("weighted_total") or {}
         new_total = fresh.get("weighted_total") or {}
+        if "brief_design" in fresh:
+            print(f"  brief_design={'on' if fresh['brief_design'] else 'off'}")
         print(
             f"{path}: weighted_total "
             f"{old_total.get('score')} ({old.get('registry_version', 'missing')}, "

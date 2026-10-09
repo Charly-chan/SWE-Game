@@ -1733,19 +1733,30 @@ def _mode2_objective_weight(base_weight: float) -> float:
 #: largest objective axis: 12 -> 5, and the seven freed points go to the two
 #: axes that read certified-route evidence, which is what actually separates a
 #: playable submission from one that only looks like a game.
+_MODE1_OBJECTIVE_BASE_WEIGHTS = {
+    "universal_mechanics": 5.0,
+    "asset_realization": 18.0,
+    "rubric_interface": 7.0,
+    "numeric_contract": 4.0,
+    "content_census": 10.0,
+    "causal_witness": 6.0,
+    "task_checkpoints": 9.0,
+    "hidden_scenarios": 4.0,
+    "demo_validity": 3.0,
+    "demo_coverage": 2.0,
+    "gdd_interface": 1.0,
+    "gdd_quality": 1.0,
+}
+_MODE1_DESIGN_AXES = frozenset({"gdd_interface", "gdd_quality"})
 MODE1_REDESIGN_WEIGHTS: dict[str, float] = {
-    "universal_mechanics": _redesign_objective_weight(5.0),
-    "asset_realization": _redesign_objective_weight(18.0),
-    "rubric_interface": _redesign_objective_weight(7.0),
-    "numeric_contract": _redesign_objective_weight(4.0),
-    "content_census": _redesign_objective_weight(10.0),
-    "causal_witness": _redesign_objective_weight(6.0),
-    "task_checkpoints": _redesign_objective_weight(9.0),
-    "hidden_scenarios": _redesign_objective_weight(4.0),
-    "demo_validity": _redesign_objective_weight(3.0),
-    "demo_coverage": _redesign_objective_weight(2.0),
-    "gdd_interface": _redesign_objective_weight(1.0),
-    "gdd_quality": _redesign_objective_weight(1.0),
+    **{key: _redesign_objective_weight(weight)
+       for key, weight in _MODE1_OBJECTIVE_BASE_WEIGHTS.items()},
+    "visual_placeholder": VISUAL_PLACEHOLDER_WEIGHT,
+}
+MODE1_NO_DESIGN_WEIGHTS: dict[str, float] = {
+    **{key: round(weight * 85.0 / 68.0, 3)
+       for key, weight in _MODE1_OBJECTIVE_BASE_WEIGHTS.items()
+       if key not in _MODE1_DESIGN_AXES},
     "visual_placeholder": VISUAL_PLACEHOLDER_WEIGHT,
 }
 
@@ -2396,11 +2407,14 @@ def _mode1_gate_status(
 
 def _mode1_strict_status(
     items: Mapping[str, Item], evaluation_status: str, *, feature_demos: bool,
+    brief_design: bool = True,
 ) -> dict[str, Any]:
     required = [
         "gdd", "authored_gdd_interface", "brief_gdd_grounding", "rubric_interface",
         "ops_present", "ops_valid", "ops_not_idle", "mechanic_trace", "causal_witness",
     ]
+    if not brief_design:
+        required.remove("authored_gdd_interface")
     if feature_demos:
         required.append("demonstrations_complete")
     failed: list[str] = []
@@ -2428,7 +2442,9 @@ def _mode1_strict_status(
     }
 
 
-def _score_mode1_redesign(result: Any, policy: RegistryPolicy) -> dict[str, Any]:
+def _score_mode1_redesign(
+    result: Any, policy: RegistryPolicy, *, brief_design: bool = True,
+) -> dict[str, Any]:
     items = _items_by_id(result.items)
     card = _reproduction_card(items)
     context = _mode1_evidence_context(result, items)
@@ -2566,11 +2582,23 @@ def _score_mode1_redesign(result: Any, policy: RegistryPolicy) -> dict[str, Any]
         ),
     }
 
+    if not brief_design:
+        for axis_id in _MODE1_DESIGN_AXES:
+            axes.pop(axis_id)
+        for axis_id, row in axes.items():
+            weight = MODE1_NO_DESIGN_WEIGHTS[axis_id]
+            row["weight_in_total"] = weight
+            row["earned_points"] = (
+                None if row["credit"] is None else round(weight * row["credit"], 6)
+            )
+
     _attribute_candidate_runtime_failure(axes, card, context)
     missing = _name_unreadable_axes(axes, items)
     total = sum(float(row["earned_points"]) for row in axes.values())
     categories: list[dict[str, Any]] = []
     for category_id, name, axis_ids in MODE1_REDESIGN_CATEGORY_AXES:
+        if category_id == "authored_design" and not brief_design:
+            continue
         rows = [axes[axis_id] for axis_id in axis_ids]
         weight = sum(row["weight_in_total"] for row in rows)
         category_score = (
@@ -2600,6 +2628,7 @@ def _score_mode1_redesign(result: Any, policy: RegistryPolicy) -> dict[str, Any]
     evaluation_status, gates = _mode1_gate_status(items, card, policy)
     strict = _mode1_strict_status(
         items, evaluation_status, feature_demos=bool(context.get("feature_demos")),
+        brief_design=brief_design,
     )
     # `total` is now always a number, so completeness is "every axis reported"
     # rather than "the sum came out": an axis the namer had to zero is still an
@@ -2633,6 +2662,7 @@ def _score_mode1_redesign(result: Any, policy: RegistryPolicy) -> dict[str, Any]
         "visual_protocol": "uncalibrated fixed placeholder: 5 earned points of 15",
         "game_id": str(result.package.manifest.get("game_id") or ""),
         "mode": "brief",
+        "brief_design": brief_design,
         "evaluation_status": evaluation_status,
         "gates": gates,
         "categories": categories,
@@ -2655,17 +2685,21 @@ def _score_mode1_redesign(result: Any, policy: RegistryPolicy) -> dict[str, Any]
         "ranking_eligible": ranking_eligible,
         "ranking_basis": "objective_plus_fixed_uncalibrated_visual_placeholder",
         "ranking_note": (
-            "The provisional score may be compared only within Mode 1 under this exact registry; "
+            "The provisional score may be compared only within Mode 1 under this exact registry "
+            "and Brief Design setting; "
             "strict completion remains separate."
             if ranking_eligible else
             "The score is diagnostic because a hard gate or evaluator measurement is incomplete."
         ),
-        "not_applicable_criteria": [],
-        "not_applicable_reasons": {},
+        "not_applicable_criteria": [] if brief_design else sorted(_MODE1_DESIGN_AXES),
+        "not_applicable_reasons": {} if brief_design else {
+            axis_id: "Brief Design scoring is disabled for this evaluation"
+            for axis_id in sorted(_MODE1_DESIGN_AXES)
+        },
         "strict": strict,
         "reading_rule": (
-            "Read evaluation_status first, strict.resolved second, then the twelve fixed-weight axes; "
-            "no per-cell renormalisation is performed."
+            "Read evaluation_status first, strict.resolved second, then the enabled fixed-weight axes; "
+            "Brief Design is selected for the run, not from individual submission results."
         ),
     }
 
@@ -4047,7 +4081,11 @@ def _score_redesign_visual(card: dict[str, Any], result: Any) -> dict[str, Any]:
     card["measured_weight_share"] = round(measured_weight / 100, 6)
     card["ranking_eligible"] = not missing and card["evaluation_status"] == "complete"
     card["ranking_basis"] = "objective_and_game_vlm_not_independently_calibrated"
-    card["ranking_note"] = "Compare only complete cards within the same mode, rubric and registry; independent calibration remains pending."
+    card["ranking_note"] = (
+        "Compare only complete cards within the same mode, rubric, registry"
+        + (", and Brief Design setting" if card.get("mode") == "brief" else "")
+        + "; independent calibration remains pending."
+    )
     card["score_scope"] = "fixed_objective_85_plus_game_vlm_15"
     card["visual_protocol"] = PROTOCOL + "; game-specific M/D/V/A, GT and asset images, continuous per-item attainment"
     card["reading_rule"] = "Read zero-point gates, objective evidence and VLM coverage before the fixed-weight composite."
@@ -4100,7 +4138,21 @@ def default_registry_for_mode(mode: str) -> str:
     return DEFAULT_REGISTRY_BY_MODE.get(mode, REGISTRY_VERSION)
 
 
+def _brief_design_enabled(result: Any, override: bool | None) -> bool:
+    if override is not None:
+        return override
+    value = getattr(result, "brief_design", None)
+    if value is not None:
+        return bool(value)
+    stored = getattr(result, "stored_report", None) or {}
+    if "brief_design" in stored:
+        return bool(stored["brief_design"])
+    # Reports created before the option existed included Design.
+    return bool((stored.get("scorecard") or {}).get("brief_design", True))
+
+
 def score_task_result(result: Any, registry_version: str | None = None, *,
+                      brief_design: bool | None = None,
                       _objective_only: bool = False) -> dict[str, Any]:
     """Score one result under an explicit or mode-selected registry version.
 
@@ -4112,10 +4164,14 @@ def score_task_result(result: Any, registry_version: str | None = None, *,
     if mode == "port" and selected_version != MODE5_RELEASE_REGISTRY_VERSION:
         raise ValueError("Mode 5 has one release scoring registry")
     policy = registry_policy(selected_version, mode=mode)
+    if mode == "brief" and brief_design is False and not policy.mode1_redesign:
+        raise ValueError("--brief-design off requires a Mode-1 redesign or VLM registry")
     if policy.mode5_capability_only:
         return _score_mode5_result(result, policy)
     if policy.mode1_redesign and mode == "brief":
-        card = _score_mode1_redesign(result, policy)
+        card = _score_mode1_redesign(
+            result, policy, brief_design=_brief_design_enabled(result, brief_design),
+        )
         return _score_redesign_visual(card, result) if policy.task_visual else card
     if policy.progressive_redesign_mode == mode and mode in {"gdd", "skeleton"}:
         card = _score_progressive_additive(result, policy, mode=mode)

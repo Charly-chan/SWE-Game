@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Make Brief Design scoring optional, defaulting to off for new evaluations. Keep the objective/VLM split at 85/15, record the choice, and preserve historical settings when rescoring saved reports.
+
 - Restore `2026-10-08.demonstrated-quality-v4` as the default visual scoring policy across all 41 game rubrics.
 
 - Score demonstrated visual achievement directly under `2026-10-08.demonstrated-quality-v4`: entirely unshown applicable items receive 0, partial demonstrations earn their evidenced credit, and full credit requires every applicable condition to be demonstrated. Keep technical evaluation failures distinct from valid zero judgments.

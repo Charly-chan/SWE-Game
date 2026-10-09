@@ -87,6 +87,27 @@ Godot 的前三种生成任务可以交 `demos.json`，例如分别演示跳跃�
 任务明确要求整局通关或完整内容时，这些要求仍然保留。
 JSON 示例、字段与边界见[分段提交协议](tasks.md#feature-demonstrations)。
 
+### Brief 的可选 Design 评分
+
+当前 Brief 评测默认使用 `--brief-design off`。Design 指作者 GDD 的质量和接口声明一致性
+（`gdd_quality`、`gdd_interface`），与 VLM 的设计与内容 D 组分别计量。
+开启 `--brief-design on` 时沿用原有约 2.428 分的 Design 权重；关闭时移除这两项，
+其余客观项按原比例归一到 85 分，VLM 保持 15 分。关闭的 Design 检查只保留诊断，
+不影响得分、评测完整性或严格通过状态。GDD 文件及其对 brief 的覆盖仍是任务要求。
+
+`evaluate.sh`、`bench eval-task`、`bench run-task-matrix` 和 `run_benchmark.sh`
+都接受该开关。报告的 `brief_design` 字段记录实际设置；批量运行的 `run.json` 固定该设置，
+续跑不能中途切换。对照实验应使用相同的 Design 设置。
+
+已有报告可以直接重算，无需再次运行引擎或 VLM：
+
+```bash
+./evaluate.sh --rescore /path/to/report.json --brief-design off --out-dir /path/to/scores
+```
+
+省略重算开关时保留报告原设置；尚无该字段的旧报告按 Design 开启处理。
+该可选项适用于 Mode-1 redesign/VLM 注册版本，较早的历史注册版本保持原有规则。
+
 ## 5. VLM 看什么
 
 Modes 1–3 默认使用各自的 `2026-09-19.modeN-vlm1`：客观行为占 85 分，
@@ -241,4 +262,3 @@ Mode 5 使用 35/25/15/15/10 五项固定权重，基于独立运行、Editor、
   max 聚合也存在多段机会偏差。这些历史规则不适用于当前游戏专属 rubric。
 - Mode 5 按[Release 协议](reference/MODE5_RELEASE_PROTOCOL.md)报告，正式评测需要
   Community Docker、固定 Unity 版本与有效许可。默认客观分满分 70；Structure/Visual 缺测时完整总分为 null。`paper_compatible=false`，Community 结果与论文历史结果分开比较。
-

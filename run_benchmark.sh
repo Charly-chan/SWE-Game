@@ -15,7 +15,7 @@ usage: ./run_benchmark.sh --game <id|all> --mode <brief|gdd|skeleton|bugfix|port
        --harness <claude|codex> --model <id> [--provider auto|micu|openai|anthropic]
        [--budget <seconds>] [--reasoning high] [--playtest-kit on|off]
        [--visual-judge none|local|vlm] [--case-id <bugfix case id>]
-       [--reference-video on|off] [--eval on|off]
+       [--reference-video on|off] [--eval on|off] [--brief-design on|off]
        [--sandbox unshare|docker|none] [--docker-image <tag>]
        [--profile community-docker] [--mode5-state-dir <dir>]
        [--docker <docker-cli>]
@@ -53,6 +53,10 @@ evaluate later on a machine that has the evaluator's requirements:
 cell's own model route as the S-card judge and needs that key; local attaches
 image diagnostics without a model.
 
+--brief-design defaults to off. In Brief evaluation, on includes the authored
+GDD quality and interface Design score. Off redistributes its weight across
+the other objective axes, keeping objective/VLM weights at 85/15.
+
 For Modes 1-4, --sandbox defaults to unshare, the formal condition. docker runs each agent in
 a throwaway container instead; use it on hosts whose capability bounding set
 lacks CAP_SYS_ADMIN, where unshare --mount and Codex's own bwrap sandbox cannot
@@ -89,6 +93,7 @@ EOF
 GAME="" MODE="" HARNESS="" MODEL="" PROVIDER="auto" BUDGET="" REASONING=high
 KIT=off VISUAL_JUDGE=none CASE_ID="" CONCURRENCY=3 OUT="" DRY_RUN=0 RESUME=0
 REFERENCE_VIDEO=on EVAL=on
+BRIEF_DESIGN=off
 SANDBOX=unshare DOCKER_IMAGE=""
 PROFILE="" MODE5_STATE_DIR="" DOCKER_BIN="${GB_DOCKER_BIN:-docker}"
 while [ $# -gt 0 ]; do
@@ -104,6 +109,7 @@ while [ $# -gt 0 ]; do
     --visual-judge) VISUAL_JUDGE="${2:-}"; shift ;;
     --reference-video) REFERENCE_VIDEO="${2:-}"; shift ;;
     --eval) EVAL="${2:-}"; shift ;;
+    --brief-design) BRIEF_DESIGN="${2:-}"; shift ;;
     --sandbox) SANDBOX="${2:-}"; shift ;;
     --docker-image) DOCKER_IMAGE="${2:-}"; shift ;;
     --profile) PROFILE="${2:-}"; shift ;;
@@ -129,6 +135,7 @@ case "$KIT" in on|off) ;; *) printf 'error: invalid --playtest-kit\n' >&2; exit 
 case "$VISUAL_JUDGE" in none|local|vlm) ;; *) printf 'error: invalid --visual-judge (none|local|vlm)\n' >&2; exit 2 ;; esac
 case "$REFERENCE_VIDEO" in on|off) ;; *) printf 'error: invalid --reference-video (on|off)\n' >&2; exit 2 ;; esac
 case "$EVAL" in on|off) ;; *) printf 'error: invalid --eval (on|off)\n' >&2; exit 2 ;; esac
+case "$BRIEF_DESIGN" in on|off) ;; *) printf 'error: invalid --brief-design (on|off)\n' >&2; exit 2 ;; esac
 case "$SANDBOX" in unshare|docker|none) ;; *) printf 'error: invalid --sandbox (unshare|docker|none)\n' >&2; exit 2 ;; esac
 if [ -n "$PROFILE" ] && [ "$PROFILE" != community-docker ]; then
   printf 'error: invalid --profile\n' >&2; exit 2
@@ -372,11 +379,11 @@ fi
 "$GB_PYTHON" - "$OUT/run.json" "$GAME" "$MODE" "$HARNESS" "$MODEL" "$PROVIDER" \
   "$BUDGET" "$REASONING" "$KIT" "$VISUAL_JUDGE" "$CASE_ID" "$CONCURRENCY" \
   "$git_sha" "$godot_version" "$claude_version" "$codex_version" "$STARTED_AT" "$REFERENCE_VIDEO" "$EVAL" \
-  "$SANDBOX" "$DOCKER_IMAGE" <<'PY'
+  "$SANDBOX" "$DOCKER_IMAGE" "$BRIEF_DESIGN" <<'PY'
 import json, pathlib, sys
 (path, game, mode, harness, model, provider, budget, reasoning, kit, visual_judge,
  case_id, concurrency, sha, godot, claude, codex, started, reference_video, evaluation,
- sandbox, sandbox_image) = sys.argv[1:]
+ sandbox, sandbox_image, brief_design) = sys.argv[1:]
 wire = {
   "schema": "gamebench.turnkey.run.v1",
   "params": {"game": game, "mode": mode, "harness": harness, "model": model,
@@ -393,6 +400,8 @@ wire = {
   "harness_versions_source": "per-cell agent/env.json" if sandbox == "docker" else "host",
   "started_at": started, "ended_at": None,
 }
+if mode == "brief":
+    wire["params"]["brief_design"] = brief_design
 p = pathlib.Path(path)
 if not p.exists():
     p.write_text(json.dumps(wire, indent=2) + "\n", encoding="utf-8")
@@ -406,6 +415,8 @@ else:
     for key, default in (("reference_video", "on"), ("agent_sandbox", "unshare"), ("agent_docker_image", None)):
         if old.get(key, default) != wire["params"][key]:
             raise SystemExit(f"error: {key} differs from run.json; use a separate --out directory")
+    if mode == "brief" and old.get("brief_design", "on") != brief_design:
+        raise SystemExit("error: brief_design differs from run.json; use a separate --out directory")
     existing["params"]["evaluation"] = evaluation
     p.write_text(json.dumps(existing, indent=2) + "\n", encoding="utf-8")
 PY
@@ -417,6 +428,7 @@ common_args() {
     --agent-sandbox "$SANDBOX" --engine auto
     --visual-judge "$VISUAL_JUDGE" --playtest-kit "$KIT" --single-cell
     --eval "$EVAL"
+    --brief-design "$BRIEF_DESIGN"
     --reference-video "$REFERENCE_VIDEO"
   )
   [ -z "$BUDGET" ] || COMMON+=(--agent-timeout "$BUDGET")
@@ -567,7 +579,7 @@ while IFS=$'\t' read -r game cell case_id; do
   common=(--game "$game" --mode "$MODE" --agent-backend "$HARNESS" --model "$MODEL"
     --agent-provider "$AGENT_PROVIDER" --agent-effort "$REASONING"
     --agent-sandbox "$SANDBOX" --engine auto --visual-judge "$VISUAL_JUDGE" --playtest-kit "$KIT" --single-cell
-    --eval "$EVAL"
+    --eval "$EVAL" --brief-design "$BRIEF_DESIGN"
     --reference-video "$REFERENCE_VIDEO")
   [ -z "$BUDGET" ] || common+=(--agent-timeout "$BUDGET")
   [ -z "$DOCKER_IMAGE" ] || common+=(--agent-docker-image "$DOCKER_IMAGE")
@@ -590,7 +602,7 @@ chmod +x "$SCHEDULER"
 # QUEUE too: the detached scheduler reads it (`done <"$QUEUE"`) and runs under
 # `set -u`, so without this it dies with "QUEUE: unbound variable" before
 # launching a single cell.
-export OUT QUEUE CONCURRENCY PROVIDER MODE HARNESS MODEL AGENT_PROVIDER REASONING BUDGET KIT VISUAL_JUDGE REFERENCE_VIDEO EVAL
+export OUT QUEUE CONCURRENCY PROVIDER MODE HARNESS MODEL AGENT_PROVIDER REASONING BUDGET KIT VISUAL_JUDGE REFERENCE_VIDEO EVAL BRIEF_DESIGN
 export SANDBOX DOCKER_IMAGE
 export GB_PYTHON GB_BENCH API_ENV BASE_URL="${BASE_URL:-}" KEY_ENV="${KEY_ENV:-}"
 API_ENV_ARG=""
