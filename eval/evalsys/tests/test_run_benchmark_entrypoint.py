@@ -618,6 +618,8 @@ if sys.argv[1] == "eval-task":
 
 def generate(game, *, mode, out, **kwargs):
     event("generate")
+    if os.environ.get("EVALUATOR_OUTCOME") == "generate_error":
+        raise RuntimeError("fixture interrupted before package creation")
     package = TaskPackage(Path(out), {
         "schema_version": 1, "mode": mode.id, "game_id": Path(game).name, "blockers": [],
     })
@@ -761,15 +763,36 @@ def test_live_eval_on_and_completed_resume_keep_the_first_report(live_entrypoint
     assert (cell / "evaluation/report.json").read_bytes() == first
 
 
-@pytest.mark.parametrize("outcome", ["unresolved", "error"])
-def test_live_evaluator_failure_is_reported_without_an_outer_retry(live_entrypoint, outcome):
-    run, _out, cell = live_entrypoint
+@pytest.mark.parametrize("outcome, expected_rc", [("unresolved", 0), ("error", 1)])
+def test_live_candidate_outcome_is_distinct_from_evaluator_failure(live_entrypoint, outcome, expected_rc):
+    run, out, cell = live_entrypoint
     result, events = run("--eval", "on", outcome=outcome)
-    assert result.returncode == 1, result.stdout + result.stderr
+    assert result.returncode == expected_rc, result.stdout + result.stderr
     assert events == ["generate", "agent", "evaluate"]
-    assert "worker exit 1" in result.stderr
+    assert (out / "worker-status.tsv").read_text().split("\t")[0] == "1"
+    manifest = json.loads((out / "run.json").read_text())
     if outcome == "unresolved":
+        assert manifest["execution_status"] == "completed"
         card = json.loads((cell / "evaluation/card.json").read_text())
         assert card["resolved"] is False
+        result, events = run("--eval", "on", "--resume", outcome=outcome)
+        assert result.returncode == 0, result.stdout + result.stderr
+        assert events == ["generate", "agent", "evaluate"]
     else:
+        assert manifest["execution_status"] == "failed"
+        assert "worker exit 1" in result.stderr
         assert json.loads((cell / "state.json").read_text())["failure_kind"] == "verifier_system_error"
+
+
+def test_resume_retries_interrupted_generation_with_existing_matrix(live_entrypoint):
+    run, _out, cell = live_entrypoint
+    result, events = run(outcome="generate_error")
+    assert result.returncode == 1, result.stdout + result.stderr
+    assert events == ["generate"]
+    assert (cell / "matrix/run.json").is_file()
+    assert not (cell / "package/manifest.json").exists()
+
+    result, events = run("--resume")
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert events == ["generate", "generate", "agent", "evaluate"]
+    assert json.loads((cell / "state.json").read_text())["status"] == "completed"

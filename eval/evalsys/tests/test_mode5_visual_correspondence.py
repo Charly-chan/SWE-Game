@@ -1,8 +1,10 @@
 import base64
 import io
+import subprocess
 from types import SimpleNamespace
 
 import numpy as np
+import pytest
 from PIL import Image
 
 from evalsys.taskgen.mode5.visual_measure import measure_visual
@@ -76,3 +78,32 @@ def test_flat_output_is_not_a_rendered_visual_pass():
     result = measure_visual(snapshot(), SimpleNamespace(witness=witness, hidden_behaviors=[], matched_null=null))
     assert not any(row["criterion"] == "visual.render_configuration" for row in result["observations"])
     assert any(item["reason"] == "blank/flat actual output" for item in result["diagnostics"])
+
+
+@pytest.mark.parametrize("error", [OSError("temporary storage unavailable"),
+                                  RuntimeError("independent OCR failed"),
+                                  subprocess.TimeoutExpired("tesseract", 15)])
+def test_ocr_failure_is_attributed_to_infrastructure(monkeypatch, error):
+    def fail(*args):
+        raise error
+
+    monkeypatch.setattr("evalsys.taskgen.mode5.visual_measure.ocr_lines", fail)
+    witness = run("witness", [record("run_start")])
+    null = run("matched_null", [dict(record("run_start"), run_id="matched_null")])
+    result = measure_visual(snapshot(), SimpleNamespace(witness=witness, hidden_behaviors=[], matched_null=null),
+                            ocr_binary="fixture-tesseract")
+    assert result["complete"] is False
+    assert result["infrastructure_complete"] is False
+    assert any(row.get("attribution") == "infrastructure" for row in result["diagnostics"])
+
+
+@pytest.mark.parametrize("invalid_image", [False, True])
+def test_missing_or_invalid_candidate_capture_does_not_fail_reader(invalid_image):
+    capture = record("run_start")
+    capture["record"]["thumbnail_png"] = "not-a-png"
+    witness = run("witness", [capture] if invalid_image else [])
+    null = run("matched_null", [])
+    result = measure_visual(snapshot(), SimpleNamespace(witness=witness, hidden_behaviors=[], matched_null=null))
+    assert result["complete"] is False
+    assert result["infrastructure_complete"] is True
+    assert result["observations"] == []

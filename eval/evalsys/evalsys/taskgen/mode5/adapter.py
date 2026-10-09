@@ -330,15 +330,11 @@ def finish_scoring(
     if build.get("status") == "pass":
         if not isinstance(visual, Mapping) or visual.get("schema") != "gamebench.mode5.visual-reading.v1":
             infra_ok = False
-        # ``complete`` describes the amount of visual evidence available for
-        # this submission. A candidate can close the controller channel, omit
-        # captures, or produce an invalid/flat frame; those are zero evidence
-        # for the visual obligations, not an evaluator infrastructure failure.
-        # The schema check above still protects the scoring protocol from a
-        # missing or foreign visual reader. Keep the proxy score available so
-        # a runtime failure does not turn an otherwise measured task into
-        # ``score: null``.
         if isinstance(visual, Mapping) and visual.get("schema") == "gamebench.mode5.visual-reading.v1":
+            # Missing candidate captures can retain proxy points only when the
+            # visual reader itself completed. Older incomplete readings have
+            # no failure attribution and must continue to withhold ranking.
+            infra_ok &= visual.get("infrastructure_complete", visual.get("complete")) is True
             for row in visual.get("observations") or []:
                 name = row["criterion"]
                 if not name.startswith("visual.") or name not in expected:

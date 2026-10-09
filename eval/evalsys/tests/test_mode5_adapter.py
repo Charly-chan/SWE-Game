@@ -43,7 +43,8 @@ def run(ident="witness", *, status="pass", errors=()):
 
 def runtime_engine(positive=None):
     return {"build": {"status": "pass"}, "mode5_visual": {
-        "schema": "gamebench.mode5.visual-reading.v1", "complete": True, "observations": []}, "runtime": {
+        "schema": "gamebench.mode5.visual-reading.v1", "complete": True,
+        "infrastructure_complete": True, "observations": []}, "runtime": {
         "witness": run(), "matched_null": run("null"),
         "hidden_behaviors": positive or [],
     }}
@@ -127,6 +128,35 @@ def test_candidate_controller_close_keeps_proxy_score_when_visual_capture_is_inc
 
     assert result["status"] == "scored_proxy"
     assert result["total"] is not None
+    assert result["ranking_eligible"] is True
+
+
+@pytest.mark.parametrize("candidate_failed", [False, True])
+@pytest.mark.parametrize("legacy", [False, True])
+def test_visual_reader_failure_withholds_ranking(tmp_path, candidate_failed, legacy):
+    snapshot, items = fixture(tmp_path)
+    engine = runtime_engine()
+    if candidate_failed:
+        engine["runtime"]["witness"]["status"] = "fail"
+    visual = engine["mode5_visual"]
+    visual["complete"] = False
+    visual["diagnostics"] = [{"status": "error", "reason": "independent OCR failed"}]
+    if legacy:
+        del visual["infrastructure_complete"]
+    else:
+        visual["infrastructure_complete"] = False
+
+    result = finish_scoring(snapshot, items=items, engine=engine)
+    assert result["status"] == "infrastructure_incomplete"
+    assert result["total"] is None
+    assert result["ranking_eligible"] is False
+
+
+def test_legacy_complete_visual_reading_remains_rankable(tmp_path):
+    snapshot, items = fixture(tmp_path)
+    engine = runtime_engine()
+    del engine["mode5_visual"]["infrastructure_complete"]
+    result = finish_scoring(snapshot, items=items, engine=engine)
     assert result["ranking_eligible"] is True
 
 

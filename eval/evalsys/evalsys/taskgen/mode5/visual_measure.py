@@ -123,6 +123,7 @@ def measure_visual(snapshot: Mapping[str, Any], suite: Any, *, ocr_binary: str |
     observations: list[dict[str, Any]] = []
     diagnostics: list[dict[str, Any]] = []
     complete = reference.get("complete") is True
+    infrastructure_complete = complete
     binary = ocr_binary or shutil.which("tesseract")
     positive = [suite.witness, *suite.hidden_behaviors]
     controls = [suite.matched_null]
@@ -156,6 +157,7 @@ def measure_visual(snapshot: Mapping[str, Any], suite: Any, *, ocr_binary: str |
             measured: dict[str, Any] = {"reference": ref, "checkpoint_id": ident,
                                         "start_level": capture.get("start_level"),
                                         "state": capture.get("state") or {}, "roles": {}, "hud": {}}
+            failure_attribution = "submission"
             try:
                 thumb = pixels(record["thumbnail_png"], size=(96, 54))
                 if float(np.std(thumb)) < 2:
@@ -198,7 +200,12 @@ def measure_visual(snapshot: Mapping[str, Any], suite: Any, *, ocr_binary: str |
                     if not binary:
                         diagnostics.append({"reference": ref, "status": "unmeasured", "reason": "independent OCR binary unavailable; UI obligation remains zero"})
                     else:
-                        lines = ocr_lines(record["ui_before_png"], binary)
+                        try:
+                            lines = ocr_lines(record["ui_before_png"], binary)
+                        except (OSError, RuntimeError, subprocess.TimeoutExpired):
+                            infrastructure_complete = False
+                            failure_attribution = "infrastructure"
+                            raise
                         measured["ocr_lines"] = [line["text"] for line in lines]
                         for slot in expected["visual.ui_feedback"]:
                             value = displayed_value(lines, ui["mask"], slot)
@@ -214,7 +221,8 @@ def measure_visual(snapshot: Mapping[str, Any], suite: Any, *, ocr_binary: str |
                     add("visual.animation_audio", "audio", ref, "Non-silent variable PCM sampled from the actual listener mix, not AudioSource.isPlaying.")
             except (KeyError, OSError, ValueError, RuntimeError, subprocess.TimeoutExpired) as exc:
                 complete = False
-                diagnostics.append({"reference": ref, "status": "incomplete", "reason": str(exc)})
+                diagnostics.append({"reference": ref, "status": "incomplete", "reason": str(exc),
+                                    "attribution": failure_attribution})
                 continue
             measurements[run.run_id].append(measured)
     idle = {row["checkpoint_id"]: row for row in measurements.get(suite.matched_null.run_id, [])}
@@ -255,6 +263,7 @@ def measure_visual(snapshot: Mapping[str, Any], suite: Any, *, ocr_binary: str |
                     used_levels.add(level)
                     break
     return {"schema": SCHEMA, "complete": complete, "metric": "visual_implementation_correspondence",
+            "infrastructure_complete": infrastructure_complete,
             "policy": dict(policy), "observations": observations, "diagnostics": diagnostics,
             "measurements": measurements, "ocr_binary": Path(binary).name if binary else None,
             "vlm_used": False, "perceptual_similarity_measured": False}

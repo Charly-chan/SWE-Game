@@ -60,6 +60,9 @@ summary files preserve registry, environment, model and budget grouping.
   can use runtime captures, with static evidence still discounted by its coefficient.
   Infrastructure or integrity failures withhold ranking eligibility. A candidate
   compilation failure preserves admissible static points, not runtime credit.
+  Visual readings distinguish evidence coverage (`complete`) from reader health
+  (`infrastructure_complete`): missing candidate captures can retain proxy points,
+  while OCR execution errors or unavailable reference measurements withhold ranking.
   `weighted_total.score` is the release task score (0–100). The compatibility
   fields `paper_compatible=false` and `official_total=null` identify the
   Community protocol; they do not mean the release score is missing.
@@ -110,6 +113,10 @@ and meaning; a display-name change does not make an uncalibrated reading eligibl
   (Mode 4 normally has no movie regardless of the default switch).
 - `godot_version` and `harness_cli_versions` for Claude Code and Codex.
 - UTC `started_at` and `ended_at` timestamps.
+- `execution_status` for Modes 1–4: `running` until finalization, then `completed`
+  or `failed`. This describes pipeline completion, independently of whether the
+  candidate resolved its task. Interrupted runs and package-only dry runs remain
+  `running`; `worker-status.tsv` retains the matrix's raw worker exit codes.
 
 Credentials, credential values, proxy values, and operator home paths are not
 part of this file.

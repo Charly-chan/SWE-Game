@@ -99,6 +99,40 @@ shard_complete() {
   [ "$count" -gt 0 ]
 }
 
+shard_finished() {
+  local game="$1" rc="$2"
+  shard_complete "$game" || return 1
+  [ "$rc" != 0 ] || return 0
+  [ "$rc" = 1 ] && [ "$(cat "$OUT/shard-eval")" = on ] || return 1
+  # Older turnkey runs also exited 1 for completed, unresolved candidates.
+  # Recover those scores only when every cell finished evaluation. New runs
+  # explicitly distinguish execution failures, which must never be normalized.
+  "$PYTHON" - "$OUT/shards/$game" <<'PY'
+import json
+from pathlib import Path
+import sys
+
+root = Path(sys.argv[1])
+try:
+    manifest = json.loads((root / "run.json").read_text(encoding="utf-8"))
+    if "execution_status" in manifest:
+        raise SystemExit(1)
+    unresolved = False
+    for cell in (root / "cells").iterdir():
+        if not cell.is_dir():
+            continue
+        state = json.loads((cell / "state.json").read_text(encoding="utf-8"))
+        report = json.loads((cell / "evaluation/report.json").read_text(encoding="utf-8"))
+        resolved = state.get("resolved")
+        if state.get("status") != "completed" or not isinstance(resolved, bool) or report.get("resolved") is not resolved:
+            raise SystemExit(1)
+        unresolved |= resolved is False
+    raise SystemExit(0 if unresolved else 1)
+except (OSError, ValueError, TypeError, AttributeError):
+    raise SystemExit(1)
+PY
+}
+
 # ---- merge shards back into one results directory ----
 if [ "$MERGE" = 1 ]; then
   [ -s "$OUT/expected-games.txt" ] && [ -f "$OUT/shard-status.tsv" ] &&
@@ -110,7 +144,7 @@ if [ "$MERGE" = 1 ]; then
   while IFS= read -r game; do
     rc="$(awk -F '\t' -v game="$game" '$1 == game { print $2 }' "$OUT/shard-status.tsv")"
     shard="$OUT/shards/$game"
-    if [ "$rc" != 0 ] || ! shard_complete "$game"; then
+    if ! shard_finished "$game" "$rc"; then
       printf 'incomplete shard: %s (exit=%s)\n' "$game" "${rc:-missing}" >&2
       missing=$((missing+1))
     fi
@@ -133,7 +167,7 @@ if [ "$MERGE" = 1 ]; then
   while IFS= read -r game; do
     rc="$(awk -F '\t' -v game="$game" '$1 == game { print $2 }' "$OUT/shard-status.tsv")"
     shard="$OUT/shards/$game"
-    if [ "$rc" != 0 ] || ! shard_complete "$game"; then
+    if ! shard_finished "$game" "$rc"; then
       continue
     fi
     for cell in "$shard"/cells/*/; do
@@ -244,7 +278,9 @@ finish_one() {
   [ -n "${pid:-}" ] || { printf 'error: could not identify finished shard\n' >&2; return 1; }
   game="${pid_game[$pid]}"
   unset "pid_game[$pid]"
-  if [ "$rc" -eq 0 ] && ! shard_complete "$game"; then
+  if shard_finished "$game" "$rc"; then
+    rc=0
+  elif [ "$rc" -eq 0 ]; then
     printf 'warning: %s returned success without complete cells\n' "$game" >&2
     rc=1
   fi

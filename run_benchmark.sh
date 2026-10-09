@@ -409,7 +409,7 @@ wire = {
   "evaluator_git_sha": sha, "registry_version": None, "godot_version": godot,
   "harness_cli_versions": {"claude": claude or None, "codex": codex or None},
   "harness_versions_source": "per-cell agent/env.json" if sandbox == "docker" else "host",
-  "started_at": started, "ended_at": None,
+  "started_at": started, "ended_at": None, "execution_status": "running",
 }
 if mode == "brief":
     wire["params"]["brief_design"] = brief_design
@@ -429,6 +429,8 @@ else:
     if mode == "brief" and old.get("brief_design", "on") != brief_design:
         raise SystemExit("error: brief_design differs from run.json; use a separate --out directory")
     existing["params"]["evaluation"] = evaluation
+    existing["execution_status"] = "running"
+    existing["ended_at"] = None
     p.write_text(json.dumps(existing, indent=2) + "\n", encoding="utf-8")
 PY
 
@@ -488,7 +490,7 @@ for row in "${CELL_ROWS[@]}"; do
       gb_ensure_reference_project "$game"
     fi
     GEN_RESUME=()
-    [ "$RESUME" = 1 ] && [ -f "$cell/run.json" ] && GEN_RESUME+=(--resume)
+    [ "$RESUME" = 1 ] && [ -f "$cell/matrix/run.json" ] && GEN_RESUME+=(--resume)
     "$GB_PYTHON" "$GB_BENCH" run-task-matrix --out "$cell" "${COMMON[@]}" \
       "${GEN_RESUME[@]}" --generate-only $([ "$DRY_RUN" = 1 ] && printf '%s' --agent-dry-run) || gen_rc=$?
   elif [ "$RESUME" = 1 ]; then
@@ -639,26 +641,34 @@ if [ "$reported_workers" -ne "$expected_workers" ]; then
   evaluation_failures=$((evaluation_failures+1))
 fi
 while IFS=$'\t' read -r worker_rc cell; do
-  # Matrix owns evaluation and resume. Preserve its report and exit status.
+  # Matrix exits 1 for both evaluator errors and completed unresolved tasks.
+  # Preserve the raw worker status, but only execution errors fail this runner.
+  execution_rc="$worker_rc"
   if [ "$EVAL" = on ] && [ -f "$cell/evaluation/report.json" ]; then
-    if "$GB_PYTHON" - "$cell/evaluation/report.json" "$cell/evaluation/card.json" <<'PY'
+    if completed_unresolved="$("$GB_PYTHON" - "$cell/evaluation/report.json" "$cell/evaluation/card.json" "$cell/state.json" <<'PY'
 import json, pathlib, sys
 report = json.loads(pathlib.Path(sys.argv[1]).read_text(encoding="utf-8"))
 pathlib.Path(sys.argv[2]).write_text(
     json.dumps(report.get("scorecard") or {}, indent=2, ensure_ascii=False) + "\n",
     encoding="utf-8",
 )
+state = json.loads(pathlib.Path(sys.argv[3]).read_text(encoding="utf-8"))
+print(int(state.get("status") == "completed" and state.get("resolved") is False
+          and report.get("resolved") is False))
 PY
+    )"
     then
-      :
+      if [ "$worker_rc" -eq 1 ] && [ "$completed_unresolved" = 1 ]; then
+        execution_rc=0
+      fi
     else
       printf 'error: could not read evaluation report: %s\n' "$cell" >&2
       evaluation_failures=$((evaluation_failures+1))
     fi
   fi
-  if [ "$worker_rc" -ne 0 ] || [ ! -d "$cell/submission" ] ||
+  if [ "$execution_rc" -ne 0 ] || [ ! -d "$cell/submission" ] ||
      { [ "$EVAL" = on ] && [ ! -f "$cell/evaluation/report.json" ]; }; then
-    printf 'warning: failed, unresolved or incomplete cell (worker exit %s): %s\n' "$worker_rc" "$cell" >&2
+    printf 'warning: failed or incomplete cell (worker exit %s): %s\n' "$worker_rc" "$cell" >&2
     evaluation_failures=$((evaluation_failures+1))
   fi
 done <"$OUT/worker-status.tsv"
@@ -670,10 +680,11 @@ else
   printf 'error: could not summarize results: %s\n' "$OUT" >&2
   evaluation_failures=$((evaluation_failures+1))
 fi
-if "$GB_PYTHON" - "$OUT/run.json" "$ENDED_AT" <<'PY'
+if "$GB_PYTHON" - "$OUT/run.json" "$ENDED_AT" "$evaluation_failures" "$blocked_cells" <<'PY'
 import json, pathlib, sys
 p = pathlib.Path(sys.argv[1]); wire = json.loads(p.read_text(encoding="utf-8"))
 wire["ended_at"] = sys.argv[2]
+wire["execution_status"] = "completed" if sys.argv[3:5] == ["0", "0"] else "failed"
 versions = []
 for report in p.parent.glob("cells/*/evaluation/report.json"):
     card = json.loads(report.read_text(encoding="utf-8")).get("scorecard") or {}
@@ -691,5 +702,5 @@ fi
 if [ "$EVAL" = off ]; then
   printf 'evaluation deferred (--eval off): no evaluation/ per cell; run ./evaluate.sh <cell>/package <cell>/submission --out <cell>/evaluation later\n'
 fi
-printf 'results: %s (evaluation failures or unresolved cells: %s; blocked cells: %s)\n' "$OUT" "$evaluation_failures" "$blocked_cells"
+printf 'results: %s (execution failures: %s; blocked cells: %s)\n' "$OUT" "$evaluation_failures" "$blocked_cells"
 exit "$([ "$evaluation_failures" -eq 0 ] && [ "$blocked_cells" -eq 0 ] && echo 0 || echo 1)"

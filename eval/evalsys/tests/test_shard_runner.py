@@ -47,13 +47,17 @@ if [ -f "$out/run.json" ] && [ "$resume" != 1 ]; then exit 2; fi
 if [ ! -f "$out/run.json" ] && [ "$resume" = 1 ]; then exit 2; fi
 printf '%s\t%s\t%s\t%s\n' "$game" "$mode" "$eval" "$sandbox" >> "$FAKE_RUN_LOG"
 case "$game" in alpha) rc="${FAKE_RC_ALPHA:-0}" ;; beta) rc="${FAKE_RC_BETA:-0}" ;; esac
-if [ "$rc" -eq 0 ]; then
+if [ "$rc" -eq 0 ] || { [ "$game" = alpha ] && [ "${FAKE_UNRESOLVED_ALPHA:-0}" = 1 ]; }; then
   if [ "$game" = alpha ] && [ "${FAKE_EMPTY_ALPHA:-0}" = 1 ]; then exit 0; fi
   mkdir -p "$out/cells/${game}__${mode}/submission"
   printf '{}\n' > "$out/run.json"
   if [ "$eval" = on ]; then
     mkdir -p "$out/cells/${game}__${mode}/evaluation"
     printf '{}\n' > "$out/cells/${game}__${mode}/evaluation/report.json"
+    if [ "$game" = alpha ] && [ "${FAKE_UNRESOLVED_ALPHA:-0}" = 1 ]; then
+      printf '{"status":"completed","resolved":false}\n' > "$out/cells/${game}__${mode}/state.json"
+      printf '{"resolved":false,"scorecard":{"weighted_total":{"score":20}}}\n' > "$out/cells/${game}__${mode}/evaluation/report.json"
+    fi
   fi
 fi
 exit "$rc"
@@ -143,6 +147,33 @@ exit "$rc"
         )
         self.assertEqual(self.shard(*base, "--jobs").returncode, 2)
         self.assertEqual(self.shard(*base, "--concurrency").returncode, 2)
+
+    def test_completed_unresolved_scores_survive_run_and_legacy_merge(self):
+        out = self.root / "unresolved"
+        result = self.shard("--mode", "brief", "--model", "model", "--out", str(out),
+                            "--games", "alpha beta",
+                            env=dict(self.env, FAKE_RC_ALPHA="1", FAKE_UNRESOLVED_ALPHA="1"))
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("alpha\t0", (out / "shard-status.tsv").read_text())
+        # A saved result from the old runner still has the raw matrix exit 1.
+        (out / "shard-status.tsv").write_text("alpha\t1\nbeta\t0\n")
+        for options in ((), ("--allow-partial",)):
+            merged = self.shard("--mode", "brief", "--out", str(out), "--merge", *options)
+            self.assertEqual(merged.returncode, 0, merged.stderr)
+            manifest = json.loads((out / "merged/run.json").read_text())
+            self.assertEqual(manifest["included_games"], ["alpha", "beta"])
+            self.assertEqual(manifest["cell_count"], 2)
+            self.assertFalse(manifest["partial"])
+            report = json.loads((out / "merged/cells/alpha__brief/evaluation/report.json").read_text())
+            self.assertEqual(report["scorecard"]["weighted_total"]["score"], 20)
+
+        # A real execution failure cannot be hidden by otherwise valid scores.
+        for status in ("running", "failed", "completed"):
+            (out / "shards/alpha/run.json").write_text(json.dumps({"execution_status": status}))
+            self.assertEqual(self.shard("--mode", "brief", "--out", str(out), "--merge").returncode, 1)
+        (out / "shards/alpha/run.json").write_text("{}")
+        (out / "shards/alpha/cells/alpha__brief/state.json").write_text('{"status":"failed","resolved":false}')
+        self.assertEqual(self.shard("--mode", "brief", "--out", str(out), "--merge").returncode, 1)
 
     def test_zero_exit_with_empty_cells_is_failure(self):
         out = self.root / "empty-cell"
