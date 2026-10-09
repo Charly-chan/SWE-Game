@@ -1,6 +1,11 @@
 # Release notes
 
-## Unreleased
+## v1.0.0 — 2026-10-09
+
+- Release 246 tasks over 41 games, with 451 fixed package variants for the supported input settings and automatic checksum-verified downloads.
+- Provide Godot execution, Harbor orchestration, and the Unity Community Docker workflow with independent submission evaluation and retained evidence.
+- Publish a Godot 4.5.1 image with Codex in `ghcr.io/charly-chan/swe-game-public`; local builds also support Claude Code and licensed Unity.
+- License project-owned code and documentation under Apache-2.0; preserve third-party game, asset, and code notices.
 
 - Make Brief Design scoring optional, defaulting to off for new evaluations. Keep the objective/VLM split at 85/15, record the choice, and preserve historical settings when rescoring saved reports.
 
@@ -10,9 +15,9 @@
 - Apply lower direct partial-credit references and declared deficiency ceilings across all 41 game rubrics; retain game-specific requirements and group weights.
 - Align visual group labels with the paper: visible mechanics, design and content, functional visual communication, and art.
 
-## Fixed task release
+### Evaluation configuration
 
-This release contains 246 tasks over 41 games, with 451 fixed package variants
-for the supported input settings. The evaluator reports objective evidence,
-perceptual assessment, and strict completion separately. Record the evaluator
-commit and pinned dataset revision with benchmark results.
+The evaluator reports objective evidence, perceptual assessment, and strict
+completion separately. Record the evaluator commit and pinned dataset revision
+with benchmark results. See [version information](docs/releasing.md) for the
+release inventory, scoring defaults, and published result provenance.

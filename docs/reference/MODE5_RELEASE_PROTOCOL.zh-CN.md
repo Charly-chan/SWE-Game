@@ -43,7 +43,7 @@ Registry 为 `2026-10.mode5-evidence-five-visual1`，ranking scope 为 `mode5-co
 
 机制、交互和进展是不同义务：只有相符的具体机制检查才能填相应子项，掉血不等于进展。最终目标只接受实际运行及输入因果、matched-null 和 auto-win 对照；无通关证据只使对应 5 分未获得，不整体清零 Playability。
 
-没有对应 runtime 证据时，Mechanics 上限为 `24.5/35`，Playability 为 `15/25`。Visual 使用 evaluator 自有的 `visual_implementation_correspondence` 测量：运行时 capture 会针对冻结的素材角色、UI 反馈、渲染输出、动画/音频和布局做实现对应检查，Editor、静态支持和仅文件存在仍按各自系数折算。不使用 VLM，也不宣称感知或美学相似度。Visual 的运行时义务全部独立验证时可取得完整的 15 分；固定分母代理分可达到 100/100，`official_total=null`、`paper_compatible=false` 必须保留。
+没有对应 runtime 证据时，Mechanics 上限为 `24.5/35`，Playability 为 `15/25`。Visual 使用 evaluator 自有的 `visual_implementation_correspondence` 测量：运行时 capture 会针对冻结的素材角色、UI 反馈、渲染输出、动画/音频和布局做实现对应检查，Editor、静态支持和仅文件存在仍按各自系数折算。不使用 VLM，也不宣称感知或美学相似度。Visual 的运行时义务全部独立验证时可取得完整的 15 分；固定分母总分可达到 100/100。使用 `weighted_total.score` 读取任务总分，字段定义见 [输出契约](OUTPUT_CONTRACT.md)。
 
 源码解析是保守的有限检查，不是完整 C# 编译器。未能证明的反射、复杂数据流或布局保持未获证据状态。场景索引变化不自动证明重置，声明成功不自动证明通关，也没有按模型身份猜测的动态 credit。
 
@@ -65,4 +65,4 @@ Registry 为 `2026-10.mode5-evidence-five-visual1`，ranking scope 为 `mode5-co
 
 旁边展示最低四分之一任务均值，以及 `0.70 × 全任务均值 + 0.30 × 低尾均值` 的可靠性诊断，不能替代主榜。低尾任务数为 `ceil(N/4)`，41 任务取 11 个；同分按 game_id 排序，所有分项诊断使用同一低尾任务集合。这些是同一结果的辅助读数，不是第二种评分或执行路径。
 
-五项权重与论文表格一致，不宣称 Docker 环境、无 VLM 代理或预算与论文原实验完全等价。公开复现必须固定 evaluator commit、registry、任务材料和运行配置；要比较论文数值，应对保留原始提交统一重评，不能按模型调系数使其接近表格。
+正式模型对比应固定 evaluator commit、registry、任务材料、环境、harness 和预算，并保留原始提交及评测证据。论文表格与发布任务目录的版本信息集中列于 [版本说明](../releasing.md#published-results)。

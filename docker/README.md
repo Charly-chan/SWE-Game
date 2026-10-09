@@ -16,26 +16,28 @@ coding agent's own checks. Task inputs and submissions are mounted at runtime.
 
 | Image | Modes | Tools |
 | --- | --- | --- |
-| `gamebench-agent:godot-4.5.1` | 1–4 | Godot 4.5.1, Python 3.10 and `eval/evalsys/requirements.txt`, Node 22.22.0, Codex 0.153.4, Claude Code 2.1.222, FFmpeg, Xvfb, Mesa |
+| `ghcr.io/charly-chan/swe-game-public:godot-4.5.1` | 1–4, Codex | Godot 4.5.1, Python dependencies, Node 22.22.0, Codex 0.153.4, FFmpeg, Xvfb, Mesa |
+| `gamebench-agent:godot-4.5.1` (local build) | 1–4 | Godot 4.5.1, Python 3.10 and `eval/evalsys/requirements.txt`, Node 22.22.0, Codex 0.153.4, Claude Code 2.1.222, FFmpeg, Xvfb, Mesa |
 | `gamebench-mode5-agent:6000.3.23f1-v1` | 5 | The Godot toolchain plus locally installed Unity Editor and Linux Player build support (Mono) |
 | `gamebench-mode5-evaluator:6000.3.23f1-v1` | 5 | The independent offline evaluator toolchain |
 
-Both images default to `agent` (UID 1000), with `/workspace` as the working
+Toolchain containers default to `agent` (UID 1000), with `/workspace` as the working
 directory. The benchmark runner overrides the container UID/GID with the host
 operator's UID/GID, so a root operator also runs as root inside the container.
-`godot`, `python`, `python3`, `codex`, `claude`, `ffmpeg`, and `xvfb-run` are on
-`PATH`. `GODOT_BIN` and `GB_PYTHON` point to the installed tools. The Unity image
+`godot`, `python`, `python3`, `codex`, `ffmpeg`, and `xvfb-run` are on
+`PATH`; local agent builds also include `claude`. `GODOT_BIN` and `GB_PYTHON` point to the installed tools. The Unity image
 also sets `UNITY_BIN` and provides `unity` on `PATH`.
 
 ## Pull published images
 
-The Godot image is published to `ghcr.io/charly-chan/swe-game`.
+The public Godot image is published to `ghcr.io/charly-chan/swe-game-public`
+and includes Codex. For Claude Code, build the local image as described below;
+the build installs the pinned CLI directly from its official npm packages.
 Mode 5 images are built locally by `gb mode5 setup`.
-For a private package, authenticate with GitHub Packages before pulling.
 
 ```bash
-docker pull ghcr.io/charly-chan/swe-game:godot-4.5.1
-docker tag ghcr.io/charly-chan/swe-game:godot-4.5.1 gamebench-agent:godot-4.5.1
+docker pull ghcr.io/charly-chan/swe-game-public:godot-4.5.1
+docker tag ghcr.io/charly-chan/swe-game-public:godot-4.5.1 gamebench-agent:godot-4.5.1
 ```
 
 The local aliases match the runner defaults. Alternatively, pass the full GHCR
@@ -50,10 +52,13 @@ the Community image lock for Unity). A local build on another daemon is not shar
 automatically.
 
 The [publish workflow](../.github/workflows/publish-container-images.yml) builds
-the Godot image, checks installed tools and a rendered frame, then publishes
+the Godot image with `--redistributable`, checks installed tools and a rendered
+frame, verifies that Claude Code is absent, then publishes
 using the repository's GitHub Actions token. It runs on relevant changes to
-`main`, `toolchain-*` tags, or manual dispatch. Run `./docker/smoke.sh` locally
-after building to execute the same toolchain checks.
+`main`, `toolchain-*` tags, or manual dispatch. After a local build, run
+`./docker/smoke.sh godot`. To reproduce the published variant, run
+`./docker/build.sh godot --redistributable` followed by
+`./docker/smoke.sh godot --redistributable`.
 
 ## Build
 
@@ -141,7 +146,7 @@ Inspect installed versions without contacting a model provider:
 
 ```bash
 docker run --rm gamebench-agent:godot-4.5.1 bash -c \
-  'godot --headless --version && node --version && codex --version && claude --version'
+  'godot --headless --version && node --version && codex --version'
 docker run --rm gamebench-mode5-agent:6000.3.23f1-v1 unity -version
 ```
 

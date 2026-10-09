@@ -32,10 +32,10 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Build redistributable toolchain image
-        run: ./docker/build.sh godot
+        run: ./docker/build.sh godot --redistributable
 
       - name: Check installed tools and Godot rendering
-        run: ./docker/smoke.sh godot
+        run: ./docker/smoke.sh godot --redistributable
 
       - name: Log in to GHCR
         env:
@@ -45,7 +45,7 @@ jobs:
 
       - name: Publish images
         env:
-          IMAGE_REPOSITORY: ghcr.io/charly-chan/swe-game
+          IMAGE_REPOSITORY: ghcr.io/charly-chan/swe-game-public
         run: |
           revision="${GITHUB_SHA:0:12}"
           tag=godot-4.5.1

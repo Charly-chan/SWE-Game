@@ -154,7 +154,7 @@ RUN/
 
 manifest 只检查路径和大小，允许额外笔记，不提供密码学防篡改保证。主榜为固定 41 游戏的算术均值，旁列展示低尾均值和 70/30 可靠性诊断；部分运行仅展示 coverage 和 partial mean。
 
-`environment_class=community-docker`、`paper_compatible=false`、`official_total=null` 必须保留：代理分和权重对齐不证明环境或测量方法与论文原实验完全等价。详见 [完整评分规范](MODE5_SCORING.md)。
+使用 `weighted_total.score` 读取 0–100 任务总分，并随结果保存 registry 和 `environment_class=community-docker`。字段定义见 [输出契约](OUTPUT_CONTRACT.md)，计算方法见 [完整评分规范](MODE5_SCORING.md)。
 
 ## 6. Harbor 与常见问题
 

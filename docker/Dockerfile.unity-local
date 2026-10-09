@@ -2,6 +2,14 @@ FROM gamebench-agent:godot-4.5.1
 LABEL org.opencontainers.image.source="https://github.com/Charly-chan/SWE-Game"
 LABEL org.gamebench.agent.mode="unity" org.gamebench.agent.unity-version="6000.3.23f1"
 USER root
+# Local Unity builds also support a Godot base pulled from the public registry.
+RUN if ! command -v claude >/dev/null; then \
+      npm install --prefix /opt/gamebench-tools --no-fund --no-audit --omit=dev \
+        --fetch-retries=5 \
+        @anthropic-ai/claude-code@2.1.222 @anthropic-ai/claude-code-linux-x64@2.1.222 \
+      && ln -s /opt/gamebench-tools/node_modules/.bin/claude /usr/local/bin/claude \
+      && npm cache clean --force; \
+    fi
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     build-essential clang lld libgtk-3-0 libnss3 libnspr4 libcups2 \
     libxcomposite1 libxdamage1 libxfixes3 libxss1 libxtst6 libgconf-2-4 \

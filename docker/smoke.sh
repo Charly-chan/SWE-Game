@@ -1,15 +1,37 @@
 #!/usr/bin/env bash
 set -euo pipefail
 target=${1:-all}
-case "$target" in godot|unity|all) ;; *) printf 'Usage: %s [godot|unity|all]\n' "$0" >&2; exit 2 ;; esac
+if [[ $# -gt 0 ]]; then shift; fi
+include_claude=1
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --redistributable) include_claude=0; shift ;;
+        *) printf 'Unknown option: %s\n' "$1" >&2; exit 2 ;;
+    esac
+done
+case "$target" in godot|unity|all) ;; *) printf 'Usage: %s [godot|unity|all] [--redistributable]\n' "$0" >&2; exit 2 ;; esac
+if [[ "$include_claude" == 0 && "$target" != godot ]]; then
+    printf '%s\n' '--redistributable is available only for the Godot image' >&2
+    exit 2
+fi
 
 # No model calls or Unity license activation. Exercise the published toolchain.
 if [[ "$target" == godot || "$target" == all ]]; then
-docker run --rm --entrypoint bash gamebench-agent:godot-4.5.1 -euc '
+docker run --rm --env "INCLUDE_CLAUDE=$include_claude" --entrypoint bash gamebench-agent:godot-4.5.1 -euc '
     godot --headless --version
     node --version
     codex --version
-    claude --version
+    if [[ "$INCLUDE_CLAUDE" == 1 ]]; then
+        claude --version
+    else
+        if command -v claude >/dev/null || command -v unity >/dev/null; then
+            printf '%s\n' 'Unexpected CLI in public Godot image' >&2
+            exit 1
+        fi
+        test ! -e /opt/gamebench-tools/node_modules/@anthropic-ai/claude-code
+        test ! -e /opt/gamebench-tools/node_modules/@anthropic-ai/claude-code-linux-x64
+        test ! -d /opt/unity
+    fi
     ffmpeg -version | head -n 1
     python -c "import numpy, PIL, jsonschema, certifi, pytest, openai"
     smoke_dir=$(mktemp -d)
@@ -44,6 +66,8 @@ fi
 if [[ "$target" == unity || "$target" == all ]]; then
 unity_image=${GB_MODE5_IMAGE:-gamebench-mode5-agent:6000.3.23f1-v1}
 docker run --rm --entrypoint bash "$unity_image" -euc '
+    codex --version
+    claude --version
     unity -version
     gb-unity --help >/dev/null
     test -s /opt/gamebench/mode5/GBCommunityBuild.cs

@@ -74,7 +74,7 @@ Repair inputs and submission requirements are described in the
 ## Mode 5
 
 The Community evaluator publishes one fixed 35/25/15/15/10 evidence-adjusted
-proxy. Twenty subcriteria use runtime/editor/static/presence coefficients
+score. Twenty subcriteria use runtime/editor/static/presence coefficients
 1.00/0.80/0.60/0.25. Visual uses evaluator-owned implementation-
 correspondence measurements, not a VLM or perceptual/aesthetic similarity score.
 Runtime captures can earn the full Visual component when the frozen obligations are
@@ -112,4 +112,4 @@ The paper reports human agreement studies for behavioral and perceptual
 evaluation in [Section 4.5](https://arxiv.org/html/2609.33678v1#S4.SS5).
 Reproducing a score requires the recorded registry, rubric, judge model, and
 video sampling configuration. Community porting requires the validated Docker toolchain and effective license.
-It reports `paper_compatible=false`; matching paper weights does not certify equivalent methods or results.
+Record the scoring configuration with every result; see [version information](../releasing.md) for task inventories and published result provenance.

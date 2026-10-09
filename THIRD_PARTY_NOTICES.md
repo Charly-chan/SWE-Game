@@ -2,8 +2,8 @@
 
 SWE-Game includes independently licensed games, assets, fonts, and reused code.
 The source records below retain each component's authors, upstream locations,
-license texts, and file-level ledgers. A license selected for project-owned
-benchmark code does not replace these component terms.
+license texts, and file-level ledgers. Project-owned benchmark code and
+documentation use [Apache-2.0](LICENSE); component terms remain in effect.
 
 ## Components with distinct terms
 
@@ -19,8 +19,8 @@ The following labels are transcribed from the bundled records, not a new license
 | Kindle Relay source reference and runtime media | MIT source reference; runtime media retain their own pack terms | [Source ledger](docs/reference-games/kindle_relay/assets/ASSET_SOURCES.md) |
 
 Where The Dead Lie's bundled notices still request expansion of per-file credits
-for some components. Those entries remain unresolved. Entries saying
-“repository license” also depend on the maintainer's root license decision.
+for some components. Those entries remain unresolved. References to an upstream
+“repository license” should be read with that component's bundled license text.
 
 The game's DungeonPack creator label has been corrected to Kay Lousberg (KayKit),
 matching the preserved upstream credits and the [original Dungeon Pack page](https://kaylousberg.itch.io/kaykit-dungeon).

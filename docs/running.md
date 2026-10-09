@@ -231,15 +231,15 @@ Mode 5 使用 [独立 Community 工作流](reference/MODE5_RELEASE.md)。在 Lin
 五项权重为 35/25/15/15/10，registry 为 `2026-10.mode5-evidence-five-visual1`。
 评测按独立运行、Editor、静态支持和文件存在证据计分；Visual 使用 evaluator
 自有的 `visual_implementation_correspondence` 测量，不调用 VLM，也不测感知或美学相似度。
-运行时实现对应证据可取得完整 15 分；代理总分使用固定分母，`official_total` 为 null。
+运行时实现对应证据可取得完整 15 分；任务总分使用固定分母，由 `weighted_total.score` 给出。
 保留证据可用 `gb mode5 rejudge` 按相同 registry 重评。
 预算、恢复、许可及运行环境边界见用户指南和 [评分协议](reference/MODE5_RELEASE_PROTOCOL.md)。
 
-## Limitations
+## 运行与结果配置
 
-- Unity 授权与 Docker preflight 必须通过；环境失败不能记作模型 0 分。
-- 代理总分不等于论文官方总分；Visual 是实现对应证据分，可在运行时义务全部验证时取得 15/15，不能解释为感知或美学相似度。
-- Community 环境标记 `paper_compatible=false`；完整模式均分要求固定 41 游戏全部完成测量。
+- Unity 授权与 Docker preflight 必须通过；环境失败保留为缺测状态。
+- Visual 按实现对应证据计分，运行时义务全部验证时可取得 15/15。
+- 完整模型均分要求固定 41 游戏全部完成测量，并记录 `community-docker` 环境及评分 registry。
 - Modes 1–3 默认 `2026-09-19.modeN-vlm1`，Mode 4 默认 `2026-09-15.mode4-redesign1`。
   原始提交、固定任务包与评分配置应随结果保留。
 

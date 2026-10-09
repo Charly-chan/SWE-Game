@@ -35,13 +35,13 @@ Static evidence is captured before candidate execution. The evaluator never trus
 
 Visible materials include the Godot source, GDD, assets, reference video, Unity scaffold, SDK, interface contract and environment lock. Hidden suites, controller code and private credentials remain evaluator-owned. The candidate must create a native Unity project and `ops.json`; bundling a Godot runtime is forbidden.
 
-The generated package contains the calibrated Mode 5 suite contract from `data/mode5`. It does not contain Unity Editor archives or license state. The matching HF bundles must be published before end users can generate the final fixed packages.
+The runner downloads the fixed packages from the pinned Hugging Face dataset revision and verifies their checksums. Packages for all 41 games contain the Community scaffold and calibrated Mode 5 suite contract. Unity Editor archives and license state are installed separately by setup and doctor.
 
 ## Release score
 
-The only release registry is `2026-10.mode5-evidence-five-visual1`. It publishes a five-component evidence-adjusted proxy with weights Mechanics 35, Playability 25, Structure 15, Visual 15 and Stability 10. Visual uses evaluator-owned `visual_implementation_correspondence` measurements from runtime captures, with discounted Editor/static/presence fallback evidence. No VLM is called, and the metric does not measure perceptual or aesthetic similarity. Reports set `paper_compatible=false` and `official_total=null`.
+The only release registry is `2026-10.mode5-evidence-five-visual1`. It publishes a five-component evidence-adjusted score with weights Mechanics 35, Playability 25, Structure 15, Visual 15 and Stability 10. Visual uses evaluator-owned `visual_implementation_correspondence` measurements from runtime captures, with discounted Editor/static/presence fallback evidence. No VLM is called, and the metric does not measure perceptual or aesthetic similarity. The output fields are documented in the [output contract](OUTPUT_CONTRACT.md).
 
-A strict runtime outcome is reported separately from proxy points. Missing runtime evidence remains missing; static evidence is discounted and never silently promoted to runtime credit. See [Mode 5 scoring](MODE5_SCORING.md) and the [English protocol](MODE5_RELEASE_PROTOCOL.md).
+A strict runtime outcome is reported separately from score points. Missing runtime evidence remains missing; static evidence is discounted and never silently promoted to runtime credit. See [Mode 5 scoring](MODE5_SCORING.md) and the [English protocol](MODE5_RELEASE_PROTOCOL.md).
 
 ## Harbor
 
