@@ -3,7 +3,7 @@
     "kind": "compact_real_unity_trace_replay_fixture",
     "scope": "observer_conformance_not_game_calibration",
     "sha256": "d1f80de33ebd78b6f13c9905b8d944937718a2ea4ca0e6aa2bf8ab3221d1097b",
-    "source": "D:\\gamebench-unity-vm\\evidence\\m5-005-sandbox-20260908T062419Z\\observer-semantic-report.json"
+    "source": "observer-semantic-report.json"
   },
   "report": {
     "bounds": {
