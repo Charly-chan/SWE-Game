@@ -66,12 +66,12 @@ The following tables reproduce **Table 3** of the [paper](https://arxiv.org/html
     </tr>
   </thead>
   <tbody>
-    <tr><td align="left">Qwen3.8 Flash</td><td align="right">21.10</td><td align="right">23.32</td><td align="right">28.38</td><td align="right">40.40</td><td align="right">25.97</td></tr>
+    <tr><td align="left">Qwen3.8&nbsp;Flash</td><td align="right">21.10</td><td align="right">23.32</td><td align="right">28.38</td><td align="right">40.40</td><td align="right">25.97</td></tr>
     <tr><td align="left">Grok4.6</td><td align="right">25.66</td><td align="right">35.34</td><td align="right">61.21</td><td align="right">48.39</td><td align="right">38.19</td></tr>
-    <tr><td align="left">GPT-5.6 Luna</td><td align="right">24.17</td><td align="right">21.29</td><td align="right">55.51</td><td align="right">60.05</td><td align="right">32.60</td></tr>
+    <tr><td align="left">GPT-5.6&nbsp;Luna</td><td align="right">24.17</td><td align="right">21.29</td><td align="right">55.51</td><td align="right">60.05</td><td align="right">32.60</td></tr>
     <tr><td align="left">Opus5</td><td align="right">27.55</td><td align="right">48.26</td><td align="right">80.99</td><td align="right">69.23</td><td align="right"><strong>50.21</strong></td></tr>
-    <tr><td align="left">GLM5.3 Flash</td><td align="right">17.25</td><td align="right">33.07</td><td align="right">44.51</td><td align="right">33.03</td><td align="right">30.29</td></tr>
-    <tr><td align="left">Minimax M3</td><td align="right">25.30</td><td align="right">27.20</td><td align="right">42.65</td><td align="right">32.09</td><td align="right">29.54</td></tr>
+    <tr><td align="left">GLM5.3&nbsp;Flash</td><td align="right">17.25</td><td align="right">33.07</td><td align="right">44.51</td><td align="right">33.03</td><td align="right">30.29</td></tr>
+    <tr><td align="left">Minimax&nbsp;M3</td><td align="right">25.30</td><td align="right">27.20</td><td align="right">42.65</td><td align="right">32.09</td><td align="right">29.54</td></tr>
   </tbody>
 </table>
 
@@ -89,12 +89,12 @@ The following tables reproduce **Table 3** of the [paper](https://arxiv.org/html
     </tr>
   </thead>
   <tbody>
-    <tr><td align="left">Qwen3.8 Flash</td><td align="right">25.07</td><td align="right">32.25</td><td align="right">64.75</td><td align="right">49.61</td><td align="right">37.35</td></tr>
+    <tr><td align="left">Qwen3.8&nbsp;Flash</td><td align="right">25.07</td><td align="right">32.25</td><td align="right">64.75</td><td align="right">49.61</td><td align="right">37.35</td></tr>
     <tr><td align="left">Grok4.6</td><td align="right">28.66</td><td align="right">53.58</td><td align="right">59.60</td><td align="right">60.20</td><td align="right">48.55</td></tr>
-    <tr><td align="left">GPT-5.6 Luna</td><td align="right">31.52</td><td align="right">53.52</td><td align="right">76.57</td><td align="right">67.06</td><td align="right">52.67</td></tr>
+    <tr><td align="left">GPT-5.6&nbsp;Luna</td><td align="right">31.52</td><td align="right">53.52</td><td align="right">76.57</td><td align="right">67.06</td><td align="right">52.67</td></tr>
     <tr><td align="left">Opus5</td><td align="right"><strong>32.96</strong></td><td align="right"><strong>61.07</strong></td><td align="right"><strong>91.94</strong></td><td align="right"><strong>75.03</strong></td><td align="right"><strong>59.68</strong></td></tr>
-    <tr><td align="left">GLM5.3 Flash</td><td align="right">26.21</td><td align="right">37.83</td><td align="right">69.45</td><td align="right">45.84</td><td align="right">40.18</td></tr>
-    <tr><td align="left">Minimax M3</td><td align="right">32.84</td><td align="right">38.05</td><td align="right">72.51</td><td align="right">46.19</td><td align="right">42.58</td></tr>
+    <tr><td align="left">GLM5.3&nbsp;Flash</td><td align="right">26.21</td><td align="right">37.83</td><td align="right">69.45</td><td align="right">45.84</td><td align="right">40.18</td></tr>
+    <tr><td align="left">Minimax&nbsp;M3</td><td align="right">32.84</td><td align="right">38.05</td><td align="right">72.51</td><td align="right">46.19</td><td align="right">42.58</td></tr>
   </tbody>
 </table>
 
@@ -113,12 +113,12 @@ The following tables reproduce **Table 3** of the [paper](https://arxiv.org/html
     </tr>
   </thead>
   <tbody>
-    <tr><td align="left">Qwen3.8 Flash</td><td align="right">24.60</td><td align="right">20.99</td><td align="right">65.51</td><td align="right">91.15</td><td align="right">58.40</td><td align="right">39.19</td></tr>
+    <tr><td align="left">Qwen3.8&nbsp;Flash</td><td align="right">24.60</td><td align="right">20.99</td><td align="right">65.51</td><td align="right">91.15</td><td align="right">58.40</td><td align="right">39.19</td></tr>
     <tr><td align="left">Grok4.6</td><td align="right">26.92</td><td align="right">16.03</td><td align="right">80.75</td><td align="right">86.36</td><td align="right">70.08</td><td align="right">40.76</td></tr>
-    <tr><td align="left">GPT-5.6 Luna</td><td align="right">29.57</td><td align="right">17.70</td><td align="right">82.35</td><td align="right">88.44</td><td align="right">73.87</td><td align="right">43.10</td></tr>
+    <tr><td align="left">GPT-5.6&nbsp;Luna</td><td align="right">29.57</td><td align="right">17.70</td><td align="right">82.35</td><td align="right">88.44</td><td align="right">73.87</td><td align="right">43.10</td></tr>
     <tr><td align="left">Opus5</td><td align="right"><strong>36.22</strong></td><td align="right"><strong>36.93</strong></td><td align="right"><strong>93.77</strong></td><td align="right"><strong>94.62</strong></td><td align="right"><strong>78.36</strong></td><td align="right"><strong>54.06</strong></td></tr>
-    <tr><td align="left">GLM5.3 Flash</td><td align="right">22.63</td><td align="right">11.97</td><td align="right">82.70</td><td align="right">79.13</td><td align="right">49.90</td><td align="right">34.38</td></tr>
-    <tr><td align="left">Minimax M3</td><td align="right">21.87</td><td align="right">20.03</td><td align="right">79.09</td><td align="right">74.39</td><td align="right">47.49</td><td align="right">35.69</td></tr>
+    <tr><td align="left">GLM5.3&nbsp;Flash</td><td align="right">22.63</td><td align="right">11.97</td><td align="right">82.70</td><td align="right">79.13</td><td align="right">49.90</td><td align="right">34.38</td></tr>
+    <tr><td align="left">Minimax&nbsp;M3</td><td align="right">21.87</td><td align="right">20.03</td><td align="right">79.09</td><td align="right">74.39</td><td align="right">47.49</td><td align="right">35.69</td></tr>
   </tbody>
 </table>
 
@@ -136,12 +136,12 @@ The following tables reproduce **Table 3** of the [paper](https://arxiv.org/html
     </tr>
   </thead>
   <tbody>
-    <tr><td align="left">Qwen3.8 Flash</td><td align="right">44.40</td><td align="right">98.61</td><td align="right">80.56</td><td align="right">98.61</td><td align="right">26.13</td></tr>
+    <tr><td align="left">Qwen3.8&nbsp;Flash</td><td align="right">44.40</td><td align="right">98.61</td><td align="right">80.56</td><td align="right">98.61</td><td align="right">26.13</td></tr>
     <tr><td align="left">Grok4.6</td><td align="right">56.52</td><td align="right">96.88</td><td align="right">85.94</td><td align="right">99.72</td><td align="right">52.44</td></tr>
-    <tr><td align="left">GPT-5.6 Luna</td><td align="right">69.62</td><td align="right">98.35</td><td align="right">86.08</td><td align="right">99.72</td><td align="right">58.05</td></tr>
+    <tr><td align="left">GPT-5.6&nbsp;Luna</td><td align="right">69.62</td><td align="right">98.35</td><td align="right">86.08</td><td align="right">99.72</td><td align="right">58.05</td></tr>
     <tr><td align="left">Opus5</td><td align="right"><strong>90.18</strong></td><td align="right"><strong>99.51</strong></td><td align="right"><strong>93.17</strong></td><td align="right">99.72</td><td align="right"><strong>83.46</strong></td></tr>
-    <tr><td align="left">GLM5.3 Flash</td><td align="right">44.34</td><td align="right">96.00</td><td align="right">75.51</td><td align="right"><strong>99.85</strong></td><td align="right">27.55</td></tr>
-    <tr><td align="left">Minimax M3</td><td align="right">35.27</td><td align="right">96.05</td><td align="right">76.32</td><td align="right">94.74</td><td align="right">27.36</td></tr>
+    <tr><td align="left">GLM5.3&nbsp;Flash</td><td align="right">44.34</td><td align="right">96.00</td><td align="right">75.51</td><td align="right"><strong>99.85</strong></td><td align="right">27.55</td></tr>
+    <tr><td align="left">Minimax&nbsp;M3</td><td align="right">35.27</td><td align="right">96.05</td><td align="right">76.32</td><td align="right">94.74</td><td align="right">27.36</td></tr>
   </tbody>
 </table>
 
@@ -160,12 +160,12 @@ The following tables reproduce **Table 3** of the [paper](https://arxiv.org/html
     </tr>
   </thead>
   <tbody>
-    <tr><td align="left">Qwen3.8 Flash</td><td align="right">57.31</td><td align="right">50.39</td><td align="right">50.27</td><td align="right">36.78</td><td align="right">55.20</td><td align="right">51.23</td></tr>
+    <tr><td align="left">Qwen3.8&nbsp;Flash</td><td align="right">57.31</td><td align="right">50.39</td><td align="right">50.27</td><td align="right">36.78</td><td align="right">55.20</td><td align="right">51.23</td></tr>
     <tr><td align="left">Grok4.6</td><td align="right">61.71</td><td align="right">50.26</td><td align="right">78.76</td><td align="right">35.40</td><td align="right">77.50</td><td align="right">59.04</td></tr>
-    <tr><td align="left">GPT-5.6 Luna</td><td align="right">63.26</td><td align="right">51.44</td><td align="right">82.87</td><td align="right">31.60</td><td align="right">76.80</td><td align="right">59.85</td></tr>
+    <tr><td align="left">GPT-5.6&nbsp;Luna</td><td align="right">63.26</td><td align="right">51.44</td><td align="right">82.87</td><td align="right">31.60</td><td align="right">76.80</td><td align="right">59.85</td></tr>
     <tr><td align="left">Opus5</td><td align="right"><strong>70.66</strong></td><td align="right"><strong>65.88</strong></td><td align="right"><strong>90.53</strong></td><td align="right"><strong>58.40</strong></td><td align="right"><strong>88.60</strong></td><td align="right"><strong>72.40</strong></td></tr>
-    <tr><td align="left">GLM5.3 Flash</td><td align="right">50.37</td><td align="right">38.32</td><td align="right">63.13</td><td align="right">12.13</td><td align="right">58.30</td><td align="right">44.33</td></tr>
-    <tr><td align="left">Minimax M3</td><td align="right">53.44</td><td align="right">48.31</td><td align="right">42.74</td><td align="right">49.28</td><td align="right">50.32</td><td align="right">49.62</td></tr>
+    <tr><td align="left">GLM5.3&nbsp;Flash</td><td align="right">50.37</td><td align="right">38.32</td><td align="right">63.13</td><td align="right">12.13</td><td align="right">58.30</td><td align="right">44.33</td></tr>
+    <tr><td align="left">Minimax&nbsp;M3</td><td align="right">53.44</td><td align="right">48.31</td><td align="right">42.74</td><td align="right">49.28</td><td align="right">50.32</td><td align="right">49.62</td></tr>
   </tbody>
 </table>
 
