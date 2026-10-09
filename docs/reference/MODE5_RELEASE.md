@@ -20,7 +20,7 @@ The fixed toolchain is Unity 6000.3.23f1, StandaloneLinux64, Mono. `setup` build
 
 ```bash
 ./gb mode5 run --game cat_defense --harness claude --model YOUR_MODEL \
-  --agent-provider codex --out /absolute/results/cat_defense
+  --out /absolute/results/cat_defense
 ./gb mode5 summarize /absolute/results
 ./gb mode5 rejudge --evaluation /absolute/results/cat_defense/evaluation \
   --package /absolute/results/cat_defense/package \

@@ -46,6 +46,11 @@ and [Mode 5 scoring contract](reference/MODE5_SCORING.md).
 
 The README preserves the published values from
 [paper Table 3](https://arxiv.org/html/2609.33678v1#S4.T3).
+The immutable `v1.0.0` tag predates two README-only corrections on `main`
+(`051a971` and `07f5062`). In particular, its Brief-to-Game total column
+includes Design, while the corrected table on `main` omits Design to match the
+paper's published result setting. Use the current README when citing that table;
+the task catalog, evaluator, and scoring code did not change in those commits.
 The result set and downloadable task inventory are versioned as follows:
 
 | Result set or inventory | Total tasks | Bug Repair cases | Scoring configuration |
@@ -64,8 +69,12 @@ release's defaults.
 Preserve the evaluator commit or release tag, pinned dataset revision,
 agent/model version, scoring and judge configuration, input settings, budgets,
 original submissions, and evaluation reports with each benchmark run.
-Container tags with a source revision support repeatable image selection;
-Unity setup records the local image digests.
+Select a revision-suffixed Godot container tag or registry digest and record the
+resolved image ID; the unsuffixed tag is mutable. Unity setup records the local
+agent and evaluator image IDs in its private `image-lock.json`. Preserve the
+lock and selected image IDs with the run record, excluding license material.
+The published `v1.0.0` Godot image has the verified tag
+`ghcr.io/charly-chan/swe-game-public:godot-4.5.1-eb1cad45eef3`.
 
 `python scripts/check_release.py --require-license` checks repository structure,
 documentation links, task inventory, and license presence. Downloads verify

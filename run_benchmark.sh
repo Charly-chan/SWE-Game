@@ -234,8 +234,8 @@ route_summary() {
 if [ "$MODE" = port ] && [ "$PROFILE" = community-docker ]; then
   [ "$EVAL" = on ] || [ "$DRY_RUN" = 1 ] || {
     printf 'error: --profile community-docker requires --eval on\n' >&2; exit 2; }
-  [ "$VISUAL_JUDGE" != local ] || {
-    printf 'error: Mode 5 fidelity judge supports none or vlm, not local\n' >&2; exit 2; }
+  [ "$VISUAL_JUDGE" = none ] || {
+    printf 'error: Mode 5 uses fixed non-VLM evidence; --visual-judge must be none\n' >&2; exit 2; }
   route_summary
   mkdir -p "$OUT/cells"
   if [ "$GAME" = all ]; then
@@ -275,7 +275,8 @@ PY
     [ ! -f "$API_ENV" ] || mode5_args+=(--agent-env-file "$API_ENV")
     [ -z "$AUTH_FILE" ] || mode5_args+=(--agent-auth-file "$AUTH_FILE")
     [ -z "$BUDGET" ] || mode5_args+=(--agent-timeout "$BUDGET")
-    [ "$RESUME" = 0 ] || mode5_args+=(--resume)
+    # The outer run may be resumed while this game has never started.
+    [ "$RESUME" = 0 ] || [ ! -f "$cell/run.json" ] || mode5_args+=(--resume)
     "$HERE/gb" "${mode5_args[@]}"
   done
   if [ "$DRY_RUN" = 1 ]; then
@@ -477,7 +478,7 @@ for row in "${CELL_ROWS[@]}"; do
       gb_ensure_reference_project "$game"
     fi
     GEN_RESUME=()
-    [ "$RESUME" = 1 ] && GEN_RESUME+=(--resume)
+    [ "$RESUME" = 1 ] && [ -f "$cell/run.json" ] && GEN_RESUME+=(--resume)
     "$GB_PYTHON" "$GB_BENCH" run-task-matrix --out "$cell" "${COMMON[@]}" \
       "${GEN_RESUME[@]}" --generate-only $([ "$DRY_RUN" = 1 ] && printf '%s' --agent-dry-run) || gen_rc=$?
   elif [ "$RESUME" = 1 ]; then

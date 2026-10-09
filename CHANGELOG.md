@@ -1,5 +1,14 @@
 # Release notes
 
+## Unreleased
+
+- Make the sharded five-mode runner evaluate by default, propagate shard failures,
+  and require an explicit choice to merge partial results. Mode 5 uses one Unity
+  shard by default; construction-mode runs without VLM evidence are labeled as
+  objective-only.
+- Remove unused experimental navigation files and correct public Mode 5 command
+  examples. Clarify the README result-table corrections made after `v1.0.0`.
+
 ## v1.0.0 — 2026-10-09
 
 - Release 246 tasks over 41 games, with 451 fixed package variants for the supported input settings and automatic checksum-verified downloads.

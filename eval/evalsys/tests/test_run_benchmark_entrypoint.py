@@ -197,6 +197,33 @@ def test_port_community_profile_delegates_to_standalone_mode5_cli(entrypoint):
     assert manifest["paper_compatible"] is False
 
 
+def test_port_resume_only_applies_to_started_game(entrypoint):
+    run, capture, out = entrypoint
+    options = ("--game", "shadow_walker", "--mode", "port", "--resume")
+    first = run(*options)
+    assert first.returncode == 0, first.stderr
+    first_args = [json.loads(line) for line in capture.read_text().splitlines()]
+    assert "--resume" not in first_args[0]
+    cell = out / "cells/shadow_walker__port__codex__m"
+    (cell / "run.json").write_text("{}\n")
+    second = run(*options)
+    assert second.returncode == 0, second.stderr
+    second_args = [json.loads(line) for line in capture.read_text().splitlines()]
+    assert "--resume" in second_args[2]
+
+
+@pytest.mark.parametrize("judge", ["vlm", "local"])
+def test_port_community_profile_rejects_nonprotocol_visual_judge(entrypoint, judge):
+    run, capture, _out = entrypoint
+    result = run(
+        "--game", "shadow_walker", "--mode", "port",
+        "--profile", "community-docker", "--visual-judge", judge,
+    )
+    assert result.returncode == 2
+    assert "--visual-judge must be none" in result.stderr
+    assert not capture.exists()
+
+
 def test_bugfix_does_not_download_an_agent_invisible_reference_movie(entrypoint, tmp_path):
     run, capture, _out = entrypoint
     env_script = tmp_path / "repo/eval/tools/gb_env.sh"

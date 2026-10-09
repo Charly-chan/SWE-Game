@@ -207,7 +207,19 @@ shell 工具调用与返回结果，并记录代理版本及被忽略的参数�
 
 ## 8. 保存与复现
 
-整个 `results/<run_id>/` 目录，按 [`docs/reference/OUTPUT_CONTRACT.md`](reference/OUTPUT_CONTRACT.md)：
+分片运行可用 `bash eval/tools/gb_shard_run.sh --mode brief --model MODEL --out results/brief`，
+五模式顺序运行可用 `bash run_five_modes.sh codex MODEL results/all-modes`。
+分片默认评测；模式 1–4 默认使用正式的 `unshare` 环境，若明确使用 Docker，
+设置 `GB_GODOT_SANDBOX=docker`（五模式脚本）或传 `--sandbox docker`（单模式脚本）。
+Mode 5 始终使用 Community Docker，默认只并行运行一个 Unity 分片；
+只有在许可及机器容量允许时才设置 `GB_MODE5_JOBS`。Mode 1–3 默认没有 VLM
+判读，结果只含客观读数，`weighted_total.score` 仍为空，不能作为完整总分排名。
+某个分片失败时脚本返回非零；`--merge` 要求所有预期分片完成，
+仅需查看已完成部分时显式传 `--allow-partial`。合并目录中的 cell 是指向
+`shards/` 的符号链接；归档时保存整个分片输出根目录，而非只保存 `merged/`。
+
+保留整个 `results/<run_id>/` 目录，内容遵循
+[`docs/reference/OUTPUT_CONTRACT.md`](reference/OUTPUT_CONTRACT.md)：
 
 - `run.json`、`summary.csv`、`summary.json`、`leaderboard.md`
 - 每格 `cells/<game>__<mode>__<harness>__<model>[__<case_id>]/`：
