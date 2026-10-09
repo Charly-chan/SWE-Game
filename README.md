@@ -3,6 +3,7 @@
 # SWE-Game: Can Coding Agents Build the Games We Want?
 
 [![arXiv](https://img.shields.io/badge/arXiv-2609.33678-b31b1b.svg)](https://arxiv.org/abs/2609.33678)
+[![HF Papers](https://img.shields.io/badge/%F0%9F%A4%97%20HF%20Papers-SWE--Game-ffd21e)](https://huggingface.co/papers/2609.33678)
 [![Dataset](https://img.shields.io/badge/🤗%20Dataset-SWE--Game-yellow)](https://huggingface.co/datasets/Charly-chan/SWE-Game)
 [![License](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
 
@@ -53,58 +54,120 @@ The following tables reproduce **Table 3** of the [paper](https://arxiv.org/html
 
 ### Brief-to-Game
 
-| Model | Mechanics | Content | Playability | VLM | Total |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| Qwen3.8 Flash | 21.10 | 23.32 | 28.38 | 40.40 | 25.97 |
-| Grok4.6 | 25.66 | 35.34 | 61.21 | 48.39 | 38.19 |
-| GPT-5.6 Luna | 24.17 | 21.29 | 55.51 | 60.05 | 32.60 |
-| Opus5 | 27.55 | 48.26 | 80.99 | 69.23 | **50.21** |
-| GLM5.3 Flash | 17.25 | 33.07 | 44.51 | 33.03 | 30.29 |
-| Minimax M3 | 25.30 | 27.20 | 42.65 | 32.09 | 29.54 |
+<table width="820">
+  <thead>
+    <tr>
+      <th align="left" width="170">Model</th>
+      <th align="right" width="145">Mechanics</th>
+      <th align="right" width="145">Content</th>
+      <th align="right" width="145">Playability</th>
+      <th align="right" width="145">VLM</th>
+      <th align="right" width="70">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td align="left">Qwen3.8 Flash</td><td align="right">21.10</td><td align="right">23.32</td><td align="right">28.38</td><td align="right">40.40</td><td align="right">25.97</td></tr>
+    <tr><td align="left">Grok4.6</td><td align="right">25.66</td><td align="right">35.34</td><td align="right">61.21</td><td align="right">48.39</td><td align="right">38.19</td></tr>
+    <tr><td align="left">GPT-5.6 Luna</td><td align="right">24.17</td><td align="right">21.29</td><td align="right">55.51</td><td align="right">60.05</td><td align="right">32.60</td></tr>
+    <tr><td align="left">Opus5</td><td align="right">27.55</td><td align="right">48.26</td><td align="right">80.99</td><td align="right">69.23</td><td align="right"><strong>50.21</strong></td></tr>
+    <tr><td align="left">GLM5.3 Flash</td><td align="right">17.25</td><td align="right">33.07</td><td align="right">44.51</td><td align="right">33.03</td><td align="right">30.29</td></tr>
+    <tr><td align="left">Minimax M3</td><td align="right">25.30</td><td align="right">27.20</td><td align="right">42.65</td><td align="right">32.09</td><td align="right">29.54</td></tr>
+  </tbody>
+</table>
 
 ### GDD-to-Game
 
-| Model | Mechanics | Content | Playability | VLM | Total |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| Qwen3.8 Flash | 25.07 | 32.25 | 64.75 | 49.61 | 37.35 |
-| Grok4.6 | 28.66 | 53.58 | 59.60 | 60.20 | 48.55 |
-| GPT-5.6 Luna | 31.52 | 53.52 | 76.57 | 67.06 | 52.67 |
-| Opus5 | **32.96** | **61.07** | **91.94** | **75.03** | **59.68** |
-| GLM5.3 Flash | 26.21 | 37.83 | 69.45 | 45.84 | 40.18 |
-| Minimax M3 | 32.84 | 38.05 | 72.51 | 46.19 | 42.58 |
+<table width="820">
+  <thead>
+    <tr>
+      <th align="left" width="170">Model</th>
+      <th align="right" width="145">Mechanics</th>
+      <th align="right" width="145">Content</th>
+      <th align="right" width="145">Playability</th>
+      <th align="right" width="145">VLM</th>
+      <th align="right" width="70">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td align="left">Qwen3.8 Flash</td><td align="right">25.07</td><td align="right">32.25</td><td align="right">64.75</td><td align="right">49.61</td><td align="right">37.35</td></tr>
+    <tr><td align="left">Grok4.6</td><td align="right">28.66</td><td align="right">53.58</td><td align="right">59.60</td><td align="right">60.20</td><td align="right">48.55</td></tr>
+    <tr><td align="left">GPT-5.6 Luna</td><td align="right">31.52</td><td align="right">53.52</td><td align="right">76.57</td><td align="right">67.06</td><td align="right">52.67</td></tr>
+    <tr><td align="left">Opus5</td><td align="right"><strong>32.96</strong></td><td align="right"><strong>61.07</strong></td><td align="right"><strong>91.94</strong></td><td align="right"><strong>75.03</strong></td><td align="right"><strong>59.68</strong></td></tr>
+    <tr><td align="left">GLM5.3 Flash</td><td align="right">26.21</td><td align="right">37.83</td><td align="right">69.45</td><td align="right">45.84</td><td align="right">40.18</td></tr>
+    <tr><td align="left">Minimax M3</td><td align="right">32.84</td><td align="right">38.05</td><td align="right">72.51</td><td align="right">46.19</td><td align="right">42.58</td></tr>
+  </tbody>
+</table>
 
 ### Skeleton Completion
 
-| Model | Mechanics | Content | Playability | Scaffold | VLM | Total |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Qwen3.8 Flash | 24.60 | 20.99 | 65.51 | 91.15 | 58.40 | 39.19 |
-| Grok4.6 | 26.92 | 16.03 | 80.75 | 86.36 | 70.08 | 40.76 |
-| GPT-5.6 Luna | 29.57 | 17.70 | 82.35 | 88.44 | 73.87 | 43.10 |
-| Opus5 | **36.22** | **36.93** | **93.77** | **94.62** | **78.36** | **54.06** |
-| GLM5.3 Flash | 22.63 | 11.97 | 82.70 | 79.13 | 49.90 | 34.38 |
-| Minimax M3 | 21.87 | 20.03 | 79.09 | 74.39 | 47.49 | 35.69 |
+<table width="820">
+  <thead>
+    <tr>
+      <th align="left" width="170">Model</th>
+      <th align="right" width="116">Mechanics</th>
+      <th align="right" width="116">Content</th>
+      <th align="right" width="116">Playability</th>
+      <th align="right" width="116">Scaffold</th>
+      <th align="right" width="116">VLM</th>
+      <th align="right" width="70">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td align="left">Qwen3.8 Flash</td><td align="right">24.60</td><td align="right">20.99</td><td align="right">65.51</td><td align="right">91.15</td><td align="right">58.40</td><td align="right">39.19</td></tr>
+    <tr><td align="left">Grok4.6</td><td align="right">26.92</td><td align="right">16.03</td><td align="right">80.75</td><td align="right">86.36</td><td align="right">70.08</td><td align="right">40.76</td></tr>
+    <tr><td align="left">GPT-5.6 Luna</td><td align="right">29.57</td><td align="right">17.70</td><td align="right">82.35</td><td align="right">88.44</td><td align="right">73.87</td><td align="right">43.10</td></tr>
+    <tr><td align="left">Opus5</td><td align="right"><strong>36.22</strong></td><td align="right"><strong>36.93</strong></td><td align="right"><strong>93.77</strong></td><td align="right"><strong>94.62</strong></td><td align="right"><strong>78.36</strong></td><td align="right"><strong>54.06</strong></td></tr>
+    <tr><td align="left">GLM5.3 Flash</td><td align="right">22.63</td><td align="right">11.97</td><td align="right">82.70</td><td align="right">79.13</td><td align="right">49.90</td><td align="right">34.38</td></tr>
+    <tr><td align="left">Minimax M3</td><td align="right">21.87</td><td align="right">20.03</td><td align="right">79.09</td><td align="right">74.39</td><td align="right">47.49</td><td align="right">35.69</td></tr>
+  </tbody>
+</table>
 
 ### Bug Repair
 
-| Model | Restoration | Retained routes | Preservation contracts | Validity gates | Total |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| Qwen3.8 Flash | 44.40 | 98.61 | 80.56 | 98.61 | 26.13 |
-| Grok4.6 | 56.52 | 96.88 | 85.94 | 99.72 | 52.44 |
-| GPT-5.6 Luna | 69.62 | 98.35 | 86.08 | 99.72 | 58.05 |
-| Opus5 | **90.18** | **99.51** | **93.17** | 99.72 | **83.46** |
-| GLM5.3 Flash | 44.34 | 96.00 | 75.51 | **99.85** | 27.55 |
-| Minimax M3 | 35.27 | 96.05 | 76.32 | 94.74 | 27.36 |
+<table width="820">
+  <thead>
+    <tr>
+      <th align="left" width="170">Model</th>
+      <th align="right" width="145">Restoration</th>
+      <th align="right" width="145">Retained<br>routes</th>
+      <th align="right" width="145">Preservation<br>contracts</th>
+      <th align="right" width="145">Validity<br>gates</th>
+      <th align="right" width="70">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td align="left">Qwen3.8 Flash</td><td align="right">44.40</td><td align="right">98.61</td><td align="right">80.56</td><td align="right">98.61</td><td align="right">26.13</td></tr>
+    <tr><td align="left">Grok4.6</td><td align="right">56.52</td><td align="right">96.88</td><td align="right">85.94</td><td align="right">99.72</td><td align="right">52.44</td></tr>
+    <tr><td align="left">GPT-5.6 Luna</td><td align="right">69.62</td><td align="right">98.35</td><td align="right">86.08</td><td align="right">99.72</td><td align="right">58.05</td></tr>
+    <tr><td align="left">Opus5</td><td align="right"><strong>90.18</strong></td><td align="right"><strong>99.51</strong></td><td align="right"><strong>93.17</strong></td><td align="right">99.72</td><td align="right"><strong>83.46</strong></td></tr>
+    <tr><td align="left">GLM5.3 Flash</td><td align="right">44.34</td><td align="right">96.00</td><td align="right">75.51</td><td align="right"><strong>99.85</strong></td><td align="right">27.55</td></tr>
+    <tr><td align="left">Minimax M3</td><td align="right">35.27</td><td align="right">96.05</td><td align="right">76.32</td><td align="right">94.74</td><td align="right">27.36</td></tr>
+  </tbody>
+</table>
 
 ### Godot-to-Unity Porting
 
-| Model | Mechanics | Playability | Structure | Visual | Stability | Total |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Qwen3.8 Flash | 57.31 | 50.39 | 50.27 | 36.78 | 55.20 | 51.23 |
-| Grok4.6 | 61.71 | 50.26 | 78.76 | 35.40 | 77.50 | 59.04 |
-| GPT-5.6 Luna | 63.26 | 51.44 | 82.87 | 31.60 | 76.80 | 59.85 |
-| Opus5 | **70.66** | **65.88** | **90.53** | **58.40** | **88.60** | **72.40** |
-| GLM5.3 Flash | 50.37 | 38.32 | 63.13 | 12.13 | 58.30 | 44.33 |
-| Minimax M3 | 53.44 | 48.31 | 42.74 | 49.28 | 50.32 | 49.62 |
+<table width="820">
+  <thead>
+    <tr>
+      <th align="left" width="170">Model</th>
+      <th align="right" width="116">Mechanics</th>
+      <th align="right" width="116">Playability</th>
+      <th align="right" width="116">Structure</th>
+      <th align="right" width="116">Visual</th>
+      <th align="right" width="116">Stability</th>
+      <th align="right" width="70">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td align="left">Qwen3.8 Flash</td><td align="right">57.31</td><td align="right">50.39</td><td align="right">50.27</td><td align="right">36.78</td><td align="right">55.20</td><td align="right">51.23</td></tr>
+    <tr><td align="left">Grok4.6</td><td align="right">61.71</td><td align="right">50.26</td><td align="right">78.76</td><td align="right">35.40</td><td align="right">77.50</td><td align="right">59.04</td></tr>
+    <tr><td align="left">GPT-5.6 Luna</td><td align="right">63.26</td><td align="right">51.44</td><td align="right">82.87</td><td align="right">31.60</td><td align="right">76.80</td><td align="right">59.85</td></tr>
+    <tr><td align="left">Opus5</td><td align="right"><strong>70.66</strong></td><td align="right"><strong>65.88</strong></td><td align="right"><strong>90.53</strong></td><td align="right"><strong>58.40</strong></td><td align="right"><strong>88.60</strong></td><td align="right"><strong>72.40</strong></td></tr>
+    <tr><td align="left">GLM5.3 Flash</td><td align="right">50.37</td><td align="right">38.32</td><td align="right">63.13</td><td align="right">12.13</td><td align="right">58.30</td><td align="right">44.33</td></tr>
+    <tr><td align="left">Minimax M3</td><td align="right">53.44</td><td align="right">48.31</td><td align="right">42.74</td><td align="right">49.28</td><td align="right">50.32</td><td align="right">49.62</td></tr>
+  </tbody>
+</table>
 
 **Reading the table.** Bold marks the best result in each column within a task. Content includes asset realization; Design assesses the authored GDD; Scaffold assesses completion and integration. For construction tasks, Mechanics includes certified reference-input routes, and Playability covers demonstration validity, feature coverage, and behavior relative to matched no-input controls. Totals follow [Section 3.4](https://arxiv.org/html/2609.33678v1#S3.SS4); Bug Repair totals average per-task products of the component factors.
 
