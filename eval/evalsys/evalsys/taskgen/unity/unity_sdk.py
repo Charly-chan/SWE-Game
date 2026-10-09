@@ -206,7 +206,8 @@ def validate_scaffold_integrity(
             elif path.suffix == ".cs":
                 if path.read_text(encoding="utf-8").strip() != reference.read_text(encoding="utf-8").strip():
                     changed.append(relative)
-            # Vendored package existence/version is verified by Unity import.
+            elif sha256_file(path) != digest:
+                changed.append(relative)
         elif sha256_file(path) != digest:
             changed.append(relative)
 

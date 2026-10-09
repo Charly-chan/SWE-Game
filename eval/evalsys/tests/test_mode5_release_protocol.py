@@ -207,14 +207,13 @@ def test_relocated_report_media_and_markdown_use_final_directory(tmp_path):
     assert (stage / "report.md").read_text(encoding="utf-8") == str(out / "media.mp4")
 
 
-def test_community_scaffold_tolerates_unity_metadata_without_hash_checks(tmp_path, monkeypatch):
+def test_community_scaffold_tolerates_generated_metadata_and_json_formatting(tmp_path):
     import shutil
     from evalsys.taskgen.unity import unity_sdk as sdk
     reference, candidate = tmp_path / "reference", tmp_path / "candidate"
     shutil.copytree(sdk.TARGET_UNITY_ROOT, reference)
     shutil.copytree(reference, candidate)
-    expected = {name: "unused-legacy-field" for name in sdk.immutable_scaffold_paths(reference)}
-    monkeypatch.setattr(sdk, "sha256_file", lambda path: pytest.fail("Community must not hash files"))
+    expected = sdk.build_scaffold_digest_manifest(reference, sdk.immutable_scaffold_paths(reference))
     generated = candidate / "Assets/GameBenchmarkSDK/GameBenchmarkInput.inputactions.meta"
     generated.write_text("Unity generated metadata\n", encoding="utf-8")
     lock = candidate / "Packages/packages-lock.json"
@@ -225,6 +224,21 @@ def test_community_scaffold_tolerates_unity_metadata_without_hash_checks(tmp_pat
     source = candidate / "Assets/GameBenchmarkSDK/GBEntity.cs"
     source.write_text("changed SDK interface", encoding="utf-8")
     assert not sdk.validate_scaffold_integrity(candidate, expected, reference_project=reference).ok
+
+
+def test_community_scaffold_rejects_replaced_vendored_package(tmp_path):
+    import shutil
+    from evalsys.taskgen.unity import unity_sdk as sdk
+    reference, candidate = tmp_path / "reference", tmp_path / "candidate"
+    shutil.copytree(sdk.TARGET_UNITY_ROOT, reference)
+    shutil.copytree(reference, candidate)
+    expected = sdk.build_scaffold_digest_manifest(reference, sdk.immutable_scaffold_paths(reference))
+    assert sdk.validate_scaffold_integrity(candidate, expected, reference_project=reference).ok
+    relative = "Packages/com.unity.inputsystem-1.14.2.tgz"
+    (candidate / relative).write_bytes(b"replaced dependency payload")
+    report = sdk.validate_scaffold_integrity(candidate, expected, reference_project=reference)
+    assert not report.ok
+    assert report.changed == (relative,)
 
 
 def test_agent_license_probe_does_not_create_project_in_task_workspace(tmp_path, monkeypatch):

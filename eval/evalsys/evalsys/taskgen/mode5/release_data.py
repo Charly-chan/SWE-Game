@@ -30,32 +30,6 @@ def load_released_suite(root: Path, game_id: str) -> tuple[dict, dict]:
     return values[0], values[1]
 
 
-def install_released_suite(package, root: Path) -> None:
-    """Replace only Mode 5's hidden runtime contract in a fixed task package."""
-    from ..package import sha256_file, write_json
-    game_id = package.manifest['game_id']
-    suite, gate = load_released_suite(root, game_id)
-    if not suite_ready(suite, gate, game_id):
-        raise ValueError('Mode 5 release has no matching calibration')
-    destination = package.hidden / 'unity/behavior'
-    write_json(destination / 'suite.json', suite)
-    write_json(destination / 'calibration_status.json', gate)
-    release = json.loads((root / 'data/mode5/manifest.json').read_text(encoding='utf-8'))
-    package.manifest['mode5_data'] = {
-        'version': release['version'], 'source_commit': release['source_commit'],
-        'manifest_sha256': sha256_file(root / 'data/mode5/manifest.json'),
-        'suite_digest': suite['content_digest'],
-        'suite_sha256': sha256_file(destination / 'suite.json'),
-        'calibration_sha256': sha256_file(destination / 'calibration_status.json'),
-    }
-    task = package.manifest.setdefault('registered_task', {})
-    task['unity_suite'] = {
-        'status': suite['status'], 'runtime_ready': suite['runtime_ready'],
-        'scenario_count': len(suite.get('scenarios') or []), 'blockers': suite.get('blockers', []),
-    }
-    package.write_manifest()
-
-
 def validate_released_package(package, root: Path) -> None:
     """Runtime validation; authoring changes belong in the published HF bundle."""
     from ..package import sha256_file

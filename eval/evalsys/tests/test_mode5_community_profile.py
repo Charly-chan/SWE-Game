@@ -9,7 +9,6 @@ import pytest
 from evalsys.taskgen.mode5.community_profile import (
     CommunityProfileError, PROFILE_ID, load_profile, task_environment_lock,
 )
-from evalsys.taskgen.package import sha256_file
 from evalsys.taskgen.mode5.docker_evaluator import _runtime_profile
 from evalsys.taskgen.mode5.docker_license import LicenseProvider
 from evalsys.taskgen.unity.unity_environment import coerce_environment_profile
@@ -36,18 +35,6 @@ def test_task_environment_lock_has_requirements_not_host_state():
     assert lock["required_self_checks"] == ["import", "compile", "player_build"]
     assert "image" not in repr(lock).lower()
     assert "license" not in repr(lock).lower()
-
-
-def test_community_environment_explains_long_unity_selfcheck(tmp_path):
-    from evalsys.taskgen.mode5.package_release import _write_mode5_environment_declaration
-
-    _write_mode5_environment_declaration(tmp_path, community_scaffold=True)
-    guidance = (tmp_path / "ENVIRONMENT.md").read_text(encoding="utf-8")
-    assert "gb-unity check" in guidance
-    assert "per-command timeout" in guidance
-    assert "poll for its actual exit code" in guidance
-    assert "not a C# compiler result" in guidance
-    assert "evaluator starts only after the Agent exits" in guidance
 
 
 def test_agent_image_installs_public_unity_selfcheck_tool():
@@ -131,18 +118,6 @@ def test_public_unity_builder_obeys_declared_backend():
     assert "GB_UNITY_SCRIPTING_BACKEND" in builder
     assert "ScriptingImplementation.Mono2x" in builder
     assert "ScriptingImplementation.IL2CPP" in builder
-
-
-def test_generated_mode5_manifest_pins_public_environment_lock(tmp_path, monkeypatch):
-    from evalsys.taskgen.mode5 import package_release as authoring
-
-    visible = tmp_path / "visible"
-    visible.mkdir()
-    authoring._write_mode5_environment_declaration(visible)
-    lock = visible / "environment.lock.json"
-    row = {"path": "visible/environment.lock.json", "sha256": sha256_file(lock)}
-    assert row["sha256"] == sha256_file(lock)
-    assert len(row["sha256"]) == 64
 
 
 def test_profile_rejects_paper_compatible_claim(tmp_path):

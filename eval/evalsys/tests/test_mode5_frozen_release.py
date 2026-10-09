@@ -1,33 +1,21 @@
 import json
-import shutil
 
 import pytest
 
 from evalsys.taskgen import generate
-from evalsys.taskgen.mode5.package_release import prepare_scaffold
 from evalsys.taskgen.mode5 import release_data
 from evalsys.taskgen.mode5.community_profile import load_default_profile, task_environment_lock
 from evalsys.taskgen.package import write_json, sha256_file
-from evalsys.taskgen.unity.unity_sdk import TARGET_UNITY_ROOT, validate_scaffold_integrity
+from evalsys.taskgen.unity.unity_sdk import validate_scaffold_integrity
 from evalsys.taskgen.unity.unity_suite_compiler import suite_content_digest
 
 
-def test_frozen_port_install_adapts_scaffold_and_pins_environment(tmp_path, monkeypatch):
+def test_frozen_port_install_preserves_released_scaffold_and_environment(tmp_path, monkeypatch):
     calls = []
+    published_install = generate.install_task
     def install(game, variant, dest):
         calls.append((game, variant))
-        shutil.copytree(TARGET_UNITY_ROOT, dest / 'visible/target_unity')
-        (dest / 'hidden/unity').mkdir(parents=True)
-        write_json(dest / 'hidden/unity/scaffold_integrity.json', {'candidate_mutable': ['Assets/Game/**']})
-        write_json(dest / 'manifest.json', {'schema_version': 1, 'mode': 'port', 'game_id': game})
-        for name in ('HANDOFF.md', 'PROMPT.md', 'visible/PROMPT.md'):
-            (dest / name).write_text('Frozen port task\n', encoding='utf-8')
-        # The publisher builds these fixed bytes; runtime generation only
-        # installs them and verifies the pinned release identity.
-        package = generate.TaskPackage.read(dest)
-        release_data.install_released_suite(package, generate.ROOT)
-        prepare_scaffold(package)
-    monkeypatch.setattr(generate, 'load_manifest', lambda: {'games': {'shadow_walker': {'cases': []}}})
+        published_install(game, variant, dest)
     monkeypatch.setattr(generate, 'install_task', install)
     monkeypatch.setattr(generate, 'freeze_visual_rubric', lambda *a: None)
     package = generate.generate_task('shadow_walker', mode='port', out=tmp_path / 'task')
@@ -43,7 +31,12 @@ def test_frozen_port_install_adapts_scaffold_and_pins_environment(tmp_path, monk
     assert interface['scaffold_digest'] == integrity['scaffold_digest']
     dependencies = json.loads((project / 'Packages/manifest.json').read_text(encoding='utf-8'))['dependencies']
     assert dependencies['com.unity.ugui'] == '2.0.0'
-    assert 'gb-unity check' in (package.visible / 'ENVIRONMENT.md').read_text(encoding='utf-8')
+    guidance = (package.visible / 'ENVIRONMENT.md').read_text(encoding='utf-8')
+    assert 'gb-unity check' in guidance
+    assert 'per-command timeout' in guidance
+    assert 'poll for its actual exit code' in guidance
+    assert 'not a C# compiler result' in guidance
+    assert 'evaluator starts only after the Agent exits' in guidance
     assert (package.root / 'PROMPT.md').read_bytes() == (package.visible / 'PROMPT.md').read_bytes()
 
 
