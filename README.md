@@ -292,18 +292,20 @@ Project-owned benchmark code and documentation are licensed under [Apache-2.0](L
 Reference games, assets, recordings, and reused code retain their component licenses;
 see [third-party notices](THIRD_PARTY_NOTICES.md).
 
+## Contact
+For questions or collaborations, you can contact:
+- Lai Wei: waltonfuture@sjtu.edu.cn
+- Weiran Huang: weiran.huang@sjtu.edu.cn
+
 ## Citation
 
 If you use SWE-Game, please cite the [paper](https://arxiv.org/abs/2609.33678):
 
 ```bibtex
-@misc{chen2026swegame,
-  title         = {{SWE-Game}: Can Coding Agents Build the Games We Want?},
-  author        = {Xiaoyu Chen and Lai Wei and Jin Wang and Xiangyu Zou and Ruochen Fan and Enze Luo and Mingzhe Yao and Jiahui Zhu and Yuhua Wen and Linghe Kong and Weiran Huang},
-  year          = {2026},
-  eprint        = {2609.33678},
-  archivePrefix = {arXiv},
-  primaryClass  = {cs.AI},
-  url           = {https://arxiv.org/abs/2609.33678}
+@article{chen2026swe,
+  title={SWE-Game: Can Coding Agents Build the Games We Want?},
+  author={Chen, Xiaoyu and Wei, Lai and Wang, Jin and Zou, Xiangyu and Fan, Ruochen and Luo, Enze and Yao, Mingzhe and Zhu, Jiahui and Wen, Yuhua and Kong, Linghe and others},
+  journal={arXiv preprint arXiv:2609.33678},
+  year={2026}
 }
 ```
