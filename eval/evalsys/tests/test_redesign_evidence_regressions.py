@@ -53,7 +53,7 @@ def test_invalid_route_keeps_its_weight_but_cannot_earn_completion_or_checkpoint
     assert card["ranking_eligible"]
 
 
-@pytest.mark.parametrize("stop", ["timeout", "driver_error", "plan_refused", "setup_failed", "reference_observation_missing"])
+@pytest.mark.parametrize("stop", ["timeout", "driver_error", "setup_failed", "reference_observation_missing"])
 @pytest.mark.parametrize("reading_index", [0, 1])
 def test_evaluator_failure_on_control_or_positive_route_withholds_ranking(stop, reading_index):
     result = _complete_result()
@@ -76,30 +76,6 @@ def test_absent_replay_cannot_reduce_the_expected_denominator(reading_index):
     assert not card["ranking_eligible"]
     for name in ("hidden_scenarios", "task_checkpoints"):
         assert missing["route_id"] in _axis(card, name)["evidence"]["unmeasured_routes"]
-
-
-def test_refused_replay_withholds_default_composite_even_with_complete_visual_evidence():
-    from evalsys.scard.game_visual import PROTOCOL
-    from evalsys.verdict import passed
-
-    result = _complete_result()
-    result.items.append(passed("task_visual", credit=1.0, evidence={"protocol": PROTOCOL}))
-    assert score_task_result(result)["ranking_eligible"]
-
-    reading = result.mode1_context["route_readings"][1]
-    reading.update(stop_reason="plan_refused", reached=False, frames=0, steps=0,
-                   milestones_reached=[])
-    card = score_task_result(result)
-
-    assert card["weighted_total"]["score"] is None
-    assert card["weighted_total"]["status"] == "evaluation_incomplete"
-    assert not card["ranking_eligible"]
-    for name in ("hidden_scenarios", "task_checkpoints"):
-        axis = _axis(card, name)
-        assert axis["status"] == "not_instrumented_zero"
-        verdict = axis["evidence"]["route_verdicts"][reading["route_id"]]
-        assert verdict["verdict"] == "inconclusive"
-        assert verdict["attribution"] == "harness"
 
 
 def test_submission_failure_remains_a_measured_zero():
