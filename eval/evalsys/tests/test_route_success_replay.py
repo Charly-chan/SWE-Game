@@ -55,7 +55,7 @@ def test_fixed_success_transaction_uses_declared_tape_cap_not_online_op_cap():
     measured = budget.derive(2, 21.6, declared_steps=240, declared_frames=4000)
     assert measured.ops == 40
     assert runner._authored_op_limit(route, measured) == 240
-    assert runner._authored_op_limit(replace(route, continue_after_success=False), measured) == 40
+    assert runner._authored_op_limit(replace(route, continue_after_success=False), measured) == 240
     assert measured.frames == 4000
     ops = [{"op": "wait", "frames": 1}] * 229
     assert not agent.validate_ops(ops, op_cap=runner._authored_op_limit(route, measured), frame_cap=measured.frames).refusals

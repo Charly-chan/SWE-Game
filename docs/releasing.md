@@ -64,6 +64,36 @@ judge model, environment, input settings, and budget. The published paper table
 remains an attributed experimental result; it is not a new measurement of this
 release's defaults.
 
+## Certified replay correction (issue 11)
+
+Public releases through `157a42b` can reject long certified segment replays
+before gameplay starts. Publication replaced route provenance with `withheld`,
+but replay preflight still depended on the original `E` label to bypass the
+online proposal budget. At the fixed 21.6 ms/frame setting, that budget permits
+40 operations. This rejected 101 of the 192 certified scored routes across 36
+of 41 games; none of the 41 L5 whole-game routes hit this operation-limit bug.
+The registry and certificate hashes matched because the release process updated
+them after the metadata projection. Hash agreement did not test replay behavior.
+
+The correction makes fixed segment replay use its declared operation limit
+regardless of provenance. Whole-game replay keeps its existing frame-bounded
+behavior. Frame limits, action validation, wall deadlines, and online proposal
+budgets remain in force. The existing public task files and dataset revision
+remain usable with the corrected evaluator.
+
+For affected runs, retain the original submissions and reports, update the
+evaluator, and rerun objective evaluation into a new output directory. Inspect
+route readings for `stop_reason: plan_refused` with `over_op_cap`. Recomputing a
+scorecard from those readings cannot recover gameplay that never ran, and the
+coding agent does not need to regenerate the submission.
+
+Such refused replays are evaluator gaps. The default construction scorecards
+mark the affected axes as incomplete, withhold the composite, and set
+`ranking_eligible: false`. Their zero-valued diagnostic contributions are not
+measured submission failures. Keep incomplete reports out of model comparisons
+until the missing measurements have been collected. See
+[issue #11](https://github.com/Charly-chan/SWE-Game/issues/11).
+
 ## Run provenance and verification
 
 Preserve the evaluator commit or release tag, pinned dataset revision,

@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Fix certified replay rejection after public provenance redaction. Frozen
+  segment tapes use their declared step limit independently of provenance;
+  whole-game tapes keep their frame-bounded replay behavior. Frame, action,
+  and wall-time checks remain enforced. Re-evaluate submissions whose route
+  readings contain `plan_refused` with `over_op_cap`; see
+  [replay correction](docs/releasing.md#certified-replay-correction-issue-11).
 - Make the sharded five-mode runner evaluate by default, propagate shard failures,
   and require an explicit choice to merge partial results. Mode 5 uses one Unity
   shard by default; construction-mode runs without VLM evidence are labeled as

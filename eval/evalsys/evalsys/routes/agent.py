@@ -288,7 +288,7 @@ def validate_ops(
                     index,
                     raw_dict,
                     "over_op_cap",
-                    f"the measured render cost affords {op_cap} ops for this route",
+                    f"the operation limit for this route is {op_cap}",
                 )
             )
             continue

@@ -2016,15 +2016,19 @@ class GoldValidation:
         )
 
 
-def _authored_op_limit(route: Route, budget: RouteBudget) -> int | None:
+def _authored_op_limit(route: Route, _budget: RouteBudget) -> int | None:
+    """Use the frozen segment's declared length, independent of its metadata.
 
-    if route.tier == 5 or route.provenance.kind == "E":
+    The measured operation budget is for online proposals. Applying it to a
+    complete authored tape can reject a certified replay before it starts.
+    Public provenance may be redacted without changing execution semantics.
+    Whole-game tapes retain their existing frame-bounded behavior: some
+    certified L5 tapes are longer than their nominal declared step count.
+    All tapes still pass action validation and the frame-budget checks.
+    """
+    if route.tier == 5:
         return None
-    if route.continue_after_success:
-
-
-        return route.budget.steps or budget.ops
-    return budget.ops
+    return route.budget.steps or None
 
 
 def validate_route_on_gold(
