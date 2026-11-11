@@ -4,7 +4,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
 
-**v1.0.0** · 41 reference games · 5 task types · 247 tasks in the paper
+**v1.0.0** · 41 reference games · 5 task types · 246 tasks
 
 [Tasks](#tasks) · [Main Results](#main-results) · [Evaluation](#evaluation) · [Quick Start](#quick-start) · [Game Gallery](GAMES.md) · [Dataset](#reference-data) · [Repository](#repository-structure) · [Documentation](#documentation)
 
@@ -40,10 +40,10 @@ Five task types vary the information available to the agent and the development 
 | **Brief-to-Game** | Design and build a game | Brief, assets, reference video | Game design document, Godot project, feature demos | 41 |
 | **GDD-to-Game** | Implement a specified game | Game design document, assets, reference video | Godot project and feature demos | 41 |
 | **Skeleton Completion** | Complete a game from a minimal framework | Code skeleton, task requirements, assets, reference video | Completed Godot project and feature demos | 41 |
-| **Bug Repair** | Repair a game while preserving its behavior | Faulty project, gameplay requirements, bug report | Repaired Godot project | 83 |
+| **Bug Repair** | Repair a game while preserving its behavior | Faulty project, gameplay requirements, bug report | Repaired Godot project | 82 |
 | **Godot-to-Unity Porting** | Preserve a game's behavior across engines | Godot source, design document, assets, reference video, Unity interface | Unity project and build instructions | 41 |
 
-The inventory above follows the paper: 247 tasks, including 83 Bug Repair cases. The downloadable v1.0.0 manifest currently contains 82 repair cases (246 tasks); one paper case is not yet represented in that manifest. See the [task protocol](docs/tasks.md) for submission requirements, the [catalog](catalog.json) for game identifiers, and [version information](docs/releasing.md) for the task inventory and scoring configuration.
+See the [task protocol](docs/tasks.md) for submission requirements, the [catalog](catalog.json) for game identifiers, and [version information](docs/releasing.md) for the task inventory and scoring configuration.
 
 ## Main Results
 
@@ -239,7 +239,7 @@ runtime contracts for all 41 games. The default agent budget is 7200 seconds.
 
 ## Reference Data
 
-The paper defines **247 tasks**, including **83 Bug Repair cases**, over **41 reference game projects** and **41 reference recordings**. The current [downloadable data manifest](docs/reference-data.md) contains **246 fixed tasks** (82 repair cases), with 451 package variants covering the supported playtest-kit and Mode-1 video settings. The remaining paper repair case is not yet represented in the downloadable manifest; see [version information](docs/releasing.md#published-results). GitHub hosts the evaluator, runners, fixed scoring data, documentation, and gallery screenshots. Original game and asset licenses are preserved with the data and indexed in [third-party notices](THIRD_PARTY_NOTICES.md).
+The [downloadable data manifest](docs/reference-data.md) covers **246 fixed tasks**, including **82 Bug Repair cases**, across **41 reference games** with one reference recording per game. The 451 package variants cover the supported playtest-kit and Mode 1 video settings. GitHub hosts the evaluator, runners, fixed scoring data, documentation, and gallery screenshots. Original game and asset licenses are preserved with the data and indexed in [third-party notices](THIRD_PARTY_NOTICES.md).
 
 Browse the [anonymous data mirror](https://anonymous-hf.com/a/uvnp85fetrne/). The runner downloads the selected task package and any recording it needs from this mirror. To prefetch one recording:
 

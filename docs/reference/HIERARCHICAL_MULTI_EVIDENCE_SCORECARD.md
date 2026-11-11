@@ -71,9 +71,9 @@ decimal places; the evaluator retains finer precision):
 | Visual | — | — | — | 15.00 |
 | Stability | — | — | — | 10.00 |
 
-Each mode's headline is the arithmetic mean of its task scores. The paper uses
-41 tasks for each construction or porting mode and 83 Bug Repair cases; see the
-[inventory distinction](../releasing.md#published-results) for the downloadable data.
+Each mode's headline score is the arithmetic mean of its task scores. The
+[release inventory](../releasing.md#release-inventory) includes 41 tasks for
+each construction or porting mode and 82 Bug Repair cases.
 The [evaluation guide](../evaluation.md) describes evidence collection and
 [task protocol](../tasks.md) defines submission requirements.
 

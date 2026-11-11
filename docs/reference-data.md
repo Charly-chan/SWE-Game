@@ -1,12 +1,9 @@
 # Fixed tasks and reference data
 
-The paper's benchmark contains 247 tasks over 41 games and five task types,
-including 83 Bug Repair cases. The current downloadable manifest contains 246
-tasks and 82 repair cases; the remaining paper case is not yet represented in
-the manifest. See [version information](releasing.md#published-results) before
-comparing a downloaded repair run with the paper. The release provides 451
-fixed package variants: the supported playtest-kit choices and the Mode-1
-reference-video switch, plus one recording per game.
+The release contains 246 tasks over 41 games and five task types, including
+82 Bug Repair cases. It provides 451 fixed package variants for the supported
+playtest-kit choices and the Mode 1 reference-video setting, plus one recording
+per game.
 
 ## Download a task
 

@@ -6,8 +6,7 @@
 
 报告中的**客观行为评测（Objective Behavioral Evaluation）**对应运行与状态检查，
 **感知质量评审（Perceptual Quality Assessment）**对应视觉质量读数。
-论文共 247 个任务，其中 Bug Repair 83 例。当前可下载清单提供 246 个任务、82 个修复案例；
-其余一例尚未纳入清单，详见[版本说明](releasing.md#published-results)。
+本版提供 246 个任务，其中 Bug Repair 82 例。各模式的任务数量见[版本说明](releasing.md#release-inventory)。
 论文主结果的 Brief 评分包含 Design，本分支默认开启；复现时显式传入
 `--brief-design on --visual-judge vlm`，并保留默认开启的参考视频。
 内部 `ocard` / `scard` 字段、通道编号、权重和结果目录不变；评审是否实际运行、

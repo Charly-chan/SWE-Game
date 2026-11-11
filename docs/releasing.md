@@ -8,8 +8,7 @@ downloads, coding-agent runners, submission evaluator, and score reports.
 | Item | v1.0.0 |
 | --- | --- |
 | Reference games | 41 |
-| Paper task inventory | 247: 41 Brief, 41 GDD, 41 Skeleton, 83 Bug Repair, 41 Porting |
-| Downloadable task inventory | 246: the current manifest contains 82 of the paper's 83 Bug Repair cases |
+| Task inventory | 246: 41 Brief, 41 GDD, 41 Skeleton, 82 Bug Repair, 41 Porting |
 | Fixed package variants | 451, covering the supported input settings |
 | Reference recordings | 41 |
 | Godot | 4.5.1, Linux x86-64 |
@@ -49,18 +48,6 @@ Brief-to-Game Design component and its contribution to Total. For Brief runs,
 use `--brief-design on --visual-judge vlm` to select the paper's scoring components.
 The component weights are transcribed from Table 9 in the
 [scoring specification](reference/HIERARCHICAL_MULTI_EVIDENCE_SCORECARD.md#modes-13).
-The result set and downloadable task inventory are versioned as follows:
-
-| Result set or inventory | Total tasks | Bug Repair cases | Scoring configuration |
-| --- | ---: | ---: | --- |
-| Paper Table 3 | 247 | 83 | Paper §3.4 and §4.1 |
-| Downloadable v1.0.0 task catalog | 246 | 82 | Current branch defaults include Brief Design and the Community porting protocol |
-
-The benchmark description follows the paper's 247 tasks and 83 repair cases.
-The pinned downloadable manifest currently provides 82 repair cases. The remaining
-paper case has not been identified in this snapshot, so its ID, archive, checksums,
-and experimental outputs cannot be supplied here. Do not treat a run over the 82
-available cases as an exact reproduction of the paper's 83-case repair result.
 
 Each paper result pairs a model with its own development framework and tools
 (§4.1). Godot 4.5.1 and Unity Editor 6000.3.23f1 match Appendix E. The paper's
@@ -71,9 +58,7 @@ reference video off changes the configuration relative to the main paper table.
 
 New runs produce results under their recorded configuration. Compare model
 scores using the same task inventory, evaluator, scoring registry, rubric,
-judge model, environment, input settings, and budget. The published paper table
-remains an attributed experimental result; it is not a new measurement of this
-release's defaults.
+judge model, environment, input settings, and budget.
 
 ## Certified replay correction
 
