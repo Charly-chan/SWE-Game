@@ -16,9 +16,9 @@ with each result. Scores from different modes or versions have different meaning
 | 4 · Bugfix | `2026-09-15.mode4-redesign1` | Differential repair with integrity and regression factors |
 | 5 · Port | `2026-10.mode5-evidence-five-visual1` | Mechanics 35 + Playability 25 + Structure 15 + Visual 15 + Stability 10 |
 
-Visual judging is disabled by default. Modes 1–3 and 5 retain measured objective
+Visual judging is disabled by default. Modes 1–3 retain measured objective
 scores when VLM evidence is missing; their complete composite remains `null`.
-Mode 4 does not require a visual judge.
+Modes 4 and 5 do not require a VLM judge. Mode 5 collects its own Visual evidence.
 
 ## Modes 1–3
 
@@ -29,9 +29,10 @@ feature do not add coverage. Requirements that were not demonstrated remain in
 the denominator; evaluator failures are recorded as missing measurements.
 
 The VLM uses evaluator-captured candidate gameplay, task-provided reference video,
-asset examples, and the game's rubric. Its groups follow the paper: visible mechanics
-(10%), design and content (18%), functional visual communication (27%),
-and art (45%). Items receive direct continuous 0–1 scores
+asset examples, and the game's rubric. The paper's 41 game-specific rubrics contain
+658 items in four groups: Gameplay Realization (10%), Content Composition (18%),
+Guidance and Feedback (27%), and Visual Presentation (45%). These correspond to
+the serialized M/D/V/A groups. Items receive direct continuous 0–1 scores
 under the rubric’s full, partial, and zero-credit criteria and applicable caps.
 The frozen scoring policy distinguishes missing core relationships from local
 finishing deficiencies using their importance, scope, and severity. The
@@ -51,6 +52,28 @@ on a 0–100 scale.
 
 Mode-specific rules account for the authored design in Brief tasks, specified
 requirements in GDD tasks, and the supplied starting framework in Skeleton tasks.
+Brief Design scoring defaults to on, as in the paper. `--brief-design off` is an
+ablation that removes Design and proportionally rescales the other objective axes
+to 85 points. Rescoring without an override preserves the report's saved setting.
+
+The paper's Table 9 gives these percentages of the final score (rounded to two
+decimal places; the evaluator retains finer precision):
+
+| Component | Brief-to-Game | GDD-to-Game | Skeleton Completion | Godot-to-Unity Porting |
+| --- | ---: | ---: | ---: | ---: |
+| Mechanics | 26.71 | 27.50 | 31.57 | 35.00 |
+| Content | 42.50 | 43.75 | 34.00 | — |
+| Playability | 13.36 | 13.75 | 8.50 | 25.00 |
+| Design | 2.43 | — | — | — |
+| Scaffold | — | — | 10.93 | — |
+| VLM | 15.00 | 15.00 | 15.00 | — |
+| Structure | — | — | — | 15.00 |
+| Visual | — | — | — | 15.00 |
+| Stability | — | — | — | 10.00 |
+
+Each mode's headline is the arithmetic mean of its task scores. The paper uses
+41 tasks for each construction or porting mode and 83 Bug Repair cases; see the
+[inventory distinction](../releasing.md#published-results) for the downloadable data.
 The [evaluation guide](../evaluation.md) describes evidence collection and
 [task protocol](../tasks.md) defines submission requirements.
 

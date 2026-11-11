@@ -29,7 +29,7 @@
 | 英文名称 | 中文名称 | 现有内部字段 | 证据内容 |
 |---|---|---|---|
 | Objective Behavioral Evaluation | 客观行为评测 | `ocard` | 引擎运行、输入响应、状态变化与可观测交付要求的客观检查 |
-| Perceptual Quality Assessment | 感知质量评审 | `scard` | 按可见机制、设计与内容、功能性视觉传达、美术四组评审实际采集画面 |
+| Perceptual Quality Assessment | 感知质量评审 | `scard` | 按玩法实现、内容构成、引导与反馈、视觉呈现四组评审实际采集画面 |
 
 字段拼写、通道编号及 registry 不变；[输出契约](reference/OUTPUT_CONTRACT.md#paper-terminology-and-serialized-fields)
 列明两类读数在文件中的位置。是否测得、是否纳入总分仍服从对应版本的规则。
@@ -89,15 +89,17 @@ JSON 示例、字段与边界见[分段提交协议](tasks.md#feature-demonstrat
 
 ### Brief 的可选 Design 评分
 
-当前 Brief 评测默认使用 `--brief-design off`。Design 指作者 GDD 的质量和接口声明一致性
-（`gdd_quality`、`gdd_interface`），与 VLM 的设计与内容 D 组分别计量。
-开启 `--brief-design on` 时沿用原有约 2.428 分的 Design 权重；关闭时移除这两项，
+当前分支的 Brief 评测默认使用 `--brief-design on`，与论文表 3、表 9 一致。
+Design 指作者 GDD 的质量和接口声明一致性
+（`gdd_quality`、`gdd_interface`），与 VLM 的内容构成 D 组分别计量。
+开启 `--brief-design on` 时沿用原有约 2.43 分的 Design 权重；关闭时移除这两项，
 其余客观项按原比例归一到 85 分，VLM 保持 15 分。关闭的 Design 检查只保留诊断，
 不影响得分、评测完整性或严格通过状态。GDD 文件及其对 brief 的覆盖仍是任务要求。
 
 `evaluate.sh`、`bench eval-task`、`bench run-task-matrix` 和 `run_benchmark.sh`
 都接受该开关。报告的 `brief_design` 字段记录实际设置；批量运行的 `run.json` 固定该设置，
-续跑不能中途切换。对照实验应使用相同的 Design 设置。
+续跑不能中途切换。对照实验应使用相同的 Design 设置。论文主结果包含 Design；
+`--brief-design off` 只用于消融设置。各模式权重见[评分说明](reference/HIERARCHICAL_MULTI_EVIDENCE_SCORECARD.md#modes-13)。
 
 已有报告可以直接重算，无需再次运行引擎或 VLM：
 
@@ -116,10 +118,10 @@ Modes 1–3 默认使用各自的 `2026-09-19.modeN-vlm1`：客观行为占 85 �
 
 | VLM 分组 | 视觉分内部权重 |
 |---|---:|
-| 可见机制（Visible mechanics） | 10% |
-| 设计与内容（Design and content） | 18% |
-| 功能性视觉传达（Functional visual communication） | 27% |
-| 美术（Art） | 45% |
+| 玩法实现（Gameplay Realization，对应 M） | 10% |
+| 内容构成（Content Composition，对应 D） | 18% |
+| 引导与反馈（Guidance and Feedback，对应 V） | 27% |
+| 视觉呈现（Visual Presentation，对应 A） | 45% |
 
 每项依据 rubric 中的完整、部分和零分标准，直接给出连续 0–1 attainment，
 再应用该项实际触发的缺陷上限。`2026-10-08.demonstrated-quality-v4` 沿用较低的直接部分分参照：

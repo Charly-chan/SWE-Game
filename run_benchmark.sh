@@ -53,7 +53,7 @@ evaluate later on a machine that has the evaluator's requirements:
 cell's own model route as the S-card judge and needs that key; local attaches
 image diagnostics without a model.
 
---brief-design defaults to off. In Brief evaluation, on includes the authored
+--brief-design defaults to on, matching the paper. In Brief evaluation, on includes the authored
 GDD quality and interface Design score. Off redistributes its weight across
 the other objective axes, keeping objective/VLM weights at 85/15.
 
@@ -93,7 +93,7 @@ EOF
 GAME="" MODE="" HARNESS="" MODEL="" PROVIDER="auto" BUDGET="" REASONING=high
 KIT=off VISUAL_JUDGE=none CASE_ID="" CONCURRENCY=3 OUT="" DRY_RUN=0 RESUME=0
 REFERENCE_VIDEO=on EVAL=on
-BRIEF_DESIGN=off
+BRIEF_DESIGN=on
 SANDBOX=unshare DOCKER_IMAGE=""
 PROFILE="" MODE5_STATE_DIR="" DOCKER_BIN="${GB_DOCKER_BIN:-docker}"
 while [ $# -gt 0 ]; do

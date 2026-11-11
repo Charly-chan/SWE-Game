@@ -4,7 +4,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
 
-**v1.0.0** · 41 reference games · 5 task types · 246 tasks
+**v1.0.0** · 41 reference games · 5 task types · 247 tasks in the paper
 
 [Tasks](#tasks) · [Main Results](#main-results) · [Evaluation](#evaluation) · [Quick Start](#quick-start) · [Game Gallery](GAMES.md) · [Dataset](#reference-data) · [Repository](#repository-structure) · [Documentation](#documentation)
 
@@ -12,7 +12,7 @@
 
 This benchmark evaluates coding agents across five game development tasks: building games from briefs or design documents, completing code skeletons, repairing bugs, and porting Godot games to Unity.
 
-The benchmark covers **41 reference games** spanning 2D and 3D platforming, action, puzzles, driving, and strategy. Agents receive task-specific requirements and materials; the evaluator runs their submissions, replays player inputs, and assesses game mechanics, progression, playability, and visual quality.
+The benchmark covers **41 reference games** (24 in 2D and 17 in 3D) across **13 gameplay categories**, including platforming, action, puzzles, driving, and strategy. Agents receive task-specific requirements and materials; the evaluator runs their submissions, replays player inputs, and assesses game mechanics, progression, playability, and visual quality.
 
 Use this repository to **run an agent**, **evaluate a submission**, or **reproduce a benchmark run**. See the [data setup guide](docs/reference-data.md) for the task packages, reference projects, assets, and gameplay recordings.
 
@@ -37,13 +37,13 @@ Five task types vary the information available to the agent and the development 
 
 | Task type | Goal | Main agent inputs | Deliverable | Inventory |
 | --- | --- | --- | --- | ---: |
-| **Brief-to-Game** | Design and build a game | Brief, assets, reference video | Game design document and Godot project | 41 |
-| **GDD-to-Game** | Implement a specified game | Game design document, assets, reference video | Godot project | 41 |
-| **Skeleton Completion** | Complete a game from a minimal framework | Code skeleton, task requirements, assets, reference video | Completed Godot project | 41 |
-| **Bug Repair** | Repair a game while preserving its behavior | Faulty project, gameplay requirements, bug report | Repaired Godot project | 82 |
+| **Brief-to-Game** | Design and build a game | Brief, assets, reference video | Game design document, Godot project, feature demos | 41 |
+| **GDD-to-Game** | Implement a specified game | Game design document, assets, reference video | Godot project and feature demos | 41 |
+| **Skeleton Completion** | Complete a game from a minimal framework | Code skeleton, task requirements, assets, reference video | Completed Godot project and feature demos | 41 |
+| **Bug Repair** | Repair a game while preserving its behavior | Faulty project, gameplay requirements, bug report | Repaired Godot project | 83 |
 | **Godot-to-Unity Porting** | Preserve a game's behavior across engines | Godot source, design document, assets, reference video, Unity interface | Unity project and build instructions | 41 |
 
-See the [task protocol](docs/tasks.md) for submission requirements, the [catalog](catalog.json) for game identifiers, and [version information](docs/releasing.md) for the task inventory and scoring configuration.
+The inventory above follows the paper: 247 tasks, including 83 Bug Repair cases. The downloadable v1.0.0 manifest currently contains 82 repair cases (246 tasks); one paper case is not yet represented in that manifest. See the [task protocol](docs/tasks.md) for submission requirements, the [catalog](catalog.json) for game identifiers, and [version information](docs/releasing.md) for the task inventory and scoring configuration.
 
 ## Main Results
 
@@ -55,20 +55,21 @@ The following tables reproduce Table 3 of the accompanying manuscript. Scores ra
   <thead>
     <tr>
       <th align="left" width="170">Model</th>
-      <th align="right" width="145">Mech.</th>
-      <th align="right" width="145">Content</th>
-      <th align="right" width="145">Play.</th>
-      <th align="right" width="145">VLM</th>
+      <th align="right" width="116">Mech.</th>
+      <th align="right" width="116">Content</th>
+      <th align="right" width="116">Play.</th>
+      <th align="right" width="116">Design</th>
+      <th align="right" width="116">VLM</th>
       <th align="right" width="70">Total</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td align="left">Qwen3.8&nbsp;Flash</td><td align="right">21.10</td><td align="right">23.32</td><td align="right">28.38</td><td align="right">40.40</td><td align="right">25.97</td></tr>
-    <tr><td align="left">Grok4.6</td><td align="right">25.66</td><td align="right">35.34</td><td align="right">61.21</td><td align="right">48.39</td><td align="right">38.19</td></tr>
-    <tr><td align="left">GPT-5.6&nbsp;Luna</td><td align="right">24.17</td><td align="right">21.29</td><td align="right">55.51</td><td align="right">60.05</td><td align="right">32.60</td></tr>
-    <tr><td align="left">Opus5</td><td align="right">27.55</td><td align="right">48.26</td><td align="right">80.99</td><td align="right">69.23</td><td align="right"><strong>50.21</strong></td></tr>
-    <tr><td align="left">GLM5.3&nbsp;Flash</td><td align="right">17.25</td><td align="right">33.07</td><td align="right">44.51</td><td align="right">33.03</td><td align="right">30.29</td></tr>
-    <tr><td align="left">Minimax&nbsp;M3</td><td align="right">25.30</td><td align="right">27.20</td><td align="right">42.65</td><td align="right">32.09</td><td align="right">29.54</td></tr>
+    <tr><td align="left">Qwen3.8&nbsp;Flash</td><td align="right">21.10</td><td align="right">23.32</td><td align="right">28.38</td><td align="right">65.85</td><td align="right">40.40</td><td align="right">27.00</td></tr>
+    <tr><td align="left">Grok4.6</td><td align="right">25.66</td><td align="right">35.34</td><td align="right">61.21</td><td align="right">70.00</td><td align="right">48.39</td><td align="right">39.01</td></tr>
+    <tr><td align="left">GPT-5.6&nbsp;Luna</td><td align="right">24.17</td><td align="right">21.29</td><td align="right">55.51</td><td align="right"><strong>92.68</strong></td><td align="right">60.05</td><td align="right">34.18</td></tr>
+    <tr><td align="left">Opus5</td><td align="right"><strong>27.55</strong></td><td align="right"><strong>48.26</strong></td><td align="right"><strong>80.99</strong></td><td align="right">53.85</td><td align="right"><strong>69.23</strong></td><td align="right"><strong>50.38</strong></td></tr>
+    <tr><td align="left">GLM5.3&nbsp;Flash</td><td align="right">17.25</td><td align="right">33.07</td><td align="right">44.51</td><td align="right">61.33</td><td align="right">33.03</td><td align="right">31.05</td></tr>
+    <tr><td align="left">Minimax&nbsp;M3</td><td align="right">25.30</td><td align="right">27.20</td><td align="right">42.65</td><td align="right">67.50</td><td align="right">32.09</td><td align="right">30.47</td></tr>
   </tbody>
 </table>
 
@@ -173,11 +174,11 @@ The following tables reproduce Table 3 of the accompanying manuscript. Scores ra
 Evaluation combines two evidence domains:
 
 - **Objective Behavioral Evaluation** executes the submitted project and checks input responses, observable mechanics, progression, and mode-specific requirements. Matched no-input controls help determine whether demonstrated behavior depends on player action.
-- **Perceptual Quality Assessment** uses the paper’s four rubric groups: visible mechanics, design and content, functional visual communication, and art.
+- **Perceptual Quality Assessment** uses the paper's four rubric groups: Gameplay Realization, Content Composition, Guidance and Feedback, and Visual Presentation.
 
 The three construction tasks allocate 85 objective points and 15 game-specific VLM points. Bug Repair measures behavioral restoration and preservation. Godot-to-Unity Porting scores Mechanics 35, Playability 25, Structure 15, Visual 15, and Stability 10 using independently collected runtime, Editor, and artifact evidence. Its Visual component measures implementation correspondence, and its leaderboard uses the arithmetic task mean. See the [Mode 5 scoring contract](docs/reference/MODE5_SCORING.md).
 
-For construction tasks, enable `--visual-judge vlm` to obtain the complete score; visual judging is disabled by default. Brief Design scoring is optional: use `--brief-design on` to include authored GDD quality. Mode 5 uses the fixed `2026-10.mode5-evidence-five-visual1` protocol without a VLM. Record the evaluator commit, registry, model, harness, budget, task materials, and input settings with each run. See the [scoring specification](docs/reference/HIERARCHICAL_MULTI_EVIDENCE_SCORECARD.md).
+For construction tasks, enable `--visual-judge vlm` to obtain the complete score; visual judging is disabled by default. Brief Design scoring defaults to on, matching the paper; `--brief-design off` is an ablation with different objective weights. Mode 5 uses the fixed `2026-10.mode5-evidence-five-visual1` protocol without a VLM. Record the evaluator commit, registry, model, harness, budget, task materials, and input settings with each run. Each paper result pairs a model with its development framework, so it measures that configuration. See the [scoring specification](docs/reference/HIERARCHICAL_MULTI_EVIDENCE_SCORECARD.md) for the paper's component weights.
 
 ## Quick Start
 
@@ -238,7 +239,7 @@ runtime contracts for all 41 games. The default agent budget is 7200 seconds.
 
 ## Reference Data
 
-The [task catalog and data manifest](docs/reference-data.md) cover **246 fixed tasks**, **41 reference game projects**, and **41 reference recordings**. The 451 downloadable package variants cover the supported playtest-kit and Mode-1 video settings. GitHub hosts the evaluator, runners, fixed scoring data, documentation, and gallery screenshots. Original game and asset licenses are preserved with the data and indexed in [third-party notices](THIRD_PARTY_NOTICES.md).
+The paper defines **247 tasks**, including **83 Bug Repair cases**, over **41 reference game projects** and **41 reference recordings**. The current [downloadable data manifest](docs/reference-data.md) contains **246 fixed tasks** (82 repair cases), with 451 package variants covering the supported playtest-kit and Mode-1 video settings. The remaining paper repair case is not yet represented in the downloadable manifest; see [version information](docs/releasing.md#published-results). GitHub hosts the evaluator, runners, fixed scoring data, documentation, and gallery screenshots. Original game and asset licenses are preserved with the data and indexed in [third-party notices](THIRD_PARTY_NOTICES.md).
 
 The runner downloads the required data automatically. To prefetch one game and its primary recording:
 

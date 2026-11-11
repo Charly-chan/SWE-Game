@@ -8,7 +8,8 @@ downloads, coding-agent runners, submission evaluator, and score reports.
 | Item | v1.0.0 |
 | --- | --- |
 | Reference games | 41 |
-| Tasks | 246: 41 Brief, 41 GDD, 41 Skeleton, 82 Bug Repair, 41 Porting |
+| Paper task inventory | 247: 41 Brief, 41 GDD, 41 Skeleton, 83 Bug Repair, 41 Porting |
+| Downloadable task inventory | 246: the current manifest contains 82 of the paper's 83 Bug Repair cases |
 | Fixed package variants | 451, covering the supported input settings |
 | Reference recordings | 41 |
 | Godot | 4.5.1, Linux x86-64 |
@@ -24,9 +25,10 @@ packages automatically. See [data downloads](reference-data.md) and
 
 - Brief, GDD, and Skeleton use `2026-09-19.modeN-vlm1`, with 85 objective points
   and 15 VLM points. Enable `--visual-judge vlm` for a complete score.
-- Brief Design scoring defaults to off. `--brief-design on` includes GDD
+- Brief Design scoring defaults to on, matching the paper. It includes GDD
   quality and interface declarations; the GDD submission is required in both
-  settings. Objective weights sum to 85 in either configuration.
+  settings. `--brief-design off` is an ablation; objective weights sum to 85 in
+  either configuration. Rescoring preserves the saved setting unless overridden.
 - Visual rubrics use `2026-10-08.demonstrated-quality-v4`. Applicable items earn
   credit according to what the supplied gameplay evidence demonstrates.
 - Bug Repair uses `2026-09-15.mode4-redesign1` for restoration and preservation.
@@ -42,14 +44,30 @@ and [Mode 5 scoring contract](reference/MODE5_SCORING.md).
 
 ## Published results
 
-The README reproduces Table 3 of the accompanying manuscript. The
-Brief-to-Game total in that table excludes Design.
+The README reproduces Table 3 of the accompanying manuscript, including the
+Brief-to-Game Design component and its contribution to Total. For Brief runs,
+use `--brief-design on --visual-judge vlm` to select the paper's scoring components.
+The component weights are transcribed from Table 9 in the
+[scoring specification](reference/HIERARCHICAL_MULTI_EVIDENCE_SCORECARD.md#modes-13).
 The result set and downloadable task inventory are versioned as follows:
 
 | Result set or inventory | Total tasks | Bug Repair cases | Scoring configuration |
 | --- | ---: | ---: | --- |
 | Paper Table 3 | 247 | 83 | Paper §3.4 and §4.1 |
-| v1.0.0 task catalog | 246 | 82 | Release defaults above, including optional Brief Design and the Community porting protocol |
+| Downloadable v1.0.0 task catalog | 246 | 82 | Current branch defaults include Brief Design and the Community porting protocol |
+
+The benchmark description follows the paper's 247 tasks and 83 repair cases.
+The pinned downloadable manifest currently provides 82 repair cases. The remaining
+paper case has not been identified in this snapshot, so its ID, archive, checksums,
+and experimental outputs cannot be supplied here. Do not treat a run over the 82
+available cases as an exact reproduction of the paper's 83-case repair result.
+
+Each paper result pairs a model with its own development framework and tools
+(§4.1). Godot 4.5.1 and Unity Editor 6000.3.23f1 match Appendix E. The paper's
+construction score includes 85 objective points and 15 VLM points; repair multiplies
+the four factors within each case before averaging. Porting uses the five
+35/25/15/15/10 components and an arithmetic task mean. Turning Design or the
+reference video off changes the configuration relative to the main paper table.
 
 New runs produce results under their recorded configuration. Compare model
 scores using the same task inventory, evaluator, scoring registry, rubric,

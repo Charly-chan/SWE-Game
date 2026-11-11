@@ -146,11 +146,12 @@ Evaluate a generated package and submission with the auto-selected engine:
 ./evaluate.sh /path/to/package /path/to/submission --out /path/to/evaluation
 ```
 
-Brief Design scoring is optional and defaults to off. Add `--brief-design on`
-to score authored GDD quality and interface declarations. The same switch is
+Brief Design scoring defaults to on, matching the paper. Use `--brief-design on`
+to select it explicitly when scoring authored GDD quality and interface declarations. The same switch is
 available on `run_benchmark.sh`. With Design off, the other objective axes are
 proportionally weighted to 85 points and VLM retains 15 points. Reports record
-the setting; GDD submission and brief grounding remain required.
+the setting; GDD submission and brief grounding remain required. Design off is
+an ablation and does not reproduce the main paper table's Brief score.
 
 VLM calls are disabled by default. Modes 1–3 use the corresponding
 `2026-09-19.modeN-vlm1` registry: 85 objective points plus 15 VLM points.

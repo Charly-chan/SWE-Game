@@ -445,7 +445,7 @@ def evaluate_task(
     policy = registry_policy(registry_version, mode=mode.id)
     if mode.id == "brief":
         if brief_design is None:
-            brief_design = not policy.mode1_redesign
+            brief_design = True
         elif not brief_design and not policy.mode1_redesign:
             raise ValueError("--brief-design off requires a Mode-1 redesign or VLM registry")
     else:

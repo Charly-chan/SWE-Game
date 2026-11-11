@@ -26,8 +26,9 @@ The frozen policy provides direct partial-credit references and each item retain
 its declared deficiency ceilings. Apply a ceiling only when its triggering
 condition is observed. The host averages applicable items, including valid zero
 scores, without an exponent or alternative-score conversion. Group weights are
-visible mechanics 10%, design and content 18%, functional visual communication
-27%, and art 45%.
+Gameplay Realization 10%, Content Composition 18%, Guidance and Feedback 27%,
+and Visual Presentation 45%, matching the paper's terminology. The corresponding
+serialized group IDs remain M/D/V/A.
 
 New task packages freeze the policy and rubric version. Rejudging retained
 recordings under this policy produces a new assessment; previously saved

@@ -269,7 +269,7 @@ def test_brief_design_choice_reaches_worker_and_is_frozen(entrypoint, choice):
     options = [] if choice is None else ["--brief-design", choice]
     result = run("--game", "canopy_dash", "--mode", "brief", "--dry-run", *options)
     assert result.returncode == 0, result.stderr
-    expected = choice or "off"
+    expected = choice or "on"
     calls = [json.loads(line) for line in capture.read_text().splitlines()]
     assert calls[0][calls[0].index("--brief-design") + 1] == expected
     assert json.loads((out / "run.json").read_text())["params"]["brief_design"] == expected
@@ -749,14 +749,15 @@ def test_live_eval_off_then_resume_evaluates_once_without_rerunning_agent(live_e
     assert json.loads((out / "run.json").read_text())["params"]["evaluation"] == "on"
 
 
-@pytest.mark.parametrize("options", [(), ("--eval", "on"), ("--brief-design", "on")])
+@pytest.mark.parametrize("options", [(), ("--eval", "on"), ("--brief-design", "on"), ("--brief-design", "off")])
 def test_live_eval_on_and_completed_resume_keep_the_first_report(live_entrypoint, options):
     run, _out, cell = live_entrypoint
     result, events = run(*options)
     assert result.returncode == 0, result.stdout + result.stderr
     assert events == ["generate", "agent", "evaluate"]
     first = (cell / "evaluation/report.json").read_bytes()
-    assert json.loads(first)["brief_design"] is ("--brief-design" in options)
+    expected_design = "--brief-design" not in options or options[options.index("--brief-design") + 1] == "on"
+    assert json.loads(first)["brief_design"] is expected_design
     result, events = run(*options, "--eval", "on", "--resume")
     assert result.returncode == 0, result.stdout + result.stderr
     assert events == ["generate", "agent", "evaluate"]

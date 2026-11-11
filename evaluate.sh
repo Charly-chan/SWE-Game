@@ -31,7 +31,7 @@ scores are continuous 0-1 with caps; q^3 is diagnostic only. Missing VLM reading
 leave an objective contribution and a null composite. Mode 4 defaults to
 2026-09-15.mode4-redesign1; Mode 5 uses the fixed 2026-10.mode5-evidence-five-visual1 registry; older Mode 5 registries are rejected.
 Historical registries remain available with --registry.
-Brief Design scoring defaults to off for current Brief registries. Use
+Brief Design scoring defaults to on, matching the paper. Use
 --brief-design on to score GDD quality and interface declarations. With Design
 off, the remaining objective axes keep their ratios and total 85 points;
 visual quality keeps 15 points. GDD submission and brief grounding remain required.

@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Align the result tables with the submitted manuscript, including Brief Design,
+  all six Brief totals, and the component weights. Enable Brief Design by default
+  for new runs. Distinguish the paper's 247 tasks / 83 repair cases from the
+  downloadable manifest's 246 tasks / 82 repair cases.
 - Fix certified replay rejection after public provenance redaction. Frozen
   segment tapes use their declared step limit independently of provenance;
   whole-game tapes keep their frame-bounded replay behavior. Frame, action,

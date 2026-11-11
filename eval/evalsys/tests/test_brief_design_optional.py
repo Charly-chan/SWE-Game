@@ -102,7 +102,7 @@ def test_disabled_design_does_not_fail_eligibility_but_gdd_is_still_required(tmp
 
 
 @pytest.mark.parametrize("choice", [None, False, True])
-def test_new_evaluation_defaults_off_and_persists_explicit_choice(tmp_path, choice):
+def test_new_evaluation_defaults_on_and_persists_explicit_choice(tmp_path, choice):
     from evalsys.taskgen.package import TaskPackage
     from _interface_fixture import write_conformant_project
 
@@ -117,7 +117,7 @@ def test_new_evaluation_defaults_off_and_persists_explicit_choice(tmp_path, choi
     (sub / "GDD.md").write_text("# Game\nMove to the goal.")
     (sub / "ops.json").write_text(json.dumps({"ops": [{"op": "hold", "action": "gb_right", "frames": 30}]}))
     result = evaluate_task(root, sub, engine="off", brief_design=choice, out=tmp_path / "result")
-    expected = choice is True
+    expected = choice is not False
     assert result.brief_design is expected
     wire = json.loads((tmp_path / "result/report.json").read_text())
     assert wire["brief_design"] is wire["scorecard"]["brief_design"] is expected
