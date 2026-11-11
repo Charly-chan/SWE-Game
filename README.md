@@ -1,6 +1,6 @@
 <div align="center">
 
-# Game Development Benchmark
+# SWE-Game: Can Coding Agents Build the Games We Want?
 
 [![License](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
 

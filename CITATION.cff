@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this benchmark, cite this repository and the exact evaluator commit and scoring registry."
 type: software
-title: Game Development Benchmark
+title: "SWE-Game: Can Coding Agents Build the Games We Want?"
 version: 1.0.0
 date-released: 2026-10-09
 license: Apache-2.0
