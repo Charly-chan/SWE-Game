@@ -1,0 +1,109 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "eb33204dae9741a62bb763371c459ce195458142057201050324b19215e7a8b1"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "dont_stop/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "834071b21532f001d8ba7b25c49c449a9809308029387192f93bba1aac79b39a",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "eb33204dae9741a62bb763371c459ce195458142057201050324b19215e7a8b1",
+    "task_id": "dont_stop"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "extended_actions": [
+      {
+        "id": "aim_up",
+        "why": "independent keyboard aim axis corresponding to mouse aim"
+      },
+      {
+        "id": "aim_down",
+        "why": "independent keyboard aim axis corresponding to mouse aim"
+      },
+      {
+        "id": "aim_left",
+        "why": "independent keyboard aim axis corresponding to mouse aim"
+      },
+      {
+        "id": "aim_right",
+        "why": "independent keyboard aim axis corresponding to mouse aim"
+      },
+      {
+        "id": "reload",
+        "why": "native starter weapon reload before the exit walk"
+      }
+    ],
+    "interface_version": 2,
+    "normalized_sha256": "ccdde8590e0086c4003f7f311536267cfa4145623f597d2ca15e7e66334f4713",
+    "source_sha256": "fd8c75da3588166d72ba3a5cd1b2e17cf84c39a25951684715947849db099965"
+  },
+  "passed_route_ids": [
+    "dont_stop/L0/no_input_no_clear",
+    "dont_stop/C1/first_round_real_kill",
+    "dont_stop/L5/whole_game_clear"
+  ],
+  "readings": {
+    "dont_stop/C1/first_round_real_kill": {
+      "deaths": 0,
+      "frames": 1231,
+      "injects": 0,
+      "milestones_reached": [
+        "first_native_kill_recorded"
+      ],
+      "solution_kind": "tape",
+      "steps": 169,
+      "stop_reason": "ops_exhausted"
+    },
+    "dont_stop/L0/no_input_no_clear": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "dont_stop/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 3233,
+      "injects": 0,
+      "milestones_reached": [
+        "survived_real_damage",
+        "combat_kill_recorded",
+        "native_round_complete",
+        "terminal_victory_scene"
+      ],
+      "solution_kind": "tape",
+      "steps": 887,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "834071b21532f001d8ba7b25c49c449a9809308029387192f93bba1aac79b39a"
+  },
+  "result": "3/3 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "4153050b8f60e55484e84568eab762ec455c595dcbaa8eb4e0cbf01bc901e168",
+  "schema_version": 2,
+  "solution_kinds": {
+    "dont_stop/C1/first_round_real_kill": "tape",
+    "dont_stop/L0/no_input_no_clear": "tape",
+    "dont_stop/L5/whole_game_clear": "tape"
+  },
+  "task_id": "dont_stop",
+  "validated_at": "2026-09-09"
+}

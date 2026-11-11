@@ -1,0 +1,18 @@
+{
+  "probe_plan": {
+    "collect": {
+      "actions": [
+        "cmd_slot_1",
+        "cmd_gather"
+      ],
+      "complete_trigger": true,
+      "cycles": 1,
+      "effect": "numeric_increase",
+      "frames": 900,
+      "slot": "score"
+    },
+    "goal": {
+      "effect": "route_progress"
+    }
+  }
+}

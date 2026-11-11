@@ -1,0 +1,111 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "76461a4fea49cd7f9abda488173d2ca119e48d5bf3a5b52fb484d4fa2679f7d8"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "pixel_platformer_v2/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "c07a818d3147c42560e5bb09fe76c6ab04854b8cc809b0201ef6b3345dc3f181",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "76461a4fea49cd7f9abda488173d2ca119e48d5bf3a5b52fb484d4fa2679f7d8",
+    "task_id": "pixel_platformer_v2"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "3845cc97b949c182ce9030290d5a309b454adc459141afe9b2b6015743266028",
+    "source_sha256": "5f7b823b07779266c2c46d7bf4a256ac52fb4e0c09c7af692a6584bb797265d2"
+  },
+  "passed_route_ids": [
+    "pixel_platformer_v2/L0/no_input_no_clear",
+    "pixel_platformer_v2/C1/room_a_yard",
+    "pixel_platformer_v2/C2/through_pipeworks",
+    "pixel_platformer_v2/C3/through_ironworks",
+    "pixel_platformer_v2/L5/whole_game_clear"
+  ],
+  "readings": {
+    "pixel_platformer_v2/C1/room_a_yard": {
+      "deaths": 0,
+      "frames": 279,
+      "injects": 0,
+      "milestones_reached": [
+        "entered_pipeworks"
+      ],
+      "solution_kind": "tape",
+      "steps": 14,
+      "stop_reason": "ops_exhausted"
+    },
+    "pixel_platformer_v2/C2/through_pipeworks": {
+      "deaths": 0,
+      "frames": 676,
+      "injects": 0,
+      "milestones_reached": [
+        "entered_ironworks"
+      ],
+      "solution_kind": "tape",
+      "steps": 39,
+      "stop_reason": "ops_exhausted"
+    },
+    "pixel_platformer_v2/C3/through_ironworks": {
+      "deaths": 0,
+      "frames": 1123,
+      "injects": 0,
+      "milestones_reached": [
+        "entered_harvest"
+      ],
+      "solution_kind": "tape",
+      "steps": 75,
+      "stop_reason": "ops_exhausted"
+    },
+    "pixel_platformer_v2/L0/no_input_no_clear": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "pixel_platformer_v2/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 1560,
+      "injects": 0,
+      "milestones_reached": [
+        "entered_pipeworks",
+        "entered_harvest"
+      ],
+      "solution_kind": "tape",
+      "steps": 108,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "c07a818d3147c42560e5bb09fe76c6ab04854b8cc809b0201ef6b3345dc3f181"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "c18e2aa41d41b6ae479245a6e299b0d32c12e2846a3d81cdfd31acf267ece72f",
+  "schema_version": 2,
+  "solution_kinds": {
+    "pixel_platformer_v2/C1/room_a_yard": "tape",
+    "pixel_platformer_v2/C2/through_pipeworks": "tape",
+    "pixel_platformer_v2/C3/through_ironworks": "tape",
+    "pixel_platformer_v2/L0/no_input_no_clear": "tape",
+    "pixel_platformer_v2/L5/whole_game_clear": "tape"
+  },
+  "task_id": "pixel_platformer_v2",
+  "validated_at": "2026-09-09"
+}

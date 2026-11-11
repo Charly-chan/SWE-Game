@@ -1,0 +1,198 @@
+{
+  "anchor_composition": {
+    "bearing": "centre",
+    "mass_ratio": 0.657482,
+    "mirror_symmetry": false
+  },
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-28T10:10:23+00:00",
+  "interface_requirements": {
+    "O9": {
+      "fields": [
+        "anchor_camera"
+      ],
+      "reason": "reference has registered anchor composition expectations",
+      "required": true
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 1,
+        "gb_collectible": 10,
+        "gb_door": 0,
+        "gb_enemy": 2,
+        "gb_goal": 1,
+        "gb_hazard": 3,
+        "gb_interactive": 4,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          4
+        ],
+        "gb_enemy": [
+          "x",
+          2
+        ],
+        "gb_hazard": [
+          "y",
+          2
+        ],
+        "gb_interactive": [
+          "y",
+          3
+        ]
+      },
+      "goal_transition": "res://scenes/results.tscn",
+      "scene": "res://scenes/level_1.tscn",
+      "spawn_goal_distance": 0.21739130434782605
+    },
+    {
+      "census": {
+        "gb_checkpoint": 1,
+        "gb_collectible": 13,
+        "gb_door": 0,
+        "gb_enemy": 4,
+        "gb_goal": 1,
+        "gb_hazard": 6,
+        "gb_interactive": 6,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          5
+        ],
+        "gb_enemy": [
+          "x",
+          3
+        ],
+        "gb_hazard": [
+          "x",
+          3
+        ],
+        "gb_interactive": [
+          "y",
+          4
+        ]
+      },
+      "goal_transition": "res://scenes/results.tscn",
+      "scene": "res://scenes/level_2.tscn",
+      "spawn_goal_distance": 0.1371428625924248
+    },
+    {
+      "census": {
+        "gb_checkpoint": 1,
+        "gb_collectible": 13,
+        "gb_door": 1,
+        "gb_enemy": 4,
+        "gb_goal": 1,
+        "gb_hazard": 5,
+        "gb_interactive": 10,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          5
+        ],
+        "gb_enemy": [
+          "x",
+          3
+        ],
+        "gb_hazard": [
+          "x",
+          2
+        ],
+        "gb_interactive": [
+          "x",
+          4
+        ]
+      },
+      "goal_transition": "res://scenes/game_complete.tscn",
+      "scene": "res://scenes/level_3.tscn",
+      "spawn_goal_distance": 0.407894729412163
+    }
+  ],
+  "probe_sha256": "fe750d48224bfe79a915c4057b270adbbcdbc421e5b99f56213c3b2b7f746edd",
+  "project": "3d_platformer",
+  "runtime_assets": {
+    "res://assets/audio/music/level_theme.mp3": "aa3dc59166e121cecfc2033ffc3a11ea6b74b28c8cdac492e1a6db35c5abe1fd",
+    "res://assets/audio/sfx/ambience.ogg": "35697cbfde073f92df06e828fe2c8676a1f98c07404193e6477ca9202213f80a",
+    "res://assets/vendor/kenney_particle_pack/dirt_02.png": "fcecc70b561f80568b3391c3dc1180126d86ce4fbd4d1b01518e6045203e10a3",
+    "res://assets/vendor/kenney_particle_pack/spark_05.png": "9624ea2017b8b2767a9d3b82e978b7fdf5154d83e6756cd919da51447bb97138",
+    "res://assets/vendor/kenney_particle_pack/star_08.png": "05f24d1ee76c1464074cbca58155e4be517fefd34a7001bb012561647cc3dec3",
+    "res://assets/vendor/kenney_platformer_kit/models/Textures/colormap.png": "439dfcac935cfd75dc16f28333a4c8284fffcc4b24f857c61cfb4c8a964a15bd",
+    "res://assets/vendor/kenney_platformer_kit/models/arrows.glb": "4de2d6446e83a2014e88416583a56829749eb843b7c313bf218490f15b0326ad",
+    "res://assets/vendor/kenney_platformer_kit/models/barrel.glb": "a65835b830699e58810f4f9afdd54ddff9537fd6d23f6f2bd3af1a59bbdff149",
+    "res://assets/vendor/kenney_platformer_kit/models/block-grass-large-tall.glb": "61c9aaaf8c8ea071731dc27b0def1711c482d67768a2f456fc03a746ae29a80a",
+    "res://assets/vendor/kenney_platformer_kit/models/block-grass-large.glb": "606f077c30f6943ef4caa45e440578992cb99f0b7fb8762850303a422ed9cafa",
+    "res://assets/vendor/kenney_platformer_kit/models/block-grass-low.glb": "227bbf3f9cce59a62cfdfb5931389828d5e34877d9766005a3b39a4cbc8050c6",
+    "res://assets/vendor/kenney_platformer_kit/models/block-grass-overhang-large-tall.glb": "1fba447e75fe001ac84911b57fe978ea4bb3a1f52a4ccaa522026782c211d544",
+    "res://assets/vendor/kenney_platformer_kit/models/block-grass.glb": "8cd2f9ec083b2b7cfe89d95c53ef8adf369d1e5e6adf125f063122d4998c336f",
+    "res://assets/vendor/kenney_platformer_kit/models/block-moving-large.glb": "760a672e21d6ac7f802115c77526f3bf3f7159ebab469f3f1b1a288f63d3e667",
+    "res://assets/vendor/kenney_platformer_kit/models/block-moving.glb": "ea5265849096b61631a06e21917775a8f0c865d5974e5d1d7ab7b4240d985e60",
+    "res://assets/vendor/kenney_platformer_kit/models/block-snow-large-tall.glb": "10e5fd3723c9b2fc030e186fb01cdc5f7fcd62cdaa78f0450af291387d279771",
+    "res://assets/vendor/kenney_platformer_kit/models/block-snow-large.glb": "771c47dd1c405597e86a2842a6be73bc450ade898ebec6872459beb5a1593691",
+    "res://assets/vendor/kenney_platformer_kit/models/block-snow-low.glb": "3f83445126b93ac66b898b91ebc81069ecccec181dafc9943b6422922c1cea24",
+    "res://assets/vendor/kenney_platformer_kit/models/block-snow-overhang-large.glb": "fb6b8f2024ab4ad611a53283430e5b438637c35499c540f8d1d077c58d12e2bf",
+    "res://assets/vendor/kenney_platformer_kit/models/block-snow.glb": "0b6f71d245ef08584f6a5766eaf2d18f1f17aaa0d52b766ae9fd9eaf0a0db964",
+    "res://assets/vendor/kenney_platformer_kit/models/button-round.glb": "b029052de9a7f21c1f72db6ca24b5dd1cfca613b5ab00af35af2c4b55c422d88",
+    "res://assets/vendor/kenney_platformer_kit/models/character-oopi.glb": "faaecd9c4a9648c8c51115cf09e3b3895685f30edaf57a298a768471f5355e2e",
+    "res://assets/vendor/kenney_platformer_kit/models/chest.glb": "ba92d21be71649e608de4c76859f04e83308efc699508b2ddb1221678102e274",
+    "res://assets/vendor/kenney_platformer_kit/models/coin-gold.glb": "cf2179e57721b943d88283d38678c4b1b8422e9a4dd44f631acfb35007c223a8",
+    "res://assets/vendor/kenney_platformer_kit/models/conveyor-belt.glb": "f689bd8d4cbcf483a5ea8bcfc9b6008a00779aca5f642c14e6b7f9f4953af069",
+    "res://assets/vendor/kenney_platformer_kit/models/crate-strong.glb": "287aee4d599c4097cf7d386b47bad8b9c141b30633447d7905883ddee64340a0",
+    "res://assets/vendor/kenney_platformer_kit/models/crate.glb": "5eb6b633b71d7459c7ef9b0bf6e138a719175e107d4d52faca8fc7d0a059a45a",
+    "res://assets/vendor/kenney_platformer_kit/models/door-rotate-large.glb": "d704b85cce7faf7bd85af9fd8f4bbbe5b0fba393df7c236c9bba201abb9ae8a1",
+    "res://assets/vendor/kenney_platformer_kit/models/fence-straight.glb": "008d1895b4ac463bb7438d7ba4b34d66548cdb547130b228cc3526e575291f0a",
+    "res://assets/vendor/kenney_platformer_kit/models/flag.glb": "41dc8355080ed9f73adeefa7befaec44b6956ba1353c23bc9ff73d97a53fc143",
+    "res://assets/vendor/kenney_platformer_kit/models/flowers-tall.glb": "5702718a07ec1cf44e390d166a60bed43226c95527aa74f13ebbc76893f0309e",
+    "res://assets/vendor/kenney_platformer_kit/models/flowers.glb": "c4d459bf014a534a79a6763e59d9c548902600fe0e0e025654bd58a979139be6",
+    "res://assets/vendor/kenney_platformer_kit/models/grass.glb": "601ae2a507f4bccbe93c08433479c07ccaea0fcd8a3769264505a9cfeec4baa5",
+    "res://assets/vendor/kenney_platformer_kit/models/heart.glb": "aa868143aad26fe325f884cd489e2b47a25752f98902416320ebef6702057a57",
+    "res://assets/vendor/kenney_platformer_kit/models/hedge.glb": "7927efad067ca6ff76cc09d5e88de4e7f8e32e464456bfbeac32df106f2c00a8",
+    "res://assets/vendor/kenney_platformer_kit/models/jewel.glb": "cec20d8ae2678c292b3885aaee468ba39d165a7e2043af5ba8102b6cd974c2c3",
+    "res://assets/vendor/kenney_platformer_kit/models/ladder.glb": "64620d7fc0fb770bda241a1aa7f64c583c2ee10a31cf0b81231e8ac97e34305d",
+    "res://assets/vendor/kenney_platformer_kit/models/lock.glb": "08d32c7723718afaac9896e0ee650624dfd1364da37952e3882f8a22f4ca8145",
+    "res://assets/vendor/kenney_platformer_kit/models/mushrooms.glb": "81971dad14f9947d70897f1f76d7b3e723b7ee3737a32274ed8cc0355ea55c66",
+    "res://assets/vendor/kenney_platformer_kit/models/pipe.glb": "458af425a9f341fc52a36ff1d713926162efeda503b1509ca24299a782f467d8",
+    "res://assets/vendor/kenney_platformer_kit/models/plant.glb": "0881669528fcc01038a104a89c5290d1cbe0cb4aa90c4f78e78ebe1de2281d7a",
+    "res://assets/vendor/kenney_platformer_kit/models/platform.glb": "59edd84481a20b91587dfb35afef7b3e5b2f20081e6af4fc641a51655d7db2c8",
+    "res://assets/vendor/kenney_platformer_kit/models/poles.glb": "643472848441ae59737879cd52ae07056c50721797c7d113f20c65dd2dc7492b",
+    "res://assets/vendor/kenney_platformer_kit/models/rocks.glb": "40a7cb558466510ca1976b0e007e351e53c89ac6b61f0b6a277b3226026c3326",
+    "res://assets/vendor/kenney_platformer_kit/models/saw.glb": "1ad078d8154ff90cc3e57175d971ddbdfc839fcc158f4aa6b26d28e7e0b1839d",
+    "res://assets/vendor/kenney_platformer_kit/models/sign.glb": "657a32a0d4585ffc1d85ccdf83bc6615890b9d4ec37d190248692ad3ae25c1b1",
+    "res://assets/vendor/kenney_platformer_kit/models/spring.glb": "c43a2165319ebcf1d33c44ce401a78d79a5380d0888168d88fb1fc6abd089480",
+    "res://assets/vendor/kenney_platformer_kit/models/stones.glb": "0468bd937ffe5a7bcaa4cddb08e4660533df4c2079e885da2c3d32df07ff77d6",
+    "res://assets/vendor/kenney_platformer_kit/models/trap-spikes-large.glb": "eb0eb736c04a5a8f8ae00486e9879f9441256f6db2ea2f53970578b29d87b027",
+    "res://assets/vendor/kenney_platformer_kit/models/tree-pine-small.glb": "951e285d4f49f0863cc8ca2c6dc0fecbd4c25632405c9fe6d6784cd8fdc8928c",
+    "res://assets/vendor/kenney_platformer_kit/models/tree-pine-snow.glb": "bf754b351c7d73ab85cb2dc31d50215efe6348115094bed57af0b2e0c547a759",
+    "res://assets/vendor/kenney_platformer_kit/models/tree-pine.glb": "520ddf910ae7904871fc906169d5e76364d5ff643a92cb983563c1a24d995ebb",
+    "res://assets/vendor/kenney_platformer_kit/models/tree-snow.glb": "e5084e7a95d881e35f7c0debbd9d4e62dbf5af19bf6f218ae65fb7cb4b97c5eb",
+    "res://assets/vendor/kenney_platformer_kit/models/tree.glb": "632eb83a4359afd110594ea6f69db4db0c9512c79ae2c88741cf68e527253e41",
+    "res://assets/vendor/kenney_skybox/skybox-day.png": "b7d98fe95157e74b3899a1dd468a1e478005bcd1f668b29b5b42a48cb5358fa2",
+    "res://assets/vendor/kenney_ui_pack/font/KenneyFuture.ttf": "7a55b07f5968fac872648a7c5e959bd2b93e06f63153b585d56e4d5298ddff61",
+    "res://assets/vendor/kenney_ui_pack/ui/panel_grey.png": "2b53f7a8b9527fa66dd995736f94b11fa39e69ca390a7e17539f32919a9cb521",
+    "res://assets/vendor/kenney_ui_pack/ui/panel_grey_flat.png": "724fbc97079b358afb4a9a4ddf4f67486ade7fa97f7bd7d70ef8444a31b907ab",
+    "res://assets/vendor/kenney_ui_pack/ui/pip_empty.png": "9267eda99fd68a28d036beca7a606e334edb2957f74c6531da28bc79e92bc4a1",
+    "res://assets/vendor/kenney_ui_pack/ui/pip_full.png": "637cb033829d9fe1d6869da5826891ac90430e5d43c06fd4092398155b41dc7e",
+    "res://assets/vendor/quaternius_animated_enemies/Frog.glb": "92dc96c90e7228676f8c43dc7711ba5ed5505029ebb2f6d4ad198d9e35bdbfe0",
+    "res://assets/vendor/quaternius_animated_enemies/Spider.glb": "d759e35f6cf5adc7eb7e3f70135cd2a808787fc36337a523015592ba840ccd6d",
+    "res://assets/vendor/quaternius_animated_enemies/Wasp.glb": "050fe9f39c61f62c00691303fa44f85cbd6548d385f27d95011fa9936d2b48a3"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

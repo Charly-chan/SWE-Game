@@ -1,0 +1,15 @@
+{
+  "blockers": [],
+  "game_id": "relic_runner",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "relic_runner-c1-level_1_key_relic_altar",
+    "relic_runner-c2-level_2_keys_relic_altar",
+    "relic_runner-c3-level_3_keys_relic_altar",
+    "relic_runner-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:778d0c3eafc17b3ed7bb36b20880c6625ebfb85119f9bf6dcca180e2f14ec47a"
+}

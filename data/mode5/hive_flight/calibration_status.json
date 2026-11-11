@@ -1,0 +1,15 @@
+{
+  "blockers": [],
+  "game_id": "hive_flight",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "hive_flight-c1-startled_hush_clear",
+    "hive_flight-c2-broken_boughs_clear",
+    "hive_flight-c3-swarms_reach_clear",
+    "hive_flight-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:dcacdb0fc5c46ed11194c130be74740129959428c537398db263fb5f11902f8c"
+}

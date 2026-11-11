@@ -1,0 +1,160 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "harness_concessions_only",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "13b04b88c4a833695008b416b8c771d84b783d095d45eb075c945f115fafb9a7"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "tiny_rts/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "2dc461282f2b29c8c17534fa82d5649e1c21842da6852203176935445292231f",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "13b04b88c4a833695008b416b8c771d84b783d095d45eb075c945f115fafb9a7",
+    "task_id": "tiny_rts"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "extended_actions": [
+      {
+        "id": "cmd_slot_1",
+        "why": "digit 1 selects every pawn; Tab/_cycle picks one unit so a route cannot gather or sap as a crew"
+      },
+      {
+        "id": "cmd_slot_2",
+        "why": "digit 2 is the tower blueprint in the build menu and the warrior-line select; Bannerfall razes the blue keep from behind while the army escorts the commander east, and a garrison needs both halves of that key"
+      },
+      {
+        "id": "cmd_slot_3",
+        "why": "digit 3 is the barracks blueprint in the build menu and the archer-line select; six verbs cannot name either"
+      },
+      {
+        "id": "cmd_slot_4",
+        "why": "digit 4 selects the whole military pool so siege orders the army together, not one cycled unit"
+      },
+      {
+        "id": "cmd_train_pawn",
+        "why": "Z trains a pawn from the keep; six verbs have no training verb and extra sappers are the demolition half of a raze"
+      },
+      {
+        "id": "cmd_train_warrior",
+        "why": "X trains a warrior, the only unit that can hold the home keep against a Bannerfall raid; the archer line trained by C keeps its range by not being the thing being hit"
+      },
+      {
+        "id": "cmd_train_archer",
+        "why": "C trains an archer, the only unit whose 300px range matches red archers and sits outside the tower reply"
+      },
+      {
+        "id": "cmd_siege",
+        "why": "V points the selection at the nearest enemy building; gb_action always resolves onto the nearer escort unit"
+      },
+      {
+        "id": "cmd_build_menu",
+        "why": "B opens placement; no battlefield ships a blue barracks and no canonical verb toggles the menu"
+      },
+      {
+        "id": "cmd_gather",
+        "why": "G sends idle pawns to veins from anywhere; Space-gather is range-gated and loses to the build-site branch"
+      },
+      {
+        "id": "cmd_rally",
+        "why": "T forms the army on the commander; Space with military selected attacks the nearest escort instead"
+      }
+    ],
+    "interface_version": 2,
+    "normalized_sha256": "35f276181d0d91627501c4600fa23f1a473283a215c2fec69365eaddda505841",
+    "source_sha256": "8c6de86a291aa16677eece606077fd6da144aca762bd9459cb815e1870015b8d"
+  },
+  "passed_route_ids": [
+    "tiny_rts/L0/no_input_no_banner",
+    "tiny_rts/C1/riverwatch_banner",
+    "tiny_rts/C2/emberfield_banner",
+    "tiny_rts/C3/bannerfall_keep",
+    "tiny_rts/L5/whole_game_clear"
+  ],
+  "readings": {
+    "tiny_rts/C1/riverwatch_banner": {
+      "deaths": 1,
+      "frames": 13864,
+      "injects": 0,
+      "milestones_reached": [
+        "riverwatch_victory_scene"
+      ],
+      "solution_kind": "tape",
+      "steps": 599,
+      "stop_reason": "goal_reached"
+    },
+    "tiny_rts/C2/emberfield_banner": {
+      "deaths": 1,
+      "frames": 16177,
+      "injects": 0,
+      "milestones_reached": [
+        "emberfield_victory_scene"
+      ],
+      "solution_kind": "tape",
+      "steps": 240,
+      "stop_reason": "goal_reached"
+    },
+    "tiny_rts/C3/bannerfall_keep": {
+      "deaths": 1,
+      "frames": 4516,
+      "injects": 0,
+      "milestones_reached": [
+        "bannerfall_victory_scene"
+      ],
+      "solution_kind": "tape",
+      "steps": 91,
+      "stop_reason": "goal_reached"
+    },
+    "tiny_rts/L0/no_input_no_banner": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "tiny_rts/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 35634,
+      "injects": 0,
+      "milestones_reached": [
+        "riverwatch_cleared",
+        "entered_emberfield",
+        "emberfield_cleared",
+        "entered_bannerfall",
+        "bannerfall_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 965,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "2dc461282f2b29c8c17534fa82d5649e1c21842da6852203176935445292231f"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "bd272cc63ac067bd0f31d969145f62a888d7f8eeef77e08c2a5cf3b9c2cd0745",
+  "schema_version": 2,
+  "solution_kinds": {
+    "tiny_rts/C1/riverwatch_banner": "tape",
+    "tiny_rts/C2/emberfield_banner": "tape",
+    "tiny_rts/C3/bannerfall_keep": "tape",
+    "tiny_rts/L0/no_input_no_banner": "tape",
+    "tiny_rts/L5/whole_game_clear": "tape"
+  },
+  "task_id": "tiny_rts",
+  "validated_at": "2026-09-09"
+}

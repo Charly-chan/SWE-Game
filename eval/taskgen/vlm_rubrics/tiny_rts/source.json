@@ -1,0 +1,379 @@
+{
+  "game_id": "tiny_rts",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "art/decor/bush_1.png",
+        "id": "S002",
+        "label": "art/decor/bush_1.png"
+      },
+      {
+        "asset_path": "art/ui/avatar_02.png",
+        "id": "S006",
+        "label": "art/ui/avatar_02.png"
+      },
+      {
+        "asset_path": "art/units/commander/Lancer_Idle.png",
+        "id": "S008",
+        "label": "art/units/commander/Lancer_Idle.png"
+      },
+      {
+        "asset_path": "art/units/enemy_warrior/Warrior_Attack1.png",
+        "id": "S010",
+        "label": "art/units/enemy_warrior/Warrior_Attack1.png"
+      },
+      {
+        "asset_path": "art/units/pawn/Pawn_Idle.png",
+        "id": "S011",
+        "label": "art/units/pawn/Pawn_Idle.png"
+      },
+      {
+        "asset_path": "art/units/warrior/Warrior_Attack1.png",
+        "id": "S012",
+        "label": "art/units/warrior/Warrior_Attack1.png"
+      },
+      {
+        "asset_path": "art/buildings/blue_castle.png",
+        "id": "S025",
+        "label": "art/buildings/blue_castle.png"
+      },
+      {
+        "asset_path": "art/terrain/tilemap_grass.png",
+        "id": "S029",
+        "label": "art/terrain/tilemap_grass.png"
+      },
+      {
+        "asset_path": "reference_media/assets/art/ui/banner_swords.png",
+        "id": "S042",
+        "label": "reference_media/assets/art/ui/banner_swords.png"
+      },
+      {
+        "asset_path": "art/buildings/blue_house1.png",
+        "id": "S049",
+        "label": "art/buildings/blue_house1.png"
+      },
+      {
+        "asset_path": "art/terrain/tilemap_scorched.png",
+        "id": "S053",
+        "label": "art/terrain/tilemap_scorched.png"
+      },
+      {
+        "asset_path": "reference_media/assets/art/ui/bar_big_base.png",
+        "id": "S066",
+        "label": "reference_media/assets/art/ui/bar_big_base.png"
+      },
+      {
+        "bundled_path": "media/S073.png",
+        "id": "S073",
+        "label": "FONT PREVIEW fonts/KenneyFuture.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "fonts/KenneyFuture.ttf"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "art/buildings/blue_barracks.png",
+        "art/buildings/blue_castle.png",
+        "art/buildings/blue_house1.png",
+        "art/buildings/blue_house2.png",
+        "art/buildings/blue_house3.png",
+        "art/buildings/blue_tower.png",
+        "art/buildings/neutral_monastery.png",
+        "art/buildings/red_barracks.png",
+        "art/buildings/red_castle.png",
+        "art/buildings/red_tower.png",
+        "art/decor/bush_1.png",
+        "art/decor/bush_2.png",
+        "art/decor/bush_3.png",
+        "art/decor/bush_4.png",
+        "art/decor/cloud_1.png",
+        "art/decor/cloud_2.png",
+        "art/decor/cloud_3.png",
+        "art/decor/cloud_4.png",
+        "art/decor/rock_1.png",
+        "art/decor/rock_2.png",
+        "art/decor/rock_3.png",
+        "art/decor/rock_4.png",
+        "art/decor/sheep_grass.png",
+        "art/decor/sheep_idle.png",
+        "art/decor/sheep_move.png",
+        "art/decor/water_rock_1.png",
+        "art/decor/water_rock_2.png",
+        "art/decor/water_rock_3.png",
+        "art/decor/water_rock_4.png",
+        "art/fx/dust_1.png",
+        "art/fx/dust_2.png",
+        "art/fx/explosion_1.png",
+        "art/fx/explosion_2.png",
+        "art/fx/fire_large.png",
+        "art/fx/fire_medium.png",
+        "art/fx/fire_small.png",
+        "art/fx/glow_circle.png",
+        "art/fx/glow_soft.png",
+        "art/fx/water_splash.png",
+        "art/resources/gold_stone_1.png",
+        "art/resources/gold_stone_1_highlight.png",
+        "art/resources/gold_stone_2.png",
+        "art/resources/gold_stone_2_highlight.png",
+        "art/resources/gold_stone_3.png",
+        "art/resources/gold_stone_3_highlight.png",
+        "art/resources/gold_stone_4.png",
+        "art/resources/gold_stone_4_highlight.png",
+        "art/resources/gold_stone_5.png",
+        "art/resources/gold_stone_5_highlight.png",
+        "art/resources/gold_stone_6.png",
+        "art/resources/gold_stone_6_highlight.png",
+        "art/resources/stump_1.png",
+        "art/resources/stump_2.png",
+        "art/resources/stump_3.png",
+        "art/resources/stump_4.png",
+        "art/resources/tool_1.png",
+        "art/resources/tool_2.png",
+        "art/resources/tool_3.png",
+        "art/resources/tool_4.png",
+        "art/resources/tree_1.png",
+        "art/resources/tree_2.png",
+        "art/resources/tree_3.png",
+        "art/resources/tree_4.png",
+        "art/terrain/shadow_blob.png",
+        "art/terrain/tilemap_grass.png",
+        "art/terrain/tilemap_scorched.png",
+        "art/terrain/water_base.png",
+        "art/terrain/water_foam.png",
+        "art/ui/avatar_02.png",
+        "art/ui/avatar_03.png",
+        "art/ui/avatar_04.png",
+        "art/ui/avatar_06.png",
+        "art/ui/banner_swords.png",
+        "art/ui/bar_big_base.png",
+        "art/ui/bar_big_fill.png",
+        "art/ui/bar_small_base.png",
+        "art/ui/bar_small_fill.png",
+        "art/ui/button_pressed.png",
+        "art/ui/button_regular.png",
+        "art/ui/cursor_arrow.png",
+        "art/ui/icon_01.png",
+        "art/ui/icon_03.png",
+        "art/ui/icon_04.png",
+        "art/ui/icon_05.png",
+        "art/ui/icon_06.png",
+        "art/ui/icon_09.png",
+        "art/ui/icon_10.png",
+        "art/ui/icon_12.png",
+        "art/ui/panel_parchment.png",
+        "art/ui/panel_wood.png",
+        "art/ui/ribbons_big.png",
+        "art/ui/ribbons_small.png",
+        "art/ui/slot_pressed.png",
+        "art/ui/slot_regular.png",
+        "art/units/archer",
+        "art/units/commander",
+        "art/units/enemy_archer",
+        "art/units/enemy_warrior",
+        "art/units/pawn",
+        "art/units/warrior",
+        "audio/music/jingle_defeat.ogg",
+        "audio/music/jingle_victory.ogg",
+        "audio/music/theme_battle.mp3",
+        "audio/music/theme_title.wav",
+        "audio/sfx/bong_001.ogg",
+        "audio/sfx/click_003.ogg",
+        "audio/sfx/close_001.ogg",
+        "audio/sfx/confirmation_003.ogg",
+        "audio/sfx/confirmation_004.ogg",
+        "audio/sfx/drop_002.ogg",
+        "audio/sfx/error_002.ogg",
+        "audio/sfx/impactBell_heavy_000.ogg",
+        "audio/sfx/impactGlass_heavy_002.ogg",
+        "audio/sfx/impactMetal_light_000.ogg",
+        "audio/sfx/impactMetal_light_001.ogg",
+        "audio/sfx/impactMetal_light_002.ogg",
+        "audio/sfx/impactMetal_light_003.ogg",
+        "audio/sfx/impactMetal_light_004.ogg",
+        "audio/sfx/impactMining_000.ogg",
+        "audio/sfx/impactMining_001.ogg",
+        "audio/sfx/impactMining_002.ogg",
+        "audio/sfx/impactMining_003.ogg",
+        "audio/sfx/impactMining_004.ogg",
+        "audio/sfx/impactPlank_medium_000.ogg",
+        "audio/sfx/impactPlank_medium_001.ogg",
+        "audio/sfx/impactPlank_medium_002.ogg",
+        "audio/sfx/impactPlank_medium_003.ogg",
+        "audio/sfx/impactPlank_medium_004.ogg",
+        "audio/sfx/impactPunch_medium_000.ogg",
+        "audio/sfx/impactSoft_heavy_000.ogg",
+        "audio/sfx/impactSoft_medium_000.ogg",
+        "audio/sfx/impactSoft_medium_001.ogg",
+        "audio/sfx/impactSoft_medium_002.ogg",
+        "audio/sfx/impactSoft_medium_003.ogg",
+        "audio/sfx/impactSoft_medium_004.ogg",
+        "audio/sfx/impactWood_light_000.ogg",
+        "audio/sfx/impactWood_light_001.ogg",
+        "audio/sfx/impactWood_light_002.ogg",
+        "audio/sfx/impactWood_light_003.ogg",
+        "audio/sfx/impactWood_light_004.ogg",
+        "audio/sfx/maximize_001.ogg",
+        "audio/sfx/open_001.ogg",
+        "audio/sfx/question_002.ogg",
+        "audio/sfx/select_002.ogg",
+        "audio/sfx/tick_002.ogg",
+        "audio/sfx/toggle_001.ogg",
+        "fonts/KenneyFuture.ttf",
+        "fonts/KenneyFutureNarrow.ttf",
+        "licenses/kenney_impact-sounds_License.txt",
+        "licenses/kenney_interface-sounds_License.txt",
+        "licenses/kenney_music-jingles_License.txt",
+        "licenses/kenney_particle-pack_License.txt",
+        "licenses/kenney_ui-pack_License.txt",
+        "reference_media/assets/art",
+        "reference_media/assets/audio",
+        "reference_media/assets/fonts"
+      ],
+      "file_count": 278,
+      "font_files": [
+        "fonts/KenneyFuture.ttf",
+        "fonts/KenneyFutureNarrow.ttf",
+        "reference_media/assets/fonts/KenneyFuture.ttf",
+        "reference_media/assets/fonts/KenneyFutureNarrow.ttf"
+      ]
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry. Font previews are rendered from actual supplied font files; preview wording is illustrative, not additional task requirements.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 598.017,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R005",
+        "time_s": 20.3333
+      },
+      {
+        "id": "R010",
+        "time_s": 45.75
+      },
+      {
+        "id": "R012",
+        "time_s": 55.9167
+      },
+      {
+        "id": "R017",
+        "time_s": 81.3333
+      },
+      {
+        "id": "R021",
+        "time_s": 101.667
+      },
+      {
+        "id": "R024",
+        "time_s": 116.917
+      },
+      {
+        "id": "R041",
+        "time_s": 203.333
+      },
+      {
+        "id": "R047",
+        "time_s": 233.833
+      },
+      {
+        "id": "R053",
+        "time_s": 264.333
+      },
+      {
+        "id": "R058",
+        "time_s": 289.75
+      },
+      {
+        "id": "R059",
+        "time_s": 294.833
+      },
+      {
+        "id": "R060",
+        "time_s": 299.917
+      },
+      {
+        "id": "R074",
+        "time_s": 371.083
+      },
+      {
+        "id": "R084",
+        "time_s": 421.917
+      },
+      {
+        "id": "R092",
+        "time_s": 462.583
+      },
+      {
+        "id": "R100",
+        "time_s": 503.25
+      },
+      {
+        "id": "R101",
+        "time_s": 508.333
+      },
+      {
+        "id": "R103",
+        "time_s": 518.5
+      },
+      {
+        "id": "R111",
+        "time_s": 559.167
+      },
+      {
+        "id": "R112",
+        "time_s": 564.25
+      },
+      {
+        "id": "R119",
+        "time_s": 598.0
+      },
+      {
+        "clip": 1,
+        "id": "RD001",
+        "time_s": 119.6034
+      },
+      {
+        "clip": 1,
+        "id": "RD010",
+        "time_s": 120.5034
+      },
+      {
+        "clip": 2,
+        "id": "RD028",
+        "time_s": 299.7085
+      },
+      {
+        "clip": 2,
+        "id": "RD032",
+        "time_s": 300.1085
+      },
+      {
+        "clip": 2,
+        "id": "RD036",
+        "time_s": 300.5085
+      },
+      {
+        "clip": 2,
+        "id": "RD040",
+        "time_s": 300.9085
+      },
+      {
+        "clip": 3,
+        "id": "RD050",
+        "time_s": 479.3136
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.19731880531824345,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Bannerfall: Tiny Kingdoms — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nCommand a small kingdom from the keyboard, gather and spend limited resources, grow an army, and defeat a clearly readable opposing force.\n\n## Scope boundary\n\nA small strategy game whose controls, economy, conflict, victory, failure, and restart can all be exercised through the benchmark input interface.\n\n## Required controls\n\nThis task requires at least 4 declared extended actions in `gb_levels.json.extended_actions` (extra InputMap verbs beyond the eight canonical `gb_*` actions, each bound to a real key and read in gameplay code) covering: group or unit selection; training a unit; opening build or placement; issuing an order such as attack, gather, or rally. Choose your own stable ids. Holding every declared extra from frame 0 must not clear the game.\n\n## Creative freedom\n\nYou may choose the map topology, unit statistics, pacing, and visual composition while keeping the strategic loop compact.\n"
+}

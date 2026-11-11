@@ -1,0 +1,183 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "harness_concessions_only",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "68947b9fe3930485257def28981c18ab09bb991909680f84acb7d8754326e7af"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "3d_platformer/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "1a009ed9d847b73e21008a82f64168afbf5ed99745e1b0fba7cbb492b36c5f3d",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "68947b9fe3930485257def28981c18ab09bb991909680f84acb7d8754326e7af",
+    "task_id": "3d_platformer"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "5044137f554e4596731e59007c99fb32c8534de047f6534fa07d9305c76e320e",
+    "source_sha256": "1836b08fc0989dcd9554678932e69f72a7e25e1731fc0117fb3c2c20caaa7609"
+  },
+  "passed_route_ids": [
+    "3d_platformer/L0/no_input_no_win",
+    "3d_platformer/C1/east_cell_return_and_deliver",
+    "3d_platformer/C2/west_carrier_cell",
+    "3d_platformer/C3/north_crumble_return_and_deliver",
+    "3d_platformer/C4/east_saw_cell",
+    "3d_platformer/C5/north_conveyor_cell",
+    "3d_platformer/C6/south_moving_platform_return_and_deliver",
+    "3d_platformer/C7/level_3_crumble_return",
+    "3d_platformer/L5/whole_game_clear"
+  ],
+  "readings": {
+    "3d_platformer/C1/east_cell_return_and_deliver": {
+      "deaths": 0,
+      "frames": 113,
+      "injects": 1,
+      "milestones_reached": [
+        "picked_east_cell"
+      ],
+      "solution_kind": "tape",
+      "steps": 4,
+      "stop_reason": "ops_exhausted"
+    },
+    "3d_platformer/C2/west_carrier_cell": {
+      "deaths": 0,
+      "frames": 323,
+      "injects": 1,
+      "milestones_reached": [
+        "picked_west_cell"
+      ],
+      "solution_kind": "tape",
+      "steps": 12,
+      "stop_reason": "ops_exhausted"
+    },
+    "3d_platformer/C3/north_crumble_return_and_deliver": {
+      "deaths": 0,
+      "frames": 168,
+      "injects": 1,
+      "milestones_reached": [
+        "picked_north_cell"
+      ],
+      "solution_kind": "tape",
+      "steps": 3,
+      "stop_reason": "ops_exhausted"
+    },
+    "3d_platformer/C4/east_saw_cell": {
+      "deaths": 0,
+      "frames": 309,
+      "injects": 1,
+      "milestones_reached": [
+        "picked_east_cell"
+      ],
+      "solution_kind": "tape",
+      "steps": 23,
+      "stop_reason": "ops_exhausted"
+    },
+    "3d_platformer/C5/north_conveyor_cell": {
+      "deaths": 0,
+      "frames": 223,
+      "injects": 1,
+      "milestones_reached": [
+        "picked_north_cell"
+      ],
+      "solution_kind": "tape",
+      "steps": 8,
+      "stop_reason": "ops_exhausted"
+    },
+    "3d_platformer/C6/south_moving_platform_return_and_deliver": {
+      "deaths": 0,
+      "frames": 577,
+      "injects": 1,
+      "milestones_reached": [
+        "contacted_south_cell",
+        "picked_south_cell",
+        "rode_moving_platform"
+      ],
+      "solution_kind": "tape",
+      "steps": 17,
+      "stop_reason": "ops_exhausted"
+    },
+    "3d_platformer/C7/level_3_crumble_return": {
+      "deaths": 0,
+      "frames": 321,
+      "injects": 1,
+      "milestones_reached": [
+        "contacted_north_cell",
+        "picked_north_cell",
+        "fuse_below_ten",
+        "crossed_outer_crumble",
+        "crossed_inner_crumble",
+        "fuse_below_nine",
+        "passed_summit_hopper"
+      ],
+      "solution_kind": "tape",
+      "steps": 8,
+      "stop_reason": "ops_exhausted"
+    },
+    "3d_platformer/L0/no_input_no_win": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "3d_platformer/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 6866,
+      "injects": 0,
+      "milestones_reached": [
+        "level_1_first_cell_reached",
+        "level_1_one_cell_delivered",
+        "level_1_two_cells_delivered",
+        "level_1_three_cells_delivered",
+        "entered_level_2",
+        "level_2_one_cell_delivered",
+        "level_2_two_cells_delivered",
+        "level_2_three_cells_delivered",
+        "level_2_four_cells_delivered",
+        "entered_level_3",
+        "level_3_one_cell_delivered",
+        "level_3_two_cells_delivered",
+        "level_3_three_cells_delivered",
+        "level_3_four_cells_delivered"
+      ],
+      "solution_kind": "tape",
+      "steps": 303,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "1a009ed9d847b73e21008a82f64168afbf5ed99745e1b0fba7cbb492b36c5f3d"
+  },
+  "result": "9/9 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "33579286fcea9620244259d5b1734131ff0894cf0c92e20bc54d110f533fab81",
+  "schema_version": 2,
+  "solution_kinds": {
+    "3d_platformer/C1/east_cell_return_and_deliver": "tape",
+    "3d_platformer/C2/west_carrier_cell": "tape",
+    "3d_platformer/C3/north_crumble_return_and_deliver": "tape",
+    "3d_platformer/C4/east_saw_cell": "tape",
+    "3d_platformer/C5/north_conveyor_cell": "tape",
+    "3d_platformer/C6/south_moving_platform_return_and_deliver": "tape",
+    "3d_platformer/C7/level_3_crumble_return": "tape",
+    "3d_platformer/L0/no_input_no_win": "tape",
+    "3d_platformer/L5/whole_game_clear": "tape"
+  },
+  "task_id": "3d_platformer",
+  "validated_at": "2026-09-09"
+}

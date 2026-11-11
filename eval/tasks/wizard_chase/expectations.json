@@ -1,0 +1,292 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-09-05T20:23:55+00:00",
+  "interface_requirements": {
+    "O10": {
+      "fields": [],
+      "reason": "reference has no live-mixer expectation",
+      "required": false
+    },
+    "O9": {
+      "fields": [],
+      "reason": "reference has no registered anchor expectation",
+      "required": false
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 90,
+        "gb_door": 2,
+        "gb_enemy": 4,
+        "gb_goal": 2,
+        "gb_hazard": 4,
+        "gb_interactive": 0,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          5
+        ],
+        "gb_door": [
+          "y",
+          2
+        ],
+        "gb_enemy": [
+          "x",
+          2
+        ],
+        "gb_goal": [
+          "y",
+          2
+        ],
+        "gb_hazard": [
+          "y",
+          1
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://bench/room_1.tscn",
+      "spawn_goal_distance": 4.577566798522237e-16
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 90,
+        "gb_door": 2,
+        "gb_enemy": 4,
+        "gb_goal": 2,
+        "gb_hazard": 3,
+        "gb_interactive": 0,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          5
+        ],
+        "gb_door": [
+          "y",
+          2
+        ],
+        "gb_enemy": [
+          "x",
+          2
+        ],
+        "gb_goal": [
+          "y",
+          2
+        ],
+        "gb_hazard": [
+          "x",
+          3
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://bench/room_2.tscn",
+      "spawn_goal_distance": 5.551115123125783e-16
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 87,
+        "gb_door": 2,
+        "gb_enemy": 4,
+        "gb_goal": 2,
+        "gb_hazard": 5,
+        "gb_interactive": 24,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          5
+        ],
+        "gb_door": [
+          "y",
+          2
+        ],
+        "gb_enemy": [
+          "x",
+          2
+        ],
+        "gb_goal": [
+          "y",
+          2
+        ],
+        "gb_hazard": [
+          "x",
+          3
+        ],
+        "gb_interactive": [
+          "x",
+          5
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://bench/room_3.tscn",
+      "spawn_goal_distance": 0.07692307692307654
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 89,
+        "gb_door": 2,
+        "gb_enemy": 4,
+        "gb_goal": 2,
+        "gb_hazard": 7,
+        "gb_interactive": 5,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          5
+        ],
+        "gb_door": [
+          "y",
+          2
+        ],
+        "gb_enemy": [
+          "x",
+          2
+        ],
+        "gb_goal": [
+          "y",
+          2
+        ],
+        "gb_hazard": [
+          "x",
+          3
+        ],
+        "gb_interactive": [
+          "x",
+          4
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://bench/room_4.tscn",
+      "spawn_goal_distance": 0.07692307692307654
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 86,
+        "gb_door": 2,
+        "gb_enemy": 4,
+        "gb_goal": 2,
+        "gb_hazard": 3,
+        "gb_interactive": 17,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          5
+        ],
+        "gb_door": [
+          "y",
+          2
+        ],
+        "gb_enemy": [
+          "x",
+          2
+        ],
+        "gb_goal": [
+          "y",
+          2
+        ],
+        "gb_hazard": [
+          "y",
+          2
+        ],
+        "gb_interactive": [
+          "x",
+          5
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://bench/room_5.tscn",
+      "spawn_goal_distance": 0.07692307692307654
+    }
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "wizard_chase",
+  "runtime_assets": {
+    "res://assets/audio/FreeSFX/GameSFX/Events/Retro Event 49.wav": "b62bac3e9a0a8d59738b2713f4aa9cfec24e0a54c1650a77763dde3fc8bd2e04",
+    "res://assets/audio/FreeSFX/GameSFX/FootStep/Retro FootStep Krushed Landing 01.wav": "02f850bbf6a5cc6fc5af94cf787729e8195b7b40e86218e9f12ae9c2dfc9c1aa",
+    "res://assets/audio/FreeSFX/GameSFX/Magic/Retro Magic 11.wav": "d1e98de2b348117ebb95648810d5ee128c0f061885d5e4cc45927cc79a9ca0ab",
+    "res://assets/audio/FreeSFX/GameSFX/PickUp/Retro PickUp Coin 04.wav": "a49d385099b7b4b08e40f87db9945212f866d71400ce154888b24d7ce4c858f0",
+    "res://assets/audio/FreeSFX/GameSFX/PowerUp/Retro PowerUP StereoUP 05.wav": "907f8b670bf2182d1453a550af24cc730a85cafad36215167363fac2066c36a3",
+    "res://assets/audio/FreeSFX/GameSFX/Roar/Retro Roar 02.wav": "2873e26c8459f3c35dea25d955d6c9111e1d8f9cc70dc789a348af3e7daec8a5",
+    "res://assets/audio/sfx/power/PP_UP_01.wav": "2056e0ca04c78429aaadce5253d7b8ebb35740591b360953608f3643c4383de4",
+    "res://assets/enemy/enemyfiend/EnemyFiend.png": "92640724247fd3d327542d998aada5188efb829368a3e5583978ebb18e3f26f1",
+    "res://assets/enemy/enemylizardman/EnemyLizardMan.png": "7386c44f206340f1ed3f3a109f6cb36666db9660ee0a23e6b65cb35d06f303d9",
+    "res://assets/enemy/enemyogre/EnemyOgre.png": "ece751b0d75fe64856bf7045b01a59c05a10f6aaea98a945db4f8ea6d6697ceb",
+    "res://assets/enemy/enemyslime/EnemySlime.png": "0c70dca604b4b23c72089b5f4bb730523ab0adc71d38dabe36b10c543978c4a5",
+    "res://assets/icon.png": "42d8b8edef4822676d428f9f834971e69529d7ba4c1fe0e6bedee2c435367f94",
+    "res://assets/player/Player.png": "24f5f840ffc7edd760de39acac6563a68a838115d786eb352ca259fca749f4ef",
+    "res://assets/ui/uiinventory/10_great_sword.png": "141bd387488a86895d469c7c0bd180b110d8ad6d4c20181df6655b873b22e93e",
+    "res://assets/ui/uiinventory/1_staff.png": "a944e273c4c66c1d94c04669da24ac986d6982116a7dbbde4e89540b188cbdec",
+    "res://assets/ui/uiinventory/2_gold_shortsword.png": "c62368cbd2e4f6c8919b69227260178149c746fa766e3a86bc8b39c1b43bd823",
+    "res://assets/ui/uiinventory/3_orange_potion.png": "22bfa18cf5fa31a3680f7069aa8f351bfa8818cebad3b378793097d0e5c2e7a3",
+    "res://assets/ui/uiinventory/4_silversword.png": "00b07c650104da0c12e6653de7175ba797d37a6f69aeb33d34b15457902aaa1f",
+    "res://assets/ui/uiinventory/5_bow.png": "26c8a95daceea881f791917f5424ab3b245f07924f392570d1901ce7e8aa2526",
+    "res://assets/ui/uiinventory/6_green_potion.png": "5aa92981fba56b071dd6acc511cd360fd55680519883d2666b21e3715f92f1f9",
+    "res://assets/ui/uiinventory/7_red_staff.png": "bfafbdccd6f03cadbf6da0e0c3494bb973ec07083321895a50812f095b4366f6",
+    "res://assets/ui/uiinventory/8_dagger.png": "fbeb028f01c8099d9d5b44ab5f974eaa03288e6e27909ac741910f0aea556a2e",
+    "res://assets/ui/uiinventory/9_blue_potion.png": "81cf380c6cabe63904363804edd7ee2f2587fe9e5d02fe9072b26e2602ccb679",
+    "res://assets/ui/uilives/ui_player_life.png": "42d8b8edef4822676d428f9f834971e69529d7ba4c1fe0e6bedee2c435367f94",
+    "res://assets/ui/uiwalls/ui_wall.png": "7a07c2daf191ef4985d4e2a7712fd802302d7716f1994967839ffd6157e08162",
+    "res://assets/world/door/Doors.png": "eb0f3d5beb4fbcdeeabb3411fc6347e132775d6a645994700f2fad1227ae756c",
+    "res://assets/world/dungeon/Dungeon.png": "a7f5a1e5d299c97c7840d342943f04d627c3f60c1902898baa409c6f3abe930e",
+    "res://assets/world/foreground/Foreground.png": "2f23783b98c1323c3d58cd30e7c190deb6aef5f6e44549e377570473601f2ec8",
+    "res://assets/world/map_generated/floorspikes/spike_0.png": "c237f9f65c559560a2fd4475ef09e2ae77e3e3a99d030405a338aa11f32172a0",
+    "res://assets/world/map_generated/floorspikes/spike_1.png": "1b2734ce604585ec0dc845217d4b118218222f991f5bdf1a94f867889d82c056",
+    "res://assets/world/map_generated/floorspikes/spike_2.png": "6e6f6bf8e5c9a189c4ca1e6f76edaa59fa31389640204ef23d5db6c13228a3b8",
+    "res://assets/world/map_generated/floorspikes/spike_3.png": "77174c5651668ac5bf4cfbd58e6d70cc4c6ce8d959dfa990cd92252a36d83055",
+    "res://assets/world/map_generated/magicwalls/forceField_vertical_solid.png": "1a699e47ea39e2335598527544311ef9bf26a0ccb8198805434a2124a47af825",
+    "res://assets/world/map_generated/magicwalls/forceField_y_solid.png": "53295744e1eeb4d1b7c98b2571b78f555155461cc6336321b866e4e8007d3a73",
+    "res://assets/world/map_generated/wallblades/WallBlades_0.png": "bea6cdb92d113207095d6fb449b595429c83c96aa5af966928b4281a2c1d0025",
+    "res://assets/world/map_generated/wallblades/WallBlades_1.png": "8e900f178c3f400745d7ac3d426d4253090231346f5996ef659c76bfdc6b6e4f",
+    "res://assets/world/map_generated/wallblades/WallBlades_2.png": "26d7410d65c18d147b18bb0835c6bed445765b06a3b7d850aabc4954165a493c",
+    "res://assets/world/map_generated/wallblades/WallBlades_3.png": "8d6bfc7d0f0cb048a6edc93dc8525166eb2cd62cc41b89e82ac9e248d87af9eb",
+    "res://assets/world/map_generated/wallblades/WallBlades_4.png": "3959501b3cd9395bc8a6f4dc296203f998d052d09dffdaf737437691bf04018e",
+    "res://assets/world/map_generated/wallblades/WallBlades_5.png": "9983ec2d4e3ce931a01a6fbb2954c29fdb5519457c41d52a2a4c4e9c8b774690",
+    "res://assets/world/markers/Markers.png": "aa04f8a9cfae4bde1fd60a6b6712e37357341601a606a822b6f01c098e09c373",
+    "res://assets/world/overlay/Overlay.png": "7b6086e65848a2e93229d15264888bb858aef42e507f1bdf7b451613bcb262b7",
+    "res://assets/world/overlay/fountain/fountain_blood_0.png": "27b3c91a5f7fb6ce2d5b76ec9a3d2ffd5fbbc3fd611758d115d487d2cb06a817",
+    "res://assets/world/overlay/fountain/fountain_blood_1.png": "a4d0e53ce8e0907e3cfa4b25087a3780da4fae7724f84125ca7a23799ba0640f",
+    "res://assets/world/overlay/fountain/fountain_blood_2.png": "238aef138b8fb5eed6daaa174ab020e2030c3de3ea56fe8dbaea48e9bb5ea9b0",
+    "res://assets/world/overlay/fountain/fountain_water_0.png": "6d532797d06c7aa77d7a14aab0c66950f40153f7508caa2b1002734e18891c56",
+    "res://assets/world/overlay/fountain/fountain_water_1.png": "d3354b7bd462f7723c24c334776e4a303ed985ac9a08355a1138b9d6df68f313",
+    "res://assets/world/overlay/fountain/fountain_water_2.png": "6d532797d06c7aa77d7a14aab0c66950f40153f7508caa2b1002734e18891c56",
+    "res://assets/world/overlay/treasure/animations/floaty_64.png": "04cd320798b62e5834e63ad986dccb5c4e168ed2b754a2833aa32f6573122be7",
+    "res://assets/world/overlay/treasure/animations/offset_glow.png": "9482b0297a2efb4996e987c13a1be03a3c9057f99687b4d928fe3dd94f0515c2",
+    "res://assets/world/overlay/treasure/animations/random_selection.png": "e9ab4efb7d7026e4f1783c6e422e67572fdf6ad4947b2036d8390aa00e7b6039",
+    "res://assets/world/overlay/treasure/coin/coin_0.png": "addb91a2902681aa6d13ba508dd9ddef5f347acb232ee52c47156922e6766ec7",
+    "res://assets/world/overlay/treasure/coin/coin_1.png": "40dd79bbaf8b79a4bdfe82268cd87624b381a5a928f28373c59189f312fd076b",
+    "res://assets/world/overlay/treasure/coin/coin_2.png": "a022439d1d110b384923516eb8366e66ddb14705e4eeccadfab8c3debb4031a4",
+    "res://assets/world/overlay/treasure/coin/coin_3.png": "6bb7bed2e74acd656f178cee684dd76c5df1115c448e049c16c468090f229e79",
+    "res://assets/world/overlay/treasure/misc_treasure.png": "8286173da5cea1c8d917b75247770ff7509b3364abdc983aeec970936584208b",
+    "res://assets/world/overlay/treasure/misc_treasure/MiscTreasure.png": "0f26363efb449e52cacd11a8cbc3e10cfa185dd6b823cbc7a4be07e4272a1973",
+    "res://assets/world/overlay/treasure/treasure_chest/treasure_chest_0.png": "d16b9f929a7ac8ee3965adfe94a7d1f6d479b32645cc38c83bb4ce8c3ca50c62",
+    "res://assets/world/overlay/treasure/treasure_chest/treasure_chest_1.png": "625ecf36446b45ed371bfd4a993634a34bfd045c220ef04250185504d03254f3",
+    "res://assets/world/overlay/treasure/treasure_chest/treasure_chest_2.png": "4207b075c9a64b0d3570bbe2fbdc177fa0be57074486e732939e11aa6362adee"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

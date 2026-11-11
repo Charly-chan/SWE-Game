@@ -1,0 +1,918 @@
+{
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "driver_sha256": "7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742",
+  "endings": {
+    "defeat": "res://ui/run_failed.tscn",
+    "failed": "res://ui/run_failed.tscn",
+    "run_complete": "res://ui/final_results.tscn",
+    "victory": "res://ui/shift_results.tscn"
+  },
+  "engine": "4.5.1",
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "bd5aec984be5fcb64324868e3e399f1c62962b90ff625dd3d42db48502471c44",
+    "source_sha256": "38669e1df76db6c70382e07d7c016b973bcd84f9d2ebd5af2140ee0a8580c66e"
+  },
+  "levels": [
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          1880.0,
+          840.0,
+          0.0
+        ],
+        "min3": [
+          200.0,
+          120.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 8,
+        "alive_before": 8,
+        "attempted": true,
+        "delta": 0,
+        "detail": "one collect-and-deliver cycle on Plot00: 8 alive before, 8 after",
+        "effect": {
+          "actions": [],
+          "complete_trigger": false,
+          "cycle_index": 0,
+          "kind": "target_changed",
+          "observed": false
+        },
+        "target": "Plot00"
+      },
+      "cycles": [
+        {
+          "alive_after": 8,
+          "alive_before": 8,
+          "delivered": false,
+          "delta": 0,
+          "index": 0,
+          "target": "Plot00"
+        },
+        {
+          "alive_after": 8,
+          "alive_before": 8,
+          "delivered": false,
+          "delta": 0,
+          "index": 1,
+          "target": "Plot02"
+        },
+        {
+          "alive_after": 8,
+          "alive_before": 8,
+          "delivered": false,
+          "delta": 0,
+          "index": 2,
+          "target": "Plot04"
+        },
+        {
+          "alive_after": 8,
+          "alive_before": 8,
+          "delivered": false,
+          "delta": 0,
+          "index": 3,
+          "target": "Appliance06"
+        },
+        {
+          "alive_after": 8,
+          "alive_before": 8,
+          "delivered": false,
+          "delta": 0,
+          "index": 4,
+          "target": "Appliance08"
+        },
+        {
+          "alive_after": 8,
+          "alive_before": 8,
+          "delivered": false,
+          "delta": 0,
+          "index": 5,
+          "target": "Plot10"
+        },
+        {
+          "alive_after": 8,
+          "alive_before": 8,
+          "delivered": false,
+          "delta": 0,
+          "index": 6,
+          "target": "Plot12"
+        },
+        {
+          "alive_after": 8,
+          "alive_before": 8,
+          "delivered": false,
+          "delta": 0,
+          "index": 7,
+          "target": "Plot14"
+        }
+      ],
+      "cycles_capped": false,
+      "declared_scene": "res://world/shop_floor.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": false,
+        "changed": false,
+        "detail": "goal has prerequisite actions; evaluated by certified input-only progress routes",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "route_campaign",
+          "observation_missing": false,
+          "progress_before": null
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://world/shop_floor.tscn",
+        "scene_before": "res://world/shop_floor.tscn",
+        "target": ""
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 8,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.222222222222222
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.222222222222222
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.555555555555556
+            },
+            {
+              "valid": true,
+              "x": 0.857142857142857,
+              "y": 0.222222222222222
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.222222222222222
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.555555555555556
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.888888888888889
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.888888888888889
+            }
+          ],
+          "total": 8,
+          "world": [
+            [
+              200.0,
+              280.0,
+              0.0
+            ],
+            [
+              440.0,
+              280.0,
+              0.0
+            ],
+            [
+              200.0,
+              520.0,
+              0.0
+            ],
+            [
+              1640.0,
+              280.0,
+              0.0
+            ],
+            [
+              1880.0,
+              280.0,
+              0.0
+            ],
+            [
+              440.0,
+              520.0,
+              0.0
+            ],
+            [
+              200.0,
+              760.0,
+              0.0
+            ],
+            [
+              440.0,
+              760.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_door": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_enemy": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.80952380952381,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              1560.0,
+              120.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_interactive": {
+          "alive": 17,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.222222222222222
+            },
+            {
+              "valid": true,
+              "x": 0.428571428571429,
+              "y": 0.222222222222222
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.222222222222222
+            },
+            {
+              "valid": true,
+              "x": 0.571428571428571,
+              "y": 0.222222222222222
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.555555555555556
+            },
+            {
+              "valid": true,
+              "x": 0.714285714285714,
+              "y": 0.222222222222222
+            },
+            {
+              "valid": true,
+              "x": 0.857142857142857,
+              "y": 0.222222222222222
+            },
+            {
+              "valid": true,
+              "x": 0.857142857142857,
+              "y": 0.555555555555556
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.222222222222222
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.555555555555556
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.555555555555556
+            },
+            {
+              "valid": true,
+              "x": 0.714285714285714,
+              "y": 0.555555555555556
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.888888888888889
+            },
+            {
+              "valid": true,
+              "x": 0.428571428571429,
+              "y": 0.888888888888889
+            },
+            {
+              "valid": true,
+              "x": 0.142857142857143,
+              "y": 0.888888888888889
+            },
+            {
+              "valid": true,
+              "x": 0.571428571428571,
+              "y": 0.888888888888889
+            },
+            {
+              "valid": true,
+              "x": 0.904761904761905,
+              "y": 1.0
+            }
+          ],
+          "total": 17,
+          "world": [
+            [
+              200.0,
+              280.0,
+              0.0
+            ],
+            [
+              920.0,
+              280.0,
+              0.0
+            ],
+            [
+              440.0,
+              280.0,
+              0.0
+            ],
+            [
+              1160.0,
+              280.0,
+              0.0
+            ],
+            [
+              200.0,
+              520.0,
+              0.0
+            ],
+            [
+              1400.0,
+              280.0,
+              0.0
+            ],
+            [
+              1640.0,
+              280.0,
+              0.0
+            ],
+            [
+              1640.0,
+              520.0,
+              0.0
+            ],
+            [
+              1880.0,
+              280.0,
+              0.0
+            ],
+            [
+              1880.0,
+              520.0,
+              0.0
+            ],
+            [
+              440.0,
+              520.0,
+              0.0
+            ],
+            [
+              1400.0,
+              520.0,
+              0.0
+            ],
+            [
+              200.0,
+              760.0,
+              0.0
+            ],
+            [
+              920.0,
+              760.0,
+              0.0
+            ],
+            [
+              440.0,
+              760.0,
+              0.0
+            ],
+            [
+              1160.0,
+              760.0,
+              0.0
+            ],
+            [
+              1720.0,
+              840.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.428571428571429,
+              "y": 0.555555555555556
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              920.0,
+              520.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "coins": 15.0,
+        "score": 0.0,
+        "shift_revenue": 0.0
+      },
+      "numeric_source": {
+        "coins": "guess",
+        "score": "declared",
+        "shift_revenue": "declared"
+      },
+      "reached": true,
+      "scene": "res://world/shop_floor.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 8,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "coins": 15.0,
+            "score": 0.0,
+            "shift_revenue": 0.0
+          },
+          "phase": "settle",
+          "player": [
+            920.0,
+            520.0,
+            0.0
+          ],
+          "scene_path": "res://world/shop_floor.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 8,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "coins": 15.0,
+            "score": 0.0,
+            "shift_revenue": 0.0
+          },
+          "phase": "pick",
+          "player": [
+            200.0,
+            280.0,
+            0.0
+          ],
+          "scene_path": "res://world/shop_floor.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 8,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "coins": 15.0,
+            "score": 0.0,
+            "shift_revenue": 0.0
+          },
+          "phase": "pick",
+          "player": [
+            440.0,
+            280.0,
+            0.0
+          ],
+          "scene_path": "res://world/shop_floor.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 8,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "coins": 15.0,
+            "score": 0.0,
+            "shift_revenue": 0.0
+          },
+          "phase": "pick",
+          "player": [
+            440.0,
+            280.0,
+            0.0
+          ],
+          "scene_path": "res://world/shop_floor.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 8,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "coins": 15.0,
+            "score": 0.0,
+            "shift_revenue": 0.0
+          },
+          "phase": "pick",
+          "player": [
+            200.0,
+            520.0,
+            0.0
+          ],
+          "scene_path": "res://world/shop_floor.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 8,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "coins": 15.0,
+            "score": 0.0,
+            "shift_revenue": 0.0
+          },
+          "phase": "pick",
+          "player": [
+            1640.0,
+            280.0,
+            0.0
+          ],
+          "scene_path": "res://world/shop_floor.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 8,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "coins": 15.0,
+            "score": 0.0,
+            "shift_revenue": 0.0
+          },
+          "phase": "pick",
+          "player": [
+            1640.0,
+            280.0,
+            0.0
+          ],
+          "scene_path": "res://world/shop_floor.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 8,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "coins": 15.0,
+            "score": 0.0,
+            "shift_revenue": 0.0
+          },
+          "phase": "pick",
+          "player": [
+            1880.0,
+            280.0,
+            0.0
+          ],
+          "scene_path": "res://world/shop_floor.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 8,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "coins": 15.0,
+            "score": 0.0,
+            "shift_revenue": 0.0
+          },
+          "phase": "pick",
+          "player": [
+            440.0,
+            520.0,
+            0.0
+          ],
+          "scene_path": "res://world/shop_floor.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 8,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "coins": 15.0,
+            "score": 0.0,
+            "shift_revenue": 0.0
+          },
+          "phase": "pick",
+          "player": [
+            440.0,
+            520.0,
+            0.0
+          ],
+          "scene_path": "res://world/shop_floor.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 8,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "coins": 15.0,
+            "score": 0.0,
+            "shift_revenue": 0.0
+          },
+          "phase": "pick",
+          "player": [
+            200.0,
+            760.0,
+            0.0
+          ],
+          "scene_path": "res://world/shop_floor.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 8,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "coins": 15.0,
+            "score": 0.0,
+            "shift_revenue": 0.0
+          },
+          "phase": "pick",
+          "player": [
+            440.0,
+            760.0,
+            0.0
+          ],
+          "scene_path": "res://world/shop_floor.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 8,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "coins": 15.0,
+            "score": 0.0,
+            "shift_revenue": 0.0
+          },
+          "phase": "pick",
+          "player": [
+            440.0,
+            760.0,
+            0.0
+          ],
+          "scene_path": "res://world/shop_floor.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 8,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 186,
+          "numeric": {
+            "coins": 15.0,
+            "score": 0.0,
+            "shift_revenue": 0.0
+          },
+          "phase": "pick",
+          "player": [
+            440.0,
+            760.0,
+            0.0
+          ],
+          "scene_path": "res://world/shop_floor.tscn"
+        }
+      ],
+      "spawn": [
+        920.0,
+        520.0,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.42857142857142855,
+        "y": 0.5555555555555556
+      },
+      "stop_reason": "goal_requires_route"
+    }
+  ],
+  "liveness": [
+    {
+      "action": "gb_left",
+      "detail": "gb_left differs from the idle control on velocity (delta 360.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "velocity"
+    },
+    {
+      "action": "gb_right",
+      "detail": "gb_right differs from the idle control on position (delta 1064.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_up",
+      "detail": "gb_up differs from the idle control on position (delta 392.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_down",
+      "detail": "gb_down differs from the idle control on position (delta 552.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_jump",
+      "detail": "gb_jump is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    },
+    {
+      "action": "gb_action",
+      "detail": "gb_action is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    }
+  ],
+  "no_input_no_win": true,
+  "no_input_stop_reason": "budget_frames",
+  "notes": [
+    "liveness deadline derived from this project's own structural pass: 19.5 ms/frame median, 19.5 ms/frame worst",
+    "liveness sweep: 4 live / 2 dead against the 420-frame idle control truth/L0#idle420"
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "sprout_market",
+  "read_failure": "",
+  "taken_at": "2026-09-10T09:22:15+00:00",
+  "version": "1"
+}

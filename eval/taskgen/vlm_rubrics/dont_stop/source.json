@@ -1,0 +1,409 @@
+{
+  "game_id": "dont_stop",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "Sprites/effect/00 Yellow-Orange FX/FX_Fire00_Flame_Big_6x6.png",
+        "id": "S004",
+        "label": "Sprites/effect/00 Yellow-Orange FX/FX_Fire00_Flame_Big_6x6.png"
+      },
+      {
+        "asset_path": "Sprites/particle/effect_4.png",
+        "id": "S009",
+        "label": "Sprites/particle/effect_4.png"
+      },
+      {
+        "asset_path": "game/map/Moon/tileset.png",
+        "id": "S015",
+        "label": "game/map/Moon/tileset.png"
+      },
+      {
+        "asset_path": "game/map/Pre-built house 3.png",
+        "id": "S016",
+        "label": "game/map/Pre-built house 3.png"
+      },
+      {
+        "asset_path": "game/map/SnowWorld/sprites/ISO_Tile_Dirt_01_GrassPatch_02.png",
+        "id": "S017",
+        "label": "game/map/SnowWorld/sprites/ISO_Tile_Dirt_01_GrassPatch_02.png"
+      },
+      {
+        "asset_path": "game/monster/Ghoul/Ghoul Sprite Sheet 62 x 33.png",
+        "id": "S018",
+        "label": "game/monster/Ghoul/Ghoul Sprite Sheet 62 x 33.png"
+      },
+      {
+        "asset_path": "game/monster/Monster 2/50x31 Monster 2 spritesheet without shadows.png",
+        "id": "S019",
+        "label": "game/monster/Monster 2/50x31 Monster 2 spritesheet without shadows.png"
+      },
+      {
+        "asset_path": "reference_media/assets/game/map/Moon/tileset.png",
+        "id": "S026",
+        "label": "reference_media/assets/game/map/Moon/tileset.png"
+      },
+      {
+        "asset_path": "game/hero/Tiny Alchemist Sprite Sheet 48x32.png",
+        "id": "S037",
+        "label": "game/hero/Tiny Alchemist Sprite Sheet 48x32.png"
+      },
+      {
+        "asset_path": "game/map/SnowWorld/sprites/ISO_Tile_Dirt_01_Grass_01.png",
+        "id": "S039",
+        "label": "game/map/SnowWorld/sprites/ISO_Tile_Dirt_01_Grass_01.png"
+      },
+      {
+        "asset_path": "reference_media/assets/Sprites/ui/title.png",
+        "id": "S041",
+        "label": "reference_media/assets/Sprites/ui/title.png"
+      },
+      {
+        "asset_path": "reference_media/assets/game/hero/Tiny Alchemist Sprite Sheet 48x32.png",
+        "id": "S042",
+        "label": "reference_media/assets/game/hero/Tiny Alchemist Sprite Sheet 48x32.png"
+      },
+      {
+        "asset_path": "Sprites/effect/vfx_energy-Sheet.png",
+        "id": "S047",
+        "label": "Sprites/effect/vfx_energy-Sheet.png"
+      },
+      {
+        "asset_path": "Sprites/ui/title.png",
+        "id": "S050",
+        "label": "Sprites/ui/title.png"
+      },
+      {
+        "asset_path": "Sprites/effect/vfx_free_pack_1-Sheet.png",
+        "id": "S061",
+        "label": "Sprites/effect/vfx_free_pack_1-Sheet.png"
+      },
+      {
+        "asset_path": "game/map/top down tileset.png",
+        "id": "S065",
+        "label": "game/map/top down tileset.png"
+      },
+      {
+        "bundled_path": "media/S073.png",
+        "id": "S073",
+        "label": "FONT PREVIEW fonts/CCOverbyteOn.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "fonts/CCOverbyteOn.ttf"
+      },
+      {
+        "bundled_path": "media/S074.png",
+        "id": "S074",
+        "label": "FONT PREVIEW fonts/fusion-pixel.otf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "fonts/fusion-pixel.otf"
+      },
+      {
+        "bundled_path": "media/S075.png",
+        "id": "S075",
+        "label": "FONT PREVIEW fonts/px.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "fonts/px.ttf"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "Sprites/1 - Fire & Bugs.png",
+        "Sprites/1 cursor.png",
+        "Sprites/16x16 spritesheet.png",
+        "Sprites/2 - Power & Electricity.png",
+        "Sprites/All_Icons/Alert Shield.png",
+        "Sprites/All_Icons/Alien Blue Helmet.png",
+        "Sprites/All_Icons/Amber Sickle.png",
+        "Sprites/All_Icons/Amber Star Crystal.png",
+        "Sprites/All_Icons/Battery.png",
+        "Sprites/All_Icons/Blue Axe.png",
+        "Sprites/All_Icons/Blue Bacteria.png",
+        "Sprites/All_Icons/Blue Boots.png",
+        "Sprites/All_Icons/Blue Circuit.png",
+        "Sprites/All_Icons/Health Pack.png",
+        "Sprites/All_Icons/Medkit.png",
+        "Sprites/All_Icons/Orange Chip.png",
+        "Sprites/Bullet_11.png",
+        "Sprites/The Tiny Alchemist - Guns/gun1.png",
+        "Sprites/The Tiny Alchemist - Guns/gun13.png",
+        "Sprites/The Tiny Alchemist - Guns/gun14.png",
+        "Sprites/The Tiny Alchemist - Guns/gun19.png",
+        "Sprites/The Tiny Alchemist - Guns/gun2.png",
+        "Sprites/The Tiny Alchemist - Guns/gun3.png",
+        "Sprites/The Tiny Alchemist - Guns/gun4.png",
+        "Sprites/The Tiny Alchemist - Guns/gun5.png",
+        "Sprites/The Tiny Alchemist - Guns/gun7.png",
+        "Sprites/The Tiny Alchemist - Guns/gun8.png",
+        "Sprites/crosshair186.png",
+        "Sprites/effect/00 Yellow-Orange FX",
+        "Sprites/effect/Flame.png",
+        "Sprites/effect/part",
+        "Sprites/effect/stun.png",
+        "Sprites/effect/vfx_energy-Sheet.png",
+        "Sprites/effect/vfx_free_pack_1-Sheet.png",
+        "Sprites/equip/Slice 10.png",
+        "Sprites/equip/Slice 3.png",
+        "Sprites/equip_bg.png",
+        "Sprites/hp.png",
+        "Sprites/icon/Icon1.png",
+        "Sprites/icon/Icon2.png",
+        "Sprites/icon/Icon3.png",
+        "Sprites/icon/Icon4.png",
+        "Sprites/icon/Icon5.png",
+        "Sprites/icon/Icon6.png",
+        "Sprites/icon/Icon7.png",
+        "Sprites/icon/Icon8.png",
+        "Sprites/icon/Icon9.png",
+        "Sprites/item_box_no_shader.png",
+        "Sprites/light.png",
+        "Sprites/light2.png",
+        "Sprites/menu_left.png",
+        "Sprites/particle/effect_4.png",
+        "Sprites/shell_case.png",
+        "Sprites/skill/Icons",
+        "Sprites/top.png",
+        "Sprites/ui/Assets-1-恢复的_03.png",
+        "Sprites/ui/Assets-1_26.png",
+        "Sprites/ui/key",
+        "Sprites/ui/title.png",
+        "audio/CLOTHMvmt_Clothing Rustle Arm_01.wav",
+        "audio/DSGNMisc_Kill Confirm Metallic_01.wav",
+        "audio/DSGNMisc_Kill Confirm Metallic_03.wav",
+        "audio/GUNAuto_Assault Rifle A Fire_01.wav",
+        "audio/GUNAuto_Assault Rifle B Fire_01.wav",
+        "audio/GUNAuto_Plasmid Machinegun Single_01.wav",
+        "audio/GUNPis_Pistol Fire_01.wav",
+        "audio/GUNSupr_Silenced Pistol Fire Reflections_01.wav",
+        "audio/GUNTech_Sci Fi Shotgun Fire Heavy_02.wav",
+        "audio/GUNTech_Sci Fi Shotgun Fire Heavy_06.wav",
+        "audio/GUNTech_Tormentor Shotgun Fire_01.wav",
+        "audio/LASRGun_Electron Impeller Fire_01.wav",
+        "audio/SCIMisc_Sniper Cannon_01.wav",
+        "audio/bgm/Cephalopod.mp3",
+        "audio/body_hit_finisher_52.wav",
+        "audio/bullet/BLLTShel_Reload Ammo_01.wav",
+        "audio/bullet/EXPLDsgn_Explosion Impact_10.wav",
+        "audio/bullet/GUNArtl_Grenade Launcher Fire_01.wav",
+        "audio/bullet/GUNMech_Insert Clip_01.wav",
+        "audio/bullet/GUNMech_Reload_10.wav",
+        "audio/bullet/SCIMisc_Reload Alien Tech_05.wav",
+        "audio/equip/LASRGun_Flange Cannon Fire_01.wav",
+        "fonts/CCOverbyteOn.ttf",
+        "fonts/fusion-pixel.otf",
+        "fonts/px.ttf",
+        "game/bullets/assets",
+        "game/hero/Light (1).png",
+        "game/hero/Tiny Alchemist Sprite Sheet 48x32.png",
+        "game/hero/undead_shadow.png",
+        "game/map/Moon",
+        "game/map/Pre-built house 3.png",
+        "game/map/SnowWorld",
+        "game/map/next.png",
+        "game/map/tip.png",
+        "game/map/top down tileset.png",
+        "game/map/victorian tileset.png",
+        "game/monster/Ghoul",
+        "game/monster/Monster 2",
+        "icon.svg",
+        "reference_media/assets/Sprites",
+        "reference_media/assets/audio",
+        "reference_media/assets/fonts",
+        "reference_media/assets/game",
+        "reference_media/assets/icon.svg"
+      ],
+      "file_count": 148,
+      "font_files": [
+        "fonts/CCOverbyteOn.ttf",
+        "fonts/fusion-pixel.otf",
+        "fonts/px.ttf",
+        "reference_media/assets/fonts/CCOverbyteOn.ttf",
+        "reference_media/assets/fonts/px.ttf"
+      ]
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry. Font previews are rendered from actual supplied font files; preview wording is illustrative, not additional task requirements.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 58.0,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R002",
+        "time_s": 1.0
+      },
+      {
+        "id": "R003",
+        "time_s": 2.0
+      },
+      {
+        "id": "R008",
+        "time_s": 7.0
+      },
+      {
+        "id": "R009",
+        "time_s": 8.0
+      },
+      {
+        "id": "R010",
+        "time_s": 9.0
+      },
+      {
+        "id": "R013",
+        "time_s": 12.0
+      },
+      {
+        "id": "R016",
+        "time_s": 15.0
+      },
+      {
+        "id": "R027",
+        "time_s": 26.0
+      },
+      {
+        "id": "R029",
+        "time_s": 28.0
+      },
+      {
+        "id": "R030",
+        "time_s": 29.0
+      },
+      {
+        "id": "R031",
+        "time_s": 30.0
+      },
+      {
+        "id": "R048",
+        "time_s": 47.0
+      },
+      {
+        "id": "R051",
+        "time_s": 50.0
+      },
+      {
+        "id": "R052",
+        "time_s": 51.0
+      },
+      {
+        "id": "R053",
+        "time_s": 52.0
+      },
+      {
+        "id": "R054",
+        "time_s": 53.0
+      },
+      {
+        "id": "R055",
+        "time_s": 54.0
+      },
+      {
+        "id": "R059",
+        "time_s": 57.9833
+      },
+      {
+        "clip": 1,
+        "id": "RD001",
+        "time_s": 11.6
+      },
+      {
+        "clip": 1,
+        "id": "RD004",
+        "time_s": 11.9
+      },
+      {
+        "clip": 1,
+        "id": "RD006",
+        "time_s": 12.1
+      },
+      {
+        "clip": 1,
+        "id": "RD007",
+        "time_s": 12.2
+      },
+      {
+        "clip": 1,
+        "id": "RD008",
+        "time_s": 12.3
+      },
+      {
+        "clip": 1,
+        "id": "RD010",
+        "time_s": 12.5
+      },
+      {
+        "clip": 1,
+        "id": "RD012",
+        "time_s": 12.7
+      },
+      {
+        "clip": 2,
+        "id": "RD021",
+        "time_s": 29.0
+      },
+      {
+        "clip": 2,
+        "id": "RD022",
+        "time_s": 29.1
+      },
+      {
+        "clip": 2,
+        "id": "RD023",
+        "time_s": 29.2
+      },
+      {
+        "clip": 2,
+        "id": "RD024",
+        "time_s": 29.3
+      },
+      {
+        "clip": 2,
+        "id": "RD025",
+        "time_s": 29.4
+      },
+      {
+        "clip": 2,
+        "id": "RD026",
+        "time_s": 29.5
+      },
+      {
+        "clip": 2,
+        "id": "RD027",
+        "time_s": 29.6
+      },
+      {
+        "clip": 2,
+        "id": "RD028",
+        "time_s": 29.7
+      },
+      {
+        "clip": 3,
+        "id": "RD041",
+        "time_s": 46.4
+      },
+      {
+        "clip": 3,
+        "id": "RD051",
+        "time_s": 47.4
+      },
+      {
+        "clip": 3,
+        "id": "RD056",
+        "time_s": 47.9
+      },
+      {
+        "clip": 3,
+        "id": "RD060",
+        "time_s": 48.3
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 1.0,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Don't Stop — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nCross a compact town, enter a real combat round, survive hostile pressure, and return to the illuminated exit for a decisive victory.\n\n## Scope boundary\n\nA bounded top-down shooter with movement, aiming, firing, native combat, damage and defeat, a complete round, replay, and an explicit victory ending.\n\n## Creative freedom\n\nYou may choose the presentation, encounter dressing, HUD composition, and feedback while preserving the original town, portal, combat, and exit loop.\n"
+}

@@ -1,0 +1,142 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "6948685a90ab8f2fd854f5f21a53d957f060e20f36811feaad1cfef566dade00"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "harvest_ledger/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "191334863a9f714c7c4ef8af80dfd9ab9154ff22aeff11819e78ff84d9d9dcf2",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "6948685a90ab8f2fd854f5f21a53d957f060e20f36811feaad1cfef566dade00",
+    "task_id": "harvest_ledger"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "extended_actions": [
+      {
+        "id": "tool_axe",
+        "why": "Discrete axe selection (key 1); gb_action alone infers the tool from the facing tile and cannot pick the axe on a plot that also accepts a hoe or seed."
+      },
+      {
+        "id": "tool_hoe",
+        "why": "Discrete hoe selection (key 2) for tilling before planting, independent of the facing-tile inference."
+      },
+      {
+        "id": "tool_water",
+        "why": "Discrete watering-can selection (key 3) so a planted plot can be watered without re-inferring the tool."
+      },
+      {
+        "id": "tool_corn",
+        "why": "Discrete corn-seed selection (key 4); the two seed kinds are only distinguishable by explicit selection."
+      },
+      {
+        "id": "tool_tomato",
+        "why": "Discrete tomato-seed selection (key 5); the two seed kinds are only distinguishable by explicit selection."
+      }
+    ],
+    "interface_version": 2,
+    "normalized_sha256": "2bd20f0a0b73ec2a873757ba4a13c1fa818317c91d05bba4d35c0fc931ccbd5d",
+    "source_sha256": "edadc5aa8f6a809b30126efa5a7d27b58765ceb498ea395a1d8d2aafd16ad70d"
+  },
+  "passed_route_ids": [
+    "harvest_ledger/L0/no_input_no_quota",
+    "harvest_ledger/C1/homestead_corn_quota",
+    "harvest_ledger/C2/timberline_forage_and_corn",
+    "harvest_ledger/C3/saltmarsh_livestock_and_quota",
+    "harvest_ledger/L5/whole_game_clear"
+  ],
+  "readings": {
+    "harvest_ledger/C1/homestead_corn_quota": {
+      "deaths": 1,
+      "frames": 5853,
+      "injects": 0,
+      "milestones_reached": [
+        "first_corn_sold",
+        "crop_quota_met"
+      ],
+      "solution_kind": "tape",
+      "steps": 1245,
+      "stop_reason": "scene_changed"
+    },
+    "harvest_ledger/C2/timberline_forage_and_corn": {
+      "deaths": 1,
+      "frames": 9642,
+      "injects": 0,
+      "milestones_reached": [
+        "forage_sold",
+        "crop_quota_met",
+        "revenue_quota_met"
+      ],
+      "solution_kind": "tape",
+      "steps": 2195,
+      "stop_reason": "scene_changed"
+    },
+    "harvest_ledger/C3/saltmarsh_livestock_and_quota": {
+      "deaths": 1,
+      "frames": 14718,
+      "injects": 0,
+      "milestones_reached": [
+        "forage_sold",
+        "first_farm_day_sold",
+        "crop_quota_met",
+        "revenue_quota_met"
+      ],
+      "solution_kind": "tape",
+      "steps": 3319,
+      "stop_reason": "goal_reached"
+    },
+    "harvest_ledger/L0/no_input_no_quota": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "harvest_ledger/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 30367,
+      "injects": 0,
+      "milestones_reached": [
+        "homestead_quota_met",
+        "entered_timberline",
+        "timberline_quota_met",
+        "entered_saltmarsh",
+        "saltmarsh_quota_met"
+      ],
+      "solution_kind": "tape",
+      "steps": 6771,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "191334863a9f714c7c4ef8af80dfd9ab9154ff22aeff11819e78ff84d9d9dcf2"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "5a8cf57ee89d2c6212c6c93d0a08006ad34846f3ed1ba370786221b2c1622231",
+  "schema_version": 2,
+  "solution_kinds": {
+    "harvest_ledger/C1/homestead_corn_quota": "tape",
+    "harvest_ledger/C2/timberline_forage_and_corn": "tape",
+    "harvest_ledger/C3/saltmarsh_livestock_and_quota": "tape",
+    "harvest_ledger/L0/no_input_no_quota": "tape",
+    "harvest_ledger/L5/whole_game_clear": "tape"
+  },
+  "task_id": "harvest_ledger",
+  "validated_at": "2026-09-09"
+}

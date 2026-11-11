@@ -1,0 +1,996 @@
+{
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "driver_sha256": "7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742",
+  "endings": {
+    "defeat": "res://attempt_failed.tscn",
+    "run_complete": "res://game_complete.tscn",
+    "victory": "res://results.tscn"
+  },
+  "engine": "4.5.1",
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "369d05df0d896466b22ee0bf6472c3b2665d3b0a064c5ecaa69da7f4d059ff23",
+    "source_sha256": "45750a78a0adbe537cd858966aef8170ee13b7798762d520d92878ac21022ae2"
+  },
+  "levels": [
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          1025.0,
+          475.0,
+          0.0
+        ],
+        "min3": [
+          80.0,
+          55.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 0,
+        "alive_before": 0,
+        "attempted": false,
+        "delta": 0,
+        "detail": "this level declares no gb_collectible, so there is nothing to pick up",
+        "effect": {},
+        "target": ""
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://level_intake_bay.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": false,
+        "changed": false,
+        "detail": "goal has prerequisite actions; evaluated by certified input-only progress routes",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "route_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://level_intake_bay.tscn",
+        "scene_before": "res://level_intake_bay.tscn",
+        "target": ""
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_door": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_enemy": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.0833333333333333
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              80.0,
+              90.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.777777777777778,
+              "y": 0.0833333333333333
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              815.0,
+              90.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_interactive": {
+          "alive": 5,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.851851851851852,
+              "y": 0.666666666666667
+            },
+            {
+              "valid": true,
+              "x": 0.925925925925926,
+              "y": 0.666666666666667
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.666666666666667
+            },
+            {
+              "valid": true,
+              "x": 0.185185185185185,
+              "y": 1.0
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.0833333333333333
+            }
+          ],
+          "total": 5,
+          "world": [
+            [
+              885.0,
+              335.0,
+              0.0
+            ],
+            [
+              955.0,
+              335.0,
+              0.0
+            ],
+            [
+              1025.0,
+              335.0,
+              0.0
+            ],
+            [
+              255.0,
+              475.0,
+              0.0
+            ],
+            [
+              80.0,
+              90.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.037037037037037,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              115.0,
+              55.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "progress": 0.0,
+        "releases": 0.0,
+        "run_time": 0.0,
+        "score": 0.0,
+        "timer": 0.0
+      },
+      "numeric_source": {
+        "progress": "declared",
+        "releases": "declared",
+        "run_time": "declared",
+        "score": "declared",
+        "timer": "declared"
+      },
+      "reached": true,
+      "scene": "res://level_intake_bay.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "progress": 0.0,
+            "releases": 0.0,
+            "run_time": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "settle",
+          "player": [
+            115.0,
+            55.0,
+            0.0
+          ],
+          "scene_path": "res://level_intake_bay.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 5,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "progress": 0.0,
+            "releases": 0.0,
+            "run_time": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "settle",
+          "player": [
+            115.0,
+            55.0,
+            0.0
+          ],
+          "scene_path": "res://level_intake_bay.tscn"
+        }
+      ],
+      "spawn": [
+        115.0,
+        55.0,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.037037037037037035,
+        "y": 0.0
+      },
+      "stop_reason": "goal_requires_route"
+    },
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          1025.0,
+          335.0,
+          0.0
+        ],
+        "min3": [
+          80.0,
+          55.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 0,
+        "alive_before": 0,
+        "attempted": false,
+        "delta": 0,
+        "detail": "this level declares no gb_collectible, so there is nothing to pick up",
+        "effect": {},
+        "target": ""
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://level_sorting_floor.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": false,
+        "changed": false,
+        "detail": "goal has prerequisite actions; evaluated by certified input-only progress routes",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "route_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://level_sorting_floor.tscn",
+        "scene_before": "res://level_sorting_floor.tscn",
+        "target": ""
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_door": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_enemy": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.125
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              80.0,
+              90.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.125
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              1025.0,
+              90.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_interactive": {
+          "alive": 7,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.851851851851852,
+              "y": 1.0
+            },
+            {
+              "valid": true,
+              "x": 0.925925925925926,
+              "y": 1.0
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 1.0
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.125
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.125
+            },
+            {
+              "valid": true,
+              "x": 0.185185185185185,
+              "y": 1.0
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.125
+            }
+          ],
+          "total": 7,
+          "world": [
+            [
+              885.0,
+              335.0,
+              0.0
+            ],
+            [
+              955.0,
+              335.0,
+              0.0
+            ],
+            [
+              1025.0,
+              335.0,
+              0.0
+            ],
+            [
+              80.0,
+              90.0,
+              0.0
+            ],
+            [
+              80.0,
+              90.0,
+              0.0
+            ],
+            [
+              255.0,
+              335.0,
+              0.0
+            ],
+            [
+              80.0,
+              90.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.037037037037037,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              115.0,
+              55.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "progress": 0.0,
+        "releases": 0.0,
+        "run_time": 0.0,
+        "score": 0.0,
+        "timer": 0.0
+      },
+      "numeric_source": {
+        "progress": "declared",
+        "releases": "declared",
+        "run_time": "declared",
+        "score": "declared",
+        "timer": "declared"
+      },
+      "reached": true,
+      "scene": "res://level_sorting_floor.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 7,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "progress": 0.0,
+            "releases": 0.0,
+            "run_time": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "settle",
+          "player": [
+            115.0,
+            55.0,
+            0.0
+          ],
+          "scene_path": "res://level_sorting_floor.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 1,
+            "gb_interactive": 7,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "progress": 0.0,
+            "releases": 0.0,
+            "run_time": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "settle",
+          "player": [
+            115.0,
+            55.0,
+            0.0
+          ],
+          "scene_path": "res://level_sorting_floor.tscn"
+        }
+      ],
+      "spawn": [
+        115.0,
+        55.0,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.037037037037037035,
+        "y": 0.0
+      },
+      "stop_reason": "goal_requires_route"
+    },
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          1165.0,
+          475.0,
+          0.0
+        ],
+        "min3": [
+          80.0,
+          55.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 0,
+        "alive_before": 0,
+        "attempted": false,
+        "delta": 0,
+        "detail": "this level declares no gb_collectible, so there is nothing to pick up",
+        "effect": {},
+        "target": ""
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://level_ballast_deep.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": false,
+        "changed": false,
+        "detail": "goal has prerequisite actions; evaluated by certified input-only progress routes",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "route_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://level_ballast_deep.tscn",
+        "scene_before": "res://level_ballast_deep.tscn",
+        "target": ""
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_door": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_enemy": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.0833333333333333
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              80.0,
+              90.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 2,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.0833333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.741935483870968,
+              "y": 0.0833333333333333
+            }
+          ],
+          "total": 2,
+          "world": [
+            [
+              80.0,
+              90.0,
+              0.0
+            ],
+            [
+              885.0,
+              90.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_interactive": {
+          "alive": 10,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.67741935483871,
+              "y": 0.5
+            },
+            {
+              "valid": true,
+              "x": 0.741935483870968,
+              "y": 0.5
+            },
+            {
+              "valid": true,
+              "x": 0.806451612903226,
+              "y": 0.5
+            },
+            {
+              "valid": true,
+              "x": 0.870967741935484,
+              "y": 0.5
+            },
+            {
+              "valid": true,
+              "x": 0.935483870967742,
+              "y": 0.5
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.5
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.0833333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.0833333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.161290322580645,
+              "y": 1.0
+            },
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.0833333333333333
+            }
+          ],
+          "total": 10,
+          "world": [
+            [
+              815.0,
+              265.0,
+              0.0
+            ],
+            [
+              885.0,
+              265.0,
+              0.0
+            ],
+            [
+              955.0,
+              265.0,
+              0.0
+            ],
+            [
+              1025.0,
+              265.0,
+              0.0
+            ],
+            [
+              1095.0,
+              265.0,
+              0.0
+            ],
+            [
+              1165.0,
+              265.0,
+              0.0
+            ],
+            [
+              80.0,
+              90.0,
+              0.0
+            ],
+            [
+              80.0,
+              90.0,
+              0.0
+            ],
+            [
+              255.0,
+              475.0,
+              0.0
+            ],
+            [
+              80.0,
+              90.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.032258064516129,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              115.0,
+              55.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "progress": 0.0,
+        "releases": 0.0,
+        "run_time": 0.0,
+        "score": 0.0,
+        "timer": 0.0
+      },
+      "numeric_source": {
+        "progress": "declared",
+        "releases": "declared",
+        "run_time": "declared",
+        "score": "declared",
+        "timer": "declared"
+      },
+      "reached": true,
+      "scene": "res://level_ballast_deep.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 10,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "progress": 0.0,
+            "releases": 0.0,
+            "run_time": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "settle",
+          "player": [
+            115.0,
+            55.0,
+            0.0
+          ],
+          "scene_path": "res://level_ballast_deep.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 2,
+            "gb_interactive": 10,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "progress": 0.0,
+            "releases": 0.0,
+            "run_time": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "settle",
+          "player": [
+            115.0,
+            55.0,
+            0.0
+          ],
+          "scene_path": "res://level_ballast_deep.tscn"
+        }
+      ],
+      "spawn": [
+        115.0,
+        55.0,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.03225806451612903,
+        "y": 0.0
+      },
+      "stop_reason": "goal_requires_route"
+    }
+  ],
+  "liveness": [
+    {
+      "action": "gb_left",
+      "detail": "gb_left is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    },
+    {
+      "action": "gb_right",
+      "detail": "gb_right differs from the idle control on position (delta 1050.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_up",
+      "detail": "gb_up is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    },
+    {
+      "action": "gb_down",
+      "detail": "gb_down differs from the idle control on position (delta 560.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_jump",
+      "detail": "gb_jump differs from the idle control on position (delta 127.475488 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_action",
+      "detail": "gb_action is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    }
+  ],
+  "no_input_no_win": true,
+  "no_input_stop_reason": "budget_frames",
+  "notes": [
+    "liveness deadline derived from this project's own structural pass: 22.4 ms/frame median, 26.6 ms/frame worst",
+    "liveness sweep: 3 live / 3 dead against the 420-frame idle control truth/L0#idle420"
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "ballast_yard",
+  "read_failure": "",
+  "taken_at": "2026-09-10T09:13:54+00:00",
+  "version": "1"
+}

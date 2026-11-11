@@ -1,0 +1,358 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-28T03:01:39+00:00",
+  "interface_requirements": {},
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 4,
+        "gb_collectible": 6,
+        "gb_door": 1,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 26,
+        "gb_interactive": 1,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "y",
+          3
+        ],
+        "gb_collectible": [
+          "x",
+          5
+        ],
+        "gb_hazard": [
+          "y",
+          5
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/act01.tscn",
+      "spawn_goal_distance": 1.1529582516522636
+    },
+    {
+      "census": {
+        "gb_checkpoint": 7,
+        "gb_collectible": 7,
+        "gb_door": 1,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 25,
+        "gb_interactive": 0,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "y",
+          5
+        ],
+        "gb_collectible": [
+          "y",
+          3
+        ],
+        "gb_hazard": [
+          "y",
+          5
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/act02.tscn",
+      "spawn_goal_distance": 0.996083069538266
+    },
+    {
+      "census": {
+        "gb_checkpoint": 7,
+        "gb_collectible": 6,
+        "gb_door": 1,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 22,
+        "gb_interactive": 6,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "y",
+          4
+        ],
+        "gb_collectible": [
+          "x",
+          5
+        ],
+        "gb_hazard": [
+          "y",
+          5
+        ],
+        "gb_interactive": [
+          "x",
+          2
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/act03.tscn",
+      "spawn_goal_distance": 0.8908485343261846
+    },
+    {
+      "census": {
+        "gb_checkpoint": 7,
+        "gb_collectible": 5,
+        "gb_door": 1,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 39,
+        "gb_interactive": 1,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "x",
+          4
+        ],
+        "gb_collectible": [
+          "x",
+          5
+        ],
+        "gb_hazard": [
+          "x",
+          5
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/act04.tscn",
+      "spawn_goal_distance": 0.7537855083856564
+    },
+    {
+      "census": {
+        "gb_checkpoint": 8,
+        "gb_collectible": 6,
+        "gb_door": 1,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 24,
+        "gb_interactive": 5,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "x",
+          5
+        ],
+        "gb_collectible": [
+          "y",
+          3
+        ],
+        "gb_hazard": [
+          "y",
+          5
+        ],
+        "gb_interactive": [
+          "x",
+          4
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/act05.tscn",
+      "spawn_goal_distance": 0.9207676122814854
+    },
+    {
+      "census": {
+        "gb_checkpoint": 7,
+        "gb_collectible": 8,
+        "gb_door": 4,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 14,
+        "gb_interactive": 15,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "x",
+          4
+        ],
+        "gb_collectible": [
+          "x",
+          4
+        ],
+        "gb_door": [
+          "y",
+          2
+        ],
+        "gb_hazard": [
+          "y",
+          4
+        ],
+        "gb_interactive": [
+          "y",
+          5
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/act06.tscn",
+      "spawn_goal_distance": 1.0302110429570848
+    },
+    {
+      "census": {
+        "gb_checkpoint": 7,
+        "gb_collectible": 4,
+        "gb_door": 1,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 33,
+        "gb_interactive": 1,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "y",
+          3
+        ],
+        "gb_collectible": [
+          "y",
+          2
+        ],
+        "gb_hazard": [
+          "y",
+          5
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/act07.tscn",
+      "spawn_goal_distance": 1.0192367615155729
+    },
+    {
+      "census": {
+        "gb_checkpoint": 9,
+        "gb_collectible": 5,
+        "gb_door": 2,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 34,
+        "gb_interactive": 13,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "y",
+          5
+        ],
+        "gb_collectible": [
+          "y",
+          3
+        ],
+        "gb_door": [
+          "y",
+          2
+        ],
+        "gb_hazard": [
+          "y",
+          5
+        ],
+        "gb_interactive": [
+          "y",
+          5
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/act08.tscn",
+      "spawn_goal_distance": 0.9708455047772683
+    }
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "hazard_circuit",
+  "runtime_assets": {
+    "res://assets/audio/music/circuit_a.wav": "24c5c3678b46faaf4f09399655428353e5adc7611572bc5a09cba372bd350cef",
+    "res://assets/audio/music/circuit_b.wav": "c30ae8521119deefd0e22224310e45c07ca726c20760dd93e64e02b9b59a8e6c",
+    "res://assets/audio/sfx/crush.ogg": "b914c8f1eb7c0f34bb165d7c77f4be0351f6be0660c13c53e65424e262e2c093",
+    "res://assets/audio/sfx/land.ogg": "d7267e183067757c92c169de2a379abea592cfca6b39bb2e8feea15221ad79fe",
+    "res://assets/audio/sfx/laser.ogg": "13f34561740aadbd3438b971dfe248cf56ea09d333eb7a0278561e09e27c3557",
+    "res://assets/audio/sfx/saw_loop.ogg": "b4b3bc7420e71bfbec49a6ea13b8c12d76a5751cbdf063d8a8ac017c0b1e1d87",
+    "res://assets/audio/sfx/wind.ogg": "03fd29fd857c67b4401e7ffbc321568229844a10051ae455af497b2335f37d6c",
+    "res://assets/fonts/kenney_future.ttf": "7a55b07f5968fac872648a7c5e959bd2b93e06f63153b585d56e4d5298ddff61",
+    "res://assets/fonts/kenney_future_narrow.ttf": "17e182587a3264dcf9e5b17c055715d5597187546ce81925c64e9184c26d597f",
+    "res://assets/sprites/bg/plate.png": "4933c61294b8557e621bb617c7f1202dd6a556b24d1b569a48a0ccb0dabe1bf6",
+    "res://assets/sprites/fx/bubble.png": "ed6c6f082e666c16bcaca89f15aefb55df9bf69450090518bcae1d3d61f82936",
+    "res://assets/sprites/fx/circle.png": "925b8ac284436f74f9cadf0ecd058da1c08fba65c098e4e34fd220603022f02e",
+    "res://assets/sprites/fx/debris.png": "fcecc70b561f80568b3391c3dc1180126d86ce4fbd4d1b01518e6045203e10a3",
+    "res://assets/sprites/fx/dust.png": "2db2f69874cdb1e5203f2f86803d5debde30402590cf50a810afaba882184616",
+    "res://assets/sprites/fx/flash.png": "f1bdb57478703fec539f7b8eeceb494c4a23664652b296389f310104be80cfe0",
+    "res://assets/sprites/fx/spark.png": "9624ea2017b8b2767a9d3b82e978b7fdf5154d83e6756cd919da51447bb97138",
+    "res://assets/sprites/fx/star_burst.png": "05f24d1ee76c1464074cbca58155e4be517fefd34a7001bb012561647cc3dec3",
+    "res://assets/sprites/hazards/crusher_chain.png": "1cbf1dd2ab223ed7db8f3781e153daed4d9a12885e8131bdbb89d39f954be8ee",
+    "res://assets/sprites/hazards/crusher_head.png": "c693a3216ee92b67f3de42ac41b4a0ef71d40f576a375f65eb6820207aaf2144",
+    "res://assets/sprites/hazards/fan_blade.png": "c5ce6000b3a3818241fba9bae8a5e71db1271366780e3d70c1d38513923b42f0",
+    "res://assets/sprites/hazards/fan_housing.png": "9e62fd620f63455abd077a50bd093c74bebc120765989c519ab26bef148a4490",
+    "res://assets/sprites/hazards/laser_beam_h.png": "555a507b949a22ab36d3c20d89b4c2048762b9beee9ec7645f6f284b41d7ea7e",
+    "res://assets/sprites/hazards/laser_beam_v.png": "243b10a0978781e458f41f0d19e3c699987a0f7259f3e89f44dee09564f41677",
+    "res://assets/sprites/hazards/laser_emitter_down.png": "0e0d412889070926f254748247deadde1a691708f731fee5bd2471359fb12516",
+    "res://assets/sprites/hazards/laser_emitter_left.png": "8bad325f4396d9a0ed4c936346cfb7f5a61a9c7feb9d0a372de21c0d7489a27b",
+    "res://assets/sprites/hazards/laser_emitter_right.png": "f94760ff4251de6da3453c9954d08d25c66560d66a92b8bd00296d15f95bb312",
+    "res://assets/sprites/hazards/roller_a.png": "44917138423bf0aa3a0d8943a9080b56e049a2d158b70390cd182419bb2711de",
+    "res://assets/sprites/hazards/roller_b.png": "9d372b0f83a47c4d5b570512e11d9955974b61c3be1789989768ea3d3a7d8375",
+    "res://assets/sprites/hazards/spike_up.png": "39169880ab98df3b3c66ca6a36ddef8005db6e6dfbd26988f11def4db568782e",
+    "res://assets/sprites/player/rx9_front.png": "0b82937620782663b6bc9cc695078c3d9ae05129e21757a299ace56f1f3b57eb",
+    "res://assets/sprites/player/rx9_stand.png": "cec341e0464fe40b30348e75e54a0b407697c033b44616ee68fa3fcdfa936608",
+    "res://assets/sprites/props/checkpoint_off.png": "d013c2621300077cc2057ea92672a483699a6320a0708c90cf7899d7dad57d7a",
+    "res://assets/sprites/props/crate.png": "6f7444fa23901c2833a5ce68c1d11eecf26eb36d0bf2af1086a4ee172cf8d781",
+    "res://assets/sprites/props/crate_warning.png": "4e2ec7e2752984e3ea2e8e9819b1dc85e18e2ed7d77c5ab5fa96b23a5f417655",
+    "res://assets/sprites/props/gem.png": "005d0f19f60416cfcb19723537a31f501dcf82695c8df795909a9d3bb229f6be",
+    "res://assets/sprites/props/key.png": "faf0da321d72773ef12cb141e79a8ac5af50deb082a48186c2c09cd29bb6d409",
+    "res://assets/sprites/props/spring_up.png": "05999b8b04011f0e25001c0e3785a4c3d8653dc05bb6b51e60662edf58b24a5c",
+    "res://assets/sprites/props/star.png": "0b5ca40570f319b59ed49384b82f6bd9fbb68df79cf94ed0079160d2f8856427",
+    "res://assets/sprites/props/switch_off.png": "2ccad62443b069028a01d7db2c34b29b2a0482b84844b2ec63f9569046d5e892",
+    "res://assets/sprites/props/switch_on.png": "b33e91b13a8f8544310d7d7b0b1898044ba700f17868b63c3f647da9b7b7f436",
+    "res://assets/sprites/tiles/beam.png": "d16cecb86ea3f446715c904308599b07a75d82b8e834fd1321ce567d25362e65",
+    "res://assets/sprites/tiles/beam_bolts.png": "98a3065b29f58360c6facc7bfed2395458b189937545dfd74ab1a05df97fe764",
+    "res://assets/sprites/tiles/beam_narrow.png": "b4253d596ab849908901f53986eb157aae3d776848a041c9f5962c62d4cb11b8",
+    "res://assets/sprites/tiles/door_closed_mid.png": "23d0a6c68ec2a6e5670b097af8d2cf373ada9fa08c16053a580b2b331f8c0d2d",
+    "res://assets/sprites/tiles/door_closed_top.png": "8471ec9523b190cadf72293130de354482fb5e5d13877302732f8a49fc989b80",
+    "res://assets/sprites/tiles/ice_block.png": "0e154baffdc0ff1678dea36258ea5d0f7ce3a210d34dd903f0516d848969c263",
+    "res://assets/sprites/tiles/ladder_mid.png": "d3a4630fc0a50e1ef15b60b342d0c718390e30de5882687740b43a494c1776ef",
+    "res://assets/sprites/tiles/ladder_top.png": "11b0ad00c72176b5827019fb405aa64563edb6dc79acd280fb46a9dd051f5bf4",
+    "res://assets/sprites/tiles/lock_yellow.png": "c1e9666ea5ce0e401c576194794bb125268f05bd67a0a5c86fb12b4d9bed21c2",
+    "res://assets/sprites/tiles/metal_center.png": "aa7938541c069853ff1260e17359d913883dd408f2e968724f917a3656f94a72",
+    "res://assets/sprites/tiles/metal_fence.png": "74c7013b8563c4da4c8bdc28d9e2445c6e43517191f986426284513385ce3b74",
+    "res://assets/sprites/tiles/metal_left.png": "8835d81a4825338bbeb95e94d1f53e613250a8766fe59f7d1f52bf059668ae2e",
+    "res://assets/sprites/tiles/metal_mid.png": "0a78cc99d550bb2318cfbb2e916f7c7850e7aabfe3c39e3271472f75815990f7",
+    "res://assets/sprites/tiles/metal_platform.png": "4df4e5bfb2feda0bd3e478350d916250624c23233c943b49159c1eeb1278d1ea",
+    "res://assets/sprites/tiles/metal_right.png": "0866d95b1061a71ac0cc01bd8ae4fc34e4c0a9948d898322f1695563ed8f2d2d",
+    "res://assets/sprites/tiles/metal_warning.png": "76a236e7cfd025fb2690e4e97e6c8f123da299b1656a4dcd6bae4e1466145f3d",
+    "res://assets/sprites/tiles/rope_attached.png": "6544135c7d7588e3fcc3c5a2d907c60753bf78c5901317e89c470769ce9cdfe3",
+    "res://assets/sprites/tiles/rope_vertical.png": "14f1404fff2cbadc1ac1e5fab2cc5e65ac1adaea28781dcd065fe5d57ba46bd4",
+    "res://assets/sprites/tiles/sign_exit.png": "4fcc537dc4557ada64d908c4ffe9dc085417925665ec9729e6f9bccda0e17f60",
+    "res://assets/sprites/tiles/sign_left.png": "5d22554a924e84e5860aeb05fe4831cafc68634eeeb8166b0d878d853a7cddf6",
+    "res://assets/sprites/tiles/sign_right.png": "fa0fc4307b47da3e829b9cd05abda17fd3590703363cba73d5ae87f1fc321ab6",
+    "res://assets/sprites/tiles/stone_center.png": "f5ba5eb1959fd843885051c667c52b4573d4cf560a7243172fc745ddfa94eb3f",
+    "res://assets/sprites/tiles/torch_lit.png": "550ea7a4d7d76bc6cb940587aae0c7f2431277a1fb4b1d2cb3750187cbc75b48",
+    "res://assets/sprites/tiles/water_body.png": "46d076e8315b17f8f5a412226588d0b445caf4ae296affcc535d77d61334e139",
+    "res://assets/sprites/tiles/water_top.png": "8a13527d20f8d2586622ff710a30e8875e9f4e42a11ba014962b028bdf0c7840",
+    "res://assets/sprites/tiles/wire_hook.png": "7396ac2bb4291403f4f414cb1c78a9d30d2778b03ecaca360cf9f40d5d6f3d0a",
+    "res://assets/sprites/tiles/wire_left.png": "6de9722c3ecdc5c51f598d9c1773d68791e4aba9b90e78d2282f7f4b9a0d3c58",
+    "res://assets/sprites/ui/bar_back.png": "a80f54d81912dcac6827b8b71bb81f6b8b8a0c190573006aee9612d6bbd91618",
+    "res://assets/sprites/ui/bar_fill.png": "5e4336d1d816aefd6a17441ea190bacdab54705b560b59f0e54f5449f46c8798",
+    "res://assets/sprites/ui/button.png": "a17548efecebe7cb8bb7bc6e71510b4a9a7dbbc31accfe0a2e3e565bf58b5839",
+    "res://assets/sprites/ui/button_grey.png": "2c87de0c067e93fdda3adcbfe6ca78c9cd35d6f524b45b2fdb4fb394f457973d",
+    "res://assets/sprites/ui/button_pressed.png": "83084c953e57d7506f90600df77f36a8c6156abea0b8ea0e4b3885a596cee2c8",
+    "res://assets/sprites/ui/check_off.png": "e11648f1188535916da8645cde5532f90c806ff0d678a03b668957f0aea431df",
+    "res://assets/sprites/ui/check_on.png": "4cfdc27d788a8f932e8f5c8bf5fa3d15e0ced631185d786161afe4b8d860d006",
+    "res://assets/sprites/ui/hud_coin.png": "b93c3f6e7daa1fd2f6c06ca22f9c6c79b48822228c67ec66f2e19f2ca83bb2c4",
+    "res://assets/sprites/ui/hud_key.png": "d74b3108469c954e5ba1b903a0075d955e20e6652809db4901a73789c7a83dbc",
+    "res://assets/sprites/ui/panel.png": "381aa4900b97e21422460bdb7003d321846c2ae430c10661d4d97618bbbb9df6",
+    "res://assets/sprites/ui/panel_dark.png": "1ed471bd6615107e072d1efd97cdadde6457682bbe59f7d800158de88ccac2cb"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

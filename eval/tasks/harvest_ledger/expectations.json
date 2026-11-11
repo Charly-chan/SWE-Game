@@ -1,0 +1,188 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-09-03T10:56:14+00:00",
+  "interface_requirements": {
+    "O9": {
+      "fields": [],
+      "reason": "reference has no registered anchor expectation",
+      "required": false
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 0,
+        "gb_door": 5,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 0,
+        "gb_interactive": 8,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_door": [
+          "x",
+          4
+        ],
+        "gb_interactive": [
+          "x",
+          4
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/level_farm.tscn",
+      "spawn_goal_distance": 0.14585081234914848
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 0,
+        "gb_door": 2,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 0,
+        "gb_interactive": 5,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_door": [
+          "x",
+          1
+        ],
+        "gb_interactive": [
+          "x",
+          2
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/level_forest.tscn",
+      "spawn_goal_distance": 0.14439769542636216
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 0,
+        "gb_door": 3,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 0,
+        "gb_interactive": 12,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_door": [
+          "x",
+          2
+        ],
+        "gb_interactive": [
+          "x",
+          3
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/level_island.tscn",
+      "spawn_goal_distance": 0.10743033493377648
+    }
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "harvest_ledger",
+  "runtime_assets": {
+    "res://assets/audio/sfx/chicken-cluck-1.ogg": "a3fd1a457dc26715047274ced872d5e2a46ac6f61ca5bde4c3354f8a79e8e5d2",
+    "res://assets/audio/sfx/chicken-cluck-2.ogg": "a175403e1a9d6512645aec671186c23e1318fc74621ed30d451ae618c8837665",
+    "res://assets/audio/sfx/chicken-cluck-3.ogg": "cb793524a4d0675f709c9786fca6d903135baf85916ecffbc89c32301e7060d5",
+    "res://assets/audio/sfx/cow-moo.ogg": "fcc808300d29dc16dffd537f888aed50e1b4dd44b54e5961bf61386a2d176acb",
+    "res://assets/audio/sfx/harvest.ogg": "bdf21eb12e65507f091d074886fdac820e1ccae51d060caa168e5567acadb84b",
+    "res://assets/audio/sfx/lose.ogg": "0b574cea597d96507e782ae9764f88482ce49f46e931e57054bf7150047f2d69",
+    "res://assets/audio/sfx/sell.ogg": "063564703b6094d70718a3e787a55cc9141611e4ecd6b6637f8828f79b4a8c3a",
+    "res://assets/audio/sfx/tool.ogg": "36b4ea107222d073c67ca64dde26944975609202d5090b2f2021213c1a7e35cd",
+    "res://assets/audio/sfx/win.ogg": "69e25a1b7b0781f57af84eb4424973ec406d34bc48eed8b6964787b2d74093a9",
+    "res://assets/characters/julia_cc0/Julia_32x32.png": "9151ae55f65b5cbba1fa37c8ceadab88ed40caf5480d762fdcbf727d7ccc879d",
+    "res://assets/characters/julia_cc0/Julia_walk_Foward_64x64.png": "667ee2db706a45d23c16ec0dfb162e85e3fe6074e13bb67cf0add113a0c9286b",
+    "res://assets/characters/julia_cc0/Julia_walk_Left_64x64.png": "ec92d2ab47c5a7d0e0561cffa1b28f1c0e18733add0c6b592e08331da315b46f",
+    "res://assets/characters/julia_cc0/Julia_walk_Rigth_64x64.png": "051de714fdfa772e75c1ef73b27279de6049f20a0efd863439c92cc8d6cf0292",
+    "res://assets/characters/julia_cc0/Julia_walk_Up_64x64.png": "9dea4a1df7dc776d02b6ea63a888674ba932e1f69f8235895b8fe18c927d6eac",
+    "res://assets/characters/npc_dialogue/elsie_world_granny_cc0.png": "40825dbcbde476c2afe4a871a3a85c0fe11fe12c928341d501bf47dcc2a8e4e8",
+    "res://assets/kenney_tiny_farm/tiles/tile_0003.png": "a6bc6262c951cfc1e8b9562cc4731a1c605aaa090a071199368390565a204743",
+    "res://assets/kenney_tiny_farm/tiles/tile_0012.png": "481c2d87c832f8e4949f8c7edc4d2281c31cb19178bdd542c8a2b496d7c808b9",
+    "res://assets/kenney_tiny_farm/tiles/tile_0015.png": "68be0707a08d66b1ca8ffab508241a084a55db071df87c95b9277c45d563b0ac",
+    "res://assets/kenney_tiny_farm/tiles/tile_0024.png": "d09a9d7dee667af1ef9af130c60d780c1d2b843f6f655edd01a0b049f560e956",
+    "res://assets/kenney_tiny_farm/tiles/tile_0036.png": "3c510767f2cedc4162cedbbf1b086e39cf3ff2887322f880e5016af143fda359",
+    "res://assets/kenney_tiny_farm/tiles/tile_0038.png": "9038841f663a1a7733815be8a470333b6be0599c1ced6ac2b07d5ff7fddaafec",
+    "res://assets/kenney_tiny_farm/tiles/tile_0044.png": "fefa9a43564ccdbd1e3c2ca86c59e55a999ba1fc7c304adb2eec2430ad901af2",
+    "res://assets/kenney_tiny_farm/tiles/tile_0048.png": "7b3063268a90b1501c6e34f99df9451519cd9dc628143301056d201f97a62d19",
+    "res://assets/kenney_tiny_farm/tiles/tile_0049.png": "3cc91a8bf7bab1173a6702e82ac6280972606580cad9f0ee433725bf16313ebc",
+    "res://assets/kenney_tiny_farm/tiles/tile_0050.png": "c57a7fbe141e5303d535aad4a66c73ebae3a65b2b7e1023c5eab1ab6016c8bd4",
+    "res://assets/kenney_tiny_farm/tiles/tile_0055.png": "85d294855daef0fa79a54aa8bbca8d48afec930e11edf953d07836534b078869",
+    "res://assets/kenney_tiny_farm/tiles/tile_0068.png": "9f61aeae8b55cbdd4dc03a56747c5f0f3a94285ed003e66e309cd2fee5cf4ec5",
+    "res://assets/kenney_tiny_farm/tiles/tile_0073.png": "5db72b2e00cdece1f27cc9a5e0330436537d56483b71b5f6bbf3ad489943e37c",
+    "res://assets/kenney_tiny_farm/tiles/tile_0089.png": "1e15adc70c44dd2543c11e3332e62f49ec1234c5d81cb9a61bc7ed50b149a955",
+    "res://assets/kenney_tiny_farm/tiles/tile_0090.png": "9dc04a1ad69993b7bb47f6dc16ee2b2dce882595034f5531b8045fc304ed39d5",
+    "res://assets/kenney_tiny_farm/tiles/tile_0091.png": "ada71bf6f8b532bcbbe12940b81e3b4a9843b6599aecae775395c97fa8f350b0",
+    "res://assets/kenney_tiny_farm/tiles/tile_0092.png": "ac4d70cef9e6c44a022b0df72ade7834a01ca01d61cf652155a0f2a54cc469d3",
+    "res://assets/kenney_tiny_farm/tiles/tile_0093.png": "b8674fc2bba7cd7afcdd1edb3cb574fcb8a28a3cf1f774e39dae81a7eb0e23e3",
+    "res://assets/kenney_tiny_farm/tiles/tile_0094.png": "d751bf8bd0ecd8169d73517ed0d5022b413b2b92bcdf01222ce1c1eb1a8ebca6",
+    "res://assets/kenney_tiny_farm/tiles/tile_0095.png": "39a9bf8c6ddac5460e66363f1c1613446870e70f8eb35991696ffb81c98db955",
+    "res://assets/kenney_tiny_farm/tiles/tile_0098.png": "aa151fa2fb5a1ee6d56350a5c829ecff0cb65c20fa1017198e4baf130220375f",
+    "res://assets/kenney_tiny_farm/tiles/tile_0099.png": "fdbe151c55702ba559149186270eb8423327b31dff9be8038611c04340b73038",
+    "res://assets/kenney_tiny_farm/tiles/tile_0100.png": "4077b35b9b6639bf0b724a6bf43f5765c41c6c25739b7e9fb8fe6114cca87c5a",
+    "res://assets/kenney_tiny_farm/tiles/tile_0101.png": "12e72308266dc6a008f143b0d67e2e21f1eafa96e97fd66bdc2c2c47df693442",
+    "res://assets/kenney_tiny_farm/tiles/tile_0102.png": "daf93725686b454ce1fcd84423ed247609851e7df0530773edff3fda606199ff",
+    "res://assets/kenney_tiny_farm/tiles/tile_0103.png": "73c7e355b444d783bf4b50b42f6e53089c6f22928435838ba089e23ab9a03424",
+    "res://assets/kenney_tiny_farm/tiles/tile_0104.png": "80dfd20d679f43ca3445eb1c6f65c09eadd9be66d6141f6a6cdc9ebd441bfc1f",
+    "res://assets/kenney_tiny_farm/tiles/tile_0105.png": "e84ff07543fe9e0fd103557570a2d0aa80d26944f67f4d8bc264328dc8818733",
+    "res://assets/kenney_tiny_farm/tiles/tile_0106.png": "79028c8035f8ade22368e4c4a8748cf2ef108aa6d3c9724e1d42ae703b6cfce8",
+    "res://assets/kenney_tiny_farm/tiles/tile_0107.png": "488d2cbb3a93a6970e1ae432e7d7a60c7993fbf6418cbacde984ba1cabb06efa",
+    "res://assets/kenney_tiny_farm/tiles/tile_0108.png": "2e8be06054b5a39c8f543cfccf60f247c2e10b38bf5a1ea826b295af5b3ff8c6",
+    "res://assets/kenney_tiny_farm/tiles/tile_0109.png": "7b24ac5c942a8053b8cda22f4b0b8b90965806b37884146eca7a29b74406e94a",
+    "res://assets/kenney_tiny_farm/tiles/tile_0112.png": "ccc442c691097c3a402bcc43f0cfe010854a807088d2d23c827c6516e44f05da",
+    "res://assets/kenney_tiny_farm/tiles/tile_0113.png": "bea8081151b505039c9290a93d304b1373b37b1df8b2c34475ab0620797649e4",
+    "res://assets/kenney_tiny_farm/tiles/tile_0114.png": "8533de2306b013f26eefcec7331b526c4fcd17be42ab9ed7ba9dd47a40573b0d",
+    "res://assets/kenney_tiny_farm/tiles/tile_0115.png": "498c06a5747811fef37d297d7517134760fdee36bd6f4dadf49470b617602b5f",
+    "res://assets/kenney_tiny_farm/tiles/tile_0116.png": "b787146d392e93798d5965d91bd0ef4bd3ecaba94ead331938fad67db63f3755",
+    "res://assets/kenney_tiny_farm/tiles/tile_0121.png": "e6ecb72b5d3b101921cb3bd9719b92235cb863b26563542d49336690ab7e0503",
+    "res://assets/kenney_tiny_farm/tiles/tile_0122.png": "b3059ecccd1ba02bfcad69772c9d1673bad482c144a08d61f6f98547e455468e",
+    "res://assets/kenney_tiny_farm/tiles/tile_0126.png": "ad72b924c3ff68af10d717e258aa8994e7c393bbbf0ebbfd72c2ebbdbfff345e",
+    "res://assets/kenney_tiny_farm/tiles/tile_0127.png": "0f24abbdadb237f4f3cb7077b7777109a53bdcc46698f3804f3edadf92d9450d",
+    "res://assets/kenney_tiny_farm/tiles/tile_0128.png": "d31f20d9c80515b6dcf6d5d67ef8386b95f670b8cd06ce29fe9d572f9ba9beb1",
+    "res://assets/kenney_tiny_town/Tiles/tile_0000.png": "d4c692ef80ee97b3395b885ae07020d42a106683ff3650df240f8e972bd5a041",
+    "res://assets/kenney_tiny_town/Tiles/tile_0001.png": "cf3b3df8669e621af90944fb3155b15f13adf203dda464e6149d7318f3660713",
+    "res://assets/kenney_tiny_town/Tiles/tile_0002.png": "ea524c6974ad6203f46a3e68a360883d0d53dbbdaa237f6cd81ac6fd5be6ea7c",
+    "res://assets/kenney_tiny_town/Tiles/tile_0012.png": "e1b87cceac398679e30d7cd4feecf4f40b8104515c255ed2d8e4fd4f868bb35c",
+    "res://assets/kenney_tiny_town/Tiles/tile_0013.png": "dff7a37b7fa1be3648dcb1d01be3df26eed3ea5dfb8d8b7ffdcc2af06715c1ad",
+    "res://assets/kenney_tiny_town/Tiles/tile_0014.png": "1209e77e92dc55b0c6aab326ccf714a6f48fdb8ca447c77aea779b1c95e4d41e",
+    "res://assets/kenney_tiny_town/Tiles/tile_0024.png": "3ffd3954dfb28615d813744ec3b0638d46f0cd9376426329221b70128719282a",
+    "res://assets/kenney_tiny_town/Tiles/tile_0025.png": "63519065228f5f8af6200d979fa54cd7f00650034ceea10a1609203a34b3ff9b",
+    "res://assets/kenney_tiny_town/Tiles/tile_0026.png": "1cc4348d99b6ca90b26e9cda7823a68d549fae0a9859ce3f31bfedff5a405bce",
+    "res://assets/kenney_tiny_town/Tiles/tile_0029.png": "0d55333ffe4c1d3be705978bdf1c176a871c25a6bde232dfba5c359b1a433294",
+    "res://assets/kenney_tiny_town/Tiles/tile_0031.png": "b0330026a4ee1bb5d0895d2f1310d2caff75512522752ed0a30770783f97bb7a",
+    "res://assets/kenney_tiny_town/Tiles/tile_0036.png": "87f81fe427117ff6fcee2cf40c1b30688e7bcea78cc2933c7354c9d985ffffac",
+    "res://assets/kenney_tiny_town/Tiles/tile_0037.png": "ad8ed926be6b53a9a240d18dc332f4140552258d2c625773acbbdfc9b09a825e",
+    "res://assets/kenney_tiny_town/Tiles/tile_0038.png": "6bd82dfc79a21d7eeeacaaa9e6094be415b7a5d2190183ae28bc6ad764623255",
+    "res://assets/objects/basic_furniture.png": "e41db496598994f1f55019d626256deb3a2419daed5ddc8fbf60f556b02d2e7a",
+    "res://assets/objects/basic_grass_biom_things.png": "22938e24b511139f5552795429250fbdbbaeb6f5e849cab91bc83ac0a1f12586",
+    "res://assets/tilesets/fences.png": "211ecb752d2bc8cc434662440d6cd864d58d8ce4720063964cac27e59559c52b",
+    "res://assets/tilesets/grass.png": "97eedc32f4c33005ab2abb26a034ce1b32428da321e3052082c87d320c0e1cbe",
+    "res://assets/tilesets/tilled_dirt_wide.png": "8bf6c8b9f6f7ef58e42c823a26ed11abd84e04a6daaf0e5af8c89b42d0c0f3b5",
+    "res://assets/tilesets/tilled_dirt_wide_v2.png": "b4e8ef68a1038c6f1fbe1b30d85f1065b563718bff1e697fd28bc94b7f0906e2",
+    "res://assets/tilesets/water.png": "02ce64243bb17f62fff0bd44abf661ab5efb8dd6a85fd7e304e73e2fd3188f95",
+    "res://assets/tilesets/wooden_house_walls_tilset.png": "22f19ef774f98018fc6e0f404921a3d06139db256f99625e53da2e510df3c206",
+    "res://assets/ui/tool_icons_pixel_late/axe.png": "30f0738b5193737af0b0687b031f90173edb5242bb48985e9fec451b243aaf7c",
+    "res://assets/ui/tool_icons_pixel_late/hoe.png": "b87772e9b884c612cc04a749c052d54887c93c14306ab68f0227039ba4f81fc6",
+    "res://assets/ui/tool_icons_pixel_late/watering_can.png": "b933deb49d80cdcc2a8d6e90b68a422669d292cacb4bfda22994fde82ec9ca57",
+    "res://icon.svg": "f6369bae7e12e6d16019cd6214cf27a2fdb6f3f6d024bd6f23c322be4804474f"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

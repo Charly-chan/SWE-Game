@@ -1,0 +1,869 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:daae5de79a91111807e1caf8cd63d1ae34df4ef1d1184298aa50201af2f5844f",
+  "game_id": "vaultline",
+  "inputs": {
+    "certificate": {
+      "path": "tasks/vaultline/certificate.rt1.json",
+      "sha256": "186d4010a8d1de3d43fd08d2657278d322e8d1028e232da71ccee0dca1623c84"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/vaultline.md",
+      "sha256": "c8cf3a73567574956e59d586fe8436d954c4d65b5327ca2e9b8c07008ec72b44"
+    },
+    "route": {
+      "path": "tasks/vaultline/route.json",
+      "sha256": "9c7e17a6e1ef6c2691f7f74e3ad6c1ae486d8d08ac18432a5a299c241cef0492"
+    },
+    "rubric": {
+      "entry_sha256": "921f6c3865658a2c25bb1f33130c054969ca50e689df04d5a1893060e1a276d5",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_hazard",
+        "gb_collectible",
+        "gb_interactive",
+        "gb_door",
+        "gb_goal",
+        "gb_checkpoint"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/vaultline/authored/source_obligations.json",
+      "sha256": "4886dd634e3a0620c2a8bf0e6e87ea341a2e3419e34d4645f0deccef71847d0c"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "budget_frames": 430,
+      "calibrated_policy_sha256": "sha256:ee8fa31e560c44e735e6193d9ff0a395856001e24c0cba5366bb2c036f7deb04",
+      "capture_checkpoints": [
+        {
+          "id": "c11_start",
+          "kind": "run_start"
+        },
+        {
+          "id": "floor_clear",
+          "predicate": "numeric_delta(progress) >= 1"
+        },
+        {
+          "id": "c11_goal",
+          "predicate": "numeric_delta(progress) >= 1"
+        }
+      ],
+      "counterfactual_id": "remove_ground_pound",
+      "critical_action": "gb_down",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Ordered breakable, hazard, goal and progress observations were present in the reference trace.",
+      "reference_trace": "vaultline/C11",
+      "reference_trace_sha256": "sha256:0bfe0ea31ec02b6efcabaedf8e1fe78c69ba86ec4551942a830ce42e0501850b",
+      "reviewer": "mode5-calibration-20260908",
+      "route_id": "vaultline/C11/drop",
+      "scenario_id": "vault_drop_breakable_clear",
+      "source_check_id": "drop_block_hazard_then_goal_progress",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "source_breakable_contact",
+            "predicate": "overlap(gb_player, gb_interactive)"
+          },
+          {
+            "name": "source_hazard_contact",
+            "predicate": "overlap(gb_player, gb_hazard)"
+          },
+          {
+            "name": "source_goal_contact",
+            "predicate": "contact(goal, 0)"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "strategy": {
+        "fallback_actions": [
+          "gb_down",
+          "gb_right",
+          "gb_jump"
+        ],
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "action": "gb_right",
+              "hold_frames": 24
+            },
+            {
+              "action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "action": "gb_down",
+              "hold_frames": 14
+            }
+          ],
+          "interaction_role": "gb_interactive",
+          "interaction_sequence": [
+            {
+              "action": "gb_down",
+              "hold_frames": 14
+            },
+            {
+              "action": "gb_right",
+              "hold_frames": 18
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "budget_frames": 620,
+      "calibrated_policy_sha256": "sha256:86e075003e006ff779c0653d6ed32d2a08266a90ae793a2b366ec90aba4ed702",
+      "capture_checkpoints": [
+        {
+          "id": "c13_start",
+          "kind": "run_start"
+        },
+        {
+          "id": "floor_clear",
+          "predicate": "numeric_delta(progress) >= 1"
+        },
+        {
+          "id": "c13_goal",
+          "predicate": "numeric_delta(progress) >= 1"
+        }
+      ],
+      "counterfactual_id": "remove_seam_traversal",
+      "critical_action": "gb_right",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Ordered portal, latching plate, gate and goal observations were present in the reference trace.",
+      "reference_trace": "vaultline/C13",
+      "reference_trace_sha256": "sha256:7e57db4d4f6e0e4c8c05c20acef17f298cff136f258a8bd183ccf8ebd23433fa",
+      "reviewer": "mode5-calibration-20260908",
+      "route_id": "vaultline/C13/seam",
+      "scenario_id": "vault_seam_plate_portal_sequence",
+      "source_check_id": "portal_then_latching_plate_gate_then_goal",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "source_portal_contact",
+            "predicate": "overlap(gb_player, gb_door)"
+          },
+          {
+            "name": "source_plate_contact",
+            "predicate": "overlap(gb_player, gb_interactive)"
+          },
+          {
+            "name": "source_seam_goal_contact",
+            "predicate": "contact(goal, 0)"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "strategy": {
+        "fallback_actions": [
+          "gb_action",
+          "gb_right",
+          "gb_left",
+          "gb_jump",
+          "gb_down"
+        ],
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "action": "gb_right",
+              "hold_frames": 24
+            },
+            {
+              "action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "action": "gb_right",
+              "hold_frames": 20
+            },
+            {
+              "action": "gb_down",
+              "hold_frames": 12
+            }
+          ],
+          "hazard_role": "gb_hazard",
+          "hazard_sequence": [
+            {
+              "action": "gb_left",
+              "hold_frames": 8
+            },
+            {
+              "action": "gb_jump",
+              "hold_frames": 1
+            }
+          ],
+          "interaction_role": "gb_interactive",
+          "interaction_sequence": [
+            {
+              "action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "action": "gb_right",
+              "hold_frames": 24
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "budget_frames": 1200,
+      "calibrated_policy_sha256": "sha256:86b5437a08e32c672836a4baed66c49bb7d9973884c1aec461604b6f79fe4bc7",
+      "capture_checkpoints": [
+        {
+          "id": "c14_start",
+          "kind": "run_start"
+        },
+        {
+          "id": "floor_clear",
+          "predicate": "numeric_delta(progress) >= 1"
+        },
+        {
+          "id": "c14_goal",
+          "predicate": "numeric_delta(progress) >= 1"
+        }
+      ],
+      "counterfactual_id": "remove_final_jump",
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "gdd_explicit"
+      ],
+      "route_id": "vaultline/C14/final_vaultline",
+      "scenario_id": "vault_final_checkpoint_recovery",
+      "strategy": {
+        "fallback_actions": [
+          "gb_right",
+          "gb_jump",
+          "gb_left",
+          "gb_down",
+          "gb_action"
+        ],
+        "parameters": {
+          "checkpoint_role": "gb_checkpoint",
+          "checkpoint_sequence": [
+            {
+              "action": "gb_right",
+              "hold_frames": 24
+            },
+            {
+              "action": "gb_jump",
+              "hold_frames": 1
+            }
+          ],
+          "fallback_sequence": [
+            {
+              "action": "gb_right",
+              "hold_frames": 24
+            },
+            {
+              "action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "action": "gb_down",
+              "hold_frames": 10
+            },
+            {
+              "action": "gb_action",
+              "hold_frames": 1
+            }
+          ],
+          "hazard_role": "gb_hazard",
+          "hazard_sequence": [
+            {
+              "action": "gb_left",
+              "hold_frames": 8
+            },
+            {
+              "action": "gb_jump",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      }
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 24,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 14,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.0e3b647381",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "action": "gb_right",
+            "hold_frames": 24
+          },
+          {
+            "action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "action": "gb_down",
+            "hold_frames": 14
+          }
+        ],
+        "interaction_role": "gb_interactive",
+        "interaction_sequence": [
+          {
+            "action": "gb_down",
+            "hold_frames": 14
+          },
+          {
+            "action": "gb_right",
+            "hold_frames": 18
+          }
+        ]
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 14,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 18,
+              "value": 1.0
+            }
+          ],
+          "when": "overlap(gb_player, gb_interactive)"
+        }
+      ],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 24,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 20,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 12,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.024a7be5b9",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "action": "gb_right",
+            "hold_frames": 24
+          },
+          {
+            "action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "action": "gb_right",
+            "hold_frames": 20
+          },
+          {
+            "action": "gb_down",
+            "hold_frames": 12
+          }
+        ],
+        "hazard_role": "gb_hazard",
+        "hazard_sequence": [
+          {
+            "action": "gb_left",
+            "hold_frames": 8
+          },
+          {
+            "action": "gb_jump",
+            "hold_frames": 1
+          }
+        ],
+        "interaction_role": "gb_interactive",
+        "interaction_sequence": [
+          {
+            "action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "action": "gb_right",
+            "hold_frames": 24
+          }
+        ]
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 24,
+              "value": 1.0
+            }
+          ],
+          "when": "overlap(gb_player, gb_interactive)"
+        },
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 8,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1,
+              "value": 1.0
+            }
+          ],
+          "when": "overlap(gb_player, gb_hazard)"
+        }
+      ],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 24,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 10,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.e00094d32a",
+      "parameters": {
+        "checkpoint_role": "gb_checkpoint",
+        "checkpoint_sequence": [
+          {
+            "action": "gb_right",
+            "hold_frames": 24
+          },
+          {
+            "action": "gb_jump",
+            "hold_frames": 1
+          }
+        ],
+        "fallback_sequence": [
+          {
+            "action": "gb_right",
+            "hold_frames": 24
+          },
+          {
+            "action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "action": "gb_down",
+            "hold_frames": 10
+          },
+          {
+            "action": "gb_action",
+            "hold_frames": 1
+          }
+        ],
+        "hazard_role": "gb_hazard",
+        "hazard_sequence": [
+          {
+            "action": "gb_left",
+            "hold_frames": 8
+          },
+          {
+            "action": "gb_jump",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 24,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1,
+              "value": 1.0
+            }
+          ],
+          "when": "overlap(gb_player, gb_checkpoint)"
+        },
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 8,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1,
+              "value": 1.0
+            }
+          ],
+          "when": "overlap(gb_player, gb_hazard)"
+        }
+      ],
+      "strategy_type": "traversal"
+    }
+  ],
+  "policy_digest": "sha256:cbaf3533d2ae8f2401d49acc5844c6d90ae6580dd2debe1a9c5fabf443f162af",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "vaultline/C11",
+      "budget_frames": 430,
+      "capture_checkpoints": [
+        {
+          "id": "c11_start",
+          "kind": "run_start"
+        },
+        {
+          "id": "floor_clear",
+          "predicate": "numeric_delta(progress) >= 1"
+        },
+        {
+          "id": "c11_goal",
+          "predicate": "numeric_delta(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove_ground_pound",
+          "remove": "gb_down"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_clear",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "id": "vault_drop_breakable_clear",
+      "policy": "strategy.traversal.0e3b647381",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_right"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "vaultline/C11/drop",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "source_breakable_contact",
+            "predicate": "overlap(gb_player, gb_interactive)"
+          },
+          {
+            "name": "source_hazard_contact",
+            "predicate": "overlap(gb_player, gb_hazard)"
+          },
+          {
+            "name": "source_goal_contact",
+            "predicate": "contact(goal, 0)"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "start_level": 10
+    },
+    {
+      "authoring_record": "vaultline/C13",
+      "budget_frames": 620,
+      "capture_checkpoints": [
+        {
+          "id": "c13_start",
+          "kind": "run_start"
+        },
+        {
+          "id": "floor_clear",
+          "predicate": "numeric_delta(progress) >= 1"
+        },
+        {
+          "id": "c13_goal",
+          "predicate": "numeric_delta(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove_seam_traversal",
+          "remove": "gb_right"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_clear",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "id": "vault_seam_plate_portal_sequence",
+      "policy": "strategy.traversal.024a7be5b9",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_right"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "vaultline/C13/seam",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "source_portal_contact",
+            "predicate": "overlap(gb_player, gb_door)"
+          },
+          {
+            "name": "source_plate_contact",
+            "predicate": "overlap(gb_player, gb_interactive)"
+          },
+          {
+            "name": "source_seam_goal_contact",
+            "predicate": "contact(goal, 0)"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "start_level": 12
+    },
+    {
+      "authoring_record": "",
+      "budget_frames": 1200,
+      "capture_checkpoints": [
+        {
+          "id": "c14_start",
+          "kind": "run_start"
+        },
+        {
+          "id": "floor_clear",
+          "predicate": "numeric_delta(progress) >= 1"
+        },
+        {
+          "id": "c14_goal",
+          "predicate": "numeric_delta(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove_final_jump",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "gdd_explicit"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_clear",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "id": "vault_final_checkpoint_recovery",
+      "policy": "strategy.traversal.e00094d32a",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "vaultline/C14/final_vaultline",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 13
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

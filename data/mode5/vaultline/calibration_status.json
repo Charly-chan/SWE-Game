@@ -1,0 +1,14 @@
+{
+  "blockers": [],
+  "game_id": "vaultline",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "vault_drop_breakable_clear",
+    "vault_seam_plate_portal_sequence",
+    "vault_final_checkpoint_recovery"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:daae5de79a91111807e1caf8cd63d1ae34df4ef1d1184298aa50201af2f5844f"
+}

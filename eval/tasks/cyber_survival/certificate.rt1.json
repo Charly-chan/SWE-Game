@@ -1,0 +1,126 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "harness_concessions_only",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "2279b8aa45ebc24e6883950e79fa342b48deb18c963c8be55253b1b26ac80572"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "cyber_survival/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "f2f3f736c587bbaf5166452347e9deadfdb7e62a78409c9fe5019b8aeaa0efde",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "2279b8aa45ebc24e6883950e79fa342b48deb18c963c8be55253b1b26ac80572",
+    "task_id": "cyber_survival"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "extended_actions": [
+      {
+        "id": "turn_left",
+        "why": "keyboard yaw is a dedicated comma key; the six verbs already spend four slots on camera-relative walk so they cannot also turn the rifle heading"
+      },
+      {
+        "id": "turn_right",
+        "why": "same yaw axis as turn_left, opposite sign; six verbs cannot name either heading"
+      },
+      {
+        "id": "emp_pulse",
+        "why": "GDD 3.5 makes the Sector 19 warden cordon the closing beat: 220 hp at 19 damage per 1.05 s, standing 4 m behind the master terminal, and inside the terminal Area3D gb_action becomes the upload hold so the rifle is unavailable there. The 5 s stun is what pays for killing it at contact range instead of walking the cordon backwards; no combination of the six verbs produces it"
+      }
+    ],
+    "interface_version": 2,
+    "normalized_sha256": "1ecd202a619cc6b21a4b3fbacb7b9fa7b5c5412ad610f8467a0ee7b8bc6473f1",
+    "source_sha256": "7c84daa2596d76969c327e46943241c84ff3f0f61a86ed2e408ed63c76ddcd3a"
+  },
+  "passed_route_ids": [
+    "cyber_survival/L0/no_input_no_terminal",
+    "cyber_survival/C1/underdeck_terminal_and_extract",
+    "cyber_survival/C2/coolant_terminal_and_extract",
+    "cyber_survival/C3/spire_terminal_and_extract",
+    "cyber_survival/L5/whole_game_clear"
+  ],
+  "readings": {
+    "cyber_survival/C1/underdeck_terminal_and_extract": {
+      "deaths": 0,
+      "frames": 1825,
+      "injects": 0,
+      "milestones_reached": [
+        "underdeck_terminal_secured"
+      ],
+      "solution_kind": "tape",
+      "steps": 57,
+      "stop_reason": "scene_changed"
+    },
+    "cyber_survival/C2/coolant_terminal_and_extract": {
+      "deaths": 0,
+      "frames": 2318,
+      "injects": 0,
+      "milestones_reached": [
+        "coolant_terminal_secured"
+      ],
+      "solution_kind": "tape",
+      "steps": 73,
+      "stop_reason": "scene_changed"
+    },
+    "cyber_survival/C3/spire_terminal_and_extract": {
+      "deaths": 1,
+      "frames": 2932,
+      "injects": 0,
+      "milestones_reached": [
+        "spire_terminal_secured"
+      ],
+      "solution_kind": "tape",
+      "steps": 109,
+      "stop_reason": "goal_reached"
+    },
+    "cyber_survival/L0/no_input_no_terminal": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "cyber_survival/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 7075,
+      "injects": 0,
+      "milestones_reached": [
+        "underdeck_cleared",
+        "coolant_cleared",
+        "spire_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 241,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "f2f3f736c587bbaf5166452347e9deadfdb7e62a78409c9fe5019b8aeaa0efde"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "b15dd18e684d4d46b33e5d1cf177a5036237f24420e12d061ae2c209bb2f4964",
+  "schema_version": 2,
+  "solution_kinds": {
+    "cyber_survival/C1/underdeck_terminal_and_extract": "tape",
+    "cyber_survival/C2/coolant_terminal_and_extract": "tape",
+    "cyber_survival/C3/spire_terminal_and_extract": "tape",
+    "cyber_survival/L0/no_input_no_terminal": "tape",
+    "cyber_survival/L5/whole_game_clear": "tape"
+  },
+  "task_id": "cyber_survival",
+  "validated_at": "2026-09-09"
+}

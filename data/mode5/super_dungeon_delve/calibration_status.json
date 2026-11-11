@@ -1,0 +1,14 @@
+{
+  "blockers": [],
+  "game_id": "super_dungeon_delve",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "super_dungeon_delve-l5-whole_game_clear",
+    "super_dungeon_delve-l5-whole_game_clear--milestone-second_floor",
+    "super_dungeon_delve-l5-whole_game_clear--milestone-fourth_floor"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:41e36fbc6c20579c5f6d202f51731804c0ce01d09978c3832dfcfb295cc03860"
+}

@@ -1,0 +1,2030 @@
+{
+  "routes": [
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 600,
+            "op": "wait"
+          },
+          {
+            "frames": 600,
+            "op": "wait"
+          },
+          {
+            "frames": 600,
+            "op": "wait"
+          },
+          {
+            "frames": 600,
+            "op": "wait"
+          },
+          {
+            "frames": 600,
+            "op": "wait"
+          },
+          {
+            "frames": 185,
+            "op": "wait"
+          }
+        ]
+      },
+      "budget": {
+        "frames": 3185,
+        "steps": 10
+      },
+      "goal": {
+        "predicate": ""
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "super_dungeon_delve/L0/no_input_no_goal",
+      "scored": false,
+      "start": {
+        "inject": {},
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 0
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "actions": [
+              "gb_action",
+              "gb_down",
+              "gb_jump",
+              "gb_left",
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 600,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_down",
+              "gb_jump",
+              "gb_left",
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 600,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_down",
+              "gb_jump",
+              "gb_left",
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 600,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_down",
+              "gb_jump",
+              "gb_left",
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 600,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_down",
+              "gb_jump",
+              "gb_left",
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 600,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_down",
+              "gb_jump",
+              "gb_left",
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 185,
+            "op": "state"
+          }
+        ]
+      },
+      "budget": {
+        "frames": 3185,
+        "steps": 10
+      },
+      "goal": {
+        "predicate": ""
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "super_dungeon_delve/L0/mash_no_goal",
+      "scored": false,
+      "start": {
+        "inject": {},
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 0
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 5,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 10,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 30,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 31,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 35,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 69,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "frames": 22,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 17,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "frames": 19,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 38,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 39,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "frames": 5,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 8,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 3,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 13,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "frames": 5,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 11,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 88,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 25,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "frames": 3,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 19,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 22,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 14,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 14,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 15,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 14,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 50,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 49,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "frames": 3,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 13,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 23,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 27,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 12,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 11,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 30,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 5,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 12,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 78,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 64,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 5,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "frames": 7,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 7,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 14,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 7,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 11,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 11,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 16,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 14,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 5,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 106,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 40,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 79,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 21,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 68,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 7,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "frames": 5,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 17,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 6,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "frames": 12,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 5,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 40,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 22,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "frames": 6,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 19,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "frames": 8,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 8,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 11,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 15,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 3,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 49,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 16,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 3,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "frames": 3,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 5,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 14,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 21,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 21,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "frames": 7,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "frames": 16,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 51,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "frames": 3,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 26,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 30,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 39,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 3,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "frames": 3,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "frames": 8,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 12,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 25,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 5,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 22,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "frames": 7,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "frames": 6,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 19,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "frames": 3,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "frames": 6,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 13,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 30,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "frames": 5,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 49,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 15,
+            "op": "state"
+          },
+          {
+            "frames": 31,
+            "op": "state"
+          },
+          {
+            "frames": 600,
+            "op": "state"
+          }
+        ]
+      },
+      "budget": {
+        "frames": 4085,
+        "steps": 253
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "second_floor",
+            "predicate": "numeric(progress) >= 2"
+          },
+          {
+            "name": "fourth_floor",
+            "predicate": "numeric(progress) >= 4"
+          },
+          {
+            "name": "dungeon_cleared",
+            "predicate": "whole_game_clear()"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "super_dungeon_delve/L5/whole_game_clear",
+      "start": {
+        "inject": {},
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 5
+    }
+  ],
+  "schema_version": 2,
+  "task_id": "super_dungeon_delve"
+}

@@ -1,0 +1,111 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-28T06:54:25+00:00",
+  "interface_requirements": {
+    "O9": {
+      "fields": [],
+      "reason": "reference has no registered anchor expectation",
+      "required": false
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 8,
+        "gb_door": 0,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 0,
+        "gb_interactive": 17,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          2
+        ],
+        "gb_interactive": [
+          "x",
+          4
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://world/shop_floor.tscn",
+      "spawn_goal_distance": 0.6736220690134271
+    }
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "sprout_market",
+  "runtime_assets": {
+    "res://assets/chars/shopkeeper.png": "46e0f7a17bf21b53fe7718fbdf53d0ea88b593dd9961b2081159ab7c51d1f62a",
+    "res://assets/fonts/Kenney Future Narrow.ttf": "17e182587a3264dcf9e5b17c055715d5597187546ce81925c64e9184c26d597f",
+    "res://assets/fonts/Kenney Future.ttf": "7a55b07f5968fac872648a7c5e959bd2b93e06f63153b585d56e4d5298ddff61",
+    "res://assets/music/theme_shift.ogg": "21233e95b5e2c167293484c9906264c632a5f1fe45744d1d5b52ba1dfb0a18fb",
+    "res://assets/particles/circle_05.png": "925b8ac284436f74f9cadf0ecd058da1c08fba65c098e4e34fd220603022f02e",
+    "res://assets/particles/star_08.png": "05f24d1ee76c1464074cbca58155e4be517fefd34a7001bb012561647cc3dec3",
+    "res://assets/produce/broccoli.png": "3e4fc9f750d89c231bfe74046e9d729368dbe06fee9fb9dfd21a0a6f5c35a07a",
+    "res://assets/produce/cabbage.png": "b582d3018fa03af3a854a3930a9b34e036f172fd33cb7ac7895c4883197d3613",
+    "res://assets/produce/carrot.png": "ba4ed876bc3584fbab2d94dc047d52a3f98cd7b09739adbaa1d671f765d779ba",
+    "res://assets/produce/corn.png": "75cec74f8dfd24599b913f525843a5fb8108bdd14c853d77d53ea2610f488d2a",
+    "res://assets/produce/cup-coffee.png": "1d0f365e5af15573d5285476861297a9bdfa830f7027ca052b416e9042332595",
+    "res://assets/produce/cupcake.png": "f438eb6a5ac040fd24447c9a6e6c1e8fd493d8064179473cf99936c8f5f13be1",
+    "res://assets/produce/leek.png": "a6e2d1a74ab98978718be1a3793ad9a719434aa516c2e730c2549001fe83207e",
+    "res://assets/produce/tomato.png": "6e0ccce516039a87899341f61fea5677b28d2bcd545856dd1701d752e6144d76",
+    "res://assets/props/awning.png": "9e8df390488fef72d302553abb57028841b030e4ff91681d8fe8b36ef28b8d81",
+    "res://assets/props/barrel.png": "f915896f745a28497de7c86602b64b0a3bcabb7821103965926ea768b5476b18",
+    "res://assets/props/basket.png": "a6783dabf3053b2a00c58fa7a8d7ff27b0ffdd08dcbe695b1ec82d0c2d312154",
+    "res://assets/props/bush.png": "5c09569d7e0351146e194d9beb7b573e0869978334cc9e093a57dea8705e81da",
+    "res://assets/props/bush_round.png": "e38e6cb14ff961f6e154483a62f963cdf9a310d91e6fd34c61e70653e0fe2713",
+    "res://assets/props/bush_tall.png": "b0330026a4ee1bb5d0895d2f1310d2caff75512522752ed0a30770783f97bb7a",
+    "res://assets/props/crate.png": "1c6b4444519eddc55abe82de5855effc8e9754dc206186712272e8de8e139b26",
+    "res://assets/props/crate_blue.png": "a9592d792e563721dc5c38d9d922aad3fdc6c603a7d70822ef4194991ef42452",
+    "res://assets/props/honeypot.png": "e513be719af08aa8e365bc6a731b950bb76feed4da04ef41836ffbaa4e387b15",
+    "res://assets/props/mushrooms.png": "0d55333ffe4c1d3be705978bdf1c176a871c25a6bde232dfba5c359b1a433294",
+    "res://assets/props/planter.png": "23d25bce2e95ac64eb36ca34f0b529f7b6be9d2ba04d2dae48dd33138eb67444",
+    "res://assets/props/shelf.png": "af835af3f3f517b324cd363460cef7eeff4f97d6db834627e6c945d2c92d87aa",
+    "res://assets/props/shrubs.png": "6510f793c7dab1b8307dd23e795ce9c680c1ca0b220c9749c37d5705e2aae70e",
+    "res://assets/props/sign.png": "07b9cf1d4c066f91979688db542bb7fbca663608c98e596a0882d9c3838324a8",
+    "res://assets/props/till.png": "3befce5d6373d4315f35eeed22752bb1cf7a2ab5d008ce26dd6b4aebbb278978",
+    "res://assets/props/tree_green_base.png": "a8b6bdb8954e01dbe6abebaec6d3eedf4fcfeb825b7d982ed488c57a573fdaac",
+    "res://assets/props/tree_green_mid.png": "e491cc2d756b0fe14c19c1484fd79fe086621d2a21fd59f3e7a2d74eecaba561",
+    "res://assets/props/tree_green_top.png": "5de3dff614fb984dedcbfb7551d13a984f66d5a0a835df3048b51bc7cfddba57",
+    "res://assets/tiles/floor_a.png": "fcb507e65fda6fd5d1c6af439b4dd38d1b02e9413190b56596e5ddcd782fa2e3",
+    "res://assets/tiles/grass_a.png": "ede85e86d783263d48381f0658dea5072887cf44eb602e272302273569568476",
+    "res://assets/tiles/path_stone.png": "4d1b114d1543d605e8e0590ade0aa88f781950c6422d323c74a6fa6fd3e6b736",
+    "res://assets/tiles/plot_bed.png": "7a81255ff50a087ad23b8f07dd0e7a7cceec0c408ebeb729d3a49697a31d86ad",
+    "res://assets/tiles/soil_a.png": "fb9e29b664281c9b2b397c1c7e676a5cb83a160da10b1fc5949ae69dc8666d83",
+    "res://assets/tiles/soil_edge_b.png": "77eb7939962889e2d456d95946c45d3f5f0b0944dc37ab3cec116ea857c2ad79",
+    "res://assets/tiles/soil_edge_bl.png": "6c8480e8ccc9d37383d7bfb93dbdf3fbcae735e55661697f130caef7179c5d17",
+    "res://assets/tiles/soil_edge_br.png": "1a0c35b445844fb49c4dd718038573ddf1d835f2126557a5d2702acee09e5f35",
+    "res://assets/tiles/soil_edge_l.png": "caef8b4a6bd68d8580a4f43ddc019297ab60579f66de00afe6fface1b8b8a66f",
+    "res://assets/tiles/soil_edge_r.png": "4092e2b8aaf76db6c3fcb754116469358cbfd388402bf2194e18d48604f95213",
+    "res://assets/tiles/soil_edge_t.png": "035b8507b114968373e985cee46df6a9c3233321cc202d8e9c5365e7dbb0ca93",
+    "res://assets/tiles/soil_edge_tl.png": "8175897c030923d6e4126018b7a048e7b3a898d56aa35fdc5e90bd234f6f7af1",
+    "res://assets/tiles/soil_edge_tr.png": "c9baf06260c6de234fe41db44c11fe5e5c610e0dac5351ad58475767eb086e90",
+    "res://assets/tiles/wall_a.png": "b3649e82626201af98ead83295d7ea850ceb90b3509c4092dbaa79626ad5fbbb",
+    "res://assets/ui/button_rectangle_depth_flat.png": "6c709a45aae0330ffff5b060d9f14cc2297839f664e0a4c9e516d90ad085ec0b",
+    "res://assets/ui/button_rectangle_depth_gradient.png": "3fc1d9bedf07da0f1a49bed143311e6edf3bebd9a937e95a6ab4b812c8448ec0",
+    "res://assets/ui/button_rectangle_gradient.png": "424f7743b51666915429a32b76732aeea7079c053cabbe7874d826fed210dacc",
+    "res://assets/ui/check_square_grey.png": "e11648f1188535916da8645cde5532f90c806ff0d678a03b668957f0aea431df",
+    "res://assets/ui/coin_01.png": "9bee46b448cde75f64c4539522fcb46b623c759b07a4ba0bce380f793c9295aa",
+    "res://assets/ui/icon_circle.png": "14ac9f54d1d165fa4b8da9dda962b60ab4786987af0eb7052460ede6c6ecd885",
+    "res://assets/ui/icon_cross.png": "32eea5ea58f44f15c82691cad35406b32dfad7c3c1152d633dcd74a25e430d48",
+    "res://assets/ui/icon_outline_circle.png": "49eb25f50f982da7b9bba50ea119a699faf5e4cf41f121b7ebd0a07935d8cd08",
+    "res://assets/ui/input_rectangle.png": "8d8a2c63a9cfe3bcd45fbf11a9ea1e6b046df74455631f635dafd0012193a75e",
+    "res://assets/ui/star.png": "ba91a196117f8c324beac04ae426379d054e9497be901469eea5d333b369265c"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

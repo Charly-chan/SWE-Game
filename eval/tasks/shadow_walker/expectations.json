@@ -1,0 +1,110 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-23T10:27:47+00:00",
+  "interface_requirements": {
+    "O9": {
+      "fields": [],
+      "reason": "reference has no registered anchor expectation",
+      "required": false
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 1,
+        "gb_door": 0,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 1,
+        "gb_interactive": 1,
+        "gb_player": 1
+      },
+      "dispersion": {},
+      "goal_transition": null,
+      "scene": "res://levels/level_1.tscn",
+      "spawn_goal_distance": 0.5504693714691311
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 1,
+        "gb_door": 0,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 3,
+        "gb_interactive": 1,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_hazard": [
+          "x",
+          3
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/level_2.tscn",
+      "spawn_goal_distance": 0.6032477805752322
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 1,
+        "gb_door": 0,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 3,
+        "gb_interactive": 1,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_hazard": [
+          "x",
+          3
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/level_3.tscn",
+      "spawn_goal_distance": 0.8725915514288458
+    }
+  ],
+  "probe_sha256": "7b966a24301ab4cf7b2e433dc04081d354779f93ff571a8a5e47964d894a2026",
+  "project": "shadow_walker",
+  "runtime_assets": {
+    "res://assets/audio/alarm.ogg": "fdbd0e559acd5c01122f47cac2fda1ed24460a2bc130aeec91734ab67acb0411",
+    "res://assets/audio/ambience.ogg": "35697cbfde073f92df06e828fe2c8676a1f98c07404193e6477ca9202213f80a",
+    "res://assets/audio/blip.ogg": "5acba303b9adfb15fc3445801ad2501dd2b7ba57917ec797184b98e4b1c6797f",
+    "res://assets/audio/caught.ogg": "59e4ed89a582a03e96086ce031ae30b46630d371fc02d2c566059bd4e0d1dab8",
+    "res://assets/audio/chest.ogg": "df55e931e6b78e5aecc015922e873a0e8bfa4e97cfb19abc64149d54afe89216",
+    "res://assets/audio/fail.ogg": "e5d4c5b36e738eeb55ee9c8deffd526af313623e50580a096302021c4e138268",
+    "res://assets/audio/step.ogg": "e4043660b7bc15bd1ec208c4193838da5a2618bde6f35e3d76654557268aa221",
+    "res://assets/audio/win.ogg": "891c2b48d3586744b38be18b8c5a35f46ac30fe06efb48f70f3f5528a0cec0c3",
+    "res://assets/sprites/characters/guard_ninja_blue.png": "f2dd61a264c251b81e63da7a28ab0fdccd261b807e5fa7d1832a468e14a21078",
+    "res://assets/sprites/characters/player.png": "0d7cb5c2590f6a48cacd38e32c8de4665476bee7e1433a6fbb892f1c3228cad1",
+    "res://assets/sprites/characters/slime.png": "b01cd4b8ec9ee8ef7dd0ef1da1dcf24fe9f33a0c37ccac1e3b285fa942333f81",
+    "res://assets/sprites/objects/chest_01.png": "a873493abb5cb14f44a3da6a1b99a0701e75419b68593cea67551e203383215c",
+    "res://assets/sprites/tilesets/fences.png": "424e98da1a10597d18e97b188ba0e49199177f4375f1e673ab0f4a53a39e5c01",
+    "res://assets/sprites/tilesets/floors/interior_props_01.png": "e6ce1e2bbc3006e4ee4d3337d800a057e8cc25f531df9dfde2854f1ead522051",
+    "res://assets/sprites/tilesets/floors/wooden.png": "a20163b6fd47a8e3f6d5527c99ef3280bc5862144035070601b3ff74bbcde19b",
+    "res://assets/sprites/tilesets/floors_tiles.png": "9c30bb02ff1f776ed6a036270af63d9ad2e369c37c68440f28b1a87ad0d44891",
+    "res://assets/sprites/tilesets/grass.png": "aa36d72f84508b010c7c0cdc8a6ba141f8961b92086d275b797d43093e62fb27",
+    "res://assets/sprites/tilesets/vegetation.png": "1a3bdf11e56148a2971e08174f80108eb568ac222db2cb495121da8680de519d",
+    "res://assets/sprites/tilesets/walls/walls.png": "e26a59c0cf643aaaa8a5972cd8de1b2554ec72415923604cd5331df9f3078f2f",
+    "res://assets/sprites/tilesets/walls/wooden_door.png": "adb20bbf3b1d3d1b8a218349b81205ea253d89d06c44346251de4d47c7af2c47",
+    "res://assets/sprites/tilesets/walls/wooden_door_b.png": "9036998ac2c9549348a542816030bb88c5d3e34f724d3e07260d46a3dddf214d",
+    "res://icon.svg": "0799243bed79f678e8d4a9c4568a399fbeadb3dc0c67b8741b66c311c37e3fa9"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

@@ -1,0 +1,319 @@
+{
+  "game_id": "3d_platformer",
+  "provided_assets": {
+    "frames": [],
+    "inventory": {
+      "asset_families": [
+        "Animated_Enemies_GLTF.zip",
+        "Animated_Men_Pack_GLTF.zip",
+        "Quaternius_Ultimate_Platformer_Pack_GLTF.zip",
+        "kenney_skyboxes.zip",
+        "reference_media/assets/audio",
+        "reference_media/assets/vendor"
+      ],
+      "file_count": 67,
+      "font_files": [
+        "reference_media/assets/vendor/kenney_ui_pack/font/KenneyFuture.ttf"
+      ]
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry. Font previews are rendered from actual supplied font files; preview wording is illustrative, not additional task requirements.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 118.517,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R003",
+        "time_s": 2.03333
+      },
+      {
+        "id": "R004",
+        "time_s": 3.05
+      },
+      {
+        "id": "R005",
+        "time_s": 4.06667
+      },
+      {
+        "id": "R008",
+        "time_s": 7.11667
+      },
+      {
+        "id": "R009",
+        "time_s": 8.13333
+      },
+      {
+        "id": "R010",
+        "time_s": 9.15
+      },
+      {
+        "id": "R011",
+        "time_s": 10.1667
+      },
+      {
+        "id": "R012",
+        "time_s": 11.1833
+      },
+      {
+        "id": "R013",
+        "time_s": 12.2
+      },
+      {
+        "id": "R014",
+        "time_s": 13.2167
+      },
+      {
+        "id": "R015",
+        "time_s": 14.2333
+      },
+      {
+        "id": "R016",
+        "time_s": 15.25
+      },
+      {
+        "id": "R017",
+        "time_s": 16.2667
+      },
+      {
+        "id": "R018",
+        "time_s": 17.2833
+      },
+      {
+        "id": "R020",
+        "time_s": 19.3167
+      },
+      {
+        "id": "R021",
+        "time_s": 20.3333
+      },
+      {
+        "id": "R022",
+        "time_s": 21.35
+      },
+      {
+        "id": "R024",
+        "time_s": 23.3833
+      },
+      {
+        "id": "R027",
+        "time_s": 26.4333
+      },
+      {
+        "id": "R030",
+        "time_s": 29.4833
+      },
+      {
+        "id": "R031",
+        "time_s": 30.5
+      },
+      {
+        "id": "R035",
+        "time_s": 34.5667
+      },
+      {
+        "id": "R036",
+        "time_s": 35.5833
+      },
+      {
+        "id": "R037",
+        "time_s": 36.6
+      },
+      {
+        "id": "R040",
+        "time_s": 39.65
+      },
+      {
+        "id": "R041",
+        "time_s": 40.6667
+      },
+      {
+        "id": "R044",
+        "time_s": 43.7167
+      },
+      {
+        "id": "R046",
+        "time_s": 45.75
+      },
+      {
+        "id": "R047",
+        "time_s": 46.7667
+      },
+      {
+        "id": "R051",
+        "time_s": 50.8333
+      },
+      {
+        "id": "R053",
+        "time_s": 52.8667
+      },
+      {
+        "id": "R054",
+        "time_s": 53.8833
+      },
+      {
+        "id": "R058",
+        "time_s": 57.95
+      },
+      {
+        "id": "R059",
+        "time_s": 58.9667
+      },
+      {
+        "id": "R060",
+        "time_s": 59.9833
+      },
+      {
+        "id": "R061",
+        "time_s": 61.0
+      },
+      {
+        "id": "R063",
+        "time_s": 63.0333
+      },
+      {
+        "id": "R065",
+        "time_s": 65.0667
+      },
+      {
+        "id": "R066",
+        "time_s": 66.0833
+      },
+      {
+        "id": "R067",
+        "time_s": 67.1
+      },
+      {
+        "id": "R068",
+        "time_s": 68.1167
+      },
+      {
+        "id": "R069",
+        "time_s": 69.1333
+      },
+      {
+        "id": "R070",
+        "time_s": 70.15
+      },
+      {
+        "id": "R073",
+        "time_s": 73.2
+      },
+      {
+        "id": "R083",
+        "time_s": 83.3667
+      },
+      {
+        "id": "R084",
+        "time_s": 84.3833
+      },
+      {
+        "id": "R085",
+        "time_s": 85.4
+      },
+      {
+        "id": "R087",
+        "time_s": 87.4333
+      },
+      {
+        "id": "R088",
+        "time_s": 88.45
+      },
+      {
+        "id": "R089",
+        "time_s": 89.4667
+      },
+      {
+        "id": "R093",
+        "time_s": 93.5333
+      },
+      {
+        "id": "R096",
+        "time_s": 96.5833
+      },
+      {
+        "id": "R103",
+        "time_s": 103.7
+      },
+      {
+        "id": "R105",
+        "time_s": 105.733
+      },
+      {
+        "id": "R108",
+        "time_s": 108.783
+      },
+      {
+        "id": "R110",
+        "time_s": 110.817
+      },
+      {
+        "id": "R112",
+        "time_s": 112.85
+      },
+      {
+        "id": "R113",
+        "time_s": 113.867
+      },
+      {
+        "id": "R114",
+        "time_s": 114.883
+      },
+      {
+        "id": "R118",
+        "time_s": 118.5
+      },
+      {
+        "clip": 1,
+        "id": "RD001",
+        "time_s": 23.7034
+      },
+      {
+        "clip": 1,
+        "id": "RD005",
+        "time_s": 24.1034
+      },
+      {
+        "clip": 1,
+        "id": "RD010",
+        "time_s": 24.6034
+      },
+      {
+        "clip": 1,
+        "id": "RD012",
+        "time_s": 24.8034
+      },
+      {
+        "clip": 1,
+        "id": "RD015",
+        "time_s": 25.1034
+      },
+      {
+        "clip": 1,
+        "id": "RD019",
+        "time_s": 25.5034
+      },
+      {
+        "clip": 1,
+        "id": "RD020",
+        "time_s": 25.6034
+      },
+      {
+        "clip": 2,
+        "id": "RD036",
+        "time_s": 60.7585
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.9956377566087565,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Beacon Relay — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nCross a readable 3D traversal course, use movement to activate or reach a sequence of beacons, and finish the relay.\n\n## Scope boundary\n\nA compact third-person 3D platformer with spatial progression, recoverable falls or failure, and an explicit final completion state.\n\n## Creative freedom\n\nYou may choose the course topology, movement tuning, beacon rule, checkpoints, and scenic composition.\n"
+}

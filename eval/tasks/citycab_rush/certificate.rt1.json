@@ -1,0 +1,117 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "43828245c6d60118b138b4eeaac85ecf2a31f8241c334805d0ce7f15447a62da"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "citycab_rush/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "92842e6820f5d0a5aba828ddcb8e327025dfb2b8db07464ddacdf53b86444b27",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "43828245c6d60118b138b4eeaac85ecf2a31f8241c334805d0ce7f15447a62da",
+    "task_id": "citycab_rush"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "6801051866b1d8a95cea2d9d464568c6dc4a74349edd5759495194496fd2e31f",
+    "source_sha256": "a326607af4c8918ab71448b655d31c96a8d70b1c74062feb023c497db2612e9a"
+  },
+  "passed_route_ids": [
+    "citycab_rush/L0/no_input_no_delivery",
+    "citycab_rush/C1/neon_blocks_quota",
+    "citycab_rush/C2/market_grid_quota",
+    "citycab_rush/C3/uplink_district_quota",
+    "citycab_rush/L5/whole_game_clear"
+  ],
+  "readings": {
+    "citycab_rush/C1/neon_blocks_quota": {
+      "deaths": 1,
+      "frames": 1392,
+      "injects": 0,
+      "milestones_reached": [
+        "first_fare_banked",
+        "neon_blocks_quota_met"
+      ],
+      "solution_kind": "tape",
+      "steps": 77,
+      "stop_reason": "scene_changed"
+    },
+    "citycab_rush/C2/market_grid_quota": {
+      "deaths": 1,
+      "frames": 1261,
+      "injects": 0,
+      "milestones_reached": [
+        "market_first_fare_banked",
+        "market_grid_quota_met"
+      ],
+      "solution_kind": "tape",
+      "steps": 86,
+      "stop_reason": "scene_changed"
+    },
+    "citycab_rush/C3/uplink_district_quota": {
+      "deaths": 1,
+      "frames": 7792,
+      "injects": 0,
+      "milestones_reached": [
+        "uplink_first_fare_banked",
+        "uplink_district_quota_met"
+      ],
+      "solution_kind": "tape",
+      "steps": 293,
+      "stop_reason": "goal_reached"
+    },
+    "citycab_rush/L0/no_input_no_delivery": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "citycab_rush/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 10105,
+      "injects": 0,
+      "milestones_reached": [
+        "neon_blocks_quota_met",
+        "entered_market_grid",
+        "market_grid_quota_met",
+        "entered_uplink_district",
+        "uplink_district_quota_met"
+      ],
+      "solution_kind": "tape",
+      "steps": 415,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "92842e6820f5d0a5aba828ddcb8e327025dfb2b8db07464ddacdf53b86444b27"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "5eaa06d116f32ec9b0495c5864d66e75b980588deb1e452c2948413bf4bcdd66",
+  "schema_version": 2,
+  "solution_kinds": {
+    "citycab_rush/C1/neon_blocks_quota": "tape",
+    "citycab_rush/C2/market_grid_quota": "tape",
+    "citycab_rush/C3/uplink_district_quota": "tape",
+    "citycab_rush/L0/no_input_no_delivery": "tape",
+    "citycab_rush/L5/whole_game_clear": "tape"
+  },
+  "task_id": "citycab_rush",
+  "validated_at": "2026-09-09"
+}

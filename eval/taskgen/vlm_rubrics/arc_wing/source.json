@@ -1,0 +1,546 @@
+{
+  "game_id": "arc_wing",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "kenney_pixel-shmup/Preview.png",
+        "id": "S001",
+        "label": "kenney_pixel-shmup/Preview.png"
+      },
+      {
+        "asset_path": "kenney_pixel-shmup/Tilemap/ships.png",
+        "id": "S003",
+        "label": "kenney_pixel-shmup/Tilemap/ships.png"
+      },
+      {
+        "asset_path": "kenney_pixel-shmup/Sample.png",
+        "id": "S008",
+        "label": "kenney_pixel-shmup/Sample.png"
+      },
+      {
+        "asset_path": "kenney_pixel-shmup/Tilemap/ships_packed.png",
+        "id": "S010",
+        "label": "kenney_pixel-shmup/Tilemap/ships_packed.png"
+      },
+      {
+        "asset_path": "kenney_pixel-shmup/Tilemap/tiles.png",
+        "id": "S014",
+        "label": "kenney_pixel-shmup/Tilemap/tiles.png"
+      },
+      {
+        "asset_path": "kenney_pixel-shmup/Tilemap/tiles_packed.png",
+        "id": "S018",
+        "label": "kenney_pixel-shmup/Tilemap/tiles_packed.png"
+      },
+      {
+        "bundled_path": "media/S073.png",
+        "id": "S073",
+        "label": "FONT PREVIEW kenney_ui-pack/Font/Kenney Future Narrow.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "kenney_ui-pack/Font/Kenney Future Narrow.ttf"
+      },
+      {
+        "bundled_path": "media/S074.png",
+        "id": "S074",
+        "label": "FONT PREVIEW kenney_ui-pack/Font/Kenney Future.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "kenney_ui-pack/Font/Kenney Future.ttf"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "kenney_digital-audio/Audio/highDown.ogg",
+        "kenney_digital-audio/Audio/highUp.ogg",
+        "kenney_digital-audio/Audio/laser1.ogg",
+        "kenney_digital-audio/Audio/laser2.ogg",
+        "kenney_digital-audio/Audio/laser3.ogg",
+        "kenney_digital-audio/Audio/laser4.ogg",
+        "kenney_digital-audio/Audio/laser5.ogg",
+        "kenney_digital-audio/Audio/laser6.ogg",
+        "kenney_digital-audio/Audio/laser7.ogg",
+        "kenney_digital-audio/Audio/laser8.ogg",
+        "kenney_digital-audio/Audio/laser9.ogg",
+        "kenney_digital-audio/Audio/lowDown.ogg",
+        "kenney_digital-audio/Audio/lowRandom.ogg",
+        "kenney_digital-audio/Audio/lowThreeTone.ogg",
+        "kenney_digital-audio/Audio/pepSound1.ogg",
+        "kenney_digital-audio/Audio/pepSound2.ogg",
+        "kenney_digital-audio/Audio/pepSound3.ogg",
+        "kenney_digital-audio/Audio/pepSound4.ogg",
+        "kenney_digital-audio/Audio/pepSound5.ogg",
+        "kenney_digital-audio/Audio/phaseJump1.ogg",
+        "kenney_digital-audio/Audio/phaseJump2.ogg",
+        "kenney_digital-audio/Audio/phaseJump3.ogg",
+        "kenney_digital-audio/Audio/phaseJump4.ogg",
+        "kenney_digital-audio/Audio/phaseJump5.ogg",
+        "kenney_digital-audio/Audio/phaserDown1.ogg",
+        "kenney_digital-audio/Audio/phaserDown2.ogg",
+        "kenney_digital-audio/Audio/phaserDown3.ogg",
+        "kenney_digital-audio/Audio/phaserUp1.ogg",
+        "kenney_digital-audio/Audio/phaserUp2.ogg",
+        "kenney_digital-audio/Audio/phaserUp3.ogg",
+        "kenney_digital-audio/Audio/phaserUp4.ogg",
+        "kenney_digital-audio/Audio/phaserUp5.ogg",
+        "kenney_digital-audio/Audio/phaserUp6.ogg",
+        "kenney_digital-audio/Audio/phaserUp7.ogg",
+        "kenney_digital-audio/Audio/powerUp1.ogg",
+        "kenney_digital-audio/Audio/powerUp10.ogg",
+        "kenney_digital-audio/Audio/powerUp11.ogg",
+        "kenney_digital-audio/Audio/powerUp12.ogg",
+        "kenney_digital-audio/Audio/powerUp2.ogg",
+        "kenney_digital-audio/Audio/powerUp3.ogg",
+        "kenney_digital-audio/Audio/powerUp4.ogg",
+        "kenney_digital-audio/Audio/powerUp5.ogg",
+        "kenney_digital-audio/Audio/powerUp6.ogg",
+        "kenney_digital-audio/Audio/powerUp7.ogg",
+        "kenney_digital-audio/Audio/powerUp8.ogg",
+        "kenney_digital-audio/Audio/powerUp9.ogg",
+        "kenney_digital-audio/Audio/spaceTrash1.ogg",
+        "kenney_digital-audio/Audio/spaceTrash2.ogg",
+        "kenney_digital-audio/Audio/spaceTrash3.ogg",
+        "kenney_digital-audio/Audio/spaceTrash4.ogg",
+        "kenney_digital-audio/Audio/spaceTrash5.ogg",
+        "kenney_digital-audio/Audio/threeTone1.ogg",
+        "kenney_digital-audio/Audio/threeTone2.ogg",
+        "kenney_digital-audio/Audio/tone1.ogg",
+        "kenney_digital-audio/Audio/twoTone1.ogg",
+        "kenney_digital-audio/Audio/twoTone2.ogg",
+        "kenney_digital-audio/Audio/zap1.ogg",
+        "kenney_digital-audio/Audio/zap2.ogg",
+        "kenney_digital-audio/Audio/zapThreeToneDown.ogg",
+        "kenney_digital-audio/Audio/zapThreeToneUp.ogg",
+        "kenney_digital-audio/Audio/zapTwoTone.ogg",
+        "kenney_digital-audio/Audio/zapTwoTone2.ogg",
+        "kenney_digital-audio/License.txt",
+        "kenney_digital-audio/Preview.ogg",
+        "kenney_pixel-shmup/License.txt",
+        "kenney_pixel-shmup/Preview.png",
+        "kenney_pixel-shmup/Sample.png",
+        "kenney_pixel-shmup/Ships/ship_0000.png",
+        "kenney_pixel-shmup/Ships/ship_0001.png",
+        "kenney_pixel-shmup/Ships/ship_0002.png",
+        "kenney_pixel-shmup/Ships/ship_0003.png",
+        "kenney_pixel-shmup/Ships/ship_0004.png",
+        "kenney_pixel-shmup/Ships/ship_0005.png",
+        "kenney_pixel-shmup/Ships/ship_0006.png",
+        "kenney_pixel-shmup/Ships/ship_0007.png",
+        "kenney_pixel-shmup/Ships/ship_0008.png",
+        "kenney_pixel-shmup/Ships/ship_0009.png",
+        "kenney_pixel-shmup/Ships/ship_0010.png",
+        "kenney_pixel-shmup/Ships/ship_0011.png",
+        "kenney_pixel-shmup/Ships/ship_0012.png",
+        "kenney_pixel-shmup/Ships/ship_0013.png",
+        "kenney_pixel-shmup/Ships/ship_0014.png",
+        "kenney_pixel-shmup/Ships/ship_0015.png",
+        "kenney_pixel-shmup/Ships/ship_0016.png",
+        "kenney_pixel-shmup/Ships/ship_0017.png",
+        "kenney_pixel-shmup/Ships/ship_0018.png",
+        "kenney_pixel-shmup/Ships/ship_0019.png",
+        "kenney_pixel-shmup/Ships/ship_0020.png",
+        "kenney_pixel-shmup/Ships/ship_0021.png",
+        "kenney_pixel-shmup/Ships/ship_0022.png",
+        "kenney_pixel-shmup/Ships/ship_0023.png",
+        "kenney_pixel-shmup/Tilemap/ships.png",
+        "kenney_pixel-shmup/Tilemap/ships_packed.png",
+        "kenney_pixel-shmup/Tilemap/tiles.png",
+        "kenney_pixel-shmup/Tilemap/tiles_packed.png",
+        "kenney_pixel-shmup/Tiles/tile_0000.png",
+        "kenney_pixel-shmup/Tiles/tile_0001.png",
+        "kenney_pixel-shmup/Tiles/tile_0002.png",
+        "kenney_pixel-shmup/Tiles/tile_0003.png",
+        "kenney_pixel-shmup/Tiles/tile_0004.png",
+        "kenney_pixel-shmup/Tiles/tile_0005.png",
+        "kenney_pixel-shmup/Tiles/tile_0006.png",
+        "kenney_pixel-shmup/Tiles/tile_0007.png",
+        "kenney_pixel-shmup/Tiles/tile_0008.png",
+        "kenney_pixel-shmup/Tiles/tile_0009.png",
+        "kenney_pixel-shmup/Tiles/tile_0010.png",
+        "kenney_pixel-shmup/Tiles/tile_0011.png",
+        "kenney_pixel-shmup/Tiles/tile_0012.png",
+        "kenney_pixel-shmup/Tiles/tile_0013.png",
+        "kenney_pixel-shmup/Tiles/tile_0014.png",
+        "kenney_pixel-shmup/Tiles/tile_0015.png",
+        "kenney_pixel-shmup/Tiles/tile_0016.png",
+        "kenney_pixel-shmup/Tiles/tile_0017.png",
+        "kenney_pixel-shmup/Tiles/tile_0018.png",
+        "kenney_pixel-shmup/Tiles/tile_0019.png",
+        "kenney_pixel-shmup/Tiles/tile_0020.png",
+        "kenney_pixel-shmup/Tiles/tile_0021.png",
+        "kenney_pixel-shmup/Tiles/tile_0022.png",
+        "kenney_pixel-shmup/Tiles/tile_0023.png",
+        "kenney_pixel-shmup/Tiles/tile_0024.png",
+        "kenney_pixel-shmup/Tiles/tile_0025.png",
+        "kenney_pixel-shmup/Tiles/tile_0026.png",
+        "kenney_pixel-shmup/Tiles/tile_0027.png",
+        "kenney_pixel-shmup/Tiles/tile_0028.png",
+        "kenney_pixel-shmup/Tiles/tile_0029.png",
+        "kenney_pixel-shmup/Tiles/tile_0030.png",
+        "kenney_pixel-shmup/Tiles/tile_0031.png",
+        "kenney_pixel-shmup/Tiles/tile_0032.png",
+        "kenney_pixel-shmup/Tiles/tile_0033.png",
+        "kenney_pixel-shmup/Tiles/tile_0034.png",
+        "kenney_pixel-shmup/Tiles/tile_0035.png",
+        "kenney_pixel-shmup/Tiles/tile_0036.png",
+        "kenney_pixel-shmup/Tiles/tile_0037.png",
+        "kenney_pixel-shmup/Tiles/tile_0038.png",
+        "kenney_pixel-shmup/Tiles/tile_0039.png",
+        "kenney_pixel-shmup/Tiles/tile_0040.png",
+        "kenney_pixel-shmup/Tiles/tile_0041.png",
+        "kenney_pixel-shmup/Tiles/tile_0042.png",
+        "kenney_pixel-shmup/Tiles/tile_0043.png",
+        "kenney_pixel-shmup/Tiles/tile_0044.png",
+        "kenney_pixel-shmup/Tiles/tile_0045.png",
+        "kenney_pixel-shmup/Tiles/tile_0046.png",
+        "kenney_pixel-shmup/Tiles/tile_0047.png",
+        "kenney_pixel-shmup/Tiles/tile_0048.png",
+        "kenney_pixel-shmup/Tiles/tile_0049.png",
+        "kenney_pixel-shmup/Tiles/tile_0050.png",
+        "kenney_pixel-shmup/Tiles/tile_0051.png",
+        "kenney_pixel-shmup/Tiles/tile_0052.png",
+        "kenney_pixel-shmup/Tiles/tile_0053.png",
+        "kenney_pixel-shmup/Tiles/tile_0054.png",
+        "kenney_pixel-shmup/Tiles/tile_0055.png",
+        "kenney_pixel-shmup/Tiles/tile_0056.png",
+        "kenney_pixel-shmup/Tiles/tile_0057.png",
+        "kenney_pixel-shmup/Tiles/tile_0058.png",
+        "kenney_pixel-shmup/Tiles/tile_0059.png",
+        "kenney_pixel-shmup/Tiles/tile_0060.png",
+        "kenney_pixel-shmup/Tiles/tile_0061.png",
+        "kenney_pixel-shmup/Tiles/tile_0062.png",
+        "kenney_pixel-shmup/Tiles/tile_0063.png",
+        "kenney_pixel-shmup/Tiles/tile_0064.png",
+        "kenney_pixel-shmup/Tiles/tile_0065.png",
+        "kenney_pixel-shmup/Tiles/tile_0066.png",
+        "kenney_pixel-shmup/Tiles/tile_0067.png",
+        "kenney_pixel-shmup/Tiles/tile_0068.png",
+        "kenney_pixel-shmup/Tiles/tile_0069.png",
+        "kenney_pixel-shmup/Tiles/tile_0070.png",
+        "kenney_pixel-shmup/Tiles/tile_0071.png",
+        "kenney_pixel-shmup/Tiles/tile_0072.png",
+        "kenney_pixel-shmup/Tiles/tile_0073.png",
+        "kenney_pixel-shmup/Tiles/tile_0074.png",
+        "kenney_pixel-shmup/Tiles/tile_0075.png",
+        "kenney_pixel-shmup/Tiles/tile_0076.png",
+        "kenney_pixel-shmup/Tiles/tile_0077.png",
+        "kenney_pixel-shmup/Tiles/tile_0078.png",
+        "kenney_pixel-shmup/Tiles/tile_0079.png",
+        "kenney_pixel-shmup/Tiles/tile_0080.png",
+        "kenney_pixel-shmup/Tiles/tile_0081.png",
+        "kenney_pixel-shmup/Tiles/tile_0082.png",
+        "kenney_pixel-shmup/Tiles/tile_0083.png",
+        "kenney_pixel-shmup/Tiles/tile_0084.png",
+        "kenney_pixel-shmup/Tiles/tile_0085.png",
+        "kenney_pixel-shmup/Tiles/tile_0086.png",
+        "kenney_pixel-shmup/Tiles/tile_0087.png",
+        "kenney_pixel-shmup/Tiles/tile_0088.png",
+        "kenney_pixel-shmup/Tiles/tile_0089.png",
+        "kenney_pixel-shmup/Tiles/tile_0090.png",
+        "kenney_pixel-shmup/Tiles/tile_0091.png",
+        "kenney_pixel-shmup/Tiles/tile_0092.png",
+        "kenney_pixel-shmup/Tiles/tile_0093.png",
+        "kenney_pixel-shmup/Tiles/tile_0094.png",
+        "kenney_pixel-shmup/Tiles/tile_0095.png",
+        "kenney_pixel-shmup/Tiles/tile_0096.png",
+        "kenney_pixel-shmup/Tiles/tile_0097.png",
+        "kenney_pixel-shmup/Tiles/tile_0098.png",
+        "kenney_pixel-shmup/Tiles/tile_0099.png",
+        "kenney_pixel-shmup/Tiles/tile_0100.png",
+        "kenney_pixel-shmup/Tiles/tile_0101.png",
+        "kenney_pixel-shmup/Tiles/tile_0102.png",
+        "kenney_pixel-shmup/Tiles/tile_0103.png",
+        "kenney_pixel-shmup/Tiles/tile_0104.png",
+        "kenney_pixel-shmup/Tiles/tile_0105.png",
+        "kenney_pixel-shmup/Tiles/tile_0106.png",
+        "kenney_pixel-shmup/Tiles/tile_0107.png",
+        "kenney_pixel-shmup/Tiles/tile_0108.png",
+        "kenney_pixel-shmup/Tiles/tile_0109.png",
+        "kenney_pixel-shmup/Tiles/tile_0110.png",
+        "kenney_pixel-shmup/Tiles/tile_0111.png",
+        "kenney_pixel-shmup/Tiles/tile_0112.png",
+        "kenney_pixel-shmup/Tiles/tile_0113.png",
+        "kenney_pixel-shmup/Tiles/tile_0114.png",
+        "kenney_pixel-shmup/Tiles/tile_0115.png",
+        "kenney_pixel-shmup/Tiles/tile_0116.png",
+        "kenney_pixel-shmup/Tiles/tile_0117.png",
+        "kenney_pixel-shmup/Tiles/tile_0118.png",
+        "kenney_pixel-shmup/Tiles/tile_0119.png",
+        "kenney_ui-pack/Font/Kenney Future Narrow.ttf",
+        "kenney_ui-pack/Font/Kenney Future.ttf",
+        "kenney_ui-pack/License.txt",
+        "oga_junkala_retro_game_music/Juhani Junkala [Retro Game Music Pack] Ending.wav",
+        "oga_junkala_retro_game_music/Juhani Junkala [Retro Game Music Pack] Level 2.wav",
+        "oga_junkala_retro_game_music/Juhani Junkala [Retro Game Music Pack] Level 3.wav",
+        "oga_junkala_retro_game_music/Juhani Junkala [Retro Game Music Pack] Title Screen.wav",
+        "oga_junkala_retro_game_music/level2.mp3",
+        "reference_media/assets/font",
+        "reference_media/assets/music",
+        "reference_media/assets/shmup",
+        "reference_media/icon.png"
+      ],
+      "file_count": 273,
+      "font_files": [
+        "kenney_ui-pack/Font/Kenney Future Narrow.ttf",
+        "kenney_ui-pack/Font/Kenney Future.ttf",
+        "reference_media/assets/font/Kenney Future Narrow.ttf"
+      ]
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry. Font previews are rendered from actual supplied font files; preview wording is illustrative, not additional task requirements.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 348.917,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R002",
+        "time_s": 2.96667
+      },
+      {
+        "id": "R003",
+        "time_s": 5.93333
+      },
+      {
+        "id": "R004",
+        "time_s": 8.9
+      },
+      {
+        "id": "R005",
+        "time_s": 11.8667
+      },
+      {
+        "id": "R007",
+        "time_s": 17.8
+      },
+      {
+        "id": "R009",
+        "time_s": 23.7333
+      },
+      {
+        "id": "R010",
+        "time_s": 26.7
+      },
+      {
+        "id": "R014",
+        "time_s": 38.5667
+      },
+      {
+        "id": "R015",
+        "time_s": 41.5333
+      },
+      {
+        "id": "R019",
+        "time_s": 53.4
+      },
+      {
+        "id": "R035",
+        "time_s": 100.867
+      },
+      {
+        "id": "R036",
+        "time_s": 103.833
+      },
+      {
+        "id": "R037",
+        "time_s": 106.8
+      },
+      {
+        "id": "R043",
+        "time_s": 124.6
+      },
+      {
+        "id": "R046",
+        "time_s": 133.5
+      },
+      {
+        "id": "R047",
+        "time_s": 136.467
+      },
+      {
+        "id": "R060",
+        "time_s": 175.033
+      },
+      {
+        "id": "R064",
+        "time_s": 186.9
+      },
+      {
+        "id": "R065",
+        "time_s": 189.867
+      },
+      {
+        "id": "R069",
+        "time_s": 201.733
+      },
+      {
+        "id": "R070",
+        "time_s": 204.7
+      },
+      {
+        "id": "R071",
+        "time_s": 207.667
+      },
+      {
+        "id": "R072",
+        "time_s": 210.633
+      },
+      {
+        "id": "R084",
+        "time_s": 246.233
+      },
+      {
+        "id": "R085",
+        "time_s": 249.2
+      },
+      {
+        "id": "R091",
+        "time_s": 267.0
+      },
+      {
+        "id": "R097",
+        "time_s": 284.8
+      },
+      {
+        "id": "R099",
+        "time_s": 290.733
+      },
+      {
+        "id": "R100",
+        "time_s": 293.7
+      },
+      {
+        "id": "R101",
+        "time_s": 296.667
+      },
+      {
+        "id": "R102",
+        "time_s": 299.633
+      },
+      {
+        "id": "R104",
+        "time_s": 305.567
+      },
+      {
+        "id": "R105",
+        "time_s": 308.533
+      },
+      {
+        "id": "R110",
+        "time_s": 323.367
+      },
+      {
+        "id": "R111",
+        "time_s": 326.333
+      },
+      {
+        "id": "R114",
+        "time_s": 335.233
+      },
+      {
+        "id": "R115",
+        "time_s": 338.2
+      },
+      {
+        "id": "R116",
+        "time_s": 341.167
+      },
+      {
+        "id": "R117",
+        "time_s": 344.133
+      },
+      {
+        "id": "R118",
+        "time_s": 347.1
+      },
+      {
+        "id": "R119",
+        "time_s": 348.9
+      },
+      {
+        "clip": 1,
+        "id": "RD001",
+        "time_s": 69.7834
+      },
+      {
+        "clip": 1,
+        "id": "RD005",
+        "time_s": 70.1834
+      },
+      {
+        "clip": 1,
+        "id": "RD009",
+        "time_s": 70.5834
+      },
+      {
+        "clip": 1,
+        "id": "RD013",
+        "time_s": 70.9834
+      },
+      {
+        "clip": 1,
+        "id": "RD017",
+        "time_s": 71.3834
+      },
+      {
+        "clip": 1,
+        "id": "RD020",
+        "time_s": 71.6834
+      },
+      {
+        "clip": 3,
+        "id": "RD041",
+        "time_s": 279.1336
+      },
+      {
+        "clip": 3,
+        "id": "RD042",
+        "time_s": 279.2336
+      },
+      {
+        "clip": 3,
+        "id": "RD044",
+        "time_s": 279.4336
+      },
+      {
+        "clip": 3,
+        "id": "RD046",
+        "time_s": 279.6336
+      },
+      {
+        "clip": 3,
+        "id": "RD048",
+        "time_s": 279.8336
+      },
+      {
+        "clip": 3,
+        "id": "RD050",
+        "time_s": 280.0336
+      },
+      {
+        "clip": 3,
+        "id": "RD052",
+        "time_s": 280.2336
+      },
+      {
+        "clip": 3,
+        "id": "RD054",
+        "time_s": 280.4336
+      },
+      {
+        "clip": 3,
+        "id": "RD055",
+        "time_s": 280.5336
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.33818931149815,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Arc Wing — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nFly through authored projectile and obstacle patterns, read safe openings, use direct movement or fire, and survive to a climactic finish.\n\n## Scope boundary\n\nA bounded 2D flight or shoot-em-up run with staged escalation, readable hazards, damage/failure, recovery or retry, and final victory.\n\n## Creative freedom\n\nYou may design patterns, stage structure, combat tuning, boss or climax, and background composition.\n"
+}

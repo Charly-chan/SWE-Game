@@ -1,0 +1,14 @@
+{
+  "blockers": [],
+  "game_id": "dungeon_escape",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "dungeon_escape-c1-cistern_escape",
+    "dungeon_escape-c2-archive_escape",
+    "dungeon_escape-c3-sanctum_escape"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:76e98a29443b34abf830592c5041032ea08a839f2d985980479e7c9104419635"
+}

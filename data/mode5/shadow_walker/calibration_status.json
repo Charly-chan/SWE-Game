@@ -1,0 +1,15 @@
+{
+  "blockers": [],
+  "game_id": "shadow_walker",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "shadow_walker-c1-level_1_chest_and_exit",
+    "shadow_walker-c2-level_2_chest_and_exit",
+    "shadow_walker-c3-level_3_chest_and_exit",
+    "shadow_walker-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:1f9ca46184a18b0bff0dbb811bd59375abd077d4e02e98fb7d1c8eda22325dbe"
+}

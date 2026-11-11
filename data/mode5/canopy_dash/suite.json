@@ -1,0 +1,859 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:597f509c03f0b06e3e99e9cf59a579aa6409d3763d68be98a219459c4213d2b4",
+  "game_id": "canopy_dash",
+  "inputs": {
+    "certificate": {
+      "path": "tasks/canopy_dash/certificate.rt1.json",
+      "sha256": "eeea51d97e87c396d3b9758ad51d0d72777fd075860673203623022df6a109aa"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/canopy_dash.md",
+      "sha256": "002945161b2a323d641b71553631f00286f1ffe04719929f4281f17d80991e8c"
+    },
+    "route": {
+      "path": "tasks/canopy_dash/route.json",
+      "sha256": "a8431816ad68aa12e4f8a6fcc22eaf666caab105cfea3b783a041c3a4788ff44"
+    },
+    "rubric": {
+      "entry_sha256": "6f4b21c415274f3b147271cf9d7fa7a1992821faaf76561108a149dcb7873b0b",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_collectible",
+        "gb_hazard",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/canopy_dash/authored/source_obligations.json",
+      "sha256": "9445be97a7a3bbe377a210c5b0bc00e16c22cf335a10cb78b75db238e374a60d"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "canopy_dash-c1-opening_ramp_to_1000m.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "canopy_dash-c1-opening_ramp_to_1000m.opening_band_250m",
+          "predicate": "numeric(progress) >= 250"
+        },
+        {
+          "id": "canopy_dash-c1-opening_ramp_to_1000m.difficulty_two_500m",
+          "predicate": "numeric(progress) >= 500"
+        },
+        {
+          "id": "canopy_dash-c1-opening_ramp_to_1000m.goal",
+          "predicate": "numeric(progress) >= 1000"
+        }
+      ],
+      "critical_action": "gb_right",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed world/track_director.gd:64: opening = (parsed as Dictionary).get(\"opening_sequence\", [])",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:5ef58fb1e0e21c091e060888f2e5deb287a5f43f6049756ce65a4b822b6a5676",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "canopy_dash/C1/opening_ramp_to_1000m",
+      "scenario_id": "canopy_dash-c1-opening_ramp_to_1000m",
+      "source_check_id": "owner-reviewed-canopy_dash-c1-opening_ramp_to_1000m",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "opening_band_250m",
+            "predicate": "numeric(progress) >= 250"
+          },
+          {
+            "name": "difficulty_two_500m",
+            "predicate": "numeric(progress) >= 500"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1000"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "canopy_dash-c2-middle_ramp_1000m_to_3000m.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "canopy_dash-c2-middle_ramp_1000m_to_3000m.difficulty_four_1500m",
+          "predicate": "numeric(progress) >= 1500"
+        },
+        {
+          "id": "canopy_dash-c2-middle_ramp_1000m_to_3000m.difficulty_five_2000m",
+          "predicate": "numeric(progress) >= 2000"
+        },
+        {
+          "id": "canopy_dash-c2-middle_ramp_1000m_to_3000m.goal",
+          "predicate": "numeric(progress) >= 3000"
+        }
+      ],
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:5ef58fb1e0e21c091e060888f2e5deb287a5f43f6049756ce65a4b822b6a5676",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "canopy_dash/C2/middle_ramp_1000m_to_3000m",
+      "scenario_id": "canopy_dash-c2-middle_ramp_1000m_to_3000m",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "canopy_dash-c3-late_ramp_and_finish.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "canopy_dash-c3-late_ramp_and_finish.difficulty_six_3250m",
+          "predicate": "numeric(progress) >= 3250"
+        },
+        {
+          "id": "canopy_dash-c3-late_ramp_and_finish.difficulty_seven_4500m",
+          "predicate": "numeric(progress) >= 4500"
+        },
+        {
+          "id": "canopy_dash-c3-late_ramp_and_finish.goal",
+          "predicate": "overlap(gb_player, gb_goal)"
+        }
+      ],
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed core/run_session.gd:81: return \"Reach the finish platform at %d m and bring home %d seeds\" % [",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:5ef58fb1e0e21c091e060888f2e5deb287a5f43f6049756ce65a4b822b6a5676",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "canopy_dash/C3/late_ramp_and_finish",
+      "scenario_id": "canopy_dash-c3-late_ramp_and_finish",
+      "source_check_id": "owner-reviewed-canopy_dash-c3-late_ramp_and_finish",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "difficulty_six_3250m",
+            "predicate": "numeric(progress) >= 3250"
+          },
+          {
+            "name": "difficulty_seven_4500m",
+            "predicate": "numeric(progress) >= 4500"
+          }
+        ],
+        "predicate": "overlap(gb_player, gb_goal)"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "canopy_dash-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "canopy_dash-l5-whole_game_clear.opening_ramp_complete",
+          "predicate": "numeric(progress) >= 1000"
+        },
+        {
+          "id": "canopy_dash-l5-whole_game_clear.middle_ramp_complete",
+          "predicate": "numeric(progress) >= 3000"
+        },
+        {
+          "id": "canopy_dash-l5-whole_game_clear.late_band_entered",
+          "predicate": "numeric(progress) >= 4500"
+        },
+        {
+          "id": "canopy_dash-l5-whole_game_clear.coin_requirement_met",
+          "predicate": "numeric(score) >= 100"
+        },
+        {
+          "id": "canopy_dash-l5-whole_game_clear.challenge_distance_met",
+          "predicate": "numeric(progress) >= 4600"
+        }
+      ],
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:5ef58fb1e0e21c091e060888f2e5deb287a5f43f6049756ce65a4b822b6a5676",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "canopy_dash/L5/whole_game_clear",
+      "scenario_id": "canopy_dash-l5-whole_game_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.542b9b4165",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.8f5e60ab1d",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.7480b0fc4d",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.7be84e61d1",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    }
+  ],
+  "policy_digest": "sha256:ec9c32e6b76e70c79eb1204d1888c1f96b754cfc20b03c5513101665094b7c89",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 3747,
+      "capture_checkpoints": [
+        {
+          "id": "canopy_dash-c1-opening_ramp_to_1000m.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "canopy_dash-c1-opening_ramp_to_1000m.opening_band_250m",
+          "predicate": "numeric(progress) >= 250"
+        },
+        {
+          "id": "canopy_dash-c1-opening_ramp_to_1000m.difficulty_two_500m",
+          "predicate": "numeric(progress) >= 500"
+        },
+        {
+          "id": "canopy_dash-c1-opening_ramp_to_1000m.goal",
+          "predicate": "numeric(progress) >= 1000"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_right",
+          "remove": "gb_right"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "opening_band_250m",
+            "predicate": "numeric(progress) >= 250"
+          },
+          {
+            "name": "difficulty_two_500m",
+            "predicate": "numeric(progress) >= 500"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1000"
+      },
+      "id": "canopy_dash-c1-opening_ramp_to_1000m",
+      "policy": "strategy.movement.542b9b4165",
+      "required_actions": [
+        "gb_left",
+        "gb_right"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "canopy_dash/C1/opening_ramp_to_1000m",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "opening_band_250m",
+            "predicate": "numeric(progress) >= 250"
+          },
+          {
+            "name": "difficulty_two_500m",
+            "predicate": "numeric(progress) >= 500"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1000"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 10390,
+      "capture_checkpoints": [
+        {
+          "id": "canopy_dash-c2-middle_ramp_1000m_to_3000m.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "canopy_dash-c2-middle_ramp_1000m_to_3000m.difficulty_four_1500m",
+          "predicate": "numeric(progress) >= 1500"
+        },
+        {
+          "id": "canopy_dash-c2-middle_ramp_1000m_to_3000m.difficulty_five_2000m",
+          "predicate": "numeric(progress) >= 2000"
+        },
+        {
+          "id": "canopy_dash-c2-middle_ramp_1000m_to_3000m.goal",
+          "predicate": "numeric(progress) >= 3000"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_jump",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "difficulty_four_1500m",
+            "predicate": "numeric(progress) >= 1500"
+          },
+          {
+            "name": "difficulty_five_2000m",
+            "predicate": "numeric(progress) >= 2000"
+          }
+        ],
+        "predicate": "numeric(progress) >= 3000"
+      },
+      "id": "canopy_dash-c2-middle_ramp_1000m_to_3000m",
+      "policy": "strategy.traversal.8f5e60ab1d",
+      "required_actions": [
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "canopy_dash/C2/middle_ramp_1000m_to_3000m",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 16942,
+      "capture_checkpoints": [
+        {
+          "id": "canopy_dash-c3-late_ramp_and_finish.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "canopy_dash-c3-late_ramp_and_finish.difficulty_six_3250m",
+          "predicate": "numeric(progress) >= 3250"
+        },
+        {
+          "id": "canopy_dash-c3-late_ramp_and_finish.difficulty_seven_4500m",
+          "predicate": "numeric(progress) >= 4500"
+        },
+        {
+          "id": "canopy_dash-c3-late_ramp_and_finish.goal",
+          "predicate": "overlap(gb_player, gb_goal)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_jump",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "difficulty_six_3250m",
+            "predicate": "numeric(progress) >= 3250"
+          },
+          {
+            "name": "difficulty_seven_4500m",
+            "predicate": "numeric(progress) >= 4500"
+          }
+        ],
+        "predicate": "overlap(gb_player, gb_goal)"
+      },
+      "id": "canopy_dash-c3-late_ramp_and_finish",
+      "policy": "strategy.traversal.7480b0fc4d",
+      "required_actions": [
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_goal",
+        "gb_player"
+      ],
+      "route_id": "canopy_dash/C3/late_ramp_and_finish",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "difficulty_six_3250m",
+            "predicate": "numeric(progress) >= 3250"
+          },
+          {
+            "name": "difficulty_seven_4500m",
+            "predicate": "numeric(progress) >= 4500"
+          }
+        ],
+        "predicate": "overlap(gb_player, gb_goal)"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 18500,
+      "capture_checkpoints": [
+        {
+          "id": "canopy_dash-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "canopy_dash-l5-whole_game_clear.opening_ramp_complete",
+          "predicate": "numeric(progress) >= 1000"
+        },
+        {
+          "id": "canopy_dash-l5-whole_game_clear.middle_ramp_complete",
+          "predicate": "numeric(progress) >= 3000"
+        },
+        {
+          "id": "canopy_dash-l5-whole_game_clear.late_band_entered",
+          "predicate": "numeric(progress) >= 4500"
+        },
+        {
+          "id": "canopy_dash-l5-whole_game_clear.coin_requirement_met",
+          "predicate": "numeric(score) >= 100"
+        },
+        {
+          "id": "canopy_dash-l5-whole_game_clear.challenge_distance_met",
+          "predicate": "numeric(progress) >= 4600"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_jump",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "opening_ramp_complete",
+            "predicate": "numeric(progress) >= 1000"
+          },
+          {
+            "name": "middle_ramp_complete",
+            "predicate": "numeric(progress) >= 3000"
+          },
+          {
+            "name": "late_band_entered",
+            "predicate": "numeric(progress) >= 4500"
+          },
+          {
+            "name": "coin_requirement_met",
+            "predicate": "numeric(score) >= 100"
+          },
+          {
+            "name": "challenge_distance_met",
+            "predicate": "numeric(progress) >= 4600"
+          },
+          {
+            "name": "finish_platform_overlapped",
+            "predicate": "overlap(gb_player, gb_goal)"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "canopy_dash-l5-whole_game_clear",
+      "policy": "strategy.traversal.7be84e61d1",
+      "required_actions": [
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right"
+      ],
+      "required_numeric": [
+        "progress",
+        "score"
+      ],
+      "required_roles": [
+        "gb_goal",
+        "gb_player"
+      ],
+      "route_id": "canopy_dash/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

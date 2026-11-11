@@ -1,0 +1,1684 @@
+{
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "driver_sha256": "7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742",
+  "endings": {
+    "defeat": "res://ui/defeat.tscn",
+    "run_complete": "res://ui/run_complete.tscn",
+    "victory": "res://ui/victory.tscn"
+  },
+  "engine": "4.5.1",
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "e78e14eafff3c8c0f66b963aa413c55baf04ba3619f7452cb1abcb497da1cba5",
+    "source_sha256": "7c0ced9fcca7b818a17881f2a7d8cd0b11230a05025608d464c37e17ea1cb245"
+  },
+  "levels": [
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          0.0,
+          1.09921586513519,
+          30.0
+        ],
+        "min3": [
+          -19.0,
+          0.0,
+          -31.6000003814697
+        ],
+        "plane": "xz",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 1,
+        "alive_before": 1,
+        "attempted": true,
+        "delta": 0,
+        "detail": "one collect-and-deliver cycle on jar-imsety: 1 alive before, 1 after",
+        "effect": {
+          "actions": [],
+          "complete_trigger": false,
+          "cycle_index": 0,
+          "kind": "target_changed",
+          "observed": false
+        },
+        "target": "jar-imsety"
+      },
+      "cycles": [
+        {
+          "alive_after": 1,
+          "alive_before": 1,
+          "delivered": true,
+          "delta": 0,
+          "index": 0,
+          "target": "jar-imsety"
+        }
+      ],
+      "cycles_capped": false,
+      "declared_scene": "res://levels/courtyard.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "1 collect-and-deliver cycles then 120 frames on Goal, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://levels/courtyard.tscn",
+        "scene_before": "res://levels/courtyard.tscn",
+        "target": "Goal"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.878246754000733
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              -19.0,
+              0.0626880675554276,
+              22.5
+            ]
+          ]
+        },
+        "gb_door": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.0227272663938394
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              0.0,
+              -30.2000007629395
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              1.09921586513519,
+              -31.6000003814697
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_interactive": {
+          "alive": 2,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.0227272663938394
+            },
+            {
+              "valid": true,
+              "x": 0.290526339882299,
+              "y": 0.60389610480088
+            }
+          ],
+          "total": 2,
+          "world": [
+            [
+              0.0,
+              0.0,
+              -30.2000007629395
+            ],
+            [
+              -13.4799995422363,
+              0.151397079229355,
+              5.59999990463257
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 1.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              0.221446871757507,
+              30.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "elapsed": 3.88333333333332,
+        "health": 100.0,
+        "kills": 0.0,
+        "progress": 0.0,
+        "score": 0.0,
+        "timer": 3.88333333333332,
+        "wave": 0.0
+      },
+      "numeric_source": {
+        "elapsed": "declared",
+        "health": "declared",
+        "kills": "guess",
+        "progress": "declared",
+        "score": "declared",
+        "timer": "declared",
+        "wave": "declared"
+      },
+      "reached": true,
+      "scene": "res://levels/courtyard.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "elapsed": 1.48333333333333,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 1.48333333333333,
+            "wave": 0.0
+          },
+          "phase": "settle",
+          "player": [
+            0.0,
+            0.221446871757507,
+            30.0
+          ],
+          "scene_path": "res://levels/courtyard.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "elapsed": 1.58333333333333,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 1.58333333333333,
+            "wave": 0.0
+          },
+          "phase": "pick",
+          "player": [
+            -19.0,
+            0.0626880675554276,
+            22.5
+          ],
+          "scene_path": "res://levels/courtyard.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "elapsed": 1.71666666666667,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 1.71666666666667,
+            "wave": 0.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            1.09921586513519,
+            -31.6000003814697
+          ],
+          "scene_path": "res://levels/courtyard.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "elapsed": 1.85,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 1.85,
+            "wave": 0.0
+          },
+          "phase": "deliver",
+          "player": [
+            0.0,
+            1.09921586513519,
+            -31.6000003814697
+          ],
+          "scene_path": "res://levels/courtyard.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "elapsed": 1.98333333333333,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 1.98333333333333,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.09921586513519,
+            -31.6000003814697
+          ],
+          "scene_path": "res://levels/courtyard.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "elapsed": 2.11666666666666,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 2.11666666666666,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.09921586513519,
+            -31.6000003814697
+          ],
+          "scene_path": "res://levels/courtyard.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "elapsed": 2.25,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 2.25,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.09921586513519,
+            -31.6000003814697
+          ],
+          "scene_path": "res://levels/courtyard.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "elapsed": 2.38333333333333,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 2.38333333333333,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.09921586513519,
+            -31.6000003814697
+          ],
+          "scene_path": "res://levels/courtyard.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "elapsed": 2.51666666666666,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 2.51666666666666,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.09921586513519,
+            -31.6000003814697
+          ],
+          "scene_path": "res://levels/courtyard.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "elapsed": 2.65,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 2.65,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.09921586513519,
+            -31.6000003814697
+          ],
+          "scene_path": "res://levels/courtyard.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "elapsed": 2.78333333333333,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 2.78333333333333,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.09921586513519,
+            -31.6000003814697
+          ],
+          "scene_path": "res://levels/courtyard.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "elapsed": 2.91666666666666,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 2.91666666666666,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.09921586513519,
+            -31.6000003814697
+          ],
+          "scene_path": "res://levels/courtyard.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "elapsed": 3.04999999999999,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 3.04999999999999,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.09921586513519,
+            -31.6000003814697
+          ],
+          "scene_path": "res://levels/courtyard.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "elapsed": 3.18333333333333,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 3.18333333333333,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.09921586513519,
+            -31.6000003814697
+          ],
+          "scene_path": "res://levels/courtyard.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "elapsed": 3.31666666666666,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 3.31666666666666,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.09921586513519,
+            -31.6000003814697
+          ],
+          "scene_path": "res://levels/courtyard.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "elapsed": 3.44999999999999,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 3.44999999999999,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.09921586513519,
+            -31.6000003814697
+          ],
+          "scene_path": "res://levels/courtyard.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 216,
+          "numeric": {
+            "elapsed": 3.58333333333333,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 3.58333333333333,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.09921586513519,
+            -31.6000003814697
+          ],
+          "scene_path": "res://levels/courtyard.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 224,
+          "numeric": {
+            "elapsed": 3.71666666666666,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 3.71666666666666,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.09921586513519,
+            -31.6000003814697
+          ],
+          "scene_path": "res://levels/courtyard.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 232,
+          "numeric": {
+            "elapsed": 3.84999999999999,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 3.84999999999999,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.09921586513519,
+            -31.6000003814697
+          ],
+          "scene_path": "res://levels/courtyard.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 2,
+            "gb_player": 1
+          },
+          "frame": 234,
+          "numeric": {
+            "elapsed": 3.88333333333332,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 3.88333333333332,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            0.0,
+            1.09921586513519,
+            -31.6000003814697
+          ],
+          "scene_path": "res://levels/courtyard.tscn"
+        }
+      ],
+      "spawn": [
+        0.0,
+        0.221446871757507,
+        30.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 1.0,
+        "y": 1.0
+      },
+      "stop_reason": "goal_no_transition"
+    },
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          31.0,
+          0.0,
+          -140.0
+        ],
+        "min3": [
+          -7.0,
+          0.0,
+          -149.0
+        ],
+        "plane": "xz",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 1,
+        "alive_before": 1,
+        "attempted": true,
+        "delta": 0,
+        "detail": "one collect-and-deliver cycle on jar-hapy: 1 alive before, 1 after",
+        "effect": {
+          "actions": [],
+          "complete_trigger": false,
+          "cycle_index": 0,
+          "kind": "target_changed",
+          "observed": false
+        },
+        "target": "jar-hapy"
+      },
+      "cycles": [
+        {
+          "alive_after": 1,
+          "alive_before": 1,
+          "delivered": true,
+          "delta": 0,
+          "index": 0,
+          "target": "jar-hapy"
+        }
+      ],
+      "cycles_capped": false,
+      "declared_scene": "res://levels/interior.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "1 collect-and-deliver cycles then 120 frames on Goal, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://levels/interior.tscn",
+        "scene_before": "res://levels/interior.tscn",
+        "target": "Goal"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              31.0,
+              0.0,
+              -149.0
+            ]
+          ]
+        },
+        "gb_door": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.657894736842105,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              18.0,
+              0.0,
+              -149.0
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.222222222222222
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              31.0,
+              0.0,
+              -147.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_interactive": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 1.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              -7.0,
+              0.0,
+              -140.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.184210526315789,
+              "y": 0.611111111111111
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              0.0,
+              0.0,
+              -143.5
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "elapsed": 3.88333333333332,
+        "health": 100.0,
+        "kills": 0.0,
+        "progress": 0.0,
+        "score": 0.0,
+        "timer": 3.88333333333332,
+        "wave": 0.0
+      },
+      "numeric_source": {
+        "elapsed": "declared",
+        "health": "declared",
+        "kills": "guess",
+        "progress": "declared",
+        "score": "declared",
+        "timer": "declared",
+        "wave": "declared"
+      },
+      "reached": true,
+      "scene": "res://levels/interior.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "elapsed": 1.48333333333333,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 1.48333333333333,
+            "wave": 0.0
+          },
+          "phase": "settle",
+          "player": [
+            0.0,
+            0.0,
+            -143.5
+          ],
+          "scene_path": "res://levels/interior.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "elapsed": 1.58333333333333,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 1.58333333333333,
+            "wave": 0.0
+          },
+          "phase": "pick",
+          "player": [
+            31.0,
+            0.0,
+            -149.0
+          ],
+          "scene_path": "res://levels/interior.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "elapsed": 1.71666666666667,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 1.71666666666667,
+            "wave": 0.0
+          },
+          "phase": "deliver",
+          "player": [
+            31.0,
+            0.0,
+            -147.0
+          ],
+          "scene_path": "res://levels/interior.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "elapsed": 1.85,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 1.85,
+            "wave": 0.0
+          },
+          "phase": "deliver",
+          "player": [
+            31.0,
+            0.0,
+            -147.0
+          ],
+          "scene_path": "res://levels/interior.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "elapsed": 1.98333333333333,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 1.98333333333333,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            31.0,
+            0.0,
+            -147.0
+          ],
+          "scene_path": "res://levels/interior.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "elapsed": 2.11666666666666,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 2.11666666666666,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            31.0,
+            0.0,
+            -147.0
+          ],
+          "scene_path": "res://levels/interior.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "elapsed": 2.25,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 2.25,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            31.0,
+            0.0,
+            -147.0
+          ],
+          "scene_path": "res://levels/interior.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "elapsed": 2.38333333333333,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 2.38333333333333,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            31.0,
+            0.0,
+            -147.0
+          ],
+          "scene_path": "res://levels/interior.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "elapsed": 2.51666666666666,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 2.51666666666666,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            31.0,
+            0.0,
+            -147.0
+          ],
+          "scene_path": "res://levels/interior.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "elapsed": 2.65,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 2.65,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            31.0,
+            0.0,
+            -147.0
+          ],
+          "scene_path": "res://levels/interior.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "elapsed": 2.78333333333333,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 2.78333333333333,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            31.0,
+            0.0,
+            -147.0
+          ],
+          "scene_path": "res://levels/interior.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "elapsed": 2.91666666666666,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 2.91666666666666,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            31.0,
+            0.0,
+            -147.0
+          ],
+          "scene_path": "res://levels/interior.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "elapsed": 3.04999999999999,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 3.04999999999999,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            31.0,
+            0.0,
+            -147.0
+          ],
+          "scene_path": "res://levels/interior.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "elapsed": 3.18333333333333,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 3.18333333333333,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            31.0,
+            0.0,
+            -147.0
+          ],
+          "scene_path": "res://levels/interior.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "elapsed": 3.31666666666666,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 3.31666666666666,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            31.0,
+            0.0,
+            -147.0
+          ],
+          "scene_path": "res://levels/interior.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "elapsed": 3.44999999999999,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 3.44999999999999,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            31.0,
+            0.0,
+            -147.0
+          ],
+          "scene_path": "res://levels/interior.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 216,
+          "numeric": {
+            "elapsed": 3.58333333333333,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 3.58333333333333,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            31.0,
+            0.0,
+            -147.0
+          ],
+          "scene_path": "res://levels/interior.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 224,
+          "numeric": {
+            "elapsed": 3.71666666666666,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 3.71666666666666,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            31.0,
+            0.0,
+            -147.0
+          ],
+          "scene_path": "res://levels/interior.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 232,
+          "numeric": {
+            "elapsed": 3.84999999999999,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 3.84999999999999,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            31.0,
+            0.0,
+            -147.0
+          ],
+          "scene_path": "res://levels/interior.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 1,
+            "gb_door": 1,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 234,
+          "numeric": {
+            "elapsed": 3.88333333333332,
+            "health": 100.0,
+            "kills": 0.0,
+            "progress": 0.0,
+            "score": 0.0,
+            "timer": 3.88333333333332,
+            "wave": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            31.0,
+            0.0,
+            -147.0
+          ],
+          "scene_path": "res://levels/interior.tscn"
+        }
+      ],
+      "spawn": [
+        0.0,
+        0.0,
+        -143.5
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.18421052631578946,
+        "y": 0.6111111111111112
+      },
+      "stop_reason": "goal_no_transition"
+    }
+  ],
+  "liveness": [
+    {
+      "action": "gb_left",
+      "detail": "gb_left differs from the idle control on node_count (delta 152.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "node_count"
+    },
+    {
+      "action": "gb_right",
+      "detail": "gb_right differs from the idle control on node_count (delta 152.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "node_count"
+    },
+    {
+      "action": "gb_up",
+      "detail": "gb_up differs from the idle control on node_count (delta 152.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "node_count"
+    },
+    {
+      "action": "gb_down",
+      "detail": "gb_down differs from the idle control on node_count (delta 152.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "node_count"
+    },
+    {
+      "action": "gb_jump",
+      "detail": "gb_jump differs from the idle control on node_count (delta 152.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "node_count"
+    },
+    {
+      "action": "gb_action",
+      "detail": "gb_action differs from the idle control on node_count (delta 152.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "node_count"
+    }
+  ],
+  "no_input_no_win": true,
+  "no_input_stop_reason": "budget_frames",
+  "notes": [
+    "liveness deadline derived from this project's own structural pass: 27.0 ms/frame median, 27.0 ms/frame worst",
+    "liveness sweep: 6 live / 0 dead against the 420-frame idle control truth/L0#idle420"
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "sands_of_the_restless",
+  "read_failure": "",
+  "taken_at": "2026-09-10T09:21:26+00:00",
+  "version": "1"
+}

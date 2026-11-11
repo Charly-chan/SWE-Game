@@ -1,0 +1,123 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "409128b2bd30ecf7e1dcb54999f5cf19163c3161d7c66e42eb9096a67e94cdc3"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "bush_522/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "b552dd224c0bb2d1356f38243666d4cd8824263191a803b2c30fc6e1204a8a16",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "409128b2bd30ecf7e1dcb54999f5cf19163c3161d7c66e42eb9096a67e94cdc3",
+    "task_id": "bush_522"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "extended_actions": [
+      {
+        "id": "throttle_down",
+        "why": "Reduces engine throttle for approach and landing control."
+      },
+      {
+        "id": "roll_left",
+        "why": "Provides independent left roll control for banked turns."
+      },
+      {
+        "id": "roll_right",
+        "why": "Provides independent right roll control for banked turns."
+      },
+      {
+        "id": "toggle_flaps",
+        "why": "Toggles landing flaps to change lift and drag."
+      }
+    ],
+    "interface_version": 2,
+    "normalized_sha256": "28f831480dfcb735fdffd49457dd0e3576dcb8cd9d24706674a2a6962b64ae8b",
+    "source_sha256": "0d4b7e67690554aa8cc968e6348e5bd01858cdcdf55d596a8f20724de35f19ae"
+  },
+  "passed_route_ids": [
+    "bush_522/L0/no_input_no_goal",
+    "bush_522/L0/extended_mash_no_goal",
+    "bush_522/L0/nearest_checkpoint_not_clear",
+    "bush_522/C1/qualifying_checkpoint_starts_return",
+    "bush_522/L5/whole_game_clear"
+  ],
+  "readings": {
+    "bush_522/C1/qualifying_checkpoint_starts_return": {
+      "deaths": 0,
+      "frames": 9693,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 984,
+      "stop_reason": "budget_frames"
+    },
+    "bush_522/L0/extended_mash_no_goal": {
+      "deaths": 0,
+      "frames": 20202,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 34,
+      "stop_reason": "budget_frames"
+    },
+    "bush_522/L0/nearest_checkpoint_not_clear": {
+      "deaths": 1,
+      "frames": 486,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 121,
+      "stop_reason": "scene_changed"
+    },
+    "bush_522/L0/no_input_no_goal": {
+      "deaths": 0,
+      "frames": 20202,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 34,
+      "stop_reason": "budget_frames"
+    },
+    "bush_522/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 19603,
+      "injects": 0,
+      "milestones_reached": [
+        "qualifying_checkpoint",
+        "course_complete"
+      ],
+      "solution_kind": "tape",
+      "steps": 2263,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "b552dd224c0bb2d1356f38243666d4cd8824263191a803b2c30fc6e1204a8a16"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "7691539d91fb64ded99f0ed91465871e328e8e3181a3aebc77081f2273397cb2",
+  "schema_version": 2,
+  "solution_kinds": {
+    "bush_522/C1/qualifying_checkpoint_starts_return": "tape",
+    "bush_522/L0/extended_mash_no_goal": "tape",
+    "bush_522/L0/nearest_checkpoint_not_clear": "tape",
+    "bush_522/L0/no_input_no_goal": "tape",
+    "bush_522/L5/whole_game_clear": "tape"
+  },
+  "task_id": "bush_522",
+  "validated_at": "2026-09-09"
+}

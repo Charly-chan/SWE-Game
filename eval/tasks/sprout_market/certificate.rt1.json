@@ -1,0 +1,176 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "89eea4b3fbb6672d5cba7e846f9eefbe1191590877f6af11c53d676c820e0838"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "sprout_market/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "d826d18285130468e5f85ce96474e017764a651c08b13efc1b0dd688306cd318",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "89eea4b3fbb6672d5cba7e846f9eefbe1191590877f6af11c53d676c820e0838",
+    "task_id": "sprout_market"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "bd5aec984be5fcb64324868e3e399f1c62962b90ff625dd3d42db48502471c44",
+    "source_sha256": "38669e1df76db6c70382e07d7c016b973bcd84f9d2ebd5af2140ee0a8580c66e"
+  },
+  "passed_route_ids": [
+    "sprout_market/L0/no_input_no_shift_clear",
+    "sprout_market/C1/opening_carrot_shift",
+    "sprout_market/C2/second_fixture_shift",
+    "sprout_market/C3/third_fixture_shift",
+    "sprout_market/C4/fourth_fixture_shift",
+    "sprout_market/C5/fifth_fixture_shift",
+    "sprout_market/C6/sixth_fixture_shift",
+    "sprout_market/C7/seventh_shift",
+    "sprout_market/C8/final_shift_and_campaign_result",
+    "sprout_market/L5/whole_game_clear"
+  ],
+  "readings": {
+    "sprout_market/C1/opening_carrot_shift": {
+      "deaths": 1,
+      "frames": 1795,
+      "injects": 1,
+      "milestones_reached": [
+        "shift_1_quota_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 15,
+      "stop_reason": "scene_changed"
+    },
+    "sprout_market/C2/second_fixture_shift": {
+      "deaths": 1,
+      "frames": 2035,
+      "injects": 1,
+      "milestones_reached": [
+        "shift_2_quota_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 19,
+      "stop_reason": "scene_changed"
+    },
+    "sprout_market/C3/third_fixture_shift": {
+      "deaths": 1,
+      "frames": 2275,
+      "injects": 1,
+      "milestones_reached": [
+        "shift_3_quota_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 32,
+      "stop_reason": "scene_changed"
+    },
+    "sprout_market/C4/fourth_fixture_shift": {
+      "deaths": 1,
+      "frames": 2515,
+      "injects": 1,
+      "milestones_reached": [
+        "shift_4_quota_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 40,
+      "stop_reason": "scene_changed"
+    },
+    "sprout_market/C5/fifth_fixture_shift": {
+      "deaths": 1,
+      "frames": 2755,
+      "injects": 1,
+      "milestones_reached": [
+        "shift_5_quota_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 40,
+      "stop_reason": "scene_changed"
+    },
+    "sprout_market/C6/sixth_fixture_shift": {
+      "deaths": 1,
+      "frames": 2995,
+      "injects": 1,
+      "milestones_reached": [
+        "shift_6_quota_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 41,
+      "stop_reason": "scene_changed"
+    },
+    "sprout_market/C7/seventh_shift": {
+      "deaths": 1,
+      "frames": 3235,
+      "injects": 1,
+      "milestones_reached": [
+        "shift_7_quota_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 40,
+      "stop_reason": "scene_changed"
+    },
+    "sprout_market/C8/final_shift_and_campaign_result": {
+      "deaths": 1,
+      "frames": 3475,
+      "injects": 1,
+      "milestones_reached": [
+        "shift_8_quota_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 55,
+      "stop_reason": "goal_reached"
+    },
+    "sprout_market/L0/no_input_no_shift_clear": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "sprout_market/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 22481,
+      "injects": 0,
+      "milestones_reached": [
+        "opening_shift_cleared",
+        "campaign_terminal_win"
+      ],
+      "solution_kind": "tape",
+      "steps": 324,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "d826d18285130468e5f85ce96474e017764a651c08b13efc1b0dd688306cd318"
+  },
+  "result": "10/10 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "824e5f9d3cea0537b756fc6375c216d77dcc9a283572900e657f7d46911edb8b",
+  "schema_version": 2,
+  "solution_kinds": {
+    "sprout_market/C1/opening_carrot_shift": "tape",
+    "sprout_market/C2/second_fixture_shift": "tape",
+    "sprout_market/C3/third_fixture_shift": "tape",
+    "sprout_market/C4/fourth_fixture_shift": "tape",
+    "sprout_market/C5/fifth_fixture_shift": "tape",
+    "sprout_market/C6/sixth_fixture_shift": "tape",
+    "sprout_market/C7/seventh_shift": "tape",
+    "sprout_market/C8/final_shift_and_campaign_result": "tape",
+    "sprout_market/L0/no_input_no_shift_clear": "tape",
+    "sprout_market/L5/whole_game_clear": "tape"
+  },
+  "task_id": "sprout_market",
+  "validated_at": "2026-09-09"
+}

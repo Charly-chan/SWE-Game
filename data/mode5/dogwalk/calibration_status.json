@@ -1,0 +1,14 @@
+{
+  "blockers": [],
+  "game_id": "dogwalk",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "dogwalk-c2-the_cone_reaches_the_snowman",
+    "dogwalk-c3-all_five_decorations_placed",
+    "dogwalk-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:b835d7808c01f313b07ab01c2bbc4a1584b0873563a342196bac4e0f75ca4220"
+}

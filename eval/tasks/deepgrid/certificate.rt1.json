@@ -1,0 +1,159 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "11ccf01e5ad4d4bff9cc8430c10f785520dbdbadd19056e496819ec1edc218ae"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "deepgrid/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "2511a80cf92811b9dc8c00b9be958a345c876651a2a9c09d75400cb2f43ad5bb",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "11ccf01e5ad4d4bff9cc8430c10f785520dbdbadd19056e496819ec1edc218ae",
+    "task_id": "deepgrid"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "de6b4839cfb2a218c52148222f1cb25cf47ae10426fc04aeb9f188bd28f2b3e6",
+    "source_sha256": "d545f8e630d3fe9227078443e3f54c35e27154af5e002edeed66e5e253abed98"
+  },
+  "passed_route_ids": [
+    "deepgrid/L0/no_input_no_clear",
+    "deepgrid/C1/floor_1_interlock",
+    "deepgrid/C2/floor_2_interlock",
+    "deepgrid/C3/floor_3_interlock",
+    "deepgrid/C4/floor_4_interlock",
+    "deepgrid/C5/floor_5_interlock",
+    "deepgrid/C6/floor_6_overseer_interlock",
+    "deepgrid/L5/whole_game_clear"
+  ],
+  "readings": {
+    "deepgrid/C1/floor_1_interlock": {
+      "deaths": 1,
+      "frames": 2405,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_1_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 363,
+      "stop_reason": "scene_changed"
+    },
+    "deepgrid/C2/floor_2_interlock": {
+      "deaths": 1,
+      "frames": 1808,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_2_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 198,
+      "stop_reason": "scene_changed"
+    },
+    "deepgrid/C3/floor_3_interlock": {
+      "deaths": 1,
+      "frames": 2405,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_3_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 360,
+      "stop_reason": "scene_changed"
+    },
+    "deepgrid/C4/floor_4_interlock": {
+      "deaths": 1,
+      "frames": 554,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_4_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 14,
+      "stop_reason": "scene_changed"
+    },
+    "deepgrid/C5/floor_5_interlock": {
+      "deaths": 1,
+      "frames": 2564,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_5_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 65,
+      "stop_reason": "scene_changed"
+    },
+    "deepgrid/C6/floor_6_overseer_interlock": {
+      "deaths": 1,
+      "frames": 1594,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_6_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 35,
+      "stop_reason": "scene_changed"
+    },
+    "deepgrid/L0/no_input_no_clear": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "deepgrid/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 24464,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_1_cleared",
+        "entered_floor_2",
+        "floor_2_cleared",
+        "entered_floor_3",
+        "floor_3_cleared",
+        "entered_floor_4",
+        "floor_4_cleared",
+        "entered_floor_5",
+        "floor_5_cleared",
+        "entered_floor_6",
+        "floor_6_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 2512,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "2511a80cf92811b9dc8c00b9be958a345c876651a2a9c09d75400cb2f43ad5bb"
+  },
+  "result": "8/8 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "c1dc7b26c3fc002ee62a5af32b95109e78014eea678b604ceb3944607e6bad26",
+  "schema_version": 2,
+  "solution_kinds": {
+    "deepgrid/C1/floor_1_interlock": "tape",
+    "deepgrid/C2/floor_2_interlock": "tape",
+    "deepgrid/C3/floor_3_interlock": "tape",
+    "deepgrid/C4/floor_4_interlock": "tape",
+    "deepgrid/C5/floor_5_interlock": "tape",
+    "deepgrid/C6/floor_6_overseer_interlock": "tape",
+    "deepgrid/L0/no_input_no_clear": "tape",
+    "deepgrid/L5/whole_game_clear": "tape"
+  },
+  "task_id": "deepgrid",
+  "validated_at": "2026-09-09"
+}

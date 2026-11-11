@@ -1,0 +1,3510 @@
+{
+  "routes": [
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 420,
+            "op": "wait"
+          }
+        ]
+      },
+      "budget": {
+        "frames": 420,
+        "steps": 1
+      },
+      "goal": {
+        "predicate": ""
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "sprout_market/L0/no_input_no_shift_clear",
+      "scored": false,
+      "start": {
+        "inject": {},
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 0
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "action": "gb_down",
+            "frames": 53,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 600,
+            "op": "wait"
+          },
+          {
+            "frames": 97,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 81,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 97,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 110,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 61,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 371,
+            "op": "hold"
+          },
+          {
+            "frames": 122,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 2622,
+        "steps": 36
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "shift_1_quota_cleared",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "sprout_market/C1/opening_carrot_shift",
+      "start": {
+        "inject": {
+          "autoload_state": [
+            {
+              "node": "RunState",
+              "op": "set",
+              "property": "route_shift_seed",
+              "value": 0
+            }
+          ]
+        },
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 2
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "action": "gb_down",
+            "frames": 53,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 397,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 81,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 57,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 110,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 600,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 199,
+            "op": "hold"
+          },
+          {
+            "frames": 122,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 2754,
+        "steps": 40
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "shift_2_quota_cleared",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "sprout_market/C2/second_fixture_shift",
+      "start": {
+        "inject": {
+          "autoload_state": [
+            {
+              "node": "RunState",
+              "op": "set",
+              "property": "route_shift_seed",
+              "value": 1
+            }
+          ]
+        },
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 2
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "action": "gb_down",
+            "frames": 53,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 397,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 81,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 57,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 81,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 94,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 81,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 57,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 110,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 219,
+            "op": "hold"
+          },
+          {
+            "frames": 122,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 2994,
+        "steps": 54
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "shift_3_quota_cleared",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "sprout_market/C3/third_fixture_shift",
+      "start": {
+        "inject": {
+          "autoload_state": [
+            {
+              "node": "RunState",
+              "op": "set",
+              "property": "route_shift_seed",
+              "value": 2
+            }
+          ]
+        },
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 3
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "action": "gb_down",
+            "frames": 53,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 97,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 41,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 97,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 81,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 134,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 41,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 97,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 80,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 23,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 329,
+            "op": "hold"
+          },
+          {
+            "frames": 122,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 3234,
+        "steps": 62
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "shift_4_quota_cleared",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "sprout_market/C4/fourth_fixture_shift",
+      "start": {
+        "inject": {
+          "autoload_state": [
+            {
+              "node": "RunState",
+              "op": "set",
+              "property": "route_shift_seed",
+              "value": 3
+            }
+          ]
+        },
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 3
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "action": "gb_down",
+            "frames": 53,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 97,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 41,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 97,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 81,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 134,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 41,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 97,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 80,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 23,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 569,
+            "op": "hold"
+          },
+          {
+            "frames": 122,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 3474,
+        "steps": 62
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "shift_5_quota_cleared",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "sprout_market/C5/fifth_fixture_shift",
+      "start": {
+        "inject": {
+          "autoload_state": [
+            {
+              "node": "RunState",
+              "op": "set",
+              "property": "route_shift_seed",
+              "value": 4
+            }
+          ]
+        },
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 4
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "action": "gb_down",
+            "frames": 53,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 97,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 41,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 97,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 81,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 134,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 41,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 97,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 80,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 23,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 600,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 209,
+            "op": "hold"
+          },
+          {
+            "frames": 122,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 3714,
+        "steps": 63
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "shift_6_quota_cleared",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "sprout_market/C6/sixth_fixture_shift",
+      "start": {
+        "inject": {
+          "autoload_state": [
+            {
+              "node": "RunState",
+              "op": "set",
+              "property": "route_shift_seed",
+              "value": 5
+            }
+          ]
+        },
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 4
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "action": "gb_down",
+            "frames": 53,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 397,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 41,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 97,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 114,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 69,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "gb_left",
+            "frames": 162,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 81,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 134,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 46,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 50,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 81,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 57,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 114,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 69,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "gb_left",
+            "frames": 122,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 110,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 377,
+            "op": "hold"
+          },
+          {
+            "frames": 122,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 3954,
+        "steps": 71
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "shift_7_quota_cleared",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "sprout_market/C7/seventh_shift",
+      "start": {
+        "inject": {
+          "autoload_state": [
+            {
+              "node": "RunState",
+              "op": "set",
+              "property": "route_shift_seed",
+              "value": 6
+            }
+          ]
+        },
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 4
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "action": "gb_down",
+            "frames": 53,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 97,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 41,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 57,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 114,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 69,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "gb_left",
+            "frames": 162,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 53,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 300,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 5,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 189,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 46,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 50,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 41,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 57,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 114,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 69,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "gb_left",
+            "frames": 122,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 53,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 108,
+            "op": "hold"
+          },
+          {
+            "frames": 122,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 5072,
+        "steps": 251
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "shift_8_quota_cleared",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "sprout_market/C8/final_shift_and_campaign_result",
+      "start": {
+        "inject": {
+          "autoload_state": [
+            {
+              "node": "RunState",
+              "op": "set",
+              "property": "route_shift_seed",
+              "value": 7
+            }
+          ]
+        },
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 4
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "action": "gb_down",
+            "frames": 53,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 600,
+            "op": "wait"
+          },
+          {
+            "frames": 97,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 81,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 97,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 110,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 61,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 373,
+            "op": "hold"
+          },
+          {
+            "frames": 120,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "frames": 20,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 397,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 81,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 57,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 110,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 600,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 201,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 120,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "frames": 20,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 397,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 81,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 57,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 81,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 94,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 81,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 57,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 110,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 221,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 120,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "frames": 20,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 97,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 41,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 97,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 81,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 134,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 41,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 97,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 80,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 23,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 331,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 120,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "frames": 20,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 97,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 41,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 97,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 81,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 134,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 41,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 97,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 80,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 23,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 571,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 120,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "frames": 20,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 97,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 41,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 97,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 81,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 134,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 41,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 97,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 80,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 23,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 600,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 211,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 120,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "frames": 20,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 397,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 41,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 97,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 114,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 69,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "gb_left",
+            "frames": 162,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 81,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 134,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 46,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 50,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 81,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 57,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 114,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 69,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "gb_left",
+            "frames": 122,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 110,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 379,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 120,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "frames": 20,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 103,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 97,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 41,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 57,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 114,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 69,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "gb_left",
+            "frames": 162,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 53,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 300,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 5,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 189,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 46,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 50,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 59,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 41,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 57,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 114,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 69,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "gb_left",
+            "frames": 122,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 53,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 110,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 150,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 28000,
+        "steps": 1200
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "opening_shift_cleared",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "campaign_terminal_win",
+            "predicate": "whole_game_clear()"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "sprout_market/L5/whole_game_clear",
+      "start": {
+        "inject": {},
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 5
+    }
+  ],
+  "schema_version": 2,
+  "task_id": "sprout_market"
+}

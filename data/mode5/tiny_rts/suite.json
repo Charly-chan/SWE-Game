@@ -1,0 +1,1450 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:b0b58c3bcc83970961a9c50737c291b698dec9722bb5741fadd1a8f299594091",
+  "game_id": "tiny_rts",
+  "input_contract": {
+    "analog_axes": [],
+    "required_actions": [
+      "gb_left",
+      "gb_right",
+      "gb_up",
+      "gb_down",
+      "gb_jump",
+      "gb_action",
+      "cmd_slot_1",
+      "cmd_slot_2",
+      "cmd_slot_3",
+      "cmd_slot_4",
+      "cmd_train_pawn",
+      "cmd_train_warrior",
+      "cmd_train_archer",
+      "cmd_siege",
+      "cmd_build_menu",
+      "cmd_gather",
+      "cmd_rally"
+    ],
+    "schema_version": 3,
+    "supported_actions": [
+      "gb_left",
+      "gb_right",
+      "gb_up",
+      "gb_down",
+      "gb_jump",
+      "gb_action",
+      "gb_attack",
+      "gb_dash",
+      "cmd_slot_1",
+      "cmd_slot_2",
+      "cmd_slot_3",
+      "cmd_slot_4",
+      "cmd_train_pawn",
+      "cmd_train_warrior",
+      "cmd_train_archer",
+      "cmd_siege",
+      "cmd_build_menu",
+      "cmd_gather",
+      "cmd_rally"
+    ]
+  },
+  "inputs": {
+    "certificate": {
+      "path": "tasks/tiny_rts/certificate.rt1.json",
+      "sha256": "94f3fda5800a064ba6b32e972826bca61a20a0495ec5278fc102e7e7624694a1"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/tiny_rts.md",
+      "sha256": "9f57f3a07410ae591c68f9c1879c9255cc3c945305da21d4accda8fd7bec8fbe"
+    },
+    "port_input_contract": {
+      "analog_axes": [],
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "cmd_slot_1",
+        "cmd_slot_2",
+        "cmd_slot_3",
+        "cmd_slot_4",
+        "cmd_train_pawn",
+        "cmd_train_warrior",
+        "cmd_train_archer",
+        "cmd_siege",
+        "cmd_build_menu",
+        "cmd_gather",
+        "cmd_rally"
+      ],
+      "schema_version": 3,
+      "supported_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_attack",
+        "gb_dash",
+        "cmd_slot_1",
+        "cmd_slot_2",
+        "cmd_slot_3",
+        "cmd_slot_4",
+        "cmd_train_pawn",
+        "cmd_train_warrior",
+        "cmd_train_archer",
+        "cmd_siege",
+        "cmd_build_menu",
+        "cmd_gather",
+        "cmd_rally"
+      ]
+    },
+    "route": {
+      "path": "tasks/tiny_rts/route.json",
+      "sha256": "2dc461282f2b29c8c17534fa82d5649e1c21842da6852203176935445292231f"
+    },
+    "rubric": {
+      "entry_sha256": "476743a4ee16b84c96d5573ef54f9bf94423fdba757a90d260664b78d22c6d26",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_enemy",
+        "gb_collectible",
+        "gb_hazard",
+        "gb_goal",
+        "gb_checkpoint",
+        "gb_door"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/tiny_rts/authored/source_obligations.json",
+      "sha256": "8961b4d58e0dc08dfbfeee6ea2803848f94edc7f881801fefe4eb9c4e3ebf3a9"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "tiny_rts-c1-riverwatch_banner.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "tiny_rts-c1-riverwatch_banner.riverwatch_victory_scene",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "tiny_rts-c1-riverwatch_banner.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed core/game_state.gd:113: progress_changed.emit()",
+      "reference_trace": "authored/c1_riverwatch.json",
+      "reference_trace_sha256": "sha256:635965dccb361fe925f0bfa03e941bdaa95f430f28e8bc8f207a5265c42da8ba",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "tiny_rts/C1/riverwatch_banner",
+      "scenario_id": "tiny_rts-c1-riverwatch_banner",
+      "source_check_id": "owner-reviewed-tiny_rts-c1-riverwatch_banner",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "riverwatch_victory_scene",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "cmd_slot_1",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_gather",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_build_menu",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_train_pawn",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_slot_3",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_train_archer",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_slot_4",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_rally",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_siege",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "tiny_rts-c2-emberfield_banner.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "tiny_rts-c2-emberfield_banner.emberfield_victory_scene",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "tiny_rts-c2-emberfield_banner.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed core/game_state.gd:113: progress_changed.emit()",
+      "reference_trace": "authored/c2_emberfield.json",
+      "reference_trace_sha256": "sha256:b3a1fcb41e52b399a5bfd501ab4d8ebfe3e78818c69a0da82b0f1935c845973f",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "tiny_rts/C2/emberfield_banner",
+      "scenario_id": "tiny_rts-c2-emberfield_banner",
+      "source_check_id": "owner-reviewed-tiny_rts-c2-emberfield_banner",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "emberfield_victory_scene",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "cmd_slot_1",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_gather",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_build_menu",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_train_pawn",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_slot_3",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_train_archer",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_slot_4",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_rally",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_siege",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "tiny_rts-c3-bannerfall_keep.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "tiny_rts-c3-bannerfall_keep.bannerfall_victory_scene",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "tiny_rts-c3-bannerfall_keep.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/c3_bannerfall.json",
+      "reference_trace_sha256": "sha256:cb5f6c8d0fbc9b13f73a456ba539eb9efd4db296f2df522b6bb6423158b0e3d6",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "tiny_rts/C3/bannerfall_keep",
+      "scenario_id": "tiny_rts-c3-bannerfall_keep",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "cmd_slot_1",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_gather",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_build_menu",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_slot_2",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_train_pawn",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_rally",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "cmd_siege",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "canonical_action": "cmd_slot_1",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_gather",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_build_menu",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_train_pawn",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_slot_3",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_train_archer",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_slot_4",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_rally",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_siege",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.696cb9c326",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "cmd_slot_1",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_gather",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_build_menu",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_train_pawn",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_slot_3",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_train_archer",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_slot_4",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_rally",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_siege",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "cmd_slot_1",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_gather",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_build_menu",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_train_pawn",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_slot_3",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_train_archer",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_slot_4",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_rally",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_siege",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.6a263fdbdd",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "cmd_slot_1",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_gather",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_build_menu",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_train_pawn",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_slot_3",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_train_archer",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_slot_4",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_rally",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_siege",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "cmd_slot_1",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_gather",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_build_menu",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_slot_2",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_train_pawn",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_rally",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "cmd_siege",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.56f89079a5",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "cmd_slot_1",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_gather",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_build_menu",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_slot_2",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_train_pawn",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_rally",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "cmd_siege",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    }
+  ],
+  "policy_digest": "sha256:a6f9c3501efb3054f4b491098095cf4c90a45013aba8d078383b8168c793864f",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/c1_riverwatch.json",
+      "budget_frames": 14583,
+      "capture_checkpoints": [
+        {
+          "id": "tiny_rts-c1-riverwatch_banner.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "tiny_rts-c1-riverwatch_banner.riverwatch_victory_scene",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "tiny_rts-c1-riverwatch_banner.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "riverwatch_victory_scene",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "id": "tiny_rts-c1-riverwatch_banner",
+      "policy": "strategy.movement.696cb9c326",
+      "required_actions": [
+        "cmd_build_menu",
+        "cmd_gather",
+        "cmd_rally",
+        "cmd_siege",
+        "cmd_slot_1",
+        "cmd_slot_3",
+        "cmd_slot_4",
+        "cmd_train_archer",
+        "cmd_train_pawn",
+        "gb_action",
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "tiny_rts/C1/riverwatch_banner",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "riverwatch_victory_scene",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/c2_emberfield.json",
+      "budget_frames": 17435,
+      "capture_checkpoints": [
+        {
+          "id": "tiny_rts-c2-emberfield_banner.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "tiny_rts-c2-emberfield_banner.emberfield_victory_scene",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "tiny_rts-c2-emberfield_banner.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "emberfield_victory_scene",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "id": "tiny_rts-c2-emberfield_banner",
+      "policy": "strategy.movement.6a263fdbdd",
+      "required_actions": [
+        "cmd_build_menu",
+        "cmd_gather",
+        "cmd_rally",
+        "cmd_siege",
+        "cmd_slot_1",
+        "cmd_slot_3",
+        "cmd_slot_4",
+        "cmd_train_archer",
+        "cmd_train_pawn",
+        "gb_action",
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "tiny_rts/C2/emberfield_banner",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "emberfield_victory_scene",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "start_level": 1
+    },
+    {
+      "authoring_record": "authored/c3_bannerfall.json",
+      "budget_frames": 20000,
+      "capture_checkpoints": [
+        {
+          "id": "tiny_rts-c3-bannerfall_keep.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "tiny_rts-c3-bannerfall_keep.bannerfall_victory_scene",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "tiny_rts-c3-bannerfall_keep.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "bannerfall_victory_scene",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "id": "tiny_rts-c3-bannerfall_keep",
+      "policy": "strategy.movement.56f89079a5",
+      "required_actions": [
+        "cmd_build_menu",
+        "cmd_gather",
+        "cmd_rally",
+        "cmd_siege",
+        "cmd_slot_1",
+        "cmd_slot_2",
+        "cmd_train_pawn",
+        "gb_action",
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "tiny_rts/C3/bannerfall_keep",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 2
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

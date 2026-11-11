@@ -1,0 +1,165 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-28T15:40:03+00:00",
+  "interface_requirements": {},
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 3,
+        "gb_door": 1,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 5,
+        "gb_interactive": 6,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          3
+        ],
+        "gb_hazard": [
+          "x",
+          5
+        ],
+        "gb_interactive": [
+          "x",
+          3
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/level_01.tscn",
+      "spawn_goal_distance": 1.0
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 3,
+        "gb_door": 2,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 7,
+        "gb_interactive": 7,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          2
+        ],
+        "gb_door": [
+          "y",
+          2
+        ],
+        "gb_hazard": [
+          "x",
+          5
+        ],
+        "gb_interactive": [
+          "y",
+          3
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/level_02.tscn",
+      "spawn_goal_distance": 0.883720930232558
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 3,
+        "gb_door": 1,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 8,
+        "gb_interactive": 7,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          3
+        ],
+        "gb_hazard": [
+          "x",
+          4
+        ],
+        "gb_interactive": [
+          "y",
+          3
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/level_03.tscn",
+      "spawn_goal_distance": 0.9714285714285714
+    }
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "toon_shooter",
+  "runtime_assets": {
+    "res://assets/audio/sfx/blast_impact.ogg": "964c5fcfb91e7710e2af25c2243c8b7160756b223b0984bacc9eb25bfeea057b",
+    "res://assets/audio/sfx/digital_pepSound1.ogg": "f2f44effce087e47683f0fea05a71002bd8dca78fb10bf93d9f0b38d49f9590e",
+    "res://assets/audio/sfx/digital_zapTwoTone.ogg": "7d5871b7b01f631bee006772cc4fb6ab6a1eb5c78d5be42edc722b57157c00f5",
+    "res://assets/audio/sfx/fps_enemy_hurt.ogg": "59e4ed89a582a03e96086ce031ae30b46630d371fc02d2c566059bd4e0d1dab8",
+    "res://assets/kenney_nature/crops_dirtDoubleRow.glb": "b5c330d81a4efe0944caf5f1d1dd0c0d50227c93f2a4a57ec2425d2c9b7a2d84",
+    "res://assets/kenney_nature/crops_dirtRow.glb": "a36752160e42703c0539386bf07260984796dd07674d322ae18c1fc5201b59b2",
+    "res://assets/kenney_nature/crops_dirtRowEnd.glb": "9c65aac1b350fa3bb7a05d651ef1e21961cda0b71706f4d6882c03ba892eb62d",
+    "res://assets/kenney_nature/crops_dirtSingle.glb": "6d9df48fa8b691a949c053f56977e1134cd917ec7c8a936612d7fa1978dcce1d",
+    "res://assets/kenney_nature/ground_pathOpen.glb": "bfa52db11cb99d784e47f144816b8ded6ad0c083790e8dd781de14790ff5fb22",
+    "res://assets/kenney_nature/rock_largeD.glb": "e4fefd8d8d7deab42be61bd222bcd088330012f0025789146b81f25a46095ffd",
+    "res://assets/kenney_particles/light_01.png": "caedcc5df5bcac4470244d2520d6a64b45b20c1ccf4d918da516c55e3fa365a6",
+    "res://assets/kenney_ui/KenneyFuture.ttf": "7a55b07f5968fac872648a7c5e959bd2b93e06f63153b585d56e4d5298ddff61",
+    "res://assets/kenney_ui/blue_button_rectangle_flat.png": "83084c953e57d7506f90600df77f36a8c6156abea0b8ea0e4b3885a596cee2c8",
+    "res://assets/kenney_ui/green_button_rectangle_flat.png": "0aad0fc500f42740ba1976ee01e9649164584e12e7ef672ac04bb03f013cc52c",
+    "res://assets/kenney_ui/grey_button_depth_border.png": "2b53f7a8b9527fa66dd995736f94b11fa39e69ca390a7e17539f32919a9cb521",
+    "res://assets/kenney_ui/grey_button_rectangle_depth_flat.png": "7de9ba1d4bca313fd2c02e3595f3d699c1201d84d70a3c69828e56782d585ce7",
+    "res://assets/kenney_ui/grey_button_rectangle_flat.png": "c91ee37858be6035143a8ae26588741e9350e5f42aed548e3ee00910092239e8",
+    "res://assets/kenney_ui/grey_icon_outline_circle.png": "69612cb89689bb9fe89c4505e3e13b42f12089ae19aa7f9580362c77c5aae84d",
+    "res://assets/kenney_ui/grey_panel_double.png": "f0f3d52f110768bf93a10b44f4ec3c727924c25734ce85e1275464c9b02cfe18",
+    "res://assets/kenney_ui/grey_slide_handle.png": "ed8a8c411f48f0019bf63a1f14baab82ca9add846f1c1d44307baaa3306c2839",
+    "res://assets/kenney_ui/grey_slide_horizontal_grey.png": "a80f54d81912dcac6827b8b71bb81f6b8b8a0c190573006aee9612d6bbd91618",
+    "res://assets/kenney_ui/prompts/keyboard_a.png": "bb3b1d410bf8d05b34eed5e64cd22d28ecd5b40c2b69e8784da207241dc4caec",
+    "res://assets/kenney_ui/prompts/keyboard_d.png": "6ca4515b5f56dd2730cb9acec3b183c8b2800ae641d75b434edd753e12bc36ad",
+    "res://assets/kenney_ui/prompts/keyboard_e.png": "1008502780281c8c2e06bebbc477a60f485d2260072b04611fbd294340f266d7",
+    "res://assets/kenney_ui/prompts/keyboard_escape.png": "8874e394d80161d6188ffce8b715357fea8059a9d6627a28769a91e3855bcbd7",
+    "res://assets/kenney_ui/prompts/keyboard_f.png": "f22179ebd67f153dadc524e12bde0997078ded09bbaba545c37cd1bd86b84331",
+    "res://assets/kenney_ui/prompts/keyboard_q.png": "cee375cefc9e2f19089bbd669153af9099fe71e08b6c577d48eb2a32bc567c96",
+    "res://assets/kenney_ui/prompts/keyboard_r.png": "153d158ec02c5b40cdded08fbf74389d1713fadf5b22029e77f2c518dd4c4973",
+    "res://assets/kenney_ui/prompts/keyboard_s.png": "09a945652d571fd165bb92d0d1238d2007be569b80220ae06514aba2cfc9a7f3",
+    "res://assets/kenney_ui/prompts/keyboard_shift.png": "0c63e9e7d1175d72ee559d9a036ab4ee9bf099262b882f60049a499fb24cd247",
+    "res://assets/kenney_ui/prompts/keyboard_space.png": "8ce6f043b05888bd1655f7660f8f7cc02acb6c763fecf358fef20405239524bf",
+    "res://assets/kenney_ui/prompts/keyboard_w.png": "17bbf72eccf90f548bcd039de007e77998f76d0b2010ce3b4450663a99521e26",
+    "res://assets/kenney_ui/prompts/mouse_left.png": "80101392b423671e2812d2b64310bbd17f7c95c796f0c704dcf6c1a70d98cf35",
+    "res://assets/kenney_ui/prompts/mouse_move.png": "5d2b7ef319219b4a67c41d1e06acdbc160a8ba12a6f97a773b71e64ce0653d87",
+    "res://assets/kenney_ui/prompts/mouse_right.png": "da09ac410a994483f25d750a67765cfdc1166b14cdafd52e8ab9cf6f9a125c6e",
+    "res://assets/kenney_ui/red_button_rectangle_flat.png": "da068c818f56b3d4cbfa3c8c1cef969bc1546918d44de492771cfec023914f62",
+    "res://assets/kenney_ui/red_icon_cross.png": "a82d428cfe4e89c11317533e6b4fd6566d236f0bc0e816f8659a822e37241202",
+    "res://assets/kenney_ui/yellow_button_rectangle_flat.png": "5165ec1bcc82ebaba20fe3c47d4ee1a6913f3f11c3fe330de281246eaaf30feb",
+    "res://assets/quaternius_toonshooter/Brick Wall.glb": "25be4854a298ade370f78d84b2cf731c2c4b73b1cf2cf925dce42a74d6ccce84",
+    "res://assets/quaternius_toonshooter/Debris Papers.glb": "2cacbc1c3970246009e785ead898fe8771ac676b15b9314dad13fde8a163bc00",
+    "res://assets/quaternius_toonshooter/Debris Pile.glb": "9c4c150605aec485eda18c3906b1adc6576f491076428a2a2d3f5949a0b97163",
+    "res://assets/quaternius_toonshooter/Exploding Barrel.glb": "730a8da4cb342533ddc20fdb8f52a47f3befd20d0bafa44b668eac066252f2f3",
+    "res://assets/quaternius_toonshooter/Pallet Broken.glb": "e96a8973f03619895b5ee4cf494e705fcd78ad675faf87522a8fd40d5f7f6399",
+    "res://assets/quaternius_toonshooter/Pallet.glb": "b773bbfe85743cd14ccb95b46219d99781b6f402babcc4a7a25f4179232ba1d5",
+    "res://assets/quaternius_toonshooter/Sign.glb": "3952d6fa5123df4f638a4b83cd5a343b7fd1671e9dd7edfa6ba331b1317314c1",
+    "res://assets/quaternius_toonshooter/Street Light.glb": "812b82718233f91850490805b67afd6166a17ed802907521ccc8a2280839f275",
+    "res://assets/quaternius_toonshooter/Tires.glb": "f3ea0e8a9dffcce018647de649435ae9295d5ea2ad0d82eddb0c5ced04abf526",
+    "res://assets/quaternius_toonshooter/Traffic Cone.glb": "70fd5c97f107914f96dfa3f197041c910c0a441ec43dc2f9db07967c3761afa2",
+    "res://assets/quaternius_toonshooter/Wood Planks.glb": "6e3daa7aedfbd2fd0b999555b165895552d80d0a6b413c181fffe4cf4a8e9987",
+    "res://assets/sky/skybox-day.png": "b7d98fe95157e74b3899a1dd468a1e478005bcd1f668b29b5b42a48cb5358fa2"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

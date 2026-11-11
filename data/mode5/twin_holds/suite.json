@@ -1,0 +1,1385 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:5e4e80a1b1afe051e09cb21684866fb24cdf47246a387e15a76934fb9c92934b",
+  "game_id": "twin_holds",
+  "inputs": {
+    "certificate": {
+      "path": "tasks/twin_holds/certificate.rt1.json",
+      "sha256": "13f3bca7df6e1a1aa0587d5fa107d2c8e7ea9e05d416757cbff80dc91a4fe35c"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/twin_holds.md",
+      "sha256": "fc2b78d382b5c57fd017ea184da447c1b2b9672bcdaa94878a02fa8c1ce3c2ae"
+    },
+    "route": {
+      "path": "tasks/twin_holds/route.json",
+      "sha256": "f47e2bcb8a54c0f3e0de97b33fe68a540677c529b27e4afd3bf275bd97d29952"
+    },
+    "rubric": {
+      "entry_sha256": "85a82d3b2e7590a249df936f2d5a32d89dfb8e5842eaedf6ef593b6262e6e266",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_enemy",
+        "gb_interactive",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/twin_holds/authored/source_obligations.json",
+      "sha256": "2ae3f9e2951a8be215c061345ae7342dd435ba4f6dfeedef772d67fb5a43e29b"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "twin_holds-c1-score_route.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "twin_holds-c1-score_route.score_route_board_engaged",
+          "predicate": "numeric(score) >= 78"
+        },
+        {
+          "id": "twin_holds-c1-score_route.score_route_won",
+          "predicate": "numeric(score) >= 500"
+        },
+        {
+          "id": "twin_holds-c1-score_route.goal",
+          "predicate": "numeric(score) >= 500"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed scripts/level.gd:741: _finish(true, \"score\")",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:dde36d07bdc9a92e143514f68b8e65e952d5b37510fd6f5c4be51eb61d5694a9",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "twin_holds/C1/score_route",
+      "scenario_id": "twin_holds-c1-score_route",
+      "source_check_id": "owner-reviewed-twin_holds-c1-score_route",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "score_route_board_engaged",
+            "predicate": "numeric(score) >= 78",
+            "required_devices": [
+              "tile#25"
+            ]
+          },
+          {
+            "name": "score_route_won",
+            "predicate": "numeric(score) >= 500",
+            "required_devices": [
+              "tile#25"
+            ]
+          }
+        ],
+        "predicate": "numeric(score) >= 500"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_up",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "combat"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "twin_holds-c2-castle_capture_route.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "twin_holds-c2-castle_capture_route.capture_route_board_engaged",
+          "predicate": "numeric(score) >= 78"
+        },
+        {
+          "id": "twin_holds-c2-castle_capture_route.castle_capture_resolved",
+          "predicate": "alive(gb_checkpoint)"
+        },
+        {
+          "id": "twin_holds-c2-castle_capture_route.goal",
+          "predicate": "alive(gb_checkpoint)"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed scripts/level.gd:741: _finish(true, \"score\")",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:dde36d07bdc9a92e143514f68b8e65e952d5b37510fd6f5c4be51eb61d5694a9",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "twin_holds/C2/castle_capture_route",
+      "scenario_id": "twin_holds-c2-castle_capture_route",
+      "source_check_id": "owner-reviewed-twin_holds-c2-castle_capture_route",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "capture_route_board_engaged",
+            "predicate": "numeric(score) >= 78",
+            "required_devices": [
+              "tile#39"
+            ]
+          },
+          {
+            "name": "castle_capture_resolved",
+            "predicate": "alive(gb_checkpoint)",
+            "required_devices": [
+              "tile#39"
+            ]
+          }
+        ],
+        "predicate": "alive(gb_checkpoint)"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_up",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "combat"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "twin_holds-c3-advanced_score_route.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "twin_holds-c3-advanced_score_route.advanced_board_engaged",
+          "predicate": "numeric(score) >= 78"
+        },
+        {
+          "id": "twin_holds-c3-advanced_score_route.advanced_score_route_won",
+          "predicate": "numeric(score) >= 1400"
+        },
+        {
+          "id": "twin_holds-c3-advanced_score_route.goal",
+          "predicate": "numeric(score) >= 1400"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:dde36d07bdc9a92e143514f68b8e65e952d5b37510fd6f5c4be51eb61d5694a9",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "twin_holds/C3/advanced_score_route",
+      "scenario_id": "twin_holds-c3-advanced_score_route",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_up",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "combat"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "twin_holds-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "twin_holds-l5-whole_game_clear.level_1_score_win",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "twin_holds-l5-whole_game_clear.level_2_castle_win",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "twin_holds-l5-whole_game_clear.level_3_score_win",
+          "predicate": "whole_game_clear()"
+        },
+        {
+          "id": "twin_holds-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:dde36d07bdc9a92e143514f68b8e65e952d5b37510fd6f5c4be51eb61d5694a9",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "twin_holds/L5/whole_game_clear",
+      "scenario_id": "twin_holds-l5-whole_game_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_up",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_up",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.combat.5add60ce13",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_up",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1,
+              "value": 1.0
+            }
+          ],
+          "when": "alive(gb_enemy)"
+        }
+      ],
+      "strategy_type": "combat"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_up",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.combat.7a4b96285a",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_up",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1,
+              "value": 1.0
+            }
+          ],
+          "when": "alive(gb_enemy)"
+        }
+      ],
+      "strategy_type": "combat"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_up",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.combat.8743bf4108",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_up",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1,
+              "value": 1.0
+            }
+          ],
+          "when": "alive(gb_enemy)"
+        }
+      ],
+      "strategy_type": "combat"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_up",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.e2362ffcec",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_up",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    }
+  ],
+  "policy_digest": "sha256:9e3517ae160bd3e2bc535be41079321a31d5698f7ecbdfad25d1e93cae5bf233",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 1328,
+      "capture_checkpoints": [
+        {
+          "id": "twin_holds-c1-score_route.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "twin_holds-c1-score_route.score_route_board_engaged",
+          "predicate": "numeric(score) >= 78"
+        },
+        {
+          "id": "twin_holds-c1-score_route.score_route_won",
+          "predicate": "numeric(score) >= 500"
+        },
+        {
+          "id": "twin_holds-c1-score_route.goal",
+          "predicate": "numeric(score) >= 500"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "score_route_board_engaged",
+            "predicate": "numeric(score) >= 78",
+            "required_devices": [
+              "tile#25"
+            ]
+          },
+          {
+            "name": "score_route_won",
+            "predicate": "numeric(score) >= 500",
+            "required_devices": [
+              "tile#25"
+            ]
+          }
+        ],
+        "predicate": "numeric(score) >= 500"
+      },
+      "id": "twin_holds-c1-score_route",
+      "policy": "strategy.combat.5add60ce13",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "score"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "twin_holds/C1/score_route",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "score_route_board_engaged",
+            "predicate": "numeric(score) >= 78",
+            "required_devices": [
+              "tile#25"
+            ]
+          },
+          {
+            "name": "score_route_won",
+            "predicate": "numeric(score) >= 500",
+            "required_devices": [
+              "tile#25"
+            ]
+          }
+        ],
+        "predicate": "numeric(score) >= 500"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 2746,
+      "capture_checkpoints": [
+        {
+          "id": "twin_holds-c2-castle_capture_route.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "twin_holds-c2-castle_capture_route.capture_route_board_engaged",
+          "predicate": "numeric(score) >= 78"
+        },
+        {
+          "id": "twin_holds-c2-castle_capture_route.castle_capture_resolved",
+          "predicate": "alive(gb_checkpoint)"
+        },
+        {
+          "id": "twin_holds-c2-castle_capture_route.goal",
+          "predicate": "alive(gb_checkpoint)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "capture_route_board_engaged",
+            "predicate": "numeric(score) >= 78",
+            "required_devices": [
+              "tile#39"
+            ]
+          },
+          {
+            "name": "castle_capture_resolved",
+            "predicate": "alive(gb_checkpoint)",
+            "required_devices": [
+              "tile#39"
+            ]
+          }
+        ],
+        "predicate": "alive(gb_checkpoint)"
+      },
+      "id": "twin_holds-c2-castle_capture_route",
+      "policy": "strategy.combat.7a4b96285a",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "score"
+      ],
+      "required_roles": [
+        "gb_checkpoint",
+        "gb_player"
+      ],
+      "route_id": "twin_holds/C2/castle_capture_route",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "capture_route_board_engaged",
+            "predicate": "numeric(score) >= 78",
+            "required_devices": [
+              "tile#39"
+            ]
+          },
+          {
+            "name": "castle_capture_resolved",
+            "predicate": "alive(gb_checkpoint)",
+            "required_devices": [
+              "tile#39"
+            ]
+          }
+        ],
+        "predicate": "alive(gb_checkpoint)"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 4804,
+      "capture_checkpoints": [
+        {
+          "id": "twin_holds-c3-advanced_score_route.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "twin_holds-c3-advanced_score_route.advanced_board_engaged",
+          "predicate": "numeric(score) >= 78"
+        },
+        {
+          "id": "twin_holds-c3-advanced_score_route.advanced_score_route_won",
+          "predicate": "numeric(score) >= 1400"
+        },
+        {
+          "id": "twin_holds-c3-advanced_score_route.goal",
+          "predicate": "numeric(score) >= 1400"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "advanced_board_engaged",
+            "predicate": "numeric(score) >= 78",
+            "required_devices": [
+              "tile#56"
+            ]
+          },
+          {
+            "name": "advanced_score_route_won",
+            "predicate": "numeric(score) >= 1400",
+            "required_devices": [
+              "tile#56"
+            ]
+          }
+        ],
+        "predicate": "numeric(score) >= 1400"
+      },
+      "id": "twin_holds-c3-advanced_score_route",
+      "policy": "strategy.combat.8743bf4108",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "score"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "twin_holds/C3/advanced_score_route",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 16000,
+      "capture_checkpoints": [
+        {
+          "id": "twin_holds-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "twin_holds-l5-whole_game_clear.level_1_score_win",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "twin_holds-l5-whole_game_clear.level_2_castle_win",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "twin_holds-l5-whole_game_clear.level_3_score_win",
+          "predicate": "whole_game_clear()"
+        },
+        {
+          "id": "twin_holds-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "level_1_score_win",
+            "predicate": "levels_visited() >= 2",
+            "required_devices": [
+              "L1/tile#25"
+            ]
+          },
+          {
+            "name": "level_2_castle_win",
+            "predicate": "levels_visited() >= 3",
+            "required_devices": [
+              "L2/tile#39"
+            ]
+          },
+          {
+            "name": "level_3_score_win",
+            "predicate": "whole_game_clear()",
+            "required_devices": [
+              "L3/tile#56"
+            ]
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "twin_holds-l5-whole_game_clear",
+      "policy": "strategy.traversal.e2362ffcec",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "twin_holds/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

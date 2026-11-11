@@ -1,0 +1,1095 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:d19706131c30bdf94d8120c9e277eb90efb9f620a3932d3160f9bd35393e55d8",
+  "game_id": "racing",
+  "inputs": {
+    "certificate": {
+      "path": "tasks/racing/certificate.rt1.json",
+      "sha256": "b9f762f64070d183ecb887655805ce820278d313de8f33690098e3ff1d623dc6"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/racing.md",
+      "sha256": "aabd11cbb4ec2137802f6b1350d897f216620a06326bc4bb5989600f14b2cefe"
+    },
+    "route": {
+      "path": "tasks/racing/route.json",
+      "sha256": "7f1ca4d84eaf21f9fdf91f2c0861ee7a3acf707e64395659cb341ae36be90206"
+    },
+    "rubric": {
+      "entry_sha256": "44cd5aa7bb2bf38c70443e0606bb5b3658ae098e50940df2490092e86003a7ad",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/racing/authored/source_obligations.json",
+      "sha256": "4606136f6a3ad230fc3511af0f080c50bf5ecc33e9328222a91b42daa70e7247"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "racing-c1-lakeside_three_laps.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "racing-c1-lakeside_three_laps.lakeside_first_lap",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "racing-c1-lakeside_three_laps.lakeside_race_won",
+          "predicate": "numeric(progress) >= 3"
+        },
+        {
+          "id": "racing-c1-lakeside_three_laps.goal",
+          "predicate": "numeric(progress) >= 3"
+        }
+      ],
+      "critical_action": "gb_down",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed scripts/model/lap_timer.gd:48: elapsed += dt",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:41dc95872b271b65b81ac064f9e9dff4b0306c60b1e4fc4344d068078554715d",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "racing/C1/lakeside_three_laps",
+      "scenario_id": "racing-c1-lakeside_three_laps",
+      "source_check_id": "owner-reviewed-racing-c1-lakeside_three_laps",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "lakeside_first_lap",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "lakeside_race_won",
+            "predicate": "numeric(progress) >= 3"
+          }
+        ],
+        "predicate": "numeric(progress) >= 3"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "racing-c2-ravine_three_laps.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "racing-c2-ravine_three_laps.ravine_first_lap",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "racing-c2-ravine_three_laps.ravine_race_won",
+          "predicate": "numeric(progress) >= 3"
+        },
+        {
+          "id": "racing-c2-ravine_three_laps.goal",
+          "predicate": "numeric(progress) >= 3"
+        }
+      ],
+      "critical_action": "gb_down",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed scripts/model/lap_timer.gd:48: elapsed += dt",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:41dc95872b271b65b81ac064f9e9dff4b0306c60b1e4fc4344d068078554715d",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "racing/C2/ravine_three_laps",
+      "scenario_id": "racing-c2-ravine_three_laps",
+      "source_check_id": "owner-reviewed-racing-c2-ravine_three_laps",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "ravine_first_lap",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "ravine_race_won",
+            "predicate": "numeric(progress) >= 3"
+          }
+        ],
+        "predicate": "numeric(progress) >= 3"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "racing-c3-lakeside_first_lap.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "racing-c3-lakeside_first_lap.lakeside_lap_one",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "racing-c3-lakeside_first_lap.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_down",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:41dc95872b271b65b81ac064f9e9dff4b0306c60b1e4fc4344d068078554715d",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "racing/C3/lakeside_first_lap",
+      "scenario_id": "racing-c3-lakeside_first_lap",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "racing-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "racing-l5-whole_game_clear.lakeside_won",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "racing-l5-whole_game_clear.ravine_won",
+          "predicate": "whole_game_clear()"
+        },
+        {
+          "id": "racing-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:41dc95872b271b65b81ac064f9e9dff4b0306c60b1e4fc4344d068078554715d",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "racing/L5/whole_game_clear",
+      "scenario_id": "racing-l5-whole_game_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.78533ca940",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.c6d3c129e7",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.c32c802c36",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    }
+  ],
+  "policy_digest": "sha256:65b14b1bd46b80c0778b47acc829a7e63220aae1a7bc8c8ee4bc9e5c3dadc226",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 9723,
+      "capture_checkpoints": [
+        {
+          "id": "racing-c1-lakeside_three_laps.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "racing-c1-lakeside_three_laps.lakeside_first_lap",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "racing-c1-lakeside_three_laps.lakeside_race_won",
+          "predicate": "numeric(progress) >= 3"
+        },
+        {
+          "id": "racing-c1-lakeside_three_laps.goal",
+          "predicate": "numeric(progress) >= 3"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_down",
+          "remove": "gb_down"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "lakeside_first_lap",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "lakeside_race_won",
+            "predicate": "numeric(progress) >= 3"
+          }
+        ],
+        "predicate": "numeric(progress) >= 3"
+      },
+      "id": "racing-c1-lakeside_three_laps",
+      "policy": "strategy.movement.78533ca940",
+      "required_actions": [
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "racing/C1/lakeside_three_laps",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "lakeside_first_lap",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "lakeside_race_won",
+            "predicate": "numeric(progress) >= 3"
+          }
+        ],
+        "predicate": "numeric(progress) >= 3"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 10605,
+      "capture_checkpoints": [
+        {
+          "id": "racing-c2-ravine_three_laps.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "racing-c2-ravine_three_laps.ravine_first_lap",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "racing-c2-ravine_three_laps.ravine_race_won",
+          "predicate": "numeric(progress) >= 3"
+        },
+        {
+          "id": "racing-c2-ravine_three_laps.goal",
+          "predicate": "numeric(progress) >= 3"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_down",
+          "remove": "gb_down"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "ravine_first_lap",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "ravine_race_won",
+            "predicate": "numeric(progress) >= 3"
+          }
+        ],
+        "predicate": "numeric(progress) >= 3"
+      },
+      "id": "racing-c2-ravine_three_laps",
+      "policy": "strategy.movement.c6d3c129e7",
+      "required_actions": [
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "racing/C2/ravine_three_laps",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "ravine_first_lap",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "ravine_race_won",
+            "predicate": "numeric(progress) >= 3"
+          }
+        ],
+        "predicate": "numeric(progress) >= 3"
+      },
+      "start_level": 1
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 4251,
+      "capture_checkpoints": [
+        {
+          "id": "racing-c3-lakeside_first_lap.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "racing-c3-lakeside_first_lap.lakeside_lap_one",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "racing-c3-lakeside_first_lap.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_down",
+          "remove": "gb_down"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "lakeside_lap_one",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "id": "racing-c3-lakeside_first_lap",
+      "policy": "strategy.movement.78533ca940",
+      "required_actions": [
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "racing/C3/lakeside_first_lap",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 22000,
+      "capture_checkpoints": [
+        {
+          "id": "racing-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "racing-l5-whole_game_clear.lakeside_won",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "racing-l5-whole_game_clear.ravine_won",
+          "predicate": "whole_game_clear()"
+        },
+        {
+          "id": "racing-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "lakeside_won",
+            "predicate": "levels_visited() >= 2"
+          },
+          {
+            "name": "ravine_won",
+            "predicate": "whole_game_clear()"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "racing-l5-whole_game_clear",
+      "policy": "strategy.movement.c32c802c36",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "racing/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

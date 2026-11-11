@@ -1,0 +1,65 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-09-01T05:29:23+00:00",
+  "interface_requirements": {
+    "O10": {
+      "fields": [],
+      "reason": "reference has no live-mixer expectation",
+      "required": false
+    },
+    "O9": {
+      "fields": [],
+      "reason": "reference has no registered anchor expectation",
+      "required": false
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 12,
+        "gb_door": 0,
+        "gb_enemy": 0,
+        "gb_goal": 6,
+        "gb_hazard": 0,
+        "gb_interactive": 6,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          5
+        ],
+        "gb_goal": [
+          "x",
+          3
+        ],
+        "gb_interactive": [
+          "x",
+          3
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://world/planet_world.tscn",
+      "spawn_goal_distance": 0.25715156222270596
+    }
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "kindle_relay",
+  "runtime_assets": {
+    "res://assets/audio/world_bed.ogg": "a842e9e054019132cacc8fd352e7b31c000ebb51e0b227a2511e1bccb4eb166e"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

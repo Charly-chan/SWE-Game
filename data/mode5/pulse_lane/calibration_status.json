@@ -1,0 +1,15 @@
+{
+  "blockers": [],
+  "game_id": "pulse_lane",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "pulse_lane-c1-first_light_full_chart",
+    "pulse_lane-c2-crosswind_full_chart",
+    "pulse_lane-c3-lattice_full_chart",
+    "pulse_lane-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:bdacd91a9b96d8fea205dc2f8b1d1483adcb8c0a6e2cc1d86d5c64491926b6d8"
+}

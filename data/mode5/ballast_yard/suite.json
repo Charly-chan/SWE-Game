@@ -1,0 +1,876 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:d9988dc655febf9a050df310114cfe27e3b50148377c8cc5198c61b6bc0d17b3",
+  "game_id": "ballast_yard",
+  "inputs": {
+    "certificate": {
+      "path": "tasks/ballast_yard/certificate.rt1.json",
+      "sha256": "e5cf8d55adeb36a7596c3c4d59c40c6e197125f6ac32a79e2b6953bd5e87b98c"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/ballast_yard.md",
+      "sha256": "92459747d967fc29a184888213e6f8c167473ba137868503bf57e89330da499d"
+    },
+    "route": {
+      "path": "tasks/ballast_yard/route.json",
+      "sha256": "f0cab36524d1570aae50258bea9164a4cbb2bd0c75471a20b18b842f9fa91aee"
+    },
+    "rubric": {
+      "entry_sha256": "1583b531a00240371052551faf0a79b7bd2be8fbfadb532eae7c79c0b59c8e64",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_interactive",
+        "gb_hazard",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/ballast_yard/authored/source_obligations.json",
+      "sha256": "c55bc7b077301ae00f8eaa2cb8396e8f6faf7609de743e547b4cee6b47735bce"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "ballast_yard-c1-intake_skip_stack_and_shutter.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "ballast_yard-c1-intake_skip_stack_and_shutter.cargo_sphere_launched",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "ballast_yard-c1-intake_skip_stack_and_shutter.intake_chute_reached",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ballast_yard-c1-intake_skip_stack_and_shutter.goal",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed src/core/sim.gd:88: enum Shutter { CLOSED, OPENING, OPEN, CLOSING }",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:9c973de28bfedec76a41eb5817b901bfca9e77c9d8f6c58c5d93b4fee88fe6dd",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "ballast_yard/C1/intake_skip_stack_and_shutter",
+      "scenario_id": "ballast_yard-c1-intake_skip_stack_and_shutter",
+      "source_check_id": "owner-reviewed-ballast_yard-c1-intake_skip_stack_and_shutter",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "cargo_sphere_launched",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "intake_chute_reached",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "combat"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "ballast_yard-c2-sorting_plate_conveyor_and_shutter.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "ballast_yard-c2-sorting_plate_conveyor_and_shutter.cargo_sphere_launched",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "ballast_yard-c2-sorting_plate_conveyor_and_shutter.sorting_chute_reached",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ballast_yard-c2-sorting_plate_conveyor_and_shutter.goal",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed src/core/sim.gd:88: enum Shutter { CLOSED, OPENING, OPEN, CLOSING }",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:9c973de28bfedec76a41eb5817b901bfca9e77c9d8f6c58c5d93b4fee88fe6dd",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "ballast_yard/C2/sorting_plate_conveyor_and_shutter",
+      "scenario_id": "ballast_yard-c2-sorting_plate_conveyor_and_shutter",
+      "source_check_id": "owner-reviewed-ballast_yard-c2-sorting_plate_conveyor_and_shutter",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "cargo_sphere_launched",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "sorting_chute_reached",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "combat"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "ballast_yard-c3-deep_glass_ball_plate_and_chute.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "ballast_yard-c3-deep_glass_ball_plate_and_chute.cargo_sphere_launched",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "ballast_yard-c3-deep_glass_ball_plate_and_chute.deep_chute_reached",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ballast_yard-c3-deep_glass_ball_plate_and_chute.goal",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:9c973de28bfedec76a41eb5817b901bfca9e77c9d8f6c58c5d93b4fee88fe6dd",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "ballast_yard/C3/deep_glass_ball_plate_and_chute",
+      "scenario_id": "ballast_yard-c3-deep_glass_ball_plate_and_chute",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "combat"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "ballast_yard-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "ballast_yard-l5-whole_game_clear.intake_chute_reached",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ballast_yard-l5-whole_game_clear.entered_sorting_floor",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "ballast_yard-l5-whole_game_clear.sorting_chute_reached",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ballast_yard-l5-whole_game_clear.entered_ballast_deep",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "ballast_yard-l5-whole_game_clear.deep_chute_reached",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:9c973de28bfedec76a41eb5817b901bfca9e77c9d8f6c58c5d93b4fee88fe6dd",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "ballast_yard/L5/whole_game_clear",
+      "scenario_id": "ballast_yard-l5-whole_game_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.combat.b448d51f05",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1,
+              "value": 1.0
+            }
+          ],
+          "when": "alive(gb_enemy)"
+        }
+      ],
+      "strategy_type": "combat"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.574c54beac",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    }
+  ],
+  "policy_digest": "sha256:6f26be34dec78fa02531a7b0c52a0722bd04fc07e0d3735eba9c5591bfb8683d",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 1685,
+      "capture_checkpoints": [
+        {
+          "id": "ballast_yard-c1-intake_skip_stack_and_shutter.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "ballast_yard-c1-intake_skip_stack_and_shutter.cargo_sphere_launched",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "ballast_yard-c1-intake_skip_stack_and_shutter.intake_chute_reached",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ballast_yard-c1-intake_skip_stack_and_shutter.goal",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "cargo_sphere_launched",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "intake_chute_reached",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "id": "ballast_yard-c1-intake_skip_stack_and_shutter",
+      "policy": "strategy.combat.b448d51f05",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "score",
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "ballast_yard/C1/intake_skip_stack_and_shutter",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "cargo_sphere_launched",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "intake_chute_reached",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 2385,
+      "capture_checkpoints": [
+        {
+          "id": "ballast_yard-c2-sorting_plate_conveyor_and_shutter.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "ballast_yard-c2-sorting_plate_conveyor_and_shutter.cargo_sphere_launched",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "ballast_yard-c2-sorting_plate_conveyor_and_shutter.sorting_chute_reached",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ballast_yard-c2-sorting_plate_conveyor_and_shutter.goal",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "cargo_sphere_launched",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "sorting_chute_reached",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "id": "ballast_yard-c2-sorting_plate_conveyor_and_shutter",
+      "policy": "strategy.combat.b448d51f05",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "score",
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "ballast_yard/C2/sorting_plate_conveyor_and_shutter",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "cargo_sphere_launched",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "sorting_chute_reached",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "start_level": 1
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 3378,
+      "capture_checkpoints": [
+        {
+          "id": "ballast_yard-c3-deep_glass_ball_plate_and_chute.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "ballast_yard-c3-deep_glass_ball_plate_and_chute.cargo_sphere_launched",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "ballast_yard-c3-deep_glass_ball_plate_and_chute.deep_chute_reached",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ballast_yard-c3-deep_glass_ball_plate_and_chute.goal",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "cargo_sphere_launched",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "deep_chute_reached",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "id": "ballast_yard-c3-deep_glass_ball_plate_and_chute",
+      "policy": "strategy.combat.b448d51f05",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "score",
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "ballast_yard/C3/deep_glass_ball_plate_and_chute",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 2
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 9000,
+      "capture_checkpoints": [
+        {
+          "id": "ballast_yard-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "ballast_yard-l5-whole_game_clear.intake_chute_reached",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ballast_yard-l5-whole_game_clear.entered_sorting_floor",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "ballast_yard-l5-whole_game_clear.sorting_chute_reached",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ballast_yard-l5-whole_game_clear.entered_ballast_deep",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "ballast_yard-l5-whole_game_clear.deep_chute_reached",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "intake_chute_reached",
+            "predicate": "numeric(score) >= 1"
+          },
+          {
+            "name": "entered_sorting_floor",
+            "predicate": "levels_visited() >= 2"
+          },
+          {
+            "name": "sorting_chute_reached",
+            "predicate": "numeric(score) >= 1"
+          },
+          {
+            "name": "entered_ballast_deep",
+            "predicate": "levels_visited() >= 3"
+          },
+          {
+            "name": "deep_chute_reached",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "ballast_yard-l5-whole_game_clear",
+      "policy": "strategy.traversal.574c54beac",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "score"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "ballast_yard/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

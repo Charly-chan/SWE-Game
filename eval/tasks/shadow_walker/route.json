@@ -1,0 +1,707 @@
+{
+  "routes": [
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 420,
+            "op": "wait"
+          }
+        ]
+      },
+      "budget": {
+        "frames": 420,
+        "steps": 1
+      },
+      "goal": {
+        "predicate": ""
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "shadow_walker/L0/no_input_no_win",
+      "scored": false,
+      "start": {
+        "inject": {},
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 0
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 30,
+            "op": "wait"
+          },
+          {
+            "action": "gb_up",
+            "frames": 75,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 135,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_up",
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 120,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 75,
+            "op": "hold"
+          },
+          {
+            "frames": 20,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 557,
+        "steps": 11
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "level_1_item_collected",
+            "predicate": "NOT device_present(collectible, 0)"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [
+        "collectible#0",
+        "goal#0"
+      ],
+      "route_id": "shadow_walker/C1/level_1_chest_and_exit",
+      "start": {
+        "inject": {},
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 2
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 294,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 150,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 45,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 45,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "frames": 407,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 60,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 45,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 45,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 60,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "frames": 20,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 1364,
+        "steps": 18
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "level_2_item_collected",
+            "predicate": "NOT device_present(collectible, 0)"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [
+        "collectible#0",
+        "goal#0"
+      ],
+      "route_id": "shadow_walker/C2/level_2_chest_and_exit",
+      "start": {
+        "inject": {},
+        "level": 1,
+        "settle_frames": 6
+      },
+      "tier": 3
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 150,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 210,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 15,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 90,
+            "op": "hold"
+          },
+          {
+            "frames": 75,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 15,
+            "op": "hold"
+          },
+          {
+            "frames": 75,
+            "op": "wait"
+          },
+          {
+            "action": "gb_up",
+            "frames": 15,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 90,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 60,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 120,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 66,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_up",
+            "frames": 66,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 75,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 12,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 12,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 1235,
+        "steps": 22
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "level_3_item_collected",
+            "predicate": "NOT device_present(collectible, 0)"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [
+        "collectible#0",
+        "goal#0"
+      ],
+      "route_id": "shadow_walker/C3/level_3_chest_and_exit",
+      "start": {
+        "inject": {},
+        "level": 2,
+        "settle_frames": 6
+      },
+      "tier": 4
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 30,
+            "op": "wait"
+          },
+          {
+            "action": "gb_up",
+            "frames": 75,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 135,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_up",
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 120,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 75,
+            "op": "hold"
+          },
+          {
+            "frames": 20,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 294,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 150,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 45,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 45,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "frames": 407,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 60,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 45,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 45,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 60,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "frames": 20,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 150,
+            "op": "wait"
+          },
+          {
+            "action": "gb_right",
+            "frames": 210,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 15,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 90,
+            "op": "hold"
+          },
+          {
+            "frames": 75,
+            "op": "wait"
+          },
+          {
+            "action": "gb_down",
+            "frames": 15,
+            "op": "hold"
+          },
+          {
+            "frames": 75,
+            "op": "wait"
+          },
+          {
+            "action": "gb_up",
+            "frames": 15,
+            "op": "hold"
+          },
+          {
+            "action": "gb_left",
+            "frames": 90,
+            "op": "hold"
+          },
+          {
+            "action": "gb_up",
+            "frames": 60,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 120,
+            "op": "hold"
+          },
+          {
+            "action": "gb_down",
+            "frames": 66,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_up",
+            "frames": 66,
+            "op": "hold"
+          },
+          {
+            "action": "gb_right",
+            "frames": 75,
+            "op": "hold"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 12,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 12,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 6000,
+        "steps": 120
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "level_1_item_collected",
+            "predicate": "NOT device_present(collectible, 0)",
+            "required_devices": [
+              "L1/collectible#0"
+            ]
+          },
+          {
+            "name": "level_1_exit_reached",
+            "predicate": "contact(goal, 0)",
+            "required_devices": [
+              "L1/goal#0"
+            ]
+          },
+          {
+            "name": "entered_level_2",
+            "predicate": "levels_visited() >= 2",
+            "required_devices": [
+              "L1/goal#0"
+            ]
+          },
+          {
+            "name": "level_2_item_collected",
+            "predicate": "NOT device_present(collectible, 0)",
+            "required_devices": [
+              "L2/collectible#0"
+            ]
+          },
+          {
+            "name": "level_2_exit_reached",
+            "predicate": "contact(goal, 0)",
+            "required_devices": [
+              "L2/goal#0"
+            ]
+          },
+          {
+            "name": "entered_level_3",
+            "predicate": "levels_visited() >= 3",
+            "required_devices": [
+              "L2/goal#0"
+            ]
+          },
+          {
+            "name": "level_3_item_collected",
+            "predicate": "NOT device_present(collectible, 0)",
+            "required_devices": [
+              "L3/collectible#0"
+            ]
+          },
+          {
+            "name": "level_3_exit_reached",
+            "predicate": "contact(goal, 0)",
+            "required_devices": [
+              "L3/goal#0"
+            ]
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [
+        "L1/collectible#0",
+        "L1/goal#0",
+        "L2/collectible#0",
+        "L2/goal#0",
+        "L3/collectible#0",
+        "L3/goal#0"
+      ],
+      "route_id": "shadow_walker/L5/whole_game_clear",
+      "start": {
+        "inject": {},
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 5
+    }
+  ],
+  "schema_version": 2,
+  "task_id": "shadow_walker"
+}

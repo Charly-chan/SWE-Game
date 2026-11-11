@@ -1,0 +1,1353 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:dc1bc3e6741d7ce66b1275b9d681a82c24a231d7a1d587590731853819ca4005",
+  "game_id": "harvest_ledger",
+  "input_contract": {
+    "analog_axes": [],
+    "required_actions": [
+      "gb_left",
+      "gb_right",
+      "gb_up",
+      "gb_down",
+      "gb_jump",
+      "gb_action",
+      "tool_axe",
+      "tool_hoe",
+      "tool_water",
+      "tool_corn",
+      "tool_tomato"
+    ],
+    "schema_version": 3,
+    "supported_actions": [
+      "gb_left",
+      "gb_right",
+      "gb_up",
+      "gb_down",
+      "gb_jump",
+      "gb_action",
+      "gb_attack",
+      "gb_dash",
+      "tool_axe",
+      "tool_hoe",
+      "tool_water",
+      "tool_corn",
+      "tool_tomato"
+    ]
+  },
+  "inputs": {
+    "certificate": {
+      "path": "tasks/harvest_ledger/certificate.rt1.json",
+      "sha256": "a798104d819cd75c61745b54c2fb39d4796ab1cbf695f6c10ace580fc66dc595"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/harvest_ledger.md",
+      "sha256": "3db09d0eeda9bf8df7647c78e31f03695bc23446264ee22ec29a4618f04f5e8a"
+    },
+    "port_input_contract": {
+      "analog_axes": [],
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "tool_axe",
+        "tool_hoe",
+        "tool_water",
+        "tool_corn",
+        "tool_tomato"
+      ],
+      "schema_version": 3,
+      "supported_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_attack",
+        "gb_dash",
+        "tool_axe",
+        "tool_hoe",
+        "tool_water",
+        "tool_corn",
+        "tool_tomato"
+      ]
+    },
+    "route": {
+      "path": "tasks/harvest_ledger/route.json",
+      "sha256": "191334863a9f714c7c4ef8af80dfd9ab9154ff22aeff11819e78ff84d9d9dcf2"
+    },
+    "rubric": {
+      "entry_sha256": "591be8775461de834186003eae2a4e188f44cafd0d00c1faa5cc2c106f1614fb",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_collectible",
+        "gb_interactive",
+        "gb_door",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/harvest_ledger/authored/source_obligations.json",
+      "sha256": "dc6c636c60b1e619796ae29910672aa7c9aa639c4a0d936090b06071d3313f80"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "harvest_ledger-c1-homestead_corn_quota.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "harvest_ledger-c1-homestead_corn_quota.first_corn_sold",
+          "predicate": "numeric(score) >= 60"
+        },
+        {
+          "id": "harvest_ledger-c1-homestead_corn_quota.crop_quota_met",
+          "predicate": "numeric(progress) >= 120"
+        },
+        {
+          "id": "harvest_ledger-c1-homestead_corn_quota.goal",
+          "predicate": "numeric(score) >= 180"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed core/run/onboarding_tracker.gd:40: progress_changed.emit(progress.duplicate(true))",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:3212f778221d2dd7d6d26071866b1d6bb6cbe3225b8b0f3fe83be89d411a667f",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "harvest_ledger/C1/homestead_corn_quota",
+      "scenario_id": "harvest_ledger-c1-homestead_corn_quota",
+      "source_check_id": "owner-reviewed-harvest_ledger-c1-homestead_corn_quota",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "first_corn_sold",
+            "predicate": "numeric(score) >= 60"
+          },
+          {
+            "name": "crop_quota_met",
+            "predicate": "numeric(progress) >= 120"
+          }
+        ],
+        "predicate": "numeric(score) >= 180"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "combat"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "harvest_ledger-c2-timberline_forage_and_corn.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "harvest_ledger-c2-timberline_forage_and_corn.forage_sold",
+          "predicate": "numeric(score) >= 141"
+        },
+        {
+          "id": "harvest_ledger-c2-timberline_forage_and_corn.crop_quota_met",
+          "predicate": "numeric(progress) >= 240"
+        },
+        {
+          "id": "harvest_ledger-c2-timberline_forage_and_corn.revenue_quota_met",
+          "predicate": "numeric(score) >= 420"
+        },
+        {
+          "id": "harvest_ledger-c2-timberline_forage_and_corn.goal",
+          "predicate": "numeric(score) >= 420"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed core/run/onboarding_tracker.gd:40: progress_changed.emit(progress.duplicate(true))",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:3212f778221d2dd7d6d26071866b1d6bb6cbe3225b8b0f3fe83be89d411a667f",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "harvest_ledger/C2/timberline_forage_and_corn",
+      "scenario_id": "harvest_ledger-c2-timberline_forage_and_corn",
+      "source_check_id": "owner-reviewed-harvest_ledger-c2-timberline_forage_and_corn",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "forage_sold",
+            "predicate": "numeric(score) >= 141"
+          },
+          {
+            "name": "crop_quota_met",
+            "predicate": "numeric(progress) >= 240"
+          },
+          {
+            "name": "revenue_quota_met",
+            "predicate": "numeric(score) >= 420"
+          }
+        ],
+        "predicate": "numeric(score) >= 420"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "combat"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "harvest_ledger-c3-saltmarsh_livestock_and_quota.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "harvest_ledger-c3-saltmarsh_livestock_and_quota.forage_sold",
+          "predicate": "numeric(score) >= 100"
+        },
+        {
+          "id": "harvest_ledger-c3-saltmarsh_livestock_and_quota.first_farm_day_sold",
+          "predicate": "numeric(score) >= 300"
+        },
+        {
+          "id": "harvest_ledger-c3-saltmarsh_livestock_and_quota.crop_quota_met",
+          "predicate": "numeric(progress) >= 400"
+        },
+        {
+          "id": "harvest_ledger-c3-saltmarsh_livestock_and_quota.revenue_quota_met",
+          "predicate": "numeric(score) >= 880"
+        },
+        {
+          "id": "harvest_ledger-c3-saltmarsh_livestock_and_quota.goal",
+          "predicate": "numeric(score) >= 880"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:3212f778221d2dd7d6d26071866b1d6bb6cbe3225b8b0f3fe83be89d411a667f",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "harvest_ledger/C3/saltmarsh_livestock_and_quota",
+      "scenario_id": "harvest_ledger-c3-saltmarsh_livestock_and_quota",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "combat"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "harvest_ledger-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "harvest_ledger-l5-whole_game_clear.homestead_quota_met",
+          "predicate": "numeric(score) >= 180"
+        },
+        {
+          "id": "harvest_ledger-l5-whole_game_clear.entered_timberline",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "harvest_ledger-l5-whole_game_clear.timberline_quota_met",
+          "predicate": "numeric(score) >= 420"
+        },
+        {
+          "id": "harvest_ledger-l5-whole_game_clear.entered_saltmarsh",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "harvest_ledger-l5-whole_game_clear.saltmarsh_quota_met",
+          "predicate": "numeric(score) >= 880"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:3212f778221d2dd7d6d26071866b1d6bb6cbe3225b8b0f3fe83be89d411a667f",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "harvest_ledger/L5/whole_game_clear",
+      "scenario_id": "harvest_ledger-l5-whole_game_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.combat.0bea0aee1e",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1,
+              "value": 1.0
+            }
+          ],
+          "when": "alive(gb_enemy)"
+        }
+      ],
+      "strategy_type": "combat"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.combat.c3889a6892",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1,
+              "value": 1.0
+            }
+          ],
+          "when": "alive(gb_enemy)"
+        }
+      ],
+      "strategy_type": "combat"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.1185cca99a",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    }
+  ],
+  "policy_digest": "sha256:9312a4ac7cf47bcd34ef89d25aa2d6de2d3b75d02fc8cd6f6f5e2781b445fd63",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 5990,
+      "capture_checkpoints": [
+        {
+          "id": "harvest_ledger-c1-homestead_corn_quota.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "harvest_ledger-c1-homestead_corn_quota.first_corn_sold",
+          "predicate": "numeric(score) >= 60"
+        },
+        {
+          "id": "harvest_ledger-c1-homestead_corn_quota.crop_quota_met",
+          "predicate": "numeric(progress) >= 120"
+        },
+        {
+          "id": "harvest_ledger-c1-homestead_corn_quota.goal",
+          "predicate": "numeric(score) >= 180"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "first_corn_sold",
+            "predicate": "numeric(score) >= 60"
+          },
+          {
+            "name": "crop_quota_met",
+            "predicate": "numeric(progress) >= 120"
+          }
+        ],
+        "predicate": "numeric(score) >= 180"
+      },
+      "id": "harvest_ledger-c1-homestead_corn_quota",
+      "policy": "strategy.combat.0bea0aee1e",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "score",
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "harvest_ledger/C1/homestead_corn_quota",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "first_corn_sold",
+            "predicate": "numeric(score) >= 60"
+          },
+          {
+            "name": "crop_quota_met",
+            "predicate": "numeric(progress) >= 120"
+          }
+        ],
+        "predicate": "numeric(score) >= 180"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 9779,
+      "capture_checkpoints": [
+        {
+          "id": "harvest_ledger-c2-timberline_forage_and_corn.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "harvest_ledger-c2-timberline_forage_and_corn.forage_sold",
+          "predicate": "numeric(score) >= 141"
+        },
+        {
+          "id": "harvest_ledger-c2-timberline_forage_and_corn.crop_quota_met",
+          "predicate": "numeric(progress) >= 240"
+        },
+        {
+          "id": "harvest_ledger-c2-timberline_forage_and_corn.revenue_quota_met",
+          "predicate": "numeric(score) >= 420"
+        },
+        {
+          "id": "harvest_ledger-c2-timberline_forage_and_corn.goal",
+          "predicate": "numeric(score) >= 420"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "forage_sold",
+            "predicate": "numeric(score) >= 141"
+          },
+          {
+            "name": "crop_quota_met",
+            "predicate": "numeric(progress) >= 240"
+          },
+          {
+            "name": "revenue_quota_met",
+            "predicate": "numeric(score) >= 420"
+          }
+        ],
+        "predicate": "numeric(score) >= 420"
+      },
+      "id": "harvest_ledger-c2-timberline_forage_and_corn",
+      "policy": "strategy.combat.c3889a6892",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "score",
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "harvest_ledger/C2/timberline_forage_and_corn",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "forage_sold",
+            "predicate": "numeric(score) >= 141"
+          },
+          {
+            "name": "crop_quota_met",
+            "predicate": "numeric(progress) >= 240"
+          },
+          {
+            "name": "revenue_quota_met",
+            "predicate": "numeric(score) >= 420"
+          }
+        ],
+        "predicate": "numeric(score) >= 420"
+      },
+      "start_level": 1
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 14782,
+      "capture_checkpoints": [
+        {
+          "id": "harvest_ledger-c3-saltmarsh_livestock_and_quota.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "harvest_ledger-c3-saltmarsh_livestock_and_quota.forage_sold",
+          "predicate": "numeric(score) >= 100"
+        },
+        {
+          "id": "harvest_ledger-c3-saltmarsh_livestock_and_quota.first_farm_day_sold",
+          "predicate": "numeric(score) >= 300"
+        },
+        {
+          "id": "harvest_ledger-c3-saltmarsh_livestock_and_quota.crop_quota_met",
+          "predicate": "numeric(progress) >= 400"
+        },
+        {
+          "id": "harvest_ledger-c3-saltmarsh_livestock_and_quota.revenue_quota_met",
+          "predicate": "numeric(score) >= 880"
+        },
+        {
+          "id": "harvest_ledger-c3-saltmarsh_livestock_and_quota.goal",
+          "predicate": "numeric(score) >= 880"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "forage_sold",
+            "predicate": "numeric(score) >= 100"
+          },
+          {
+            "name": "first_farm_day_sold",
+            "predicate": "numeric(score) >= 300"
+          },
+          {
+            "name": "crop_quota_met",
+            "predicate": "numeric(progress) >= 400"
+          },
+          {
+            "name": "revenue_quota_met",
+            "predicate": "numeric(score) >= 880"
+          }
+        ],
+        "predicate": "numeric(score) >= 880"
+      },
+      "id": "harvest_ledger-c3-saltmarsh_livestock_and_quota",
+      "policy": "strategy.combat.c3889a6892",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "score",
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "harvest_ledger/C3/saltmarsh_livestock_and_quota",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 2
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 30442,
+      "capture_checkpoints": [
+        {
+          "id": "harvest_ledger-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "harvest_ledger-l5-whole_game_clear.homestead_quota_met",
+          "predicate": "numeric(score) >= 180"
+        },
+        {
+          "id": "harvest_ledger-l5-whole_game_clear.entered_timberline",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "harvest_ledger-l5-whole_game_clear.timberline_quota_met",
+          "predicate": "numeric(score) >= 420"
+        },
+        {
+          "id": "harvest_ledger-l5-whole_game_clear.entered_saltmarsh",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "harvest_ledger-l5-whole_game_clear.saltmarsh_quota_met",
+          "predicate": "numeric(score) >= 880"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "homestead_quota_met",
+            "predicate": "numeric(score) >= 180"
+          },
+          {
+            "name": "entered_timberline",
+            "predicate": "levels_visited() >= 2"
+          },
+          {
+            "name": "timberline_quota_met",
+            "predicate": "numeric(score) >= 420"
+          },
+          {
+            "name": "entered_saltmarsh",
+            "predicate": "levels_visited() >= 3"
+          },
+          {
+            "name": "saltmarsh_quota_met",
+            "predicate": "numeric(score) >= 880"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "harvest_ledger-l5-whole_game_clear",
+      "policy": "strategy.traversal.1185cca99a",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "score"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "harvest_ledger/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

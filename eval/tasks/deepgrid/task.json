@@ -1,0 +1,6 @@
+{
+  "genre_exemptions": {
+    "U3": "Pickups live on the grid model; overlapping the Node3D does not collect them (GOLD_TRIAGE #5a)",
+    "U4": "The exit switch fires only when the grid player faces the tile and uses it; Node teleport is overwritten every frame (GOLD_TRIAGE #4)"
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "game_id": "soccer_course",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "art/ui/teamselection/finals-label.png",
+        "id": "S009",
+        "label": "art/ui/teamselection/finals-label.png"
+      },
+      {
+        "asset_path": "art/characters/soccer-player.png",
+        "id": "S019",
+        "label": "art/characters/soccer-player.png"
+      },
+      {
+        "asset_path": "art/ui/goal.png",
+        "id": "S023",
+        "label": "art/ui/goal.png"
+      },
+      {
+        "asset_path": "reference_media/assets/art/backgrounds/goal-bottom.png",
+        "id": "S027",
+        "label": "reference_media/assets/art/backgrounds/goal-bottom.png"
+      },
+      {
+        "asset_path": "art/ui/teamselection/select-team-label.png",
+        "id": "S039",
+        "label": "art/ui/teamselection/select-team-label.png"
+      },
+      {
+        "asset_path": "art/backgrounds/pitch-background.png",
+        "id": "S041",
+        "label": "art/backgrounds/pitch-background.png"
+      },
+      {
+        "asset_path": "art/ui/teamselection/tournament-screen.png",
+        "id": "S060",
+        "label": "art/ui/teamselection/tournament-screen.png"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "art/backgrounds/bottom-wall.png",
+        "art/backgrounds/goal-bottom.png",
+        "art/backgrounds/goal-top.png",
+        "art/backgrounds/pitch-background.png",
+        "art/backgrounds/pitch-lines.png",
+        "art/backgrounds/pitch-pattern.png",
+        "art/backgrounds/side-wall.png",
+        "art/backgrounds/top-wall.png",
+        "art/characters/player-shadow.png",
+        "art/characters/soccer-player.png",
+        "art/palettes/skin-colors-palette.png",
+        "art/palettes/teams-color-palette.png",
+        "art/particles/spark.png",
+        "art/particles/white-circle.png",
+        "art/props/1p.png",
+        "art/props/ball-shadow.png",
+        "art/props/cpu.png",
+        "art/props/soccer-ball.png",
+        "art/ui/1x1.png",
+        "art/ui/flags",
+        "art/ui/goal.png",
+        "art/ui/mainmenu",
+        "art/ui/teamselection",
+        "art/ui/times-up.png",
+        "fonts/Daydream.ttf",
+        "fonts/Pixeled.ttf",
+        "music/gameplay.mp3",
+        "music/menu.mp3",
+        "music/tournament.mp3",
+        "music/win.mp3",
+        "reference_media/assets/art",
+        "reference_media/assets/fonts",
+        "reference_media/assets/sfx",
+        "reference_media/icon.svg",
+        "sfx/bounce.wav",
+        "sfx/hurt.wav",
+        "sfx/pass.wav",
+        "sfx/power-shot.wav",
+        "sfx/shoot.wav",
+        "sfx/tackle.wav",
+        "sfx/ui-navigate.wav",
+        "sfx/ui-select.wav",
+        "sfx/whistle.wav"
+      ],
+      "file_count": 90,
+      "font_files": [
+        "fonts/Daydream.ttf",
+        "fonts/Pixeled.ttf",
+        "reference_media/assets/fonts/Pixeled.ttf"
+      ]
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry. Font previews are rendered from actual supplied font files; preview wording is illustrative, not additional task requirements.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 152.667,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R010",
+        "time_s": 11.7
+      },
+      {
+        "id": "R013",
+        "time_s": 15.6
+      },
+      {
+        "id": "R018",
+        "time_s": 22.1
+      },
+      {
+        "id": "R032",
+        "time_s": 40.3
+      },
+      {
+        "id": "R060",
+        "time_s": 76.7
+      },
+      {
+        "id": "R065",
+        "time_s": 83.2
+      },
+      {
+        "id": "R092",
+        "time_s": 118.3
+      },
+      {
+        "id": "R114",
+        "time_s": 146.9
+      },
+      {
+        "id": "R116",
+        "time_s": 149.5
+      },
+      {
+        "id": "R119",
+        "time_s": 152.65
+      },
+      {
+        "clip": 1,
+        "id": "RD001",
+        "time_s": 30.5334
+      },
+      {
+        "clip": 1,
+        "id": "RD005",
+        "time_s": 30.9334
+      },
+      {
+        "clip": 1,
+        "id": "RD009",
+        "time_s": 31.3334
+      },
+      {
+        "clip": 1,
+        "id": "RD010",
+        "time_s": 31.4334
+      },
+      {
+        "clip": 1,
+        "id": "RD014",
+        "time_s": 31.8334
+      },
+      {
+        "clip": 1,
+        "id": "RD018",
+        "time_s": 32.2334
+      },
+      {
+        "clip": 2,
+        "id": "RD021",
+        "time_s": 76.3335
+      },
+      {
+        "clip": 2,
+        "id": "RD024",
+        "time_s": 76.6335
+      },
+      {
+        "clip": 2,
+        "id": "RD027",
+        "time_s": 76.9335
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.7729240765849856,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Soccer Course — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nControl one marked striker through a readable top-down attack: win the ball, move it forward with teammates, and finish in a real goal before the clock runs out.\n\n## Scope boundary\n\nOne independently addressable pitch with a full match clock, two sides, possession and passing, shooting into a real scoring area, restart after a goal, and separate victory and defeat endings.\n\n## Creative freedom\n\nYou may choose squad presentation, pitch dressing, HUD layout, and audio while preserving real possession, physical goal detection, the complete match clock, and the decided result.\n"
+}

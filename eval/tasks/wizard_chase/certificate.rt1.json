@@ -1,0 +1,139 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "2068236bda97a0fb8c9487163a6bb9bfc2a69b5a393410b8cddf23c32c94adea"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "wizard_chase/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "333dcb932a0d77e6b7c2aad9b971c80811280f3ac42866eb6398b108ebb855f1",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "2068236bda97a0fb8c9487163a6bb9bfc2a69b5a393410b8cddf23c32c94adea",
+    "task_id": "wizard_chase"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "8d039eecfe6221b580453bc7860db8a4fdb25e08d4f282f8f3b6ec4ee5360d9a",
+    "source_sha256": "dabbd88c1c87aab9371d3e778448db66eac75ca0ee3cc1b5aa60c28db6457d84"
+  },
+  "passed_route_ids": [
+    "wizard_chase/L0/no_input_no_win",
+    "wizard_chase/C1/room_one_clear",
+    "wizard_chase/C2/room_two_clear",
+    "wizard_chase/C3/room_three_clear",
+    "wizard_chase/C4/room_four_clear",
+    "wizard_chase/C5/room_five_clear",
+    "wizard_chase/L5/whole_game_clear"
+  ],
+  "readings": {
+    "wizard_chase/C1/room_one_clear": {
+      "deaths": 0,
+      "frames": 2832,
+      "injects": 0,
+      "milestones_reached": [
+        "room_one_set_collected"
+      ],
+      "solution_kind": "tape",
+      "steps": 473,
+      "stop_reason": "goal_reached"
+    },
+    "wizard_chase/C2/room_two_clear": {
+      "deaths": 1,
+      "frames": 3900,
+      "injects": 0,
+      "milestones_reached": [
+        "room_two_set_collected"
+      ],
+      "solution_kind": "tape",
+      "steps": 670,
+      "stop_reason": "scene_changed"
+    },
+    "wizard_chase/C3/room_three_clear": {
+      "deaths": 1,
+      "frames": 1696,
+      "injects": 0,
+      "milestones_reached": [
+        "room_three_set_collected"
+      ],
+      "solution_kind": "tape",
+      "steps": 329,
+      "stop_reason": "scene_changed"
+    },
+    "wizard_chase/C4/room_four_clear": {
+      "deaths": 0,
+      "frames": 2624,
+      "injects": 0,
+      "milestones_reached": [
+        "room_four_set_collected"
+      ],
+      "solution_kind": "tape",
+      "steps": 501,
+      "stop_reason": "goal_reached"
+    },
+    "wizard_chase/C5/room_five_clear": {
+      "deaths": 0,
+      "frames": 4603,
+      "injects": 0,
+      "milestones_reached": [
+        "room_five_set_collected"
+      ],
+      "solution_kind": "tape",
+      "steps": 1249,
+      "stop_reason": "goal_reached"
+    },
+    "wizard_chase/L0/no_input_no_win": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "wizard_chase/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 18226,
+      "injects": 0,
+      "milestones_reached": [
+        "entered_room_two",
+        "entered_room_three",
+        "entered_room_four",
+        "entered_room_five"
+      ],
+      "solution_kind": "tape",
+      "steps": 3798,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "333dcb932a0d77e6b7c2aad9b971c80811280f3ac42866eb6398b108ebb855f1"
+  },
+  "result": "7/7 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "46136a940d3926f664c7642d28974a07301076d3876f49aae514451de66040f0",
+  "schema_version": 2,
+  "solution_kinds": {
+    "wizard_chase/C1/room_one_clear": "tape",
+    "wizard_chase/C2/room_two_clear": "tape",
+    "wizard_chase/C3/room_three_clear": "tape",
+    "wizard_chase/C4/room_four_clear": "tape",
+    "wizard_chase/C5/room_five_clear": "tape",
+    "wizard_chase/L0/no_input_no_win": "tape",
+    "wizard_chase/L5/whole_game_clear": "tape"
+  },
+  "task_id": "wizard_chase",
+  "validated_at": "2026-09-09"
+}

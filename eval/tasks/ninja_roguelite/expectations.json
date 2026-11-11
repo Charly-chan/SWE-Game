@@ -1,0 +1,152 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-27T19:52:39+00:00",
+  "interface_requirements": {},
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 3,
+        "gb_door": 1,
+        "gb_enemy": 3,
+        "gb_goal": 1,
+        "gb_hazard": 2,
+        "gb_interactive": 7,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          3
+        ],
+        "gb_enemy": [
+          "y",
+          3
+        ],
+        "gb_hazard": [
+          "x",
+          2
+        ],
+        "gb_interactive": [
+          "x",
+          3
+        ]
+      },
+      "goal_transition": "res://scenes/ui/boon_select.tscn",
+      "scene": "res://scenes/levels/level_01_outer_cloister.tscn",
+      "spawn_goal_distance": 1.0823631962465037
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 3,
+        "gb_door": 1,
+        "gb_enemy": 4,
+        "gb_goal": 1,
+        "gb_hazard": 3,
+        "gb_interactive": 6,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "y",
+          3
+        ],
+        "gb_enemy": [
+          "x",
+          4
+        ],
+        "gb_hazard": [
+          "x",
+          3
+        ],
+        "gb_interactive": [
+          "x",
+          3
+        ]
+      },
+      "goal_transition": "res://scenes/ui/boon_select.tscn",
+      "scene": "res://scenes/levels/level_02_pillar_hall.tscn",
+      "spawn_goal_distance": 1.132352516764202
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 3,
+        "gb_door": 1,
+        "gb_enemy": 5,
+        "gb_goal": 1,
+        "gb_hazard": 3,
+        "gb_interactive": 6,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          3
+        ],
+        "gb_enemy": [
+          "x",
+          5
+        ],
+        "gb_hazard": [
+          "x",
+          3
+        ],
+        "gb_interactive": [
+          "x",
+          3
+        ]
+      },
+      "goal_transition": "res://scenes/ui/outcome_victory.tscn",
+      "scene": "res://scenes/levels/level_03_inner_sanctum.tscn",
+      "spawn_goal_distance": 0.84673070917556
+    }
+  ],
+  "probe_sha256": "fe750d48224bfe79a915c4057b270adbbcdbc421e5b99f56213c3b2b7f746edd",
+  "project": "ninja_roguelite",
+  "runtime_assets": {
+    "res://assets/audio/music/theme_dream.ogg": "a3baf1b0a7da883334caf20ba9b09f72e65d6459b6888b2905cdf1905034ced9",
+    "res://assets/audio/music/theme_plain.ogg": "0720c25ff0f14ad73d5fa302a8d3e5cccc47abb91ca1b704a3b0b1da3b476686",
+    "res://assets/audio/music/theme_swamp.ogg": "c5f1d954bb5be95f893e3e848d0baabf3fbf7c22db7ad480e58ce910a14e68dc",
+    "res://assets/audio/sfx/impactPunch_medium_000.ogg": "486988aa2d6440ffc4c62a0e8ccf3c23673ba84424bd4723378d451b7255eb5c",
+    "res://assets/characters/ninja_blue.png": "f2dd61a264c251b81e63da7a28ab0fdccd261b807e5fa7d1832a468e14a21078",
+    "res://assets/characters/pig.png": "778a33eab2674e1fcf60c915ae327710af08ebaa586050ef9e30bb00307c21d8",
+    "res://assets/characters/samurai_blue.png": "7307266f5a51c5a7446350bf5a5866930fccbebd67429f11dca213086f89e062",
+    "res://assets/characters/samurai_green.png": "552e1af74a8d565408519ced8c5bb309d291a9d3002e4e37c881d2181f413e96",
+    "res://assets/characters/shadow.png": "b0ba84bf6132d1f2b361fb87a62a8362f9e04639f7a649431c6b297ceec46ec2",
+    "res://assets/fx/fog.png": "5d9817d3ef5f9554194ccdf2e43e9b1374318351aa4bf117f6d29c2e0870ee42",
+    "res://assets/fx/leaf.png": "4c46d476572fe8ce8d1f29fade6e1aa25e9c4550ff45b195f67fb344dd16a95c",
+    "res://assets/fx/particle_pot.png": "2c09023b3b986ad7094c6620880360467179b8e2aee1206e762c3cfe300a6a5d",
+    "res://assets/fx/particle_wood.png": "5a1ab0c044afba74f1998e55adb5ddcc476d02e7e61021fc5394382673c628d7",
+    "res://assets/fx/raylight.png": "a353c23e2e338843ed3bdb624dd042a56b1dabe3f2821c13548e8bbc816e34dd",
+    "res://assets/props/crate.png": "ff1465852d5ee375341a2a68a97cd086103fe3856142a247cb39f4050366fcda",
+    "res://assets/props/pot.png": "9e23e3809522c9e2c447fa1f413bdbee67a0e3407e4144cb25298bb88ea5c762",
+    "res://assets/tiles/tileset_animated.png": "54e1e433fe9471db3660b14de3fa6ec6860a1be4ddbe835b3c6cad9f73045aca",
+    "res://assets/tiles/tileset_floor.png": "e111065065edf806e7e893330086e68efc8755175d92f14d087b42d40a331e16",
+    "res://assets/tiles/tileset_interior_floor.png": "e281598e2d90f43b31fd557b94c2d2abb00d307758a053b7df301575bf535e3a",
+    "res://assets/tiles/tileset_village_abandoned.png": "6787c6e22a4d44ceee4f158309b2519707bdb70c59aca00b3d49006cadcca06e",
+    "res://assets/tiles/tileset_wall_simple.png": "ad5eb80ab4d5e65dbcda9dc012f9981323b277717349cdab012fc65ce06e43b2",
+    "res://assets/ui/heart.png": "f1163b91560c5097ac1de4f26470abaa9e3461f3bc4a8685fd7daae2d8cabb61",
+    "res://assets/ui/life_bar.png": "ffdc7d5df1fa9f3d43ea65a70bdd14bab9b2193ca524dfb5f200612b9c7cef05",
+    "res://assets/ui/life_bar_bg.png": "cb03caf3cc95681ef773445f7974877af873a08c9fcb3ab1ad75517e9e4f2c2c",
+    "res://assets/ui/teleporter_arrow.png": "dbfa72801e43a2996dffe87b6de53b9f2c7d21e93f69da98e108bd4f1a7d61ed",
+    "res://assets/ui/theme/nine_path_bg.png": "843b5357fa643fba7acc969504c9f6bc2186d3d54e98367766a9676db86f9c72",
+    "res://assets/weapons/big_sword.png": "3d2263f8cf38f70b0eb775a37aa3af4316b2dea76f849ccb5fe8f19fe060fba2",
+    "res://assets/weapons/big_sword_in_hand.png": "78febb995750fcf1066332b3b552a009ed2ed474a7dab1c20476b0283583a061",
+    "res://assets/weapons/book.png": "002f4bb82b508af0ef3a492f4305fb52b5ef8aba293f8dfadf2ed3dbe3c42e8a"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

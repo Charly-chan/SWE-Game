@@ -1,0 +1,177 @@
+{
+  "game_id": "ninja_roguelite",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "reference_media/assets/characters/ninja_blue.png",
+        "id": "S001",
+        "label": "reference_media/assets/characters/ninja_blue.png"
+      },
+      {
+        "asset_path": "reference_media/assets/ui/heart.png",
+        "id": "S005",
+        "label": "reference_media/assets/ui/heart.png"
+      },
+      {
+        "asset_path": "reference_media/assets/ui/theme/nine_path_bg.png",
+        "id": "S006",
+        "label": "reference_media/assets/ui/theme/nine_path_bg.png"
+      },
+      {
+        "asset_path": "reference_media/assets/characters/pig.png",
+        "id": "S008",
+        "label": "reference_media/assets/characters/pig.png"
+      },
+      {
+        "asset_path": "reference_media/assets/tiles/tileset_floor.png",
+        "id": "S011",
+        "label": "reference_media/assets/tiles/tileset_floor.png"
+      },
+      {
+        "asset_path": "reference_media/assets/tiles/tileset_interior_floor.png",
+        "id": "S016",
+        "label": "reference_media/assets/tiles/tileset_interior_floor.png"
+      },
+      {
+        "asset_path": "reference_media/assets/characters/samurai_green.png",
+        "id": "S019",
+        "label": "reference_media/assets/characters/samurai_green.png"
+      },
+      {
+        "asset_path": "reference_media/assets/tiles/tileset_village_abandoned.png",
+        "id": "S021",
+        "label": "reference_media/assets/tiles/tileset_village_abandoned.png"
+      },
+      {
+        "asset_path": "reference_media/assets/characters/shadow.png",
+        "id": "S023",
+        "label": "reference_media/assets/characters/shadow.png"
+      },
+      {
+        "asset_path": "reference_media/assets/tiles/tileset_wall_simple.png",
+        "id": "S025",
+        "label": "reference_media/assets/tiles/tileset_wall_simple.png"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "NinjaAdventure-main.zip",
+        "reference_media/assets/audio",
+        "reference_media/assets/characters",
+        "reference_media/assets/fx",
+        "reference_media/assets/props",
+        "reference_media/assets/tiles",
+        "reference_media/assets/ui",
+        "reference_media/assets/weapons"
+      ],
+      "file_count": 30,
+      "font_files": []
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 165.117,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R004",
+        "time_s": 4.2
+      },
+      {
+        "id": "R006",
+        "time_s": 7.0
+      },
+      {
+        "id": "R008",
+        "time_s": 9.8
+      },
+      {
+        "id": "R009",
+        "time_s": 11.2
+      },
+      {
+        "id": "R014",
+        "time_s": 18.2
+      },
+      {
+        "id": "R015",
+        "time_s": 19.6
+      },
+      {
+        "id": "R027",
+        "time_s": 36.4
+      },
+      {
+        "id": "R028",
+        "time_s": 37.8
+      },
+      {
+        "id": "R033",
+        "time_s": 44.8
+      },
+      {
+        "id": "R041",
+        "time_s": 56.0
+      },
+      {
+        "id": "R060",
+        "time_s": 82.6
+      },
+      {
+        "id": "R062",
+        "time_s": 85.4
+      },
+      {
+        "id": "R075",
+        "time_s": 103.6
+      },
+      {
+        "id": "R089",
+        "time_s": 123.2
+      },
+      {
+        "id": "R096",
+        "time_s": 133.0
+      },
+      {
+        "id": "R110",
+        "time_s": 152.6
+      },
+      {
+        "id": "R117",
+        "time_s": 162.4
+      },
+      {
+        "id": "R119",
+        "time_s": 165.1
+      },
+      {
+        "clip": 2,
+        "id": "RD039",
+        "time_s": 84.3585
+      },
+      {
+        "clip": 3,
+        "id": "RD045",
+        "time_s": 132.4936
+      },
+      {
+        "clip": 3,
+        "id": "RD052",
+        "time_s": 133.1936
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.714644767043975,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Lantern Vigil — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nMove as an agile ninja through a dangerous night encounter, read enemy openings, earn meaningful upgrades, and survive a bounded run.\n\n## Scope boundary\n\nA compact 2D action roguelite run with combat or avoidance decisions, progression during the run, a terminal victory, a real failure state, and retry.\n\n## Creative freedom\n\nYou may design the arena sequence, enemy patterns, upgrade choices, and visual effects from the supplied assets.\n"
+}

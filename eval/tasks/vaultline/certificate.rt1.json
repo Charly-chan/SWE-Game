@@ -1,0 +1,279 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "bb29988a6dbca01bf61a520760121b9b62125c739eee93552cf8227e9a10a8d9"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "vaultline/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "9c7e17a6e1ef6c2691f7f74e3ad6c1ae486d8d08ac18432a5a299c241cef0492",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "bb29988a6dbca01bf61a520760121b9b62125c739eee93552cf8227e9a10a8d9",
+    "task_id": "vaultline"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "15815dd38aefc19dbffbf262a1a0cd3e581b8976a05cd55e788ff2382a942953",
+    "source_sha256": "fddc659c834cc842a1f12803a324cc0c553cea63dbfe026fe185e633290b03db"
+  },
+  "passed_route_ids": [
+    "vaultline/L0/no_input_no_clear",
+    "vaultline/C1/footing",
+    "vaultline/C2/gaps",
+    "vaultline/C3/teeth",
+    "vaultline/C4/shaft",
+    "vaultline/C5/weave",
+    "vaultline/C6/duck_under",
+    "vaultline/C7/carry",
+    "vaultline/C8/dive",
+    "vaultline/C9/springboard",
+    "vaultline/C10/cadence",
+    "vaultline/C11/drop",
+    "vaultline/C12/carriage",
+    "vaultline/C13/seam",
+    "vaultline/C14/final_vaultline",
+    "vaultline/L5/whole_game_clear"
+  ],
+  "readings": {
+    "vaultline/C1/footing": {
+      "deaths": 1,
+      "frames": 245,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_clear"
+      ],
+      "solution_kind": "tape",
+      "steps": 8,
+      "stop_reason": "scene_changed"
+    },
+    "vaultline/C10/cadence": {
+      "deaths": 1,
+      "frames": 330,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_clear"
+      ],
+      "solution_kind": "tape",
+      "steps": 13,
+      "stop_reason": "scene_changed"
+    },
+    "vaultline/C11/drop": {
+      "deaths": 1,
+      "frames": 267,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_clear"
+      ],
+      "solution_kind": "tape",
+      "steps": 13,
+      "stop_reason": "scene_changed"
+    },
+    "vaultline/C12/carriage": {
+      "deaths": 1,
+      "frames": 886,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_clear"
+      ],
+      "solution_kind": "tape",
+      "steps": 20,
+      "stop_reason": "scene_changed"
+    },
+    "vaultline/C13/seam": {
+      "deaths": 1,
+      "frames": 242,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_clear"
+      ],
+      "solution_kind": "tape",
+      "steps": 8,
+      "stop_reason": "scene_changed"
+    },
+    "vaultline/C14/final_vaultline": {
+      "deaths": 1,
+      "frames": 911,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_clear"
+      ],
+      "solution_kind": "tape",
+      "steps": 35,
+      "stop_reason": "goal_reached"
+    },
+    "vaultline/C2/gaps": {
+      "deaths": 1,
+      "frames": 290,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_clear"
+      ],
+      "solution_kind": "tape",
+      "steps": 11,
+      "stop_reason": "scene_changed"
+    },
+    "vaultline/C3/teeth": {
+      "deaths": 1,
+      "frames": 521,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_clear"
+      ],
+      "solution_kind": "tape",
+      "steps": 23,
+      "stop_reason": "scene_changed"
+    },
+    "vaultline/C4/shaft": {
+      "deaths": 1,
+      "frames": 521,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_clear"
+      ],
+      "solution_kind": "tape",
+      "steps": 92,
+      "stop_reason": "scene_changed"
+    },
+    "vaultline/C5/weave": {
+      "deaths": 1,
+      "frames": 311,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_clear"
+      ],
+      "solution_kind": "tape",
+      "steps": 12,
+      "stop_reason": "scene_changed"
+    },
+    "vaultline/C6/duck_under": {
+      "deaths": 1,
+      "frames": 408,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_clear"
+      ],
+      "solution_kind": "tape",
+      "steps": 12,
+      "stop_reason": "scene_changed"
+    },
+    "vaultline/C7/carry": {
+      "deaths": 0,
+      "frames": 352,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_clear"
+      ],
+      "solution_kind": "tape",
+      "steps": 17,
+      "stop_reason": "scene_changed"
+    },
+    "vaultline/C8/dive": {
+      "deaths": 1,
+      "frames": 357,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_clear"
+      ],
+      "solution_kind": "tape",
+      "steps": 15,
+      "stop_reason": "scene_changed"
+    },
+    "vaultline/C9/springboard": {
+      "deaths": 1,
+      "frames": 315,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_clear"
+      ],
+      "solution_kind": "tape",
+      "steps": 8,
+      "stop_reason": "scene_changed"
+    },
+    "vaultline/L0/no_input_no_clear": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "vaultline/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 7053,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_1_cleared",
+        "entered_floor_2",
+        "floor_2_cleared",
+        "entered_floor_3",
+        "floor_3_cleared",
+        "entered_floor_4",
+        "floor_4_cleared",
+        "entered_floor_5",
+        "floor_5_cleared",
+        "entered_floor_6",
+        "floor_6_cleared",
+        "entered_floor_7",
+        "floor_7_cleared",
+        "entered_floor_8",
+        "floor_8_cleared",
+        "entered_floor_9",
+        "floor_9_cleared",
+        "entered_floor_10",
+        "floor_10_cleared",
+        "entered_floor_11",
+        "floor_11_cleared",
+        "entered_floor_12",
+        "floor_12_cleared",
+        "entered_floor_13",
+        "floor_13_cleared",
+        "entered_floor_14",
+        "floor_14_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 340,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "9c7e17a6e1ef6c2691f7f74e3ad6c1ae486d8d08ac18432a5a299c241cef0492"
+  },
+  "result": "16/16 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "1c9b80f0ce0ae9305c9d5034ddb94113ad0310d646e40df012831339f9397b14",
+  "schema_version": 2,
+  "solution_kinds": {
+    "vaultline/C1/footing": "tape",
+    "vaultline/C10/cadence": "tape",
+    "vaultline/C11/drop": "tape",
+    "vaultline/C12/carriage": "tape",
+    "vaultline/C13/seam": "tape",
+    "vaultline/C14/final_vaultline": "tape",
+    "vaultline/C2/gaps": "tape",
+    "vaultline/C3/teeth": "tape",
+    "vaultline/C4/shaft": "tape",
+    "vaultline/C5/weave": "tape",
+    "vaultline/C6/duck_under": "tape",
+    "vaultline/C7/carry": "tape",
+    "vaultline/C8/dive": "tape",
+    "vaultline/C9/springboard": "tape",
+    "vaultline/L0/no_input_no_clear": "tape",
+    "vaultline/L5/whole_game_clear": "tape"
+  },
+  "task_id": "vaultline",
+  "validated_at": "2026-09-09"
+}

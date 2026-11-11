@@ -1,0 +1,162 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-28T07:50:17+00:00",
+  "interface_requirements": {
+    "O9": {
+      "fields": [],
+      "reason": "reference has no registered anchor expectation",
+      "required": false
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 2,
+        "gb_door": 32,
+        "gb_enemy": 11,
+        "gb_goal": 0,
+        "gb_hazard": 0,
+        "gb_interactive": 5,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          2
+        ],
+        "gb_door": [
+          "x",
+          5
+        ],
+        "gb_enemy": [
+          "y",
+          5
+        ],
+        "gb_interactive": [
+          "x",
+          2
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://scenes/dungeon/level_01.tscn",
+      "spawn_goal_distance": null
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 2,
+        "gb_door": 32,
+        "gb_enemy": 11,
+        "gb_goal": 0,
+        "gb_hazard": 0,
+        "gb_interactive": 5,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          2
+        ],
+        "gb_door": [
+          "x",
+          5
+        ],
+        "gb_enemy": [
+          "x",
+          4
+        ],
+        "gb_interactive": [
+          "x",
+          2
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://scenes/dungeon/level_02.tscn",
+      "spawn_goal_distance": null
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 2,
+        "gb_door": 32,
+        "gb_enemy": 11,
+        "gb_goal": 0,
+        "gb_hazard": 0,
+        "gb_interactive": 5,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "x",
+          2
+        ],
+        "gb_door": [
+          "x",
+          5
+        ],
+        "gb_enemy": [
+          "y",
+          5
+        ],
+        "gb_interactive": [
+          "x",
+          2
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://scenes/dungeon/level_03.tscn",
+      "spawn_goal_distance": null
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 0,
+        "gb_door": 4,
+        "gb_enemy": 1,
+        "gb_goal": 0,
+        "gb_hazard": 0,
+        "gb_interactive": 0,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_door": [
+          "x",
+          3
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://scenes/dungeon/FinalBoss.tscn",
+      "spawn_goal_distance": null
+    }
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "gunfire_dungeon",
+  "runtime_assets": {
+    "res://assets/sounds/bgm/Intro.ogg": "15d04d85f37ed83c36f37b862a45410e36afaf2b1c875cb3ce4da21df9c5ba56",
+    "res://assets/sounds/sfx/beLoaded/BeLoaded0001.ogg": "4ff6eb4435ed0e855d8d4b2e569f1d49e991444b535c366b176905e5a625f1b2",
+    "res://assets/sprites/bullet/normal/bullet0001.png": "4ff4cecaca2ae1ffe367930965af2bc24232d476fe7e9424cae0162532a616c1",
+    "res://assets/sprites/prop/buff/BuffProp0004.png": "17d1a5bc5cebbf9a6635457b3a11ec77b1177bf40717a817585142260b94a73f",
+    "res://assets/sprites/role/boss/a025c8ecde4f0a7d88eee741f369c286.png": "6f384099f2dfdc6e8a7417e187e636689662ecf1f2f102e6ae3742f1c3ab8e15",
+    "res://assets/sprites/role/dle_liquid/enemy0003.png": "948d552d33be6b9fa8d285ac61a12fd6c6677d696c3f87b6f2da2c94578f2ebf",
+    "res://assets/sprites/role/enemy0001/enemy0001.png": "04e7937c1879b75d4513ddbdd2d3e187c9898fafe9b53dfa36d56d90f6dd9c76",
+    "res://assets/sprites/role/enemy0002/Enemy0002.png": "e0c45b22c5bd89d5693a38884df3f8ac5c910ed5d7ae1803defcc56aa43f4e72",
+    "res://assets/sprites/role/role0001/idle/Sprite-0002.png": "1301e0e3856e2c84a5c3f139624fe75012dd5162a928245a2592445fff272d46",
+    "res://assets/sprites/weapon/weapon0001/Weapon0001.png": "b84e1808d44133aee980f1e67146c999afcd1e45ce8263c4cc7e2c1a5be9ebc9",
+    "res://assets/sprites/weapon/weapon0003/Weapon0003.png": "51adfc84513b2841dc0971f654472dd63315e833948e6c3d9b251c65bff2bf3b",
+    "res://icon.png": "2c160bfdb8d0423b958083202dc7b58d499cbef22f28d2a58626884378ce9b7f"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

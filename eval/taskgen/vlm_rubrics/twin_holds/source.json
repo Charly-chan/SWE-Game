@@ -1,0 +1,146 @@
+{
+  "game_id": "twin_holds",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/fbx/buildings/blue/hexagons_medieval.png",
+        "id": "S001",
+        "label": "KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/fbx/buildings/blue/hexagons_medieval.png"
+      },
+      {
+        "asset_path": "KayKit_Medieval_Hexagon_Pack_1.0_FREE/Samples/sample1.jpg",
+        "id": "S053",
+        "label": "KayKit_Medieval_Hexagon_Pack_1.0_FREE/Samples/sample1.jpg"
+      },
+      {
+        "asset_path": "KayKit_Medieval_Hexagon_Pack_1.0_FREE/contents_buildings.jpg",
+        "id": "S055",
+        "label": "KayKit_Medieval_Hexagon_Pack_1.0_FREE/contents_buildings.jpg"
+      },
+      {
+        "asset_path": "reference_media/assets/ui/button_focus.png",
+        "id": "S062",
+        "label": "reference_media/assets/ui/button_focus.png"
+      },
+      {
+        "asset_path": "KayKit_Medieval_Hexagon_Pack_1.0_FREE/Samples/sample2.jpg",
+        "id": "S063",
+        "label": "KayKit_Medieval_Hexagon_Pack_1.0_FREE/Samples/sample2.jpg"
+      },
+      {
+        "asset_path": "KayKit_Medieval_Hexagon_Pack_1.0_FREE/contents_nature.jpg",
+        "id": "S064",
+        "label": "KayKit_Medieval_Hexagon_Pack_1.0_FREE/contents_nature.jpg"
+      },
+      {
+        "asset_path": "reference_media/assets/ui/button_normal.png",
+        "id": "S065",
+        "label": "reference_media/assets/ui/button_normal.png"
+      },
+      {
+        "asset_path": "KayKit_Medieval_Hexagon_Pack_1.0_FREE/contents_tiles.jpg",
+        "id": "S066",
+        "label": "KayKit_Medieval_Hexagon_Pack_1.0_FREE/contents_tiles.jpg"
+      },
+      {
+        "asset_path": "reference_media/assets/ui/button_pressed.png",
+        "id": "S067",
+        "label": "reference_media/assets/ui/button_pressed.png"
+      },
+      {
+        "asset_path": "reference_media/assets/ui/panel_frame.png",
+        "id": "S068",
+        "label": "reference_media/assets/ui/panel_frame.png"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/fbx",
+        "KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/fbx(unity)",
+        "KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/gltf",
+        "KayKit_Medieval_Hexagon_Pack_1.0_FREE/Assets/obj",
+        "KayKit_Medieval_Hexagon_Pack_1.0_FREE/License.txt",
+        "KayKit_Medieval_Hexagon_Pack_1.0_FREE/Samples/sample1.jpg",
+        "KayKit_Medieval_Hexagon_Pack_1.0_FREE/Samples/sample2.jpg",
+        "KayKit_Medieval_Hexagon_Pack_1.0_FREE/Textures/hexagons_medieval.png",
+        "KayKit_Medieval_Hexagon_Pack_1.0_FREE/contents_buildings.jpg",
+        "KayKit_Medieval_Hexagon_Pack_1.0_FREE/contents_nature.jpg",
+        "KayKit_Medieval_Hexagon_Pack_1.0_FREE/contents_tiles.jpg",
+        "reference_media/assets/audio",
+        "reference_media/assets/models",
+        "reference_media/assets/ui"
+      ],
+      "file_count": 1285,
+      "font_files": []
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 152.3,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R005",
+        "time_s": 5.2
+      },
+      {
+        "id": "R008",
+        "time_s": 9.1
+      },
+      {
+        "id": "R018",
+        "time_s": 22.1
+      },
+      {
+        "id": "R036",
+        "time_s": 45.5
+      },
+      {
+        "id": "R037",
+        "time_s": 46.8
+      },
+      {
+        "id": "R053",
+        "time_s": 67.6
+      },
+      {
+        "id": "R054",
+        "time_s": 68.9
+      },
+      {
+        "id": "R060",
+        "time_s": 76.7
+      },
+      {
+        "id": "R110",
+        "time_s": 141.7
+      },
+      {
+        "id": "R119",
+        "time_s": 152.283
+      },
+      {
+        "clip": 1,
+        "id": "RD009",
+        "time_s": 31.26
+      },
+      {
+        "clip": 3,
+        "id": "RD052",
+        "time_s": 122.94
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.7747866053841103,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Twin Holds — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nGrow a small settlement on a readable board, trade economy against military pressure, and defeat a scripted opposing hold through deliberate turns.\n\n## Scope boundary\n\nA bounded turn-based strategy game with build choices, an opponent response, inspectable state, victory, defeat, and restart.\n\n## Creative freedom\n\nYou may choose the board topology, buildings, unit rules, opponent script, and match length.\n"
+}

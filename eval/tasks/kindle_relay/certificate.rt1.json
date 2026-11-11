@@ -1,0 +1,151 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "f7a0d9cada0889acbda3f93224fba9371146a2ca97a1fc1fd0e323b0f983a004"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "kindle_relay/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "b626ff29aad16652c205ef5b8acce57bde3deb108e1fc00032e1e54af1b46329",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "f7a0d9cada0889acbda3f93224fba9371146a2ca97a1fc1fd0e323b0f983a004",
+    "task_id": "kindle_relay"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "e5c740aab257dbf9626ffb8b0b8cc9d729731749530c6e133a1e642c70d2d840",
+    "source_sha256": "e9d823dbb3fed76e95754d2bc6f887728ee8184c2306b16c699390d5a123d9bd"
+  },
+  "passed_route_ids": [
+    "kindle_relay/L0/no_input_no_dawn",
+    "kindle_relay/C1/coast_first_light",
+    "kindle_relay/C2/coast_second_light",
+    "kindle_relay/C3/valley_glass_field",
+    "kindle_relay/C4/valley_west_ridge",
+    "kindle_relay/C5/summit_south_crown",
+    "kindle_relay/C6/summit_final_light",
+    "kindle_relay/L5/whole_game_clear"
+  ],
+  "readings": {
+    "kindle_relay/C1/coast_first_light": {
+      "deaths": 0,
+      "frames": 238,
+      "injects": 0,
+      "milestones_reached": [
+        "first_beacon_lit"
+      ],
+      "solution_kind": "tape",
+      "steps": 74,
+      "stop_reason": "ops_exhausted"
+    },
+    "kindle_relay/C2/coast_second_light": {
+      "deaths": 0,
+      "frames": 434,
+      "injects": 0,
+      "milestones_reached": [
+        "second_beacon_lit"
+      ],
+      "solution_kind": "tape",
+      "steps": 208,
+      "stop_reason": "ops_exhausted"
+    },
+    "kindle_relay/C3/valley_glass_field": {
+      "deaths": 0,
+      "frames": 1004,
+      "injects": 0,
+      "milestones_reached": [
+        "third_beacon_lit"
+      ],
+      "solution_kind": "tape",
+      "steps": 473,
+      "stop_reason": "ops_exhausted"
+    },
+    "kindle_relay/C4/valley_west_ridge": {
+      "deaths": 0,
+      "frames": 659,
+      "injects": 0,
+      "milestones_reached": [
+        "fourth_beacon_lit"
+      ],
+      "solution_kind": "tape",
+      "steps": 628,
+      "stop_reason": "ops_exhausted"
+    },
+    "kindle_relay/C5/summit_south_crown": {
+      "deaths": 0,
+      "frames": 713,
+      "injects": 0,
+      "milestones_reached": [
+        "fifth_beacon_lit"
+      ],
+      "solution_kind": "tape",
+      "steps": 817,
+      "stop_reason": "ops_exhausted"
+    },
+    "kindle_relay/C6/summit_final_light": {
+      "deaths": 1,
+      "frames": 1177,
+      "injects": 0,
+      "milestones_reached": [
+        "sixth_beacon_lit"
+      ],
+      "solution_kind": "tape",
+      "steps": 1100,
+      "stop_reason": "goal_reached"
+    },
+    "kindle_relay/L0/no_input_no_dawn": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "kindle_relay/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 4075,
+      "injects": 0,
+      "milestones_reached": [
+        "coast_pair_lit",
+        "valley_pair_lit",
+        "summit_pair_lit"
+      ],
+      "solution_kind": "tape",
+      "steps": 1099,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "b626ff29aad16652c205ef5b8acce57bde3deb108e1fc00032e1e54af1b46329"
+  },
+  "result": "8/8 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "daeddebed2ec31067bfe3c7c94ab46cb426a95088826b0bdb32d28cbca67b40a",
+  "schema_version": 2,
+  "solution_kinds": {
+    "kindle_relay/C1/coast_first_light": "tape",
+    "kindle_relay/C2/coast_second_light": "tape",
+    "kindle_relay/C3/valley_glass_field": "tape",
+    "kindle_relay/C4/valley_west_ridge": "tape",
+    "kindle_relay/C5/summit_south_crown": "tape",
+    "kindle_relay/C6/summit_final_light": "tape",
+    "kindle_relay/L0/no_input_no_dawn": "tape",
+    "kindle_relay/L5/whole_game_clear": "tape"
+  },
+  "task_id": "kindle_relay",
+  "validated_at": "2026-09-09"
+}

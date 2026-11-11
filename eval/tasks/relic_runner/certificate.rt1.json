@@ -1,0 +1,113 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "harness_concessions_only",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "97a750c6c4934a0246c28b0434e5906a67064ab70ba4798e891d163607526b7b"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "relic_runner/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "fb3f299ab921765ef00f79cfedb5484bde1af59a05eb40130b48a1cd4f8ec3fe",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "97a750c6c4934a0246c28b0434e5906a67064ab70ba4798e891d163607526b7b",
+    "task_id": "relic_runner"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "70440d248ada2596cb5f0be9d39e4196e3360a65f7283b531100f3f44c79298e",
+    "source_sha256": "18caaf7ef6bc4ab19e7cf2d4848f311b71a98af26df293bd618ca2690cc883cd"
+  },
+  "passed_route_ids": [
+    "relic_runner/L0/no_input_no_win",
+    "relic_runner/C1/level_1_key_relic_altar",
+    "relic_runner/C2/level_2_keys_relic_altar",
+    "relic_runner/C3/level_3_keys_relic_altar",
+    "relic_runner/L5/whole_game_clear"
+  ],
+  "readings": {
+    "relic_runner/C1/level_1_key_relic_altar": {
+      "deaths": 1,
+      "frames": 1050,
+      "injects": 0,
+      "milestones_reached": [
+        "collected_level_1_key"
+      ],
+      "solution_kind": "tape",
+      "steps": 34,
+      "stop_reason": "scene_changed"
+    },
+    "relic_runner/C2/level_2_keys_relic_altar": {
+      "deaths": 0,
+      "frames": 1994,
+      "injects": 0,
+      "milestones_reached": [
+        "collected_level_2_first_key",
+        "collected_level_2_second_key"
+      ],
+      "solution_kind": "tape",
+      "steps": 130,
+      "stop_reason": "ops_exhausted"
+    },
+    "relic_runner/C3/level_3_keys_relic_altar": {
+      "deaths": 0,
+      "frames": 3739,
+      "injects": 0,
+      "milestones_reached": [
+        "collected_level_3_first_key",
+        "collected_level_3_all_keys"
+      ],
+      "solution_kind": "tape",
+      "steps": 289,
+      "stop_reason": "ops_exhausted"
+    },
+    "relic_runner/L0/no_input_no_win": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "relic_runner/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 6806,
+      "injects": 0,
+      "milestones_reached": [
+        "entered_level_2",
+        "entered_level_3"
+      ],
+      "solution_kind": "tape",
+      "steps": 457,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "fb3f299ab921765ef00f79cfedb5484bde1af59a05eb40130b48a1cd4f8ec3fe"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "03dd2df64cbf451f2c638cf799dcbed7f4ef26df5966f4b721df7bfa34c5b090",
+  "schema_version": 2,
+  "solution_kinds": {
+    "relic_runner/C1/level_1_key_relic_altar": "tape",
+    "relic_runner/C2/level_2_keys_relic_altar": "tape",
+    "relic_runner/C3/level_3_keys_relic_altar": "tape",
+    "relic_runner/L0/no_input_no_win": "tape",
+    "relic_runner/L5/whole_game_clear": "tape"
+  },
+  "task_id": "relic_runner",
+  "validated_at": "2026-09-09"
+}

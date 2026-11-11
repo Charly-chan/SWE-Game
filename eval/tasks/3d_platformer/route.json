@@ -1,0 +1,3337 @@
+{
+  "routes": [
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 420,
+            "op": "wait"
+          }
+        ]
+      },
+      "budget": {
+        "frames": 420,
+        "steps": 1
+      },
+      "goal": {
+        "predicate": ""
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "3d_platformer/L0/no_input_no_win",
+      "scored": false,
+      "start": {
+        "inject": {},
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 0
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 26,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 24,
+            "op": "hold"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 142,
+        "steps": 4
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "picked_east_cell",
+            "predicate": "NOT device_present(collectible, 0)"
+          }
+        ],
+        "predicate": "numeric_delta(cells_delivered) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [
+        "collectible#0",
+        "goal#0"
+      ],
+      "route_id": "3d_platformer/C1/east_cell_return_and_deliver",
+      "start": {
+        "anchor": "pickup_point",
+        "at_device": "collectible#0",
+        "inject": {},
+        "level": 0,
+        "offset_norm": {
+          "y": 0.02
+        },
+        "settle_frames": 6
+      },
+      "tier": 2
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 88,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "frames": 68,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 14,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 20,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 18,
+            "op": "hold"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 352,
+        "steps": 12
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "picked_west_cell",
+            "predicate": "device_state(collectible,1,mode,carried)"
+          }
+        ],
+        "predicate": "contact(movplat, 0)"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [
+        "collectible#1",
+        "movplat#0"
+      ],
+      "route_id": "3d_platformer/C2/west_carrier_cell",
+      "start": {
+        "anchor": "pickup_point",
+        "at_device": "collectible#1",
+        "inject": {},
+        "level": 0,
+        "offset_norm": {
+          "y": 0.02
+        },
+        "settle_frames": 104
+      },
+      "tier": 3
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 62,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 72,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 3,
+            "op": "hold"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 197,
+        "steps": 3
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "picked_north_cell",
+            "predicate": "NOT device_present(collectible, 2)"
+          }
+        ],
+        "predicate": "numeric_delta(cells_delivered) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [
+        "collectible#2",
+        "falling_platform#0",
+        "goal#0"
+      ],
+      "route_id": "3d_platformer/C3/north_crumble_return_and_deliver",
+      "start": {
+        "anchor": "pickup_point",
+        "at_device": "collectible#2",
+        "inject": {},
+        "level": 0,
+        "offset_norm": {
+          "y": 0.02
+        },
+        "settle_frames": 6
+      },
+      "tier": 3
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "actions": [
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 20,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 26,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 14,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 14,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 36,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 60,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 6,
+            "op": "hold"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 338,
+        "steps": 23
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "picked_east_cell",
+            "predicate": "NOT device_present(collectible, 0)"
+          }
+        ],
+        "predicate": "numeric_delta(cells_delivered) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [
+        "collectible#0",
+        "goal#0"
+      ],
+      "route_id": "3d_platformer/C4/east_saw_cell",
+      "start": {
+        "anchor": "pickup_point",
+        "at_device": "collectible#0",
+        "inject": {},
+        "level": 1,
+        "offset_norm": {
+          "y": 0.02
+        },
+        "settle_frames": 6
+      },
+      "tier": 3
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 46,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 90,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 18,
+            "op": "hold"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 252,
+        "steps": 8
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "picked_north_cell",
+            "predicate": "NOT device_present(collectible, 1)"
+          }
+        ],
+        "predicate": "numeric_delta(cells_delivered) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [
+        "collectible#1",
+        "goal#0"
+      ],
+      "route_id": "3d_platformer/C5/north_conveyor_cell",
+      "start": {
+        "anchor": "pickup_point",
+        "at_device": "collectible#1",
+        "inject": {},
+        "level": 1,
+        "offset_norm": {
+          "y": 0.02
+        },
+        "settle_frames": 6
+      },
+      "tier": 3
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 82,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 86,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 60,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "frames": 42,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 606,
+        "steps": 17
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "contacted_south_cell",
+            "predicate": "contact(collectible, 2)"
+          },
+          {
+            "name": "picked_south_cell",
+            "predicate": "device_state(collectible,2,mode,carried)"
+          },
+          {
+            "name": "rode_moving_platform",
+            "predicate": "contact(movplat, 0)"
+          }
+        ],
+        "predicate": "numeric_delta(cells_delivered) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [
+        "collectible#2",
+        "movplat#0",
+        "goal#0"
+      ],
+      "route_id": "3d_platformer/C6/south_moving_platform_return_and_deliver",
+      "start": {
+        "anchor": "pickup_point",
+        "at_device": "collectible#2",
+        "inject": {},
+        "level": 1,
+        "offset_norm": {
+          "y": 0.02
+        },
+        "settle_frames": 6
+      },
+      "tier": 4
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 66,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 62,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 36,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 72,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 18,
+            "op": "hold"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 350,
+        "steps": 8
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "contacted_north_cell",
+            "predicate": "contact(collectible, 2)"
+          },
+          {
+            "name": "picked_north_cell",
+            "predicate": "device_state(collectible,2,mode,carried)"
+          },
+          {
+            "name": "fuse_below_ten",
+            "predicate": "numeric(fuse_left) <= 10"
+          },
+          {
+            "name": "crossed_outer_crumble",
+            "predicate": "contact(falling_platform, 1)"
+          },
+          {
+            "name": "crossed_inner_crumble",
+            "predicate": "contact(falling_platform, 0)"
+          },
+          {
+            "name": "fuse_below_nine",
+            "predicate": "numeric(fuse_left) <= 9"
+          },
+          {
+            "name": "passed_summit_hopper",
+            "predicate": "contact(enemy, 0)"
+          }
+        ],
+        "predicate": "contact(enemy, 0)"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [
+        "collectible#2",
+        "falling_platform#0",
+        "falling_platform#1",
+        "enemy#0"
+      ],
+      "route_id": "3d_platformer/C7/level_3_crumble_return",
+      "start": {
+        "anchor": "pickup_point",
+        "at_device": "collectible#2",
+        "inject": {},
+        "level": 2,
+        "offset_norm": {
+          "y": 0.02
+        },
+        "settle_frames": 6
+      },
+      "tier": 4
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 36,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 36,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 26,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 54,
+            "op": "hold"
+          },
+          {
+            "frames": 52,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 20,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "frames": 66,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 80,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 28,
+            "op": "hold"
+          },
+          {
+            "frames": 88,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "frames": 68,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 14,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 20,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 62,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 54,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 28,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 62,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 72,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "frames": 180,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "tap"
+          },
+          {
+            "frames": 15,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 38,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 20,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 26,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 14,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 14,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 36,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 60,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "frames": 158,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 46,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 60,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 46,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 90,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 48,
+            "op": "hold"
+          },
+          {
+            "frames": 148,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "frames": 64,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 74,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 26,
+            "op": "hold"
+          },
+          {
+            "frames": 82,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 86,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 60,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "frames": 42,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 66,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 51,
+            "op": "hold"
+          },
+          {
+            "frames": 180,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "tap"
+          },
+          {
+            "frames": 8,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 32,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 34,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 40,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 26,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 62,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 60,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 26,
+            "op": "hold"
+          },
+          {
+            "frames": 66,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 62,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 36,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 72,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 66,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 40,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "frames": 2,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 13,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 62,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 14,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 14,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 78,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 48,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 90,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 48,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 48,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 48,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 14,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "frames": 120,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 14,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "frames": 2,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_action"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_action"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_action"
+            ],
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 48,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 8,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 14,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 12,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 60,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 36,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 84,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "frames": 112,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 14,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 48,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 14,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "frames": 22,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "frames": 80,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 8,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 14,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 12,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_up"
+            ],
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "frames": 60,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "frames": 180,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 12000,
+        "steps": 400
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "level_1_first_cell_reached",
+            "predicate": "contact(collectible,0)",
+            "required_devices": [
+              "L1/collectible#0"
+            ]
+          },
+          {
+            "name": "level_1_one_cell_delivered",
+            "predicate": "numeric(cells_delivered) >= 1",
+            "required_devices": [
+              "L1/collectible#0",
+              "L1/goal#0"
+            ]
+          },
+          {
+            "name": "level_1_two_cells_delivered",
+            "predicate": "numeric(cells_delivered) >= 2",
+            "required_devices": [
+              "L1/collectible#0",
+              "L1/goal#0"
+            ]
+          },
+          {
+            "name": "level_1_three_cells_delivered",
+            "predicate": "numeric(cells_delivered) >= 3",
+            "required_devices": [
+              "L1/collectible#0",
+              "L1/goal#0",
+              "L1/movplat#0"
+            ]
+          },
+          {
+            "name": "entered_level_2",
+            "predicate": "levels_visited() >= 2",
+            "required_devices": [
+              "L1/collectible#0",
+              "L1/goal#0",
+              "L1/movplat#0"
+            ]
+          },
+          {
+            "name": "level_2_one_cell_delivered",
+            "predicate": "numeric(cells_delivered) >= 1",
+            "required_devices": [
+              "L2/goal#0"
+            ]
+          },
+          {
+            "name": "level_2_two_cells_delivered",
+            "predicate": "numeric(cells_delivered) >= 2",
+            "required_devices": [
+              "L2/goal#0"
+            ]
+          },
+          {
+            "name": "level_2_three_cells_delivered",
+            "predicate": "numeric(cells_delivered) >= 3",
+            "required_devices": [
+              "L2/goal#0",
+              "L2/movplat#0"
+            ]
+          },
+          {
+            "name": "level_2_four_cells_delivered",
+            "predicate": "numeric(cells_delivered) >= 4",
+            "required_devices": [
+              "L2/goal#0",
+              "L2/movplat#0",
+              "L2/spring#0"
+            ]
+          },
+          {
+            "name": "entered_level_3",
+            "predicate": "levels_visited() >= 3",
+            "required_devices": [
+              "L2/goal#0",
+              "L2/movplat#0",
+              "L2/spring#0"
+            ]
+          },
+          {
+            "name": "level_3_one_cell_delivered",
+            "predicate": "numeric(cells_delivered) >= 1",
+            "required_devices": [
+              "L3/goal#0"
+            ]
+          },
+          {
+            "name": "level_3_two_cells_delivered",
+            "predicate": "numeric(cells_delivered) >= 2",
+            "required_devices": [
+              "L3/goal#0",
+              "L3/movplat#0"
+            ]
+          },
+          {
+            "name": "level_3_three_cells_delivered",
+            "predicate": "numeric(cells_delivered) >= 3",
+            "required_devices": [
+              "L3/goal#0",
+              "L3/movplat#0",
+              "L3/spring#0"
+            ]
+          },
+          {
+            "name": "level_3_four_cells_delivered",
+            "predicate": "numeric(cells_delivered) >= 4",
+            "required_devices": [
+              "L3/goal#0",
+              "L3/movplat#0",
+              "L3/spring#0",
+              "L3/door#0"
+            ]
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [
+        "L1/collectible#0",
+        "L1/goal#0",
+        "L1/movplat#0",
+        "L2/goal#0",
+        "L2/movplat#0",
+        "L2/spring#0",
+        "L3/goal#0",
+        "L3/movplat#0",
+        "L3/spring#0",
+        "L3/door#0"
+      ],
+      "route_id": "3d_platformer/L5/whole_game_clear",
+      "start": {
+        "inject": {},
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 5
+    }
+  ],
+  "schema_version": 2,
+  "task_id": "3d_platformer"
+}

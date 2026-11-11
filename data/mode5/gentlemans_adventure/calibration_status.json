@@ -1,0 +1,15 @@
+{
+  "blockers": [],
+  "game_id": "gentlemans_adventure",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "gentlemans_adventure-c1-manor_gate_clear",
+    "gentlemans_adventure-c2-clockwork_gallery_clear",
+    "gentlemans_adventure-c3-eye_vault_clear",
+    "gentlemans_adventure-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:c5409db7076804d52f9c6e95334a4cf4ad87883333d5af2746d32e7f93c05d89"
+}

@@ -1,0 +1,206 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-23T09:46:15+00:00",
+  "interface_requirements": {
+    "O9": {
+      "fields": [],
+      "reason": "reference has no registered anchor expectation",
+      "required": false
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 2,
+        "gb_collectible": 2,
+        "gb_door": 20,
+        "gb_enemy": 1,
+        "gb_goal": 0,
+        "gb_hazard": 7,
+        "gb_interactive": 0,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "x",
+          2
+        ],
+        "gb_collectible": [
+          "x",
+          2
+        ],
+        "gb_door": [
+          "x",
+          2
+        ],
+        "gb_hazard": [
+          "y",
+          4
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/stage_1.tscn",
+      "spawn_goal_distance": null
+    },
+    {
+      "census": {
+        "gb_checkpoint": 2,
+        "gb_collectible": 3,
+        "gb_door": 20,
+        "gb_enemy": 2,
+        "gb_goal": 0,
+        "gb_hazard": 13,
+        "gb_interactive": 0,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "x",
+          2
+        ],
+        "gb_collectible": [
+          "x",
+          3
+        ],
+        "gb_door": [
+          "x",
+          2
+        ],
+        "gb_enemy": [
+          "y",
+          2
+        ],
+        "gb_hazard": [
+          "y",
+          4
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/stage_2.tscn",
+      "spawn_goal_distance": null
+    },
+    {
+      "census": {
+        "gb_checkpoint": 2,
+        "gb_collectible": 4,
+        "gb_door": 20,
+        "gb_enemy": 3,
+        "gb_goal": 0,
+        "gb_hazard": 20,
+        "gb_interactive": 0,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "x",
+          2
+        ],
+        "gb_collectible": [
+          "y",
+          3
+        ],
+        "gb_door": [
+          "x",
+          2
+        ],
+        "gb_enemy": [
+          "y",
+          3
+        ],
+        "gb_hazard": [
+          "y",
+          5
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/stage_3.tscn",
+      "spawn_goal_distance": null
+    }
+  ],
+  "probe_sha256": "7b966a24301ab4cf7b2e433dc04081d354779f93ff571a8a5e47964d894a2026",
+  "project": "city_delivery",
+  "runtime_assets": {
+    "res://assets/audio/city_ambience.ogg": "35697cbfde073f92df06e828fe2c8676a1f98c07404193e6477ca9202213f80a",
+    "res://assets/audio/order_offered.ogg": "4cc6ac5341b9b2c86fef80c347de028e9ab9f2e037586ac7d9fa59a403a1c012",
+    "res://assets/audio/tyre_skid.ogg": "424bbe660f29b825bd0255e332d084a22719c2c4a04b64f83ec6a531197780ed",
+    "res://assets/audio/van_engine.ogg": "6d665dfc961e2d522c866bdcf12fc0ac56c885c0c7117e830df84ba8eecd655c",
+    "res://assets/generated/marker_blockage.png": "935eecc0d2ff0eaebcc4cf8236b7137598b6171e3bba1c75aa6a0f3c9497600e",
+    "res://assets/generated/marker_order.png": "5b7a26137f53202c06ef46e6e54d4209bf76b48e1c1d05678a69bdcfd1fe0081",
+    "res://assets/vendor/kaykit_city/base.gltf": "ac49eb9d300587172c416f73c7fd709403dc34f432f02ab3e3c9590adc63c21c",
+    "res://assets/vendor/kaykit_city/bench.gltf": "f3b731470c30ed21d7e03f15d28f1937b3e4881efcca57a48e4c82ae582e51e1",
+    "res://assets/vendor/kaykit_city/box_A.gltf": "fe1fa867aa6aa2933bbe3d232c8dcedffc68d484019f71544ce191e2c8ddc16c",
+    "res://assets/vendor/kaykit_city/box_B.gltf": "6ad0554fedbc3ad3079cac62668455912bbe59be3b796de3356f2cc4e726e690",
+    "res://assets/vendor/kaykit_city/building_A.gltf": "d9d21afb847de1c67a643cc34738f0b71d71f6a8926e8fa7f248bb6a434a22ba",
+    "res://assets/vendor/kaykit_city/building_B.gltf": "d026df95a16e31d1d50827375db7978099af35eefbb255bf6674855d303fb390",
+    "res://assets/vendor/kaykit_city/building_C.gltf": "d2477afdb8a68507ab862ede37f47a2a7b74df369290bc57712239214c6ae2c8",
+    "res://assets/vendor/kaykit_city/building_D.gltf": "1484455bd37ce136e1defb1639f68cf82b7b00f977856b1d9483de9c02760ba3",
+    "res://assets/vendor/kaykit_city/building_E.gltf": "42905f3038030e27126da1454aaf1e1bff1ad66de34d9c94a9599c709ae5e97d",
+    "res://assets/vendor/kaykit_city/building_F.gltf": "cebfc6df11af7caf712a3f3e0d2c033554355ff7bf7a8b332eb21ebdaaba2aa1",
+    "res://assets/vendor/kaykit_city/building_G.gltf": "314dad28b2ef5fdd370534ded457e0381410fe8051687517552b8f1ac43fac11",
+    "res://assets/vendor/kaykit_city/building_H.gltf": "319d8392ba3b1662ca8506cfda7dbecc694a7d60268e20a136cdeecbe472d6d2",
+    "res://assets/vendor/kaykit_city/bush.gltf": "b1de478b23e6bcfd08d6c070440582195839f66dfd3afc123118fb6298483183",
+    "res://assets/vendor/kaykit_city/car_hatchback.gltf": "e38be3dbdfbc95b0e794fc5c8164b2ff658b2dc5049b51d38179d16a9432b4f3",
+    "res://assets/vendor/kaykit_city/car_police.gltf": "c6f1f85c2a8f56ec0abb76deac13486d42399c6d23868e5e524a090fce652d12",
+    "res://assets/vendor/kaykit_city/car_sedan.gltf": "96c9d38e682bc2c77470af09d1a7450208559ca652bf2cf6fd2bc20b8646ef59",
+    "res://assets/vendor/kaykit_city/car_stationwagon.gltf": "49f7e2bdb70183214a3e8d8576e420ebb69520b21db81dddfc6a04e1ed8994fd",
+    "res://assets/vendor/kaykit_city/car_taxi.gltf": "781b3265473dab6f7e054f06c23abeba9b811516b19b61a7a88b0aa8d33e1323",
+    "res://assets/vendor/kaykit_city/citybits_texture.png": "6d2d9a5a13bce32209cd8c04572ab170504d68f34b1519165c9b0c41871e235b",
+    "res://assets/vendor/kaykit_city/dumpster.gltf": "56353a02aa70f61ea0f94f5806c66f489b2949b64db0611b5ccf2b500c815cb9",
+    "res://assets/vendor/kaykit_city/firehydrant.gltf": "0a3f9fb95e8b4805602ad26050ee552408553682b41f3e54981a69dfa92a7f3b",
+    "res://assets/vendor/kaykit_city/road_corner.gltf": "592dadb7a6e81e2c5c2415d5e3872eaccece0c71ff1e34bb3ced06ceed4ce149",
+    "res://assets/vendor/kaykit_city/road_junction.gltf": "28ea556cf76cf3efd38b62c3610a338bca46ff8e25c336406821c85cf58b7c6b",
+    "res://assets/vendor/kaykit_city/road_straight.gltf": "35c74b311a04e5682dfc7fc823867aa53de1cc19b86fa801730496ee69b52e68",
+    "res://assets/vendor/kaykit_city/road_straight_crossing.gltf": "7df128514884a9356404fa3b42b10816a6dec8a211bc22233372cdbb7e1e71a9",
+    "res://assets/vendor/kaykit_city/road_tsplit.gltf": "dcdf1facedbd82419b9d0533f327bcf0b66ad74ced86c63d5151244a9cec812f",
+    "res://assets/vendor/kaykit_city/streetlight.gltf": "4399e9023844319e0f74311779a2c0ebecacec16f5dfd8123b6141a3af903c6a",
+    "res://assets/vendor/kaykit_city/trafficlight_B.gltf": "a7b9369e3cad7b58a0914a885a14d477c402295fc7d89b26280b4f77b742e28b",
+    "res://assets/vendor/kaykit_city/trash_A.gltf": "dcd3a27821a9d8a781a40a393e167d51c1cdb743edf95edc59236fe32238b464",
+    "res://assets/vendor/kaykit_city/trash_B.gltf": "6b549af074a24a1d2dd916af53d33d71d251b9e7e004de67294da02d336754e3",
+    "res://assets/vendor/kaykit_city/watertower.gltf": "55ae59f2a21ad38c64312a4c00d6808dc486bf4a8e8a8c969bc9e26cdc84d8f3",
+    "res://assets/vendor/kenney_blocky_characters/Textures/texture-a.png": "257e944c582ce7cda206fbd8ceb717be648f9721756baf377a36478c11c0059a",
+    "res://assets/vendor/kenney_blocky_characters/Textures/texture-c.png": "582a62eae6ca086f65e6bfdde16d0d1d15a95fdaf484c0def4769d5a47ba1c8e",
+    "res://assets/vendor/kenney_blocky_characters/Textures/texture-d.png": "c61bc29ec4d96229b979fc9196500afac13c2b448bbab1085832354fb4ef849a",
+    "res://assets/vendor/kenney_blocky_characters/Textures/texture-f.png": "54404f22588bac5a7f8df09c2aac0520e101a6f32944ce4070f550d7ad80c6f7",
+    "res://assets/vendor/kenney_blocky_characters/character-a.glb": "8ee5dae167ec589863f6bba222467eb90ace8be357a4c5abfcab289290181616",
+    "res://assets/vendor/kenney_blocky_characters/character-c.glb": "ad2425ba0da5d9adff791b949bd62389ddcb09963ff89265930eab0d6484398c",
+    "res://assets/vendor/kenney_blocky_characters/character-d.glb": "bd7cbf0d45e58f6809e3249a84502ce629ac53bfa13bc39fb0a83d171faf84bf",
+    "res://assets/vendor/kenney_blocky_characters/character-f.glb": "04223c1c6cdce5da6fe9c9729a24e1aa9c765dec93af952379112f7da24a828a",
+    "res://assets/vendor/kenney_food_kit/Textures/colormap.png": "75baf74d9483a0fc56ac21ceba346fbe16fc24a2a1bf0524c53e6bbe802e1153",
+    "res://assets/vendor/kenney_food_kit/barrel.glb": "da46fd63ab9d1f1a57ea0ef022c8ecea6d9651810975e1f4723b0047b1ffee4d",
+    "res://assets/vendor/kenney_food_kit/cake.glb": "9594766d701142c4f5ab1d36cc40957667cd966281757e887de4d40557e63e09",
+    "res://assets/vendor/kenney_food_kit/carton.glb": "b63a5081c6edbda7ba8172e6a776f222e781f886a011a887789b2fde42095d04",
+    "res://assets/vendor/kenney_food_kit/ice-cream.glb": "6258b20c40102ec4e86679e39a0618e1a025f302bf7bc8fdc618ebdd520cf83e",
+    "res://assets/vendor/kenney_nature_kit/flower_purpleA.glb": "f6fc34c96a03420a74fe36d4c2d0ec88f15204fcad99cd1416c3c4ecb22e48c4",
+    "res://assets/vendor/kenney_nature_kit/plant_bush.glb": "ae7b1beb39e242b13f5f29e3ec23ef21034b814f82297b8aa00a9bf4e1b09590",
+    "res://assets/vendor/kenney_nature_kit/plant_bushLarge.glb": "10e1d9fbf29d96d1d1a56fb2ce25ae66537505101759229afe01ae22c6c45e02",
+    "res://assets/vendor/kenney_nature_kit/tree_default.glb": "562d29638c902de3c7bee465d3a53bb77117efbc392ae04ed894faf6b5dc691d",
+    "res://assets/vendor/kenney_nature_kit/tree_oak.glb": "d7fd8773674928c50c11b66d12c636d49bdcc15a8b1c7fbb98e6f63a3439a3f3",
+    "res://assets/vendor/kenney_nature_kit/tree_palm.glb": "27bbb23d26ed788d84de6df2f7fab0acc3fe0ff16c7d08cdcfa1fffcb11de324",
+    "res://assets/vendor/kenney_nature_kit/tree_thin.glb": "f0f1f6861fe0446963d3be216cc628324f538bb0841bc9a8e14140313f64e2f3",
+    "res://assets/vendor/kenney_skybox/skybox-day.png": "b7d98fe95157e74b3899a1dd468a1e478005bcd1f668b29b5b42a48cb5358fa2",
+    "res://assets/vendor/kenney_skybox/skybox-morning.png": "7b445e959e7e65c2aad962028826434fda90d7b21f00f451767344970efa9e1e",
+    "res://assets/vendor/kenney_ui/KenneyFuture.ttf": "7a55b07f5968fac872648a7c5e959bd2b93e06f63153b585d56e4d5298ddff61",
+    "res://assets/vendor/kenney_ui/KenneyFutureNarrow.ttf": "17e182587a3264dcf9e5b17c055715d5597187546ce81925c64e9184c26d597f",
+    "res://assets/vendor/kenney_ui/panels/green_button_rectangle_depth_flat.png": "f356ba76050319e08ff7a68458f28f068dd57b1facf156a0da4348de8c5fffe1",
+    "res://assets/vendor/kenney_ui/panels/grey_button_rectangle_depth_flat.png": "7de9ba1d4bca313fd2c02e3595f3d699c1201d84d70a3c69828e56782d585ce7",
+    "res://assets/vendor/kenney_ui/panels/icon_square_blue.png": "43d8616b7a23e56753929bf723106053994b3cf5720d47abd04dbdc67b9d595b",
+    "res://assets/vendor/kenney_ui/panels/icon_square_yellow.png": "d01370b19f96279c7770f61a968b2420023eb9b75531b6bac7593be0faffff63",
+    "res://assets/vendor/kenney_ui/panels/input_rectangle.png": "8d8a2c63a9cfe3bcd45fbf11a9ea1e6b046df74455631f635dafd0012193a75e",
+    "res://assets/vendor/kenney_ui/panels/slide_fill_green.png": "00b0be4899b14bbb8db2144b3a3dbf06dfc9496e1643867dd5c00fb52faa344e",
+    "res://assets/vendor/kenney_ui/panels/slide_track.png": "a80f54d81912dcac6827b8b71bb81f6b8b8a0c190573006aee9612d6bbd91618",
+    "res://assets/vendor/kenney_ui/panels/yellow_button_rectangle_depth_gloss.png": "ee9d465ec1c0c2fd6c8636b9d99fab20c6ad75433d98dbff8e64a48d3f40c652"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

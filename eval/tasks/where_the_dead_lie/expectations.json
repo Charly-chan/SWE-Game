@@ -1,0 +1,94 @@
+{
+  "anchor_composition": {
+    "bearing": "centre",
+    "mass_ratio": 0.615758,
+    "mirror_symmetry": false
+  },
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-09-02T16:36:18+00:00",
+  "interface_requirements": {
+    "O10": {
+      "fields": [
+        "audio_buses"
+      ],
+      "reason": "reference has an audible live-mixer expectation",
+      "required": true
+    },
+    "O9": {
+      "fields": [
+        "anchor_camera"
+      ],
+      "reason": "reference has registered anchor composition expectations",
+      "required": true
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 0,
+        "gb_door": 1,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 1,
+        "gb_interactive": 8,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_interactive": [
+          "x",
+          4
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://Scenes/Levels/benchmark_catacombs.tscn",
+      "spawn_goal_distance": 0.04813633297355928
+    }
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "where_the_dead_lie",
+  "runtime_assets": {
+    "res://assets/catacombs.glb": "8535ee845abfc5d781a66253afe40aaa03093dc6ac6b994c779a40cd408ccc21",
+    "res://assets/catacombs_cracked_concrete_wall_arm_2k.png": "0e37a685dfa29b306e649395f13da7eb7ba3e041620374aafaff85bb5d7a5c39",
+    "res://assets/catacombs_cracked_concrete_wall_diff_2k.jpg": "8e5939548a3362b70fd90e612222f8ab4c0e743c1409fdd244a77cf701c93b5e",
+    "res://assets/catacombs_cracked_concrete_wall_nor_gl_2k.jpg": "f0e2733a606c5076201dc5db17295a4b3fe7717ff625908fb24f2a2262ecb103",
+    "res://assets/catacombs_rocky_trail_arm_2k.jpg": "cb3ec682ee4fc1d95b6d0a05dadcb03a0438f73ed0d7bb55b205c2c84d29dbef",
+    "res://assets/catacombs_rocky_trail_diff_2k.jpg": "5434c6377a0b74be356c6f1f0a13842a38111a3dcec9934bf74f7c6f6396c54b",
+    "res://assets/catacombs_rocky_trail_nor_gl_2k.jpg": "c8783873d83d7a14cb339332ddf59ee7ee31c68c4cd72770e2f673402755c93c",
+    "res://assets/catacombs_slab_tiles_arm_2k.jpg": "f99d11a392cd8efedb3aaec52b48f8ac0466a1e8b91c196b162e7672bef58de8",
+    "res://assets/catacombs_slab_tiles_diff_2k.jpg": "4d783b04cbe612f292871cd98514e9d13db1892cb0378e65aeefddff47524d1e",
+    "res://assets/catacombs_slab_tiles_nor_gl_2k.jpg": "69764ef7c91f12508930112356dd8e5edc4bed8f50e07aa9a4322af6807bc62c",
+    "res://assets/chestTop_rare.gltf.glb": "372ca13e03c9f9b7995a166dfc60099cb440e43b96f3f90f32e52b6fcd7bd11c",
+    "res://assets/chest_rare.gltf.glb": "04516f9bb0a26c0f70a0802defb00589634287ab79cfb4f682cf2f1798ce1366",
+    "res://assets/chest_squeak.ogg": "f42bd3e9a31d2a161daae90fec585528d7e48a28b3bac9c3b0aee6d63e5ac173",
+    "res://assets/fire_01.png": "9727a9743ac6ab8dd4dd79f5fc5b0266290efae45f4d4452279eb5e4bcf3a978",
+    "res://assets/models/metal_gate.glb": "72abef139aebc63ac39c6c19d4e3137df7be53a06fe0d75245c8c48ec730fcac",
+    "res://assets/models/metal_gate_MetalGateAlbedo.png": "33b8d2e1d215d5e74531bafc06881c46e5554c0e16edfc4db51cdefbeb8137c3",
+    "res://assets/models/metal_gate_MetalGateNormal.png": "a9ed16cfb684a90ec1515b8abd9c3db1b600f675e95b0fa7e2a726eb92ebc8e2",
+    "res://assets/models/metal_gate_MetalGateRoughness.png": "72684ae69d266a8b93abb38726b09570917bbda33666d0b0ec958f1e9af0a320",
+    "res://assets/models/puzzle_control_panel.glb": "d7e6b00354d110ea0f06bfc5b0914381c8413c49d7764937b86ef58e7f464cb7",
+    "res://assets/models/puzzle_control_panel_PuzzlePanelAlbedo.png": "83412588dad5ad43eae3806b208e7040227855aa40d8ba6b22d3b3e9096a1598",
+    "res://assets/models/puzzle_control_panel_PuzzlePanelMetalness-PuzzlePanelRoughness.png": "208b2400aa747b0941ef6286961b4aadcd73dc5e0d5ca7a3f405616ded6bfd8c",
+    "res://assets/models/puzzle_control_panel_PuzzlePanelNormal.png": "cbc4a954d551347d0c00140972f6b626643d24295fcbbb11d00aa83343c0cc88",
+    "res://assets/models/the_smeth.glb": "3828c8d4bcd3fa4ad07ab84a4338c285ed3f934b69ca716a5cc0cb17e8099582",
+    "res://assets/models/the_smeth_SmethAlbedo.png": "6f08c84a3d2b6f021f221f896d14e0a1d9098769f3b6bf56509175c43b826c19",
+    "res://assets/models/the_smeth_SmethNormal.png": "840389b59e8aaa36d59fcff5c0c58e61a865912aa2c4c530cc737c4c9be594bb",
+    "res://assets/models/the_smeth_SmethRoughness.png": "0e18222445b45f44de6ceecda1cc5b8da67aeb62a252c8576172779c017dce3c",
+    "res://assets/models/torchWall.gltf.glb": "ecbecf072df20548f4b9c8e1b824bba39dfef6efd2eb9cedfe1ddc4fceff4fd5",
+    "res://assets/power_generator.glb": "c2b32d6d3d1fbc4dfa025d34226ff0bfa7d23a39a9a09de4ffc42f357e0e654c",
+    "res://assets/sfx/SmethBreath.ogg": "7dc3852401a8f3f78e0513b0217203843c398f7890fde9ddcf199572ef62f26e",
+    "res://assets/sfx/horror_drone_smooth_ghostly_wailing.ogg": "2ef204c209f9eb85ebd289c125151ea115ed521ddefd1093fd8ed01d799ccf87"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

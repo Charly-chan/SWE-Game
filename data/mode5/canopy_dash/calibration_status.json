@@ -1,0 +1,15 @@
+{
+  "blockers": [],
+  "game_id": "canopy_dash",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "canopy_dash-c1-opening_ramp_to_1000m",
+    "canopy_dash-c2-middle_ramp_1000m_to_3000m",
+    "canopy_dash-c3-late_ramp_and_finish",
+    "canopy_dash-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:597f509c03f0b06e3e99e9cf59a579aa6409d3763d68be98a219459c4213d2b4"
+}

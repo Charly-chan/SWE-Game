@@ -1,0 +1,126 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "harness_concessions_only",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "d4b8902c44cc413e514b9ad97e68ac589d6b743df8e62f24ec5324ccbc1d74bf"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "toon_shooter/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "c38ff8d4c4f517abe2e0f7598db8988374050d5c0e3093a549aba2c1d1f84fac",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "d4b8902c44cc413e514b9ad97e68ac589d6b743df8e62f24ec5324ccbc1d74bf",
+    "task_id": "toon_shooter"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "analog_axes": [
+      {
+        "id": "look_y",
+        "max": 1.0,
+        "min": -1.0,
+        "steps": 17,
+        "why": "camera pitch is a continuous axis and the keyboard has none; at the rig's resting -8 deg the centre ray meets the floor 11 u out, short of the 13 u and 16 u the ranged roles hold, so those roles are unhittable without it"
+      }
+    ],
+    "extended_actions": [
+      {
+        "id": "turn_left",
+        "why": "keyboard yaw is Q; movement is camera-relative and the six verbs already occupy walk plus dodge plus fire so they cannot also turn to face a rusher"
+      },
+      {
+        "id": "turn_right",
+        "why": "same yaw axis as turn_left, opposite sign on E; six verbs cannot name either heading"
+      },
+      {
+        "id": "vent_heat",
+        "why": "the heat track is a firing-rate limiter with a designed release: a vent inside the 68-88 band zeroes heat, grants overpressure, and every third in the chain refunds 15 reserve rounds. Without it an agent can only wait out the cooling, so it fires strictly slower and finishes a three-arena run short of ammunition; none of the six verbs names it"
+      },
+      {
+        "id": "swap_weapon",
+        "why": "GDD 4.2 gives two weapons and the breacher is the close-range half of the pair (7 pellets x 8 inside 7 u, against a 55 HP rusher). Without a swap an agent plays the whole campaign on the repeater and spends five rounds on what one shell answers; none of the six verbs names it"
+      },
+      {
+        "id": "aim_weapon",
+        "why": "WeaponRig.spread_degrees() halves the cone while this is held, and it is the only way to reach the tighter half of the declared 0.6-4.2 deg spread; at full bloom the 4.2 deg cone stops covering a 0.9 u body past about 6 u, so without it the skirmisher at 13 u and the grenadier at 16 u are shot at rather than hit. gb_action already names fire and none of the six verbs names sights"
+      },
+      {
+        "id": "sprint",
+        "why": "player.gd moves at Tuning.SPRINT_SPEED only while this is held and at WALK_SPEED otherwise; the Command arena's endgame is a timed crossing (nest to the ammunition crate, crate to the stand, stand back to the pad, each between rusher spawns) that a walk does not make, and none of the six verbs names a speed. The certified honest clear holds it on 773 of its 5238 ops"
+      },
+      {
+        "id": "reload_weapon",
+        "why": "player.gd starts a reload on this press; the only other reload is WeaponRig.fire() reading a trigger pull on an empty magazine, which forces every magazine to be run dry inside a fight before it can be refilled. Topping up in a wave gap or behind cover is a choice the six verbs cannot express, and the certified honest clear makes it 52 times"
+      }
+    ],
+    "interface_version": 2,
+    "normalized_sha256": "76b1a0eda47aea4aafb9b8b1a997ca7fcf9ae07dd12e1fba9426dc8df7a15f2c",
+    "source_sha256": "4525573f23afcd5c6f4dd242e7a7fd098f85388f659bce53e9355c4059decfb9"
+  },
+  "passed_route_ids": [
+    "toon_shooter/L0/no_input_no_clear",
+    "toon_shooter/C1/yard_combat_and_extract",
+    "toon_shooter/L5/whole_game_clear"
+  ],
+  "readings": {
+    "toon_shooter/C1/yard_combat_and_extract": {
+      "deaths": 0,
+      "frames": 4413,
+      "injects": 0,
+      "milestones_reached": [
+        "arena_1_combat_proved",
+        "arena_1_extraction_armed"
+      ],
+      "solution_kind": "tape",
+      "steps": 768,
+      "stop_reason": "scene_changed"
+    },
+    "toon_shooter/L0/no_input_no_clear": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "toon_shooter/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 26298,
+      "injects": 0,
+      "milestones_reached": [
+        "arena_1_combat_clear",
+        "arena_2_combat_clear",
+        "campaign_complete"
+      ],
+      "solution_kind": "tape",
+      "steps": 5239,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "c38ff8d4c4f517abe2e0f7598db8988374050d5c0e3093a549aba2c1d1f84fac"
+  },
+  "result": "3/3 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "02a68bbe87acaeb55c8c481ebb4d06713b0b8503517720bde0fbd02fdbab5a8a",
+  "schema_version": 2,
+  "solution_kinds": {
+    "toon_shooter/C1/yard_combat_and_extract": "tape",
+    "toon_shooter/L0/no_input_no_clear": "tape",
+    "toon_shooter/L5/whole_game_clear": "tape"
+  },
+  "task_id": "toon_shooter",
+  "validated_at": "2026-09-12"
+}

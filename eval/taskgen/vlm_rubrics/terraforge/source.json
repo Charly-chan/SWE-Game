@@ -1,0 +1,137 @@
+{
+  "game_id": "terraforge",
+  "provided_assets": {
+    "frames": [
+      {
+        "bundled_path": "media/S008.png",
+        "id": "S008",
+        "label": "kenney_blocky-characters_20-0.png"
+      },
+      {
+        "bundled_path": "media/S049.png",
+        "id": "S049",
+        "label": "kenney_nature-kit-0.png"
+      },
+      {
+        "bundled_path": "media/S057.png",
+        "id": "S057",
+        "label": "kenney_voxel-pack-1.png"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "5_Action_Chiptunes_By_Juhani_Junkala.zip",
+        "kenney_blocky-characters_20.zip",
+        "kenney_digital-audio.zip",
+        "kenney_impact-sounds.zip",
+        "kenney_input-prompts_1.5.zip",
+        "kenney_interface-sounds.zip",
+        "kenney_music-jingles.zip",
+        "kenney_nature-kit.zip",
+        "kenney_particle-pack.zip",
+        "kenney_prototype-textures.zip",
+        "kenney_ui-pack.zip",
+        "kenney_voxel-pack.zip",
+        "reference_media/assets/audio",
+        "reference_media/assets/blocks",
+        "reference_media/assets/fonts",
+        "reference_media/assets/items",
+        "reference_media/assets/models",
+        "reference_media/assets/particles",
+        "reference_media/assets/sky",
+        "reference_media/assets/ui"
+      ],
+      "file_count": 56,
+      "font_files": [
+        "reference_media/assets/fonts/KenneyFuture.ttf",
+        "reference_media/assets/fonts/KenneyFutureNarrow.ttf"
+      ]
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry. Font previews are rendered from actual supplied font files; preview wording is illustrative, not additional task requirements.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 174.334,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R003",
+        "time_s": 2.96667
+      },
+      {
+        "id": "R008",
+        "time_s": 10.3833
+      },
+      {
+        "id": "R015",
+        "time_s": 20.7667
+      },
+      {
+        "id": "R016",
+        "time_s": 22.25
+      },
+      {
+        "id": "R018",
+        "time_s": 25.2167
+      },
+      {
+        "id": "R025",
+        "time_s": 35.6
+      },
+      {
+        "id": "R035",
+        "time_s": 50.4333
+      },
+      {
+        "id": "R042",
+        "time_s": 60.8167
+      },
+      {
+        "id": "R060",
+        "time_s": 87.5167
+      },
+      {
+        "id": "R096",
+        "time_s": 140.917
+      },
+      {
+        "id": "R115",
+        "time_s": 169.1
+      },
+      {
+        "id": "R116",
+        "time_s": 170.583
+      },
+      {
+        "id": "R119",
+        "time_s": 174.317
+      },
+      {
+        "clip": 1,
+        "id": "RD003",
+        "time_s": 35.0668
+      },
+      {
+        "clip": 2,
+        "id": "RD031",
+        "time_s": 88.167
+      },
+      {
+        "clip": 3,
+        "id": "RD041",
+        "time_s": 139.4672
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.6768616563607788,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Terraforge — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nExplore a small voxel world, extract materials, craft through a visible chain, and build the object that completes the run.\n\n## Scope boundary\n\nA bounded first-person voxel crafting objective with gathering, inventory/crafting decisions, hazards or costs, failure/recovery, and a final build.\n\n## Required controls\n\nThis task requires at least 1 declared extended action in `gb_levels.json.extended_actions` (extra InputMap verbs beyond the eight canonical `gb_*` actions, each bound to a real key and read in gameplay code) covering: block placement or crafting as its own verb, distinct from mining on the action button. Choose your own stable ids. Holding every declared extra from frame 0 must not clear the game.\n\n## Creative freedom\n\nYou may choose terrain, recipe chain, resource placement, creature pressure, timing, and visual style.\n"
+}

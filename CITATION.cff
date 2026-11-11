@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this benchmark, cite this repository and the exact evaluator commit and scoring registry."
+type: software
+title: Game Development Benchmark
+version: 1.0.0
+date-released: 2026-10-09
+license: Apache-2.0
+authors:
+  - name: Anonymous benchmark contributors
+abstract: "A benchmark for evaluating coding agents through game construction, completion, repair, and cross-engine porting."

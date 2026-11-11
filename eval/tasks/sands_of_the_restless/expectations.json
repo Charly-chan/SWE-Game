@@ -1,0 +1,115 @@
+{
+  "anchor_composition": {
+    "bearing": "centre",
+    "mass_ratio": 0.957415,
+    "mirror_symmetry": false
+  },
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-31T14:36:37+00:00",
+  "interface_requirements": {
+    "O10": {
+      "fields": [
+        "audio_buses"
+      ],
+      "reason": "reference has an audible live-mixer expectation",
+      "required": true
+    },
+    "O9": {
+      "fields": [
+        "anchor_camera"
+      ],
+      "reason": "reference has registered anchor composition expectations",
+      "required": true
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 1,
+        "gb_door": 1,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 0,
+        "gb_interactive": 2,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_interactive": [
+          "x",
+          2
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://levels/courtyard.tscn",
+      "spawn_goal_distance": 1.0
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 1,
+        "gb_door": 1,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 0,
+        "gb_interactive": 1,
+        "gb_player": 1
+      },
+      "dispersion": {},
+      "goal_transition": null,
+      "scene": "res://levels/interior.tscn",
+      "spawn_goal_distance": 0.90374057852638
+    }
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "sands_of_the_restless",
+  "runtime_assets": {
+    "res://assets/materials-1k/bricks083/ambientocclusion.jpg": "5c0a581222f373800f1e687fafbac70db786d8bd828087c8c93ce04f2f3d0282",
+    "res://assets/materials-1k/bricks083/color.jpg": "32ba95f6968f5b5449f7ed9f4e03ba00f70812510e64f2d70554a277abd22aed",
+    "res://assets/materials-1k/bricks083/normalgl.jpg": "f42bbcfcb8c32b72a5efcff5ae0e20e357659bc3a190e2e6f14a6236bb6cb135",
+    "res://assets/materials-1k/bricks083/roughness.jpg": "0113048494abf5d0542ac657a02dee0a8ccc4fdb14428cf07198940d96cd13ab",
+    "res://assets/materials-1k/ground054/ambientocclusion.jpg": "d235f14867d09dad0a976b6d067369d70c41cc1d5f0603bf3eb8579eea508732",
+    "res://assets/materials-1k/ground054/color.jpg": "93e7bff65cdb939f086cf82dd12c3b0802448f07209370f8451865f5782ae474",
+    "res://assets/materials-1k/ground054/normalgl.jpg": "4696ba8dd63a63d99ccdc07c0599de7465f420011e9d256e8f0f2027749f8da7",
+    "res://assets/materials-1k/ground054/roughness.jpg": "6053228a4d508a25e0d38b7b2ff13455050199e307264a5fd213e69acf4e2c2c",
+    "res://assets/materials-1k/rock023/ambientocclusion.jpg": "c7a024dc69ffc921c95edcf570570be3efaf3f4fe0df678f095caa0f92c66756",
+    "res://assets/materials-1k/rock023/color.jpg": "f0571070e0e3016b11186dd6c284f85493ab2045a8098388458c10afcbc20fdf",
+    "res://assets/materials-1k/rock023/normalgl.jpg": "b3c20037d5f2e81712da36a53c8e940d31caac2c9807a104b2da9a1cb89990eb",
+    "res://assets/materials-1k/rock023/roughness.jpg": "772ab3deceaa9ef8248482ec270bae31a76124ae757f95d7bbe7d1d85c7e7e63",
+    "res://audio/generated/brazier.wav": "6bbf838067b7f5450756d9617b8f1bbf502f38e510a645c2600961d68bccc57a",
+    "res://visuals/materials/generated/doorstone_albedo.png": "a4c741700057b818db4f2cf29b30ad4bd64dee1aebaa2611ddf9a1c1ee4f65a7",
+    "res://visuals/materials/generated/doorstone_normal.png": "8ea8debdfb5e76e7ab961c9857c8122e710bbbec1d9a69349caf5a5a8ee60852",
+    "res://visuals/materials/generated/doorstone_roughness.png": "e043686289e06a32f94ad853ce82fc0fba65aa24b62bbf4d1842edfae1887519",
+    "res://visuals/materials/generated/gold_albedo.png": "a1af1b21c5f0b79fb6d60065c1a3a725cff732be6b348d8cf8055672466e1802",
+    "res://visuals/materials/generated/gold_normal.png": "2288adc4fa2c2827b2a69b37879d1d95199094764475c51602b0f36b82fdfacf",
+    "res://visuals/materials/generated/gold_relief_normal.png": "29ea7884cab61b69dc3f93727742c1f7e2e1f6b8a5c5e2d9f0bdae6942749896",
+    "res://visuals/materials/generated/gold_relief_roughness.png": "91e677102269ee72a3b21de7aac9852df0a667cf5fe4f039fd05fb8aa4207439",
+    "res://visuals/materials/generated/gold_roughness.png": "ff2030d705d58f5a9beeb92679b4f360b805ad091761e2618bf1622900160cc7",
+    "res://visuals/materials/generated/temple_stone_albedo.png": "ac07acad91b096d645833e63b25a3191c221104a1e97bc15c4664c1d8ecb7dc7",
+    "res://visuals/materials/generated/temple_stone_normal.png": "cf226f33f3b0ff5686b75d2987289a28f8df9ce497e32d1a68cb51615f92c583",
+    "res://visuals/materials/generated/temple_stone_roughness.png": "4fe615ee6ad4d8b2b1492974497b173daa7c0786940a7a0b136b6b212882c5e3",
+    "res://visuals/materials/generated/vm_glove_albedo.png": "201c545edfb2148ced15f95b3367f51dfb2f2fabef02864fe1e7664f6cfaf5f0",
+    "res://visuals/materials/generated/vm_glove_normal.png": "7ef9a426048a6c058926278d90a32e01a5e5c957bdfdf076bd840d60147f67d8",
+    "res://visuals/materials/generated/vm_glove_rough.png": "7d3424a0d593181662b7149de87327732967b52febb598d7849b5ea8d7a3de3b",
+    "res://visuals/materials/generated/vm_hand_albedo.png": "6700879b00e9965fe30e934a78544d2c292854ea7bb408d358ba5b4e54eacdc0",
+    "res://visuals/materials/generated/vm_hand_normal.png": "38751caaa0260aa5d957d067e4fb3251ee2dcccccdcf1b567d127ca035a35ce9",
+    "res://visuals/materials/generated/vm_hand_rough.png": "89bf959c5c95a8d9a7e64b94b5f1870530bf32795160be5448dffe207d1f8a33",
+    "res://visuals/materials/generated/vm_metal_albedo.png": "970e2a82d75a825e32514110aa5a8a74710ce9c68051d53d20596849af77ccca",
+    "res://visuals/materials/generated/vm_metal_normal.png": "1e374983cd22a60d9daccdadb74fa2752dfbce50ba861ec8693ee9e82e668435",
+    "res://visuals/materials/generated/vm_metal_rough.png": "361069da27496645ee05cee0621a1285c5bd9799ee21de44202cb12b6f3a43b9",
+    "res://visuals/materials/generated/vm_poly_normal.png": "fee87dfe6de082f837204c8b1057a148ad060508115cbb70c0320a34287e1c1b",
+    "res://visuals/materials/generated/vm_poly_rough.png": "1b66d9e4d30a6448334e9d6ccb29970f838eabd503206bcecfde2928091ca510"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

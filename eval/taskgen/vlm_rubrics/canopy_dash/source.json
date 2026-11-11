@@ -1,0 +1,498 @@
+{
+  "game_id": "canopy_dash",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "reference_media/assets/models/characters/Textures/texture-f.png",
+        "id": "S001",
+        "label": "reference_media/assets/models/characters/Textures/texture-f.png"
+      },
+      {
+        "asset_path": "reference_media/assets/ui/icons/star.png",
+        "id": "S007",
+        "label": "reference_media/assets/ui/icons/star.png"
+      },
+      {
+        "asset_path": "reference_media/assets/ui/panels/button_green.png",
+        "id": "S008",
+        "label": "reference_media/assets/ui/panels/button_green.png"
+      },
+      {
+        "asset_path": "reference_media/assets/ui/panels/button_grey.png",
+        "id": "S012",
+        "label": "reference_media/assets/ui/panels/button_grey.png"
+      },
+      {
+        "bundled_path": "media/S013.png",
+        "id": "S013",
+        "label": "kenney_blocky-characters_20-1.png"
+      },
+      {
+        "asset_path": "reference_media/assets/ui/panels/panel.png",
+        "id": "S014",
+        "label": "reference_media/assets/ui/panels/panel.png"
+      },
+      {
+        "bundled_path": "media/S016.png",
+        "id": "S016",
+        "label": "kenney_blocky-characters_20-3.png"
+      },
+      {
+        "bundled_path": "media/S021.png",
+        "id": "S021",
+        "label": "kenney_nature-kit-0.png"
+      },
+      {
+        "bundled_path": "media/S023.png",
+        "id": "S023",
+        "label": "kenney_platformer-kit-0.png"
+      },
+      {
+        "bundled_path": "media/S024.png",
+        "id": "S024",
+        "label": "kenney_platformer-kit-1.png"
+      },
+      {
+        "bundled_path": "media/S031.png",
+        "id": "S031",
+        "label": "FONT PREVIEW reference_media/assets/ui/fonts/KenneyFuture.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "reference_media/assets/ui/fonts/KenneyFuture.ttf"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "kenney_blocky-characters_20.zip",
+        "kenney_nature-kit.zip",
+        "kenney_platformer-kit.zip",
+        "reference_media/assets/audio",
+        "reference_media/assets/models",
+        "reference_media/assets/particles",
+        "reference_media/assets/sky",
+        "reference_media/assets/ui"
+      ],
+      "file_count": 51,
+      "font_files": [
+        "reference_media/assets/ui/fonts/KenneyFuture.ttf",
+        "reference_media/assets/ui/fonts/KenneyFutureNarrow.ttf"
+      ]
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry. Font previews are rendered from actual supplied font files; preview wording is illustrative, not additional task requirements.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 284.25,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R002",
+        "time_s": 2.41667
+      },
+      {
+        "id": "R003",
+        "time_s": 4.83333
+      },
+      {
+        "id": "R004",
+        "time_s": 7.25
+      },
+      {
+        "id": "R005",
+        "time_s": 9.66667
+      },
+      {
+        "id": "R008",
+        "time_s": 16.9167
+      },
+      {
+        "id": "R010",
+        "time_s": 21.75
+      },
+      {
+        "id": "R011",
+        "time_s": 24.1667
+      },
+      {
+        "id": "R013",
+        "time_s": 29.0
+      },
+      {
+        "id": "R014",
+        "time_s": 31.4167
+      },
+      {
+        "id": "R016",
+        "time_s": 36.25
+      },
+      {
+        "id": "R017",
+        "time_s": 38.6667
+      },
+      {
+        "id": "R018",
+        "time_s": 41.0833
+      },
+      {
+        "id": "R019",
+        "time_s": 43.5
+      },
+      {
+        "id": "R020",
+        "time_s": 45.9167
+      },
+      {
+        "id": "R021",
+        "time_s": 48.3333
+      },
+      {
+        "id": "R022",
+        "time_s": 50.75
+      },
+      {
+        "id": "R023",
+        "time_s": 53.1667
+      },
+      {
+        "id": "R027",
+        "time_s": 62.8333
+      },
+      {
+        "id": "R029",
+        "time_s": 67.6667
+      },
+      {
+        "id": "R030",
+        "time_s": 70.0833
+      },
+      {
+        "id": "R031",
+        "time_s": 72.5
+      },
+      {
+        "id": "R032",
+        "time_s": 74.9167
+      },
+      {
+        "id": "R033",
+        "time_s": 77.3333
+      },
+      {
+        "id": "R039",
+        "time_s": 91.8333
+      },
+      {
+        "id": "R040",
+        "time_s": 94.25
+      },
+      {
+        "id": "R041",
+        "time_s": 96.6667
+      },
+      {
+        "id": "R047",
+        "time_s": 111.167
+      },
+      {
+        "id": "R048",
+        "time_s": 113.583
+      },
+      {
+        "id": "R049",
+        "time_s": 116.0
+      },
+      {
+        "id": "R051",
+        "time_s": 120.833
+      },
+      {
+        "id": "R052",
+        "time_s": 123.25
+      },
+      {
+        "id": "R053",
+        "time_s": 125.667
+      },
+      {
+        "id": "R054",
+        "time_s": 128.083
+      },
+      {
+        "id": "R055",
+        "time_s": 130.5
+      },
+      {
+        "id": "R056",
+        "time_s": 132.917
+      },
+      {
+        "id": "R058",
+        "time_s": 137.75
+      },
+      {
+        "id": "R059",
+        "time_s": 140.167
+      },
+      {
+        "id": "R060",
+        "time_s": 142.583
+      },
+      {
+        "id": "R061",
+        "time_s": 145.0
+      },
+      {
+        "id": "R062",
+        "time_s": 147.417
+      },
+      {
+        "id": "R066",
+        "time_s": 157.083
+      },
+      {
+        "id": "R069",
+        "time_s": 164.333
+      },
+      {
+        "id": "R070",
+        "time_s": 166.75
+      },
+      {
+        "id": "R071",
+        "time_s": 169.167
+      },
+      {
+        "id": "R072",
+        "time_s": 171.583
+      },
+      {
+        "id": "R073",
+        "time_s": 174.0
+      },
+      {
+        "id": "R074",
+        "time_s": 176.417
+      },
+      {
+        "id": "R078",
+        "time_s": 186.083
+      },
+      {
+        "id": "R081",
+        "time_s": 193.333
+      },
+      {
+        "id": "R088",
+        "time_s": 210.25
+      },
+      {
+        "id": "R090",
+        "time_s": 215.083
+      },
+      {
+        "id": "R096",
+        "time_s": 229.583
+      },
+      {
+        "id": "R100",
+        "time_s": 239.25
+      },
+      {
+        "id": "R101",
+        "time_s": 241.667
+      },
+      {
+        "id": "R103",
+        "time_s": 246.5
+      },
+      {
+        "id": "R108",
+        "time_s": 258.583
+      },
+      {
+        "id": "R112",
+        "time_s": 268.25
+      },
+      {
+        "id": "R113",
+        "time_s": 270.667
+      },
+      {
+        "id": "R116",
+        "time_s": 277.917
+      },
+      {
+        "id": "R117",
+        "time_s": 280.333
+      },
+      {
+        "id": "R118",
+        "time_s": 282.75
+      },
+      {
+        "id": "R119",
+        "time_s": 284.233
+      },
+      {
+        "clip": 1,
+        "id": "RD001",
+        "time_s": 56.85
+      },
+      {
+        "clip": 1,
+        "id": "RD002",
+        "time_s": 56.95
+      },
+      {
+        "clip": 1,
+        "id": "RD003",
+        "time_s": 57.05
+      },
+      {
+        "clip": 1,
+        "id": "RD004",
+        "time_s": 57.15
+      },
+      {
+        "clip": 1,
+        "id": "RD005",
+        "time_s": 57.25
+      },
+      {
+        "clip": 1,
+        "id": "RD006",
+        "time_s": 57.35
+      },
+      {
+        "clip": 1,
+        "id": "RD007",
+        "time_s": 57.45
+      },
+      {
+        "clip": 1,
+        "id": "RD009",
+        "time_s": 57.65
+      },
+      {
+        "clip": 1,
+        "id": "RD010",
+        "time_s": 57.75
+      },
+      {
+        "clip": 1,
+        "id": "RD011",
+        "time_s": 57.85
+      },
+      {
+        "clip": 1,
+        "id": "RD012",
+        "time_s": 57.95
+      },
+      {
+        "clip": 1,
+        "id": "RD013",
+        "time_s": 58.05
+      },
+      {
+        "clip": 2,
+        "id": "RD024",
+        "time_s": 142.425
+      },
+      {
+        "clip": 2,
+        "id": "RD025",
+        "time_s": 142.525
+      },
+      {
+        "clip": 2,
+        "id": "RD026",
+        "time_s": 142.625
+      },
+      {
+        "clip": 2,
+        "id": "RD027",
+        "time_s": 142.725
+      },
+      {
+        "clip": 2,
+        "id": "RD028",
+        "time_s": 142.825
+      },
+      {
+        "clip": 2,
+        "id": "RD029",
+        "time_s": 142.925
+      },
+      {
+        "clip": 2,
+        "id": "RD030",
+        "time_s": 143.025
+      },
+      {
+        "clip": 2,
+        "id": "RD031",
+        "time_s": 143.125
+      },
+      {
+        "clip": 2,
+        "id": "RD036",
+        "time_s": 143.625
+      },
+      {
+        "clip": 2,
+        "id": "RD037",
+        "time_s": 143.725
+      },
+      {
+        "clip": 2,
+        "id": "RD038",
+        "time_s": 143.825
+      },
+      {
+        "clip": 2,
+        "id": "RD039",
+        "time_s": 143.925
+      },
+      {
+        "clip": 2,
+        "id": "RD040",
+        "time_s": 144.025
+      },
+      {
+        "clip": 3,
+        "id": "RD046",
+        "time_s": 227.9
+      },
+      {
+        "clip": 3,
+        "id": "RD047",
+        "time_s": 228.0
+      },
+      {
+        "clip": 3,
+        "id": "RD048",
+        "time_s": 228.1
+      },
+      {
+        "clip": 3,
+        "id": "RD055",
+        "time_s": 228.8
+      },
+      {
+        "clip": 3,
+        "id": "RD056",
+        "time_s": 228.9
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.415127528583993,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Canopy Dash — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nRun forward through a narrow 3D canopy route, make rapid lane, jump, slide, or turn decisions, and complete a bounded course.\n\n## Scope boundary\n\nA behind-the-back 3D runner with escalating obstacle reading, collision/failure, recovery or retry, and a finish state.\n\n## Creative freedom\n\nYou may choose track chunks, obstacle grammar, speed curve, route length, and environmental zones.\n"
+}

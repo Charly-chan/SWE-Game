@@ -1,0 +1,17 @@
+{
+  "blockers": [],
+  "game_id": "wizard_chase",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "wizard_chase-c1-room_one_clear",
+    "wizard_chase-c2-room_two_clear",
+    "wizard_chase-c3-room_three_clear",
+    "wizard_chase-c4-room_four_clear",
+    "wizard_chase-c5-room_five_clear",
+    "wizard_chase-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:b66d0bcedc74889c8a7bc2d3c92024631708133dc91835f51214881cfbc66a31"
+}

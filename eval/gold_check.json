@@ -1,0 +1,931 @@
+{
+  "3d_platformer": {
+    "channels": {
+      "O3": {
+        "by_verdict": {
+          "passed": 6.0,
+          "unobservable": 1.0
+        },
+        "coverage": 1.0,
+        "denominator": 6.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "gb_levels.json has no `endings` field in DIAGNOSTIC_INTERFACE_SPEC §L2.5, so whether a win and a loss are distinguishable cannot be read from the declared interface. Observed anyway, as evidence for a future spec revision: 3 endings over 3 distinct scenes (res://scenes/game_complete.tscn, res://scenes/results.tscn, res://scenes/stage_failed.tscn)",
+            "id": "U7/distinct_endings"
+          }
+        ]
+      },
+      "O4": {
+        "by_verdict": {
+          "passed": 2.0
+        },
+        "coverage": 1.0,
+        "denominator": 2.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": []
+      },
+      "O5": {
+        "by_verdict": {
+          "passed": 3.0
+        },
+        "coverage": 1.0,
+        "denominator": 3.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": []
+      }
+    },
+    "declared_actions": 8,
+    "digraph_edges": 3,
+    "endings": 3,
+    "levels_declared": 3,
+    "levels_reached": 3,
+    "live_actions": 4,
+    "no_input_no_win": true,
+    "notes": [
+      "liveness deadline derived from this project's own structural pass: 21.2 ms/frame median, 21.3 ms/frame worst",
+      "liveness sweep: 4 live / 4 dead against the 420-frame idle control truth/L0#idle420"
+    ],
+    "seconds": 0.0,
+    "task_id": "3d_platformer"
+  },
+  "canopy_dash": {
+    "channels": {
+      "O3": {
+        "by_verdict": {
+          "passed": 5.0,
+          "unobservable": 2.0
+        },
+        "coverage": 1.0,
+        "denominator": 5.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "res://scenes/run.tscn declares no gb_goal, so there is no transition to observe",
+            "id": "U4/goal_changes_scene[0]"
+          },
+          {
+            "detail": "gb_levels.json has no `endings` field in DIAGNOSTIC_INTERFACE_SPEC §L2.5, so whether a win and a loss are distinguishable cannot be read from the declared interface. Observed anyway, as evidence for a future spec revision: 2 endings over 1 distinct scenes (res://scenes/results.tscn)",
+            "id": "U7/distinct_endings"
+          }
+        ]
+      },
+      "O4": {
+        "by_verdict": {
+          "passed": 1.0,
+          "unobservable": 1.0
+        },
+        "coverage": 1.0,
+        "denominator": 1.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "no level in the reference led anywhere when its goal was reached, so there is no inter-level graph to reproduce. This is a reading about the reference and belongs in gold triage, not a finding about the submission",
+            "id": "E4/digraph"
+          }
+        ]
+      },
+      "O5": {
+        "by_verdict": {
+          "passed": 1.0,
+          "unobservable": 2.0
+        },
+        "coverage": 1.0,
+        "denominator": 1.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "the reference has fewer than two levels, so there is no ordering between levels to reproduce",
+            "id": "E2/collectible_order"
+          },
+          {
+            "detail": "the reference level has no spawn-to-goal distance to reproduce (no gb_goal, or no gb_player to measure from)",
+            "id": "E3/goal_distance[0]"
+          }
+        ]
+      }
+    },
+    "declared_actions": 8,
+    "digraph_edges": 0,
+    "endings": 1,
+    "levels_declared": 1,
+    "levels_reached": 1,
+    "live_actions": 7,
+    "no_input_no_win": true,
+    "notes": [
+      "liveness deadline derived from this project's own structural pass: 20.5 ms/frame median, 20.5 ms/frame worst",
+      "liveness sweep: 7 live / 1 dead against the 420-frame idle control truth/L0#idle420"
+    ],
+    "seconds": 0.0,
+    "task_id": "canopy_dash"
+  },
+  "city_delivery": {
+    "channels": {
+      "O3": {
+        "by_verdict": {
+          "exempt": 1.0,
+          "passed": 4.0,
+          "unobservable": 2.0
+        },
+        "coverage": 1.0,
+        "denominator": 5.0,
+        "exempt": [
+          {
+            "detail": "genre_inapplicable (city_delivery): Roadside points are reused across orders; loading requires held action plus a stopped vehicle, not overlap (GOLD_TRIAGE #5a). measured: one collect-and-deliver cycle on P01: 2 alive before, 2 after; exactly -1 is required and the group moved by 0",
+            "id": "U3/collect_removes_one[0]",
+            "weight": 0.3333333333333333
+          },
+          {
+            "detail": "genre_inapplicable (city_delivery): Roadside points are reused across orders; loading requires held action plus a stopped vehicle, not overlap (GOLD_TRIAGE #5a). measured: one collect-and-deliver cycle on P01: 3 alive before, 3 after; exactly -1 is required and the group moved by 0",
+            "id": "U3/collect_removes_one[1]",
+            "weight": 0.3333333333333333
+          },
+          {
+            "detail": "genre_inapplicable (city_delivery): Roadside points are reused across orders; loading requires held action plus a stopped vehicle, not overlap (GOLD_TRIAGE #5a). measured: one collect-and-deliver cycle on P01: 4 alive before, 4 after; exactly -1 is required and the group moved by 0",
+            "id": "U3/collect_removes_one[2]",
+            "weight": 0.3333333333333333
+          }
+        ],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 0.8,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "res://levels/stage_1.tscn declares no gb_goal, so there is no transition to observe",
+            "id": "U4/goal_changes_scene[0]"
+          },
+          {
+            "detail": "res://levels/stage_2.tscn declares no gb_goal, so there is no transition to observe",
+            "id": "U4/goal_changes_scene[1]"
+          },
+          {
+            "detail": "res://levels/stage_3.tscn declares no gb_goal, so there is no transition to observe",
+            "id": "U4/goal_changes_scene[2]"
+          },
+          {
+            "detail": "gb_levels.json has no `endings` field in DIAGNOSTIC_INTERFACE_SPEC §L2.5, so whether a win and a loss are distinguishable cannot be read from the declared interface. Observed anyway, as evidence for a future spec revision: 0 endings over 0 distinct scenes (none declared)",
+            "id": "U7/distinct_endings"
+          }
+        ]
+      },
+      "O4": {
+        "by_verdict": {
+          "passed": 1.0,
+          "unobservable": 1.0
+        },
+        "coverage": 1.0,
+        "denominator": 1.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "no level in the reference led anywhere when its goal was reached, so there is no inter-level graph to reproduce. This is a reading about the reference and belongs in gold triage, not a finding about the submission",
+            "id": "E4/digraph"
+          }
+        ]
+      },
+      "O5": {
+        "by_verdict": {
+          "passed": 2.0,
+          "unobservable": 1.0
+        },
+        "coverage": 1.0,
+        "denominator": 2.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "the reference level has no spawn-to-goal distance to reproduce (no gb_goal, or no gb_player to measure from)",
+            "id": "E3/goal_distance[0]"
+          },
+          {
+            "detail": "the reference level has no spawn-to-goal distance to reproduce (no gb_goal, or no gb_player to measure from)",
+            "id": "E3/goal_distance[1]"
+          },
+          {
+            "detail": "the reference level has no spawn-to-goal distance to reproduce (no gb_goal, or no gb_player to measure from)",
+            "id": "E3/goal_distance[2]"
+          }
+        ]
+      }
+    },
+    "declared_actions": 8,
+    "digraph_edges": 0,
+    "endings": 0,
+    "levels_declared": 3,
+    "levels_reached": 3,
+    "live_actions": 4,
+    "no_input_no_win": true,
+    "notes": [
+      "liveness deadline derived from this project's own structural pass: 28.6 ms/frame median, 31.0 ms/frame worst",
+      "liveness sweep: 4 live / 4 dead against the 420-frame idle control truth/L0#idle420"
+    ],
+    "seconds": 0.0,
+    "task_id": "city_delivery"
+  },
+  "citycab_rush": {
+    "channels": {
+      "O3": {
+        "by_verdict": {
+          "exempt": 1.0,
+          "passed": 4.0,
+          "unobservable": 2.0
+        },
+        "coverage": 1.0,
+        "denominator": 5.0,
+        "exempt": [
+          {
+            "detail": "genre_inapplicable (citycab_rush): The same trigger relocates between pickup and drop-off and never leaves the group (GOLD_TRIAGE #5a). measured: one collect-and-deliver cycle on Trigger: 1 alive before, 1 after; exactly -1 is required and the group moved by 0",
+            "id": "U3/collect_removes_one[0]",
+            "weight": 0.3333333333333333
+          },
+          {
+            "detail": "genre_inapplicable (citycab_rush): The same trigger relocates between pickup and drop-off and never leaves the group (GOLD_TRIAGE #5a). measured: one collect-and-deliver cycle on Trigger: 1 alive before, 1 after; exactly -1 is required and the group moved by 0",
+            "id": "U3/collect_removes_one[1]",
+            "weight": 0.3333333333333333
+          },
+          {
+            "detail": "genre_inapplicable (citycab_rush): The same trigger relocates between pickup and drop-off and never leaves the group (GOLD_TRIAGE #5a). measured: one collect-and-deliver cycle on Trigger: 1 alive before, 1 after; exactly -1 is required and the group moved by 0",
+            "id": "U3/collect_removes_one[2]",
+            "weight": 0.3333333333333333
+          }
+        ],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 0.8,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "res://levels/level_1.tscn declares no gb_goal, so there is no transition to observe",
+            "id": "U4/goal_changes_scene[0]"
+          },
+          {
+            "detail": "res://levels/level_2.tscn declares no gb_goal, so there is no transition to observe",
+            "id": "U4/goal_changes_scene[1]"
+          },
+          {
+            "detail": "res://levels/level_3.tscn declares no gb_goal, so there is no transition to observe",
+            "id": "U4/goal_changes_scene[2]"
+          },
+          {
+            "detail": "gb_levels.json has no `endings` field in DIAGNOSTIC_INTERFACE_SPEC §L2.5, so whether a win and a loss are distinguishable cannot be read from the declared interface. Observed anyway, as evidence for a future spec revision: 2 endings over 2 distinct scenes (res://scenes/level_complete.tscn, res://scenes/level_failed.tscn)",
+            "id": "U7/distinct_endings"
+          }
+        ]
+      },
+      "O4": {
+        "by_verdict": {
+          "passed": 1.0,
+          "unobservable": 1.0
+        },
+        "coverage": 1.0,
+        "denominator": 1.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "no level in the reference led anywhere when its goal was reached, so there is no inter-level graph to reproduce. This is a reading about the reference and belongs in gold triage, not a finding about the submission",
+            "id": "E4/digraph"
+          }
+        ]
+      },
+      "O5": {
+        "by_verdict": {
+          "passed": 2.0,
+          "unobservable": 1.0
+        },
+        "coverage": 1.0,
+        "denominator": 2.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "the reference level has no spawn-to-goal distance to reproduce (no gb_goal, or no gb_player to measure from)",
+            "id": "E3/goal_distance[0]"
+          },
+          {
+            "detail": "the reference level has no spawn-to-goal distance to reproduce (no gb_goal, or no gb_player to measure from)",
+            "id": "E3/goal_distance[1]"
+          },
+          {
+            "detail": "the reference level has no spawn-to-goal distance to reproduce (no gb_goal, or no gb_player to measure from)",
+            "id": "E3/goal_distance[2]"
+          }
+        ]
+      }
+    },
+    "declared_actions": 8,
+    "digraph_edges": 0,
+    "endings": 2,
+    "levels_declared": 3,
+    "levels_reached": 3,
+    "live_actions": 4,
+    "no_input_no_win": true,
+    "notes": [
+      "liveness deadline derived from this project's own structural pass: 30.2 ms/frame median, 31.0 ms/frame worst",
+      "liveness sweep: 4 live / 4 dead against the 420-frame idle control truth/L0#idle420"
+    ],
+    "seconds": 0.0,
+    "task_id": "citycab_rush"
+  },
+  "cyber_survival": {
+    "channels": {
+      "O3": {
+        "by_verdict": {
+          "exempt": 1.0,
+          "passed": 5.0,
+          "unobservable": 1.0
+        },
+        "coverage": 1.0,
+        "denominator": 6.0,
+        "exempt": [
+          {
+            "detail": "genre_inapplicable (cyber_survival): The extraction pad stays disarmed until the sector terminal is secured; standing on gb_goal is insufficient (GOLD_TRIAGE #4). measured: 5 collect-and-deliver cycles then 120 frames on ExtractionPad, and the scene path never changed",
+            "id": "U4/goal_changes_scene[0]",
+            "weight": 0.3333333333333333
+          },
+          {
+            "detail": "genre_inapplicable (cyber_survival): The extraction pad stays disarmed until the sector terminal is secured; standing on gb_goal is insufficient (GOLD_TRIAGE #4). measured: 6 collect-and-deliver cycles then 120 frames on ExtractionPad, and the scene path never changed",
+            "id": "U4/goal_changes_scene[1]",
+            "weight": 0.3333333333333333
+          },
+          {
+            "detail": "genre_inapplicable (cyber_survival): The extraction pad stays disarmed until the sector terminal is secured; standing on gb_goal is insufficient (GOLD_TRIAGE #4). measured: 7 collect-and-deliver cycles then 120 frames on ExtractionPad, and the scene path never changed",
+            "id": "U4/goal_changes_scene[2]",
+            "weight": 0.3333333333333333
+          }
+        ],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 0.8333,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "gb_levels.json has no `endings` field in DIAGNOSTIC_INTERFACE_SPEC §L2.5, so whether a win and a loss are distinguishable cannot be read from the declared interface. Observed anyway, as evidence for a future spec revision: 0 endings over 0 distinct scenes (none declared)",
+            "id": "U7/distinct_endings"
+          }
+        ]
+      },
+      "O4": {
+        "by_verdict": {
+          "passed": 1.0,
+          "unobservable": 1.0
+        },
+        "coverage": 1.0,
+        "denominator": 1.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "no level in the reference led anywhere when its goal was reached, so there is no inter-level graph to reproduce. This is a reading about the reference and belongs in gold triage, not a finding about the submission",
+            "id": "E4/digraph"
+          }
+        ]
+      },
+      "O5": {
+        "by_verdict": {
+          "passed": 3.0
+        },
+        "coverage": 1.0,
+        "denominator": 3.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": []
+      }
+    },
+    "declared_actions": 8,
+    "digraph_edges": 0,
+    "endings": 0,
+    "levels_declared": 3,
+    "levels_reached": 3,
+    "live_actions": 8,
+    "no_input_no_win": true,
+    "notes": [
+      "liveness deadline derived from this project's own structural pass: 21.4 ms/frame median, 21.8 ms/frame worst",
+      "liveness sweep: 8 live / 0 dead against the 420-frame idle control truth/L0#idle420"
+    ],
+    "seconds": 0.0,
+    "task_id": "cyber_survival"
+  },
+  "deepgrid": {
+    "channels": {
+      "O3": {
+        "by_verdict": {
+          "exempt": 2.0,
+          "passed": 4.0,
+          "unobservable": 1.0
+        },
+        "coverage": 1.0,
+        "denominator": 6.0,
+        "exempt": [
+          {
+            "detail": "genre_inapplicable (deepgrid): Pickups live on the grid model; overlapping the Node3D does not collect them (GOLD_TRIAGE #5a). measured: one collect-and-deliver cycle on PickupRepair: 10 alive before, 10 after; exactly -1 is required and the group moved by 0",
+            "id": "U3/collect_removes_one[0]",
+            "weight": 0.16666666666666666
+          },
+          {
+            "detail": "genre_inapplicable (deepgrid): Pickups live on the grid model; overlapping the Node3D does not collect them (GOLD_TRIAGE #5a). measured: one collect-and-deliver cycle on PickupCells: 10 alive before, 10 after; exactly -1 is required and the group moved by 0",
+            "id": "U3/collect_removes_one[1]",
+            "weight": 0.16666666666666666
+          },
+          {
+            "detail": "genre_inapplicable (deepgrid): Pickups live on the grid model; overlapping the Node3D does not collect them (GOLD_TRIAGE #5a). measured: one collect-and-deliver cycle on PickupDataCore: 8 alive before, 8 after; exactly -1 is required and the group moved by 0",
+            "id": "U3/collect_removes_one[2]",
+            "weight": 0.16666666666666666
+          },
+          {
+            "detail": "genre_inapplicable (deepgrid): Pickups live on the grid model; overlapping the Node3D does not collect them (GOLD_TRIAGE #5a). measured: one collect-and-deliver cycle on PickupRepair: 6 alive before, 6 after; exactly -1 is required and the group moved by 0",
+            "id": "U3/collect_removes_one[3]",
+            "weight": 0.16666666666666666
+          },
+          {
+            "detail": "genre_inapplicable (deepgrid): Pickups live on the grid model; overlapping the Node3D does not collect them (GOLD_TRIAGE #5a). measured: one collect-and-deliver cycle on PickupWeapon: 10 alive before, 10 after; exactly -1 is required and the group moved by 0",
+            "id": "U3/collect_removes_one[4]",
+            "weight": 0.16666666666666666
+          },
+          {
+            "detail": "genre_inapplicable (deepgrid): Pickups live on the grid model; overlapping the Node3D does not collect them (GOLD_TRIAGE #5a). measured: one collect-and-deliver cycle on PickupCells: 9 alive before, 9 after; exactly -1 is required and the group moved by 0",
+            "id": "U3/collect_removes_one[5]",
+            "weight": 0.16666666666666666
+          },
+          {
+            "detail": "genre_inapplicable (deepgrid): The exit switch fires only when the grid player faces the tile and uses it; Node teleport is overwritten every frame (GOLD_TRIAGE #4). measured: 10 collect-and-deliver cycles then 120 frames on ExitSwitch, and the scene path never changed",
+            "id": "U4/goal_changes_scene[0]",
+            "weight": 0.16666666666666666
+          },
+          {
+            "detail": "genre_inapplicable (deepgrid): The exit switch fires only when the grid player faces the tile and uses it; Node teleport is overwritten every frame (GOLD_TRIAGE #4). measured: 10 collect-and-deliver cycles then 120 frames on ExitSwitch, and the scene path never changed",
+            "id": "U4/goal_changes_scene[1]",
+            "weight": 0.16666666666666666
+          },
+          {
+            "detail": "genre_inapplicable (deepgrid): The exit switch fires only when the grid player faces the tile and uses it; Node teleport is overwritten every frame (GOLD_TRIAGE #4). measured: 8 collect-and-deliver cycles then 120 frames on ExitSwitch, and the scene path never changed",
+            "id": "U4/goal_changes_scene[2]",
+            "weight": 0.16666666666666666
+          },
+          {
+            "detail": "genre_inapplicable (deepgrid): The exit switch fires only when the grid player faces the tile and uses it; Node teleport is overwritten every frame (GOLD_TRIAGE #4). measured: 6 collect-and-deliver cycles then 120 frames on ExitSwitch, and the scene path never changed",
+            "id": "U4/goal_changes_scene[3]",
+            "weight": 0.16666666666666666
+          },
+          {
+            "detail": "genre_inapplicable (deepgrid): The exit switch fires only when the grid player faces the tile and uses it; Node teleport is overwritten every frame (GOLD_TRIAGE #4). measured: 10 collect-and-deliver cycles then 120 frames on ExitSwitch, and the scene path never changed",
+            "id": "U4/goal_changes_scene[4]",
+            "weight": 0.16666666666666666
+          },
+          {
+            "detail": "genre_inapplicable (deepgrid): The exit switch fires only when the grid player faces the tile and uses it; Node teleport is overwritten every frame (GOLD_TRIAGE #4). measured: 9 collect-and-deliver cycles then 120 frames on ExitSwitch, and the scene path never changed",
+            "id": "U4/goal_changes_scene[5]",
+            "weight": 0.16666666666666666
+          }
+        ],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 0.6667,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "gb_levels.json has no `endings` field in DIAGNOSTIC_INTERFACE_SPEC §L2.5, so whether a win and a loss are distinguishable cannot be read from the declared interface. Observed anyway, as evidence for a future spec revision: 0 endings over 0 distinct scenes (none declared)",
+            "id": "U7/distinct_endings"
+          }
+        ]
+      },
+      "O4": {
+        "by_verdict": {
+          "passed": 1.0,
+          "unobservable": 1.0
+        },
+        "coverage": 1.0,
+        "denominator": 1.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "no level in the reference led anywhere when its goal was reached, so there is no inter-level graph to reproduce. This is a reading about the reference and belongs in gold triage, not a finding about the submission",
+            "id": "E4/digraph"
+          }
+        ]
+      },
+      "O5": {
+        "by_verdict": {
+          "passed": 3.0
+        },
+        "coverage": 1.0,
+        "denominator": 3.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": []
+      }
+    },
+    "declared_actions": 8,
+    "digraph_edges": 0,
+    "endings": 0,
+    "levels_declared": 6,
+    "levels_reached": 6,
+    "live_actions": 7,
+    "no_input_no_win": true,
+    "notes": [
+      "liveness deadline derived from this project's own structural pass: 21.1 ms/frame median, 22.5 ms/frame worst",
+      "liveness sweep: 7 live / 1 dead against the 420-frame idle control truth/L0#idle420"
+    ],
+    "seconds": 0.0,
+    "task_id": "deepgrid"
+  },
+  "racing": {
+    "channels": {
+      "O3": {
+        "by_verdict": {
+          "exempt": 1.0,
+          "passed": 4.0,
+          "unobservable": 2.0
+        },
+        "coverage": 1.0,
+        "denominator": 5.0,
+        "exempt": [
+          {
+            "detail": "genre_inapplicable (racing): gb_goal is the finish line; LapTimer ignores it until ordered checkpoints and required laps are complete (GOLD_TRIAGE #3). measured: 0 collect-and-deliver cycles then 120 frames on CP7, and the scene path never changed",
+            "id": "U4/goal_changes_scene[0]",
+            "weight": 0.5
+          },
+          {
+            "detail": "genre_inapplicable (racing): gb_goal is the finish line; LapTimer ignores it until ordered checkpoints and required laps are complete (GOLD_TRIAGE #3). measured: 0 collect-and-deliver cycles then 120 frames on CP7, and the scene path never changed",
+            "id": "U4/goal_changes_scene[1]",
+            "weight": 0.5
+          }
+        ],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 0.8,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "res://scenes/levels/level_lakeside.tscn declares no gb_collectible, so there is no pickup to observe. Recorded rather than dropped: the level stays in the denominator as something this game does not do",
+            "id": "U3/collect_removes_one[0]"
+          },
+          {
+            "detail": "res://scenes/levels/level_ravine.tscn declares no gb_collectible, so there is no pickup to observe. Recorded rather than dropped: the level stays in the denominator as something this game does not do",
+            "id": "U3/collect_removes_one[1]"
+          },
+          {
+            "detail": "gb_levels.json has no `endings` field in DIAGNOSTIC_INTERFACE_SPEC §L2.5, so whether a win and a loss are distinguishable cannot be read from the declared interface. Observed anyway, as evidence for a future spec revision: 0 endings over 0 distinct scenes (none declared)",
+            "id": "U7/distinct_endings"
+          }
+        ]
+      },
+      "O4": {
+        "by_verdict": {
+          "passed": 1.0,
+          "unobservable": 1.0
+        },
+        "coverage": 1.0,
+        "denominator": 1.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "no level in the reference led anywhere when its goal was reached, so there is no inter-level graph to reproduce. This is a reading about the reference and belongs in gold triage, not a finding about the submission",
+            "id": "E4/digraph"
+          }
+        ]
+      },
+      "O5": {
+        "by_verdict": {
+          "passed": 3.0
+        },
+        "coverage": 1.0,
+        "denominator": 3.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": []
+      }
+    },
+    "declared_actions": 8,
+    "digraph_edges": 0,
+    "endings": 0,
+    "levels_declared": 2,
+    "levels_reached": 2,
+    "live_actions": 8,
+    "no_input_no_win": true,
+    "notes": [
+      "liveness deadline derived from this project's own structural pass: 24.8 ms/frame median, 24.8 ms/frame worst",
+      "liveness sweep: 8 live / 0 dead against the 420-frame idle control truth/L0#idle420"
+    ],
+    "seconds": 0.0,
+    "task_id": "racing"
+  },
+  "terraforge": {
+    "channels": {
+      "O3": {
+        "by_verdict": {
+          "passed": 4.0,
+          "unobservable": 3.0
+        },
+        "coverage": 1.0,
+        "denominator": 4.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "res://world/world.tscn declares no gb_collectible, so there is no pickup to observe. Recorded rather than dropped: the level stays in the denominator as something this game does not do",
+            "id": "U3/collect_removes_one[0]"
+          },
+          {
+            "detail": "res://world/world.tscn declares no gb_goal, so there is no transition to observe",
+            "id": "U4/goal_changes_scene[0]"
+          },
+          {
+            "detail": "gb_levels.json has no `endings` field in DIAGNOSTIC_INTERFACE_SPEC §L2.5, so whether a win and a loss are distinguishable cannot be read from the declared interface. Observed anyway, as evidence for a future spec revision: 2 endings over 1 distinct scenes (res://ui/results_screen.tscn)",
+            "id": "U7/distinct_endings"
+          }
+        ]
+      },
+      "O4": {
+        "by_verdict": {
+          "passed": 1.0,
+          "unobservable": 1.0
+        },
+        "coverage": 1.0,
+        "denominator": 1.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "no level in the reference led anywhere when its goal was reached, so there is no inter-level graph to reproduce. This is a reading about the reference and belongs in gold triage, not a finding about the submission",
+            "id": "E4/digraph"
+          }
+        ]
+      },
+      "O5": {
+        "by_verdict": {
+          "unobservable": 3.0
+        },
+        "ceiling_fraction": 0.0,
+        "coverage": 0.0,
+        "denominator": 0.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 0.0,
+        "lo": 0.0,
+        "not_measured": true,
+        "note": "O5 unreachable for task terraforge; TASK_CHANNEL_OVERRIDES sets ceiling fraction 0 (overrides={'O5': 0.0})",
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "the reference has fewer than two levels, so there is no ordering between levels to reproduce",
+            "id": "E2/collectible_order"
+          },
+          {
+            "detail": "the reference level has no spawn-to-goal distance to reproduce (no gb_goal, or no gb_player to measure from)",
+            "id": "E3/goal_distance[0]"
+          },
+          {
+            "detail": "the reference declares no multi-band entity groups, so there is no layout spread to reproduce",
+            "id": "E5/dispersion"
+          }
+        ]
+      }
+    },
+    "declared_actions": 8,
+    "digraph_edges": 0,
+    "endings": 1,
+    "levels_declared": 1,
+    "levels_reached": 1,
+    "live_actions": 8,
+    "no_input_no_win": true,
+    "notes": [
+      "liveness deadline derived from this project's own structural pass: 97.0 ms/frame median, 97.0 ms/frame worst",
+      "liveness sweep: 8 live / 0 dead against the 420-frame idle control truth/L0#idle420"
+    ],
+    "seconds": 0.0,
+    "task_id": "terraforge"
+  },
+  "toon_shooter": {
+    "channels": {
+      "O3": {
+        "by_verdict": {
+          "exempt": 1.0,
+          "passed": 6.0
+        },
+        "coverage": 1.0,
+        "denominator": 7.0,
+        "exempt": [
+          {
+            "detail": "genre_inapplicable (toon_shooter): The pad requires a cleared wave and a sustained hold; the observed scene change was a failure, not a win (GOLD_TRIAGE #4). measured: 4 collect-and-deliver cycles then 120 frames on Pad, and the scene path never changed",
+            "id": "U4/goal_changes_scene[0]",
+            "weight": 0.3333333333333333
+          },
+          {
+            "detail": "genre_inapplicable (toon_shooter): The pad requires a cleared wave and a sustained hold; the observed scene change was a failure, not a win (GOLD_TRIAGE #4). measured: 5 collect-and-deliver cycles then 120 frames on Pad, and the scene path never changed",
+            "id": "U4/goal_changes_scene[1]",
+            "weight": 0.3333333333333333
+          },
+          {
+            "detail": "genre_inapplicable (toon_shooter): The pad requires a cleared wave and a sustained hold; the observed scene change was a failure, not a win (GOLD_TRIAGE #4). measured: 5 collect-and-deliver cycles then 120 frames on Pad, and the scene path never changed",
+            "id": "U4/goal_changes_scene[2]",
+            "weight": 0.3333333333333333
+          }
+        ],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 0.8571,
+        "skipped": [],
+        "unobservable": []
+      },
+      "O4": {
+        "by_verdict": {
+          "passed": 1.0,
+          "unobservable": 1.0
+        },
+        "coverage": 1.0,
+        "denominator": 1.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "no level in the reference led anywhere when its goal was reached, so there is no inter-level graph to reproduce. This is a reading about the reference and belongs in gold triage, not a finding about the submission",
+            "id": "E4/digraph"
+          }
+        ]
+      },
+      "O5": {
+        "by_verdict": {
+          "passed": 3.0
+        },
+        "coverage": 1.0,
+        "denominator": 3.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": []
+      }
+    },
+    "declared_actions": 8,
+    "digraph_edges": 0,
+    "endings": 2,
+    "levels_declared": 3,
+    "levels_reached": 3,
+    "live_actions": 6,
+    "no_input_no_win": true,
+    "notes": [
+      "liveness deadline derived from this project's own structural pass: 19.3 ms/frame median, 19.5 ms/frame worst",
+      "liveness sweep: 6 live / 0 dead against the 420-frame idle control truth/L0#idle420"
+    ],
+    "seconds": 61.9,
+    "task_id": "toon_shooter"
+  },
+  "twin_holds": {
+    "channels": {
+      "O3": {
+        "by_verdict": {
+          "exempt": 1.0,
+          "passed": 4.0,
+          "unobservable": 2.0
+        },
+        "coverage": 1.0,
+        "denominator": 5.0,
+        "exempt": [
+          {
+            "detail": "genre_inapplicable (twin_holds): gb_goal marks the rival castle hex; the level ends on capture, not overlap (GOLD_TRIAGE #4). measured: 0 collect-and-deliver cycles then 120 frames on Objective, and the scene path never changed",
+            "id": "U4/goal_changes_scene[0]",
+            "weight": 1.0
+          }
+        ],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 0.8,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "res://scenes/level.tscn declares no gb_collectible, so there is no pickup to observe. Recorded rather than dropped: the level stays in the denominator as something this game does not do",
+            "id": "U3/collect_removes_one[0]"
+          },
+          {
+            "detail": "gb_levels.json has no `endings` field in DIAGNOSTIC_INTERFACE_SPEC §L2.5, so whether a win and a loss are distinguishable cannot be read from the declared interface. Observed anyway, as evidence for a future spec revision: 2 endings over 2 distinct scenes (res://scenes/results.tscn, res://scenes/stage_failed.tscn)",
+            "id": "U7/distinct_endings"
+          }
+        ]
+      },
+      "O4": {
+        "by_verdict": {
+          "passed": 1.0,
+          "unobservable": 1.0
+        },
+        "coverage": 1.0,
+        "denominator": 1.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "no level in the reference led anywhere when its goal was reached, so there is no inter-level graph to reproduce. This is a reading about the reference and belongs in gold triage, not a finding about the submission",
+            "id": "E4/digraph"
+          }
+        ]
+      },
+      "O5": {
+        "by_verdict": {
+          "passed": 1.0,
+          "unobservable": 2.0
+        },
+        "coverage": 1.0,
+        "denominator": 1.0,
+        "exempt": [],
+        "failed": [],
+        "hi": 1.0,
+        "lo": 1.0,
+        "skipped": [],
+        "unobservable": [
+          {
+            "detail": "the reference has fewer than two levels, so there is no ordering between levels to reproduce",
+            "id": "E2/collectible_order"
+          },
+          {
+            "detail": "the reference declares no multi-band entity groups, so there is no layout spread to reproduce",
+            "id": "E5/dispersion"
+          }
+        ]
+      }
+    },
+    "declared_actions": 8,
+    "digraph_edges": 0,
+    "endings": 2,
+    "levels_declared": 1,
+    "levels_reached": 1,
+    "live_actions": 6,
+    "no_input_no_win": true,
+    "notes": [
+      "liveness deadline derived from this project's own structural pass: 25.5 ms/frame median, 25.5 ms/frame worst",
+      "liveness sweep: 6 live / 2 dead against the 420-frame idle control truth/L0#idle420"
+    ],
+    "seconds": 0.0,
+    "task_id": "twin_holds"
+  }
+}

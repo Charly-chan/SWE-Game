@@ -1,0 +1,165 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-27T17:43:39+00:00",
+  "interface_requirements": {},
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 1,
+        "gb_collectible": 0,
+        "gb_door": 1,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 3,
+        "gb_interactive": 3,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_hazard": [
+          "y",
+          3
+        ],
+        "gb_interactive": [
+          "y",
+          3
+        ]
+      },
+      "goal_transition": "res://world/level_02.tscn",
+      "scene": "res://world/level_01.tscn",
+      "spawn_goal_distance": 1.0096605340532367
+    },
+    {
+      "census": {
+        "gb_checkpoint": 2,
+        "gb_collectible": 0,
+        "gb_door": 1,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 4,
+        "gb_interactive": 6,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "y",
+          2
+        ],
+        "gb_hazard": [
+          "y",
+          3
+        ],
+        "gb_interactive": [
+          "y",
+          3
+        ]
+      },
+      "goal_transition": "res://world/level_03.tscn",
+      "scene": "res://world/level_02.tscn",
+      "spawn_goal_distance": 0.9849018621036739
+    },
+    {
+      "census": {
+        "gb_checkpoint": 3,
+        "gb_collectible": 0,
+        "gb_door": 1,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 5,
+        "gb_interactive": 6,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "y",
+          3
+        ],
+        "gb_hazard": [
+          "y",
+          3
+        ],
+        "gb_interactive": [
+          "y",
+          3
+        ]
+      },
+      "goal_transition": "res://ui/result_victory.tscn",
+      "scene": "res://world/level_03.tscn",
+      "spawn_goal_distance": 1.0805380799272255
+    }
+  ],
+  "probe_sha256": "fe750d48224bfe79a915c4057b270adbbcdbc421e5b99f56213c3b2b7f746edd",
+  "project": "cat_defense",
+  "runtime_assets": {
+    "res://assets/audio/music/theme_lost_village.ogg": "e85e87a96248600cdffe27357d514e8c713ee2f27d490923d6a53016842843c2",
+    "res://assets/audio/sfx/ui_open.ogg": "a27c6bb0df7da1e6af5dd5937593c98bc58b6e513f42fe6a3254cd6a6949c648",
+    "res://assets/craftpix/backgrounds/area_01.png": "fdcb123e4ce0ad0b175c8039e0c5599ee4958ca31b6bf95d224cbb666bf618ed",
+    "res://assets/craftpix/cat/c1/Idle/Character1-Idle_00.png": "48d1b2740169cdb26c96bf37f01eb136f2088e452881673e0ff60adedcae7ea1",
+    "res://assets/craftpix/cat/c1/Idle/Character1-Idle_01.png": "bfbf8f672dfae153a17dcbdc45b7359c6324b85771d3dc050d320b6efcd46517",
+    "res://assets/craftpix/cat/c1/Idle/Character1-Idle_02.png": "5907a5e34ee6789cbfdadb9a88c3009e0281308111a08f9c3412bd26e6876398",
+    "res://assets/craftpix/cat/c1/Idle/Character1-Idle_03.png": "7076fc84f4a9d71b88df8fd25ee62bbc30f6b698b6c6c6ab1c3be9aebb84908e",
+    "res://assets/craftpix/cat/c1/Idle/Character1-Idle_04.png": "2e1365bc03c4ff92931de8d6aab5d91cdaf8d72cd6f82b47007d42f3e8b3a5d1",
+    "res://assets/craftpix/cat/c1/Idle/Character1-Idle_05.png": "814bda9a322c0cfa6ef60b019ea8630864cfa280d29d2a040ac70d1c1d92b6c8",
+    "res://assets/craftpix/cat/c1/Idle/Character1-Idle_06.png": "827e38fe1c6ccb4a7d1a9537e37e5cdca7e4a7c2faaeef7584d4c9fd18b561fc",
+    "res://assets/craftpix/cat/c1/Idle/Character1-Idle_07.png": "b1a93960fa35b5da3a1126c2b60cef461375d2946d27b82554b3c315f8ffc5a6",
+    "res://assets/craftpix/cat/c1/Idle/Character1-Idle_08.png": "3154c93007d1b5c2446655a4e5884d38aa14a35c67448a1cf34ea7c73995a533",
+    "res://assets/craftpix/cat/c1/Idle/Character1-Idle_09.png": "beee156ee0f8f363adc8effe84c833eec4927c89941153b050e57ebd526947ad",
+    "res://assets/craftpix/cat/c1/Idle/Character1-Idle_10.png": "aa96b79761d7ae6032a1d98aefed4db3ba640f40a7b2a1d06e67d51aacd65a0d",
+    "res://assets/craftpix/cat/c1/Idle/Character1-Idle_11.png": "beee156ee0f8f363adc8effe84c833eec4927c89941153b050e57ebd526947ad",
+    "res://assets/craftpix/cat/c1/Idle/Character1-Idle_12.png": "3154c93007d1b5c2446655a4e5884d38aa14a35c67448a1cf34ea7c73995a533",
+    "res://assets/craftpix/cat/c1/Idle/Character1-Idle_13.png": "b1a93960fa35b5da3a1126c2b60cef461375d2946d27b82554b3c315f8ffc5a6",
+    "res://assets/craftpix/cat/c1/Idle/Character1-Idle_14.png": "827e38fe1c6ccb4a7d1a9537e37e5cdca7e4a7c2faaeef7584d4c9fd18b561fc",
+    "res://assets/craftpix/cat/c1/Idle/Character1-Idle_15.png": "814bda9a322c0cfa6ef60b019ea8630864cfa280d29d2a040ac70d1c1d92b6c8",
+    "res://assets/craftpix/cat/c1/Idle/Character1-Idle_16.png": "2e1365bc03c4ff92931de8d6aab5d91cdaf8d72cd6f82b47007d42f3e8b3a5d1",
+    "res://assets/craftpix/cat/c1/Idle/Character1-Idle_17.png": "7076fc84f4a9d71b88df8fd25ee62bbc30f6b698b6c6c6ab1c3be9aebb84908e",
+    "res://assets/craftpix/cat/c1/Idle/Character1-Idle_18.png": "5907a5e34ee6789cbfdadb9a88c3009e0281308111a08f9c3412bd26e6876398",
+    "res://assets/craftpix/cat/c1/Idle/Character1-Idle_19.png": "bfbf8f672dfae153a17dcbdc45b7359c6324b85771d3dc050d320b6efcd46517",
+    "res://assets/craftpix/cat/c1/Shoot/Character1-Shoot_00.png": "48d1b2740169cdb26c96bf37f01eb136f2088e452881673e0ff60adedcae7ea1",
+    "res://assets/craftpix/cat/c1/Shoot/Character1-Shoot_01.png": "1fb6b69d0b97841a3a464b49621ea377dd942769ff77754eb3c81d213e0a0f74",
+    "res://assets/craftpix/cat/c1/Shoot/Character1-Shoot_02.png": "2f7a63222aa4be88cda4a4166a60bae575be817f017c30c00cb64e842b2352ef",
+    "res://assets/craftpix/cat/c1/Shoot/Character1-Shoot_03.png": "1b4010e63e19b3f248c46e42ae6e75ff53a0b8ed9e30f960afd1e340eb4be131",
+    "res://assets/craftpix/cat/c1/Shoot/Character1-Shoot_04.png": "b65d6804e096ab03b436191036d4fb707f664863f0c2aeeaeed74df12ef868aa",
+    "res://assets/craftpix/cat/c1/Shoot/Character1-Shoot_05.png": "906e60c1005e258169024d87d141a279407a58fc268ba3a775b876135a588066",
+    "res://assets/craftpix/cat/c1/Shoot/Character1-Shoot_06.png": "d216edc94bd1a1e2689177e6b23241501b62e14de5717d9a56575c7d2ea5074c",
+    "res://assets/craftpix/cat/c1/Shoot/Character1-Shoot_07.png": "1d6c64a6f002175dba24957dac7a087c257fcfd25b18a5c651857166ea00fee2",
+    "res://assets/craftpix/cat/c1/Shoot/Character1-Shoot_08.png": "623b2d7a33d486f374de3c89a16af196666fb9ff0bd9b001f0f5a658cdbb16a1",
+    "res://assets/craftpix/cat/c1/Shoot/Character1-Shoot_09.png": "de95b4844c1635d0365a2835fb1f3d0a4bce24c1824eff3612eba026d3ebb6b3",
+    "res://assets/craftpix/cat/cat_idle_00.png": "48d1b2740169cdb26c96bf37f01eb136f2088e452881673e0ff60adedcae7ea1",
+    "res://assets/kenney/font/KenneyFuture.ttf": "7a55b07f5968fac872648a7c5e959bd2b93e06f63153b585d56e4d5298ddff61",
+    "res://assets/kenney/font/KenneyFutureNarrow.ttf": "17e182587a3264dcf9e5b17c055715d5597187546ce81925c64e9184c26d597f",
+    "res://assets/kenney/particles/flame_01.png": "92a70bcb90b1e21c57b2dae42843135703b2e988abee97433f84c3119723d144",
+    "res://assets/kenney/particles/flame_02.png": "7afff66979a5a30319d4fa491b13a9027223ebbdadfa38fae4ae76e31d05d9c5",
+    "res://assets/kenney/particles/flame_03.png": "366678a08a7d22ebb87baa7b42005aaaeb0fd51ab751f2d4e7c9edfa61a33e38",
+    "res://assets/kenney/particles/flame_04.png": "71deb274feea6ae5e6bb82c802a6e4d22f168397aa36b7a9e89de863948f3cf5",
+    "res://assets/kenney/particles/flame_05.png": "4c5cc587260010e4bb58b03cc2561ca0e96409e7db25ea4183cd3fb1d0237dc8",
+    "res://assets/kenney/particles/flame_06.png": "fc95ac4d0e61b22d079aeb5feabf2914d380858ad95852e5b1638ad820526948",
+    "res://assets/kenney/particles/light_01.png": "caedcc5df5bcac4470244d2520d6a64b45b20c1ccf4d918da516c55e3fa365a6",
+    "res://assets/kenney/props/coin_gold.png": "8d114d67a296df8ac51155ecbf0cc66b793a5c7af6f73e4a9e026b42de96bea8",
+    "res://assets/kenney/props/flag_green.png": "060c95fa8b4fb8fd7c6aed0e35cf2ec57575fe1bfa8cd7844515c303280299aa",
+    "res://assets/kenney/props/metal_frame.png": "6881119d3539201e7ec1de200436e9c26ff68c9e595ca8788dd6544aa869e999",
+    "res://assets/kenney/props/metal_post.png": "af43b29e847c6b31a88758c34b57d4f41c3700848096a0bd69ef9faa16ae45e2",
+    "res://assets/kenney/props/plank_brace.png": "995d629387bcb59cc85b23788ee3b8baa565b0e12725e5992acf4d3e5f12b732",
+    "res://assets/kenney/props/plank_long.png": "8b5c2ec0e84a149a4c7ee411796e5f2f58efe22273d1154378bd27b123e6e435",
+    "res://assets/kenney/props/supply_crate.png": "b72fd1eb1ed98dc23fcf262a84493afd9682dc27db112fcf661f7a8ec6ecf9c8",
+    "res://assets/kenney/ui/bar_fill_green.png": "00b0be4899b14bbb8db2144b3a3dbf06dfc9496e1643867dd5c00fb52faa344e",
+    "res://assets/kenney/ui/bar_fill_yellow.png": "91e4453bad1daa687e8380cbf38ed52f763c7c9424cbd7b6db0fcc444d454566",
+    "res://assets/kenney/ui/bar_track.png": "a80f54d81912dcac6827b8b71bb81f6b8b8a0c190573006aee9612d6bbd91618",
+    "res://assets/kenney/ui/button_blue.png": "3fc1d9bedf07da0f1a49bed143311e6edf3bebd9a937e95a6ab4b812c8448ec0",
+    "res://assets/kenney/ui/button_grey.png": "5d56a6b8c650ca5f4f165b141cb22f7aaf4a9904aa27bbe725757ba93199d3ee",
+    "res://assets/kenney/ui/panel_blue.png": "bb8026b29b951b698a2a4c7957549e20688a6fff1635975aea6079b208c10675",
+    "res://assets/kenney/ui/panel_grey.png": "1ed471bd6615107e072d1efd97cdadde6457682bbe59f7d800158de88ccac2cb",
+    "res://assets/kenney/ui/star.png": "637cb033829d9fe1d6869da5826891ac90430e5d43c06fd4092398155b41dc7e"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

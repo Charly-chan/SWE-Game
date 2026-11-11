@@ -1,0 +1,122 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-23T10:20:27+00:00",
+  "interface_requirements": {
+    "O9": {
+      "fields": [],
+      "reason": "reference has no registered anchor expectation",
+      "required": false
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 0,
+        "gb_door": 0,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 1,
+        "gb_interactive": 4,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_interactive": [
+          "x",
+          4
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://scenes/stage_first_light.tscn",
+      "spawn_goal_distance": 0.0
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 0,
+        "gb_door": 0,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 1,
+        "gb_interactive": 4,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_interactive": [
+          "x",
+          4
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://scenes/stage_crosswind.tscn",
+      "spawn_goal_distance": 0.0
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 0,
+        "gb_door": 0,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 1,
+        "gb_interactive": 4,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_interactive": [
+          "x",
+          4
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://scenes/stage_lattice.tscn",
+      "spawn_goal_distance": 0.0
+    }
+  ],
+  "probe_sha256": "7b966a24301ab4cf7b2e433dc04081d354779f93ff571a8a5e47964d894a2026",
+  "project": "pulse_lane",
+  "runtime_assets": {
+    "res://assets/fonts/Kenney Future Narrow.ttf": "17e182587a3264dcf9e5b17c055715d5597187546ce81925c64e9184c26d597f",
+    "res://assets/music/Juhani Junkala [Retro Game Music Pack] Ending.wav": "d5ec74e7f90f0b407f68e44ef791b28af30b47e5252414bdb289ae371fc59173",
+    "res://assets/music/Juhani Junkala [Retro Game Music Pack] Level 2.wav": "24c5c3678b46faaf4f09399655428353e5adc7611572bc5a09cba372bd350cef",
+    "res://assets/music/Juhani Junkala [Retro Game Music Pack] Level 3.wav": "c30ae8521119deefd0e22224310e45c07ca726c20760dd93e64e02b9b59a8e6c",
+    "res://assets/music/Juhani Junkala [Retro Game Music Pack] Title Screen.wav": "d1590ec1b4a9e0ff948437c8e1d7f416ee382600af6e454fa0452903d8de1964",
+    "res://assets/particles/circle_05.png": "925b8ac284436f74f9cadf0ecd058da1c08fba65c098e4e34fd220603022f02e",
+    "res://assets/particles/light_03.png": "b68627734d08aab3eaf3f94718521553628c75aace1de6c74de28501c1a4c147",
+    "res://assets/particles/spark_04.png": "3cba35b80a97c12283a8ecd41780a0412194de14562cbffc7f04e9157183f772",
+    "res://assets/particles/star_05.png": "1e8ab968178e507824ab28353c0ffffa918ae3adbcf89513d3db50a17b7bc8a2",
+    "res://assets/particles/trace_06.png": "22c61c0e280db28b6cb6033c015dde4360a124b3488302ea708566b7f36fd900",
+    "res://assets/sfx/back_001.ogg": "07db973f79f6ae0f2edc34561e7592e24d0577455919fb602cb8ecc0da991dcf",
+    "res://assets/sfx/click_001.ogg": "ccfb7fa0cccdd9faec0eb16033c732b1e308d139d80f799161495d58f7adcdb9",
+    "res://assets/sfx/confirmation_001.ogg": "063564703b6094d70718a3e787a55cc9141611e4ecd6b6637f8828f79b4a8c3a",
+    "res://assets/sfx/error_003.ogg": "885b28175c7b511118bcffab95675b48bbac9005cf6514656ebdad979276b3ab",
+    "res://assets/sfx/jingles_STEEL11.ogg": "86e97f88473e77119c24cc2fbcc711b3343a0b665d4297ea684f59ea17fc998e",
+    "res://assets/ui/blue/button_rectangle_depth_gradient.png": "3fc1d9bedf07da0f1a49bed143311e6edf3bebd9a937e95a6ab4b812c8448ec0",
+    "res://assets/ui/blue/button_rectangle_gradient.png": "424f7743b51666915429a32b76732aeea7079c053cabbe7874d826fed210dacc",
+    "res://assets/ui/blue/button_square_gradient.png": "4c685a1bf9e5406b96a1e5503d5f6ba233016156bef7c75b658fd9c9196bdd58",
+    "res://assets/ui/extra/divider.png": "234015ec6516217532d413751953d08482ee9ce0b95c0fc14d5ec55716f9feec",
+    "res://assets/ui/green/button_rectangle_depth_gradient.png": "ef8e36f1912926a9839fea1dd7696e8266600dcfee6ef2be814258a321fac58c",
+    "res://assets/ui/green/button_square_gradient.png": "df91812e75b3b0fd0a4463498f211335d6c564e59474cd5b712e99f6a89ba7be",
+    "res://assets/ui/grey/button_rectangle_depth_border.png": "2b53f7a8b9527fa66dd995736f94b11fa39e69ca390a7e17539f32919a9cb521",
+    "res://assets/ui/grey/button_rectangle_depth_flat.png": "7de9ba1d4bca313fd2c02e3595f3d699c1201d84d70a3c69828e56782d585ce7",
+    "res://assets/ui/grey/button_square_depth_flat.png": "381aa4900b97e21422460bdb7003d321846c2ae430c10661d4d97618bbbb9df6",
+    "res://assets/ui/grey/button_square_line.png": "a947137d8af5f5b94cc02f01f0070724cd778f89f2ffc8dc053e209c87cd6263",
+    "res://assets/ui/red/button_rectangle_depth_gradient.png": "835f59e595a584ae238ee9b3ae20088bac708083eb48ca1a18a0d90dc0d86138",
+    "res://assets/ui/red/button_square_gradient.png": "e769ec65c9e2f5512c203e22323da348967d6baedd7439477db51054f13bf6c4",
+    "res://assets/ui/yellow/button_rectangle_depth_gradient.png": "58a2a112e97d00bff5e33dfcfa045df3d58f87cc0a4b84f9ba60891d992e9b60",
+    "res://assets/ui/yellow/button_square_gradient.png": "4c657a4c2a202a5e3cca92df4bbc1bb965218e733e544a26895fb1d31d4c6205"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

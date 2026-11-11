@@ -1,0 +1,15 @@
+{
+  "blockers": [],
+  "game_id": "harvest_ledger",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "harvest_ledger-c1-homestead_corn_quota",
+    "harvest_ledger-c2-timberline_forage_and_corn",
+    "harvest_ledger-c3-saltmarsh_livestock_and_quota",
+    "harvest_ledger-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:dc1bc3e6741d7ce66b1275b9d681a82c24a231d7a1d587590731853819ca4005"
+}

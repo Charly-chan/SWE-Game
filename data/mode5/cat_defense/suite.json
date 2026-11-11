@@ -1,0 +1,965 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:ce8b9a94345d7e9a1b46a7938f5cc2db9dfd59284c77fa03cc2422fea84f4a3c",
+  "game_id": "cat_defense",
+  "inputs": {
+    "certificate": {
+      "path": "tasks/cat_defense/certificate.rt1.json",
+      "sha256": "c384459ef8bd6c4f30a017e9e95b7b41ce62666f57319ff632e87467f2593f55"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/cat_defense.md",
+      "sha256": "e04fa945ba27677587a7ca67931c0b9b3e210ece89fec90febddebdb0ff9ce40"
+    },
+    "route": {
+      "path": "tasks/cat_defense/route.json",
+      "sha256": "43c91bd2746570adc005d01067cb7fbff81c61f069235ab92ac201896ec0681e"
+    },
+    "rubric": {
+      "entry_sha256": "f9f73351f0d5f32a3455118ab8af2699aa9dfa347f8bd3aa464e5bf81a0b832f",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_enemy",
+        "gb_collectible",
+        "gb_hazard",
+        "gb_interactive",
+        "gb_checkpoint",
+        "gb_goal",
+        "gb_door"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/cat_defense/authored/source_obligations.json",
+      "sha256": "bb7673931688b2bb509845668edf62e4dacbdf916ec261d29dfbab63484ddaf4"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "budget_frames": 3677,
+      "calibrated_policy_sha256": "sha256:a1f8f9074accb218dde8a687b0558189eee025f5a1932ca5e1a5f582ac273bf3",
+      "capture_checkpoints": [
+        {
+          "id": "c1_start",
+          "kind": "run_start"
+        },
+        {
+          "id": "stood_on_mid_pad",
+          "predicate": "overlap(gb_player, gb_interactive)"
+        },
+        {
+          "id": "stood_on_front_pad",
+          "predicate": "overlap(gb_player, gb_interactive)"
+        },
+        {
+          "id": "reached_level_1_flag",
+          "predicate": "contact(goal, 0)"
+        },
+        {
+          "id": "c1_goal",
+          "predicate": "contact(goal, 0)"
+        }
+      ],
+      "counterfactual_id": "remove_opening_fire",
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Two distinct 22-coin pad investments precede hostile removal and extraction.",
+      "reference_trace": "cat_defense/C1",
+      "reference_trace_sha256": "sha256:b2a6fa2d3f35515953d45434e7fb967331cf349605d830c61f914170267eb71a",
+      "reviewer": "mode5-calibration-20260908",
+      "route_id": "cat_defense/C1/mid_front_wave_clear",
+      "scenario_id": "cat_opening_two_pad_economy",
+      "source_check_id": "two_distinct_22_coin_pad_investments_before_wave",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "source_first_pad_investment",
+            "predicate": "overlap(gb_player, gb_interactive)"
+          },
+          {
+            "name": "source_first_22_coin_spend",
+            "predicate": "numeric_delta(coins) <= -22"
+          },
+          {
+            "name": "source_second_22_coin_spend",
+            "predicate": "numeric_delta(coins) <= -44"
+          },
+          {
+            "baseline": "previous_row",
+            "name": "source_wave_removal",
+            "predicate": "count_delta(gb_enemy) < 0"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "strategy": {
+        "fallback_actions": [
+          "gb_action",
+          "gb_up",
+          "gb_down",
+          "gb_left",
+          "gb_right",
+          "gb_jump"
+        ],
+        "parameters": {
+          "collectible_role": "gb_collectible",
+          "collectible_sequence": [
+            {
+              "action": "gb_left",
+              "hold_frames": 12
+            },
+            {
+              "action": "gb_right",
+              "hold_frames": 12
+            }
+          ],
+          "engage_sequence": [
+            {
+              "action": "gb_action",
+              "hold_frames": 36
+            },
+            {
+              "action": "gb_up",
+              "hold_frames": 8
+            },
+            {
+              "action": "gb_action",
+              "hold_frames": 36
+            },
+            {
+              "action": "gb_down",
+              "hold_frames": 8
+            }
+          ],
+          "fallback_sequence": [
+            {
+              "action": "gb_right",
+              "hold_frames": 20
+            },
+            {
+              "action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "action": "gb_left",
+              "hold_frames": 16
+            },
+            {
+              "action": "gb_jump",
+              "hold_frames": 1
+            }
+          ],
+          "target_role": "gb_enemy"
+        },
+        "type": "combat"
+      },
+      "verified": true
+    },
+    {
+      "budget_frames": 6000,
+      "calibrated_policy_sha256": "sha256:657cde4ead692f4d11af03226091cc81f7e18cc37a1223cb9b2f4b24e1a1387e",
+      "capture_checkpoints": [
+        {
+          "id": "c2_start",
+          "kind": "run_start"
+        },
+        {
+          "id": "stood_on_mid_pad",
+          "predicate": "overlap(gb_player, gb_interactive)"
+        },
+        {
+          "id": "stood_on_front_pad",
+          "predicate": "overlap(gb_player, gb_interactive)"
+        },
+        {
+          "id": "reached_level_2_flag",
+          "predicate": "contact(goal, 0)"
+        },
+        {
+          "id": "c2_goal",
+          "predicate": "contact(goal, 0)"
+        }
+      ],
+      "counterfactual_id": "remove_cargo_fire",
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "gdd_explicit"
+      ],
+      "route_id": "cat_defense/C2/second_lane_wave_clear",
+      "scenario_id": "cat_cargo_freight_then_extract",
+      "strategy": {
+        "fallback_actions": [
+          "gb_action",
+          "gb_up",
+          "gb_down",
+          "gb_right"
+        ],
+        "parameters": {
+          "engage_sequence": [
+            {
+              "action": "gb_action",
+              "hold_frames": 42
+            },
+            {
+              "action": "gb_up",
+              "hold_frames": 10
+            },
+            {
+              "action": "gb_action",
+              "hold_frames": 42
+            },
+            {
+              "action": "gb_down",
+              "hold_frames": 10
+            }
+          ],
+          "fallback_sequence": [
+            {
+              "action": "gb_right",
+              "hold_frames": 22
+            },
+            {
+              "action": "gb_action",
+              "hold_frames": 30
+            }
+          ],
+          "target_role": "gb_enemy"
+        },
+        "type": "combat"
+      }
+    },
+    {
+      "budget_frames": 5800,
+      "calibrated_policy_sha256": "sha256:aaab4eba367c4ac78efea67d1d5b183b04c12d166e3c7f1f4c3596dfcb5f60b4",
+      "capture_checkpoints": [
+        {
+          "id": "c3_start",
+          "kind": "run_start"
+        },
+        {
+          "id": "stood_on_mid_two_pad",
+          "predicate": "overlap(gb_player, gb_interactive)"
+        },
+        {
+          "id": "stood_on_front_pad",
+          "predicate": "overlap(gb_player, gb_interactive)"
+        },
+        {
+          "id": "reached_level_3_flag",
+          "predicate": "contact(goal, 0)"
+        },
+        {
+          "id": "c3_goal",
+          "predicate": "contact(goal, 0)"
+        }
+      ],
+      "counterfactual_id": "remove_forward_fire",
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "A 90-point boss removal precedes extraction in the reference trace.",
+      "reference_trace": "cat_defense/C3",
+      "reference_trace_sha256": "sha256:009d0a38cae0a9a15e0d2da48d929bf0f0c345a4f87faafcd86ff9afc05bdc88",
+      "reviewer": "mode5-calibration-20260908",
+      "route_id": "cat_defense/C3/boss_wave_flag",
+      "scenario_id": "cat_last_stand_two_pad_boss_clear",
+      "source_check_id": "high_value_boss_removal_precedes_extraction",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "source_boss_score",
+            "predicate": "numeric_delta(score) >= 90"
+          },
+          {
+            "baseline": "previous_row",
+            "name": "source_boss_removed",
+            "predicate": "count_delta(gb_enemy) < 0"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "strategy": {
+        "fallback_actions": [
+          "gb_action",
+          "gb_up",
+          "gb_down",
+          "gb_jump",
+          "gb_right"
+        ],
+        "parameters": {
+          "engage_sequence": [
+            {
+              "action": "gb_action",
+              "hold_frames": 48
+            },
+            {
+              "action": "gb_up",
+              "hold_frames": 9
+            },
+            {
+              "action": "gb_action",
+              "hold_frames": 48
+            },
+            {
+              "action": "gb_down",
+              "hold_frames": 9
+            },
+            {
+              "action": "gb_jump",
+              "hold_frames": 1
+            }
+          ],
+          "fallback_sequence": [
+            {
+              "action": "gb_right",
+              "hold_frames": 30
+            },
+            {
+              "action": "gb_jump",
+              "hold_frames": 1
+            }
+          ],
+          "target_role": "gb_enemy"
+        },
+        "type": "combat"
+      },
+      "verified": true
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 20,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 16,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.combat.007c08b775",
+      "parameters": {
+        "collectible_role": "gb_collectible",
+        "collectible_sequence": [
+          {
+            "action": "gb_left",
+            "hold_frames": 12
+          },
+          {
+            "action": "gb_right",
+            "hold_frames": 12
+          }
+        ],
+        "engage_sequence": [
+          {
+            "action": "gb_action",
+            "hold_frames": 36
+          },
+          {
+            "action": "gb_up",
+            "hold_frames": 8
+          },
+          {
+            "action": "gb_action",
+            "hold_frames": 36
+          },
+          {
+            "action": "gb_down",
+            "hold_frames": 8
+          }
+        ],
+        "fallback_sequence": [
+          {
+            "action": "gb_right",
+            "hold_frames": 20
+          },
+          {
+            "action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "action": "gb_left",
+            "hold_frames": 16
+          },
+          {
+            "action": "gb_jump",
+            "hold_frames": 1
+          }
+        ],
+        "target_role": "gb_enemy"
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 36,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 8,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 36,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 8,
+              "value": 1.0
+            }
+          ],
+          "when": "alive(gb_enemy)"
+        },
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 12,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 12,
+              "value": 1.0
+            }
+          ],
+          "when": "alive(gb_collectible)"
+        }
+      ],
+      "strategy_type": "combat"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 22,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 30,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.combat.0e39eddfb4",
+      "parameters": {
+        "engage_sequence": [
+          {
+            "action": "gb_action",
+            "hold_frames": 42
+          },
+          {
+            "action": "gb_up",
+            "hold_frames": 10
+          },
+          {
+            "action": "gb_action",
+            "hold_frames": 42
+          },
+          {
+            "action": "gb_down",
+            "hold_frames": 10
+          }
+        ],
+        "fallback_sequence": [
+          {
+            "action": "gb_right",
+            "hold_frames": 22
+          },
+          {
+            "action": "gb_action",
+            "hold_frames": 30
+          }
+        ],
+        "target_role": "gb_enemy"
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 42,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 10,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 42,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 10,
+              "value": 1.0
+            }
+          ],
+          "when": "alive(gb_enemy)"
+        }
+      ],
+      "strategy_type": "combat"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 30,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.combat.99b2d0e210",
+      "parameters": {
+        "engage_sequence": [
+          {
+            "action": "gb_action",
+            "hold_frames": 48
+          },
+          {
+            "action": "gb_up",
+            "hold_frames": 9
+          },
+          {
+            "action": "gb_action",
+            "hold_frames": 48
+          },
+          {
+            "action": "gb_down",
+            "hold_frames": 9
+          },
+          {
+            "action": "gb_jump",
+            "hold_frames": 1
+          }
+        ],
+        "fallback_sequence": [
+          {
+            "action": "gb_right",
+            "hold_frames": 30
+          },
+          {
+            "action": "gb_jump",
+            "hold_frames": 1
+          }
+        ],
+        "target_role": "gb_enemy"
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 48,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 9,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 48,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 9,
+              "value": 1.0
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1,
+              "value": 1.0
+            }
+          ],
+          "when": "alive(gb_enemy)"
+        }
+      ],
+      "strategy_type": "combat"
+    }
+  ],
+  "policy_digest": "sha256:bcfe71feba19aa7ce406e9aa141510c96d1b5f68bd8ccdf247c499137137c5b5",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "cat_defense/C1",
+      "budget_frames": 3677,
+      "capture_checkpoints": [
+        {
+          "id": "c1_start",
+          "kind": "run_start"
+        },
+        {
+          "id": "stood_on_mid_pad",
+          "predicate": "overlap(gb_player, gb_interactive)"
+        },
+        {
+          "id": "stood_on_front_pad",
+          "predicate": "overlap(gb_player, gb_interactive)"
+        },
+        {
+          "id": "reached_level_1_flag",
+          "predicate": "contact(goal, 0)"
+        },
+        {
+          "id": "c1_goal",
+          "predicate": "contact(goal, 0)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove_opening_fire",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "stood_on_mid_pad",
+            "predicate": "overlap(gb_player, gb_interactive)"
+          },
+          {
+            "name": "stood_on_front_pad",
+            "predicate": "overlap(gb_player, gb_interactive)"
+          },
+          {
+            "name": "reached_level_1_flag",
+            "predicate": "contact(goal, 0)"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "id": "cat_opening_two_pad_economy",
+      "policy": "strategy.combat.007c08b775",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [],
+      "required_roles": [
+        "gb_interactive",
+        "gb_player"
+      ],
+      "route_id": "cat_defense/C1/mid_front_wave_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "source_first_pad_investment",
+            "predicate": "overlap(gb_player, gb_interactive)"
+          },
+          {
+            "name": "source_first_22_coin_spend",
+            "predicate": "numeric_delta(coins) <= -22"
+          },
+          {
+            "name": "source_second_22_coin_spend",
+            "predicate": "numeric_delta(coins) <= -44"
+          },
+          {
+            "baseline": "previous_row",
+            "name": "source_wave_removal",
+            "predicate": "count_delta(gb_enemy) < 0"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "",
+      "budget_frames": 6000,
+      "capture_checkpoints": [
+        {
+          "id": "c2_start",
+          "kind": "run_start"
+        },
+        {
+          "id": "stood_on_mid_pad",
+          "predicate": "overlap(gb_player, gb_interactive)"
+        },
+        {
+          "id": "stood_on_front_pad",
+          "predicate": "overlap(gb_player, gb_interactive)"
+        },
+        {
+          "id": "reached_level_2_flag",
+          "predicate": "contact(goal, 0)"
+        },
+        {
+          "id": "c2_goal",
+          "predicate": "contact(goal, 0)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove_cargo_fire",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "gdd_explicit"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "stood_on_mid_pad",
+            "predicate": "overlap(gb_player, gb_interactive)"
+          },
+          {
+            "name": "stood_on_front_pad",
+            "predicate": "overlap(gb_player, gb_interactive)"
+          },
+          {
+            "name": "reached_level_2_flag",
+            "predicate": "contact(goal, 0)"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "id": "cat_cargo_freight_then_extract",
+      "policy": "strategy.combat.0e39eddfb4",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [],
+      "required_roles": [
+        "gb_interactive",
+        "gb_player"
+      ],
+      "route_id": "cat_defense/C2/second_lane_wave_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 1
+    },
+    {
+      "authoring_record": "cat_defense/C3",
+      "budget_frames": 5800,
+      "capture_checkpoints": [
+        {
+          "id": "c3_start",
+          "kind": "run_start"
+        },
+        {
+          "id": "stood_on_mid_two_pad",
+          "predicate": "overlap(gb_player, gb_interactive)"
+        },
+        {
+          "id": "stood_on_front_pad",
+          "predicate": "overlap(gb_player, gb_interactive)"
+        },
+        {
+          "id": "reached_level_3_flag",
+          "predicate": "contact(goal, 0)"
+        },
+        {
+          "id": "c3_goal",
+          "predicate": "contact(goal, 0)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove_forward_fire",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "stood_on_mid_two_pad",
+            "predicate": "overlap(gb_player, gb_interactive)"
+          },
+          {
+            "name": "stood_on_front_pad",
+            "predicate": "overlap(gb_player, gb_interactive)"
+          },
+          {
+            "name": "reached_level_3_flag",
+            "predicate": "contact(goal, 0)"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "id": "cat_last_stand_two_pad_boss_clear",
+      "policy": "strategy.combat.99b2d0e210",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [],
+      "required_roles": [
+        "gb_interactive",
+        "gb_player"
+      ],
+      "route_id": "cat_defense/C3/boss_wave_flag",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "source_boss_score",
+            "predicate": "numeric_delta(score) >= 90"
+          },
+          {
+            "baseline": "previous_row",
+            "name": "source_boss_removed",
+            "predicate": "count_delta(gb_enemy) < 0"
+          }
+        ],
+        "predicate": "contact(goal, 0)"
+      },
+      "start_level": 2
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

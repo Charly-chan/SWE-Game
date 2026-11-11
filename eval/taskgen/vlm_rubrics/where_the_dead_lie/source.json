@@ -1,0 +1,275 @@
+{
+  "game_id": "where_the_dead_lie",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "reference_media/assets/models/metal_gate_MetalGateAlbedo.png",
+        "id": "S004",
+        "label": "reference_media/assets/models/metal_gate_MetalGateAlbedo.png"
+      },
+      {
+        "asset_path": "catacombs_cracked_concrete_wall_diff_2k.jpg",
+        "id": "S005",
+        "label": "catacombs_cracked_concrete_wall_diff_2k.jpg"
+      },
+      {
+        "asset_path": "reference_media/assets/models/puzzle_control_panel_PuzzlePanelAlbedo.png",
+        "id": "S016",
+        "label": "reference_media/assets/models/puzzle_control_panel_PuzzlePanelAlbedo.png"
+      },
+      {
+        "asset_path": "catacombs_slab_tiles_arm_2k.jpg",
+        "id": "S025",
+        "label": "catacombs_slab_tiles_arm_2k.jpg"
+      },
+      {
+        "asset_path": "reference_media/assets/models/the_smeth_SmethAlbedo.png",
+        "id": "S028",
+        "label": "reference_media/assets/models/the_smeth_SmethAlbedo.png"
+      },
+      {
+        "asset_path": "catacombs_slab_tiles_diff_2k.jpg",
+        "id": "S029",
+        "label": "catacombs_slab_tiles_diff_2k.jpg"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "GeneratorPowerUp.ogg",
+        "GeneratorStartupFail.ogg",
+        "catacombs.glb",
+        "catacombs_cracked_concrete_wall_arm_2k.png",
+        "catacombs_cracked_concrete_wall_diff_2k.jpg",
+        "catacombs_cracked_concrete_wall_nor_gl_2k.jpg",
+        "catacombs_rocky_trail_arm_2k.jpg",
+        "catacombs_rocky_trail_diff_2k.jpg",
+        "catacombs_rocky_trail_nor_gl_2k.jpg",
+        "catacombs_slab_tiles_arm_2k.jpg",
+        "catacombs_slab_tiles_diff_2k.jpg",
+        "catacombs_slab_tiles_nor_gl_2k.jpg",
+        "chestTop_rare.gltf.glb",
+        "chest_rare.gltf.glb",
+        "chest_squeak.ogg",
+        "fire_01.png",
+        "jumpscare_stinger.ogg",
+        "key.glb",
+        "models/barrel.gltf.glb",
+        "models/barrelDark.gltf.glb",
+        "models/bench.gltf.glb",
+        "models/bucket.gltf.glb",
+        "models/chair.gltf.glb",
+        "models/crate.gltf.glb",
+        "models/crateDark.gltf.glb",
+        "models/metal_gate.glb",
+        "models/metal_gate_4.png",
+        "models/metal_gate_5.png",
+        "models/metal_gate_6.png",
+        "models/metal_gate_MetalGateAlbedo.png",
+        "models/metal_gate_MetalGateNormal.png",
+        "models/metal_gate_MetalGateRoughness.png",
+        "models/puzzle_control_panel.glb",
+        "models/puzzle_control_panel_4.png",
+        "models/puzzle_control_panel_5.png",
+        "models/puzzle_control_panel_6.png",
+        "models/puzzle_control_panel_PuzzlePanelAlbedo.png",
+        "models/puzzle_control_panel_PuzzlePanelMetalness-PuzzlePanelRoughness.png",
+        "models/puzzle_control_panel_PuzzlePanelNormal.png",
+        "models/tableLarge.gltf.glb",
+        "models/tableMedium.gltf.glb",
+        "models/tableSmall.gltf.glb",
+        "models/the_smeth.glb",
+        "models/the_smeth_6.png",
+        "models/the_smeth_7.png",
+        "models/the_smeth_8.png",
+        "models/the_smeth_SmethAlbedo.png",
+        "models/the_smeth_SmethNormal.png",
+        "models/the_smeth_SmethRoughness.png",
+        "models/torch.gltf.glb",
+        "models/torchWall.gltf.glb",
+        "power_generator.glb",
+        "reference_media/assets/catacombs.glb",
+        "reference_media/assets/catacombs_cracked_concrete_wall_arm_2k.png",
+        "reference_media/assets/catacombs_cracked_concrete_wall_diff_2k.jpg",
+        "reference_media/assets/catacombs_cracked_concrete_wall_nor_gl_2k.jpg",
+        "reference_media/assets/catacombs_rocky_trail_arm_2k.jpg",
+        "reference_media/assets/catacombs_rocky_trail_diff_2k.jpg",
+        "reference_media/assets/catacombs_rocky_trail_nor_gl_2k.jpg",
+        "reference_media/assets/catacombs_slab_tiles_arm_2k.jpg",
+        "reference_media/assets/catacombs_slab_tiles_diff_2k.jpg",
+        "reference_media/assets/catacombs_slab_tiles_nor_gl_2k.jpg",
+        "reference_media/assets/chestTop_rare.gltf.glb",
+        "reference_media/assets/chest_rare.gltf.glb",
+        "reference_media/assets/chest_squeak.ogg",
+        "reference_media/assets/fire_01.png",
+        "reference_media/assets/models",
+        "reference_media/assets/power_generator.glb",
+        "reference_media/assets/sfx",
+        "sfx/GeneratorOnLoop.ogg",
+        "sfx/OperatorExitPrompt.ogg",
+        "sfx/OperatorVictory.ogg",
+        "sfx/SmethBreath.ogg",
+        "sfx/footsteps-01.ogg",
+        "sfx/footsteps-02.ogg",
+        "sfx/footsteps-03.ogg",
+        "sfx/horror_drone_smooth_ghostly_wailing.ogg",
+        "smoke_01.png"
+      ],
+      "file_count": 91,
+      "font_files": []
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 136.95,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R006",
+        "time_s": 5.83333
+      },
+      {
+        "id": "R009",
+        "time_s": 9.33333
+      },
+      {
+        "id": "R013",
+        "time_s": 14.0
+      },
+      {
+        "id": "R020",
+        "time_s": 22.1667
+      },
+      {
+        "id": "R021",
+        "time_s": 23.3333
+      },
+      {
+        "id": "R025",
+        "time_s": 28.0
+      },
+      {
+        "id": "R028",
+        "time_s": 31.5
+      },
+      {
+        "id": "R029",
+        "time_s": 32.6667
+      },
+      {
+        "id": "R030",
+        "time_s": 33.8333
+      },
+      {
+        "id": "R043",
+        "time_s": 49.0
+      },
+      {
+        "id": "R045",
+        "time_s": 51.3333
+      },
+      {
+        "id": "R046",
+        "time_s": 52.5
+      },
+      {
+        "id": "R047",
+        "time_s": 53.6667
+      },
+      {
+        "id": "R048",
+        "time_s": 54.8333
+      },
+      {
+        "id": "R060",
+        "time_s": 68.8333
+      },
+      {
+        "id": "R084",
+        "time_s": 96.8333
+      },
+      {
+        "id": "R085",
+        "time_s": 98.0
+      },
+      {
+        "id": "R095",
+        "time_s": 109.667
+      },
+      {
+        "id": "R096",
+        "time_s": 110.833
+      },
+      {
+        "id": "R106",
+        "time_s": 122.5
+      },
+      {
+        "id": "R110",
+        "time_s": 127.167
+      },
+      {
+        "id": "R113",
+        "time_s": 130.667
+      },
+      {
+        "id": "R114",
+        "time_s": 131.833
+      },
+      {
+        "id": "R115",
+        "time_s": 133.0
+      },
+      {
+        "id": "R119",
+        "time_s": 136.933
+      },
+      {
+        "clip": 1,
+        "id": "RD001",
+        "time_s": 27.39
+      },
+      {
+        "clip": 1,
+        "id": "RD008",
+        "time_s": 28.09
+      },
+      {
+        "clip": 1,
+        "id": "RD019",
+        "time_s": 29.19
+      },
+      {
+        "clip": 1,
+        "id": "RD020",
+        "time_s": 29.29
+      },
+      {
+        "clip": 3,
+        "id": "RD041",
+        "time_s": 109.56
+      },
+      {
+        "clip": 3,
+        "id": "RD050",
+        "time_s": 110.46
+      },
+      {
+        "clip": 3,
+        "id": "RD051",
+        "time_s": 110.56
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.8616283315078497,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Where the Dead Lie — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nExplore a hostile space under pursuit, restore generators and a control puzzle, recover two keys, arm the exit, and escape.\n\n## Scope boundary\n\nA bounded survival-horror escape with a patrolling monster, ordered restoration and key objectives, readable danger, failure and retry, and a terminal escape state.\n\n## Creative freedom\n\nYou may choose the environment layout, puzzle presentation, monster look, key placement, lighting, and feedback while retaining the ordered escape chain.\n"
+}

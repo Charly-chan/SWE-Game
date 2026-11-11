@@ -1,0 +1,1179 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:ef30b3e8fec6c10e2ffc878b4053a38f0ee540bf8024d2457553f86f244a59b3",
+  "game_id": "hurry_curry",
+  "inputs": {
+    "certificate": {
+      "path": "tasks/hurry_curry/certificate.rt1.json",
+      "sha256": "79583fb4acc6f08471a3a18fb66d4cd6056672f35c64cc46caa9a49186469dcf"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/hurry_curry.md",
+      "sha256": "bd48cbf17536c8e1a6db5b8eb393fdad335b28b38877277567b7f462642bffda"
+    },
+    "route": {
+      "path": "tasks/hurry_curry/route.json",
+      "sha256": "939ca92400c64f0dbbdd29de92baac3f5f17f0b3ba204737e20f73aa8c1ddb19"
+    },
+    "rubric": {
+      "entry_sha256": "77ee7a1f442593e8ff2786772426f5fd5d09ae7346bb8dfb66d9b745a60c5856",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_collectible",
+        "gb_interactive",
+        "gb_hazard",
+        "gb_goal",
+        "gb_door"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/hurry_curry/authored/source_obligations.json",
+      "sha256": "5380b657bd9fd9357a62e3568133dec59cd1a2a1cb7a5c1c00be6084c08a7d3b"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "hurry_curry-c1-reach_lettuce_crate.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "hurry_curry-c1-reach_lettuce_crate.lettuce_crate_reached",
+          "predicate": "contact(collectible, 0)"
+        },
+        {
+          "id": "hurry_curry-c1-reach_lettuce_crate.goal",
+          "predicate": "contact(collectible, 0)"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:70c9489bd9c2fe3a98f59b15f56ad5a0ff0a495767498457ead247d14adb69be",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "hurry_curry/C1/reach_lettuce_crate",
+      "scenario_id": "hurry_curry-c1-reach_lettuce_crate",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "hurry_curry-c2-reach_cutting_board.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "hurry_curry-c2-reach_cutting_board.lettuce_crate_reached",
+          "predicate": "contact(collectible, 0)"
+        },
+        {
+          "id": "hurry_curry-c2-reach_cutting_board.cutting_board_reached",
+          "predicate": "contact(interactive, 1)"
+        },
+        {
+          "id": "hurry_curry-c2-reach_cutting_board.goal",
+          "predicate": "contact(interactive, 1)"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:70c9489bd9c2fe3a98f59b15f56ad5a0ff0a495767498457ead247d14adb69be",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "hurry_curry/C2/reach_cutting_board",
+      "scenario_id": "hurry_curry-c2-reach_cutting_board",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "hurry_curry-c3-plate_deliver_and_score.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "hurry_curry-c3-plate_deliver_and_score.lettuce_crate_reached",
+          "predicate": "contact(collectible, 0)"
+        },
+        {
+          "id": "hurry_curry-c3-plate_deliver_and_score.cutting_board_reached",
+          "predicate": "contact(interactive, 1)"
+        },
+        {
+          "id": "hurry_curry-c3-plate_deliver_and_score.customer_table_reached",
+          "predicate": "contact(goal, 0)"
+        },
+        {
+          "id": "hurry_curry-c3-plate_deliver_and_score.order_scored",
+          "predicate": "numeric(score) >= 5"
+        },
+        {
+          "id": "hurry_curry-c3-plate_deliver_and_score.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed source/server/game_sim.gd:497: \"progress\": state.score.demands_completed,",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:70c9489bd9c2fe3a98f59b15f56ad5a0ff0a495767498457ead247d14adb69be",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "hurry_curry/C3/plate_deliver_and_score",
+      "scenario_id": "hurry_curry-c3-plate_deliver_and_score",
+      "source_check_id": "owner-reviewed-hurry_curry-c3-plate_deliver_and_score",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "lettuce_crate_reached",
+            "predicate": "contact(collectible, 0)"
+          },
+          {
+            "name": "cutting_board_reached",
+            "predicate": "contact(interactive, 1)"
+          },
+          {
+            "name": "customer_table_reached",
+            "predicate": "contact(goal, 0)"
+          },
+          {
+            "name": "order_scored",
+            "predicate": "numeric(score) >= 5"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "hurry_curry-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "hurry_curry-l5-whole_game_clear.lettuce_crate_reached",
+          "predicate": "contact(collectible, 0)"
+        },
+        {
+          "id": "hurry_curry-l5-whole_game_clear.cutting_board_reached",
+          "predicate": "contact(interactive, 1)"
+        },
+        {
+          "id": "hurry_curry-l5-whole_game_clear.customer_table_reached",
+          "predicate": "contact(goal, 0)"
+        },
+        {
+          "id": "hurry_curry-l5-whole_game_clear.first_order_scored",
+          "predicate": "numeric(score) >= 5"
+        },
+        {
+          "id": "hurry_curry-l5-whole_game_clear.second_order_scored",
+          "predicate": "numeric(progress) >= 2"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed source/server/game_sim.gd:497: \"progress\": state.score.demands_completed,",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:70c9489bd9c2fe3a98f59b15f56ad5a0ff0a495767498457ead247d14adb69be",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "hurry_curry/L5/whole_game_clear",
+      "scenario_id": "hurry_curry-l5-whole_game_clear",
+      "source_check_id": "owner-reviewed-hurry_curry-l5-whole_game_clear",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "lettuce_crate_reached",
+            "predicate": "contact(collectible, 0)",
+            "required_devices": [
+              "L1/collectible#0"
+            ]
+          },
+          {
+            "name": "cutting_board_reached",
+            "predicate": "contact(interactive, 1)",
+            "required_devices": [
+              "L1/interactive#1"
+            ]
+          },
+          {
+            "name": "customer_table_reached",
+            "predicate": "contact(goal, 0)",
+            "required_devices": [
+              "L1/goal#0"
+            ]
+          },
+          {
+            "name": "first_order_scored",
+            "predicate": "numeric(score) >= 5"
+          },
+          {
+            "name": "second_order_scored",
+            "predicate": "numeric(progress) >= 2"
+          },
+          {
+            "name": "third_order_scored",
+            "predicate": "numeric(progress) >= 3"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": true
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.be80d2c32e",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.7186ba5216",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.5fd95bab60",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    }
+  ],
+  "policy_digest": "sha256:18d8727fe41d923ad8d06772092e74fcb6b3617bb106d5285a55a70745f31075",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 910,
+      "capture_checkpoints": [
+        {
+          "id": "hurry_curry-c1-reach_lettuce_crate.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "hurry_curry-c1-reach_lettuce_crate.lettuce_crate_reached",
+          "predicate": "contact(collectible, 0)"
+        },
+        {
+          "id": "hurry_curry-c1-reach_lettuce_crate.goal",
+          "predicate": "contact(collectible, 0)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "lettuce_crate_reached",
+            "predicate": "contact(collectible, 0)"
+          }
+        ],
+        "predicate": "contact(collectible, 0)"
+      },
+      "id": "hurry_curry-c1-reach_lettuce_crate",
+      "policy": "strategy.movement.be80d2c32e",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "hurry_curry/C1/reach_lettuce_crate",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 1035,
+      "capture_checkpoints": [
+        {
+          "id": "hurry_curry-c2-reach_cutting_board.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "hurry_curry-c2-reach_cutting_board.lettuce_crate_reached",
+          "predicate": "contact(collectible, 0)"
+        },
+        {
+          "id": "hurry_curry-c2-reach_cutting_board.cutting_board_reached",
+          "predicate": "contact(interactive, 1)"
+        },
+        {
+          "id": "hurry_curry-c2-reach_cutting_board.goal",
+          "predicate": "contact(interactive, 1)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "lettuce_crate_reached",
+            "predicate": "contact(collectible, 0)"
+          },
+          {
+            "name": "cutting_board_reached",
+            "predicate": "contact(interactive, 1)"
+          }
+        ],
+        "predicate": "contact(interactive, 1)"
+      },
+      "id": "hurry_curry-c2-reach_cutting_board",
+      "policy": "strategy.movement.7186ba5216",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "hurry_curry/C2/reach_cutting_board",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 1760,
+      "capture_checkpoints": [
+        {
+          "id": "hurry_curry-c3-plate_deliver_and_score.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "hurry_curry-c3-plate_deliver_and_score.lettuce_crate_reached",
+          "predicate": "contact(collectible, 0)"
+        },
+        {
+          "id": "hurry_curry-c3-plate_deliver_and_score.cutting_board_reached",
+          "predicate": "contact(interactive, 1)"
+        },
+        {
+          "id": "hurry_curry-c3-plate_deliver_and_score.customer_table_reached",
+          "predicate": "contact(goal, 0)"
+        },
+        {
+          "id": "hurry_curry-c3-plate_deliver_and_score.order_scored",
+          "predicate": "numeric(score) >= 5"
+        },
+        {
+          "id": "hurry_curry-c3-plate_deliver_and_score.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "lettuce_crate_reached",
+            "predicate": "contact(collectible, 0)"
+          },
+          {
+            "name": "cutting_board_reached",
+            "predicate": "contact(interactive, 1)"
+          },
+          {
+            "name": "customer_table_reached",
+            "predicate": "contact(goal, 0)"
+          },
+          {
+            "name": "order_scored",
+            "predicate": "numeric(score) >= 5"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "id": "hurry_curry-c3-plate_deliver_and_score",
+      "policy": "strategy.movement.5fd95bab60",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress",
+        "score"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "hurry_curry/C3/plate_deliver_and_score",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "lettuce_crate_reached",
+            "predicate": "contact(collectible, 0)"
+          },
+          {
+            "name": "cutting_board_reached",
+            "predicate": "contact(interactive, 1)"
+          },
+          {
+            "name": "customer_table_reached",
+            "predicate": "contact(goal, 0)"
+          },
+          {
+            "name": "order_scored",
+            "predicate": "numeric(score) >= 5"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 12000,
+      "capture_checkpoints": [
+        {
+          "id": "hurry_curry-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "hurry_curry-l5-whole_game_clear.lettuce_crate_reached",
+          "predicate": "contact(collectible, 0)"
+        },
+        {
+          "id": "hurry_curry-l5-whole_game_clear.cutting_board_reached",
+          "predicate": "contact(interactive, 1)"
+        },
+        {
+          "id": "hurry_curry-l5-whole_game_clear.customer_table_reached",
+          "predicate": "contact(goal, 0)"
+        },
+        {
+          "id": "hurry_curry-l5-whole_game_clear.first_order_scored",
+          "predicate": "numeric(score) >= 5"
+        },
+        {
+          "id": "hurry_curry-l5-whole_game_clear.second_order_scored",
+          "predicate": "numeric(progress) >= 2"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "lettuce_crate_reached",
+            "predicate": "contact(collectible, 0)",
+            "required_devices": [
+              "L1/collectible#0"
+            ]
+          },
+          {
+            "name": "cutting_board_reached",
+            "predicate": "contact(interactive, 1)",
+            "required_devices": [
+              "L1/interactive#1"
+            ]
+          },
+          {
+            "name": "customer_table_reached",
+            "predicate": "contact(goal, 0)",
+            "required_devices": [
+              "L1/goal#0"
+            ]
+          },
+          {
+            "name": "first_order_scored",
+            "predicate": "numeric(score) >= 5"
+          },
+          {
+            "name": "second_order_scored",
+            "predicate": "numeric(progress) >= 2"
+          },
+          {
+            "name": "third_order_scored",
+            "predicate": "numeric(progress) >= 3"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "hurry_curry-l5-whole_game_clear",
+      "policy": "strategy.movement.5fd95bab60",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "score",
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "hurry_curry/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "lettuce_crate_reached",
+            "predicate": "contact(collectible, 0)",
+            "required_devices": [
+              "L1/collectible#0"
+            ]
+          },
+          {
+            "name": "cutting_board_reached",
+            "predicate": "contact(interactive, 1)",
+            "required_devices": [
+              "L1/interactive#1"
+            ]
+          },
+          {
+            "name": "customer_table_reached",
+            "predicate": "contact(goal, 0)",
+            "required_devices": [
+              "L1/goal#0"
+            ]
+          },
+          {
+            "name": "first_order_scored",
+            "predicate": "numeric(score) >= 5"
+          },
+          {
+            "name": "second_order_scored",
+            "predicate": "numeric(progress) >= 2"
+          },
+          {
+            "name": "third_order_scored",
+            "predicate": "numeric(progress) >= 3"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

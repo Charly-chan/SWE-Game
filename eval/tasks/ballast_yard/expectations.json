@@ -1,0 +1,137 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-08-23T09:37:04+00:00",
+  "interface_requirements": {
+    "O9": {
+      "fields": [],
+      "reason": "reference has no registered anchor expectation",
+      "required": false
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 0,
+        "gb_door": 0,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 1,
+        "gb_interactive": 5,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_interactive": [
+          "x",
+          2
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://level_intake_bay.tscn",
+      "spawn_goal_distance": 0.0
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 0,
+        "gb_door": 0,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 1,
+        "gb_interactive": 7,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_interactive": [
+          "x",
+          2
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://level_sorting_floor.tscn",
+      "spawn_goal_distance": 0.0
+    },
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 0,
+        "gb_door": 0,
+        "gb_enemy": 0,
+        "gb_goal": 1,
+        "gb_hazard": 2,
+        "gb_interactive": 10,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_hazard": [
+          "x",
+          2
+        ],
+        "gb_interactive": [
+          "x",
+          3
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://level_ballast_deep.tscn",
+      "spawn_goal_distance": 0.0
+    }
+  ],
+  "probe_sha256": "7b966a24301ab4cf7b2e433dc04081d354779f93ff571a8a5e47964d894a2026",
+  "project": "ballast_yard",
+  "runtime_assets": {
+    "res://assets/audio/back_001.ogg": "07db973f79f6ae0f2edc34561e7592e24d0577455919fb602cb8ecc0da991dcf",
+    "res://assets/audio/confirmation_001.ogg": "063564703b6094d70718a3e787a55cc9141611e4ecd6b6637f8828f79b4a8c3a",
+    "res://assets/audio/confirmation_004.ogg": "568967a3d9f8a8f6af54ea01729c4882284308f2a27d78c07ffd7ee0d6951661",
+    "res://assets/audio/drop_003.ogg": "43d086d50f90493a98cd2e09aa6dbf150d164f1578e1ec768d21cb185571ad87",
+    "res://assets/audio/error_003.ogg": "885b28175c7b511118bcffab95675b48bbac9005cf6514656ebdad979276b3ab",
+    "res://assets/audio/impactGlass_heavy_000.ogg": "b44b39a940e8948e74b9bd3776bff980df43cf220abdaf0d467dc4c43c0244a5",
+    "res://assets/audio/impactMetal_heavy_000.ogg": "e07045693e4a2b3d165c424e3dab4c781d9ff8880a386880ac89a51315d7f831",
+    "res://assets/audio/impactMetal_light_000.ogg": "33b5e6e37c6e9d54e07bf5a89b12c76e879f40c1ea83cdd82714df1d6f9fec6d",
+    "res://assets/audio/impactMetal_medium_000.ogg": "a96f879fec0864a8938e0c745b6996a6c5679c16a234ce31a01cc995e8401003",
+    "res://assets/audio/impactMining_000.ogg": "36b4ea107222d073c67ca64dde26944975609202d5090b2f2021213c1a7e35cd",
+    "res://assets/audio/impactWood_medium_000.ogg": "1723a9fd25103ed41af06054814e84e65f4a772bac86ab2dc927da93d9592ff5",
+    "res://assets/audio/maximize_003.ogg": "df16f25d45189f5d44d6a482ab20d5067350ca8525a9affa1f8ce599e31a20a5",
+    "res://assets/audio/select_003.ogg": "9a612fd2f513d52a296906b41071c990f75defe56be3bee60d2d4e2423b51b8b",
+    "res://assets/audio/switch_003.ogg": "ca12dd32103f401481d5aff56d5e9831174e99bb577139c09b07d046eb8b837e",
+    "res://assets/sprites/blue_desert.png": "283b18b8342a244e683634e6da2839f5699298ec6faa606f51e57423e3e4614d",
+    "res://assets/sprites/bridge.png": "bb5702dd62667d9082958ec70e79c1facfa661a3a06770334a9733055b027641",
+    "res://assets/sprites/buttonFloor.png": "fa026ae81067de84963cd7ed2a797125a01be44c999a6d05d6e2d5213ae4a6aa",
+    "res://assets/sprites/buttonFloor_pressed.png": "813af9deb67efc6ac3403a252b2fa40605b6cb4bcc83ac541c0478f34632a566",
+    "res://assets/sprites/chain.png": "1cbf1dd2ab223ed7db8f3781e153daed4d9a12885e8131bdbb89d39f954be8ee",
+    "res://assets/sprites/dirt.png": "9e69e52df51279543d2c808b02593d3cf9f620d3d203ed50d0c8f9575ec3d2b5",
+    "res://assets/sprites/elementExplosive011.png": "31ab279d6c72880ff98b69771501e0f637d1bcde81ac6718c91da2debdb926ed",
+    "res://assets/sprites/elementGlass012.png": "ca595e286c98b8defc9cf1193b52be3f555ecd6ce70cadec4946864f7baf28a1",
+    "res://assets/sprites/elementMetal001.png": "c5ce6000b3a3818241fba9bae8a5e71db1271366780e3d70c1d38513923b42f0",
+    "res://assets/sprites/elementMetal011.png": "9e62fd620f63455abd077a50bd093c74bebc120765989c519ab26bef148a4490",
+    "res://assets/sprites/elementMetal012.png": "f314dfb8ad9a4e4fbe46561a3e12e7997f12343c07f5a79de94b4208b47b7b42",
+    "res://assets/sprites/elementMetal014.png": "a75488bb1900f006d6a6a6e023b6f5914f5d9f539ada0d68916afc83a86aca3d",
+    "res://assets/sprites/elementMetal017.png": "ab8d2b53d17e26f58971009989deb1750093981ec996fcee84eeb4ef10d88ecf",
+    "res://assets/sprites/elementMetal030.png": "6881119d3539201e7ec1de200436e9c26ff68c9e595ca8788dd6544aa869e999",
+    "res://assets/sprites/elementStone011.png": "c635d3f15365245931d3183ae0561c69972fc1398928fb90603f7cae71b80b8a",
+    "res://assets/sprites/elementWood010.png": "9b3c89de2611caf7ddc604a2c8a4b36f8e49b582b191f88ffc98a32bb0ea98cb",
+    "res://assets/sprites/flagGreen_down.png": "c3d10891d531e102071229441d6371fd5fbeed0cb27c0e925035e7f2b7d47719",
+    "res://assets/sprites/flagGreen_up.png": "ae1ab726d95b03bcdeba1f0045c3630af66b88c5053ea0eb725c238020c41c7b",
+    "res://assets/sprites/ropeAttached.png": "6544135c7d7588e3fcc3c5a2d907c60753bf78c5901317e89c470769ce9cdfe3",
+    "res://assets/sprites/ropeVertical.png": "14f1404fff2cbadc1ac1e5fab2cc5e65ac1adaea28781dcd065fe5d57ba46bd4",
+    "res://assets/sprites/signArrow_left.png": "7271d753de77225781e0b85e165c6ca20b5bd54e59fc58268ed34d7b0a38f432",
+    "res://assets/sprites/signArrow_right.png": "a64b5b20123a17e0302e606acf65eff7260a0e0d66abb25472335d6da5c56c63",
+    "res://assets/sprites/signExit.png": "4fcc537dc4557ada64d908c4ffe9dc085417925665ec9729e6f9bccda0e17f60",
+    "res://assets/sprites/weightChained.png": "c693a3216ee92b67f3de42ac41b4a0ef71d40f576a375f65eb6820207aaf2144",
+    "res://assets/ui/KenneyFutureNarrow.ttf": "17e182587a3264dcf9e5b17c055715d5597187546ce81925c64e9184c26d597f",
+    "res://assets/ui/button_rectangle_depth_flat.png": "7de9ba1d4bca313fd2c02e3595f3d699c1201d84d70a3c69828e56782d585ce7"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

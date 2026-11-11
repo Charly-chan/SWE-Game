@@ -1,0 +1,3385 @@
+{
+  "routes": [
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 420,
+            "op": "wait"
+          }
+        ]
+      },
+      "budget": {
+        "frames": 420,
+        "steps": 1
+      },
+      "goal": {
+        "predicate": ""
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "ember_and_tide/L0/no_input_no_clear",
+      "scored": false,
+      "start": {
+        "inject": {},
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 0
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "ember_left",
+              "tide_right"
+            ],
+            "frames": 84,
+            "op": "hold"
+          },
+          {
+            "action": "ember_left",
+            "frames": 13,
+            "op": "hold"
+          },
+          {
+            "frames": 384,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 6,
+            "op": "hold"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 583,
+        "steps": 5
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "chamber_1_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "ember_and_tide/C1/chamber_1_twin_gates",
+      "start": {
+        "inject": {},
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 2
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_right"
+            ],
+            "frames": 26,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 35,
+            "op": "hold"
+          },
+          {
+            "frames": 342,
+            "op": "wait"
+          },
+          {
+            "action": "ember_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "frames": 67,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "frames": 378,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "frames": 51,
+            "op": "wait"
+          },
+          {
+            "action": "ember_left",
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "frames": 64,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 25,
+            "op": "hold"
+          },
+          {
+            "frames": 288,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "frames": 38,
+            "op": "wait"
+          },
+          {
+            "action": "ember_jump",
+            "frames": 7,
+            "op": "hold"
+          },
+          {
+            "frames": 2,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 36,
+            "op": "hold"
+          },
+          {
+            "frames": 39,
+            "op": "wait"
+          },
+          {
+            "action": "ember_left",
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "frames": 292,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "frames": 39,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 11,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "frames": 441,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 6,
+            "op": "hold"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 2455,
+        "steps": 35
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "chamber_2_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "ember_and_tide/C2/chamber_2_moving_platform",
+      "start": {
+        "inject": {},
+        "level": 1,
+        "settle_frames": 6
+      },
+      "tier": 2
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "ember_left",
+              "tide_right"
+            ],
+            "frames": 76,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_left",
+              "ember_jump",
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 7,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_left",
+              "tide_right"
+            ],
+            "frames": 133,
+            "op": "hold"
+          },
+          {
+            "frames": 444,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 6,
+            "op": "hold"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 762,
+        "steps": 6
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "chamber_3_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "ember_and_tide/C3/chamber_3_paired_routes",
+      "start": {
+        "inject": {},
+        "level": 2,
+        "settle_frames": 6
+      },
+      "tier": 3
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "frames": 18,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "frames": 56,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 13,
+            "op": "hold"
+          },
+          {
+            "frames": 215,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 130,
+            "op": "hold"
+          },
+          {
+            "frames": 72,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_right"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 9,
+            "op": "hold"
+          },
+          {
+            "frames": 213,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "frames": 18,
+            "op": "wait"
+          },
+          {
+            "action": "ember_jump",
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "frames": 55,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 15,
+            "op": "hold"
+          },
+          {
+            "frames": 201,
+            "op": "wait"
+          },
+          {
+            "action": "ember_jump",
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 130,
+            "op": "hold"
+          },
+          {
+            "frames": 79,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_right"
+            ],
+            "frames": 15,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "frames": 443,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 6,
+            "op": "hold"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 1903,
+        "steps": 34
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "chamber_4_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "ember_and_tide/C4/chamber_4_timed_switches",
+      "start": {
+        "inject": {},
+        "level": 3,
+        "settle_frames": 6
+      },
+      "tier": 3
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 45,
+            "op": "hold"
+          },
+          {
+            "frames": 22,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "frames": 23,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "frames": 21,
+            "op": "wait"
+          },
+          {
+            "action": "ember_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "frames": 41,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_right"
+            ],
+            "frames": 123,
+            "op": "hold"
+          },
+          {
+            "frames": 9,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "ember_jump",
+              "tide_jump"
+            ],
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump",
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_right"
+            ],
+            "frames": 5,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "ember_jump",
+              "tide_jump"
+            ],
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump",
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 5,
+            "op": "hold"
+          },
+          {
+            "frames": 35,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_right"
+            ],
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_right"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 57,
+            "op": "hold"
+          },
+          {
+            "frames": 480,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 6,
+            "op": "hold"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 1242,
+        "steps": 32
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "chamber_5_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "ember_and_tide/C5/chamber_5_element_channels",
+      "start": {
+        "inject": {},
+        "level": 4,
+        "settle_frames": 6
+      },
+      "tier": 3
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "frames": 12,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "frames": 32,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "frames": 18,
+            "op": "wait"
+          },
+          {
+            "action": "ember_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 7,
+            "op": "hold"
+          },
+          {
+            "frames": 46,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 58,
+            "op": "hold"
+          },
+          {
+            "frames": 241,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "frames": 42,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 36,
+            "op": "hold"
+          },
+          {
+            "frames": 30,
+            "op": "wait"
+          },
+          {
+            "action": "ember_jump",
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "frames": 43,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 36,
+            "op": "hold"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 7,
+            "op": "hold"
+          },
+          {
+            "frames": 33,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 80,
+            "op": "hold"
+          },
+          {
+            "frames": 232,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 29,
+            "op": "hold"
+          },
+          {
+            "frames": 488,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 6,
+            "op": "hold"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 1711,
+        "steps": 34
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "chamber_6_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "ember_and_tide/C6/chamber_6_dual_network",
+      "start": {
+        "inject": {},
+        "level": 5,
+        "settle_frames": 6
+      },
+      "tier": 3
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 33,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 5,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 23,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "frames": 156,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 19,
+            "op": "hold"
+          },
+          {
+            "frames": 53,
+            "op": "wait"
+          },
+          {
+            "action": "ember_left",
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "frames": 215,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 32,
+            "op": "hold"
+          },
+          {
+            "frames": 220,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 33,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump"
+            ],
+            "frames": 5,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 22,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 45,
+            "op": "hold"
+          },
+          {
+            "frames": 159,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 14,
+            "op": "hold"
+          },
+          {
+            "frames": 58,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "frames": 259,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "frames": 66,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "frames": 234,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 82,
+            "op": "hold"
+          },
+          {
+            "frames": 74,
+            "op": "wait"
+          },
+          {
+            "action": "ember_left",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "frames": 267,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "frames": 66,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 33,
+            "op": "hold"
+          },
+          {
+            "frames": 15,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "frames": 489,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 6,
+            "op": "hold"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 3067,
+        "steps": 38
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "chamber_7_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "ember_and_tide/C7/chamber_7_hazard_crossing",
+      "start": {
+        "inject": {},
+        "level": 6,
+        "settle_frames": 6
+      },
+      "tier": 4
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 11,
+            "op": "hold"
+          },
+          {
+            "frames": 146,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 25,
+            "op": "hold"
+          },
+          {
+            "frames": 167,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 48,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 15,
+            "op": "hold"
+          },
+          {
+            "frames": 80,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 15,
+            "op": "hold"
+          },
+          {
+            "frames": 285,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "frames": 63,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 33,
+            "op": "hold"
+          },
+          {
+            "frames": 291,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 47,
+            "op": "hold"
+          },
+          {
+            "frames": 122,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "frames": 264,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "frames": 39,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "frames": 20,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 67,
+            "op": "hold"
+          },
+          {
+            "frames": 461,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 6,
+            "op": "hold"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 2431,
+        "steps": 26
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "chamber_8_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "ember_and_tide/C8/chamber_8_relay_gates",
+      "start": {
+        "inject": {},
+        "level": 7,
+        "settle_frames": 6
+      },
+      "tier": 4
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 90,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 78,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "frames": 96,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 25,
+            "op": "hold"
+          },
+          {
+            "frames": 94,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 72,
+            "op": "hold"
+          },
+          {
+            "frames": 72,
+            "op": "wait"
+          },
+          {
+            "action": "ember_left",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "ember_left",
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "frames": 354,
+            "op": "wait"
+          },
+          {
+            "action": "ember_left",
+            "frames": 48,
+            "op": "hold"
+          },
+          {
+            "frames": 415,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 15,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 36,
+            "op": "hold"
+          },
+          {
+            "frames": 456,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 26,
+            "op": "hold"
+          },
+          {
+            "frames": 94,
+            "op": "wait"
+          },
+          {
+            "action": "ember_left",
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "frames": 450,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 6,
+            "op": "hold"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 2857,
+        "steps": 28
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "chamber_9_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "ember_and_tide/C9/chamber_9_mixed_devices",
+      "start": {
+        "inject": {},
+        "level": 8,
+        "settle_frames": 6
+      },
+      "tier": 4
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 21,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "frames": 19,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 15,
+            "op": "hold"
+          },
+          {
+            "frames": 406,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 13,
+            "op": "hold"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "frames": 64,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 48,
+            "op": "hold"
+          },
+          {
+            "frames": 264,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 70,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 14,
+            "op": "hold"
+          },
+          {
+            "frames": 208,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 54,
+            "op": "hold"
+          },
+          {
+            "frames": 409,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 92,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 48,
+            "op": "hold"
+          },
+          {
+            "frames": 366,
+            "op": "wait"
+          },
+          {
+            "action": "ember_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "frames": 87,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 342,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 9,
+            "op": "hold"
+          },
+          {
+            "frames": 87,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_left",
+              "tide_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "action": "tide_left",
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "frames": 51,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 15,
+            "op": "hold"
+          },
+          {
+            "frames": 69,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "frames": 138,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_left",
+              "tide_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "action": "tide_left",
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "frames": 71,
+            "op": "wait"
+          },
+          {
+            "action": "ember_left",
+            "frames": 9,
+            "op": "hold"
+          },
+          {
+            "frames": 111,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "frames": 66,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 14,
+            "op": "hold"
+          },
+          {
+            "frames": 292,
+            "op": "wait"
+          },
+          {
+            "frames": 120,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 3919,
+        "steps": 54
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "chamber_10_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "ember_and_tide/C10/chamber_10_final_convergence",
+      "start": {
+        "inject": {},
+        "level": 9,
+        "settle_frames": 6
+      },
+      "tier": 4
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 71,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "ember_left",
+              "tide_right"
+            ],
+            "frames": 84,
+            "op": "hold"
+          },
+          {
+            "action": "ember_left",
+            "frames": 13,
+            "op": "hold"
+          },
+          {
+            "frames": 384,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_right"
+            ],
+            "frames": 26,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 35,
+            "op": "hold"
+          },
+          {
+            "frames": 342,
+            "op": "wait"
+          },
+          {
+            "action": "ember_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "frames": 67,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "frames": 378,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "frames": 51,
+            "op": "wait"
+          },
+          {
+            "action": "ember_left",
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "frames": 64,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 25,
+            "op": "hold"
+          },
+          {
+            "frames": 288,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "frames": 38,
+            "op": "wait"
+          },
+          {
+            "action": "ember_jump",
+            "frames": 7,
+            "op": "hold"
+          },
+          {
+            "frames": 2,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 36,
+            "op": "hold"
+          },
+          {
+            "frames": 39,
+            "op": "wait"
+          },
+          {
+            "action": "ember_left",
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "frames": 292,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "frames": 39,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 11,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "frames": 441,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "ember_left",
+              "tide_right"
+            ],
+            "frames": 76,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_left",
+              "ember_jump",
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 7,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_left",
+              "tide_right"
+            ],
+            "frames": 133,
+            "op": "hold"
+          },
+          {
+            "frames": 444,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "frames": 18,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "frames": 56,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 13,
+            "op": "hold"
+          },
+          {
+            "frames": 215,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 130,
+            "op": "hold"
+          },
+          {
+            "frames": 72,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_right"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 9,
+            "op": "hold"
+          },
+          {
+            "frames": 213,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "frames": 18,
+            "op": "wait"
+          },
+          {
+            "action": "ember_jump",
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "frames": 55,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 15,
+            "op": "hold"
+          },
+          {
+            "frames": 201,
+            "op": "wait"
+          },
+          {
+            "action": "ember_jump",
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 130,
+            "op": "hold"
+          },
+          {
+            "frames": 79,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_right"
+            ],
+            "frames": 15,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "frames": 443,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 45,
+            "op": "hold"
+          },
+          {
+            "frames": 22,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "frames": 23,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "frames": 21,
+            "op": "wait"
+          },
+          {
+            "action": "ember_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "frames": 41,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_right"
+            ],
+            "frames": 123,
+            "op": "hold"
+          },
+          {
+            "frames": 9,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "ember_jump",
+              "tide_jump"
+            ],
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump",
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_right"
+            ],
+            "frames": 5,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "ember_jump",
+              "tide_jump"
+            ],
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump",
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 5,
+            "op": "hold"
+          },
+          {
+            "frames": 35,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_right"
+            ],
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_right"
+            ],
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 57,
+            "op": "hold"
+          },
+          {
+            "frames": 480,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "frames": 12,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "frames": 32,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "frames": 18,
+            "op": "wait"
+          },
+          {
+            "action": "ember_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 7,
+            "op": "hold"
+          },
+          {
+            "frames": 46,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 58,
+            "op": "hold"
+          },
+          {
+            "frames": 241,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "frames": 42,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 36,
+            "op": "hold"
+          },
+          {
+            "frames": 30,
+            "op": "wait"
+          },
+          {
+            "action": "ember_jump",
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "frames": 43,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 36,
+            "op": "hold"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 7,
+            "op": "hold"
+          },
+          {
+            "frames": 33,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 80,
+            "op": "hold"
+          },
+          {
+            "frames": 232,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 29,
+            "op": "hold"
+          },
+          {
+            "frames": 488,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 33,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 5,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 23,
+            "op": "hold"
+          },
+          {
+            "frames": 60,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "frames": 156,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 19,
+            "op": "hold"
+          },
+          {
+            "frames": 53,
+            "op": "wait"
+          },
+          {
+            "action": "ember_left",
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "frames": 215,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 32,
+            "op": "hold"
+          },
+          {
+            "frames": 220,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 33,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump"
+            ],
+            "frames": 5,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 22,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 45,
+            "op": "hold"
+          },
+          {
+            "frames": 159,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 14,
+            "op": "hold"
+          },
+          {
+            "frames": 58,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "frames": 259,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "frames": 66,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "frames": 234,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 82,
+            "op": "hold"
+          },
+          {
+            "frames": 74,
+            "op": "wait"
+          },
+          {
+            "action": "ember_left",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "frames": 267,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "frames": 66,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 33,
+            "op": "hold"
+          },
+          {
+            "frames": 15,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 39,
+            "op": "hold"
+          },
+          {
+            "frames": 489,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 11,
+            "op": "hold"
+          },
+          {
+            "frames": 146,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 25,
+            "op": "hold"
+          },
+          {
+            "frames": 167,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 48,
+            "op": "hold"
+          },
+          {
+            "frames": 48,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 15,
+            "op": "hold"
+          },
+          {
+            "frames": 80,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 15,
+            "op": "hold"
+          },
+          {
+            "frames": 285,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "frames": 63,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 33,
+            "op": "hold"
+          },
+          {
+            "frames": 291,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 47,
+            "op": "hold"
+          },
+          {
+            "frames": 122,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "frames": 264,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 21,
+            "op": "hold"
+          },
+          {
+            "frames": 39,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 16,
+            "op": "hold"
+          },
+          {
+            "frames": 20,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 67,
+            "op": "hold"
+          },
+          {
+            "frames": 461,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 55,
+            "op": "hold"
+          },
+          {
+            "frames": 90,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 78,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "frames": 96,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 25,
+            "op": "hold"
+          },
+          {
+            "frames": 94,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 72,
+            "op": "hold"
+          },
+          {
+            "frames": 72,
+            "op": "wait"
+          },
+          {
+            "action": "ember_left",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "ember_left",
+            "frames": 24,
+            "op": "hold"
+          },
+          {
+            "frames": 354,
+            "op": "wait"
+          },
+          {
+            "action": "ember_left",
+            "frames": 48,
+            "op": "hold"
+          },
+          {
+            "frames": 415,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 15,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 36,
+            "op": "hold"
+          },
+          {
+            "frames": 456,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 26,
+            "op": "hold"
+          },
+          {
+            "frames": 94,
+            "op": "wait"
+          },
+          {
+            "action": "ember_left",
+            "frames": 30,
+            "op": "hold"
+          },
+          {
+            "frames": 450,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "frames": 21,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "frames": 19,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 15,
+            "op": "hold"
+          },
+          {
+            "frames": 406,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 13,
+            "op": "hold"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "frames": 64,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 48,
+            "op": "hold"
+          },
+          {
+            "frames": 264,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 2,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "frames": 8,
+            "op": "hold"
+          },
+          {
+            "action": "tide_right",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 70,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 14,
+            "op": "hold"
+          },
+          {
+            "frames": 208,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 54,
+            "op": "hold"
+          },
+          {
+            "frames": 409,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 10,
+            "op": "hold"
+          },
+          {
+            "frames": 92,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 48,
+            "op": "hold"
+          },
+          {
+            "frames": 366,
+            "op": "wait"
+          },
+          {
+            "action": "ember_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "action": "ember_right",
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "frames": 87,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 42,
+            "op": "hold"
+          },
+          {
+            "frames": 342,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 9,
+            "op": "hold"
+          },
+          {
+            "frames": 87,
+            "op": "wait"
+          },
+          {
+            "action": "tide_left",
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_left",
+              "tide_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "action": "tide_left",
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "frames": 51,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 15,
+            "op": "hold"
+          },
+          {
+            "frames": 69,
+            "op": "wait"
+          },
+          {
+            "action": "ember_right",
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "frames": 138,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 12,
+            "op": "hold"
+          },
+          {
+            "frames": 54,
+            "op": "wait"
+          },
+          {
+            "action": "tide_jump",
+            "frames": 3,
+            "op": "hold"
+          },
+          {
+            "actions": [
+              "tide_left",
+              "tide_jump"
+            ],
+            "frames": 6,
+            "op": "hold"
+          },
+          {
+            "action": "tide_left",
+            "frames": 4,
+            "op": "hold"
+          },
+          {
+            "frames": 71,
+            "op": "wait"
+          },
+          {
+            "action": "ember_left",
+            "frames": 9,
+            "op": "hold"
+          },
+          {
+            "frames": 111,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 18,
+            "op": "hold"
+          },
+          {
+            "frames": 66,
+            "op": "wait"
+          },
+          {
+            "action": "tide_right",
+            "frames": 14,
+            "op": "hold"
+          },
+          {
+            "frames": 292,
+            "op": "wait"
+          },
+          {
+            "frames": 120,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 23525,
+        "steps": 20606
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "chamber_1_cleared",
+            "predicate": "numeric(score) >= 1"
+          },
+          {
+            "name": "entered_chamber_2",
+            "predicate": "levels_visited() >= 2"
+          },
+          {
+            "name": "chamber_2_cleared",
+            "predicate": "numeric(score) >= 1"
+          },
+          {
+            "name": "entered_chamber_3",
+            "predicate": "levels_visited() >= 3"
+          },
+          {
+            "name": "chamber_3_cleared",
+            "predicate": "numeric(score) >= 1"
+          },
+          {
+            "name": "entered_chamber_4",
+            "predicate": "levels_visited() >= 4"
+          },
+          {
+            "name": "chamber_4_cleared",
+            "predicate": "numeric(score) >= 1"
+          },
+          {
+            "name": "entered_chamber_5",
+            "predicate": "levels_visited() >= 5"
+          },
+          {
+            "name": "chamber_5_cleared",
+            "predicate": "numeric(score) >= 1"
+          },
+          {
+            "name": "entered_chamber_6",
+            "predicate": "levels_visited() >= 6"
+          },
+          {
+            "name": "chamber_6_cleared",
+            "predicate": "numeric(score) >= 1"
+          },
+          {
+            "name": "entered_chamber_7",
+            "predicate": "levels_visited() >= 7"
+          },
+          {
+            "name": "chamber_7_cleared",
+            "predicate": "numeric(score) >= 1"
+          },
+          {
+            "name": "entered_chamber_8",
+            "predicate": "levels_visited() >= 8"
+          },
+          {
+            "name": "chamber_8_cleared",
+            "predicate": "numeric(score) >= 1"
+          },
+          {
+            "name": "entered_chamber_9",
+            "predicate": "levels_visited() >= 9"
+          },
+          {
+            "name": "chamber_9_cleared",
+            "predicate": "numeric(score) >= 1"
+          },
+          {
+            "name": "entered_chamber_10",
+            "predicate": "levels_visited() >= 10"
+          },
+          {
+            "name": "chamber_10_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "ember_and_tide/L5/whole_game_clear",
+      "start": {
+        "inject": {},
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 5
+    }
+  ],
+  "schema_version": 2,
+  "task_id": "ember_and_tide"
+}

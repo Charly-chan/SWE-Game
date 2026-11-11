@@ -1,0 +1,4948 @@
+{
+  "routes": [
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 420,
+            "op": "wait"
+          }
+        ]
+      },
+      "budget": {
+        "frames": 420,
+        "steps": 1
+      },
+      "goal": {
+        "predicate": ""
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "vaultline/L0/no_input_no_clear",
+      "scored": false,
+      "start": {
+        "inject": {},
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 0
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 53,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 92,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 66,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 362,
+        "steps": 11
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_clear",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "vaultline/C1/footing",
+      "start": {
+        "inject": {},
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 2
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 29,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 69,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 70,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 87,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 408,
+        "steps": 14
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_clear",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "vaultline/C2/gaps",
+      "start": {
+        "inject": {},
+        "level": 1,
+        "settle_frames": 6
+      },
+      "tier": 2
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 59,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 60,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 50,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 5,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 45,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 58,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 60,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 50,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 83,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 638,
+        "steps": 26
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_clear",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "vaultline/C3/teeth",
+      "start": {
+        "inject": {},
+        "level": 2,
+        "settle_frames": 6
+      },
+      "tier": 2
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 90,
+            "op": "state"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 695,
+        "steps": 103
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_clear",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "vaultline/C4/shaft",
+      "start": {
+        "inject": {},
+        "level": 3,
+        "settle_frames": 6
+      },
+      "tier": 3
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 32,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 56,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 82,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 103,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 428,
+        "steps": 15
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_clear",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "vaultline/C5/weave",
+      "start": {
+        "inject": {},
+        "level": 4,
+        "settle_frames": 6
+      },
+      "tier": 3
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 67,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 82,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 5,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 101,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 77,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 40,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 525,
+        "steps": 15
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_clear",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "vaultline/C6/duck_under",
+      "start": {
+        "inject": {},
+        "level": 5,
+        "settle_frames": 6
+      },
+      "tier": 3
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 5,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 28,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 37,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 3,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 78,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 30,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 14,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 107,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 474,
+        "steps": 21
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_clear",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "vaultline/C7/carry",
+      "start": {
+        "inject": {},
+        "level": 6,
+        "settle_frames": 6
+      },
+      "tier": 3
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 58,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 50,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 5,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 67,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 8,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 42,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 89,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 474,
+        "steps": 18
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_clear",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "vaultline/C8/dive",
+      "start": {
+        "inject": {},
+        "level": 7,
+        "settle_frames": 6
+      },
+      "tier": 3
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 183,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 96,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 432,
+        "steps": 11
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_clear",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "vaultline/C9/springboard",
+      "start": {
+        "inject": {},
+        "level": 8,
+        "settle_frames": 6
+      },
+      "tier": 4
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 29,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 69,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 60,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 60,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 76,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 448,
+        "steps": 16
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_clear",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "vaultline/C10/cadence",
+      "start": {
+        "inject": {},
+        "level": 9,
+        "settle_frames": 6
+      },
+      "tier": 4
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 105,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "frames": 7,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "frames": 40,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 26,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 48,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 384,
+        "steps": 16
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_clear",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "vaultline/C11/drop",
+      "start": {
+        "inject": {},
+        "level": 10,
+        "settle_frames": 6
+      },
+      "tier": 4
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 30,
+            "op": "state"
+          },
+          {
+            "frames": 154,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 24,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 48,
+            "op": "state"
+          },
+          {
+            "frames": 232,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 30,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 36,
+            "op": "state"
+          },
+          {
+            "frames": 17,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 18,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 61,
+            "op": "state"
+          },
+          {
+            "frames": 140,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 58,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 1003,
+        "steps": 23
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_clear",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "vaultline/C12/carriage",
+      "start": {
+        "inject": {},
+        "level": 11,
+        "settle_frames": 36
+      },
+      "tier": 4
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 55,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 82,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 36,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 230,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 564,
+        "steps": 14
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_clear",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "vaultline/C13/seam",
+      "start": {
+        "inject": {},
+        "level": 12,
+        "settle_frames": 6
+      },
+      "tier": 4
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 36,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 55,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 32,
+            "op": "state"
+          },
+          {
+            "frames": 12,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 60,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 85,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 36,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 31,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 31,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 31,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 31,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 53,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 123,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 8,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 14,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 100,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 32,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 26,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 69,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 90,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 1081,
+        "steps": 37
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_clear",
+            "predicate": "numeric_delta(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric_delta(progress) >= 1"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "vaultline/C14/final_vaultline",
+      "start": {
+        "inject": {},
+        "level": 13,
+        "settle_frames": 6
+      },
+      "tier": 4
+    },
+    {
+      "authored_solution": {
+        "ops": [
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 53,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 92,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 66,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 29,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 69,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 70,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 87,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 59,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 60,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 50,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 5,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 45,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 58,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 60,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 50,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 83,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 90,
+            "op": "state"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 1,
+            "op": "hold"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 32,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 56,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 82,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 103,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 67,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 82,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 5,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 101,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 77,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 40,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 5,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 28,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 37,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 3,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 78,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 30,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 14,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 107,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 58,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 50,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 5,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 67,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 8,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 42,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 89,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 183,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 96,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 29,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 69,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 60,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 60,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 76,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 105,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "frames": 7,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_down"
+            ],
+            "frames": 4,
+            "op": "state"
+          },
+          {
+            "frames": 40,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 26,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 48,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 30,
+            "op": "state"
+          },
+          {
+            "frames": 154,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 24,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 48,
+            "op": "state"
+          },
+          {
+            "frames": 232,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 30,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 36,
+            "op": "state"
+          },
+          {
+            "frames": 17,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 18,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 61,
+            "op": "state"
+          },
+          {
+            "frames": 140,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 58,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 69,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 60,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 82,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 36,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 230,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 36,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 1,
+            "op": "wait"
+          },
+          {
+            "frames": 2,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 36,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 55,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 32,
+            "op": "state"
+          },
+          {
+            "frames": 12,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 60,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 85,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 36,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 31,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 31,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 31,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 31,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 53,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 123,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 8,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 14,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "frames": 100,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 32,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 26,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "frames": 1,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 69,
+            "op": "state"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 24,
+            "op": "wait"
+          },
+          {
+            "action": "gb_action",
+            "frames": 2,
+            "op": "tap"
+          },
+          {
+            "frames": 90,
+            "op": "wait"
+          }
+        ],
+        "solution_kind": "tape"
+      },
+      "budget": {
+        "frames": 7300,
+        "steps": 800
+      },
+      "goal": {
+        "milestones": [
+          {
+            "name": "floor_1_cleared",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "entered_floor_2",
+            "predicate": "levels_visited() >= 2"
+          },
+          {
+            "name": "floor_2_cleared",
+            "predicate": "numeric(progress) >= 2"
+          },
+          {
+            "name": "entered_floor_3",
+            "predicate": "levels_visited() >= 3"
+          },
+          {
+            "name": "floor_3_cleared",
+            "predicate": "numeric(progress) >= 3"
+          },
+          {
+            "name": "entered_floor_4",
+            "predicate": "levels_visited() >= 4"
+          },
+          {
+            "name": "floor_4_cleared",
+            "predicate": "numeric(progress) >= 4"
+          },
+          {
+            "name": "entered_floor_5",
+            "predicate": "levels_visited() >= 5"
+          },
+          {
+            "name": "floor_5_cleared",
+            "predicate": "numeric(progress) >= 5"
+          },
+          {
+            "name": "entered_floor_6",
+            "predicate": "levels_visited() >= 6"
+          },
+          {
+            "name": "floor_6_cleared",
+            "predicate": "numeric(progress) >= 6"
+          },
+          {
+            "name": "entered_floor_7",
+            "predicate": "levels_visited() >= 7"
+          },
+          {
+            "name": "floor_7_cleared",
+            "predicate": "numeric(progress) >= 7"
+          },
+          {
+            "name": "entered_floor_8",
+            "predicate": "levels_visited() >= 8"
+          },
+          {
+            "name": "floor_8_cleared",
+            "predicate": "numeric(progress) >= 8"
+          },
+          {
+            "name": "entered_floor_9",
+            "predicate": "levels_visited() >= 9"
+          },
+          {
+            "name": "floor_9_cleared",
+            "predicate": "numeric(progress) >= 9"
+          },
+          {
+            "name": "entered_floor_10",
+            "predicate": "levels_visited() >= 10"
+          },
+          {
+            "name": "floor_10_cleared",
+            "predicate": "numeric(progress) >= 10"
+          },
+          {
+            "name": "entered_floor_11",
+            "predicate": "levels_visited() >= 11"
+          },
+          {
+            "name": "floor_11_cleared",
+            "predicate": "numeric(progress) >= 11"
+          },
+          {
+            "name": "entered_floor_12",
+            "predicate": "levels_visited() >= 12"
+          },
+          {
+            "name": "floor_12_cleared",
+            "predicate": "numeric(progress) >= 12"
+          },
+          {
+            "name": "entered_floor_13",
+            "predicate": "levels_visited() >= 13"
+          },
+          {
+            "name": "floor_13_cleared",
+            "predicate": "numeric(progress) >= 13"
+          },
+          {
+            "name": "entered_floor_14",
+            "predicate": "levels_visited() >= 14"
+          },
+          {
+            "name": "floor_14_cleared",
+            "predicate": "numeric(progress) >= 14"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "provenance": {
+        "kind": "withheld"
+      },
+      "required_devices": [],
+      "route_id": "vaultline/L5/whole_game_clear",
+      "start": {
+        "inject": {},
+        "level": 0,
+        "settle_frames": 6
+      },
+      "tier": 5
+    }
+  ],
+  "schema_version": 2,
+  "task_id": "vaultline"
+}

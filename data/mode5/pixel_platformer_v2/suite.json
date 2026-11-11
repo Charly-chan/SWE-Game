@@ -1,0 +1,811 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:819b366998123eb223faeadded40c0c38310055e39871fb007e97152b5a771e8",
+  "game_id": "pixel_platformer_v2",
+  "inputs": {
+    "certificate": {
+      "path": "tasks/pixel_platformer_v2/certificate.rt1.json",
+      "sha256": "3d8f2424130d101b2ebe54853b9f22bb3d233840e48aa4a65f4b0aa3e67ba011"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/pixel_platformer_v2.md",
+      "sha256": "d3d223fe27a47ea5cafc28040200ab33d1b01b219e447a66267632e98c66023a"
+    },
+    "route": {
+      "path": "tasks/pixel_platformer_v2/route.json",
+      "sha256": "c07a818d3147c42560e5bb09fe76c6ab04854b8cc809b0201ef6b3345dc3f181"
+    },
+    "rubric": {
+      "entry_sha256": "69f206c25e8345de563d5bf3c3a8c5ea72655302349a92b7d9e30053a0eae77a",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_hazard",
+        "gb_collectible",
+        "gb_door",
+        "gb_interactive",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/pixel_platformer_v2/authored/source_obligations.json",
+      "sha256": "986c0cc83dd80dfcc517b913dfbeed4df7aaed223c8fbb471f956fff0d41bb3c"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "pixel_platformer_v2-c1-room_a_yard.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "pixel_platformer_v2-c1-room_a_yard.entered_pipeworks",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "pixel_platformer_v2-c1-room_a_yard.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed src/core/main.gd:187: menus.open(Menus.M.TITLE, \"Pixel Platformer\", sub, items)",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:b4d75d4ac445cf0be352a82abb3bcd03df05e343bc1b43230f6fce75650fa3a9",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "pixel_platformer_v2/C1/room_a_yard",
+      "scenario_id": "pixel_platformer_v2-c1-room_a_yard",
+      "source_check_id": "owner-reviewed-pixel_platformer_v2-c1-room_a_yard",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "entered_pipeworks",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_right",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "pixel_platformer_v2-c2-through_pipeworks.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "pixel_platformer_v2-c2-through_pipeworks.entered_ironworks",
+          "predicate": "numeric(progress) >= 2"
+        },
+        {
+          "id": "pixel_platformer_v2-c2-through_pipeworks.goal",
+          "predicate": "numeric(progress) >= 2"
+        }
+      ],
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed src/core/main.gd:187: menus.open(Menus.M.TITLE, \"Pixel Platformer\", sub, items)",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:b4d75d4ac445cf0be352a82abb3bcd03df05e343bc1b43230f6fce75650fa3a9",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "pixel_platformer_v2/C2/through_pipeworks",
+      "scenario_id": "pixel_platformer_v2-c2-through_pipeworks",
+      "source_check_id": "owner-reviewed-pixel_platformer_v2-c2-through_pipeworks",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "entered_ironworks",
+            "predicate": "numeric(progress) >= 2"
+          }
+        ],
+        "predicate": "numeric(progress) >= 2"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_right",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "pixel_platformer_v2-c3-through_ironworks.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "pixel_platformer_v2-c3-through_ironworks.entered_harvest",
+          "predicate": "numeric(progress) >= 3"
+        },
+        {
+          "id": "pixel_platformer_v2-c3-through_ironworks.goal",
+          "predicate": "numeric(progress) >= 3"
+        }
+      ],
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:b4d75d4ac445cf0be352a82abb3bcd03df05e343bc1b43230f6fce75650fa3a9",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "pixel_platformer_v2/C3/through_ironworks",
+      "scenario_id": "pixel_platformer_v2-c3-through_ironworks",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_right",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "pixel_platformer_v2-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "pixel_platformer_v2-l5-whole_game_clear.entered_pipeworks",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "pixel_platformer_v2-l5-whole_game_clear.entered_harvest",
+          "predicate": "numeric(progress) >= 3"
+        },
+        {
+          "id": "pixel_platformer_v2-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:b4d75d4ac445cf0be352a82abb3bcd03df05e343bc1b43230f6fce75650fa3a9",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "pixel_platformer_v2/L5/whole_game_clear",
+      "scenario_id": "pixel_platformer_v2-l5-whole_game_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_right",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_right",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.1f953b7569",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_right",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.7dcab7a553",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_right",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.24b489bf50",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    }
+  ],
+  "policy_digest": "sha256:2cbf57ba0addc91a9dcbb3454f82429e5f071176e469be84c949cb4c091ea258",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 308,
+      "capture_checkpoints": [
+        {
+          "id": "pixel_platformer_v2-c1-room_a_yard.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "pixel_platformer_v2-c1-room_a_yard.entered_pipeworks",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "pixel_platformer_v2-c1-room_a_yard.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_jump",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "entered_pipeworks",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "id": "pixel_platformer_v2-c1-room_a_yard",
+      "policy": "strategy.traversal.1f953b7569",
+      "required_actions": [
+        "gb_jump",
+        "gb_right"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "pixel_platformer_v2/C1/room_a_yard",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "entered_pipeworks",
+            "predicate": "numeric(progress) >= 1"
+          }
+        ],
+        "predicate": "numeric(progress) >= 1"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 705,
+      "capture_checkpoints": [
+        {
+          "id": "pixel_platformer_v2-c2-through_pipeworks.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "pixel_platformer_v2-c2-through_pipeworks.entered_ironworks",
+          "predicate": "numeric(progress) >= 2"
+        },
+        {
+          "id": "pixel_platformer_v2-c2-through_pipeworks.goal",
+          "predicate": "numeric(progress) >= 2"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_jump",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "entered_ironworks",
+            "predicate": "numeric(progress) >= 2"
+          }
+        ],
+        "predicate": "numeric(progress) >= 2"
+      },
+      "id": "pixel_platformer_v2-c2-through_pipeworks",
+      "policy": "strategy.traversal.7dcab7a553",
+      "required_actions": [
+        "gb_jump",
+        "gb_left",
+        "gb_right"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "pixel_platformer_v2/C2/through_pipeworks",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "entered_ironworks",
+            "predicate": "numeric(progress) >= 2"
+          }
+        ],
+        "predicate": "numeric(progress) >= 2"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 1152,
+      "capture_checkpoints": [
+        {
+          "id": "pixel_platformer_v2-c3-through_ironworks.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "pixel_platformer_v2-c3-through_ironworks.entered_harvest",
+          "predicate": "numeric(progress) >= 3"
+        },
+        {
+          "id": "pixel_platformer_v2-c3-through_ironworks.goal",
+          "predicate": "numeric(progress) >= 3"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_jump",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "entered_harvest",
+            "predicate": "numeric(progress) >= 3"
+          }
+        ],
+        "predicate": "numeric(progress) >= 3"
+      },
+      "id": "pixel_platformer_v2-c3-through_ironworks",
+      "policy": "strategy.traversal.24b489bf50",
+      "required_actions": [
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "pixel_platformer_v2/C3/through_ironworks",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 4000,
+      "capture_checkpoints": [
+        {
+          "id": "pixel_platformer_v2-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "pixel_platformer_v2-l5-whole_game_clear.entered_pipeworks",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "pixel_platformer_v2-l5-whole_game_clear.entered_harvest",
+          "predicate": "numeric(progress) >= 3"
+        },
+        {
+          "id": "pixel_platformer_v2-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_jump",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "entered_pipeworks",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "entered_harvest",
+            "predicate": "numeric(progress) >= 3"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "pixel_platformer_v2-l5-whole_game_clear",
+      "policy": "strategy.traversal.24b489bf50",
+      "required_actions": [
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "pixel_platformer_v2/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

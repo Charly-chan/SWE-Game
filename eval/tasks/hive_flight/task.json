@@ -1,0 +1,7 @@
+{
+  "probe_plan": {
+    "goal": {
+      "effect": "route_campaign"
+    }
+  }
+}

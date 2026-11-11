@@ -1,0 +1,20 @@
+{
+  "probe_plan": {
+    "collect": {
+      "frames": 75
+    },
+    "goal": {
+      "effect": "route_progress"
+    },
+    "player_counts": [
+      2
+    ],
+    "player_counts_by_mode": {
+      "brief": [
+        1,
+        2
+      ]
+    },
+    "player_counts_reason": "The published brief asks for two elemental states, not necessarily two simultaneous bodies; the full GDD explicitly requires the pair."
+  }
+}

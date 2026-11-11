@@ -1,0 +1,84 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-09-05T18:23:09+00:00",
+  "interface_requirements": {
+    "O10": {
+      "fields": [],
+      "reason": "reference has no live-mixer expectation",
+      "required": false
+    },
+    "O9": {
+      "fields": [],
+      "reason": "reference has no registered anchor expectation",
+      "required": false
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 1,
+        "gb_door": 0,
+        "gb_enemy": 6,
+        "gb_goal": 2,
+        "gb_hazard": 0,
+        "gb_interactive": 0,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_enemy": [
+          "y",
+          3
+        ],
+        "gb_goal": [
+          "x",
+          2
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://source/levels/world/world_screen.tscn",
+      "spawn_goal_distance": 0.6246644971299974
+    }
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "soccer_course",
+  "runtime_assets": {
+    "res://assets/art/backgrounds/bottom-wall.png": "a42aa83993c32b3d61a92f9e8d162c0b628ef634f659d49d24dbbd2a8fff6e8c",
+    "res://assets/art/backgrounds/goal-bottom.png": "573da94a193ada0a008eddc693c010dc49116c51f415940c53ff47974df46709",
+    "res://assets/art/backgrounds/goal-top.png": "b201b32c0c561e8ff27e30e4b92c2916bb57cb05dfa1a4f563aac47ebb3fe50d",
+    "res://assets/art/backgrounds/pitch-background.png": "05a35d8d7b9fd9c9734600ebd939696a33dd5c5af69c223c603076fc995dc88c",
+    "res://assets/art/backgrounds/pitch-lines.png": "8d65c966fe9dd2bf26f597882350ab8e7217a13ef2bb736154f3b500bd095759",
+    "res://assets/art/backgrounds/pitch-pattern.png": "9a02d86a72e21de5585744d547ffff7f5c07ecf79b3ce0ae2f3876242df45440",
+    "res://assets/art/backgrounds/side-wall.png": "c8317c50e24e97929286ca212efffc79edb4c4b79381e691a99b79e75305f3ca",
+    "res://assets/art/backgrounds/top-wall.png": "1dc1e40eea23692358eab23e1ef480ad575c5fe21066c7fbbe3d57da23c782e5",
+    "res://assets/art/characters/player-shadow.png": "14c22f8ae7069a8ca006c840ad964582e623afa30eda51c9d9b7fffc22ce5c46",
+    "res://assets/art/characters/soccer-player.png": "a44b170cceb5856ee8883cd6d3dbff03d6aeb3912925da40ded2ca97e01f2521",
+    "res://assets/art/palettes/skin-colors-palette.png": "3f1c5de626dec2e931d3712fcc62eb4ada272b59fce660e6c803f303a511e465",
+    "res://assets/art/palettes/teams-color-palette.png": "a9c199fd7d5fb01ad3af61a61040738cd5d4e80715d575be9780605c38006276",
+    "res://assets/art/particles/spark.png": "c71d9bc26842ce1894ce3a828e5ef0c6942200b7d5bae35660f33f19f9c33202",
+    "res://assets/art/particles/white-circle.png": "85adf1d9ee0b6440cac83d901b5a918d6856570d398bfa25b9623136c609e81d",
+    "res://assets/art/props/ball-shadow.png": "b6310774e52a48e1bbfb8c981c6f20c6ba40e82a94fd8f905fa948ed07c76291",
+    "res://assets/art/props/soccer-ball.png": "e9235da6ec6f523672e80f64f92c8cd02b4f6c60a9b60519cc10c401c91d5a52",
+    "res://assets/art/ui/flags/flag-argentina.png": "dd87e96547b48aeddea07c59d00d8d516538d824e14343f8bc95a55994b43c69",
+    "res://assets/art/ui/flags/flag-france.png": "85de80dc75a8ab486d31cc1f69758f376f3f4eacc9f4e2c7e8cdc4f5dccebfc1",
+    "res://assets/art/ui/goal.png": "0ae96de66e504a81b5f10c87970c407e459e83cb082211e817c90b91c60f1cd0",
+    "res://assets/art/ui/mainmenu/ball-selection.png": "b63cda00652055e5b208ad96c5b779922a1a159c1ea134115667f93d2fe12f4d",
+    "res://assets/art/ui/times-up.png": "c2920d42665c30db0b8b4e43f0ed0696d554cb0a80a3a0a81a73c89a7c927abb",
+    "res://assets/fonts/Pixeled.ttf": "b91a938db0d3a75c8c45eabb0f3d837cff96dfb2de5f2028bbb4b78f1ed6b319",
+    "res://assets/sfx/hurt.wav": "49301fca1ea246de08356bcee11b47dcc798ab96b900a1bfa1e5e047d9b9baed",
+    "res://icon.svg": "f6369bae7e12e6d16019cd6214cf27a2fdb6f3f6d024bd6f23c322be4804474f"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

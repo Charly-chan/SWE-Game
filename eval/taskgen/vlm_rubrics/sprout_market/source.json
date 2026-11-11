@@ -1,0 +1,152 @@
+{
+  "game_id": "sprout_market",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "reference_media/assets/produce/broccoli.png",
+        "id": "S003",
+        "label": "reference_media/assets/produce/broccoli.png"
+      },
+      {
+        "asset_path": "reference_media/assets/ui/button_rectangle_depth_flat.png",
+        "id": "S006",
+        "label": "reference_media/assets/ui/button_rectangle_depth_flat.png"
+      },
+      {
+        "bundled_path": "media/S007.png",
+        "id": "S007",
+        "label": "kenney_food-kit-0.png"
+      },
+      {
+        "asset_path": "reference_media/assets/produce/carrot.png",
+        "id": "S014",
+        "label": "reference_media/assets/produce/carrot.png"
+      },
+      {
+        "asset_path": "reference_media/assets/produce/corn.png",
+        "id": "S019",
+        "label": "reference_media/assets/produce/corn.png"
+      },
+      {
+        "asset_path": "reference_media/assets/ui/coin_01.png",
+        "id": "S027",
+        "label": "reference_media/assets/ui/coin_01.png"
+      },
+      {
+        "bundled_path": "media/S054.png",
+        "id": "S054",
+        "label": "kenney_puzzle-pack-2-1.png"
+      },
+      {
+        "bundled_path": "media/S067.png",
+        "id": "S067",
+        "label": "kenney_tiny-dungeon-1.png"
+      },
+      {
+        "bundled_path": "media/S071.png",
+        "id": "S071",
+        "label": "kenney_tiny-town-1.png"
+      },
+      {
+        "bundled_path": "media/S073.png",
+        "id": "S073",
+        "label": "FONT PREVIEW reference_media/assets/fonts/Kenney Future Narrow.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "reference_media/assets/fonts/Kenney Future Narrow.ttf"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "kenney_digital-audio.zip",
+        "kenney_food-kit.zip",
+        "kenney_interface-sounds.zip",
+        "kenney_music-jingles.zip",
+        "kenney_particle-pack.zip",
+        "kenney_puzzle-pack-2.zip",
+        "kenney_tiny-dungeon.zip",
+        "kenney_tiny-town.zip",
+        "kenney_ui-pack.zip",
+        "reference_media/assets/chars",
+        "reference_media/assets/fonts",
+        "reference_media/assets/music",
+        "reference_media/assets/particles",
+        "reference_media/assets/produce",
+        "reference_media/assets/props",
+        "reference_media/assets/tiles",
+        "reference_media/assets/ui"
+      ],
+      "file_count": 65,
+      "font_files": [
+        "reference_media/assets/fonts/Kenney Future Narrow.ttf",
+        "reference_media/assets/fonts/Kenney Future.ttf"
+      ]
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry. Font previews are rendered from actual supplied font files; preview wording is illustrative, not additional task requirements.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 378.684,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R008",
+        "time_s": 22.5167
+      },
+      {
+        "id": "R011",
+        "time_s": 32.1667
+      },
+      {
+        "id": "R018",
+        "time_s": 54.6833
+      },
+      {
+        "id": "R022",
+        "time_s": 67.55
+      },
+      {
+        "id": "R035",
+        "time_s": 109.367
+      },
+      {
+        "id": "R060",
+        "time_s": 189.783
+      },
+      {
+        "id": "R119",
+        "time_s": 378.667
+      },
+      {
+        "clip": 1,
+        "id": "RD010",
+        "time_s": 76.6368
+      },
+      {
+        "clip": 1,
+        "id": "RD016",
+        "time_s": 77.2368
+      },
+      {
+        "clip": 2,
+        "id": "RD028",
+        "time_s": 190.042
+      },
+      {
+        "clip": 2,
+        "id": "RD033",
+        "time_s": 190.542
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.31160545467989137,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# Sprout Market — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nRun a small shop alone, move goods through a visible restock-to-sale loop, make time and spending choices, and finish a short campaign.\n\n## Scope boundary\n\nA compact single-screen management game with direct movement or interaction, customers or demand, economy consequences, failure, and campaign completion.\n\n## Creative freedom\n\nYou may choose the floor plan, products, upgrades, shift pacing, customer rules, and visual arrangement.\n"
+}

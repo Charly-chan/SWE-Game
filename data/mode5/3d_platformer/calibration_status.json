@@ -1,0 +1,17 @@
+{
+  "blockers": [],
+  "game_id": "3d_platformer",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "3d_platformer-c1-east_cell_return_and_deliver",
+    "3d_platformer-c2-west_carrier_cell",
+    "3d_platformer-c4-east_saw_cell",
+    "3d_platformer-c5-north_conveyor_cell",
+    "3d_platformer-c7-level_3_crumble_return",
+    "3d_platformer-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:1004314dd1f494299053f0e6900db81b7edacd413680e685dd9638c7030fc728"
+}

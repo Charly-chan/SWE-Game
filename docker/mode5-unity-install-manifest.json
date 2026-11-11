@@ -1,0 +1,21 @@
+{
+  "schema": "gamebench.mode5-unity-install.v1",
+  "unity_version": "6000.3.23f1",
+  "unity_changeset": "09d2ecc7fb28",
+  "archives": {
+    "editor": {
+      "file": "Unity-6000.3.23f1.tar.xz",
+      "url": "https://download.unity3d.com/download_unity/09d2ecc7fb28/LinuxEditorInstaller/Unity-6000.3.23f1.tar.xz",
+      "bytes": 4464456072,
+      "sha256": "5eb162c3f56465b0d997581385a9f483ccb046d31bbdec2cb6f4bcc8b30bf378"
+    },
+    "linux_il2cpp": {
+      "file": "UnitySetup-Linux-IL2CPP-Support-for-Editor-6000.3.23f1.tar.xz",
+      "url": "https://download.unity3d.com/download_unity/09d2ecc7fb28/LinuxEditorTargetInstaller/UnitySetup-Linux-IL2CPP-Support-for-Editor-6000.3.23f1.tar.xz",
+      "bytes": 59302108,
+      "sha256": "1e32e8a05de5fe3919607e93676341fce45b7a65206ddb5e50816e0d4d6dc2f7"
+    }
+  },
+  "source": "https://unity.com/releases/editor/whats-new/6000.3.23f1",
+  "license_in_image": false
+}

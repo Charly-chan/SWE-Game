@@ -1,0 +1,11 @@
+{
+  "channel_override_reason": "Single-level sandbox with no comparable goal or collectible family; all O5 families are unobservable (GOLD_TRIAGE #6)",
+  "channel_overrides": {
+    "O5": 0.0
+  },
+  "probe_plan": {
+    "goal": {
+      "effect": "route_progress"
+    }
+  }
+}

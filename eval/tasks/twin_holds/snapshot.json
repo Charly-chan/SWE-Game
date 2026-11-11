@@ -1,0 +1,1309 @@
+{
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "driver_sha256": "7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742",
+  "endings": {
+    "defeat": "res://scenes/stage_failed.tscn",
+    "victory": "res://scenes/results.tscn"
+  },
+  "engine": "4.5.1",
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "1ced7f379f219920cb2ab4bed3a685dd2865fe521775f867790853e57bfbb72a",
+    "source_sha256": "e2a95ad0a2ee634748a009f97ee644912474e1314760d427697c406698a6c628"
+  },
+  "levels": [
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          8.0,
+          0.400000005960464,
+          6.92820310592651
+        ],
+        "min3": [
+          -8.0,
+          0.0,
+          -6.92820310592651
+        ],
+        "plane": "xz",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 0,
+        "alive_before": 0,
+        "attempted": false,
+        "delta": 0,
+        "detail": "this level declares no gb_collectible, so there is nothing to pick up",
+        "effect": {},
+        "target": ""
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://scenes/level.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "0 collect-and-deliver cycles then 120 frames on Objective, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "progress_before": 3.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://scenes/level.tscn",
+        "scene_before": "res://scenes/level.tscn",
+        "target": "Objective"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_door": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_enemy": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.25,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              -4.0,
+              0.0,
+              -6.92820310592651
+            ]
+          ]
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.25,
+              "y": 0.0
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              -4.0,
+              0.0,
+              -6.92820310592651
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_interactive": {
+          "alive": 61,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0,
+              "y": 0.5
+            },
+            {
+              "valid": true,
+              "x": 0.0625,
+              "y": 0.625
+            },
+            {
+              "valid": true,
+              "x": 0.125,
+              "y": 0.75
+            },
+            {
+              "valid": true,
+              "x": 0.1875,
+              "y": 0.87499999139681
+            },
+            {
+              "valid": true,
+              "x": 0.25,
+              "y": 1.0
+            },
+            {
+              "valid": true,
+              "x": 0.0625,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.125,
+              "y": 0.5
+            },
+            {
+              "valid": true,
+              "x": 0.1875,
+              "y": 0.625
+            },
+            {
+              "valid": true,
+              "x": 0.25,
+              "y": 0.75
+            },
+            {
+              "valid": true,
+              "x": 0.3125,
+              "y": 0.87499999139681
+            },
+            {
+              "valid": true,
+              "x": 0.375,
+              "y": 1.0
+            },
+            {
+              "valid": true,
+              "x": 0.125,
+              "y": 0.25
+            },
+            {
+              "valid": true,
+              "x": 0.1875,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.25,
+              "y": 0.5
+            },
+            {
+              "valid": true,
+              "x": 0.3125,
+              "y": 0.625
+            },
+            {
+              "valid": true,
+              "x": 0.375,
+              "y": 0.75
+            },
+            {
+              "valid": true,
+              "x": 0.4375,
+              "y": 0.87499999139681
+            },
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 1.0
+            },
+            {
+              "valid": true,
+              "x": 0.1875,
+              "y": 0.12500000860319
+            },
+            {
+              "valid": true,
+              "x": 0.25,
+              "y": 0.25
+            },
+            {
+              "valid": true,
+              "x": 0.3125,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.375,
+              "y": 0.5
+            },
+            {
+              "valid": true,
+              "x": 0.4375,
+              "y": 0.625
+            },
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 0.75
+            },
+            {
+              "valid": true,
+              "x": 0.5625,
+              "y": 0.87499999139681
+            },
+            {
+              "valid": true,
+              "x": 0.625,
+              "y": 1.0
+            },
+            {
+              "valid": true,
+              "x": 0.25,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.3125,
+              "y": 0.12500000860319
+            },
+            {
+              "valid": true,
+              "x": 0.375,
+              "y": 0.25
+            },
+            {
+              "valid": true,
+              "x": 0.4375,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 0.5
+            },
+            {
+              "valid": true,
+              "x": 0.5625,
+              "y": 0.625
+            },
+            {
+              "valid": true,
+              "x": 0.625,
+              "y": 0.75
+            },
+            {
+              "valid": true,
+              "x": 0.6875,
+              "y": 0.87499999139681
+            },
+            {
+              "valid": true,
+              "x": 0.75,
+              "y": 1.0
+            },
+            {
+              "valid": true,
+              "x": 0.375,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.4375,
+              "y": 0.12500000860319
+            },
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 0.25
+            },
+            {
+              "valid": true,
+              "x": 0.5625,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.625,
+              "y": 0.5
+            },
+            {
+              "valid": true,
+              "x": 0.6875,
+              "y": 0.625
+            },
+            {
+              "valid": true,
+              "x": 0.75,
+              "y": 0.75
+            },
+            {
+              "valid": true,
+              "x": 0.8125,
+              "y": 0.87499999139681
+            },
+            {
+              "valid": true,
+              "x": 0.5,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.5625,
+              "y": 0.12500000860319
+            },
+            {
+              "valid": true,
+              "x": 0.625,
+              "y": 0.25
+            },
+            {
+              "valid": true,
+              "x": 0.6875,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.75,
+              "y": 0.5
+            },
+            {
+              "valid": true,
+              "x": 0.8125,
+              "y": 0.625
+            },
+            {
+              "valid": true,
+              "x": 0.875,
+              "y": 0.75
+            },
+            {
+              "valid": true,
+              "x": 0.625,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.6875,
+              "y": 0.12500000860319
+            },
+            {
+              "valid": true,
+              "x": 0.75,
+              "y": 0.25
+            },
+            {
+              "valid": true,
+              "x": 0.8125,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.875,
+              "y": 0.5
+            },
+            {
+              "valid": true,
+              "x": 0.9375,
+              "y": 0.625
+            },
+            {
+              "valid": true,
+              "x": 0.75,
+              "y": 0.0
+            },
+            {
+              "valid": true,
+              "x": 0.8125,
+              "y": 0.12500000860319
+            },
+            {
+              "valid": true,
+              "x": 0.875,
+              "y": 0.25
+            },
+            {
+              "valid": true,
+              "x": 0.9375,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 1.0,
+              "y": 0.5
+            }
+          ],
+          "total": 61,
+          "world": [
+            [
+              -8.0,
+              0.0,
+              0.0
+            ],
+            [
+              -7.0,
+              0.0,
+              1.73205077648163
+            ],
+            [
+              -6.0,
+              0.0,
+              3.46410155296326
+            ],
+            [
+              -5.0,
+              0.0,
+              5.1961522102356
+            ],
+            [
+              -4.0,
+              0.0,
+              6.92820310592651
+            ],
+            [
+              -7.0,
+              0.0,
+              -1.73205077648163
+            ],
+            [
+              -6.0,
+              0.0,
+              0.0
+            ],
+            [
+              -5.0,
+              0.0,
+              1.73205077648163
+            ],
+            [
+              -4.0,
+              0.0,
+              3.46410155296326
+            ],
+            [
+              -3.0,
+              0.0,
+              5.1961522102356
+            ],
+            [
+              -2.0,
+              0.0,
+              6.92820310592651
+            ],
+            [
+              -6.0,
+              0.0,
+              -3.46410155296326
+            ],
+            [
+              -5.0,
+              0.0,
+              -1.73205077648163
+            ],
+            [
+              -4.0,
+              0.0,
+              0.0
+            ],
+            [
+              -3.0,
+              0.0,
+              1.73205077648163
+            ],
+            [
+              -2.0,
+              0.0,
+              3.46410155296326
+            ],
+            [
+              -1.0,
+              0.0,
+              5.1961522102356
+            ],
+            [
+              0.0,
+              0.0,
+              6.92820310592651
+            ],
+            [
+              -5.0,
+              0.0,
+              -5.1961522102356
+            ],
+            [
+              -4.0,
+              0.0,
+              -3.46410155296326
+            ],
+            [
+              -3.0,
+              0.0,
+              -1.73205077648163
+            ],
+            [
+              -2.0,
+              0.0,
+              0.0
+            ],
+            [
+              -1.0,
+              0.0,
+              1.73205077648163
+            ],
+            [
+              0.0,
+              0.0,
+              3.46410155296326
+            ],
+            [
+              1.0,
+              0.0,
+              5.1961522102356
+            ],
+            [
+              2.0,
+              0.0,
+              6.92820310592651
+            ],
+            [
+              -4.0,
+              0.0,
+              -6.92820310592651
+            ],
+            [
+              -3.0,
+              0.0,
+              -5.1961522102356
+            ],
+            [
+              -2.0,
+              0.0,
+              -3.46410155296326
+            ],
+            [
+              -1.0,
+              0.0,
+              -1.73205077648163
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              1.73205077648163
+            ],
+            [
+              2.0,
+              0.0,
+              3.46410155296326
+            ],
+            [
+              3.0,
+              0.0,
+              5.1961522102356
+            ],
+            [
+              4.0,
+              0.0,
+              6.92820310592651
+            ],
+            [
+              -2.0,
+              0.0,
+              -6.92820310592651
+            ],
+            [
+              -1.0,
+              0.0,
+              -5.1961522102356
+            ],
+            [
+              0.0,
+              0.0,
+              -3.46410155296326
+            ],
+            [
+              1.0,
+              0.0,
+              -1.73205077648163
+            ],
+            [
+              2.0,
+              0.0,
+              0.0
+            ],
+            [
+              3.0,
+              0.0,
+              1.73205077648163
+            ],
+            [
+              4.0,
+              0.0,
+              3.46410155296326
+            ],
+            [
+              5.0,
+              0.400000005960464,
+              5.1961522102356
+            ],
+            [
+              0.0,
+              0.0,
+              -6.92820310592651
+            ],
+            [
+              1.0,
+              0.0,
+              -5.1961522102356
+            ],
+            [
+              2.0,
+              0.0,
+              -3.46410155296326
+            ],
+            [
+              3.0,
+              0.0,
+              -1.73205077648163
+            ],
+            [
+              4.0,
+              0.0,
+              0.0
+            ],
+            [
+              5.0,
+              0.0,
+              1.73205077648163
+            ],
+            [
+              6.0,
+              0.0,
+              3.46410155296326
+            ],
+            [
+              2.0,
+              0.0,
+              -6.92820310592651
+            ],
+            [
+              3.0,
+              0.0,
+              -5.1961522102356
+            ],
+            [
+              4.0,
+              0.0,
+              -3.46410155296326
+            ],
+            [
+              5.0,
+              0.0,
+              -1.73205077648163
+            ],
+            [
+              6.0,
+              0.0,
+              0.0
+            ],
+            [
+              7.0,
+              0.0,
+              1.73205077648163
+            ],
+            [
+              4.0,
+              0.0,
+              -6.92820310592651
+            ],
+            [
+              5.0,
+              0.0,
+              -5.1961522102356
+            ],
+            [
+              6.0,
+              0.0,
+              -3.46410155296326
+            ],
+            [
+              7.0,
+              0.0,
+              -1.73205077648163
+            ],
+            [
+              8.0,
+              0.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.8125,
+              "y": 0.87499999139681
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              5.0,
+              0.0,
+              5.1961522102356
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "level": 3.0,
+        "progress": 3.0,
+        "score": 280.0,
+        "score_earned": 280.0
+      },
+      "numeric_source": {
+        "level": "declared",
+        "progress": "declared",
+        "score": "declared",
+        "score_earned": "declared"
+      },
+      "reached": true,
+      "scene": "res://scenes/level.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "level": 3.0,
+            "progress": 3.0,
+            "score": 280.0,
+            "score_earned": 280.0
+          },
+          "phase": "settle",
+          "player": [
+            5.0,
+            0.0,
+            5.1961522102356
+          ],
+          "scene_path": "res://scenes/level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "level": 3.0,
+            "progress": 3.0,
+            "score": 280.0,
+            "score_earned": 280.0
+          },
+          "phase": "goal",
+          "player": [
+            -4.0,
+            0.0,
+            -6.92820310592651
+          ],
+          "scene_path": "res://scenes/level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "level": 3.0,
+            "progress": 3.0,
+            "score": 280.0,
+            "score_earned": 280.0
+          },
+          "phase": "goal",
+          "player": [
+            -4.0,
+            0.0,
+            -6.92820310592651
+          ],
+          "scene_path": "res://scenes/level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "level": 3.0,
+            "progress": 3.0,
+            "score": 280.0,
+            "score_earned": 280.0
+          },
+          "phase": "goal",
+          "player": [
+            -4.0,
+            0.0,
+            -6.92820310592651
+          ],
+          "scene_path": "res://scenes/level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "level": 3.0,
+            "progress": 3.0,
+            "score": 280.0,
+            "score_earned": 280.0
+          },
+          "phase": "goal",
+          "player": [
+            -4.0,
+            0.0,
+            -6.92820310592651
+          ],
+          "scene_path": "res://scenes/level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "level": 3.0,
+            "progress": 3.0,
+            "score": 280.0,
+            "score_earned": 280.0
+          },
+          "phase": "goal",
+          "player": [
+            -4.0,
+            0.0,
+            -6.92820310592651
+          ],
+          "scene_path": "res://scenes/level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "level": 3.0,
+            "progress": 3.0,
+            "score": 280.0,
+            "score_earned": 280.0
+          },
+          "phase": "goal",
+          "player": [
+            -4.0,
+            0.0,
+            -6.92820310592651
+          ],
+          "scene_path": "res://scenes/level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "level": 3.0,
+            "progress": 3.0,
+            "score": 280.0,
+            "score_earned": 280.0
+          },
+          "phase": "goal",
+          "player": [
+            -4.0,
+            0.0,
+            -6.92820310592651
+          ],
+          "scene_path": "res://scenes/level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "level": 3.0,
+            "progress": 3.0,
+            "score": 280.0,
+            "score_earned": 280.0
+          },
+          "phase": "goal",
+          "player": [
+            -4.0,
+            0.0,
+            -6.92820310592651
+          ],
+          "scene_path": "res://scenes/level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "level": 3.0,
+            "progress": 3.0,
+            "score": 280.0,
+            "score_earned": 280.0
+          },
+          "phase": "goal",
+          "player": [
+            -4.0,
+            0.0,
+            -6.92820310592651
+          ],
+          "scene_path": "res://scenes/level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "level": 3.0,
+            "progress": 3.0,
+            "score": 280.0,
+            "score_earned": 280.0
+          },
+          "phase": "goal",
+          "player": [
+            -4.0,
+            0.0,
+            -6.92820310592651
+          ],
+          "scene_path": "res://scenes/level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "level": 3.0,
+            "progress": 3.0,
+            "score": 280.0,
+            "score_earned": 280.0
+          },
+          "phase": "goal",
+          "player": [
+            -4.0,
+            0.0,
+            -6.92820310592651
+          ],
+          "scene_path": "res://scenes/level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "level": 3.0,
+            "progress": 3.0,
+            "score": 280.0,
+            "score_earned": 280.0
+          },
+          "phase": "goal",
+          "player": [
+            -4.0,
+            0.0,
+            -6.92820310592651
+          ],
+          "scene_path": "res://scenes/level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "level": 3.0,
+            "progress": 3.0,
+            "score": 280.0,
+            "score_earned": 280.0
+          },
+          "phase": "goal",
+          "player": [
+            -4.0,
+            0.0,
+            -6.92820310592651
+          ],
+          "scene_path": "res://scenes/level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "level": 3.0,
+            "progress": 3.0,
+            "score": 280.0,
+            "score_earned": 280.0
+          },
+          "phase": "goal",
+          "player": [
+            -4.0,
+            0.0,
+            -6.92820310592651
+          ],
+          "scene_path": "res://scenes/level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "level": 3.0,
+            "progress": 3.0,
+            "score": 280.0,
+            "score_earned": 280.0
+          },
+          "phase": "goal",
+          "player": [
+            -4.0,
+            0.0,
+            -6.92820310592651
+          ],
+          "scene_path": "res://scenes/level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 0,
+            "gb_enemy": 1,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 61,
+            "gb_player": 1
+          },
+          "frame": 210,
+          "numeric": {
+            "level": 3.0,
+            "progress": 3.0,
+            "score": 280.0,
+            "score_earned": 280.0
+          },
+          "phase": "goal",
+          "player": [
+            -4.0,
+            0.0,
+            -6.92820310592651
+          ],
+          "scene_path": "res://scenes/level.tscn"
+        }
+      ],
+      "spawn": [
+        5.0,
+        0.0,
+        5.1961522102356
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.8125,
+        "y": 0.8749999913968108
+      },
+      "stop_reason": "goal_no_transition"
+    }
+  ],
+  "liveness": [
+    {
+      "action": "gb_left",
+      "detail": "gb_left differs from the idle control on position (delta 2.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_right",
+      "detail": "gb_right differs from the idle control on node_count (delta 2.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "node_count"
+    },
+    {
+      "action": "gb_up",
+      "detail": "gb_up differs from the idle control on node_count (delta 2.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "node_count"
+    },
+    {
+      "action": "gb_down",
+      "detail": "gb_down differs from the idle control on node_count (delta 2.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "node_count"
+    },
+    {
+      "action": "gb_jump",
+      "detail": "gb_jump differs from the idle control on numeric (delta 30.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "numeric"
+    },
+    {
+      "action": "gb_action",
+      "detail": "gb_action differs from the idle control on visible_count (delta 2.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "visible_count"
+    }
+  ],
+  "no_input_no_win": true,
+  "no_input_stop_reason": "budget_frames",
+  "notes": [
+    "liveness deadline derived from this project's own structural pass: 22.0 ms/frame median, 22.0 ms/frame worst",
+    "liveness sweep: 6 live / 0 dead against the 420-frame idle control truth/L0#idle420"
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "twin_holds",
+  "read_failure": "",
+  "taken_at": "2026-09-10T09:23:09+00:00",
+  "version": "1"
+}

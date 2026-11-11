@@ -1,0 +1,114 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "e2828ef975ba056388036ba78d15252452bc9f6f5ff20007a5798e6d6c51d1a7"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "volley_break/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "d89b2a66cee5c375ec92fb639c5c6f7a9d7721c880ce6036cd5807f2d37495a8",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "e2828ef975ba056388036ba78d15252452bc9f6f5ff20007a5798e6d6c51d1a7",
+    "task_id": "volley_break"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "2b4855c9ba69bd5bf131b881215245b10210b55afe05bc2b4675a6a02161c491",
+    "source_sha256": "4bc61a477fe74ef7a09e6f98c6d8beaa5d13ccf6f4409d090d5ffb30997a0247"
+  },
+  "passed_route_ids": [
+    "volley_break/L0/no_input_no_set_win",
+    "volley_break/C1/first_serve_set_win",
+    "volley_break/C2/shard_fall_set_win",
+    "volley_break/C3/match_point_set_win",
+    "volley_break/L5/whole_game_clear"
+  ],
+  "readings": {
+    "volley_break/C1/first_serve_set_win": {
+      "deaths": 1,
+      "frames": 3743,
+      "injects": 0,
+      "milestones_reached": [
+        "first_serve_score_reached"
+      ],
+      "solution_kind": "tape",
+      "steps": 343,
+      "stop_reason": "scene_changed"
+    },
+    "volley_break/C2/shard_fall_set_win": {
+      "deaths": 1,
+      "frames": 1972,
+      "injects": 0,
+      "milestones_reached": [
+        "shard_fall_score_reached"
+      ],
+      "solution_kind": "tape",
+      "steps": 185,
+      "stop_reason": "scene_changed"
+    },
+    "volley_break/C3/match_point_set_win": {
+      "deaths": 1,
+      "frames": 4493,
+      "injects": 0,
+      "milestones_reached": [
+        "match_point_score_reached"
+      ],
+      "solution_kind": "tape",
+      "steps": 453,
+      "stop_reason": "scene_changed"
+    },
+    "volley_break/L0/no_input_no_set_win": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "volley_break/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 11733,
+      "injects": 0,
+      "milestones_reached": [
+        "first_serve_won",
+        "entered_shard_fall",
+        "shard_fall_won",
+        "entered_match_point",
+        "match_point_won"
+      ],
+      "solution_kind": "tape",
+      "steps": 1046,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "d89b2a66cee5c375ec92fb639c5c6f7a9d7721c880ce6036cd5807f2d37495a8"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "b4324ac4675ea7f6116798d049ab800c66a8c94a86073b3e3f7be0ad4690a4df",
+  "schema_version": 2,
+  "solution_kinds": {
+    "volley_break/C1/first_serve_set_win": "tape",
+    "volley_break/C2/shard_fall_set_win": "tape",
+    "volley_break/C3/match_point_set_win": "tape",
+    "volley_break/L0/no_input_no_set_win": "tape",
+    "volley_break/L5/whole_game_clear": "tape"
+  },
+  "task_id": "volley_break",
+  "validated_at": "2026-09-09"
+}

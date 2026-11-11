@@ -1,0 +1,15 @@
+{
+  "blockers": [],
+  "game_id": "hurry_curry",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "hurry_curry-c1-reach_lettuce_crate",
+    "hurry_curry-c2-reach_cutting_board",
+    "hurry_curry-c3-plate_deliver_and_score",
+    "hurry_curry-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:ef30b3e8fec6c10e2ffc878b4053a38f0ee540bf8024d2457553f86f244a59b3"
+}

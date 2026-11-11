@@ -1,0 +1,17 @@
+{
+  "blockers": [],
+  "game_id": "ember_and_tide",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "ember_and_tide-c1-chamber_1_twin_gates",
+    "ember_and_tide-c3-chamber_3_paired_routes",
+    "ember_and_tide-c5-chamber_5_element_channels",
+    "ember_and_tide-c10-chamber_10_final_convergence",
+    "ember_and_tide-c8-chamber_8_relay_gates",
+    "ember_and_tide-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:065d4a8c4471a6551e7a0655bb5b44f7caefd1a53ffb146fd847301c592f303a"
+}

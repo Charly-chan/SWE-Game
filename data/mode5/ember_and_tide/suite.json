@@ -1,0 +1,1877 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:065d4a8c4471a6551e7a0655bb5b44f7caefd1a53ffb146fd847301c592f303a",
+  "game_id": "ember_and_tide",
+  "input_contract": {
+    "analog_axes": [],
+    "required_actions": [
+      "gb_left",
+      "gb_right",
+      "gb_up",
+      "gb_down",
+      "gb_jump",
+      "gb_action",
+      "ember_left",
+      "ember_right",
+      "ember_jump",
+      "tide_left",
+      "tide_right",
+      "tide_jump"
+    ],
+    "schema_version": 3,
+    "supported_actions": [
+      "gb_left",
+      "gb_right",
+      "gb_up",
+      "gb_down",
+      "gb_jump",
+      "gb_action",
+      "gb_attack",
+      "gb_dash",
+      "ember_left",
+      "ember_right",
+      "ember_jump",
+      "tide_left",
+      "tide_right",
+      "tide_jump"
+    ]
+  },
+  "inputs": {
+    "certificate": {
+      "path": "tasks/ember_and_tide/certificate.rt1.json",
+      "sha256": "d6bb43d955ae41be6b27bcbe4f4565ea763884c3e5374ba386bdf05b972e7351"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/ember_and_tide.md",
+      "sha256": "74ac43c28a6d6e133d09fbce845d7da3902f250033e0753d8b98af076e1a1fd6"
+    },
+    "port_input_contract": {
+      "analog_axes": [],
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "ember_left",
+        "ember_right",
+        "ember_jump",
+        "tide_left",
+        "tide_right",
+        "tide_jump"
+      ],
+      "schema_version": 3,
+      "supported_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_attack",
+        "gb_dash",
+        "ember_left",
+        "ember_right",
+        "ember_jump",
+        "tide_left",
+        "tide_right",
+        "tide_jump"
+      ]
+    },
+    "route": {
+      "path": "tasks/ember_and_tide/route.json",
+      "sha256": "73da890d9495f6ce6a1fff7e61cd92b85e6c117728d0992f5ac631e5ef443ab4"
+    },
+    "rubric": {
+      "entry_sha256": "d5b6564b2a6f1f9a69b1dabbb5e3853a449d698fefc9db49dbc91d2da4db2ede",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_interactive",
+        "gb_door",
+        "gb_hazard",
+        "gb_goal",
+        "gb_collectible"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/ember_and_tide/authored/source_obligations.json",
+      "sha256": "112f684b49f861bfb322ca14f29a767f9589ca6be087e465356daf2c1d36a749"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "ember_and_tide-c1-chamber_1_twin_gates.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "ember_and_tide-c1-chamber_1_twin_gates.chamber_1_cleared",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ember_and_tide-c1-chamber_1_twin_gates.goal",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed core/game_state.gd:190: chamber_recorded.emit(index)",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:c1bc5ce66af16d7afa6cee2d3cfea88b7647ffbdf4038ee3e34e834aeb2c70d2",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "ember_and_tide/C1/chamber_1_twin_gates",
+      "scenario_id": "ember_and_tide-c1-chamber_1_twin_gates",
+      "source_check_id": "owner-reviewed-ember_and_tide-c1-chamber_1_twin_gates",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "chamber_1_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "ember_left",
+                "tide_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "ember_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "combat"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "ember_and_tide-c3-chamber_3_paired_routes.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "ember_and_tide-c3-chamber_3_paired_routes.chamber_3_cleared",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ember_and_tide-c3-chamber_3_paired_routes.goal",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed core/game_state.gd:190: chamber_recorded.emit(index)",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:c1bc5ce66af16d7afa6cee2d3cfea88b7647ffbdf4038ee3e34e834aeb2c70d2",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "ember_and_tide/C3/chamber_3_paired_routes",
+      "scenario_id": "ember_and_tide-c3-chamber_3_paired_routes",
+      "source_check_id": "owner-reviewed-ember_and_tide-c3-chamber_3_paired_routes",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "chamber_3_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "ember_left",
+                "tide_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "ember_left",
+                "ember_jump",
+                "tide_right",
+                "tide_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "combat"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "ember_and_tide-c5-chamber_5_element_channels.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "ember_and_tide-c5-chamber_5_element_channels.chamber_5_cleared",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ember_and_tide-c5-chamber_5_element_channels.goal",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:c1bc5ce66af16d7afa6cee2d3cfea88b7647ffbdf4038ee3e34e834aeb2c70d2",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "ember_and_tide/C5/chamber_5_element_channels",
+      "scenario_id": "ember_and_tide-c5-chamber_5_element_channels",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "tide_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "tide_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "tide_right",
+                "tide_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "ember_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "ember_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "ember_right",
+                "ember_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "ember_right",
+                "tide_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "ember_jump",
+                "tide_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "ember_right",
+                "ember_jump",
+                "tide_right",
+                "tide_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "ember_right",
+                "tide_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "ember_right",
+                "tide_right",
+                "tide_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "combat"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "ember_and_tide-c10-chamber_10_final_convergence.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "ember_and_tide-c10-chamber_10_final_convergence.chamber_10_cleared",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ember_and_tide-c10-chamber_10_final_convergence.goal",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "critical_action": "tide_left",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:c1bc5ce66af16d7afa6cee2d3cfea88b7647ffbdf4038ee3e34e834aeb2c70d2",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "ember_and_tide/C10/chamber_10_final_convergence",
+      "scenario_id": "ember_and_tide-c10-chamber_10_final_convergence",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "tide_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "ember_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "tide_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "tide_right",
+                "tide_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "tide_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "ember_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "ember_right",
+                "ember_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "tide_left",
+                "tide_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "ember_left",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "combat"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "ember_and_tide-c8-chamber_8_relay_gates.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "ember_and_tide-c8-chamber_8_relay_gates.chamber_8_cleared",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ember_and_tide-c8-chamber_8_relay_gates.goal",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:c1bc5ce66af16d7afa6cee2d3cfea88b7647ffbdf4038ee3e34e834aeb2c70d2",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "ember_and_tide/C8/chamber_8_relay_gates",
+      "scenario_id": "ember_and_tide-c8-chamber_8_relay_gates",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "tide_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "ember_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "tide_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "combat"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "ember_and_tide-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "ember_and_tide-l5-whole_game_clear.chamber_1_cleared",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ember_and_tide-l5-whole_game_clear.entered_chamber_2",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "ember_and_tide-l5-whole_game_clear.chamber_2_cleared",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ember_and_tide-l5-whole_game_clear.entered_chamber_3",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "ember_and_tide-l5-whole_game_clear.chamber_3_cleared",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:c1bc5ce66af16d7afa6cee2d3cfea88b7647ffbdf4038ee3e34e834aeb2c70d2",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "ember_and_tide/L5/whole_game_clear",
+      "scenario_id": "ember_and_tide-l5-whole_game_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "ember_left",
+                "tide_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "ember_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "ember_right",
+                "tide_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "ember_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "ember_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "ember_right",
+                "ember_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "tide_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "tide_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "tide_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "tide_right",
+                "tide_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "ember_left",
+                "ember_jump",
+                "tide_right",
+                "tide_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "ember_jump",
+                "tide_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "ember_right",
+                "ember_jump",
+                "tide_right",
+                "tide_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "ember_right",
+                "tide_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "ember_right",
+                "tide_right",
+                "tide_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "tide_left",
+                "tide_jump"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "build"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "actions": [
+            "ember_left",
+            "tide_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "ember_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.combat.09318a09f8",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "ember_left",
+              "tide_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "ember_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1,
+              "value": 1.0
+            }
+          ],
+          "when": "alive(gb_enemy)"
+        }
+      ],
+      "strategy_type": "combat"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "ember_left",
+            "tide_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "ember_left",
+            "ember_jump",
+            "tide_right",
+            "tide_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.combat.ab4125d3e2",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "ember_left",
+              "tide_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "ember_left",
+              "ember_jump",
+              "tide_right",
+              "tide_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1,
+              "value": 1.0
+            }
+          ],
+          "when": "alive(gb_enemy)"
+        }
+      ],
+      "strategy_type": "combat"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "tide_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "tide_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "tide_right",
+            "tide_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "ember_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "ember_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "ember_right",
+            "ember_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "ember_right",
+            "tide_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "ember_jump",
+            "tide_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "ember_right",
+            "ember_jump",
+            "tide_right",
+            "tide_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "ember_right",
+            "tide_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "ember_right",
+            "tide_right",
+            "tide_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.combat.0998d7db8c",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "tide_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "tide_jump",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "ember_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "ember_jump",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "ember_jump",
+              "tide_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump",
+              "tide_right",
+              "tide_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_right",
+              "tide_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1,
+              "value": 1.0
+            }
+          ],
+          "when": "alive(gb_enemy)"
+        }
+      ],
+      "strategy_type": "combat"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "tide_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "ember_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "tide_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "tide_right",
+            "tide_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "tide_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "ember_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "ember_right",
+            "ember_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "tide_left",
+            "tide_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "ember_left",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.combat.42eb8ef7e7",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "tide_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "ember_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "tide_jump",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "tide_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "ember_jump",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "tide_left",
+              "tide_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "ember_left",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "tide_left",
+              "hold_frames": 1,
+              "value": 1.0
+            }
+          ],
+          "when": "alive(gb_enemy)"
+        }
+      ],
+      "strategy_type": "combat"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "tide_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "ember_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "tide_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.combat.9cb645def0",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "tide_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "ember_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "tide_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1,
+              "value": 1.0
+            }
+          ],
+          "when": "alive(gb_enemy)"
+        }
+      ],
+      "strategy_type": "combat"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "ember_left",
+            "tide_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "ember_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "ember_right",
+            "tide_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "ember_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "ember_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "ember_right",
+            "ember_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "tide_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "tide_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "tide_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "tide_right",
+            "tide_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "ember_left",
+            "ember_jump",
+            "tide_right",
+            "tide_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "ember_jump",
+            "tide_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "ember_right",
+            "ember_jump",
+            "tide_right",
+            "tide_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "ember_right",
+            "tide_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "ember_right",
+            "tide_right",
+            "tide_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "tide_left",
+            "tide_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.build.15d888da6d",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "ember_left",
+              "tide_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "ember_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "ember_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "ember_jump",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "tide_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "tide_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "tide_jump",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "tide_right",
+              "tide_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "ember_left",
+              "ember_jump",
+              "tide_right",
+              "tide_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "ember_jump",
+              "tide_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "ember_right",
+              "ember_jump",
+              "tide_right",
+              "tide_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "ember_right",
+              "tide_right",
+              "tide_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "tide_left",
+              "tide_jump"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [
+        {
+          "actions": [
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1,
+              "value": 1.0
+            }
+          ],
+          "when": "overlap(gb_player, gb_interactive)"
+        }
+      ],
+      "strategy_type": "build"
+    }
+  ],
+  "policy_digest": "sha256:594138ded75151598167232f7ebeef6c9f2e56ed449c775da14e2f5b499b3b91",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 583,
+      "capture_checkpoints": [
+        {
+          "id": "ember_and_tide-c1-chamber_1_twin_gates.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "ember_and_tide-c1-chamber_1_twin_gates.chamber_1_cleared",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ember_and_tide-c1-chamber_1_twin_gates.goal",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "chamber_1_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "id": "ember_and_tide-c1-chamber_1_twin_gates",
+      "policy": "strategy.combat.09318a09f8",
+      "required_actions": [
+        "ember_left",
+        "gb_action",
+        "tide_right"
+      ],
+      "required_numeric": [
+        "score"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "ember_and_tide/C1/chamber_1_twin_gates",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "chamber_1_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 762,
+      "capture_checkpoints": [
+        {
+          "id": "ember_and_tide-c3-chamber_3_paired_routes.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "ember_and_tide-c3-chamber_3_paired_routes.chamber_3_cleared",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ember_and_tide-c3-chamber_3_paired_routes.goal",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "chamber_3_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "id": "ember_and_tide-c3-chamber_3_paired_routes",
+      "policy": "strategy.combat.ab4125d3e2",
+      "required_actions": [
+        "ember_jump",
+        "ember_left",
+        "gb_action",
+        "tide_jump",
+        "tide_right"
+      ],
+      "required_numeric": [
+        "score"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "ember_and_tide/C3/chamber_3_paired_routes",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "chamber_3_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "start_level": 2
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 1242,
+      "capture_checkpoints": [
+        {
+          "id": "ember_and_tide-c5-chamber_5_element_channels.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "ember_and_tide-c5-chamber_5_element_channels.chamber_5_cleared",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ember_and_tide-c5-chamber_5_element_channels.goal",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "chamber_5_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "id": "ember_and_tide-c5-chamber_5_element_channels",
+      "policy": "strategy.combat.0998d7db8c",
+      "required_actions": [
+        "ember_jump",
+        "ember_right",
+        "gb_action",
+        "tide_jump",
+        "tide_right"
+      ],
+      "required_numeric": [
+        "score"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "ember_and_tide/C5/chamber_5_element_channels",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 4
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 3919,
+      "capture_checkpoints": [
+        {
+          "id": "ember_and_tide-c10-chamber_10_final_convergence.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "ember_and_tide-c10-chamber_10_final_convergence.chamber_10_cleared",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ember_and_tide-c10-chamber_10_final_convergence.goal",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-tide_left",
+          "remove": "tide_left"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "chamber_10_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "id": "ember_and_tide-c10-chamber_10_final_convergence",
+      "policy": "strategy.combat.42eb8ef7e7",
+      "required_actions": [
+        "ember_jump",
+        "ember_left",
+        "ember_right",
+        "tide_jump",
+        "tide_left",
+        "tide_right"
+      ],
+      "required_numeric": [
+        "score"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "ember_and_tide/C10/chamber_10_final_convergence",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 9
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 2431,
+      "capture_checkpoints": [
+        {
+          "id": "ember_and_tide-c8-chamber_8_relay_gates.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "ember_and_tide-c8-chamber_8_relay_gates.chamber_8_cleared",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ember_and_tide-c8-chamber_8_relay_gates.goal",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "chamber_8_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "numeric(score) >= 1"
+      },
+      "id": "ember_and_tide-c8-chamber_8_relay_gates",
+      "policy": "strategy.combat.9cb645def0",
+      "required_actions": [
+        "ember_right",
+        "gb_action",
+        "tide_left",
+        "tide_right"
+      ],
+      "required_numeric": [
+        "score"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "ember_and_tide/C8/chamber_8_relay_gates",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 7
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 23525,
+      "capture_checkpoints": [
+        {
+          "id": "ember_and_tide-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "ember_and_tide-l5-whole_game_clear.chamber_1_cleared",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ember_and_tide-l5-whole_game_clear.entered_chamber_2",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "ember_and_tide-l5-whole_game_clear.chamber_2_cleared",
+          "predicate": "numeric(score) >= 1"
+        },
+        {
+          "id": "ember_and_tide-l5-whole_game_clear.entered_chamber_3",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "ember_and_tide-l5-whole_game_clear.chamber_3_cleared",
+          "predicate": "numeric(score) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "chamber_1_cleared",
+            "predicate": "numeric(score) >= 1"
+          },
+          {
+            "name": "entered_chamber_2",
+            "predicate": "levels_visited() >= 2"
+          },
+          {
+            "name": "chamber_2_cleared",
+            "predicate": "numeric(score) >= 1"
+          },
+          {
+            "name": "entered_chamber_3",
+            "predicate": "levels_visited() >= 3"
+          },
+          {
+            "name": "chamber_3_cleared",
+            "predicate": "numeric(score) >= 1"
+          },
+          {
+            "name": "entered_chamber_4",
+            "predicate": "levels_visited() >= 4"
+          },
+          {
+            "name": "chamber_4_cleared",
+            "predicate": "numeric(score) >= 1"
+          },
+          {
+            "name": "entered_chamber_5",
+            "predicate": "levels_visited() >= 5"
+          },
+          {
+            "name": "chamber_5_cleared",
+            "predicate": "numeric(score) >= 1"
+          },
+          {
+            "name": "entered_chamber_6",
+            "predicate": "levels_visited() >= 6"
+          },
+          {
+            "name": "chamber_6_cleared",
+            "predicate": "numeric(score) >= 1"
+          },
+          {
+            "name": "entered_chamber_7",
+            "predicate": "levels_visited() >= 7"
+          },
+          {
+            "name": "chamber_7_cleared",
+            "predicate": "numeric(score) >= 1"
+          },
+          {
+            "name": "entered_chamber_8",
+            "predicate": "levels_visited() >= 8"
+          },
+          {
+            "name": "chamber_8_cleared",
+            "predicate": "numeric(score) >= 1"
+          },
+          {
+            "name": "entered_chamber_9",
+            "predicate": "levels_visited() >= 9"
+          },
+          {
+            "name": "chamber_9_cleared",
+            "predicate": "numeric(score) >= 1"
+          },
+          {
+            "name": "entered_chamber_10",
+            "predicate": "levels_visited() >= 10"
+          },
+          {
+            "name": "chamber_10_cleared",
+            "predicate": "numeric(score) >= 1"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "ember_and_tide-l5-whole_game_clear",
+      "policy": "strategy.build.15d888da6d",
+      "required_actions": [
+        "ember_jump",
+        "ember_left",
+        "ember_right",
+        "gb_action",
+        "tide_jump",
+        "tide_left",
+        "tide_right"
+      ],
+      "required_numeric": [
+        "score"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "ember_and_tide/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

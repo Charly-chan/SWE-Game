@@ -1,0 +1,9 @@
+GameCraft-Bench
+Source: https://github.com/FreedomIntelligence/gamecraft-bench
+Paper: GameCraft-Bench: Can Agents Build Playable Games End-to-End in a Real Game Engine?
+Tongxu Luo et al., arXiv:2606.17861 (2026).
+
+The upstream Python files in this directory are redistributed under the
+Apache License, Version 2.0; see LICENSE. Modified files carry a change notice.
+The upstream revision did not contain a NOTICE file. This attribution notice
+was added by CodingBenchmark.

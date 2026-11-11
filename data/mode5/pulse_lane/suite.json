@@ -1,0 +1,1422 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:bdacd91a9b96d8fea205dc2f8b1d1483adcb8c0a6e2cc1d86d5c64491926b6d8",
+  "game_id": "pulse_lane",
+  "inputs": {
+    "certificate": {
+      "path": "tasks/pulse_lane/certificate.rt1.json",
+      "sha256": "6a23c793c6f4f9ad9e5f46a284d67d32282e70ac9b18e7c4d0b6d25c336b6ddd"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/pulse_lane.md",
+      "sha256": "0e86047a0ff7cb06ff1d17873ecd50950e4d5391321e56cf7a4442fb5852db41"
+    },
+    "route": {
+      "path": "tasks/pulse_lane/route.json",
+      "sha256": "2741cec80ef9b77242059e8e879e30cc491af2ce06307d38402e674aa823d470"
+    },
+    "rubric": {
+      "entry_sha256": "799936bcfa78a4ee057fc06f9c02b9acf609cc723f0304144c8e78477e604272",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_goal",
+        "gb_interactive"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/pulse_lane/authored/source_obligations.json",
+      "sha256": "fea62d6094b88fa60750a90c865d7f9a73dfd447ae37c5ce971d517c26ebe7c0"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "pulse_lane-c1-first_light_full_chart.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "pulse_lane-c1-first_light_full_chart.first_light_half_judged",
+          "predicate": "numeric(progress) >= 56"
+        },
+        {
+          "id": "pulse_lane-c1-first_light_full_chart.first_light_all_judged",
+          "predicate": "numeric(progress) >= 112"
+        },
+        {
+          "id": "pulse_lane-c1-first_light_full_chart.goal",
+          "predicate": "numeric(progress) >= 112"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed src/core/judge.gd:148: func _finish_tail(lane: int, o: ChartObject, t: float) -> void:",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:877eb77cc00601051fff1ce30d7ca41c6c37dedc97660857bc0a43e92bbe7b12",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "pulse_lane/C1/first_light_full_chart",
+      "scenario_id": "pulse_lane-c1-first_light_full_chart",
+      "source_check_id": "owner-reviewed-pulse_lane-c1-first_light_full_chart",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "first_light_half_judged",
+            "predicate": "numeric(progress) >= 56"
+          },
+          {
+            "name": "first_light_all_judged",
+            "predicate": "numeric(progress) >= 112"
+          }
+        ],
+        "predicate": "numeric(progress) >= 112"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "pulse_lane-c2-crosswind_full_chart.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "pulse_lane-c2-crosswind_full_chart.crosswind_half_judged",
+          "predicate": "numeric(progress) >= 100"
+        },
+        {
+          "id": "pulse_lane-c2-crosswind_full_chart.crosswind_all_judged",
+          "predicate": "numeric(progress) >= 200"
+        },
+        {
+          "id": "pulse_lane-c2-crosswind_full_chart.goal",
+          "predicate": "numeric(progress) >= 200"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed src/core/judge.gd:148: func _finish_tail(lane: int, o: ChartObject, t: float) -> void:",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:877eb77cc00601051fff1ce30d7ca41c6c37dedc97660857bc0a43e92bbe7b12",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "pulse_lane/C2/crosswind_full_chart",
+      "scenario_id": "pulse_lane-c2-crosswind_full_chart",
+      "source_check_id": "owner-reviewed-pulse_lane-c2-crosswind_full_chart",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "crosswind_half_judged",
+            "predicate": "numeric(progress) >= 100"
+          },
+          {
+            "name": "crosswind_all_judged",
+            "predicate": "numeric(progress) >= 200"
+          }
+        ],
+        "predicate": "numeric(progress) >= 200"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left",
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "pulse_lane-c3-lattice_full_chart.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "pulse_lane-c3-lattice_full_chart.lattice_half_judged",
+          "predicate": "numeric(progress) >= 128"
+        },
+        {
+          "id": "pulse_lane-c3-lattice_full_chart.lattice_all_judged",
+          "predicate": "numeric(progress) >= 256"
+        },
+        {
+          "id": "pulse_lane-c3-lattice_full_chart.goal",
+          "predicate": "numeric(progress) >= 256"
+        }
+      ],
+      "critical_action": "gb_down",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:877eb77cc00601051fff1ce30d7ca41c6c37dedc97660857bc0a43e92bbe7b12",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "pulse_lane/C3/lattice_full_chart",
+      "scenario_id": "pulse_lane-c3-lattice_full_chart",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "pulse_lane-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "pulse_lane-l5-whole_game_clear.first_light_all_judged",
+          "predicate": "numeric(progress) >= 112"
+        },
+        {
+          "id": "pulse_lane-l5-whole_game_clear.entered_crosswind",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "pulse_lane-l5-whole_game_clear.crosswind_all_judged",
+          "predicate": "numeric(progress) >= 200"
+        },
+        {
+          "id": "pulse_lane-l5-whole_game_clear.entered_lattice",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "pulse_lane-l5-whole_game_clear.lattice_all_judged",
+          "predicate": "numeric(progress) >= 256"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:877eb77cc00601051fff1ce30d7ca41c6c37dedc97660857bc0a43e92bbe7b12",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "pulse_lane/L5/whole_game_clear",
+      "scenario_id": "pulse_lane-l5-whole_game_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left",
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "movement"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.cb74706c04",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_left",
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.68b5d229ed",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left",
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_left",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.fe85f013f7",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_left",
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_left",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.movement.db22a9d8cd",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left",
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "movement"
+    }
+  ],
+  "policy_digest": "sha256:7c29d12d66964024024011de6179992cf58bfcd0af30783bf8743a29db7ae029",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 2865,
+      "capture_checkpoints": [
+        {
+          "id": "pulse_lane-c1-first_light_full_chart.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "pulse_lane-c1-first_light_full_chart.first_light_half_judged",
+          "predicate": "numeric(progress) >= 56"
+        },
+        {
+          "id": "pulse_lane-c1-first_light_full_chart.first_light_all_judged",
+          "predicate": "numeric(progress) >= 112"
+        },
+        {
+          "id": "pulse_lane-c1-first_light_full_chart.goal",
+          "predicate": "numeric(progress) >= 112"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "first_light_half_judged",
+            "predicate": "numeric(progress) >= 56"
+          },
+          {
+            "name": "first_light_all_judged",
+            "predicate": "numeric(progress) >= 112"
+          }
+        ],
+        "predicate": "numeric(progress) >= 112"
+      },
+      "id": "pulse_lane-c1-first_light_full_chart",
+      "policy": "strategy.movement.cb74706c04",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "pulse_lane/C1/first_light_full_chart",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "first_light_half_judged",
+            "predicate": "numeric(progress) >= 56"
+          },
+          {
+            "name": "first_light_all_judged",
+            "predicate": "numeric(progress) >= 112"
+          }
+        ],
+        "predicate": "numeric(progress) >= 112"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 4742,
+      "capture_checkpoints": [
+        {
+          "id": "pulse_lane-c2-crosswind_full_chart.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "pulse_lane-c2-crosswind_full_chart.crosswind_half_judged",
+          "predicate": "numeric(progress) >= 100"
+        },
+        {
+          "id": "pulse_lane-c2-crosswind_full_chart.crosswind_all_judged",
+          "predicate": "numeric(progress) >= 200"
+        },
+        {
+          "id": "pulse_lane-c2-crosswind_full_chart.goal",
+          "predicate": "numeric(progress) >= 200"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "crosswind_half_judged",
+            "predicate": "numeric(progress) >= 100"
+          },
+          {
+            "name": "crosswind_all_judged",
+            "predicate": "numeric(progress) >= 200"
+          }
+        ],
+        "predicate": "numeric(progress) >= 200"
+      },
+      "id": "pulse_lane-c2-crosswind_full_chart",
+      "policy": "strategy.movement.68b5d229ed",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "pulse_lane/C2/crosswind_full_chart",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "crosswind_half_judged",
+            "predicate": "numeric(progress) >= 100"
+          },
+          {
+            "name": "crosswind_all_judged",
+            "predicate": "numeric(progress) >= 200"
+          }
+        ],
+        "predicate": "numeric(progress) >= 200"
+      },
+      "start_level": 1
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 5011,
+      "capture_checkpoints": [
+        {
+          "id": "pulse_lane-c3-lattice_full_chart.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "pulse_lane-c3-lattice_full_chart.lattice_half_judged",
+          "predicate": "numeric(progress) >= 128"
+        },
+        {
+          "id": "pulse_lane-c3-lattice_full_chart.lattice_all_judged",
+          "predicate": "numeric(progress) >= 256"
+        },
+        {
+          "id": "pulse_lane-c3-lattice_full_chart.goal",
+          "predicate": "numeric(progress) >= 256"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_down",
+          "remove": "gb_down"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "lattice_half_judged",
+            "predicate": "numeric(progress) >= 128"
+          },
+          {
+            "name": "lattice_all_judged",
+            "predicate": "numeric(progress) >= 256"
+          }
+        ],
+        "predicate": "numeric(progress) >= 256"
+      },
+      "id": "pulse_lane-c3-lattice_full_chart",
+      "policy": "strategy.movement.fe85f013f7",
+      "required_actions": [
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "pulse_lane/C3/lattice_full_chart",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 2
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 18000,
+      "capture_checkpoints": [
+        {
+          "id": "pulse_lane-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "pulse_lane-l5-whole_game_clear.first_light_all_judged",
+          "predicate": "numeric(progress) >= 112"
+        },
+        {
+          "id": "pulse_lane-l5-whole_game_clear.entered_crosswind",
+          "predicate": "levels_visited() >= 2"
+        },
+        {
+          "id": "pulse_lane-l5-whole_game_clear.crosswind_all_judged",
+          "predicate": "numeric(progress) >= 200"
+        },
+        {
+          "id": "pulse_lane-l5-whole_game_clear.entered_lattice",
+          "predicate": "levels_visited() >= 3"
+        },
+        {
+          "id": "pulse_lane-l5-whole_game_clear.lattice_all_judged",
+          "predicate": "numeric(progress) >= 256"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "first_light_all_judged",
+            "predicate": "numeric(progress) >= 112",
+            "required_devices": [
+              "L1/goal#0"
+            ]
+          },
+          {
+            "name": "entered_crosswind",
+            "predicate": "levels_visited() >= 2",
+            "required_devices": [
+              "L1/goal#0"
+            ]
+          },
+          {
+            "name": "crosswind_all_judged",
+            "predicate": "numeric(progress) >= 200",
+            "required_devices": [
+              "L2/goal#0"
+            ]
+          },
+          {
+            "name": "entered_lattice",
+            "predicate": "levels_visited() >= 3",
+            "required_devices": [
+              "L2/goal#0"
+            ]
+          },
+          {
+            "name": "lattice_all_judged",
+            "predicate": "numeric(progress) >= 256",
+            "required_devices": [
+              "L3/goal#0"
+            ]
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "pulse_lane-l5-whole_game_clear",
+      "policy": "strategy.movement.db22a9d8cd",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "pulse_lane/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

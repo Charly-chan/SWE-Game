@@ -1,0 +1,14 @@
+{
+  "probe_plan": {
+    "collect": {
+      "actions": [
+        "interact"
+      ],
+      "complete_trigger": true,
+      "effect": "target_changed"
+    },
+    "goal": {
+      "effect": "route_progress"
+    }
+  }
+}

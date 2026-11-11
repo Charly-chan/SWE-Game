@@ -1,0 +1,14 @@
+{
+  "blockers": [],
+  "game_id": "dont_stop",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "dont_stop-c1-first_round_real_kill",
+    "dont_stop-l5-whole_game_clear",
+    "dont_stop-c1-first_round_real_kill--milestone-first_native_kill_recorded"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:d4c32da9eed25e7a9227034ae9bb1031db419dc2573a0c4064f86671d36641e5"
+}

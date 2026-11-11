@@ -1,0 +1,77 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-09-02T12:40:15+00:00",
+  "interface_requirements": {},
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 0,
+        "gb_collectible": 4,
+        "gb_door": 4,
+        "gb_enemy": 0,
+        "gb_goal": 9,
+        "gb_hazard": 5,
+        "gb_interactive": 61,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_collectible": [
+          "y",
+          3
+        ],
+        "gb_door": [
+          "x",
+          3
+        ],
+        "gb_goal": [
+          "x",
+          5
+        ],
+        "gb_hazard": [
+          "x",
+          2
+        ],
+        "gb_interactive": [
+          "x",
+          5
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://scenes/levels/junior_kitchen.tscn",
+      "spawn_goal_distance": 0.8023714862398135
+    }
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "hurry_curry",
+  "runtime_assets": {
+    "res://assets/audio/cook.ogg": "f9c8a25bc16dc9b52f6305f53103f083b73b21e40a1761aded7426e385c94746",
+    "res://assets/audio/order_complete.ogg": "f6d21877878a70e6fd5caadb1dd70b33df9faaa72e7fdc2c8467b72d043332b9",
+    "res://gui/resources/fonts/font-sansita-swashed.woff2": "ff22768582350c52dc54251b914f3dc444d450c53a0ef854a37ee5718468044f",
+    "res://map/textures/palette.png": "86cfb3d908b39e8585fbf1c54f4c2870b068547c86899b2a823978eb0c34f23a",
+    "res://map/tiles/grass_side.webp": "1b841ee7cf2dca0f9f532702d1dc3d4b4795b6201378fecf25fd9096d4d8869c",
+    "res://map/tiles/tree/bark.webp": "f2e34d8ef25616c391d4f0ba7f360da61ed4cdcf247113340c3d8f16c3dc713a",
+    "res://map/tiles/tree/bark_normal.webp": "510d3978ff611c40a870e28057eab558f331e7c11edb0be02c5b1da936c124a2",
+    "res://map/tiles/tree/leaves.webp": "f30563279e39efa8498700c5160c74785577a09218ee9e395ddfd12a253d0ba6",
+    "res://player/character/circle.png": "bc4d18a9ad65bb7e38599a2c80a324c3986536437d933cf0a2393be7224393fd",
+    "res://player/character/faces.webp": "964bd34d2582c2759836921ef74235d73e329f436d2eab3684d2116ec5e6d67c",
+    "res://player/character/robot/face.webp": "fa1653641abda22694dadc36d463d477052e737979eed372e40da2074b1d99b8",
+    "res://player/sounds/step1.ogg": "ba74b8ea6c8b244a0e87d4d52d80a21e77ced48c86b7cd6c63ebcb539ada4d57",
+    "res://player/sounds/step2.ogg": "60b481a1e72777e7187058e640df0e63e7dc663ba55aedb41c2ae669e68cb70b",
+    "res://player/sounds/step3.ogg": "f5e2317d2a20ab20f4369ea20754fd6e2224362d5d66d67dfcb3a7ab84c00858",
+    "res://player/sounds/woosh1.ogg": "415d57a1c1676bc141c57b8f01974cb95b2a4fbb6f04839644878dccafaa537d",
+    "res://player/sounds/woosh2.ogg": "6fd3abcf572a1bc6dbdaab538aee7af5a5e86bfc8af8afc51532f144abd51dfe"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

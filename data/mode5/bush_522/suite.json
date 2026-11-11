@@ -1,0 +1,2952 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:fe5f0b3e2d5e1343788ace2bbea0743229ff3009cb3b23830dd222d8449a5c07",
+  "game_id": "bush_522",
+  "input_contract": {
+    "analog_axes": [],
+    "required_actions": [
+      "gb_left",
+      "gb_right",
+      "gb_up",
+      "gb_down",
+      "gb_jump",
+      "gb_action",
+      "throttle_down",
+      "roll_left",
+      "roll_right",
+      "toggle_flaps"
+    ],
+    "schema_version": 3,
+    "supported_actions": [
+      "gb_left",
+      "gb_right",
+      "gb_up",
+      "gb_down",
+      "gb_jump",
+      "gb_action",
+      "gb_attack",
+      "gb_dash",
+      "throttle_down",
+      "roll_left",
+      "roll_right",
+      "toggle_flaps"
+    ]
+  },
+  "inputs": {
+    "certificate": {
+      "path": "tasks/bush_522/certificate.rt1.json",
+      "sha256": "4237fc2f4d1cbf9bddfa617c0d3b7cb328d7485909b2891fad61c7bee39a181f"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/bush_522.md",
+      "sha256": "498ef64571baaa43dbcc22d849d0241a0f2a9d4348e935351a80dcfaf7a984e8"
+    },
+    "port_input_contract": {
+      "analog_axes": [],
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "throttle_down",
+        "roll_left",
+        "roll_right",
+        "toggle_flaps"
+      ],
+      "schema_version": 3,
+      "supported_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_attack",
+        "gb_dash",
+        "throttle_down",
+        "roll_left",
+        "roll_right",
+        "toggle_flaps"
+      ]
+    },
+    "route": {
+      "path": "tasks/bush_522/route.json",
+      "sha256": "b552dd224c0bb2d1356f38243666d4cd8824263191a803b2c30fc6e1204a8a16"
+    },
+    "rubric": {
+      "entry_sha256": "d57f58682549ba8635e23417dc49b866da25af1eddcc6dad3bca4af80cddc1b7",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_checkpoint",
+        "gb_hazard",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/bush_522/authored/source_obligations.json",
+      "sha256": "29332b363dc66d2c2622ff1577a4013beb055119021557eb934aee96df8bfacc"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "bush_522-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "bush_522-l5-whole_game_clear.qualifying_checkpoint",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "bush_522-l5-whole_game_clear.course_complete",
+          "predicate": "whole_game_clear()"
+        },
+        {
+          "id": "bush_522-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed source/levels/terrain_test_map.gd:32: plane.course_complete.connect(_on_course_complete)",
+      "reference_trace": "route.json",
+      "reference_trace_sha256": "sha256:b552dd224c0bb2d1356f38243666d4cd8824263191a803b2c30fc6e1204a8a16",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "bush_522/L5/whole_game_clear",
+      "scenario_id": "bush_522-l5-whole_game_clear",
+      "source_check_id": "owner-reviewed-bush_522-l5-whole_game_clear",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "qualifying_checkpoint",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "course_complete",
+            "predicate": "whole_game_clear()"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_jump",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_up",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_left",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "roll_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "roll_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "roll_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "roll_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "throttle_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "roll_right",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "roll_left",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "toggle_flaps",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_down",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_down",
+                "gb_left",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_down",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_left",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_up",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_left",
+                "toggle_flaps"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_up",
+                "roll_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_right",
+                "roll_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_right",
+                "gb_up",
+                "roll_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "roll_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_down",
+                "roll_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "roll_left"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "bush_522-c1-qualifying_checkpoint_starts_return.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "bush_522-c1-qualifying_checkpoint_starts_return.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed source/plane/plane.gd:448: checkpoint_count += 1",
+      "reference_trace": "route.json",
+      "reference_trace_sha256": "sha256:b552dd224c0bb2d1356f38243666d4cd8824263191a803b2c30fc6e1204a8a16",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "bush_522/C1/qualifying_checkpoint_starts_return",
+      "scenario_id": "bush_522-c1-qualifying_checkpoint_starts_return",
+      "source_check_id": "owner-reviewed-bush_522-c1-qualifying_checkpoint_starts_return",
+      "source_goal": {
+        "predicate": "numeric(progress) >= 1"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_jump",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_up",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_left",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "roll_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "roll_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "roll_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "roll_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "throttle_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "roll_right",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "roll_left",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "toggle_flaps",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_down",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_down",
+                "gb_left",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_down",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_left",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_up",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_left",
+                "toggle_flaps"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "bush_522-l5-whole_game_clear--milestone-qualifying_checkpoint.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "bush_522-l5-whole_game_clear--milestone-qualifying_checkpoint.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "",
+      "reference_trace_sha256": "",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "bush_522/L5/whole_game_clear",
+      "scenario_id": "bush_522-l5-whole_game_clear--milestone-qualifying_checkpoint",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_jump",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_up",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_jump",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_left",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "roll_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "roll_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "roll_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "roll_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "throttle_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "roll_right",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "roll_left",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "toggle_flaps",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right",
+                "throttle_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_right",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_down",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_down",
+                "gb_left",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_left",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_down",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_left",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_up",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_left",
+                "toggle_flaps"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_up",
+                "roll_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_right",
+                "roll_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_right",
+                "gb_up",
+                "roll_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_jump",
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "roll_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "roll_right"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_down",
+                "roll_left"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_action",
+                "roll_left"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_jump",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "throttle_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_up",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_left",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "roll_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "roll_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "roll_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "roll_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "throttle_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "throttle_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "throttle_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "throttle_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "throttle_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "roll_right",
+            "throttle_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "roll_left",
+            "throttle_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "toggle_flaps",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_right",
+            "throttle_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_right",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_down",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_down",
+            "gb_left",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_left",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_down",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_left",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_up",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_left",
+            "toggle_flaps"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_up",
+            "roll_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_right",
+            "roll_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_right",
+            "gb_up",
+            "roll_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "roll_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_down",
+            "roll_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "roll_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.2981f159aa",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "throttle_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "roll_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "roll_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "roll_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "roll_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "throttle_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "throttle_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "throttle_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "throttle_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "throttle_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "roll_right",
+              "throttle_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "roll_left",
+              "throttle_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "toggle_flaps",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right",
+              "throttle_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_down",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_down",
+              "gb_left",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_down",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_left",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_up",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left",
+              "toggle_flaps"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up",
+              "roll_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right",
+              "roll_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right",
+              "gb_up",
+              "roll_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "roll_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_down",
+              "roll_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "roll_left"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_jump",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "throttle_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_up",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_jump",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_left",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "roll_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "roll_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "roll_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "roll_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "throttle_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "throttle_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "throttle_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "throttle_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "throttle_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "roll_right",
+            "throttle_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "roll_left",
+            "throttle_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "toggle_flaps",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_right",
+            "throttle_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_right",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_down",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_down",
+            "gb_left",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_left",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_down",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_left",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_left"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_action",
+            "gb_up",
+            "roll_right"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_jump",
+            "gb_left",
+            "toggle_flaps"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.431fd5d4f9",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_jump",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "throttle_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_jump",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "roll_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "roll_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "roll_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "roll_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "throttle_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "throttle_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "throttle_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "throttle_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "throttle_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "roll_right",
+              "throttle_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "roll_left",
+              "throttle_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "toggle_flaps",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right",
+              "throttle_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_right",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_down",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_down",
+              "gb_left",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_left",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_down",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_left",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_left"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_action",
+              "gb_up",
+              "roll_right"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_jump",
+              "gb_left",
+              "toggle_flaps"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    }
+  ],
+  "policy_digest": "sha256:c1312adee3d00ce2395588fa0fb74092207480aa55d10f91aa6cf9c038219197",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "route.json",
+      "budget_frames": 21102,
+      "capture_checkpoints": [
+        {
+          "id": "bush_522-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "bush_522-l5-whole_game_clear.qualifying_checkpoint",
+          "predicate": "numeric(progress) >= 1"
+        },
+        {
+          "id": "bush_522-l5-whole_game_clear.course_complete",
+          "predicate": "whole_game_clear()"
+        },
+        {
+          "id": "bush_522-l5-whole_game_clear.goal",
+          "predicate": "whole_game_clear()"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "qualifying_checkpoint",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "course_complete",
+            "predicate": "whole_game_clear()"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "bush_522-l5-whole_game_clear",
+      "policy": "strategy.traversal.2981f159aa",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "roll_left",
+        "roll_right",
+        "throttle_down",
+        "toggle_flaps"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "bush_522/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "qualifying_checkpoint",
+            "predicate": "numeric(progress) >= 1"
+          },
+          {
+            "name": "course_complete",
+            "predicate": "whole_game_clear()"
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "route.json",
+      "budget_frames": 9693,
+      "capture_checkpoints": [
+        {
+          "id": "bush_522-c1-qualifying_checkpoint_starts_return.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "bush_522-c1-qualifying_checkpoint_starts_return.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "predicate": "numeric(progress) >= 1"
+      },
+      "id": "bush_522-c1-qualifying_checkpoint_starts_return",
+      "policy": "strategy.traversal.431fd5d4f9",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "roll_left",
+        "roll_right",
+        "throttle_down",
+        "toggle_flaps"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "bush_522/C1/qualifying_checkpoint_starts_return",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "predicate": "numeric(progress) >= 1"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "",
+      "budget_frames": 21102,
+      "capture_checkpoints": [
+        {
+          "id": "bush_522-l5-whole_game_clear--milestone-qualifying_checkpoint.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "bush_522-l5-whole_game_clear--milestone-qualifying_checkpoint.goal",
+          "predicate": "numeric(progress) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "predicate": "numeric(progress) >= 1"
+      },
+      "id": "bush_522-l5-whole_game_clear--milestone-qualifying_checkpoint",
+      "policy": "strategy.traversal.2981f159aa",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "roll_left",
+        "roll_right",
+        "throttle_down",
+        "toggle_flaps"
+      ],
+      "required_numeric": [
+        "progress"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "bush_522/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

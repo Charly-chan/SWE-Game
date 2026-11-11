@@ -1,0 +1,352 @@
+{
+  "captured_at": "2026-09-08T17:52:55Z",
+  "fixture_note": "canopy_dash Mode 3: the untouched minimal_scaffold_v1 scaffold submitted as-is plus the same trivial ops.json; bench eval-task --engine on, Godot 4.5.1, 2026-09-08",
+  "game_id": "canopy_dash",
+  "headline_at_capture": 29.0,
+  "items": [
+    {
+      "credit": 1.0,
+      "detail": "project.godot resolved",
+      "evidence": {
+        "project": "local workspace"
+      },
+      "id": "layout",
+      "verdict": "passed"
+    },
+    {
+      "credit": 0.0,
+      "detail": "required group gb_collectible is absent; required group gb_hazard is absent; required group gb_goal is absent",
+      "evidence": {
+        "extended_actions": {
+          "declared": [],
+          "required_count": 0,
+          "required_ids": []
+        },
+        "findings": [
+          "required group gb_collectible is absent",
+          "required group gb_hazard is absent",
+          "required group gb_goal is absent"
+        ],
+        "rubric_audit": {
+          "checks": 3,
+          "errors": [],
+          "executable_checks": 3,
+          "game_id": "canopy_dash",
+          "ready": true,
+          "runtime_checkpoints": 3
+        }
+      },
+      "id": "rubric_interface",
+      "verdict": "failed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "local workspace",
+      "evidence": {},
+      "id": "ops_present",
+      "verdict": "passed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "5 ops accepted",
+      "evidence": {},
+      "id": "ops_valid",
+      "verdict": "passed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "tape contains a canonical action",
+      "evidence": {},
+      "id": "ops_not_idle",
+      "verdict": "passed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "Interface v2 conformance PASS",
+      "evidence": {},
+      "id": "interface",
+      "verdict": "passed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "no blocking harness-flag on the load graph (1 files, authenticity=no_harness_flag_in_gameplay)",
+      "evidence": {},
+      "id": "anti_grant_static",
+      "verdict": "passed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "no declared-victory change in _ready",
+      "evidence": {},
+      "id": "auto_win_ready",
+      "verdict": "passed"
+    },
+    {
+      "credit": 0.0,
+      "detail": "gb_levels.json does not declare numeric.health",
+      "evidence": {},
+      "id": "health_writable",
+      "verdict": "unobservable"
+    },
+    {
+      "credit": 1.0,
+      "detail": "preserved 1 script plug points, 3 scenes, 0 resources, and 1 attachment sets",
+      "evidence": {},
+      "id": "skeleton_integrity",
+      "verdict": "passed"
+    },
+    {
+      "credit": 0.0,
+      "detail": "1 supplied script stubs still carry the task marker",
+      "evidence": {
+        "unfinished": [
+          "gb_player_adapter.gd"
+        ]
+      },
+      "id": "stub_completion",
+      "verdict": "failed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "idle stop_reason=budget_frames",
+      "evidence": {},
+      "id": "null_no_win",
+      "verdict": "passed"
+    },
+    {
+      "credit": 0.0,
+      "detail": "no extended actions or analog axes declared; mash does not apply",
+      "evidence": {
+        "analog_axes": [],
+        "applicable": false,
+        "extras": [],
+        "reason": "no extended actions or analog axes declared",
+        "won": false
+      },
+      "id": "extended_mash_no_win",
+      "verdict": "unobservable"
+    },
+    {
+      "credit": 0.0,
+      "detail": "mechanic checkpoints observed 0/3",
+      "evidence": {
+        "expected": [
+          "forward_run",
+          "seed_pickup",
+          "finite_clear"
+        ],
+        "missing": [
+          "forward_run",
+          "seed_pickup",
+          "finite_clear"
+        ],
+        "reached": [],
+        "triggers": {},
+        "untriggered": []
+      },
+      "id": "mechanic_trace",
+      "verdict": "failed"
+    },
+    {
+      "credit": 0.0,
+      "detail": "submitted ops did not clear the game on the env-only run: ops_exhausted",
+      "id": "causal_witness",
+      "verdict": "failed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "idle grant-probe and ops pair did not diverge in the grant direction (flagged-wins / env-loses, or flagged much earlier)",
+      "id": "anti_grant_diff",
+      "verdict": "passed"
+    },
+    {
+      "credit": 0.44642857142857145,
+      "detail": "evaluate_project objective_lo=0.446",
+      "evidence": {
+        "card": {
+          "channels": [
+            {
+              "by_verdict": {
+                "failed": 0.5,
+                "passed": 0.5
+              },
+              "channel": "O1",
+              "coverage": 1.0,
+              "denominator": 1.0,
+              "hi": 0.5,
+              "lo": 0.5,
+              "low_coverage": false,
+              "measured": true,
+              "mode_used": "X_CPU",
+              "name": "runnable",
+              "note": "cold_import=passed; boots=passed; draws_nontrivial=failed; responds_to_input=failed",
+              "weight": 0.063,
+              "width": 0.0
+            },
+            {
+              "by_verdict": {
+                "passed": 1.0
+              },
+              "channel": "O2",
+              "coverage": 1.0,
+              "denominator": 1.0,
+              "hi": 1.0,
+              "lo": 1.0,
+              "low_coverage": false,
+              "measured": true,
+              "mode_used": "H",
+              "name": "interface_conformance",
+              "note": "groups=passed; actions=passed; levels=passed; endings=passed; optional_fields_valid=passed; task_required_observables=passed",
+              "weight": 0.072,
+              "width": 0.0
+            },
+            {
+              "by_verdict": {
+                "exempt": 1.0,
+                "failed": 2.0,
+                "passed": 4.0,
+                "unobservable": 1.0
+              },
+              "channel": "O3",
+              "coverage": 1.0,
+              "denominator": 7.0,
+              "hi": 0.714286,
+              "lo": 0.571429,
+              "low_coverage": false,
+              "measured": true,
+              "mode_used": "H",
+              "name": "mechanic_fidelity",
+              "note": "universal assertions U1, U2, U3, U4, U5, U6, U7 over 1 levels; H-class 3 item(s) for task_id='canopy_dash' 1 item(s) genre-exempt (weight 1.000); see by_verdict",
+              "weight": 0.18,
+              "width": 0.142857
+            },
+            {
+              "by_verdict": {
+                "passed": 1.0,
+                "unobservable": 1.0
+              },
+              "channel": "O4",
+              "coverage": 1.0,
+              "denominator": 1.0,
+              "hi": 1.0,
+              "lo": 1.0,
+              "low_coverage": false,
+              "measured": true,
+              "mode_used": "H",
+              "name": "level_topology",
+              "note": "level count and inter-level digraph over 1 levels against expectations frozen 2026-08-23T09:39:39+00:00",
+              "weight": 0.099,
+              "width": 0.0
+            },
+            {
+              "by_verdict": {
+                "skipped": 1.0,
+                "unobservable": 2.0
+              },
+              "channel": "O5",
+              "coverage": 0.0,
+              "denominator": 1.0,
+              "hi": 1.0,
+              "lo": 0.0,
+              "low_coverage": true,
+              "measured": true,
+              "mode_used": "H",
+              "name": "spatial_ordinal",
+              "note": "collectible ordering, normalised goal distance and entity dispersion over 1 levels against expectations frozen 2026-08-23T09:39:39+00:00",
+              "weight": 0.081,
+              "width": 1.0
+            },
+            {
+              "by_verdict": {
+                "failed": 3.0
+              },
+              "channel": "O6",
+              "coverage": 1.0,
+              "denominator": 3.0,
+              "hi": 0.0,
+              "lo": 0.0,
+              "low_coverage": false,
+              "measured": true,
+              "mode_used": "H",
+              "name": "asset_use",
+              "note": "0/3 supplied assets observed in the engine",
+              "weight": 0.063,
+              "width": 0.0
+            },
+            {
+              "by_verdict": {
+                "failed": 1.0
+              },
+              "channel": "O7",
+              "coverage": 1.0,
+              "denominator": 1.0,
+              "hi": 0.0,
+              "lo": 0.0,
+              "low_coverage": false,
+              "measured": true,
+              "mode_used": "H",
+              "name": "authored_clear",
+              "note": "L5 authored clear over 1 RT-1-passed route(s)",
+              "weight": 0.126,
+              "width": 0.0
+            },
+            {
+              "by_verdict": {
+                "unobservable": 1.0
+              },
+              "channel": "O9",
+              "coverage": 0.0,
+              "denominator": 0.0,
+              "hi": 0.0,
+              "lo": 0.0,
+              "low_coverage": true,
+              "measured": false,
+              "mode_used": "X_CPU",
+              "name": "anchor_composition",
+              "note": "task has no O9 expectation",
+              "weight": 0.09,
+              "width": 0.0
+            },
+            {
+              "by_verdict": {
+                "unobservable": 1.0
+              },
+              "channel": "O8",
+              "coverage": 0.0,
+              "denominator": 0.0,
+              "hi": 0.0,
+              "lo": 0.0,
+              "low_coverage": true,
+              "measured": false,
+              "mode_used": "X_CPU",
+              "name": "gui_agent_routes",
+              "note": "excluded from the main card; independent external-agent routes consume the same levels/actions SubmissionInterface",
+              "weight": 0.126,
+              "width": 0.0
+            }
+          ],
+          "scard": null,
+          "scard_state": "absent"
+        }
+      },
+      "id": "reproduction",
+      "verdict": "passed"
+    },
+    {
+      "credit": 0.0,
+      "detail": "transformation duties failed: static/restore/group/gb_collectible, static/restore/group/gb_hazard, static/restore/group/gb_goal, static/scaffold_completion, runtime/causal_witness, runtime/mechanic_trace, runtime/forward_run, runtime/seed_pickup, runtime/finite_clear",
+      "id": "transformation_contract",
+      "verdict": "failed"
+    },
+    {
+      "credit": 1.0,
+      "detail": "skeleton emitted all 17 strict profile checks",
+      "id": "verifier_profile_complete",
+      "verdict": "passed"
+    }
+  ],
+  "mode": "skeleton",
+  "registry_version_at_capture": "2026-09-08.mode34",
+  "resolved": false,
+  "source_report": "local workspace"
+}

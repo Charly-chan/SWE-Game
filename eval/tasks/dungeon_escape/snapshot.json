@@ -1,0 +1,4121 @@
+{
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "driver_sha256": "7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742",
+  "endings": {
+    "defeat": "res://ui/results_screen.tscn",
+    "run_complete": "res://ui/results_victory.tscn",
+    "victory": "res://ui/results_victory.tscn"
+  },
+  "engine": "4.5.1",
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "e6c0c6359ee07848764eb7ab0782d9c5b8d862b7eebc166ce32bfd1d14533270",
+    "source_sha256": "b3fe4a34b329433c13f4dd7d2d15aaf92f28bef3db5366e1541fe83740303200"
+  },
+  "levels": [
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          640.0,
+          416.0,
+          0.0
+        ],
+        "min3": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 9,
+        "alive_before": 10,
+        "attempted": true,
+        "delta": -1,
+        "detail": "collection effect observed on Heart1 before delivery: 10 alive before, 9 after",
+        "effect": {
+          "actions": [],
+          "complete_trigger": false,
+          "cycle_index": 0,
+          "kind": "target_changed",
+          "observed": true
+        },
+        "target": "Heart1"
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://world/level_01_cistern.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": true,
+        "detail": "res://world/level_01_cistern.tscn -> res://world/level_02_archive.tscn after 0 collect-and-deliver cycles",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": 105,
+        "scene_after": "res://world/level_02_archive.tscn",
+        "scene_before": "res://world/level_01_cistern.tscn",
+        "target": "ExitStairs1"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 4,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0875,
+              "y": 0.711538461538462
+            },
+            {
+              "valid": true,
+              "x": 0.4875,
+              "y": 0.480769230769231
+            },
+            {
+              "valid": true,
+              "x": 0.7375,
+              "y": 0.788461538461538
+            },
+            {
+              "valid": true,
+              "x": 0.8375,
+              "y": 0.442307692307692
+            }
+          ],
+          "total": 4,
+          "world": [
+            [
+              56.0,
+              296.0,
+              0.0
+            ],
+            [
+              312.0,
+              200.0,
+              0.0
+            ],
+            [
+              472.0,
+              328.0,
+              0.0
+            ],
+            [
+              536.0,
+              184.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_collectible": {
+          "alive": 10,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0875,
+              "y": 0.865384615384615
+            },
+            {
+              "valid": true,
+              "x": 0.3875,
+              "y": 0.865384615384615
+            },
+            {
+              "valid": true,
+              "x": 0.6125,
+              "y": 0.865384615384615
+            },
+            {
+              "valid": true,
+              "x": 0.6125,
+              "y": 0.211538461538462
+            },
+            {
+              "valid": true,
+              "x": 0.3625,
+              "y": 0.442307692307692
+            },
+            {
+              "valid": true,
+              "x": 0.6125,
+              "y": 0.442307692307692
+            },
+            {
+              "valid": true,
+              "x": 0.0875,
+              "y": 0.134615384615385
+            },
+            {
+              "valid": true,
+              "x": 0.9125,
+              "y": 0.634615384615385
+            },
+            {
+              "valid": true,
+              "x": 0.8125,
+              "y": 0.903846153846154
+            },
+            {
+              "valid": true,
+              "x": 0.7625,
+              "y": 0.403846153846154
+            }
+          ],
+          "total": 10,
+          "world": [
+            [
+              56.0,
+              360.0,
+              0.0
+            ],
+            [
+              248.0,
+              360.0,
+              0.0
+            ],
+            [
+              392.0,
+              360.0,
+              0.0
+            ],
+            [
+              392.0,
+              88.0,
+              0.0
+            ],
+            [
+              232.0,
+              184.0,
+              0.0
+            ],
+            [
+              392.0,
+              184.0,
+              0.0
+            ],
+            [
+              56.0,
+              56.0,
+              0.0
+            ],
+            [
+              584.0,
+              264.0,
+              0.0
+            ],
+            [
+              520.0,
+              376.0,
+              0.0
+            ],
+            [
+              488.0,
+              168.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_door": {
+          "alive": 5,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.4875,
+              "y": 0.519230769230769
+            },
+            {
+              "valid": true,
+              "x": 0.6875,
+              "y": 0.788461538461538
+            },
+            {
+              "valid": true,
+              "x": 0.8375,
+              "y": 0.480769230769231
+            },
+            {
+              "valid": true,
+              "x": 0.0875,
+              "y": 0.211538461538462
+            },
+            {
+              "valid": true,
+              "x": 0.8625,
+              "y": 0.634615384615385
+            }
+          ],
+          "total": 5,
+          "world": [
+            [
+              312.0,
+              216.0,
+              0.0
+            ],
+            [
+              440.0,
+              328.0,
+              0.0
+            ],
+            [
+              536.0,
+              200.0,
+              0.0
+            ],
+            [
+              56.0,
+              88.0,
+              0.0
+            ],
+            [
+              552.0,
+              264.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 5,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.1875,
+              "y": 0.501140521122859
+            },
+            {
+              "valid": true,
+              "x": 0.4125,
+              "y": 0.711538461538462
+            },
+            {
+              "valid": true,
+              "x": 0.528862714767456,
+              "y": 0.826923076923077
+            },
+            {
+              "valid": true,
+              "x": 0.4875,
+              "y": 0.421802007235014
+            },
+            {
+              "valid": true,
+              "x": 0.7875,
+              "y": 0.75
+            }
+          ],
+          "total": 5,
+          "world": [
+            [
+              120.0,
+              208.474456787109,
+              0.0
+            ],
+            [
+              264.0,
+              296.0,
+              0.0
+            ],
+            [
+              338.472137451172,
+              344.0,
+              0.0
+            ],
+            [
+              312.0,
+              175.469635009766,
+              0.0
+            ],
+            [
+              504.0,
+              312.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.9125,
+              "y": 0.173076923076923
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              584.0,
+              72.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 5,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.4375,
+              "y": 0.865384615384615
+            },
+            {
+              "valid": true,
+              "x": 0.4625,
+              "y": 0.865384615384615
+            },
+            {
+              "valid": true,
+              "x": 0.4375,
+              "y": 0.903846153846154
+            },
+            {
+              "valid": true,
+              "x": 0.5625,
+              "y": 0.673076923076923
+            },
+            {
+              "valid": true,
+              "x": 0.5875,
+              "y": 0.673076923076923
+            }
+          ],
+          "total": 5,
+          "world": [
+            [
+              280.0,
+              360.0,
+              0.0
+            ],
+            [
+              296.0,
+              360.0,
+              0.0
+            ],
+            [
+              280.0,
+              376.0,
+              0.0
+            ],
+            [
+              360.0,
+              280.0,
+              0.0
+            ],
+            [
+              376.0,
+              280.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_interactive": {
+          "alive": 12,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.2125,
+              "y": 0.865384615384615
+            },
+            {
+              "valid": true,
+              "x": 0.1125,
+              "y": 0.326923076923077
+            },
+            {
+              "valid": true,
+              "x": 0.0875,
+              "y": 0.519230769230769
+            },
+            {
+              "valid": true,
+              "x": 0.1125,
+              "y": 0.480769230769231
+            },
+            {
+              "valid": true,
+              "x": 0.3625,
+              "y": 0.634615384615385
+            },
+            {
+              "valid": true,
+              "x": 0.6125,
+              "y": 0.634615384615385
+            },
+            {
+              "valid": true,
+              "x": 0.3625,
+              "y": 0.211538461538462
+            },
+            {
+              "valid": true,
+              "x": 0.4125,
+              "y": 0.403846153846154
+            },
+            {
+              "valid": true,
+              "x": 0.7875,
+              "y": 0.826923076923077
+            },
+            {
+              "valid": true,
+              "x": 0.8125,
+              "y": 0.826923076923077
+            },
+            {
+              "valid": true,
+              "x": 0.8375,
+              "y": 0.826923076923077
+            },
+            {
+              "valid": true,
+              "x": 0.8875,
+              "y": 0.788461538461538
+            }
+          ],
+          "total": 12,
+          "world": [
+            [
+              136.0,
+              360.0,
+              0.0
+            ],
+            [
+              72.0,
+              136.0,
+              0.0
+            ],
+            [
+              56.0,
+              216.0,
+              0.0
+            ],
+            [
+              72.0,
+              200.0,
+              0.0
+            ],
+            [
+              232.0,
+              264.0,
+              0.0
+            ],
+            [
+              392.0,
+              264.0,
+              0.0
+            ],
+            [
+              232.0,
+              88.0,
+              0.0
+            ],
+            [
+              264.0,
+              168.0,
+              0.0
+            ],
+            [
+              504.0,
+              344.0,
+              0.0
+            ],
+            [
+              520.0,
+              344.0,
+              0.0
+            ],
+            [
+              536.0,
+              344.0,
+              0.0
+            ],
+            [
+              568.0,
+              328.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.1375,
+              "y": 0.788461538461538
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              88.0,
+              328.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "elapsed": 1.73698866666666,
+        "health": 3.0,
+        "hearts": 3.0,
+        "progress": 0.0,
+        "relics_collected": 0.0,
+        "timer": 1.73698866666666
+      },
+      "numeric_source": {
+        "elapsed": "declared",
+        "health": "declared",
+        "hearts": "declared",
+        "progress": "declared",
+        "relics_collected": "declared",
+        "timer": "declared"
+      },
+      "reached": true,
+      "scene": "res://world/level_01_cistern.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 4,
+            "gb_collectible": 10,
+            "gb_door": 5,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 12,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "elapsed": 1.49484622222222,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 0.0,
+            "relics_collected": 0.0,
+            "timer": 1.49484622222222
+          },
+          "phase": "settle",
+          "player": [
+            88.0,
+            328.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_01_cistern.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 4,
+            "gb_collectible": 9,
+            "gb_door": 5,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 12,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "elapsed": 1.59899066666666,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 0.0,
+            "relics_collected": 0.0,
+            "timer": 1.59899066666666
+          },
+          "phase": "pick",
+          "player": [
+            56.0,
+            360.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_01_cistern.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 4,
+            "gb_collectible": 9,
+            "gb_door": 5,
+            "gb_enemy": 5,
+            "gb_goal": 1,
+            "gb_hazard": 5,
+            "gb_interactive": 12,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "elapsed": 1.73009166666666,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 0.0,
+            "relics_collected": 0.0,
+            "timer": 1.73009166666666
+          },
+          "phase": "deliver",
+          "player": [
+            584.0,
+            74.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_01_cistern.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 12,
+            "gb_door": 7,
+            "gb_enemy": 12,
+            "gb_goal": 1,
+            "gb_hazard": 6,
+            "gb_interactive": 15,
+            "gb_player": 1
+          },
+          "frame": 105,
+          "numeric": {
+            "elapsed": 1.73698866666666,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 0.0,
+            "relics_collected": 0.0,
+            "timer": 1.73698866666666
+          },
+          "phase": "deliver",
+          "player": [
+            88.0,
+            376.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_02_archive.tscn"
+        }
+      ],
+      "spawn": [
+        88.0,
+        328.0,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.1375,
+        "y": 0.7884615384615384
+      },
+      "stop_reason": "goal_transition"
+    },
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          704.0,
+          448.0,
+          0.0
+        ],
+        "min3": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 11,
+        "alive_before": 12,
+        "attempted": true,
+        "delta": -1,
+        "detail": "collection effect observed on Heart1 before delivery: 12 alive before, 11 after",
+        "effect": {
+          "actions": [],
+          "complete_trigger": false,
+          "cycle_index": 0,
+          "kind": "target_changed",
+          "observed": true
+        },
+        "target": "Heart1"
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://world/level_02_archive.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": true,
+        "detail": "res://world/level_02_archive.tscn -> res://world/level_03_sanctum.tscn after 0 collect-and-deliver cycles",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "progress_before": 0.0
+        },
+        "frames_to_change": 105,
+        "scene_after": "res://world/level_03_sanctum.tscn",
+        "scene_before": "res://world/level_02_archive.tscn",
+        "target": "ExitStairs1"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 6,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.102272727272727,
+              "y": 0.767857142857143
+            },
+            {
+              "valid": true,
+              "x": 0.488636363636364,
+              "y": 0.660714285714286
+            },
+            {
+              "valid": true,
+              "x": 0.284090909090909,
+              "y": 0.553571428571429
+            },
+            {
+              "valid": true,
+              "x": 0.170454545454545,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.375,
+              "y": 0.232142857142857
+            },
+            {
+              "valid": true,
+              "x": 0.670454545454545,
+              "y": 0.303571428571429
+            }
+          ],
+          "total": 6,
+          "world": [
+            [
+              72.0,
+              344.0,
+              0.0
+            ],
+            [
+              344.0,
+              296.0,
+              0.0
+            ],
+            [
+              200.0,
+              248.0,
+              0.0
+            ],
+            [
+              120.0,
+              168.0,
+              0.0
+            ],
+            [
+              264.0,
+              104.0,
+              0.0
+            ],
+            [
+              472.0,
+              136.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_collectible": {
+          "alive": 12,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.261363636363636,
+              "y": 0.875
+            },
+            {
+              "valid": true,
+              "x": 0.579545454545455,
+              "y": 0.767857142857143
+            },
+            {
+              "valid": true,
+              "x": 0.602272727272727,
+              "y": 0.660714285714286
+            },
+            {
+              "valid": true,
+              "x": 0.261363636363636,
+              "y": 0.625
+            },
+            {
+              "valid": true,
+              "x": 0.102272727272727,
+              "y": 0.589285714285714
+            },
+            {
+              "valid": true,
+              "x": 0.238636363636364,
+              "y": 0.196428571428571
+            },
+            {
+              "valid": true,
+              "x": 0.193181818181818,
+              "y": 0.160714285714286
+            },
+            {
+              "valid": true,
+              "x": 0.511363636363636,
+              "y": 0.196428571428571
+            },
+            {
+              "valid": true,
+              "x": 0.897727272727273,
+              "y": 0.875
+            },
+            {
+              "valid": true,
+              "x": 0.829545454545455,
+              "y": 0.696428571428571
+            },
+            {
+              "valid": true,
+              "x": 0.715909090909091,
+              "y": 0.375
+            },
+            {
+              "valid": true,
+              "x": 0.875,
+              "y": 0.553571428571429
+            }
+          ],
+          "total": 12,
+          "world": [
+            [
+              184.0,
+              392.0,
+              0.0
+            ],
+            [
+              408.0,
+              344.0,
+              0.0
+            ],
+            [
+              424.0,
+              296.0,
+              0.0
+            ],
+            [
+              184.0,
+              280.0,
+              0.0
+            ],
+            [
+              72.0,
+              264.0,
+              0.0
+            ],
+            [
+              168.0,
+              88.0,
+              0.0
+            ],
+            [
+              136.0,
+              72.0,
+              0.0
+            ],
+            [
+              360.0,
+              88.0,
+              0.0
+            ],
+            [
+              632.0,
+              392.0,
+              0.0
+            ],
+            [
+              584.0,
+              312.0,
+              0.0
+            ],
+            [
+              504.0,
+              168.0,
+              0.0
+            ],
+            [
+              616.0,
+              248.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_door": {
+          "alive": 7,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.465909090909091,
+              "y": 0.696428571428571
+            },
+            {
+              "valid": true,
+              "x": 0.306818181818182,
+              "y": 0.553571428571429
+            },
+            {
+              "valid": true,
+              "x": 0.170454545454545,
+              "y": 0.410714285714286
+            },
+            {
+              "valid": true,
+              "x": 0.306818181818182,
+              "y": 0.232142857142857
+            },
+            {
+              "valid": true,
+              "x": 0.625,
+              "y": 0.803571428571429
+            },
+            {
+              "valid": true,
+              "x": 0.647727272727273,
+              "y": 0.303571428571429
+            },
+            {
+              "valid": true,
+              "x": 0.875,
+              "y": 0.446428571428571
+            }
+          ],
+          "total": 7,
+          "world": [
+            [
+              328.0,
+              312.0,
+              0.0
+            ],
+            [
+              216.0,
+              248.0,
+              0.0
+            ],
+            [
+              120.0,
+              184.0,
+              0.0
+            ],
+            [
+              216.0,
+              104.0,
+              0.0
+            ],
+            [
+              440.0,
+              360.0,
+              0.0
+            ],
+            [
+              456.0,
+              136.0,
+              0.0
+            ],
+            [
+              616.0,
+              200.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 12,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.125758604569869,
+              "y": 0.840478420257568
+            },
+            {
+              "valid": true,
+              "x": 0.420454545454545,
+              "y": 0.803571428571429
+            },
+            {
+              "valid": true,
+              "x": 0.522053328427401,
+              "y": 0.875
+            },
+            {
+              "valid": true,
+              "x": 0.397727272727273,
+              "y": 0.446428571428571
+            },
+            {
+              "valid": true,
+              "x": 0.579545454545455,
+              "y": 0.514913831438337
+            },
+            {
+              "valid": true,
+              "x": 0.215909090909091,
+              "y": 0.477678571428571
+            },
+            {
+              "valid": true,
+              "x": 0.147727272727273,
+              "y": 0.339285714285714
+            },
+            {
+              "valid": true,
+              "x": 0.443181818181818,
+              "y": 0.196428571428571
+            },
+            {
+              "valid": true,
+              "x": 0.556818181818182,
+              "y": 0.339285714285714
+            },
+            {
+              "valid": true,
+              "x": 0.791946844621138,
+              "y": 0.875
+            },
+            {
+              "valid": true,
+              "x": 0.875,
+              "y": 0.803571428571429
+            },
+            {
+              "valid": true,
+              "x": 0.761363636363636,
+              "y": 0.227678571428571
+            }
+          ],
+          "total": 12,
+          "world": [
+            [
+              88.5340576171875,
+              376.534332275391,
+              0.0
+            ],
+            [
+              296.0,
+              360.0,
+              0.0
+            ],
+            [
+              367.525543212891,
+              392.0,
+              0.0
+            ],
+            [
+              280.0,
+              200.0,
+              0.0
+            ],
+            [
+              408.0,
+              230.681396484375,
+              0.0
+            ],
+            [
+              152.0,
+              214.0,
+              0.0
+            ],
+            [
+              104.0,
+              152.0,
+              0.0
+            ],
+            [
+              312.0,
+              88.0,
+              0.0
+            ],
+            [
+              392.0,
+              152.0,
+              0.0
+            ],
+            [
+              557.530578613281,
+              392.0,
+              0.0
+            ],
+            [
+              616.0,
+              360.0,
+              0.0
+            ],
+            [
+              536.0,
+              102.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.693181818181818,
+              "y": 0.196428571428571
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              488.0,
+              88.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 6,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.443181818181818,
+              "y": 0.839285714285714
+            },
+            {
+              "valid": true,
+              "x": 0.465909090909091,
+              "y": 0.839285714285714
+            },
+            {
+              "valid": true,
+              "x": 0.488636363636364,
+              "y": 0.839285714285714
+            },
+            {
+              "valid": true,
+              "x": 0.443181818181818,
+              "y": 0.589285714285714
+            },
+            {
+              "valid": true,
+              "x": 0.511363636363636,
+              "y": 0.589285714285714
+            },
+            {
+              "valid": true,
+              "x": 0.556818181818182,
+              "y": 0.553571428571429
+            }
+          ],
+          "total": 6,
+          "world": [
+            [
+              312.0,
+              376.0,
+              0.0
+            ],
+            [
+              328.0,
+              376.0,
+              0.0
+            ],
+            [
+              344.0,
+              376.0,
+              0.0
+            ],
+            [
+              312.0,
+              264.0,
+              0.0
+            ],
+            [
+              360.0,
+              264.0,
+              0.0
+            ],
+            [
+              392.0,
+              248.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_interactive": {
+          "alive": 15,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.215909090909091,
+              "y": 0.803571428571429
+            },
+            {
+              "valid": true,
+              "x": 0.488636363636364,
+              "y": 0.910714285714286
+            },
+            {
+              "valid": true,
+              "x": 0.420454545454545,
+              "y": 0.660714285714286
+            },
+            {
+              "valid": true,
+              "x": 0.579545454545455,
+              "y": 0.589285714285714
+            },
+            {
+              "valid": true,
+              "x": 0.102272727272727,
+              "y": 0.482142857142857
+            },
+            {
+              "valid": true,
+              "x": 0.102272727272727,
+              "y": 0.339285714285714
+            },
+            {
+              "valid": true,
+              "x": 0.261363636363636,
+              "y": 0.339285714285714
+            },
+            {
+              "valid": true,
+              "x": 0.125,
+              "y": 0.160714285714286
+            },
+            {
+              "valid": true,
+              "x": 0.488636363636364,
+              "y": 0.267857142857143
+            },
+            {
+              "valid": true,
+              "x": 0.511363636363636,
+              "y": 0.267857142857143
+            },
+            {
+              "valid": true,
+              "x": 0.534090909090909,
+              "y": 0.267857142857143
+            },
+            {
+              "valid": true,
+              "x": 0.579545454545455,
+              "y": 0.196428571428571
+            },
+            {
+              "valid": true,
+              "x": 0.715909090909091,
+              "y": 0.803571428571429
+            },
+            {
+              "valid": true,
+              "x": 0.784090909090909,
+              "y": 0.767857142857143
+            },
+            {
+              "valid": true,
+              "x": 0.852272727272727,
+              "y": 0.232142857142857
+            }
+          ],
+          "total": 15,
+          "world": [
+            [
+              152.0,
+              360.0,
+              0.0
+            ],
+            [
+              344.0,
+              408.0,
+              0.0
+            ],
+            [
+              296.0,
+              296.0,
+              0.0
+            ],
+            [
+              408.0,
+              264.0,
+              0.0
+            ],
+            [
+              72.0,
+              216.0,
+              0.0
+            ],
+            [
+              72.0,
+              152.0,
+              0.0
+            ],
+            [
+              184.0,
+              152.0,
+              0.0
+            ],
+            [
+              88.0,
+              72.0,
+              0.0
+            ],
+            [
+              344.0,
+              120.0,
+              0.0
+            ],
+            [
+              360.0,
+              120.0,
+              0.0
+            ],
+            [
+              376.0,
+              120.0,
+              0.0
+            ],
+            [
+              408.0,
+              88.0,
+              0.0
+            ],
+            [
+              504.0,
+              360.0,
+              0.0
+            ],
+            [
+              552.0,
+              344.0,
+              0.0
+            ],
+            [
+              600.0,
+              104.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.0998900803652677,
+              "y": 0.799826077052525
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              70.3226165771484,
+              358.322082519531,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "elapsed": 1.73407333333333,
+        "health": 3.0,
+        "hearts": 3.0,
+        "progress": 0.0,
+        "relics_collected": 0.0,
+        "timer": 1.73407333333333
+      },
+      "numeric_source": {
+        "elapsed": "declared",
+        "health": "declared",
+        "hearts": "declared",
+        "progress": "declared",
+        "relics_collected": "declared",
+        "timer": "declared"
+      },
+      "reached": true,
+      "scene": "res://world/level_02_archive.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 12,
+            "gb_door": 7,
+            "gb_enemy": 12,
+            "gb_goal": 1,
+            "gb_hazard": 6,
+            "gb_interactive": 15,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "elapsed": 1.49947933333333,
+            "health": 2.0,
+            "hearts": 2.0,
+            "progress": 0.0,
+            "relics_collected": 0.0,
+            "timer": 1.49947933333333
+          },
+          "phase": "settle",
+          "player": [
+            70.3226165771484,
+            358.322082519531,
+            0.0
+          ],
+          "scene_path": "res://world/level_02_archive.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 11,
+            "gb_door": 7,
+            "gb_enemy": 12,
+            "gb_goal": 1,
+            "gb_hazard": 6,
+            "gb_interactive": 15,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "elapsed": 1.59607633333333,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 0.0,
+            "relics_collected": 0.0,
+            "timer": 1.59607633333333
+          },
+          "phase": "pick",
+          "player": [
+            184.0,
+            392.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_02_archive.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 11,
+            "gb_door": 7,
+            "gb_enemy": 12,
+            "gb_goal": 1,
+            "gb_hazard": 6,
+            "gb_interactive": 15,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "elapsed": 1.72717433333333,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 0.0,
+            "relics_collected": 0.0,
+            "timer": 1.72717433333333
+          },
+          "phase": "deliver",
+          "player": [
+            488.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_02_archive.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 13,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 105,
+          "numeric": {
+            "elapsed": 1.73407333333333,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 0.0,
+            "relics_collected": 0.0,
+            "timer": 1.73407333333333
+          },
+          "phase": "deliver",
+          "player": [
+            104.0,
+            408.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        }
+      ],
+      "spawn": [
+        70.3226165771484,
+        358.322082519531,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.0998900803652676,
+        "y": 0.7998260770525246
+      },
+      "stop_reason": "goal_transition"
+    },
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          704.0,
+          480.0,
+          0.0
+        ],
+        "min3": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 12,
+        "alive_before": 13,
+        "attempted": true,
+        "delta": -1,
+        "detail": "one collect-and-deliver cycle on Heart1: 13 alive before, 12 after",
+        "effect": {
+          "actions": [],
+          "complete_trigger": false,
+          "cycle_index": 0,
+          "kind": "target_changed",
+          "observed": true
+        },
+        "target": "Heart1"
+      },
+      "cycles": [
+        {
+          "alive_after": 12,
+          "alive_before": 13,
+          "delivered": true,
+          "delta": -1,
+          "index": 0,
+          "target": "Heart1"
+        },
+        {
+          "alive_after": 11,
+          "alive_before": 12,
+          "delivered": true,
+          "delta": -1,
+          "index": 1,
+          "target": "Relic1"
+        },
+        {
+          "alive_after": 10,
+          "alive_before": 11,
+          "delivered": true,
+          "delta": -1,
+          "index": 2,
+          "target": "Key1"
+        },
+        {
+          "alive_after": 9,
+          "alive_before": 10,
+          "delivered": true,
+          "delta": -1,
+          "index": 3,
+          "target": "Relic2"
+        },
+        {
+          "alive_after": 8,
+          "alive_before": 9,
+          "delivered": true,
+          "delta": -1,
+          "index": 4,
+          "target": "Fairy1"
+        },
+        {
+          "alive_after": 7,
+          "alive_before": 8,
+          "delivered": true,
+          "delta": -1,
+          "index": 5,
+          "target": "Relic3"
+        },
+        {
+          "alive_after": 6,
+          "alive_before": 7,
+          "delivered": true,
+          "delta": -1,
+          "index": 6,
+          "target": "Key2"
+        },
+        {
+          "alive_after": 5,
+          "alive_before": 6,
+          "delivered": true,
+          "delta": -1,
+          "index": 7,
+          "target": "Key3"
+        },
+        {
+          "alive_after": 4,
+          "alive_before": 5,
+          "delivered": true,
+          "delta": -1,
+          "index": 8,
+          "target": "Relic4"
+        },
+        {
+          "alive_after": 3,
+          "alive_before": 4,
+          "delivered": true,
+          "delta": -1,
+          "index": 9,
+          "target": "Relic5"
+        },
+        {
+          "alive_after": 2,
+          "alive_before": 3,
+          "delivered": true,
+          "delta": -1,
+          "index": 10,
+          "target": "Heart2"
+        },
+        {
+          "alive_after": 1,
+          "alive_before": 2,
+          "delivered": true,
+          "delta": -1,
+          "index": 11,
+          "target": "Key4"
+        },
+        {
+          "alive_after": 0,
+          "alive_before": 1,
+          "delivered": true,
+          "delta": -1,
+          "index": 12,
+          "target": "Relic6"
+        }
+      ],
+      "cycles_capped": false,
+      "declared_scene": "res://world/level_03_sanctum.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "13 collect-and-deliver cycles then 120 frames on ExitStairs1, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "observed": true,
+          "progress_after": 6.0,
+          "progress_before": 6.0
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://world/level_03_sanctum.tscn",
+        "scene_before": "res://world/level_03_sanctum.tscn",
+        "target": "ExitStairs1"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 6,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.125,
+              "y": 0.783333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.329545454545455,
+              "y": 0.583333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.715909090909091,
+              "y": 0.55
+            },
+            {
+              "valid": true,
+              "x": 0.511363636363636,
+              "y": 0.383333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.715909090909091,
+              "y": 0.25
+            },
+            {
+              "valid": true,
+              "x": 0.534090909090909,
+              "y": 0.683333333333333
+            }
+          ],
+          "total": 6,
+          "world": [
+            [
+              88.0,
+              376.0,
+              0.0
+            ],
+            [
+              232.0,
+              280.0,
+              0.0
+            ],
+            [
+              504.0,
+              264.0,
+              0.0
+            ],
+            [
+              360.0,
+              184.0,
+              0.0
+            ],
+            [
+              504.0,
+              120.0,
+              0.0
+            ],
+            [
+              376.0,
+              328.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_collectible": {
+          "alive": 13,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.284090909090909,
+              "y": 0.883333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.625,
+              "y": 0.916666666666667
+            },
+            {
+              "valid": true,
+              "x": 0.147727272727273,
+              "y": 0.516666666666667
+            },
+            {
+              "valid": true,
+              "x": 0.306818181818182,
+              "y": 0.683333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.102272727272727,
+              "y": 0.683333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.852272727272727,
+              "y": 0.883333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.920454545454545,
+              "y": 0.916666666666667
+            },
+            {
+              "valid": true,
+              "x": 0.875,
+              "y": 0.483333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.897727272727273,
+              "y": 0.616666666666667
+            },
+            {
+              "valid": true,
+              "x": 0.511363636363636,
+              "y": 0.183333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.556818181818182,
+              "y": 0.283333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.420454545454545,
+              "y": 0.216666666666667
+            },
+            {
+              "valid": true,
+              "x": 0.284090909090909,
+              "y": 0.183333333333333
+            }
+          ],
+          "total": 13,
+          "world": [
+            [
+              200.0,
+              424.0,
+              0.0
+            ],
+            [
+              440.0,
+              440.0,
+              0.0
+            ],
+            [
+              104.0,
+              248.0,
+              0.0
+            ],
+            [
+              216.0,
+              328.0,
+              0.0
+            ],
+            [
+              72.0,
+              328.0,
+              0.0
+            ],
+            [
+              600.0,
+              424.0,
+              0.0
+            ],
+            [
+              648.0,
+              440.0,
+              0.0
+            ],
+            [
+              616.0,
+              232.0,
+              0.0
+            ],
+            [
+              632.0,
+              296.0,
+              0.0
+            ],
+            [
+              360.0,
+              88.0,
+              0.0
+            ],
+            [
+              392.0,
+              136.0,
+              0.0
+            ],
+            [
+              296.0,
+              104.0,
+              0.0
+            ],
+            [
+              200.0,
+              88.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_door": {
+          "alive": 6,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.352272727272727,
+              "y": 0.583333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.670454545454545,
+              "y": 0.816666666666667
+            },
+            {
+              "valid": true,
+              "x": 0.670454545454545,
+              "y": 0.55
+            },
+            {
+              "valid": true,
+              "x": 0.511363636363636,
+              "y": 0.416666666666667
+            },
+            {
+              "valid": true,
+              "x": 0.352272727272727,
+              "y": 0.25
+            },
+            {
+              "valid": true,
+              "x": 0.670454545454545,
+              "y": 0.25
+            }
+          ],
+          "total": 6,
+          "world": [
+            [
+              248.0,
+              280.0,
+              0.0
+            ],
+            [
+              472.0,
+              392.0,
+              0.0
+            ],
+            [
+              472.0,
+              264.0,
+              0.0
+            ],
+            [
+              360.0,
+              200.0,
+              0.0
+            ],
+            [
+              248.0,
+              120.0,
+              0.0
+            ],
+            [
+              472.0,
+              120.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 15,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.230826941403476,
+              "y": 0.819284820556641
+            },
+            {
+              "valid": true,
+              "x": 0.443181818181818,
+              "y": 0.883333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.548966104334051,
+              "y": 0.783333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.164527080275796,
+              "y": 0.71874828338623
+            },
+            {
+              "valid": true,
+              "x": 0.284090909090909,
+              "y": 0.5125
+            },
+            {
+              "valid": true,
+              "x": 0.784090909090909,
+              "y": 0.883333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.897727272727273,
+              "y": 0.702084604899089
+            },
+            {
+              "valid": true,
+              "x": 0.511363636363636,
+              "y": 0.630046272277832
+            },
+            {
+              "valid": true,
+              "x": 0.443181818181818,
+              "y": 0.65
+            },
+            {
+              "valid": true,
+              "x": 0.602272727272727,
+              "y": 0.65
+            },
+            {
+              "valid": true,
+              "x": 0.806818181818182,
+              "y": 0.616666666666667
+            },
+            {
+              "valid": true,
+              "x": 0.465909090909091,
+              "y": 0.279166666666667
+            },
+            {
+              "valid": true,
+              "x": 0.579545454545455,
+              "y": 0.298895804087321
+            },
+            {
+              "valid": true,
+              "x": 0.20521972396157,
+              "y": 0.283333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.761363636363636,
+              "y": 0.3125
+            }
+          ],
+          "total": 15,
+          "world": [
+            [
+              162.502166748047,
+              393.256713867188,
+              0.0
+            ],
+            [
+              312.0,
+              424.0,
+              0.0
+            ],
+            [
+              386.472137451172,
+              376.0,
+              0.0
+            ],
+            [
+              115.82706451416,
+              344.999176025391,
+              0.0
+            ],
+            [
+              200.0,
+              246.0,
+              0.0
+            ],
+            [
+              552.0,
+              424.0,
+              0.0
+            ],
+            [
+              632.0,
+              337.000610351562,
+              0.0
+            ],
+            [
+              360.0,
+              302.422210693359,
+              0.0
+            ],
+            [
+              312.0,
+              312.0,
+              0.0
+            ],
+            [
+              424.0,
+              312.0,
+              0.0
+            ],
+            [
+              568.0,
+              296.0,
+              0.0
+            ],
+            [
+              328.0,
+              134.0,
+              0.0
+            ],
+            [
+              408.0,
+              143.469985961914,
+              0.0
+            ],
+            [
+              144.474685668945,
+              136.0,
+              0.0
+            ],
+            [
+              536.0,
+              150.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.875,
+              "y": 0.183333333333333
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              616.0,
+              88.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 4,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.465909090909091,
+              "y": 0.85
+            },
+            {
+              "valid": true,
+              "x": 0.488636363636364,
+              "y": 0.85
+            },
+            {
+              "valid": true,
+              "x": 0.579545454545455,
+              "y": 0.85
+            },
+            {
+              "valid": true,
+              "x": 0.511363636363636,
+              "y": 0.716666666666667
+            }
+          ],
+          "total": 4,
+          "world": [
+            [
+              328.0,
+              408.0,
+              0.0
+            ],
+            [
+              344.0,
+              408.0,
+              0.0
+            ],
+            [
+              408.0,
+              408.0,
+              0.0
+            ],
+            [
+              360.0,
+              344.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_interactive": {
+          "alive": 17,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.215909090909091,
+              "y": 0.816666666666667
+            },
+            {
+              "valid": true,
+              "x": 0.556818181818182,
+              "y": 0.883333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.125,
+              "y": 0.616666666666667
+            },
+            {
+              "valid": true,
+              "x": 0.261363636363636,
+              "y": 0.616666666666667
+            },
+            {
+              "valid": true,
+              "x": 0.125,
+              "y": 0.35
+            },
+            {
+              "valid": true,
+              "x": 0.829545454545455,
+              "y": 0.816666666666667
+            },
+            {
+              "valid": true,
+              "x": 0.852272727272727,
+              "y": 0.816666666666667
+            },
+            {
+              "valid": true,
+              "x": 0.875,
+              "y": 0.816666666666667
+            },
+            {
+              "valid": true,
+              "x": 0.738636363636364,
+              "y": 0.75
+            },
+            {
+              "valid": true,
+              "x": 0.443181818181818,
+              "y": 0.45
+            },
+            {
+              "valid": true,
+              "x": 0.625,
+              "y": 0.45
+            },
+            {
+              "valid": true,
+              "x": 0.761363636363636,
+              "y": 0.483333333333333
+            },
+            {
+              "valid": true,
+              "x": 0.443181818181818,
+              "y": 0.35
+            },
+            {
+              "valid": true,
+              "x": 0.602272727272727,
+              "y": 0.35
+            },
+            {
+              "valid": true,
+              "x": 0.147727272727273,
+              "y": 0.35
+            },
+            {
+              "valid": true,
+              "x": 0.897727272727273,
+              "y": 0.35
+            },
+            {
+              "valid": true,
+              "x": 0.738636363636364,
+              "y": 0.183333333333333
+            }
+          ],
+          "total": 17,
+          "world": [
+            [
+              152.0,
+              392.0,
+              0.0
+            ],
+            [
+              392.0,
+              424.0,
+              0.0
+            ],
+            [
+              88.0,
+              296.0,
+              0.0
+            ],
+            [
+              184.0,
+              296.0,
+              0.0
+            ],
+            [
+              88.0,
+              168.0,
+              0.0
+            ],
+            [
+              584.0,
+              392.0,
+              0.0
+            ],
+            [
+              600.0,
+              392.0,
+              0.0
+            ],
+            [
+              616.0,
+              392.0,
+              0.0
+            ],
+            [
+              520.0,
+              360.0,
+              0.0
+            ],
+            [
+              312.0,
+              216.0,
+              0.0
+            ],
+            [
+              440.0,
+              216.0,
+              0.0
+            ],
+            [
+              536.0,
+              232.0,
+              0.0
+            ],
+            [
+              312.0,
+              168.0,
+              0.0
+            ],
+            [
+              424.0,
+              168.0,
+              0.0
+            ],
+            [
+              104.0,
+              168.0,
+              0.0
+            ],
+            [
+              632.0,
+              168.0,
+              0.0
+            ],
+            [
+              520.0,
+              88.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.147727272727273,
+              "y": 0.85
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              104.0,
+              408.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "elapsed": 8.69506266666666,
+        "health": 1.0,
+        "hearts": 1.0,
+        "progress": 6.0,
+        "relics_collected": 6.0,
+        "timer": 8.69506266666666
+      },
+      "numeric_source": {
+        "elapsed": "declared",
+        "health": "declared",
+        "hearts": "declared",
+        "progress": "declared",
+        "relics_collected": "declared",
+        "timer": "declared"
+      },
+      "reached": true,
+      "scene": "res://world/level_03_sanctum.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 13,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "elapsed": 1.49473822222222,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 0.0,
+            "relics_collected": 0.0,
+            "timer": 1.49473822222222
+          },
+          "phase": "settle",
+          "player": [
+            104.0,
+            408.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 12,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "elapsed": 1.59889266666666,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 0.0,
+            "relics_collected": 0.0,
+            "timer": 1.59889266666666
+          },
+          "phase": "pick",
+          "player": [
+            200.0,
+            424.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 12,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "elapsed": 1.72998466666666,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 0.0,
+            "relics_collected": 0.0,
+            "timer": 1.72998466666666
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 12,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "elapsed": 1.86109266666666,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 0.0,
+            "relics_collected": 0.0,
+            "timer": 1.86109266666666
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 11,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "elapsed": 1.99386599999999,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 1.0,
+            "relics_collected": 1.0,
+            "timer": 1.99386599999999
+          },
+          "phase": "pick",
+          "player": [
+            440.0,
+            439.924011230469,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 11,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "elapsed": 2.13186399999999,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 1.0,
+            "relics_collected": 1.0,
+            "timer": 2.13186399999999
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 11,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "elapsed": 2.26613166666666,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 1.0,
+            "relics_collected": 1.0,
+            "timer": 2.26613166666666
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 10,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "elapsed": 2.39974277777778,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 1.0,
+            "relics_collected": 1.0,
+            "timer": 2.39974277777778
+          },
+          "phase": "pick",
+          "player": [
+            104.0,
+            248.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 10,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "elapsed": 2.53062966666667,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 1.0,
+            "relics_collected": 1.0,
+            "timer": 2.53062966666667
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 10,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "elapsed": 2.66173266666667,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 1.0,
+            "relics_collected": 1.0,
+            "timer": 2.66173266666667
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 9,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "elapsed": 2.79973066666667,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 2.0,
+            "relics_collected": 2.0,
+            "timer": 2.79973066666667
+          },
+          "phase": "pick",
+          "player": [
+            216.0,
+            328.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 9,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "elapsed": 2.93082866666667,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 2.0,
+            "relics_collected": 2.0,
+            "timer": 2.93082866666667
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 9,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "elapsed": 3.06193266666667,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 2.0,
+            "relics_collected": 2.0,
+            "timer": 3.06193266666667
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 8,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "elapsed": 3.19997511111111,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 2.0,
+            "relics_collected": 2.0,
+            "timer": 3.19997511111111
+          },
+          "phase": "pick",
+          "player": [
+            72.0,
+            328.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 8,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "elapsed": 3.33103066666667,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 2.0,
+            "relics_collected": 2.0,
+            "timer": 3.33103066666667
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 8,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "elapsed": 3.46213266666667,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 2.0,
+            "relics_collected": 2.0,
+            "timer": 3.46213266666667
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 7,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 216,
+          "numeric": {
+            "elapsed": 3.59444444444445,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 3.0,
+            "relics_collected": 3.0,
+            "timer": 3.59444444444445
+          },
+          "phase": "pick",
+          "player": [
+            600.0,
+            424.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 7,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 224,
+          "numeric": {
+            "elapsed": 3.73333333333334,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 3.0,
+            "relics_collected": 3.0,
+            "timer": 3.73333333333334
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 7,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 232,
+          "numeric": {
+            "elapsed": 3.86519166666668,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 3.0,
+            "relics_collected": 3.0,
+            "timer": 3.86519166666668
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 6,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 240,
+          "numeric": {
+            "elapsed": 3.99629966666668,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 3.0,
+            "relics_collected": 3.0,
+            "timer": 3.99629966666668
+          },
+          "phase": "pick",
+          "player": [
+            648.0,
+            439.924011230469,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 6,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 248,
+          "numeric": {
+            "elapsed": 4.12739466666668,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 3.0,
+            "relics_collected": 3.0,
+            "timer": 4.12739466666668
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 6,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 256,
+          "numeric": {
+            "elapsed": 4.26539566666668,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 3.0,
+            "relics_collected": 3.0,
+            "timer": 4.26539566666668
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 5,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 264,
+          "numeric": {
+            "elapsed": 4.39649166666668,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 3.0,
+            "relics_collected": 3.0,
+            "timer": 4.39649166666668
+          },
+          "phase": "pick",
+          "player": [
+            616.0,
+            232.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 5,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 272,
+          "numeric": {
+            "elapsed": 4.52759566666668,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 3.0,
+            "relics_collected": 3.0,
+            "timer": 4.52759566666668
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 5,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 280,
+          "numeric": {
+            "elapsed": 4.66559266666668,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 3.0,
+            "relics_collected": 3.0,
+            "timer": 4.66559266666668
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 4,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 288,
+          "numeric": {
+            "elapsed": 4.79669366666668,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 4.0,
+            "relics_collected": 4.0,
+            "timer": 4.79669366666668
+          },
+          "phase": "pick",
+          "player": [
+            632.0,
+            296.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 4,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 296,
+          "numeric": {
+            "elapsed": 4.92783711111113,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 4.0,
+            "relics_collected": 4.0,
+            "timer": 4.92783711111113
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 4,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 304,
+          "numeric": {
+            "elapsed": 5.06579566666668,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 4.0,
+            "relics_collected": 4.0,
+            "timer": 5.06579566666668
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 3,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 312,
+          "numeric": {
+            "elapsed": 5.19689666666668,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 5.0,
+            "relics_collected": 5.0,
+            "timer": 5.19689666666668
+          },
+          "phase": "pick",
+          "player": [
+            360.0,
+            88.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 3,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 320,
+          "numeric": {
+            "elapsed": 5.32799766666668,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 5.0,
+            "relics_collected": 5.0,
+            "timer": 5.32799766666668
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 3,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 328,
+          "numeric": {
+            "elapsed": 5.46599966666668,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 5.0,
+            "relics_collected": 5.0,
+            "timer": 5.46599966666668
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 2,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 336,
+          "numeric": {
+            "elapsed": 5.59709366666668,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 5.0,
+            "relics_collected": 5.0,
+            "timer": 5.59709366666668
+          },
+          "phase": "pick",
+          "player": [
+            392.0,
+            136.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 2,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 344,
+          "numeric": {
+            "elapsed": 5.72819366666668,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 5.0,
+            "relics_collected": 5.0,
+            "timer": 5.72819366666668
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 2,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 352,
+          "numeric": {
+            "elapsed": 5.86624311111113,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 5.0,
+            "relics_collected": 5.0,
+            "timer": 5.86624311111113
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 1,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 360,
+          "numeric": {
+            "elapsed": 5.99729366666668,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 5.0,
+            "relics_collected": 5.0,
+            "timer": 5.99729366666668
+          },
+          "phase": "pick",
+          "player": [
+            296.0,
+            104.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 1,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 368,
+          "numeric": {
+            "elapsed": 6.12839666666668,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 5.0,
+            "relics_collected": 5.0,
+            "timer": 6.12839666666668
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 1,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 376,
+          "numeric": {
+            "elapsed": 6.26643811111113,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 5.0,
+            "relics_collected": 5.0,
+            "timer": 6.26643811111113
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 0,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 384,
+          "numeric": {
+            "elapsed": 6.39749166666668,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 6.0,
+            "relics_collected": 6.0,
+            "timer": 6.39749166666668
+          },
+          "phase": "pick",
+          "player": [
+            200.0,
+            88.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 0,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 392,
+          "numeric": {
+            "elapsed": 6.52859566666668,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 6.0,
+            "relics_collected": 6.0,
+            "timer": 6.52859566666668
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 0,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 400,
+          "numeric": {
+            "elapsed": 6.66659566666668,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 6.0,
+            "relics_collected": 6.0,
+            "timer": 6.66659566666668
+          },
+          "phase": "deliver",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 0,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 408,
+          "numeric": {
+            "elapsed": 6.79769866666668,
+            "health": 3.0,
+            "hearts": 3.0,
+            "progress": 6.0,
+            "relics_collected": 6.0,
+            "timer": 6.79769866666668
+          },
+          "phase": "goal",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 0,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 416,
+          "numeric": {
+            "elapsed": 6.92879666666668,
+            "health": 2.0,
+            "hearts": 2.0,
+            "progress": 6.0,
+            "relics_collected": 6.0,
+            "timer": 6.92879666666668
+          },
+          "phase": "goal",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 0,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 424,
+          "numeric": {
+            "elapsed": 7.05989466666668,
+            "health": 2.0,
+            "hearts": 2.0,
+            "progress": 6.0,
+            "relics_collected": 6.0,
+            "timer": 7.05989466666668
+          },
+          "phase": "goal",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 0,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 432,
+          "numeric": {
+            "elapsed": 7.19789066666668,
+            "health": 2.0,
+            "hearts": 2.0,
+            "progress": 6.0,
+            "relics_collected": 6.0,
+            "timer": 7.19789066666668
+          },
+          "phase": "goal",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 0,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 440,
+          "numeric": {
+            "elapsed": 7.32899566666668,
+            "health": 2.0,
+            "hearts": 2.0,
+            "progress": 6.0,
+            "relics_collected": 6.0,
+            "timer": 7.32899566666668
+          },
+          "phase": "goal",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 0,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 448,
+          "numeric": {
+            "elapsed": 7.46009966666668,
+            "health": 2.0,
+            "hearts": 2.0,
+            "progress": 6.0,
+            "relics_collected": 6.0,
+            "timer": 7.46009966666668
+          },
+          "phase": "goal",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 0,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 456,
+          "numeric": {
+            "elapsed": 7.59810166666668,
+            "health": 2.0,
+            "hearts": 2.0,
+            "progress": 6.0,
+            "relics_collected": 6.0,
+            "timer": 7.59810166666668
+          },
+          "phase": "goal",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 0,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 464,
+          "numeric": {
+            "elapsed": 7.72919366666668,
+            "health": 2.0,
+            "hearts": 2.0,
+            "progress": 6.0,
+            "relics_collected": 6.0,
+            "timer": 7.72919366666668
+          },
+          "phase": "goal",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 0,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 472,
+          "numeric": {
+            "elapsed": 7.86029466666668,
+            "health": 2.0,
+            "hearts": 2.0,
+            "progress": 6.0,
+            "relics_collected": 6.0,
+            "timer": 7.86029466666668
+          },
+          "phase": "goal",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 0,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 480,
+          "numeric": {
+            "elapsed": 7.99829366666668,
+            "health": 1.0,
+            "hearts": 1.0,
+            "progress": 6.0,
+            "relics_collected": 6.0,
+            "timer": 7.99829366666668
+          },
+          "phase": "goal",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 0,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 488,
+          "numeric": {
+            "elapsed": 8.12940466666668,
+            "health": 1.0,
+            "hearts": 1.0,
+            "progress": 6.0,
+            "relics_collected": 6.0,
+            "timer": 8.12940466666668
+          },
+          "phase": "goal",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 0,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 496,
+          "numeric": {
+            "elapsed": 8.26049766666668,
+            "health": 1.0,
+            "hearts": 1.0,
+            "progress": 6.0,
+            "relics_collected": 6.0,
+            "timer": 8.26049766666668
+          },
+          "phase": "goal",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 0,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 504,
+          "numeric": {
+            "elapsed": 8.39849266666668,
+            "health": 1.0,
+            "hearts": 1.0,
+            "progress": 6.0,
+            "relics_collected": 6.0,
+            "timer": 8.39849266666668
+          },
+          "phase": "goal",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 0,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 512,
+          "numeric": {
+            "elapsed": 8.52955866666667,
+            "health": 1.0,
+            "hearts": 1.0,
+            "progress": 6.0,
+            "relics_collected": 6.0,
+            "timer": 8.52955866666667
+          },
+          "phase": "goal",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 0,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 520,
+          "numeric": {
+            "elapsed": 8.66058266666666,
+            "health": 1.0,
+            "hearts": 1.0,
+            "progress": 6.0,
+            "relics_collected": 6.0,
+            "timer": 8.66058266666666
+          },
+          "phase": "goal",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 6,
+            "gb_collectible": 0,
+            "gb_door": 6,
+            "gb_enemy": 15,
+            "gb_goal": 1,
+            "gb_hazard": 4,
+            "gb_interactive": 17,
+            "gb_player": 1
+          },
+          "frame": 522,
+          "numeric": {
+            "elapsed": 8.69506266666666,
+            "health": 1.0,
+            "hearts": 1.0,
+            "progress": 6.0,
+            "relics_collected": 6.0,
+            "timer": 8.69506266666666
+          },
+          "phase": "goal",
+          "player": [
+            616.0,
+            90.0,
+            0.0
+          ],
+          "scene_path": "res://world/level_03_sanctum.tscn"
+        }
+      ],
+      "spawn": [
+        104.0,
+        408.0,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.14772727272727273,
+        "y": 0.85
+      },
+      "stop_reason": "goal_no_transition"
+    }
+  ],
+  "liveness": [
+    {
+      "action": "gb_left",
+      "detail": "gb_left differs from the idle control on velocity (delta 82.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "velocity"
+    },
+    {
+      "action": "gb_right",
+      "detail": "gb_right differs from the idle control on position (delta 323.449375 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_up",
+      "detail": "gb_up differs from the idle control on position (delta 339.599764 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_down",
+      "detail": "gb_down differs from the idle control on velocity (delta 82.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "velocity"
+    },
+    {
+      "action": "gb_jump",
+      "detail": "gb_jump differs from the idle control on velocity (delta 210.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "velocity"
+    },
+    {
+      "action": "gb_action",
+      "detail": "gb_action is indistinguishable from the idle control on every signature component; whatever the world did, it did without being asked; also no effect under repeated taps (1 frame on, 5 off)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": false,
+      "via": "none"
+    }
+  ],
+  "no_input_no_win": true,
+  "no_input_stop_reason": "budget_frames",
+  "notes": [
+    "liveness deadline derived from this project's own structural pass: 21.7 ms/frame median, 22.6 ms/frame worst",
+    "liveness sweep: 5 live / 1 dead against the 420-frame idle control truth/L0#idle420"
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "dungeon_escape",
+  "read_failure": "",
+  "taken_at": "2026-09-10T09:16:45+00:00",
+  "version": "1"
+}

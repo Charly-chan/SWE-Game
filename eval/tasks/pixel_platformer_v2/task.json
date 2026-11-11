@@ -1,0 +1,96 @@
+{
+  "probe_plan": {
+    "goal": {
+      "complete_trigger": true,
+      "effect": "progress_increase"
+    }
+  },
+  "skeleton_answer_fields": {
+    "_note": "Author answers embedded beside required runtime room data. Room and Device read the geometry/specification fields, never these route arrays or development notes; ordinary hints and device descriptions stay. Each entry is a key path; an object step selects the list element whose fields match.",
+    "data/authored/room_a_extra.json": [
+      [
+        "route"
+      ]
+    ],
+    "data/authored/room_b_extra.json": [
+      [
+        "route"
+      ],
+      [
+        "_gate_span_note"
+      ],
+      [
+        "char_devices",
+        "21,1",
+        "note"
+      ],
+      [
+        "char_devices",
+        "19,3",
+        "note"
+      ],
+      [
+        "char_devices",
+        "16,9",
+        "note"
+      ],
+      [
+        "char_devices",
+        "22,4",
+        "note"
+      ]
+    ],
+    "data/rooms/room_a.json": [
+      [
+        "route"
+      ]
+    ],
+    "data/rooms/room_b.json": [
+      [
+        "route"
+      ],
+      [
+        "entities",
+        {
+          "id": "ch4"
+        },
+        "dev",
+        "note"
+      ],
+      [
+        "entities",
+        {
+          "id": "ch5"
+        },
+        "dev",
+        "note"
+      ],
+      [
+        "entities",
+        {
+          "id": "ch6"
+        },
+        "dev",
+        "note"
+      ],
+      [
+        "entities",
+        {
+          "id": "ch11"
+        },
+        "dev",
+        "note"
+      ]
+    ],
+    "data/rooms/room_c.json": [
+      [
+        "route"
+      ]
+    ],
+    "data/rooms/room_d.json": [
+      [
+        "route"
+      ]
+    ]
+  }
+}

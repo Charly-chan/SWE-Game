@@ -1,0 +1,204 @@
+{
+  "game_id": "pixel_platformer",
+  "provided_assets": {
+    "frames": [
+      {
+        "asset_path": "backdrop/far_hills.png",
+        "id": "S001",
+        "label": "backdrop/far_hills.png"
+      },
+      {
+        "asset_path": "kings_and_pigs/12-Live and Coins/Big Diamond Idle (18x14).png",
+        "id": "S006",
+        "label": "kings_and_pigs/12-Live and Coins/Big Diamond Idle (18x14).png"
+      },
+      {
+        "asset_path": "pixel_adventure/Main Characters/Mask Dude/Double Jump (32x32).png",
+        "id": "S017",
+        "label": "pixel_adventure/Main Characters/Mask Dude/Double Jump (32x32).png"
+      },
+      {
+        "asset_path": "pixel_adventure/Terrain/Terrain (16x16).png",
+        "id": "S020",
+        "label": "pixel_adventure/Terrain/Terrain (16x16).png"
+      },
+      {
+        "asset_path": "kings_and_pigs/12-Live and Coins/Small Heart Idle (18x14).png",
+        "id": "S052",
+        "label": "kings_and_pigs/12-Live and Coins/Small Heart Idle (18x14).png"
+      },
+      {
+        "asset_path": "pixel_adventure/Main Characters/Mask Dude/Fall (32x32).png",
+        "id": "S059",
+        "label": "pixel_adventure/Main Characters/Mask Dude/Fall (32x32).png"
+      },
+      {
+        "bundled_path": "media/S073.png",
+        "id": "S073",
+        "label": "FONT PREVIEW fonts/kenney_future.ttf",
+        "preview_kind": "actual_supplied_font_render",
+        "preview_of": "fonts/kenney_future.ttf"
+      }
+    ],
+    "inventory": {
+      "asset_families": [
+        "audio/music/level_foundry.ogg",
+        "audio/music/level_grove.ogg",
+        "audio/music/level_overload.ogg",
+        "audio/music/title_theme.ogg",
+        "audio/sfx/anchor_recall.ogg",
+        "audio/sfx/anchor_set.ogg",
+        "audio/sfx/cell_pickup.ogg",
+        "audio/sfx/checkpoint.ogg",
+        "audio/sfx/crush.ogg",
+        "audio/sfx/denied.ogg",
+        "audio/sfx/double_jump.ogg",
+        "audio/sfx/enemy_down.ogg",
+        "audio/sfx/gate_unlock.ogg",
+        "audio/sfx/hurt.ogg",
+        "audio/sfx/jingle_lose.ogg",
+        "audio/sfx/jingle_win.ogg",
+        "audio/sfx/jump.ogg",
+        "audio/sfx/land.ogg",
+        "audio/sfx/phase_auto.ogg",
+        "audio/sfx/phase_flip.ogg",
+        "audio/sfx/phase_warn.ogg",
+        "audio/sfx/step_a.ogg",
+        "audio/sfx/step_b.ogg",
+        "audio/sfx/stomp.ogg",
+        "audio/sfx/trampoline.ogg",
+        "audio/sfx/ui_back.ogg",
+        "audio/sfx/ui_confirm.ogg",
+        "audio/sfx/ui_move.ogg",
+        "backdrop/far_hills.png",
+        "backdrop/near_scrub.png",
+        "fonts/kenney_future.ttf",
+        "fx/contact_shadow.png",
+        "kings_and_pigs/02-King Pig/Dead (38x28).png",
+        "kings_and_pigs/02-King Pig/Hit (38x28).png",
+        "kings_and_pigs/02-King Pig/Idle (38x28).png",
+        "kings_and_pigs/02-King Pig/Run (38x28).png",
+        "kings_and_pigs/03-Pig/Dead (34x28).png",
+        "kings_and_pigs/03-Pig/Hit (34x28).png",
+        "kings_and_pigs/03-Pig/Idle (34x28).png",
+        "kings_and_pigs/03-Pig/Run (34x28).png",
+        "kings_and_pigs/08-Box/Idle.png",
+        "kings_and_pigs/12-Live and Coins/Big Diamond Idle (18x14).png",
+        "kings_and_pigs/12-Live and Coins/Small Heart Idle (18x14).png",
+        "kings_and_pigs/14-TileSets/Decorations (32x32).png",
+        "licenses/kenney_impact-sounds_License.txt",
+        "licenses/kenney_interface-sounds_License.txt",
+        "licenses/kenney_music-jingles_License.txt",
+        "licenses/kenney_ui-pack_License.txt",
+        "pixel_adventure/Background/Blue.png",
+        "pixel_adventure/Background/Brown.png",
+        "pixel_adventure/Background/Gray.png",
+        "pixel_adventure/Background/Green.png",
+        "pixel_adventure/Background/Purple.png",
+        "pixel_adventure/Background/Yellow.png",
+        "pixel_adventure/Items/Boxes",
+        "pixel_adventure/Items/Checkpoints",
+        "pixel_adventure/Items/Fruits",
+        "pixel_adventure/Main Characters/Appearing (96x96).png",
+        "pixel_adventure/Main Characters/Desappearing (96x96).png",
+        "pixel_adventure/Main Characters/Mask Dude",
+        "pixel_adventure/Menu/Buttons",
+        "pixel_adventure/Other/Confetti (16x16).png",
+        "pixel_adventure/Terrain/Terrain (16x16).png",
+        "pixel_adventure/Traps/Fire",
+        "pixel_adventure/Traps/Platforms",
+        "pixel_adventure/Traps/Saw",
+        "pixel_adventure/Traps/Spikes",
+        "pixel_adventure/Traps/Trampoline",
+        "reference_media/assets/audio",
+        "reference_media/assets/backdrop",
+        "reference_media/assets/fonts",
+        "reference_media/assets/fx",
+        "reference_media/assets/kings_and_pigs",
+        "reference_media/assets/pixel_adventure"
+      ],
+      "file_count": 160,
+      "font_files": [
+        "fonts/kenney_future.ttf",
+        "reference_media/assets/fonts/kenney_future.ttf"
+      ]
+    },
+    "limitations": "Visual correspondence does not prove file loading. Absent UI kits/fonts are not mandatory. Audio is not evaluated from images.",
+    "preview_scope": "Representative actual image assets and bundled archive previews. Inventory includes all supplied files and archive entries. Not every 3D model has a render preview; do not imagine geometry from names or treat texture images as geometry. Font previews are rendered from actual supplied font files; preview wording is illustrative, not additional task requirements.",
+    "usage_requirement": "Evaluate effective use/adaptation of supplied material through visible realized roles, form, scale and integration. Do not count files or require every resource."
+  },
+  "reference_video": {
+    "audio_included": false,
+    "duration_s": 175.45,
+    "frames": [
+      {
+        "id": "R001",
+        "time_s": 0.0
+      },
+      {
+        "id": "R004",
+        "time_s": 4.5
+      },
+      {
+        "id": "R006",
+        "time_s": 7.5
+      },
+      {
+        "id": "R015",
+        "time_s": 21.0
+      },
+      {
+        "id": "R019",
+        "time_s": 27.0
+      },
+      {
+        "id": "R023",
+        "time_s": 33.0
+      },
+      {
+        "id": "R060",
+        "time_s": 88.5
+      },
+      {
+        "id": "R073",
+        "time_s": 108.0
+      },
+      {
+        "id": "R074",
+        "time_s": 109.5
+      },
+      {
+        "id": "R076",
+        "time_s": 112.5
+      },
+      {
+        "id": "R105",
+        "time_s": 156.0
+      },
+      {
+        "id": "R116",
+        "time_s": 172.5
+      },
+      {
+        "id": "R118",
+        "time_s": 175.433
+      },
+      {
+        "clip": 1,
+        "id": "RD001",
+        "time_s": 35.09
+      },
+      {
+        "clip": 1,
+        "id": "RD019",
+        "time_s": 36.89
+      }
+    ],
+    "limitations": "No audio or source-code conclusions. Overview spacing cannot certify brief transitions or animation. Inspect dense excerpts or exact video frames for those claims. Source reference status is recorded separately.",
+    "max_width": 768,
+    "role": "authorized_video_target_also_supplied_to_evaluated_model",
+    "sampling_fps": 0.6725562838415503,
+    "scope": "Full-duration retained reference footage is the observable task target. Overview samples show displayed content; dense excerpts show sampled movement. Unshown behavior and current-build agreement remain unverified. Clip boundaries are selection artifacts."
+  },
+  "statement": "# DYNAMO — task brief\n\nThis is a design target, not an implementation specification. Build your own GDD, scene structure, rules, and code.\n\n## Target player experience\n\nTraverse a compact pixel-art platforming space where movement powers a resource that enables a distinctive world-changing traversal verb.\n\n## Scope boundary\n\nA short multi-beat 2D puzzle-platformer with readable movement rules, at least one mechanic beyond ordinary run/jump, failure recovery, and full-game completion.\n\n## Creative freedom\n\nYou may decide the exact resource rule, room topology, optional pickups, and difficulty curve as long as the special verb matters to the clear.\n"
+}

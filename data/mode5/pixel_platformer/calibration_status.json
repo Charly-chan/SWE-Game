@@ -1,0 +1,15 @@
+{
+  "blockers": [],
+  "game_id": "pixel_platformer",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "pixel_platformer-c1-amber_vault_clear",
+    "pixel_platformer-c2-steel_vault_clear",
+    "pixel_platformer-c3-final_vault_clear",
+    "pixel_platformer-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:8bd416303e11b95ef208d969cd555b6050b7a1165b6b5d2bcbbd659e62cb7102"
+}

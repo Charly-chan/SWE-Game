@@ -1,0 +1,183 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "6e94996d86106088b0f3b9fc143df0825ac227f2c2c55aad85fe9be7bdff180f"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "gunfire_dungeon/L5/whole_run_clear",
+    "produced_by": "recertify",
+    "route_sha256": "b0af93dcb3d4eb31c93fd32d5ecf8be006fe287a9c7473a7141e5b752df82c9d",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "6e94996d86106088b0f3b9fc143df0825ac227f2c2c55aad85fe9be7bdff180f",
+    "task_id": "gunfire_dungeon"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "analog_axes": [
+      {
+        "id": "look_x",
+        "max": 1.0,
+        "min": -1.0,
+        "steps": 17,
+        "why": "mouse aim / camera yaw is a continuous axis; four discrete aim keys cannot hold a bearing"
+      },
+      {
+        "id": "look_y",
+        "max": 1.0,
+        "min": -1.0,
+        "steps": 17,
+        "why": "mouse aim / camera pitch; a cave exit or ADS pitch is not a button"
+      }
+    ],
+    "extended_actions": [
+      {
+        "id": "reload",
+        "why": "manual magazine reload is a distinct verb from shooting"
+      },
+      {
+        "id": "interact",
+        "why": "pickup, chest, and shop use a dedicated interact press"
+      },
+      {
+        "id": "use_prop",
+        "why": "active prop is a separate inventory verb from fire"
+      },
+      {
+        "id": "switch_weapon",
+        "why": "weapon-bag cycle is not covered by movement or shoot"
+      },
+      {
+        "id": "aim_up",
+        "why": "keyboard aim axis, extra to mouse aim, not a replacement"
+      },
+      {
+        "id": "aim_down",
+        "why": "keyboard aim axis, extra to mouse aim, not a replacement"
+      },
+      {
+        "id": "aim_left",
+        "why": "keyboard aim axis, extra to mouse aim, not a replacement"
+      },
+      {
+        "id": "aim_right",
+        "why": "keyboard aim axis, extra to mouse aim, not a replacement"
+      },
+      {
+        "id": "aim_lock",
+        "why": "snap aim to nearest enemy when a mouse pointer is absent"
+      }
+    ],
+    "interface_version": 2,
+    "normalized_sha256": "5e0541d4332e5a3d50b92b1a4590c433aa2109686d27e82e3984d757850ce681",
+    "source_sha256": "c7dd1730f71f1b3e60afaf372d2d76a2ca611e854f00a4e1aa9c951831dc7acd"
+  },
+  "passed_route_ids": [
+    "gunfire_dungeon/L0/no_input_no_clear",
+    "gunfire_dungeon/C1/floor_1_clear",
+    "gunfire_dungeon/C2/floor_2_clear",
+    "gunfire_dungeon/C3/floor_3_clear",
+    "gunfire_dungeon/C4/final_boss_clear",
+    "gunfire_dungeon/L5/whole_run_clear"
+  ],
+  "readings": {
+    "gunfire_dungeon/C1/floor_1_clear": {
+      "deaths": 0,
+      "frames": 3921,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_1_rooms_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 202,
+      "stop_reason": "scene_changed"
+    },
+    "gunfire_dungeon/C2/floor_2_clear": {
+      "deaths": 0,
+      "frames": 4383,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_2_rooms_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 287,
+      "stop_reason": "scene_changed"
+    },
+    "gunfire_dungeon/C3/floor_3_clear": {
+      "deaths": 0,
+      "frames": 8854,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_3_rooms_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 616,
+      "stop_reason": "scene_changed"
+    },
+    "gunfire_dungeon/C4/final_boss_clear": {
+      "deaths": 1,
+      "frames": 6537,
+      "injects": 0,
+      "milestones_reached": [
+        "final_arena_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 453,
+      "stop_reason": "goal_reached"
+    },
+    "gunfire_dungeon/L0/no_input_no_clear": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "gunfire_dungeon/L5/whole_run_clear": {
+      "deaths": 0,
+      "frames": 28665,
+      "injects": 0,
+      "milestones_reached": [
+        "floor_1_cleared",
+        "entered_floor_2",
+        "floor_2_cleared",
+        "entered_floor_3",
+        "floor_3_cleared",
+        "entered_final_arena",
+        "final_boss_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 1965,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "b0af93dcb3d4eb31c93fd32d5ecf8be006fe287a9c7473a7141e5b752df82c9d"
+  },
+  "result": "6/6 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "100131d7fdd15cf4aa4e05c4d5d3d96bbc0d777841e93bc2afe4cbf6410d47ed",
+  "schema_version": 2,
+  "solution_kinds": {
+    "gunfire_dungeon/C1/floor_1_clear": "tape",
+    "gunfire_dungeon/C2/floor_2_clear": "tape",
+    "gunfire_dungeon/C3/floor_3_clear": "tape",
+    "gunfire_dungeon/C4/final_boss_clear": "tape",
+    "gunfire_dungeon/L0/no_input_no_clear": "tape",
+    "gunfire_dungeon/L5/whole_run_clear": "tape"
+  },
+  "task_id": "gunfire_dungeon",
+  "validated_at": "2026-09-09"
+}

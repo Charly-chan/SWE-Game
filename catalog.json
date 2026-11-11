@@ -1,0 +1,252 @@
+[
+  {
+    "id": "3d_platformer",
+    "title": "Beacon Relay",
+    "path": "games/3d_platformer"
+  },
+  {
+    "id": "arc_wing",
+    "title": "Arc Wing",
+    "path": "games/arc_wing"
+  },
+  {
+    "id": "ballast_yard",
+    "title": "Ballast Yard",
+    "path": "games/ballast_yard"
+  },
+  {
+    "id": "bush_522",
+    "title": "Bush 522",
+    "path": "games/bush_522"
+  },
+  {
+    "id": "canopy_dash",
+    "title": "Canopy Dash",
+    "path": "games/canopy_dash"
+  },
+  {
+    "id": "cat_defense",
+    "title": "Last Cat on the Wall",
+    "path": "games/cat_defense"
+  },
+  {
+    "id": "city_delivery",
+    "title": "Manifest Run",
+    "path": "games/city_delivery"
+  },
+  {
+    "id": "citycab_rush",
+    "title": "CityCab Rush",
+    "path": "games/citycab_rush"
+  },
+  {
+    "id": "cyber_survival",
+    "title": "Neon Lockdown",
+    "path": "games/cyber_survival"
+  },
+  {
+    "id": "deepgrid",
+    "title": "Deepgrid",
+    "path": "games/deepgrid"
+  },
+  {
+    "id": "dogwalk",
+    "title": "DOGWALK",
+    "path": "games/dogwalk",
+    "upstream": {
+      "name": "DOGWALK",
+      "author": "Blender Studio",
+      "license": "CC BY 4.0",
+      "relationship": "slice",
+      "evidence": "games/dogwalk/README.md; games/dogwalk/LICENSES/ORIGINAL_LICENSE.md",
+      "note": "Runs the upstream leash solver and companion state machine, not an approximation."
+    }
+  },
+  {
+    "id": "dont_stop",
+    "title": "Don't Stop",
+    "path": "games/dont_stop"
+  },
+  {
+    "id": "dungeon_escape",
+    "title": "The Ember Key",
+    "path": "games/dungeon_escape"
+  },
+  {
+    "id": "ember_and_tide",
+    "title": "Ember & Tide",
+    "path": "games/ember_and_tide"
+  },
+  {
+    "id": "gentlemans_adventure",
+    "title": "Another Gentleman's Adventure",
+    "path": "games/gentlemans_adventure"
+  },
+  {
+    "id": "gunfire_dungeon",
+    "title": "枪火地牢",
+    "path": "games/gunfire_dungeon"
+  },
+  {
+    "id": "harvest_ledger",
+    "title": "Harvest Ledger",
+    "path": "games/harvest_ledger"
+  },
+  {
+    "id": "hazard_circuit",
+    "title": "Hazard Circuit",
+    "path": "games/hazard_circuit"
+  },
+  {
+    "id": "hive_flight",
+    "title": "Hive Flight",
+    "path": "games/hive_flight"
+  },
+  {
+    "id": "hurry_curry",
+    "title": "Hurry Curry!",
+    "path": "games/hurry_curry",
+    "upstream": {
+      "name": "hurrycurry",
+      "license": "AGPL-3.0-only",
+      "relationship": "slice",
+      "evidence": "games/hurry_curry/README.md; games/hurry_curry/LICENSES/ORIGINAL_LICENSE.txt",
+      "note": "Junior map only. Server browser, registry/mDNS/UPnP, accounts, chat, voting, replay, scoreboard, editor and unused maps removed."
+    }
+  },
+  {
+    "id": "kindle_relay",
+    "title": "Kindle Relay",
+    "path": "games/kindle_relay"
+  },
+  {
+    "id": "ninja_roguelite",
+    "title": "Lantern Vigil",
+    "path": "games/ninja_roguelite"
+  },
+  {
+    "id": "pixel_platformer",
+    "title": "DYNAMO",
+    "path": "games/pixel_platformer"
+  },
+  {
+    "id": "pixel_platformer_v2",
+    "title": "Pixel Platformer",
+    "path": "games/pixel_platformer_v2"
+  },
+  {
+    "id": "pixel_sabotage",
+    "title": "Pixel Sabotage",
+    "path": "games/pixel_sabotage",
+    "upstream": {
+      "name": "PixelSabotageAdventure",
+      "author": "rubberduck99",
+      "license": "MIT",
+      "relationship": "port",
+      "evidence": "games/pixel_sabotage/LICENSES/THIRD_PARTY_NOTICES.md",
+      "note": "Upstream CC-BY-SA 3.0 Endgame Singularity music removed from the runtime closure; Maaacks template excluded."
+    }
+  },
+  {
+    "id": "pulse_lane",
+    "title": "Pulse Lane",
+    "path": "games/pulse_lane"
+  },
+  {
+    "id": "racing",
+    "title": "Apex Circuit",
+    "path": "games/racing"
+  },
+  {
+    "id": "relic_runner",
+    "title": "Relic Runner",
+    "path": "games/relic_runner"
+  },
+  {
+    "id": "sands_of_the_restless",
+    "title": "Sands of the Restless",
+    "path": "games/sands_of_the_restless",
+    "upstream": {
+      "name": "sands-of-the-restless",
+      "author": "eddiebelaval",
+      "relationship": "port",
+      "evidence": "games/sands_of_the_restless/README.md",
+      "note": "Benchmark cut is a complete two-level run; difficulty adjusted by D-035/D-039/D-040."
+    }
+  },
+  {
+    "id": "shadow_walker",
+    "title": "Shadow Walker",
+    "path": "games/shadow_walker"
+  },
+  {
+    "id": "soccer_course",
+    "title": "Soccer Course",
+    "path": "games/soccer_course"
+  },
+  {
+    "id": "sprout_market",
+    "title": "Sprout Market",
+    "path": "games/sprout_market"
+  },
+  {
+    "id": "super_dungeon_delve",
+    "title": "Dungeon",
+    "path": "games/super_dungeon_delve"
+  },
+  {
+    "id": "terraforge",
+    "title": "Terraforge",
+    "path": "games/terraforge"
+  },
+  {
+    "id": "tiny_rts",
+    "title": "Bannerfall: Tiny Kingdoms",
+    "path": "games/tiny_rts"
+  },
+  {
+    "id": "toon_shooter",
+    "title": "Scrapline Siege",
+    "path": "games/toon_shooter"
+  },
+  {
+    "id": "twin_holds",
+    "title": "Twin Holds",
+    "path": "games/twin_holds"
+  },
+  {
+    "id": "vaultline",
+    "title": "Vaultline",
+    "path": "games/vaultline"
+  },
+  {
+    "id": "volley_break",
+    "title": "Volley Break",
+    "path": "games/volley_break"
+  },
+  {
+    "id": "where_the_dead_lie",
+    "title": "Where The Dead Lie — Benchmark Catacombs",
+    "path": "games/where_the_dead_lie",
+    "upstream": {
+      "name": "Where The Dead Lie",
+      "license": "GPL-3.0",
+      "relationship": "slice",
+      "evidence": "games/where_the_dead_lie/README.md; games/where_the_dead_lie/LICENSES/UPSTREAM_CREDITS.md",
+      "note": "Runs on the game's own catacombs geometry with the upstream monster AI."
+    }
+  },
+  {
+    "id": "wizard_chase",
+    "title": "Wizard Chase",
+    "path": "games/wizard_chase",
+    "upstream": {
+      "name": "wizard-chase",
+      "author": "John Clark",
+      "license": "MIT",
+      "relationship": "port",
+      "evidence": "games/wizard_chase/README.md; games/wizard_chase/LICENSE; games/wizard_chase/assets/ASSET_SOURCES.md",
+      "note": "Ported from upstream commit 2ffc651355133110abfe4c944de033c3f27c7e32; the five-room chase runs end to end on the upstream enemy pursuit and trap timing."
+    }
+  }
+]

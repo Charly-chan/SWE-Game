@@ -1,0 +1,112 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "harness_concessions_only",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "15cdff8bdad3e34777e6bb6e363202672d64c11ad406f76a9244df6d9108257b"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "arc_wing/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "2242773bddb49ae90aeb477289c12dfbdd5d9ba24b1cb62a3fe59772f37592db",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "15cdff8bdad3e34777e6bb6e363202672d64c11ad406f76a9244df6d9108257b",
+    "task_id": "arc_wing"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "b41ed99fec7b8fef682be238a0992e66afe60f5fb216a4eff3d569fd7034d9ae",
+    "source_sha256": "26954b3ec0967a25437bcc65400385f89766ea6989772cb8bedd1c9ce8562073"
+  },
+  "passed_route_ids": [
+    "arc_wing/L0/no_input_no_clear",
+    "arc_wing/C1/cloudline_enemy_script_and_gate",
+    "arc_wing/C2/salt_flats_enemy_script_and_gate",
+    "arc_wing/C3/warden_approach_script_and_mine_field",
+    "arc_wing/L5/whole_game_clear"
+  ],
+  "readings": {
+    "arc_wing/C1/cloudline_enemy_script_and_gate": {
+      "deaths": 1,
+      "frames": 6247,
+      "injects": 0,
+      "milestones_reached": [
+        "cloudline_scored_kills"
+      ],
+      "solution_kind": "tape",
+      "steps": 236,
+      "stop_reason": "scene_changed"
+    },
+    "arc_wing/C2/salt_flats_enemy_script_and_gate": {
+      "deaths": 1,
+      "frames": 6236,
+      "injects": 0,
+      "milestones_reached": [
+        "salt_flats_scored_kills"
+      ],
+      "solution_kind": "tape",
+      "steps": 247,
+      "stop_reason": "scene_changed"
+    },
+    "arc_wing/C3/warden_approach_script_and_mine_field": {
+      "deaths": 2,
+      "frames": 4733,
+      "injects": 0,
+      "milestones_reached": [
+        "opening_skimmer_waves_cleared",
+        "mine_field_and_bulwarks_survived"
+      ],
+      "solution_kind": "tape",
+      "steps": 230,
+      "stop_reason": "budget_frames"
+    },
+    "arc_wing/L0/no_input_no_clear": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "arc_wing/L5/whole_game_clear": {
+      "deaths": 1,
+      "frames": 20690,
+      "injects": 0,
+      "milestones_reached": [
+        "entered_salt_flats",
+        "entered_warden_approach"
+      ],
+      "solution_kind": "tape",
+      "steps": 498,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "2242773bddb49ae90aeb477289c12dfbdd5d9ba24b1cb62a3fe59772f37592db"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "8707fb4540d125d81ab7f62267d6523fc66136f8cf1cb302cb2b418dbc326aae",
+  "schema_version": 2,
+  "solution_kinds": {
+    "arc_wing/C1/cloudline_enemy_script_and_gate": "tape",
+    "arc_wing/C2/salt_flats_enemy_script_and_gate": "tape",
+    "arc_wing/C3/warden_approach_script_and_mine_field": "tape",
+    "arc_wing/L0/no_input_no_clear": "tape",
+    "arc_wing/L5/whole_game_clear": "tape"
+  },
+  "task_id": "arc_wing",
+  "validated_at": "2026-09-09"
+}

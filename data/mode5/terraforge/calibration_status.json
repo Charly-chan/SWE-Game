@@ -1,0 +1,14 @@
+{
+  "blockers": [],
+  "game_id": "terraforge",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "terraforge-c1-objectives_and_forge_pedestal",
+    "terraforge-l5-whole_game_clear",
+    "terraforge-c1-objectives_and_forge_pedestal--milestone-artifact_victory_scene"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:0b394ccca8214bf641809e493b0ee13aaa91e723b128b4cdfe5cc6b4e82bfa5c"
+}

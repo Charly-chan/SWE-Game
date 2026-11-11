@@ -1,0 +1,834 @@
+{
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "driver_sha256": "7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742",
+  "endings": {
+    "defeat": "res://source/bench/defeat.tscn",
+    "victory": "res://source/bench/victory.tscn"
+  },
+  "engine": "4.5.1",
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "extended_actions": [
+      {
+        "id": "aim_up",
+        "why": "independent keyboard aim axis corresponding to mouse aim"
+      },
+      {
+        "id": "aim_down",
+        "why": "independent keyboard aim axis corresponding to mouse aim"
+      },
+      {
+        "id": "aim_left",
+        "why": "independent keyboard aim axis corresponding to mouse aim"
+      },
+      {
+        "id": "aim_right",
+        "why": "independent keyboard aim axis corresponding to mouse aim"
+      },
+      {
+        "id": "reload",
+        "why": "native starter weapon reload before the exit walk"
+      }
+    ],
+    "interface_version": 2,
+    "normalized_sha256": "ccdde8590e0086c4003f7f311536267cfa4145623f597d2ca15e7e66334f4713",
+    "source_sha256": "fd8c75da3588166d72ba3a5cd1b2e17cf84c39a25951684715947849db099965"
+  },
+  "levels": [
+    {
+      "bound_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action",
+        "gb_pause",
+        "gb_reset"
+      ],
+      "bounds": {
+        "max3": [
+          2080.0,
+          2896.0,
+          0.0
+        ],
+        "min3": [
+          -160.0,
+          -544.0,
+          0.0
+        ],
+        "plane": "xy",
+        "valid": true
+      },
+      "collect": {
+        "alive_after": 0,
+        "alive_before": 0,
+        "attempted": false,
+        "delta": 0,
+        "detail": "this level declares no gb_collectible, so there is nothing to pick up",
+        "effect": {},
+        "target": ""
+      },
+      "cycles": [],
+      "cycles_capped": false,
+      "declared_scene": "res://source/bench/bench_level.tscn",
+      "entry_method": "none",
+      "errors": [],
+      "goal": {
+        "attempted": true,
+        "changed": false,
+        "detail": "0 collect-and-deliver cycles then 120 frames on Next, and the scene path never changed",
+        "effect": {
+          "complete_trigger": false,
+          "kind": "observable_progress",
+          "observation_missing": false,
+          "progress_before": 128.405609130859
+        },
+        "frames_to_change": -1,
+        "scene_after": "res://source/bench/bench_level.tscn",
+        "scene_before": "res://source/bench/bench_level.tscn",
+        "target": "Next"
+      },
+      "groups": {
+        "gb_checkpoint": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_collectible": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_door": {
+          "alive": 7,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.233928571428571,
+              "y": 0.213953488372093
+            },
+            {
+              "valid": true,
+              "x": 0.200446428571429,
+              "y": 0.265988372093023
+            },
+            {
+              "valid": true,
+              "x": 0.291071428571429,
+              "y": 0.411918604651163
+            },
+            {
+              "valid": true,
+              "x": 0.2125,
+              "y": 0.538662790697674
+            },
+            {
+              "valid": true,
+              "x": 0.518303571428571,
+              "y": 0.138372093023256
+            },
+            {
+              "valid": true,
+              "x": 0.607589285714286,
+              "y": 0.201744186046512
+            },
+            {
+              "valid": true,
+              "x": 0.944642857142857,
+              "y": 0.338081395348837
+            }
+          ],
+          "total": 7,
+          "world": [
+            [
+              364.0,
+              192.0,
+              0.0
+            ],
+            [
+              289.0,
+              371.0,
+              0.0
+            ],
+            [
+              492.0,
+              873.0,
+              0.0
+            ],
+            [
+              316.0,
+              1309.0,
+              0.0
+            ],
+            [
+              1001.0,
+              -68.0,
+              0.0
+            ],
+            [
+              1201.0,
+              150.0,
+              0.0
+            ],
+            [
+              1956.0,
+              619.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_enemy": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_goal": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.217410714285714,
+              "y": 0.214825581395349
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              327.0,
+              195.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_hazard": {
+          "alive": 0,
+          "normalised": [],
+          "total": 0,
+          "world": []
+        },
+        "gb_interactive": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.235267857142857,
+              "y": 0.186627906976744
+            }
+          ],
+          "total": 2,
+          "world": [
+            [
+              116.0,
+              112.0,
+              0.0
+            ],
+            [
+              367.0,
+              98.0,
+              0.0
+            ]
+          ]
+        },
+        "gb_player": {
+          "alive": 1,
+          "normalised": [
+            {
+              "valid": true,
+              "x": 0.171875,
+              "y": 0.192151162790698
+            }
+          ],
+          "total": 1,
+          "world": [
+            [
+              225.0,
+              117.0,
+              0.0
+            ]
+          ]
+        }
+      },
+      "numeric": {
+        "ammo": 100.0,
+        "health": 5.0,
+        "progress": 0.0,
+        "round_complete": 0.0,
+        "score": 0.0,
+        "timer": 0.0
+      },
+      "numeric_source": {
+        "ammo": "guess",
+        "health": "declared",
+        "progress": "declared",
+        "round_complete": "declared",
+        "score": "declared",
+        "timer": "declared"
+      },
+      "reached": true,
+      "scene": "res://source/bench/bench_level.tscn",
+      "series": [
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 7,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 90,
+          "numeric": {
+            "ammo": 100.0,
+            "health": 5.0,
+            "progress": 128.405609130859,
+            "round_complete": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "settle",
+          "player": [
+            225.0,
+            117.0,
+            0.0
+          ],
+          "scene_path": "res://source/bench/bench_level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 7,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 96,
+          "numeric": {
+            "ammo": 100.0,
+            "health": 5.0,
+            "progress": 0.0,
+            "round_complete": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            327.0,
+            195.0,
+            0.0
+          ],
+          "scene_path": "res://source/bench/bench_level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 7,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 104,
+          "numeric": {
+            "ammo": 100.0,
+            "health": 5.0,
+            "progress": 0.0,
+            "round_complete": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            327.0,
+            195.0,
+            0.0
+          ],
+          "scene_path": "res://source/bench/bench_level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 7,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 112,
+          "numeric": {
+            "ammo": 100.0,
+            "health": 5.0,
+            "progress": 0.0,
+            "round_complete": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            327.0,
+            195.0,
+            0.0
+          ],
+          "scene_path": "res://source/bench/bench_level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 7,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 120,
+          "numeric": {
+            "ammo": 100.0,
+            "health": 5.0,
+            "progress": 0.0,
+            "round_complete": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            327.0,
+            195.0,
+            0.0
+          ],
+          "scene_path": "res://source/bench/bench_level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 7,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 128,
+          "numeric": {
+            "ammo": 100.0,
+            "health": 5.0,
+            "progress": 0.0,
+            "round_complete": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            327.0,
+            195.0,
+            0.0
+          ],
+          "scene_path": "res://source/bench/bench_level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 7,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 136,
+          "numeric": {
+            "ammo": 100.0,
+            "health": 5.0,
+            "progress": 0.0,
+            "round_complete": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            327.0,
+            195.0,
+            0.0
+          ],
+          "scene_path": "res://source/bench/bench_level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 7,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 144,
+          "numeric": {
+            "ammo": 100.0,
+            "health": 5.0,
+            "progress": 0.0,
+            "round_complete": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            327.0,
+            195.0,
+            0.0
+          ],
+          "scene_path": "res://source/bench/bench_level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 7,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 152,
+          "numeric": {
+            "ammo": 100.0,
+            "health": 5.0,
+            "progress": 0.0,
+            "round_complete": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            327.0,
+            195.0,
+            0.0
+          ],
+          "scene_path": "res://source/bench/bench_level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 7,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 160,
+          "numeric": {
+            "ammo": 100.0,
+            "health": 5.0,
+            "progress": 0.0,
+            "round_complete": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            327.0,
+            195.0,
+            0.0
+          ],
+          "scene_path": "res://source/bench/bench_level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 7,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 168,
+          "numeric": {
+            "ammo": 100.0,
+            "health": 5.0,
+            "progress": 0.0,
+            "round_complete": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            327.0,
+            195.0,
+            0.0
+          ],
+          "scene_path": "res://source/bench/bench_level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 7,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 176,
+          "numeric": {
+            "ammo": 100.0,
+            "health": 5.0,
+            "progress": 0.0,
+            "round_complete": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            327.0,
+            195.0,
+            0.0
+          ],
+          "scene_path": "res://source/bench/bench_level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 7,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 184,
+          "numeric": {
+            "ammo": 100.0,
+            "health": 5.0,
+            "progress": 0.0,
+            "round_complete": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            327.0,
+            195.0,
+            0.0
+          ],
+          "scene_path": "res://source/bench/bench_level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 7,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 192,
+          "numeric": {
+            "ammo": 100.0,
+            "health": 5.0,
+            "progress": 0.0,
+            "round_complete": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            327.0,
+            195.0,
+            0.0
+          ],
+          "scene_path": "res://source/bench/bench_level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 7,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 200,
+          "numeric": {
+            "ammo": 100.0,
+            "health": 5.0,
+            "progress": 0.0,
+            "round_complete": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            327.0,
+            195.0,
+            0.0
+          ],
+          "scene_path": "res://source/bench/bench_level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 7,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 208,
+          "numeric": {
+            "ammo": 100.0,
+            "health": 5.0,
+            "progress": 0.0,
+            "round_complete": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            327.0,
+            195.0,
+            0.0
+          ],
+          "scene_path": "res://source/bench/bench_level.tscn"
+        },
+        {
+          "alive": {
+            "gb_checkpoint": 0,
+            "gb_collectible": 0,
+            "gb_door": 7,
+            "gb_enemy": 0,
+            "gb_goal": 1,
+            "gb_hazard": 0,
+            "gb_interactive": 1,
+            "gb_player": 1
+          },
+          "frame": 210,
+          "numeric": {
+            "ammo": 100.0,
+            "health": 5.0,
+            "progress": 0.0,
+            "round_complete": 0.0,
+            "score": 0.0,
+            "timer": 0.0
+          },
+          "phase": "goal",
+          "player": [
+            327.0,
+            195.0,
+            0.0
+          ],
+          "scene_path": "res://source/bench/bench_level.tscn"
+        }
+      ],
+      "spawn": [
+        225.0,
+        117.0,
+        0.0
+      ],
+      "spawn_norm": {
+        "valid": true,
+        "x": 0.171875,
+        "y": 0.1921511627906977
+      },
+      "stop_reason": "goal_no_transition"
+    }
+  ],
+  "liveness": [
+    {
+      "action": "gb_left",
+      "detail": "gb_left differs from the idle control on position (delta 175.903468 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_right",
+      "detail": "gb_right differs from the idle control on position (delta 207.693362 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_up",
+      "detail": "gb_up differs from the idle control on velocity (delta 100.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "velocity"
+    },
+    {
+      "action": "gb_down",
+      "detail": "gb_down differs from the idle control on position (delta 123.519517 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "position"
+    },
+    {
+      "action": "gb_jump",
+      "detail": "gb_jump differs from the idle control on node_count (delta 32.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "node_count"
+    },
+    {
+      "action": "gb_action",
+      "detail": "gb_action differs from the idle control on node_count (delta 4.0 > 0.5)",
+      "idle_baseline_id": "truth/L0#idle420",
+      "live": true,
+      "via": "node_count"
+    }
+  ],
+  "no_input_no_win": true,
+  "no_input_stop_reason": "budget_frames",
+  "notes": [
+    "liveness deadline derived from this project's own structural pass: 20.5 ms/frame median, 20.5 ms/frame worst",
+    "liveness sweep: 6 live / 0 dead against the 420-frame idle control truth/L0#idle420"
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "dont_stop",
+  "read_failure": "",
+  "taken_at": "2026-09-10T09:16:11+00:00",
+  "version": "1"
+}

@@ -1,0 +1,17 @@
+{
+  "blockers": [],
+  "game_id": "deepgrid",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "deepgrid-c1-floor_1_interlock",
+    "deepgrid-c2-floor_2_interlock",
+    "deepgrid-c3-floor_3_interlock",
+    "deepgrid-c5-floor_5_interlock",
+    "deepgrid-c6-floor_6_overseer_interlock",
+    "deepgrid-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:0bb1eaf4c98e87f7c69644efcc8389ca6df92e4de4fbb15cebdd89b15e2f1dce"
+}

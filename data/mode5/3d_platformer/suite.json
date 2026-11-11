@@ -1,0 +1,1962 @@
+{
+  "blockers": [],
+  "compiler": "route+reference+source-obligation/v1",
+  "content_digest": "sha256:1004314dd1f494299053f0e6900db81b7edacd413680e685dd9638c7030fc728",
+  "game_id": "3d_platformer",
+  "inputs": {
+    "certificate": {
+      "path": "tasks/3d_platformer/certificate.rt1.json",
+      "sha256": "140b673193d6ba86e9ab71355b93d3e8fec43ccd7f25cb3a173143c899adedfb"
+    },
+    "gdd": {
+      "path": "taskgen/gdds/3d_platformer.md",
+      "sha256": "14fe87fd562da6fc63dc0c6c176f0f32f20bdb9a5c95e032375ebfde8b05afa9"
+    },
+    "route": {
+      "path": "tasks/3d_platformer/route.json",
+      "sha256": "1a009ed9d847b73e21008a82f64168afbf5ed99745e1b0fba7cbb492b36c5f3d"
+    },
+    "rubric": {
+      "entry_sha256": "973cf95aff74048036f04a2679b2386f0fffa11201553f449d1fd7453aad9026",
+      "path": "evalsys/evalsys/taskgen/content/rubric_catalog.json",
+      "required_actions": [
+        "gb_left",
+        "gb_right",
+        "gb_up",
+        "gb_down",
+        "gb_jump",
+        "gb_action"
+      ],
+      "required_groups": [
+        "gb_player",
+        "gb_enemy",
+        "gb_hazard",
+        "gb_collectible",
+        "gb_interactive",
+        "gb_checkpoint",
+        "gb_door",
+        "gb_goal"
+      ]
+    },
+    "source_obligations": {
+      "path": "tasks/3d_platformer/authored/source_obligations.json",
+      "sha256": "f25af3fddd441a0a3a446d16128aebc4c48567d94e9a9b120b71a0f206a049a7"
+    },
+    "source_reference": {
+      "path": "infra/unity/evidence/m5-source-obligations-reference-v2-20260911.json",
+      "sha256": "e2af5fe418e2a85f7c5bdc0a484583981073ad670b80fe1bfb439104b688e61b"
+    }
+  },
+  "obligations": [
+    {
+      "capture_checkpoints": [
+        {
+          "id": "3d_platformer-c1-east_cell_return_and_deliver.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "3d_platformer-c1-east_cell_return_and_deliver.picked_east_cell",
+          "predicate": "NOT device_present(collectible, 0)"
+        },
+        {
+          "id": "3d_platformer-c1-east_cell_return_and_deliver.goal",
+          "predicate": "numeric_delta(cells_delivered) >= 1"
+        }
+      ],
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed src/core/run_state.gd:117: cells_delivered += 1",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:322cd3f809d0afbb162cda7b24e515b960d3fe2a3f91651cc7689f7646a2ac1a",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "3d_platformer/C1/east_cell_return_and_deliver",
+      "scenario_id": "3d_platformer-c1-east_cell_return_and_deliver",
+      "source_check_id": "owner-reviewed-3d_platformer-c1-east_cell_return_and_deliver",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "picked_east_cell",
+            "predicate": "NOT device_present(collectible, 0)"
+          }
+        ],
+        "predicate": "numeric_delta(cells_delivered) >= 1"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "3d_platformer-c2-west_carrier_cell.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "3d_platformer-c2-west_carrier_cell.picked_west_cell",
+          "predicate": "device_state(collectible,1,mode,carried)"
+        },
+        {
+          "id": "3d_platformer-c2-west_carrier_cell.goal",
+          "predicate": "contact(movplat, 0)"
+        }
+      ],
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:322cd3f809d0afbb162cda7b24e515b960d3fe2a3f91651cc7689f7646a2ac1a",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "3d_platformer/C2/west_carrier_cell",
+      "scenario_id": "3d_platformer-c2-west_carrier_cell",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "3d_platformer-c4-east_saw_cell.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "3d_platformer-c4-east_saw_cell.picked_east_cell",
+          "predicate": "NOT device_present(collectible, 0)"
+        },
+        {
+          "id": "3d_platformer-c4-east_saw_cell.goal",
+          "predicate": "numeric_delta(cells_delivered) >= 1"
+        }
+      ],
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "mechanism_evidence": "Project-owner reviewed src/core/run_state.gd:117: cells_delivered += 1",
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:322cd3f809d0afbb162cda7b24e515b960d3fe2a3f91651cc7689f7646a2ac1a",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "3d_platformer/C4/east_saw_cell",
+      "scenario_id": "3d_platformer-c4-east_saw_cell",
+      "source_check_id": "owner-reviewed-3d_platformer-c4-east_saw_cell",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "picked_east_cell",
+            "predicate": "NOT device_present(collectible, 0)"
+          }
+        ],
+        "predicate": "numeric_delta(cells_delivered) >= 1"
+      },
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_up",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": true
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "3d_platformer-c5-north_conveyor_cell.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "3d_platformer-c5-north_conveyor_cell.picked_north_cell",
+          "predicate": "NOT device_present(collectible, 1)"
+        },
+        {
+          "id": "3d_platformer-c5-north_conveyor_cell.goal",
+          "predicate": "numeric_delta(cells_delivered) >= 1"
+        }
+      ],
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:322cd3f809d0afbb162cda7b24e515b960d3fe2a3f91651cc7689f7646a2ac1a",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "3d_platformer/C5/north_conveyor_cell",
+      "scenario_id": "3d_platformer-c5-north_conveyor_cell",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "3d_platformer-c7-level_3_crumble_return.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "3d_platformer-c7-level_3_crumble_return.contacted_north_cell",
+          "predicate": "contact(collectible, 2)"
+        },
+        {
+          "id": "3d_platformer-c7-level_3_crumble_return.picked_north_cell",
+          "predicate": "device_state(collectible,2,mode,carried)"
+        },
+        {
+          "id": "3d_platformer-c7-level_3_crumble_return.fuse_below_ten",
+          "predicate": "numeric(fuse_left) <= 10"
+        },
+        {
+          "id": "3d_platformer-c7-level_3_crumble_return.crossed_outer_crumble",
+          "predicate": "contact(falling_platform, 1)"
+        },
+        {
+          "id": "3d_platformer-c7-level_3_crumble_return.crossed_inner_crumble",
+          "predicate": "contact(falling_platform, 0)"
+        }
+      ],
+      "critical_action": "gb_jump",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:322cd3f809d0afbb162cda7b24e515b960d3fe2a3f91651cc7689f7646a2ac1a",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "3d_platformer/C7/level_3_crumble_return",
+      "scenario_id": "3d_platformer-c7-level_3_crumble_return",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    },
+    {
+      "capture_checkpoints": [
+        {
+          "id": "3d_platformer-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "3d_platformer-l5-whole_game_clear.level_1_first_cell_reached",
+          "predicate": "contact(collectible,0)"
+        },
+        {
+          "id": "3d_platformer-l5-whole_game_clear.level_1_one_cell_delivered",
+          "predicate": "numeric(cells_delivered) >= 1"
+        },
+        {
+          "id": "3d_platformer-l5-whole_game_clear.level_1_two_cells_delivered",
+          "predicate": "numeric(cells_delivered) >= 2"
+        },
+        {
+          "id": "3d_platformer-l5-whole_game_clear.level_1_three_cells_delivered",
+          "predicate": "numeric(cells_delivered) >= 3"
+        },
+        {
+          "id": "3d_platformer-l5-whole_game_clear.entered_level_2",
+          "predicate": "levels_visited() >= 2"
+        }
+      ],
+      "critical_action": "gb_action",
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "reference_trace": "authored/tape.json",
+      "reference_trace_sha256": "sha256:322cd3f809d0afbb162cda7b24e515b960d3fe2a3f91651cc7689f7646a2ac1a",
+      "review_status": "approved_by_project_owner",
+      "reviewer": "project_owner_20260911",
+      "route_id": "3d_platformer/L5/whole_game_clear",
+      "scenario_id": "3d_platformer-l5-whole_game_clear",
+      "strategy": {
+        "parameters": {
+          "fallback_sequence": [
+            {
+              "canonical_action": "gb_right",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_up",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_down",
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_left",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_up",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "canonical_action": "gb_action",
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_up",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_down",
+                "gb_jump"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_left",
+                "gb_up",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            },
+            {
+              "actions": [
+                "gb_right",
+                "gb_action"
+              ],
+              "hold_frames": 1
+            }
+          ]
+        },
+        "type": "traversal"
+      },
+      "verified": false
+    }
+  ],
+  "observation_contract": {
+    "capabilities": [
+      "entity_census",
+      "entity_geometry",
+      "entity_lifecycle",
+      "entity_numeric_state",
+      "entity_state",
+      "numeric_telemetry",
+      "outcome_events",
+      "role_overlap",
+      "scene_lifecycle",
+      "stable_contact"
+    ],
+    "geometry_resolution": [
+      "enabled_colliders_in_marker_subtree",
+      "enabled_renderers_in_marker_subtree"
+    ],
+    "identity": "GBEntity role plus stableId; route selectors are evaluator-owned",
+    "predicate_capabilities": {
+      "alive": [
+        "entity_census"
+      ],
+      "collected_all": [
+        "entity_census"
+      ],
+      "contact": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "count": [
+        "entity_census"
+      ],
+      "count_delta": [
+        "entity_census",
+        "entity_lifecycle"
+      ],
+      "device_norm_delta": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "device_numeric": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_numeric_delta": [
+        "entity_census",
+        "entity_numeric_state"
+      ],
+      "device_present": [
+        "entity_census"
+      ],
+      "device_state": [
+        "entity_census",
+        "entity_state"
+      ],
+      "levels_visited": [
+        "scene_lifecycle"
+      ],
+      "norm_delta": [
+        "entity_geometry"
+      ],
+      "norm_in": [
+        "entity_geometry"
+      ],
+      "numeric": [
+        "numeric_telemetry"
+      ],
+      "numeric_delta": [
+        "numeric_telemetry"
+      ],
+      "overlap": [
+        "entity_geometry",
+        "role_overlap"
+      ],
+      "standing_on": [
+        "entity_geometry",
+        "stable_contact"
+      ],
+      "whole_game_clear": [
+        "outcome_events",
+        "scene_lifecycle"
+      ]
+    },
+    "schema": "gamebench.mode5.unity-observation-contract.v1",
+    "state_surface": "evaluator-versioned GBObservableState; claims require causal corroboration",
+    "trust": "probe_observed; candidate state and telemetry are corroborating, not authoritative",
+    "version": "mode5-unity-observation-v2"
+  },
+  "policies": [
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.47720595c1",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.a6fc859629",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_up",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.f6d8504e19",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_up",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.720c891c78",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.538dc13a99",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    },
+    {
+      "fallback": [
+        {
+          "canonical_action": "gb_right",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_up",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_down",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_left",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_up",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "canonical_action": "gb_action",
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_up",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_down",
+            "gb_jump"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_left",
+            "gb_up",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        },
+        {
+          "actions": [
+            "gb_right",
+            "gb_action"
+          ],
+          "hold_frames": 1,
+          "value": 1.0
+        }
+      ],
+      "id": "strategy.traversal.86ff35bed1",
+      "parameters": {
+        "fallback_sequence": [
+          {
+            "canonical_action": "gb_right",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_up",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_down",
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_left",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_up",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "canonical_action": "gb_action",
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_up",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_down",
+              "gb_jump"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_left",
+              "gb_up",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          },
+          {
+            "actions": [
+              "gb_right",
+              "gb_action"
+            ],
+            "hold_frames": 1
+          }
+        ]
+      },
+      "rules": [],
+      "strategy_type": "traversal"
+    }
+  ],
+  "policy_digest": "sha256:b7ee83154366a9cf9df89ecf9192478e2577ebe7cdc9b58c4072f45287016877",
+  "runtime_ready": true,
+  "scenarios": [
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 142,
+      "capture_checkpoints": [
+        {
+          "id": "3d_platformer-c1-east_cell_return_and_deliver.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "3d_platformer-c1-east_cell_return_and_deliver.picked_east_cell",
+          "predicate": "NOT device_present(collectible, 0)"
+        },
+        {
+          "id": "3d_platformer-c1-east_cell_return_and_deliver.goal",
+          "predicate": "numeric_delta(cells_delivered) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_jump",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "picked_east_cell",
+            "predicate": "NOT device_present(collectible, 0)"
+          }
+        ],
+        "predicate": "numeric_delta(cells_delivered) >= 1"
+      },
+      "id": "3d_platformer-c1-east_cell_return_and_deliver",
+      "policy": "strategy.traversal.47720595c1",
+      "required_actions": [
+        "gb_jump",
+        "gb_left",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "cells_delivered"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "3d_platformer/C1/east_cell_return_and_deliver",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "picked_east_cell",
+            "predicate": "NOT device_present(collectible, 0)"
+          }
+        ],
+        "predicate": "numeric_delta(cells_delivered) >= 1"
+      },
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 352,
+      "capture_checkpoints": [
+        {
+          "id": "3d_platformer-c2-west_carrier_cell.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "3d_platformer-c2-west_carrier_cell.picked_west_cell",
+          "predicate": "device_state(collectible,1,mode,carried)"
+        },
+        {
+          "id": "3d_platformer-c2-west_carrier_cell.goal",
+          "predicate": "contact(movplat, 0)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_jump",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "picked_west_cell",
+            "predicate": "device_state(collectible,1,mode,carried)"
+          }
+        ],
+        "predicate": "contact(movplat, 0)"
+      },
+      "id": "3d_platformer-c2-west_carrier_cell",
+      "policy": "strategy.traversal.a6fc859629",
+      "required_actions": [
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "3d_platformer/C2/west_carrier_cell",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 338,
+      "capture_checkpoints": [
+        {
+          "id": "3d_platformer-c4-east_saw_cell.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "3d_platformer-c4-east_saw_cell.picked_east_cell",
+          "predicate": "NOT device_present(collectible, 0)"
+        },
+        {
+          "id": "3d_platformer-c4-east_saw_cell.goal",
+          "predicate": "numeric_delta(cells_delivered) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_jump",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "source_derived"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "picked_east_cell",
+            "predicate": "NOT device_present(collectible, 0)"
+          }
+        ],
+        "predicate": "numeric_delta(cells_delivered) >= 1"
+      },
+      "id": "3d_platformer-c4-east_saw_cell",
+      "policy": "strategy.traversal.f6d8504e19",
+      "required_actions": [
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "cells_delivered"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "3d_platformer/C4/east_saw_cell",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "source_goal": {
+        "milestones": [
+          {
+            "name": "picked_east_cell",
+            "predicate": "NOT device_present(collectible, 0)"
+          }
+        ],
+        "predicate": "numeric_delta(cells_delivered) >= 1"
+      },
+      "start_level": 1
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 252,
+      "capture_checkpoints": [
+        {
+          "id": "3d_platformer-c5-north_conveyor_cell.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "3d_platformer-c5-north_conveyor_cell.picked_north_cell",
+          "predicate": "NOT device_present(collectible, 1)"
+        },
+        {
+          "id": "3d_platformer-c5-north_conveyor_cell.goal",
+          "predicate": "numeric_delta(cells_delivered) >= 1"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_jump",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "picked_north_cell",
+            "predicate": "NOT device_present(collectible, 1)"
+          }
+        ],
+        "predicate": "numeric_delta(cells_delivered) >= 1"
+      },
+      "id": "3d_platformer-c5-north_conveyor_cell",
+      "policy": "strategy.traversal.720c891c78",
+      "required_actions": [
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "cells_delivered"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "3d_platformer/C5/north_conveyor_cell",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 1
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 350,
+      "capture_checkpoints": [
+        {
+          "id": "3d_platformer-c7-level_3_crumble_return.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "3d_platformer-c7-level_3_crumble_return.contacted_north_cell",
+          "predicate": "contact(collectible, 2)"
+        },
+        {
+          "id": "3d_platformer-c7-level_3_crumble_return.picked_north_cell",
+          "predicate": "device_state(collectible,2,mode,carried)"
+        },
+        {
+          "id": "3d_platformer-c7-level_3_crumble_return.fuse_below_ten",
+          "predicate": "numeric(fuse_left) <= 10"
+        },
+        {
+          "id": "3d_platformer-c7-level_3_crumble_return.crossed_outer_crumble",
+          "predicate": "contact(falling_platform, 1)"
+        },
+        {
+          "id": "3d_platformer-c7-level_3_crumble_return.crossed_inner_crumble",
+          "predicate": "contact(falling_platform, 0)"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_jump",
+          "remove": "gb_jump"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "contacted_north_cell",
+            "predicate": "contact(collectible, 2)"
+          },
+          {
+            "name": "picked_north_cell",
+            "predicate": "device_state(collectible,2,mode,carried)"
+          },
+          {
+            "name": "fuse_below_ten",
+            "predicate": "numeric(fuse_left) <= 10"
+          },
+          {
+            "name": "crossed_outer_crumble",
+            "predicate": "contact(falling_platform, 1)"
+          },
+          {
+            "name": "crossed_inner_crumble",
+            "predicate": "contact(falling_platform, 0)"
+          },
+          {
+            "name": "fuse_below_nine",
+            "predicate": "numeric(fuse_left) <= 9"
+          },
+          {
+            "name": "passed_summit_hopper",
+            "predicate": "contact(enemy, 0)"
+          }
+        ],
+        "predicate": "contact(enemy, 0)"
+      },
+      "id": "3d_platformer-c7-level_3_crumble_return",
+      "policy": "strategy.traversal.538dc13a99",
+      "required_actions": [
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "fuse_left"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "3d_platformer/C7/level_3_crumble_return",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 2
+    },
+    {
+      "authoring_record": "authored/tape.json",
+      "budget_frames": 12000,
+      "capture_checkpoints": [
+        {
+          "id": "3d_platformer-l5-whole_game_clear.start",
+          "kind": "run_start"
+        },
+        {
+          "id": "3d_platformer-l5-whole_game_clear.level_1_first_cell_reached",
+          "predicate": "contact(collectible,0)"
+        },
+        {
+          "id": "3d_platformer-l5-whole_game_clear.level_1_one_cell_delivered",
+          "predicate": "numeric(cells_delivered) >= 1"
+        },
+        {
+          "id": "3d_platformer-l5-whole_game_clear.level_1_two_cells_delivered",
+          "predicate": "numeric(cells_delivered) >= 2"
+        },
+        {
+          "id": "3d_platformer-l5-whole_game_clear.level_1_three_cells_delivered",
+          "predicate": "numeric(cells_delivered) >= 3"
+        },
+        {
+          "id": "3d_platformer-l5-whole_game_clear.entered_level_2",
+          "predicate": "levels_visited() >= 2"
+        }
+      ],
+      "counterfactuals": [
+        {
+          "expect_goal": false,
+          "id": "remove-gb_action",
+          "remove": "gb_action"
+        }
+      ],
+      "evidence_basis": [
+        "video_observable"
+      ],
+      "goal": {
+        "milestones": [
+          {
+            "name": "level_1_first_cell_reached",
+            "predicate": "contact(collectible,0)",
+            "required_devices": [
+              "L1/collectible#0"
+            ]
+          },
+          {
+            "name": "level_1_one_cell_delivered",
+            "predicate": "numeric(cells_delivered) >= 1",
+            "required_devices": [
+              "L1/collectible#0",
+              "L1/goal#0"
+            ]
+          },
+          {
+            "name": "level_1_two_cells_delivered",
+            "predicate": "numeric(cells_delivered) >= 2",
+            "required_devices": [
+              "L1/collectible#0",
+              "L1/goal#0"
+            ]
+          },
+          {
+            "name": "level_1_three_cells_delivered",
+            "predicate": "numeric(cells_delivered) >= 3",
+            "required_devices": [
+              "L1/collectible#0",
+              "L1/goal#0",
+              "L1/movplat#0"
+            ]
+          },
+          {
+            "name": "entered_level_2",
+            "predicate": "levels_visited() >= 2",
+            "required_devices": [
+              "L1/collectible#0",
+              "L1/goal#0",
+              "L1/movplat#0"
+            ]
+          },
+          {
+            "name": "level_2_one_cell_delivered",
+            "predicate": "numeric(cells_delivered) >= 1",
+            "required_devices": [
+              "L2/goal#0"
+            ]
+          },
+          {
+            "name": "level_2_two_cells_delivered",
+            "predicate": "numeric(cells_delivered) >= 2",
+            "required_devices": [
+              "L2/goal#0"
+            ]
+          },
+          {
+            "name": "level_2_three_cells_delivered",
+            "predicate": "numeric(cells_delivered) >= 3",
+            "required_devices": [
+              "L2/goal#0",
+              "L2/movplat#0"
+            ]
+          },
+          {
+            "name": "level_2_four_cells_delivered",
+            "predicate": "numeric(cells_delivered) >= 4",
+            "required_devices": [
+              "L2/goal#0",
+              "L2/movplat#0",
+              "L2/spring#0"
+            ]
+          },
+          {
+            "name": "entered_level_3",
+            "predicate": "levels_visited() >= 3",
+            "required_devices": [
+              "L2/goal#0",
+              "L2/movplat#0",
+              "L2/spring#0"
+            ]
+          },
+          {
+            "name": "level_3_one_cell_delivered",
+            "predicate": "numeric(cells_delivered) >= 1",
+            "required_devices": [
+              "L3/goal#0"
+            ]
+          },
+          {
+            "name": "level_3_two_cells_delivered",
+            "predicate": "numeric(cells_delivered) >= 2",
+            "required_devices": [
+              "L3/goal#0",
+              "L3/movplat#0"
+            ]
+          },
+          {
+            "name": "level_3_three_cells_delivered",
+            "predicate": "numeric(cells_delivered) >= 3",
+            "required_devices": [
+              "L3/goal#0",
+              "L3/movplat#0",
+              "L3/spring#0"
+            ]
+          },
+          {
+            "name": "level_3_four_cells_delivered",
+            "predicate": "numeric(cells_delivered) >= 4",
+            "required_devices": [
+              "L3/goal#0",
+              "L3/movplat#0",
+              "L3/spring#0",
+              "L3/door#0"
+            ]
+          }
+        ],
+        "predicate": "whole_game_clear()"
+      },
+      "id": "3d_platformer-l5-whole_game_clear",
+      "policy": "strategy.traversal.86ff35bed1",
+      "required_actions": [
+        "gb_action",
+        "gb_down",
+        "gb_jump",
+        "gb_left",
+        "gb_right",
+        "gb_up"
+      ],
+      "required_numeric": [
+        "cells_delivered"
+      ],
+      "required_roles": [
+        "gb_player"
+      ],
+      "route_id": "3d_platformer/L5/whole_game_clear",
+      "schema": "gamebench.unity-hidden-behavior.v1",
+      "start_level": 0
+    }
+  ],
+  "schema": "gamebench.unity-hidden-suite.v1",
+  "status": "calibrated"
+}

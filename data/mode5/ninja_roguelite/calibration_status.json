@@ -1,0 +1,15 @@
+{
+  "blockers": [],
+  "game_id": "ninja_roguelite",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "ninja_roguelite-c1-outer_cloister_clear",
+    "ninja_roguelite-c2-pillar_hall_clear",
+    "ninja_roguelite-c3-inner_sanctum_clear",
+    "ninja_roguelite-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:7883240fee82abac85426287fb01c64ac214cab9c9850da2533ca52fe55d7442"
+}

@@ -1,0 +1,29 @@
+{
+  "levels": [
+    "res://levels/level_01.tscn",
+    "res://levels/level_02.tscn"
+  ],
+  "endings": {
+    "victory": "res://ui/level_complete.tscn",
+    "run_complete": "res://ui/game_complete.tscn",
+    "defeat": "res://ui/stage_failed.tscn"
+  },
+  "numeric": {
+    "progress": "current_stage",
+    "health": "health",
+    "timer": "time_left",
+    "score": "score"
+  },
+  "device_ids": {
+    "L1/movplat#0": "World/MovingPlatform"
+  },
+  "anchor_camera": "res://levels/level_01.tscn::AnchorCamera",
+  "audio_buses": ["Master", "SFX"],
+  "level_clear": {"predicate": "numeric(progress) >= 2"},
+  "extended_actions": [
+    {
+      "id": "place",
+      "why": "block placement is a dedicated key a human presses; the six verbs cannot name it"
+    }
+  ]
+}

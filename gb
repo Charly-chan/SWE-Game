@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+repo_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+python_bin=${GB_PYTHON:-python3}
+export PYTHONPATH="$repo_dir/eval/evalsys${PYTHONPATH:+:$PYTHONPATH}"
+if [[ "${1:-}" == mode5 ]]; then
+    shift
+    exec "$python_bin" -m evalsys.taskgen.mode5.community_cli "$@"
+fi
+exec "$python_bin" "$repo_dir/eval/evalsys/bin/bench" "$@"

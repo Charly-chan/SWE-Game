@@ -1,0 +1,111 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "5b36e71334bbef476cfa6c02e5859ffde2d666ad77d192112bbd8a1baf77bf73"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "gentlemans_adventure/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "7d9e220f47ed15ec8f8bb2b169c2682a34a7ba488a45241fefb3ba8de3f9a291",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "5b36e71334bbef476cfa6c02e5859ffde2d666ad77d192112bbd8a1baf77bf73",
+    "task_id": "gentlemans_adventure"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "25795bab3c63bba0c7b0468568d4550484cf0ff06e6e976baa2be5641d0d417a",
+    "source_sha256": "47a6da714dc56f031144cd71c2e3846550ef1159513d51427a00d631aef747b6"
+  },
+  "passed_route_ids": [
+    "gentlemans_adventure/L0/no_input_no_clear",
+    "gentlemans_adventure/C1/manor_gate_clear",
+    "gentlemans_adventure/C2/clockwork_gallery_clear",
+    "gentlemans_adventure/C3/eye_vault_clear",
+    "gentlemans_adventure/L5/whole_game_clear"
+  ],
+  "readings": {
+    "gentlemans_adventure/C1/manor_gate_clear": {
+      "deaths": 0,
+      "frames": 1936,
+      "injects": 0,
+      "milestones_reached": [
+        "manor_stage_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 76,
+      "stop_reason": "scene_changed"
+    },
+    "gentlemans_adventure/C2/clockwork_gallery_clear": {
+      "deaths": 0,
+      "frames": 3815,
+      "injects": 0,
+      "milestones_reached": [
+        "gallery_stage_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 241,
+      "stop_reason": "scene_changed"
+    },
+    "gentlemans_adventure/C3/eye_vault_clear": {
+      "deaths": 1,
+      "frames": 1351,
+      "injects": 0,
+      "milestones_reached": [
+        "eye_defeated_stage_cleared"
+      ],
+      "solution_kind": "tape",
+      "steps": 164,
+      "stop_reason": "goal_reached"
+    },
+    "gentlemans_adventure/L0/no_input_no_clear": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "gentlemans_adventure/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 5535,
+      "injects": 0,
+      "milestones_reached": [
+        "entered_stage_2",
+        "entered_stage_3"
+      ],
+      "solution_kind": "tape",
+      "steps": 387,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "7d9e220f47ed15ec8f8bb2b169c2682a34a7ba488a45241fefb3ba8de3f9a291"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "5bcabae4271cc8eb36fe3a6e6c00cb92e5cb90525eebab7fd918f51a78fa317d",
+  "schema_version": 2,
+  "solution_kinds": {
+    "gentlemans_adventure/C1/manor_gate_clear": "tape",
+    "gentlemans_adventure/C2/clockwork_gallery_clear": "tape",
+    "gentlemans_adventure/C3/eye_vault_clear": "tape",
+    "gentlemans_adventure/L0/no_input_no_clear": "tape",
+    "gentlemans_adventure/L5/whole_game_clear": "tape"
+  },
+  "task_id": "gentlemans_adventure",
+  "validated_at": "2026-09-09"
+}

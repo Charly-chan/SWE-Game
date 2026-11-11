@@ -1,0 +1,15 @@
+{
+  "blockers": [],
+  "game_id": "citycab_rush",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "citycab_rush-c1-neon_blocks_quota",
+    "citycab_rush-c2-market_grid_quota",
+    "citycab_rush-c3-uplink_district_quota",
+    "citycab_rush-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:c83a9613bbc78006026265ed5a8423731a8808fe5a51e564b7e53e883129b4d7"
+}

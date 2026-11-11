@@ -1,0 +1,71 @@
+{
+  "anchor_composition": {},
+  "declared_actions": [
+    "gb_left",
+    "gb_right",
+    "gb_up",
+    "gb_down",
+    "gb_jump",
+    "gb_action",
+    "gb_pause",
+    "gb_reset"
+  ],
+  "engine": "4.5.1",
+  "generated_at": "2026-09-06T10:17:53+00:00",
+  "interface_requirements": {
+    "O10": {
+      "fields": [],
+      "reason": "reference has no live-mixer expectation",
+      "required": false
+    },
+    "O9": {
+      "fields": [],
+      "reason": "reference has no registered anchor expectation",
+      "required": false
+    }
+  },
+  "levels": [
+    {
+      "census": {
+        "gb_checkpoint": 64,
+        "gb_collectible": 0,
+        "gb_door": 0,
+        "gb_enemy": 0,
+        "gb_goal": 64,
+        "gb_hazard": 0,
+        "gb_interactive": 0,
+        "gb_player": 1
+      },
+      "dispersion": {
+        "gb_checkpoint": [
+          "x",
+          5
+        ],
+        "gb_goal": [
+          "x",
+          5
+        ]
+      },
+      "goal_transition": null,
+      "scene": "res://source/levels/terrain_test_map.tscn",
+      "spawn_goal_distance": 0.03570863661924871
+    }
+  ],
+  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "project": "bush_522",
+  "runtime_assets": {
+    "res://assets/audio/engine/engine_sounds_0.wav": "374eb3c317d4690ee0bbe7724b2d00d10cda961da79c6abd74c42156d09010a3",
+    "res://assets/audio/engine/engine_sounds_100.wav": "fc1894d9ed0012e90fcb7c586ac37714f22733fe5aeb0ad56709a2e6fa4d7955",
+    "res://assets/audio/engine/engine_sounds_50.wav": "782de1c72814657a9c4c9130c35078d65d78045bb7fac1cacc4c99b183c3835b",
+    "res://assets/audio/sfx_newscore.mp3": "294497a1974916791ccbe125726117c3159dfd318a4721416e86633f7a5c6934",
+    "res://assets/models/plane_animatable/plane_animatable.glb": "37b11319cd4926e3d5baba3a8972f0e106bf3f401be3c1ef047382adfdefeacc",
+    "res://assets/models/plane_suspension/Front_suspension_left.glb": "2e026240ee21b643a6dc7272a69677215cafc72c0508602ca899b9f12aae1c09",
+    "res://assets/models/plane_suspension/Front_suspension_right.glb": "3f9c759267bbd6626d4867cefee90f8e3529381d986f790bb70c18956800379f",
+    "res://assets/models/plane_suspension/Front_wheel.glb": "49f4584654f57720619f194e5209b83bfdd9251ffbfd471aee7c470871979d7a",
+    "res://assets/models/plane_suspension/Rear_suspension.glb": "9b205091811528189d65dc09df518d425c2ae2f60c1a68439a007f98ec7e791c",
+    "res://assets/models/plane_suspension/Rear_wheel.glb": "c28fb57e6f511c1ce020f47ec8bda3569afddb928436b634c076ea354a49b1d2",
+    "res://icon.jpg": "14d9ebd3b1a83619217092beaf691032fe8837396062532fe98dc474417b737b"
+  },
+  "snapshot_version": "1",
+  "version": "2"
+}

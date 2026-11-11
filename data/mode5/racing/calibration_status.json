@@ -1,0 +1,15 @@
+{
+  "blockers": [],
+  "game_id": "racing",
+  "required_repeats": 5,
+  "runtime_ready": true,
+  "scenario_ids": [
+    "racing-c1-lakeside_three_laps",
+    "racing-c2-ravine_three_laps",
+    "racing-c3-lakeside_first_lap",
+    "racing-l5-whole_game_clear"
+  ],
+  "schema": "gamebench.unity-calibration.v1",
+  "status": "calibrated",
+  "suite_digest": "sha256:d19706131c30bdf94d8120c9e277eb90efb9f620a3932d3160f9bd35393e55d8"
+}

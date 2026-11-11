@@ -1,0 +1,117 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "521bf5a74e9ed1e44da9d37f961192d38fe4ccbe95eb4b6eb7cf11d7dc0e046c"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "ballast_yard/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "f0cab36524d1570aae50258bea9164a4cbb2bd0c75471a20b18b842f9fa91aee",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "521bf5a74e9ed1e44da9d37f961192d38fe4ccbe95eb4b6eb7cf11d7dc0e046c",
+    "task_id": "ballast_yard"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "369d05df0d896466b22ee0bf6472c3b2665d3b0a064c5ecaa69da7f4d059ff23",
+    "source_sha256": "45750a78a0adbe537cd858966aef8170ee13b7798762d520d92878ac21022ae2"
+  },
+  "passed_route_ids": [
+    "ballast_yard/L0/no_input_no_win",
+    "ballast_yard/C1/intake_skip_stack_and_shutter",
+    "ballast_yard/C2/sorting_plate_conveyor_and_shutter",
+    "ballast_yard/C3/deep_glass_ball_plate_and_chute",
+    "ballast_yard/L5/whole_game_clear"
+  ],
+  "readings": {
+    "ballast_yard/C1/intake_skip_stack_and_shutter": {
+      "deaths": 1,
+      "frames": 1625,
+      "injects": 0,
+      "milestones_reached": [
+        "cargo_sphere_launched",
+        "intake_chute_reached"
+      ],
+      "solution_kind": "tape",
+      "steps": 55,
+      "stop_reason": "scene_changed"
+    },
+    "ballast_yard/C2/sorting_plate_conveyor_and_shutter": {
+      "deaths": 1,
+      "frames": 2326,
+      "injects": 0,
+      "milestones_reached": [
+        "cargo_sphere_launched",
+        "sorting_chute_reached"
+      ],
+      "solution_kind": "tape",
+      "steps": 58,
+      "stop_reason": "scene_changed"
+    },
+    "ballast_yard/C3/deep_glass_ball_plate_and_chute": {
+      "deaths": 1,
+      "frames": 3319,
+      "injects": 0,
+      "milestones_reached": [
+        "cargo_sphere_launched",
+        "deep_chute_reached"
+      ],
+      "solution_kind": "tape",
+      "steps": 111,
+      "stop_reason": "scene_changed"
+    },
+    "ballast_yard/L0/no_input_no_win": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "ballast_yard/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 7282,
+      "injects": 0,
+      "milestones_reached": [
+        "intake_chute_reached",
+        "entered_sorting_floor",
+        "sorting_chute_reached",
+        "entered_ballast_deep",
+        "deep_chute_reached"
+      ],
+      "solution_kind": "tape",
+      "steps": 232,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "f0cab36524d1570aae50258bea9164a4cbb2bd0c75471a20b18b842f9fa91aee"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "2d720a466e489e004258623f93433b9f00dac2f8baa167e68e7098659fe3d922",
+  "schema_version": 2,
+  "solution_kinds": {
+    "ballast_yard/C1/intake_skip_stack_and_shutter": "tape",
+    "ballast_yard/C2/sorting_plate_conveyor_and_shutter": "tape",
+    "ballast_yard/C3/deep_glass_ball_plate_and_chute": "tape",
+    "ballast_yard/L0/no_input_no_win": "tape",
+    "ballast_yard/L5/whole_game_clear": "tape"
+  },
+  "task_id": "ballast_yard",
+  "validated_at": "2026-09-09"
+}

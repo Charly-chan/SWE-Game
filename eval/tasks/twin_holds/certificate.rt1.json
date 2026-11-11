@@ -1,0 +1,115 @@
+{
+  "engine": "Godot 4.5.1 stable",
+  "genuine_clear": {
+    "harness_scan": {
+      "authenticity": "no_harness_flag_in_gameplay",
+      "blocks_film": false,
+      "grant_or_unknown_count": 0,
+      "source_digest": "d6a3a7d7e72db83992b0423f2abe958e9c29425269165fa6f7f75e57f31cb4dd"
+    },
+    "honest_l5_passed": true,
+    "l5_passed": true,
+    "l5_route_id": "twin_holds/L5/whole_game_clear",
+    "produced_by": "recertify",
+    "route_sha256": "f47e2bcb8a54c0f3e0de97b33fe68a540677c529b27e4afd3bf275bd97d29952",
+    "schema": "gamebench.genuine-clear.v1",
+    "source_digest": "d6a3a7d7e72db83992b0423f2abe958e9c29425269165fa6f7f75e57f31cb4dd",
+    "task_id": "twin_holds"
+  },
+  "harness": {
+    "contract_version": "1",
+    "gb_capture_probe.gd": "sha256:204e194e0071fa165070ba3af7b66553fa77122a973737bc293d25b4bc46d4df",
+    "gb_probe.gd": "sha256:39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+    "gb_route_driver.gd": "sha256:08d2bdad3e54fd53347d333bba399e40d0779ff6a6f9d8f7e6fdec5faaee54fb",
+    "gb_truth_driver.gd": "sha256:7778e6190895bfeb10af8beffeec678ec3b03848b53a674477bcdf796a0c0742"
+  },
+  "interface": {
+    "interface_version": 2,
+    "normalized_sha256": "1ced7f379f219920cb2ab4bed3a685dd2865fe521775f867790853e57bfbb72a",
+    "source_sha256": "e2a95ad0a2ee634748a009f97ee644912474e1314760d427697c406698a6c628"
+  },
+  "passed_route_ids": [
+    "twin_holds/L0/no_input_no_clear",
+    "twin_holds/C1/score_route",
+    "twin_holds/C2/castle_capture_route",
+    "twin_holds/C3/advanced_score_route",
+    "twin_holds/L5/whole_game_clear"
+  ],
+  "readings": {
+    "twin_holds/C1/score_route": {
+      "deaths": 1,
+      "frames": 1269,
+      "injects": 0,
+      "milestones_reached": [
+        "score_route_board_engaged",
+        "score_route_won"
+      ],
+      "solution_kind": "tape",
+      "steps": 197,
+      "stop_reason": "goal_reached"
+    },
+    "twin_holds/C2/castle_capture_route": {
+      "deaths": 1,
+      "frames": 2687,
+      "injects": 1,
+      "milestones_reached": [
+        "capture_route_board_engaged",
+        "castle_capture_resolved"
+      ],
+      "solution_kind": "tape",
+      "steps": 745,
+      "stop_reason": "goal_reached"
+    },
+    "twin_holds/C3/advanced_score_route": {
+      "deaths": 1,
+      "frames": 4745,
+      "injects": 1,
+      "milestones_reached": [
+        "advanced_board_engaged",
+        "advanced_score_route_won"
+      ],
+      "solution_kind": "tape",
+      "steps": 1475,
+      "stop_reason": "goal_reached"
+    },
+    "twin_holds/L0/no_input_no_clear": {
+      "deaths": 0,
+      "frames": 420,
+      "injects": 0,
+      "milestones_reached": [],
+      "solution_kind": "tape",
+      "steps": 1,
+      "stop_reason": "budget_frames"
+    },
+    "twin_holds/L5/whole_game_clear": {
+      "deaths": 0,
+      "frames": 8891,
+      "injects": 0,
+      "milestones_reached": [
+        "level_1_score_win",
+        "level_2_castle_win",
+        "level_3_score_win"
+      ],
+      "solution_kind": "tape",
+      "steps": 2423,
+      "stop_reason": "goal_reached"
+    }
+  },
+  "release_projection": {
+    "normalization": "Metadata only; execution inputs and measured outcomes unchanged. Authoring attribution is withheld.",
+    "original_route_sha256": "f47e2bcb8a54c0f3e0de97b33fe68a540677c529b27e4afd3bf275bd97d29952"
+  },
+  "result": "5/5 passed; every route reached, segment_clean, and used_required",
+  "reviewer": "project_owner",
+  "route_sha256": "1e50ad0e9b3edac1f67dbb80fd20efb6e8078d48fe7e4fbdd8ac25250e48c933",
+  "schema_version": 2,
+  "solution_kinds": {
+    "twin_holds/C1/score_route": "tape",
+    "twin_holds/C2/castle_capture_route": "tape",
+    "twin_holds/C3/advanced_score_route": "tape",
+    "twin_holds/L0/no_input_no_clear": "tape",
+    "twin_holds/L5/whole_game_clear": "tape"
+  },
+  "task_id": "twin_holds",
+  "validated_at": "2026-09-09"
+}
