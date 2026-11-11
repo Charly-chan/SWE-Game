@@ -21,7 +21,7 @@
 #   --skip-lfs           do not configure or pull Git LFS
 #   --lfs-include GLOB   pull matching LFS objects now (repeatable); without this
 #                        setup configures LFS for remaining repository artifacts.
-#                        Reference games and videos are downloaded from Hugging Face.
+#                        Task bundles and recordings use the configured data mirror.
 #   --godot-prefix DIR   where the Godot zip is unpacked (default /opt/godot-4.5.1)
 #   --venv DIR           python venv location (default <repo>/.venv)
 #
@@ -202,7 +202,7 @@ PY
     local total pulled
     total="$(git -C "$GB_ROOT" lfs ls-files 2>/dev/null | wc -l | tr -d ' ')"
     pulled="$(git -C "$GB_ROOT" lfs ls-files 2>/dev/null | grep -c ' \* ' || true)"
-    row "repository LFS objects" lazy "$pulled/$total pulled" "reference games/videos are downloaded from Hugging Face per game"
+    row "repository LFS objects" lazy "$pulled/$total pulled" "task bundles and recordings use the configured data mirror"
   fi
   probe_cmd "unshare" unshare --version
   if unshare --user --map-root-user --mount --pid --fork --mount-proc true >/dev/null 2>&1; then
@@ -422,7 +422,7 @@ install_godot() {
 
 install_lfs() {
   step "git lfs"
-  if [ "$SKIP_LFS" = 1 ]; then skip "--skip-lfs (reference games/videos use Hugging Face)"; return; fi
+  if [ "$SKIP_LFS" = 1 ]; then skip "--skip-lfs (task data uses the configured mirror)"; return; fi
   command -v git-lfs >/dev/null 2>&1 || { gb_note "   git-lfs not installed (apt install git-lfs)"; return 0; }
   # --local keeps the filters in this clone's .git/config; nothing user-wide changes.
   if git -C "$GB_ROOT" lfs install --local >/dev/null 2>&1 || git -C "$GB_ROOT" lfs install --local --force >/dev/null 2>&1; then
@@ -431,8 +431,8 @@ install_lfs() {
     gb_note "   git lfs install --local failed"
   fi
   if [ ${#LFS_INCLUDE[@]} -eq 0 ]; then
-    skip "reference games/videos use Hugging Face; run_benchmark.sh downloads per selected game"
-    gb_note "   to prefetch now: python3 scripts/fetch_reference_data.py --game <id> --with-videos"
+    skip "run_benchmark.sh downloads task data for the selected tasks"
+    gb_note "   to prefetch a recording: python3 scripts/fetch_reference_data.py --game <id> --videos-only"
     return
   fi
   # lfs.activitytimeout=0: the default 30 s idle timeout aborts large objects on slow

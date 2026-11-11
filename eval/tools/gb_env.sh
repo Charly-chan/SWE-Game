@@ -253,14 +253,3 @@ gb_is_lfs_pointer() {
   [ -f "$1" ] && [ "$(stat -c %s "$1" 2>/dev/null || echo 0)" -lt 1024 ] \
     && head -c 40 "$1" 2>/dev/null | grep -q '^version https://git-lfs'
 }
-
-# Fetch reference projects and recordings from the pinned Hugging Face dataset.
-gb_ensure_reference_project() { # game_id
-  "$GB_PYTHON" "$GB_ROOT/scripts/fetch_reference_data.py" --game "$1" \
-    || gb_die "reference project download failed: $1"
-}
-
-gb_ensure_reference_film() { # game_id
-  "$GB_PYTHON" "$GB_ROOT/scripts/fetch_reference_data.py" --game "$1" --with-videos \
-    || gb_die "reference data download failed: $1"
-}

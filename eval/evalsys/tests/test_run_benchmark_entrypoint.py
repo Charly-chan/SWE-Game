@@ -238,17 +238,12 @@ def test_port_community_profile_rejects_nonprotocol_visual_judge(entrypoint, jud
     assert not capture.exists()
 
 
-def test_bugfix_does_not_download_an_agent_invisible_reference_movie(entrypoint, tmp_path):
+def test_bugfix_does_not_prefetch_an_independent_reference_project(entrypoint, tmp_path):
     run, capture, _out = entrypoint
-    env_script = tmp_path / "repo/eval/tools/gb_env.sh"
-    with env_script.open("a") as stream:
-        stream.write('\ngb_ensure_reference_film() { echo "unexpected reference download" >&2; return 91; }\n')
     result = run("--game", "canopy_dash", "--mode", "bugfix", "--dry-run")
     assert result.returncode == 0, result.stderr
     assert capture.exists()
-    assert "unexpected reference download" not in result.stderr
-    downloads = [json.loads(line) for line in (tmp_path / "downloads.jsonl").read_text().splitlines()]
-    assert downloads and all(args == ["--game", "canopy_dash"] for args in downloads)
+    assert not (tmp_path / "downloads.jsonl").exists()
 
 
 def test_mode1_no_video_dry_run_records_condition_and_preserves_visual_judge(entrypoint):

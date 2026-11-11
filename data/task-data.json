@@ -1,11 +1,12 @@
 {
+  "base_url": "https://anonymous-hf.com/api/a/uvnp85fetrne/resolve/",
   "games": {
     "3d_platformer": {
       "bundle": {
-        "index_sha256": "8b63dbd5c71676de4cae1cc050d33d2d5708c4d3fa6902e10ca9fd3266d81315",
+        "index_sha256": "ee54cafb6b66d3bf545bd8685a186ad62aa0e559b95d82d154123ee79063daf6",
         "path": "bundles/3d_platformer.tar.gz",
-        "sha256": "4cad5405c35628a9077bc71916e6d05fa6d9d0ed2f65f0b43d966a024efee43f",
-        "size": 38975854
+        "sha256": "86f5fc5218996d3e2aad2260ac6fd10c453cfda33f5bb29fa27d3aae13c91376",
+        "size": 39084912
       },
       "cases": [
         "3d-platformer-device-phase-bind-v1",
@@ -23,10 +24,10 @@
     },
     "arc_wing": {
       "bundle": {
-        "index_sha256": "247a752a2d0fe84dd43340559175b1078cad34504f82a24c658e05f1f5ab5a02",
+        "index_sha256": "aa754c7c28077d43220f768c551b1a803b2f49713391202761f2ec0323b9963c",
         "path": "bundles/arc_wing.tar.gz",
-        "sha256": "f70b9037984224f8956cb492c64424c742c1185581b8a0240aa8ff8067d33f70",
-        "size": 57688216
+        "sha256": "54a43fb39d4ed974ec992861f4e844ee8623705a85d449f221b4de74655d68fc",
+        "size": 57751792
       },
       "cases": [
         "arc-wing-phase-notifier-consumes-immunity-invalidation-v1",
@@ -44,10 +45,10 @@
     },
     "ballast_yard": {
       "bundle": {
-        "index_sha256": "23e85d6487a21b425946f0c2f26cd034f3c4f1272d91399310ac5acb4402e7d0",
+        "index_sha256": "e2ec02b6ac89b82368357eea28a94d0a0dca49135339c85b623a55e0937d771e",
         "path": "bundles/ballast_yard.tar.gz",
-        "sha256": "3b825b6476c9033174c8bc8a9c756f3341055535b4db60ca1be77e2fbcc0cf6e",
-        "size": 36005352
+        "sha256": "3dca115e5ec421d5dc1db7f4ad0f066adf77e74abcf27473e0ac8ae6a0ef8639",
+        "size": 36176202
       },
       "cases": [
         "ballast-yard-rest-gate-bind-v6",
@@ -65,10 +66,10 @@
     },
     "bush_522": {
       "bundle": {
-        "index_sha256": "543e34689f38878bfc678d7d44f8b259965d05ac95572ed10a9b505689b4c570",
+        "index_sha256": "4e0015366ad28fbde977025f525bab1558b21d22140992938f52f79a9be22fdf",
         "path": "bundles/bush_522.tar.gz",
-        "sha256": "a89143112c343b502940c87a3472cf1d9369b19f3ba18d67ef8099a52709befd",
-        "size": 18454040
+        "sha256": "2e777969407517aa3e893c7be0ad21a3275b21b6045ace3ebb71df280383291a",
+        "size": 18488004
       },
       "cases": [
         "bush-522-strip-stream-clock-v1",
@@ -86,10 +87,10 @@
     },
     "canopy_dash": {
       "bundle": {
-        "index_sha256": "4a9b87a7b1fdd0c6d8ee6b4cce17766717cf0d56eb6bc73197363370a7be8d7f",
+        "index_sha256": "feec72350fbd951aa7f39e6c983be4cfb704f70a1739d2bbbf88131df832a97b",
         "path": "bundles/canopy_dash.tar.gz",
-        "sha256": "6cca4fc616df141b32f55935f6ce840dc5a6ce23073a5b908427ff492ca13cb2",
-        "size": 39761319
+        "sha256": "5c5f7c45efd1e559e10a6c5155b27f3b4daa6aa39913245f25c24acbc6117392",
+        "size": 39846294
       },
       "cases": [
         "canopy-dash-hollow-phase-bind-v2",
@@ -107,10 +108,10 @@
     },
     "cat_defense": {
       "bundle": {
-        "index_sha256": "92c8b2deaf32ed18d7969ad9fe7a5c77370af8ac17d656a057a75f08e5415c4d",
+        "index_sha256": "7e9b0aaf581f5553408b36a096fb851156143a6f33c9e1e3201fc444a98bb985",
         "path": "bundles/cat_defense.tar.gz",
-        "sha256": "c27f03ce25597f7b228f89ce1095e1f70bb29fe9df839443cb51385beadea42f",
-        "size": 33111341
+        "sha256": "fb996d32900cfde54aec115ddb21dee233e33812063904270f13883416f3e35f",
+        "size": 33157936
       },
       "cases": [
         "cat-defense-block-kit-align-v2",
@@ -128,10 +129,10 @@
     },
     "city_delivery": {
       "bundle": {
-        "index_sha256": "9479e3594f9af2d95f5619ae0cccc195d6e4db1b217491250f4ed108516dfdd9",
+        "index_sha256": "7f2ecacfaa15270dd8a66a0329f638b30c676baddaa069cdf2dd1423c5939a25",
         "path": "bundles/city_delivery.tar.gz",
-        "sha256": "e210d02d137f5d015cd0283c50bb1b120337151d7cd08b71b36a096202c55ace",
-        "size": 27324280
+        "sha256": "aea0b51ac9174f068e017c5d8544e887e38de249431434e46d0b1bc6b5774fec",
+        "size": 27451730
       },
       "cases": [
         "city-delivery-route-seat-clock-v1",
@@ -149,10 +150,10 @@
     },
     "citycab_rush": {
       "bundle": {
-        "index_sha256": "5012bfb2145671020abecce69d6ee9016eeb649931c3d7efd47da9d26e23053a",
+        "index_sha256": "b6a4df072d03304b2cea7eb41e435893daa6384e53f1c72435a337c980119d14",
         "path": "bundles/citycab_rush.tar.gz",
-        "sha256": "10f3ecba257d54408ce39fce5014668c042bb267f531c7a8fde54844e3264938",
-        "size": 18980355
+        "sha256": "797f8eade329ec9113f94a05bf2a3bf4551e6881664ae01f44bedfd1e10012b0",
+        "size": 19041288
       },
       "cases": [
         "citycab-rush-reach-share-bind-v1",
@@ -170,10 +171,10 @@
     },
     "cyber_survival": {
       "bundle": {
-        "index_sha256": "87adf34da9de311b520cb0293fedc4b1649fd924ff72e5657e4623069aa92455",
+        "index_sha256": "55f30670bb890bc5dd9fc0cc3fd91a8ac3477a2f89b377f0537644e74f9c7aad",
         "path": "bundles/cyber_survival.tar.gz",
-        "sha256": "c47bd65dc88fce27d8037ec26f5a1e5ec8b8440bb6de58d0b13c5236db7f4662",
-        "size": 41602332
+        "sha256": "1258f7df73c435568ced6d3107b39866f1570d2d70ba335a341c26380b0e76cf",
+        "size": 41703767
       },
       "cases": [
         "cyber-survival-deck-volume-seat-v1",
@@ -191,10 +192,10 @@
     },
     "deepgrid": {
       "bundle": {
-        "index_sha256": "7c0fc114745f59b25bed902f502e857aef588cdc1537f83edce26c4a407b7443",
+        "index_sha256": "72f313a6c263a36d4017aa4dca1874ed9a240492bfcf41d85574afdb37c2bc34",
         "path": "bundles/deepgrid.tar.gz",
-        "sha256": "3df9d6398c38051118654bbfb9254abefb03ae03d21bcbe437f50f17412205fe",
-        "size": 166555005
+        "sha256": "873967448413100827664c6971ef0b4b106b7dbeffb86b28ec06de4696dfecdd",
+        "size": 166812922
       },
       "cases": [
         "deepgrid-tile-mount-clock-v1",
@@ -212,10 +213,10 @@
     },
     "dogwalk": {
       "bundle": {
-        "index_sha256": "9bbf3e537d4b1cccb09b83f42695af1db9582526842050d6424f9f2dcd54a5a4",
+        "index_sha256": "7b9c63ce523516c6dcd9ce978066b0af0345b496ee4647a9e864594f0e611ce3",
         "path": "bundles/dogwalk.tar.gz",
-        "sha256": "c53ae1893f7d55bed5e55f957fb01b57b6e97b5cca7da553c304828f12ea03cb",
-        "size": 377327653
+        "sha256": "16fa06e36179b288b25163c53cb589283003e5d40c9025498b2b0f5eb4bbfbab",
+        "size": 378921742
       },
       "cases": [
         "dogwalk-clearing-prop-bind-v1",
@@ -233,10 +234,10 @@
     },
     "dont_stop": {
       "bundle": {
-        "index_sha256": "bd41f80009fff6e8b379a9dfa2891b0aa781466173e5b9a4660042bcea026097",
+        "index_sha256": "817c9a1e95ff190dd8f31ceb3b256540a3ba376dea3fdeece6f8586a95d700af",
         "path": "bundles/dont_stop.tar.gz",
-        "sha256": "11b1aff2aaccd0fb21284773a66b3084dd49eeabbaafb4b819b5f9360bc0f8ba",
-        "size": 32500034
+        "sha256": "739ab49a7d25384dd4b6193966cadcb50a02fb0e778052112c20219d64f3ea3c",
+        "size": 32684089
       },
       "cases": [
         "dont-stop-hold-arc-span-v1",
@@ -254,10 +255,10 @@
     },
     "dungeon_escape": {
       "bundle": {
-        "index_sha256": "ce1e046f464d244419eed1db6087a34820b580ec27421c041395f28baaf5fdba",
+        "index_sha256": "050cd8735d3b3639554b98a0f3896151b1c6d01577d2a5f38d5a7e04e0a9621d",
         "path": "bundles/dungeon_escape.tar.gz",
-        "sha256": "e454b7589a9932a2636cb45cc18c35e2e0bf25a56fc505080f7234d82a8ebfc4",
-        "size": 32167779
+        "sha256": "208ab873b32c4937f2e67f4cfc495781da3ee90f9b2c4983088efeab106f2c2a",
+        "size": 32230316
       },
       "cases": [
         "dungeon-escape-ward-seat-bind-v1",
@@ -275,10 +276,10 @@
     },
     "ember_and_tide": {
       "bundle": {
-        "index_sha256": "dab07b778d1acf5ecff59abe40e1bff966c6bc42c0a46b84ede9857c62d70bc2",
+        "index_sha256": "b3050c421339d5a5c286fbce1867155f895f754b75be8035c1f23f1b6fdeb5de",
         "path": "bundles/ember_and_tide.tar.gz",
-        "sha256": "0d639d7870cae1954d3dd0218f328c5d67d025b73eb3d17bbf379d0df7a6cdb1",
-        "size": 27020409
+        "sha256": "b2283aed5401a417fd0585d95f15f9ede4f9550e2381c3425a0a74961063a16b",
+        "size": 27063755
       },
       "cases": [
         "ember-and-tide-source-copy-loses-device-network-history-v1",
@@ -296,10 +297,10 @@
     },
     "gentlemans_adventure": {
       "bundle": {
-        "index_sha256": "9ba38b061c363d7e68d0c269abbd1197d5484c64f994f8631ec8a0b6fd72eeed",
+        "index_sha256": "ec64ccdebd678e11fb8a56b7eda824397de0c4b798ea3b04ce7508e2e019312e",
         "path": "bundles/gentlemans_adventure.tar.gz",
-        "sha256": "ec6d8ae707e5be8a4f989fd6482a48f66cca48de610bed8c94d8050e41037bf1",
-        "size": 22082401
+        "sha256": "984eb27f11ad40ed1027d89ce1adb550e0ca6766002c9729a3929a66b7efd74b",
+        "size": 22124603
       },
       "cases": [
         "gentlemans-adventure-form-seat-v1",
@@ -317,10 +318,10 @@
     },
     "gunfire_dungeon": {
       "bundle": {
-        "index_sha256": "85b1b1e4175f9c3e4921976c16f0fe2ca3ed49c16a772289fde0bb8195d81f8d",
+        "index_sha256": "eaa91e8c23cd3610b0f8455219e2fdf49219d7665cea8dcea537d1333f273bb2",
         "path": "bundles/gunfire_dungeon.tar.gz",
-        "sha256": "1bc91895b1fc26f81d7bc826e6ab829e760655d6d6bbde94774475c3da69dd61",
-        "size": 21840779
+        "sha256": "02a869c20b06b8fc4042dfa2a7574739f12c81180fa7ea86c60a131fdba8b23c",
+        "size": 22044230
       },
       "cases": [
         "gunfire-dungeon-room-mount-gate-v1",
@@ -338,10 +339,10 @@
     },
     "harvest_ledger": {
       "bundle": {
-        "index_sha256": "b3cfdfbbe48aacefa52de1c3c35c64a289083ca5268477249f7619d9a4badec6",
+        "index_sha256": "5d9f8b914762f0ba5136ea1fa93f42b5dc3b745c83ecb49961930ab43cb7fe81",
         "path": "bundles/harvest_ledger.tar.gz",
-        "sha256": "68c6a4cd264ce58bf79016e08eb2eafae9c3e532c64d03b8dfe7b8d4baa9e2bb",
-        "size": 53737857
+        "sha256": "bfba0cc814549b7461fa4409564357d7196c81f8a8564f080d7d63a6fdf7cbba",
+        "size": 54161711
       },
       "cases": [
         "harvest-ledger-boot-day-bind-v1",
@@ -359,10 +360,10 @@
     },
     "hazard_circuit": {
       "bundle": {
-        "index_sha256": "a64913bcb77c1923133e33fc6c340cc89ffabad3a09ddc7476d333ca57edaf80",
+        "index_sha256": "534bc6c1e97b651dec6cc8c6008c5245019c01d155e95c662150da2a3b82fb06",
         "path": "bundles/hazard_circuit.tar.gz",
-        "sha256": "09f468ceddd32079450b23a01c2d5c0c9329fcb0def4f2cddf855329d20bb246",
-        "size": 67435513
+        "sha256": "b85f183bd5b9e0752eda4aabba7061e935bd7b29d807b7146b95d8b67bebfe23",
+        "size": 67533647
       },
       "cases": [
         "hazard-circuit-sump-seat-v1",
@@ -380,10 +381,10 @@
     },
     "hive_flight": {
       "bundle": {
-        "index_sha256": "d9f313576aafd199bfa2adff83b64abdaa78240ceceb39e099aee55c2031f5d5",
+        "index_sha256": "8ccfd4e4052af4ab42bd7355be585c0ae041227a7434990441030931b66ec896",
         "path": "bundles/hive_flight.tar.gz",
-        "sha256": "8094d8cc3ccd578f708b6d5142e3940e09fad4ed216ba7549995c8fdcb5d0c11",
-        "size": 20084781
+        "sha256": "cf817b5a9c7a98eb4710d91ce82e98508fa9d46c15e357b4f04351144daac844",
+        "size": 20108504
       },
       "cases": [
         "hive-flight-chase-seat-clock-v1",
@@ -401,10 +402,10 @@
     },
     "hurry_curry": {
       "bundle": {
-        "index_sha256": "fede05d2f2c29537748e487187d558881f1d4a2b47446e0e9ff8cd862553a9fa",
+        "index_sha256": "f0eda3029fec73e637d0c2955fadf1d0d69641f50a4368a03d3a9662936a7c86",
         "path": "bundles/hurry_curry.tar.gz",
-        "sha256": "81b572c10a827140ead56968c3e7fcfb5edc11c1be3611cf4846493b8516345c",
-        "size": 20565924
+        "sha256": "fa67c8c6e96b5eea02e1eb02a246accac3f5b86dbb40657adfa6902f3c6e0988",
+        "size": 20624196
       },
       "cases": [
         "hurry-curry-kitchen-sheet-v1",
@@ -422,10 +423,10 @@
     },
     "kindle_relay": {
       "bundle": {
-        "index_sha256": "62a3ef8d3c56deb02e1fb53e0017ddf6b4db9dca0f3de43e4fb8c9de0858b5fc",
+        "index_sha256": "fa1750940e31945c36e7e20048ceea8cab406f0e6b557f56a511c28608217fe9",
         "path": "bundles/kindle_relay.tar.gz",
-        "sha256": "8ba09e0a8002f5128b3b2592b4441505780e59dcd7f416abd6078183de39fdd4",
-        "size": 18727921
+        "sha256": "9d2c909073b586e588d672cfa0d3d693c0d5b1f199bad87c78a4859ab8d73a9e",
+        "size": 18764777
       },
       "cases": [
         "kindle-relay-terrace-reach-v1",
@@ -443,10 +444,10 @@
     },
     "ninja_roguelite": {
       "bundle": {
-        "index_sha256": "4d33fcd00b88a7595f88ef5b3809030bd6883e3b20da6aa510a70c573ceaf071",
+        "index_sha256": "4f2470343626db7bf1fb16feec2e0ddc530f4c424063d5f6dd8866a53b3c300b",
         "path": "bundles/ninja_roguelite.tar.gz",
-        "sha256": "c56e6a3076747c38896796b756dfaa59710a3226b3b43851ddc7ce7035e3f16e",
-        "size": 28757818
+        "sha256": "287a4fcb7de3c26e7dd6d0a72072163999035a465595275e2d45eae707ff63a7",
+        "size": 28803291
       },
       "cases": [
         "ninja-roguelite-open-advance-v1"
@@ -463,10 +464,10 @@
     },
     "pixel_platformer": {
       "bundle": {
-        "index_sha256": "de60e1ced9c779f3bfc0e63671abd18a781bcd8eb8790a8b0d32ca6a70a7f853",
+        "index_sha256": "3be5733466515925a1eb36a99ba32687af7d3d2f16a66837f696a4aa5aeaafd5",
         "path": "bundles/pixel_platformer.tar.gz",
-        "sha256": "9d5b35e196158b0dc54179c0cb7f20371bbe0cddcf1014f7b5a6e6763c40e7e9",
-        "size": 23001973
+        "sha256": "2e7c00ef0027f916e630fe2064a24f32946a493a4df9950aaa032e29059d9b72",
+        "size": 23041547
       },
       "cases": [
         "pixel-platformer-phase-prop-seat-v1",
@@ -484,10 +485,10 @@
     },
     "pixel_platformer_v2": {
       "bundle": {
-        "index_sha256": "3d0f1207eac1c8d3ff02a2047d3af20061c041e063b1949a067fedbda9824cde",
+        "index_sha256": "d38ffa810852b8b1e6d5f0d2caeacc6107756e3d78ced104697327ebb3a5ffc2",
         "path": "bundles/pixel_platformer_v2.tar.gz",
-        "sha256": "3932c012c4d5a630fc158d4e5a7435b5bde26e9a305ea8aab68a07de53f52b9e",
-        "size": 18768595
+        "sha256": "0cd9cd4066f38c664cdd144aa94b11212b33d4411dfa15397f7e1284b58d03ab",
+        "size": 18795796
       },
       "cases": [
         "pixel-platformer-v2-lifetime-death-accounting-v1",
@@ -505,10 +506,10 @@
     },
     "pixel_sabotage": {
       "bundle": {
-        "index_sha256": "c3c2cb829fc314c691701b4cc8b8e02d651e134ee2e460430c9a3c63b034e72b",
+        "index_sha256": "8b2523a2da60c7ba24589f313c765545771376d6b61301dedb1da4d36f77a81e",
         "path": "bundles/pixel_sabotage.tar.gz",
-        "sha256": "5b371c1f99c47e62478a5f4ad1226a5f3d0283b34ada10ede6d42c46b9fca416",
-        "size": 40006414
+        "sha256": "bfef2e0175c104e93a3ad35f998eaab2dde28bd83bb36a9b3f37effa52fc844a",
+        "size": 40113621
       },
       "cases": [
         "pixel-sabotage-corridor-sight-bind-v1",
@@ -526,10 +527,10 @@
     },
     "pulse_lane": {
       "bundle": {
-        "index_sha256": "b9e26ade8c0ce0d83020eb7eb96efb966c58a58d403a1b208c0ef669436e6007",
+        "index_sha256": "9a076b0b66d311a3ca36254d4b86ec5ecf09d42831220894732b2c39e78fa52b",
         "path": "bundles/pulse_lane.tar.gz",
-        "sha256": "6e5845659bfe5b5b2ae3ceeca6a8d795cc86215abe56e70c90b73980c0da62c2",
-        "size": 69696048
+        "sha256": "dfd4fc0921ad635e2448178f9e7d7729b49033afc2ceb88605136323c1d96f3e",
+        "size": 69797465
       },
       "cases": [
         "pulse-lane-chart-sheet-v1",
@@ -547,10 +548,10 @@
     },
     "racing": {
       "bundle": {
-        "index_sha256": "df12d3b6da2cb7da460f1346a295f3cd1df9f9af24a753d018ebcf821f072487",
+        "index_sha256": "8f6d692f17049c3019169b51e56863d7886bca360b58bc639740151474add3de",
         "path": "bundles/racing.tar.gz",
-        "sha256": "fe53911f336197111358980cdaad50992f66b17dcd21d0fb798351906634fa34",
-        "size": 31586764
+        "sha256": "59ff0d61a0db2212916a1d54e9f95fa36f2abeff679122717566abed3858f843",
+        "size": 31681647
       },
       "cases": [
         "racing-lakeside-sector-bind-v1",
@@ -568,10 +569,10 @@
     },
     "relic_runner": {
       "bundle": {
-        "index_sha256": "4f7c44cc7f8cd774fd6e048beef4c7b2b9148bc0e83abd809f62b978431f388c",
+        "index_sha256": "4c15c3702e1b69f44280c810328882b7a9eced942a78bdbac999baf632a136a7",
         "path": "bundles/relic_runner.tar.gz",
-        "sha256": "9ca26f527424df830a69f2e595f8f0cdd8cbd824e57242e51b37e9e024d623a8",
-        "size": 21050832
+        "sha256": "29eb5f254169f7e5d2fbfa2663aaf97890566e019f6ec7a7edf386a40151bcb8",
+        "size": 21086889
       },
       "cases": [
         "relic-runner-unkeyed-solid-geometry-cache-v1",
@@ -590,10 +591,10 @@
     },
     "sands_of_the_restless": {
       "bundle": {
-        "index_sha256": "9c72fd05e08835a3bc73dae2623daae1056fd153d1cbcea7e86c619f0483eddc",
+        "index_sha256": "26e1756ebf250191554ad6176effeb3ffeddc3e2cc224acdcd3042dc7b2aef9c",
         "path": "bundles/sands_of_the_restless.tar.gz",
-        "sha256": "e808c542673fe74ce28b28925760d7d3eeca09833ebc049d8269b16867335354",
-        "size": 29440348
+        "sha256": "3b9b04f5872687e34d1428a080d156085a86a47e1b5236fa4c33916937fbb37e",
+        "size": 29685271
       },
       "cases": [
         "sands-of-the-restless-horde-rest-bind-v1",
@@ -611,10 +612,10 @@
     },
     "shadow_walker": {
       "bundle": {
-        "index_sha256": "09e76ae37f05800f7cbbc726b89dfab9fa993da881fc5ab789fb4fd4e842a7b6",
+        "index_sha256": "34aa0431702e50179746e7100c9891b9c98ce416bc5aa77d086066eac19304ab",
         "path": "bundles/shadow_walker.tar.gz",
-        "sha256": "d7a761b8715387d14cee156bda5b26cb21927c8e8472a8cf04ba38ddcb11f360",
-        "size": 19274040
+        "sha256": "12fcd3bb42d5a981e160a3f259a96ca02642860966de30cc0141a16d4d3ee1f4",
+        "size": 19303880
       },
       "cases": [
         "shadow-walker-reach-gap-bind-v1",
@@ -632,10 +633,10 @@
     },
     "soccer_course": {
       "bundle": {
-        "index_sha256": "6d2530c0890e8cb3ffb584360856165031bc24f9af11b459b5c09b4209390752",
+        "index_sha256": "a9a80ae51d89f9c1f53bd8921417f175de94ad81ff5d6bb7799adcf0a8e013f3",
         "path": "bundles/soccer_course.tar.gz",
-        "sha256": "9c2af35019f6d3417e4617119168c904f7767e48a21a01bb7a6beeba335ac666",
-        "size": 18767904
+        "sha256": "9d73a74904bc8a4e819914e2f6d3854aa50027e736d8c0c907e0837f357713d2",
+        "size": 18801933
       },
       "cases": [
         "soccer-course-center-spot-bind-v1",
@@ -653,10 +654,10 @@
     },
     "sprout_market": {
       "bundle": {
-        "index_sha256": "01c7d2ff151c1cab4bb971e3f34b648e8cfd772cadee8c86a4a047de98fb7d0c",
+        "index_sha256": "1899240b87fbf3e823b971f48658ef593e30ee0e85f06403637974bf3b1c7672",
         "path": "bundles/sprout_market.tar.gz",
-        "sha256": "5bfc1b0e4fa998ee0861307d89311737c2ffdaef9a9b44e1c3b9e5a5899a84bf",
-        "size": 45628834
+        "sha256": "dbc0666195c450c7d4cb0baedadcae305e381b9282e674b15bb0f68b4a152512",
+        "size": 45675558
       },
       "cases": [
         "sprout-market-floor-shift-pace-v1",
@@ -674,10 +675,10 @@
     },
     "super_dungeon_delve": {
       "bundle": {
-        "index_sha256": "df0902e0d903637939a87c9337dcf6ec8d4cddc2248f164a72b5ea70f48f55f7",
+        "index_sha256": "9f8107844921d90dd29b6eb2b80642ca9d883fc04a0ef9deab9f4f1212d5a17f",
         "path": "bundles/super_dungeon_delve.tar.gz",
-        "sha256": "4ad49fae03ed3d9d119e926078497c233b51204dc70e5cede14d812f6e1c4ba6",
-        "size": 27869071
+        "sha256": "b82f00acebc5c83e8775e904a7c9baf9c79f27d169809fb764d757f2d1ac3b86",
+        "size": 28003389
       },
       "cases": [
         "super-dungeon-delve-company-roster-scope-v1",
@@ -695,10 +696,10 @@
     },
     "terraforge": {
       "bundle": {
-        "index_sha256": "7e8671fe41b66ecaa40d651023de4e43ef4f5a4e4091329ac39bcbed70629ebb",
+        "index_sha256": "ae7b07f045006380f22fb17c84f8b220d235896b04fd329f431ff29b4bd7c498",
         "path": "bundles/terraforge.tar.gz",
-        "sha256": "a46d184ff3ad1b4f187aa297367047ef302522cb42811d8dc3182f4b2d9906e8",
-        "size": 107193011
+        "sha256": "e67065d0030e012524fc023732899f447301a1fa9a95a936f8a7b68ef9f7fc28",
+        "size": 107298180
       },
       "cases": [
         "terraforge-objective-inventory-ledger-contract-split-v1",
@@ -717,10 +718,10 @@
     },
     "tiny_rts": {
       "bundle": {
-        "index_sha256": "5813c45298b7f93661769ad8297d6d0924579bd7d5e835e4705fe844297e065b",
+        "index_sha256": "fb042b14d6ae4f94b298086585e4dfa2f2ca32a89ef2cc85d784d037b56f9b90",
         "path": "bundles/tiny_rts.tar.gz",
-        "sha256": "3fcbe4833600fd266101c66eb32cb519e7c6c02a41fbe067debcccb3a581be8d",
-        "size": 22106795
+        "sha256": "629392126b851b1785f1a3627639970838ec6b6e75157791490c407c78120770",
+        "size": 22151942
       },
       "cases": [
         "tiny-rts-campaign-ledger-context-leak-v1",
@@ -739,10 +740,10 @@
     },
     "toon_shooter": {
       "bundle": {
-        "index_sha256": "ef414f40fec40583e88d4e87a6ad8dd67ff2fa91be4922faa0b86c1b401bc6d6",
+        "index_sha256": "e658aebbaae70d711d62dce7be0c0231b42b5e78bdaa9481233daeb979ee205f",
         "path": "bundles/toon_shooter.tar.gz",
-        "sha256": "882ac22dcf7fab7e89018188fd8d12cee65ffc4fb890a2b012a59276195f5e0b",
-        "size": 40904030
+        "sha256": "9f1acd1f4c723b0698b890d8310ed0f7cf24a85f51325304baf81a6ee8479b52",
+        "size": 41043635
       },
       "cases": [
         "toon-shooter-wave-marker-clock-v1",
@@ -760,10 +761,10 @@
     },
     "twin_holds": {
       "bundle": {
-        "index_sha256": "083ddefd3a5893a313ae3aba72d4285f5924b548bce3c55a7bb6ed41067e22cf",
+        "index_sha256": "5edf5a0f65c3b634d3c2aaaa8deff32bc59f027104da37f35aad4f8aa228a95f",
         "path": "bundles/twin_holds.tar.gz",
-        "sha256": "2d2e24272a3463015419766e5b163dfed80829431298d6ea37981d526d92f4ea",
-        "size": 42773613
+        "sha256": "d88ee0e72cf7dafcf91f01d746461e5b41f7f9bca0ad50c58d80c89800328e98",
+        "size": 43731764
       },
       "cases": [
         "twin-holds-terrain-sheet-v1"
@@ -780,10 +781,10 @@
     },
     "vaultline": {
       "bundle": {
-        "index_sha256": "a099196a25f128be1054e2a1f8038c0070f6e6fe2022f76a0c5ac1ac3f3ae71e",
+        "index_sha256": "7f1638516fbd448c70e29adbfe0f5e4d66abc4b18e6a36ffa65ba28168c97219",
         "path": "bundles/vaultline.tar.gz",
-        "sha256": "498d3143b99a7b9f29e78ca8f10658d258ed888b34473e99d9ce8c40d23dfa7f",
-        "size": 134042687
+        "sha256": "70e993afc10591825a2ef6fc205f314dc2327779c31263684a57b6cc30f9c76e",
+        "size": 134130686
       },
       "cases": [
         "vaultline-packed-shape-seat-v1"
@@ -800,10 +801,10 @@
     },
     "volley_break": {
       "bundle": {
-        "index_sha256": "dadc0a1383cee8c82657fed1067e18d9f220fe6438ed757db13f5116fb9f3199",
+        "index_sha256": "396dd7c20f7ecc51649d186d5e54a3444b3800b8c1a5a7c90b6b5b0e46268624",
         "path": "bundles/volley_break.tar.gz",
-        "sha256": "f83d2a385ea0f99eae607e174bbb8817376ee04c8eaae8910949efa96e87d71f",
-        "size": 49765382
+        "sha256": "748829bf485d57c336ccff075107b2573415860a1712871a5a1c112377b65ac5",
+        "size": 49907925
       },
       "cases": [
         "volley-break-serve-step-clock-v1",
@@ -821,10 +822,10 @@
     },
     "where_the_dead_lie": {
       "bundle": {
-        "index_sha256": "2cdc4b2d4d1b1054e65126f227f844fd4db3a27fd11003ec934facef909f7168",
+        "index_sha256": "5198628b1b8c62bcc068196eb479d014fcb2ecb3e84249dd51d6ba2fab7295ac",
         "path": "bundles/where_the_dead_lie.tar.gz",
-        "sha256": "04d6ca60d228545da4250d719ccd27ff12e3236e08359a33c792ef3205455dc7",
-        "size": 123811682
+        "sha256": "cd3f743345517077527619a9849542a8ed7574c47607135da797cf854dbfb8c6",
+        "size": 123852031
       },
       "cases": [
         "where-the-dead-lie-panel-lid-bind-v1",
@@ -842,10 +843,10 @@
     },
     "wizard_chase": {
       "bundle": {
-        "index_sha256": "d4ed531c3dcac5d749e15786bb77ce3d1c6d354b9e7fe415185d187d2994a901",
+        "index_sha256": "8bed25a29ad4f967fca1641b916d4f9ee4d8848c157339f6f75bbd258b131958",
         "path": "bundles/wizard_chase.tar.gz",
-        "sha256": "300ab157cb5a8f969d79599e5ecc2219fd8200f957ef70b5aad68d9d07014737",
-        "size": 18214970
+        "sha256": "37eb4ab22cd69214beec9653ae342374b10a175523a4449a38d4cc8c2d1c371f",
+        "size": 18271627
       },
       "cases": [
         "wizard-chase-sigil-span-v1",
@@ -862,6 +863,6 @@
       }
     }
   },
-  "revision": "809ab5ad764a73d740cfc532461bc3ee272d150c",
+  "revision": "365e5a1fd8306ac1c83ddea458d5e9e004aa7b84",
   "schema_version": 1
 }

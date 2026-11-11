@@ -50,7 +50,7 @@ def download(data: dict, item: dict, cache: Path) -> Path:
         partial = target.with_suffix('.part')
         if target.is_symlink() or partial.is_symlink():
             raise ValueError('download cache entries must not be symlinks')
-        base_url = os.environ.get('SWE_GAME_DATA_BASE_URL')
+        base_url = os.environ.get('SWE_GAME_DATA_BASE_URL') or data.get('base_url')
         if not base_url and 'repo_id' in data:
             base_url = f"https://huggingface.co/datasets/{data['repo_id']}/resolve/{data['revision']}"
         if not base_url:
@@ -97,8 +97,10 @@ def ensure_game(game_id: str, *, videos: str = 'none', root: Path = ROOT) -> Pat
         raise ValueError(f'unknown game: {game_id}')
     destination = root / 'games' / game_id
     with locked(root / '.reference-data-locks' / f'{game_id}.lock'):
-        index, bundle = bundle_index(data, game_id)
         if not has_project(destination):
+            index, bundle = bundle_index(data, game_id)
+            if not index.get('reference'):
+                raise ValueError('This release supplies task packages only. Use --videos-only for recordings.')
             install_files(data, game_id, index['reference'], bundle, destination)
         if videos != 'none':
             from .frozen_data import _cache, safe_relative
@@ -135,13 +137,24 @@ def ensure_catalog_path(path: Path, *, root: Path = ROOT) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--game', required=True, help='catalog game ID, or all')
-    parser.add_argument('--with-videos', action='store_true')
+    selection = parser.add_mutually_exclusive_group()
+    selection.add_argument('--with-videos', action='store_true', help='also install recordings (legacy project releases)')
+    selection.add_argument('--videos-only', action='store_true', help='cache recordings without installing a project')
     args = parser.parse_args()
     try:
-        games = load_manifest()['games'] if args.game == 'all' else [args.game]
+        from .frozen_data import _cache
+        data = load_manifest()
+        games = data['games'] if args.game == 'all' else [args.game]
         for game_id in games:
-            ensure_game(game_id, videos='primary' if args.with_videos else 'none')
-            print(f'Ready: games/{game_id}', flush=True)
+            if game_id not in data['games']:
+                raise ValueError(f'unknown game: {game_id}')
+            if args.videos_only:
+                for item in data['games'][game_id]['videos'].values():
+                    recording = download(data, item, _cache(data))
+                    print(f'{game_id}: {recording}', flush=True)
+            else:
+                ensure_game(game_id, videos='primary' if args.with_videos else 'none')
+                print(f'Ready: games/{game_id}', flush=True)
     except (OSError, ValueError, RuntimeError, tarfile.TarError) as exc:
         print(f'error: {exc}', file=sys.stderr)
         return 1

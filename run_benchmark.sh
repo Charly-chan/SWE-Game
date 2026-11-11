@@ -484,11 +484,6 @@ for row in "${CELL_ROWS[@]}"; do
   # as blocked below and the run goes on. Any other failure still stops the run.
   gen_rc=0
   if [ ! -f "$cell/package/manifest.json" ]; then
-    if [ "$REFERENCE_VIDEO" = on ] && [ "$MODE" != bugfix ]; then
-      gb_ensure_reference_film "$game"
-    else
-      gb_ensure_reference_project "$game"
-    fi
     GEN_RESUME=()
     [ "$RESUME" = 1 ] && [ -f "$cell/matrix/run.json" ] && GEN_RESUME+=(--resume)
     "$GB_PYTHON" "$GB_BENCH" run-task-matrix --out "$cell" "${COMMON[@]}" \

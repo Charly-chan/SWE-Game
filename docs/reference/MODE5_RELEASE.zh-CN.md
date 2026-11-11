@@ -93,7 +93,7 @@ Windows 用户在 WSL 内使用上述同样的命令。推荐把仓库、虚拟�
 运行顺序：
 
 ```text
-HF 安装并校验固定任务包（源工程/素材/主录像/已校准隐藏 suite/Community scaffold）→ 已授权 Unity Agent
+从配置的数据源安装并校验固定任务包（源工程/素材/主录像/已校准隐藏 suite/Community scaffold）→ 已授权 Unity Agent
 → 阅读源代码/GDD/素材/视频 → 编写并自检 Unity 项目
 → 收集原始 submission → 全新离线 evaluator 独立重建
 → witness/no-input/hidden/counterfactual → capture → report/manifest → 汇总
@@ -163,6 +163,6 @@ Harbor grader 使用同一 Docker evaluator，不另造评分逻辑；但 Harbor
 - Docker daemon 不可达：在当前 Linux/WSL shell 先确认 `docker info`；不要对外暴露无认证 Docker TCP 端口。
 - doctor 授权失败：检查 same-host Linux Hub 激活、目录私有权限和 provider；不重新跑模型。
 - 镜像版本不匹配：重跑 setup，再 doctor；不能拿旧 preflight 证明新镜像有效。
-- 参考工程/素材/主录像缺失：任务生成会从固定 HF 版本按需下载；可用 `python scripts/fetch_reference_data.py --game GAME_ID --with-videos` 预取，见[数据指南](../reference-data.md)。任务与校准合同均来自 `data/task-data.json` 固定的校验数据包。
+- 任务生成按需下载任务包和录像。任务包包含移植所需的 Godot 源工程和 Unity 脚手架；可用 `python scripts/fetch_reference_data.py --game GAME_ID --videos-only` 预取录像，见[数据指南](../reference-data.md)。任务与校准合同均来自 `data/task-data.json` 固定的校验数据包。
 - Unity compile/runtime 失败：看 Agent selfcheck 与 evaluator report/log；起始 scaffold 可用不保证模型改动正确。
 - 总分 null：看未测/基础设施归因；代理总分缺测表示存在环境/传输/完整性问题，不是等待 VLM。

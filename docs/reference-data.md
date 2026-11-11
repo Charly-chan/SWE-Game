@@ -6,13 +6,15 @@ tasks and 82 repair cases; the remaining paper case is not yet represented in
 the manifest. See [version information](releasing.md#published-results) before
 comparing a downloaded repair run with the paper. The release provides 451
 fixed package variants: the supported playtest-kit choices and the Mode-1
-reference-video switch. Each game also has a reference project and one recording.
+reference-video switch, plus one recording per game.
 
 ## Download a task
 
 Task archives and recordings are supplied separately from this code snapshot.
-Set `SWE_GAME_DATA_BASE_URL` to the root of a review data mirror before
-downloading. The root must expose the paths listed in
+Browse the files on the [anonymous dataset page](https://anonymous-hf.com/a/uvnp85fetrne/).
+The runner downloads from its anonymous file endpoint by default. No login or
+access token is required. Set `SWE_GAME_DATA_BASE_URL` to override the mirror.
+An override must be a direct download root serving the paths in
 [`data/task-data.json`](../data/task-data.json). The runner verifies each
 download against the recorded size and SHA-256. To inspect a package:
 
@@ -27,11 +29,14 @@ the dataset revision. Choose a repair task with `--case-id`.
 Give a coding agent only `visible/`; retain the entire package for evaluation.
 The available repair IDs are listed in [`data/task-data.json`](../data/task-data.json).
 
-To download a reference game separately:
+The review data contains each task's `visible/` and `hidden/` materials,
+including the faulty project for Bug Repair and the source project and target
+scaffold for Cross-Engine Porting. The independent reference project tree is
+omitted. To prefetch recordings separately:
 
 ```bash
-python scripts/fetch_reference_data.py --game kindle_relay --with-videos
-python scripts/fetch_reference_data.py --game all --with-videos
+python scripts/fetch_reference_data.py --game kindle_relay --videos-only
+python scripts/fetch_reference_data.py --game all --videos-only
 ```
 
 Data preparation supports Linux and
@@ -54,11 +59,11 @@ more space than the shared download cache.
 
 Interrupted downloads resume when the server supports byte ranges. Installation
 rejects archive links, duplicate paths, directory traversal, and mismatched hashes.
-Existing nonempty task directories and existing reference projects are preserved.
+Existing nonempty task directories are preserved.
 Move an existing directory aside to install a pristine copy.
 
 ## Attribution
 
-Reference projects retain their applicable component license and credit files.
+Task materials retain their applicable component license and credit files.
 Attribution records are indexed in [third-party notices](../THIRD_PARTY_NOTICES.md).
 Their existing terms remain applicable to the distributed materials.

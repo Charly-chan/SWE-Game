@@ -14,7 +14,7 @@ This benchmark evaluates coding agents across five game development tasks: build
 
 The benchmark covers **41 reference games** (24 in 2D and 17 in 3D) across **13 gameplay categories**, including platforming, action, puzzles, driving, and strategy. Agents receive task-specific requirements and materials; the evaluator runs their submissions, replays player inputs, and assesses game mechanics, progression, playability, and visual quality.
 
-Use this repository to **run an agent**, **evaluate a submission**, or **reproduce a benchmark run**. See the [data setup guide](docs/reference-data.md) for the task packages, reference projects, assets, and gameplay recordings.
+Use this repository to **run an agent**, **evaluate a submission**, or **reproduce a benchmark run**. See the [data setup guide](docs/reference-data.md) for task packages and gameplay recordings.
 
 <table>
   <tr>
@@ -241,13 +241,13 @@ runtime contracts for all 41 games. The default agent budget is 7200 seconds.
 
 The paper defines **247 tasks**, including **83 Bug Repair cases**, over **41 reference game projects** and **41 reference recordings**. The current [downloadable data manifest](docs/reference-data.md) contains **246 fixed tasks** (82 repair cases), with 451 package variants covering the supported playtest-kit and Mode-1 video settings. The remaining paper repair case is not yet represented in the downloadable manifest; see [version information](docs/releasing.md#published-results). GitHub hosts the evaluator, runners, fixed scoring data, documentation, and gallery screenshots. Original game and asset licenses are preserved with the data and indexed in [third-party notices](THIRD_PARTY_NOTICES.md).
 
-The runner downloads the required data automatically. To prefetch one game and its primary recording:
+Browse the [anonymous data mirror](https://anonymous-hf.com/a/uvnp85fetrne/). The runner downloads the selected task package and any recording it needs from this mirror. To prefetch one recording:
 
 ```bash
-python scripts/fetch_reference_data.py --game kindle_relay --with-videos
+python scripts/fetch_reference_data.py --game kindle_relay --videos-only
 ```
 
-For the full corpus, use `--game all --with-videos`. See [data downloads](docs/reference-data.md) for pinned versions, checksums, storage, and recovery.
+For all recordings, use `--game all --videos-only`. See [data downloads](docs/reference-data.md) for pinned versions, checksums, storage, and recovery.
 
 ## Repository Structure
 
@@ -259,7 +259,6 @@ For the full corpus, use `--game all --with-videos`. See [data downloads](docs/r
 | [`docs/`](docs/README.md) | User guides, scoring contracts, and game attribution |
 | [`eval/`](eval/README.md) | Evaluator implementation, task definitions, interfaces, and reference evidence |
 | [`scripts/`](scripts/README.md) | Data downloads, agent launchers, and evaluation utilities |
-| `games/` | Reference projects downloaded from the configured data source; created on demand and ignored by Git |
 | `results/` | Local task packages, submissions, logs, and evaluation reports; ignored by Git |
 
 The root entry points are [`setup.sh`](setup.sh) for installation,

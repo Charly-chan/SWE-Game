@@ -10,7 +10,7 @@ sudo ./setup.sh
 ./setup.sh --check
 ```
 
-Set up the [data source](reference-data.md) for reference projects and videos.
+See the [data source](reference-data.md) for task packages and videos.
 `run_benchmark.sh` downloads each selected game's data when it prepares a package.
 The released task manifest pins the dataset revision and checksums.
 
@@ -32,9 +32,9 @@ when nothing is missing. It installs:
   that every entry script puts first on `PATH`. Nothing is installed with
   `npm -g`, so a broken host-wide install cannot affect a run;
 - Git LFS filters for the remaining repository artifacts (`git lfs install --local`).
-  Reference game data uses the configured data source. To prefetch a game,
-  run `python scripts/fetch_reference_data.py --game kindle_relay --with-videos`.
-  See [data storage and recovery](reference-data.md) for downloading all projects.
+  Task data uses the configured data source. To prefetch a recording,
+  run `python scripts/fetch_reference_data.py --game kindle_relay --videos-only`.
+  See [data storage and recovery](reference-data.md) for cache details.
 
 Useful flags: `--skip-apt`, `--skip-godot`, `--skip-cli`, `--skip-lfs`, `--check`.
 
