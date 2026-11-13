@@ -726,8 +726,8 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--agent-command", default="",
                      help="command template required when --harness command")
     run.add_argument("--agent-env-file", default="")
-    run.add_argument("--agent-base-url", default="https://vip.auto-code.net/v1")
-    run.add_argument("--agent-key-env", default="AUTO_CODE_API_KEY")
+    run.add_argument("--agent-base-url", default="https://api.openai.com/v1")
+    run.add_argument("--agent-key-env", default="OPENAI_API_KEY")
     run.add_argument("--agent-effort", default="high", choices=("low", "medium", "high"))
     run.add_argument("--agent-timeout", type=_positive_agent_budget, default=7200,
                      help="Agent wall-clock budget in seconds (default: 7200 / 120 minutes)")

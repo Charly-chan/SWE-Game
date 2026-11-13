@@ -51,10 +51,12 @@ def _serial_lock(path: Path):
 
 class ClaudeCodeRubricJudge:
     def __init__(self):
-        self.model = os.environ.get("GAMEBENCH_VLM_MODEL", "claude-fable-5-1")
+        self.model = os.environ.get("GAMEBENCH_VLM_MODEL", "sonnet")
         self.effort = os.environ.get("GAMEBENCH_VLM_EFFORT", "medium")
-        self.base_url = os.environ.get("GAMEBENCH_VLM_BASE_URL", "https://www.micuapi.ai")
-        self.key_env = os.environ.get("GAMEBENCH_VLM_KEY_ENV", "MICU_API_KEY")
+        self.base_url = (os.environ.get("GAMEBENCH_VLM_BASE_URL")
+                         or os.environ.get("ANTHROPIC_BASE_URL")
+                         or "https://api.anthropic.com")
+        self.key_env = os.environ.get("GAMEBENCH_VLM_KEY_ENV", "ANTHROPIC_API_KEY")
         self.executable = os.environ.get("GAMEBENCH_CLAUDE_CODE_BIN") or shutil.which("claude")
 
     def validate_configuration(self):
@@ -85,9 +87,6 @@ class ClaudeCodeRubricJudge:
         env = dict(os.environ)
         for name in ("ANTHROPIC_AUTH_TOKEN", "CLAUDE_CODE_OAUTH_TOKEN", "ANTHROPIC_MODEL"):
             env.pop(name, None)
-        if "micuapi.ai" in self.base_url:
-            for name in ("HTTP_PROXY", "HTTPS_PROXY", "ALL_PROXY", "http_proxy", "https_proxy", "all_proxy"):
-                env.pop(name, None)
         env.update(ANTHROPIC_API_KEY=key, ANTHROPIC_BASE_URL=self.base_url.rstrip("/").removesuffix("/v1"),
                    CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC="1", DISABLE_TELEMETRY="1", DISABLE_ERROR_REPORTING="1")
         command = [self.executable, "--print", "--bare", "--model", self.model,
@@ -148,13 +147,13 @@ class OpenAIResponsesRubricJudge:
 
 
     def __init__(self):
-        self.model = os.environ.get("GAMEBENCH_VLM_MODEL", "gpt-5.6-sol")
+        self.model = os.environ.get("GAMEBENCH_VLM_MODEL", "gpt-6-astra")
         self.effort = os.environ.get("GAMEBENCH_VLM_EFFORT", "high")
         self.base_url = (os.environ.get("GAMEBENCH_VLM_BASE_URL")
                          or os.environ.get("OPENAI_BASE_URL")
                          or os.environ.get("AUTO_CODE_BASE_URL")
-                         or "https://vip.auto-code.net")
-        self.key_env = os.environ.get("GAMEBENCH_VLM_KEY_ENV", "AUTO_CODE_API_KEY")
+                         or "https://api.openai.com/v1")
+        self.key_env = os.environ.get("GAMEBENCH_VLM_KEY_ENV", "OPENAI_API_KEY")
 
     def validate_configuration(self):
         key = (os.environ.get(self.key_env, "") or os.environ.get("OPENAI_API_KEY", "")

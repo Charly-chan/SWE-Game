@@ -95,7 +95,7 @@ if [ "$AGENT_SANDBOX" != docker ]; then
   [ -n "$TOOL" ] || gb_die "$HARNESS CLI is missing; run ./setup.sh"
 fi
 if [ "$AGENT_SANDBOX" != docker ] && [ "$HARNESS" = claude ] && [ "$TOOL" = /usr/local/bin/claude ]; then
-  gb_die "/usr/local/bin/claude is the reference host's broken proxy wrapper; set GB_TOOLS_BIN=/opt/gb_live0904/bin or run ./setup.sh to install /opt/gamebench/bin/claude"
+  gb_die "/usr/local/bin/claude is the reference host's broken proxy wrapper; set GB_TOOLS_BIN to your CLI directory or run ./setup.sh to install /opt/gamebench/bin/claude"
 fi
 KEY_VALUE="${!KEY_ENV:-}"
 ROUTE_ARGS=()

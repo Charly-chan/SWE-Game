@@ -89,7 +89,7 @@ CLAUDE_CODE_OAUTH_TOKEN=<setup-token 输出；不要提交到仓库>
 `run_benchmark.sh` 复用该格的 coding-agent 路线；独立 `evaluate.sh` 使用外部文件里的判官配置，
 建议显式填写模型、地址及 key 变量名。Claude Code 判官使用 `GAMEBENCH_VLM_PROVIDER=claude_code`；
 完整配置见 [quickstart](quickstart.md#evaluation-commands)。
-旧名字继续有效：`MICU_API_KEY`（`OPENAI_API_KEY` 空时它意味着 MICU 网关）、`GB_CODEX_BASE_URL` /
+路由别名：`GB_CODEX_BASE_URL` /
 `GB_CODEX_KEY_ENV` / `GB_CLAUDE_BASE_URL` / `GB_CLAUDE_KEY_ENV`（分别是上表 URL / key 变量**名**的别名）。
 
 `./setup.sh --check-auth` 每个 harness 一行：`ok` / `401 unauthorized` / `no Responses API`（网关不接

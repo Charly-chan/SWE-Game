@@ -176,7 +176,8 @@ export GAMEBENCH_VLM_KEY_ENV=OPENAI_API_KEY
 For a Responses-compatible model, set `GAMEBENCH_VLM_PROVIDER=responses`,
 `GAMEBENCH_VLM_MODEL`, `GAMEBENCH_VLM_BASE_URL`, and `GAMEBENCH_VLM_KEY_ENV`
 explicitly for your provider. The Responses transport also honors
-`OPENAI_BASE_URL` / `AUTO_CODE_BASE_URL` when no judge-specific endpoint is set.
+`OPENAI_BASE_URL` when no judge-specific endpoint is set. Legacy overrides remain
+supported; with no endpoint configuration it uses the official OpenAI endpoint.
 API credentials and the Claude executable are checked before engine evaluation;
 this local check does not establish model availability or account balance.
 

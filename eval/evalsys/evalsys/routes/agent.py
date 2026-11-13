@@ -541,7 +541,7 @@ class LLMRouteAgent(RouteAgent):
 
 
     api_key: str
-    base_url: str = "https://vip.auto-code.net/v1"
+    base_url: str = "https://api.anthropic.com"
     model: str = "opus-4-7"
     requester: Callable[[dict[str, Any], str, str], dict[str, Any]] = (
         default_anthropic_requester
@@ -574,7 +574,7 @@ class LLMRouteAgent(RouteAgent):
             api_key=api_key,
             base_url=os.environ.get("ANTHROPIC_BASE_URL")
             or os.environ.get("CLAUDE_BASE_URL")
-            or "https://vip.auto-code.net/v1",
+            or "https://api.anthropic.com",
             model=os.environ.get("ANTHROPIC_MODEL")
             or os.environ.get("CLAUDE_MODEL")
             or "opus-4-7",

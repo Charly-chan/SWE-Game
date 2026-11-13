@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Use official provider endpoints and standard key names by default for agent
+  and visual-judge routes. Keep explicit endpoint overrides for custom providers.
+  Update configuration examples and remove host-specific setup paths.
 - Align the result tables with the submitted manuscript, including Brief Design,
   all six Brief totals, and the component weights. Enable Brief Design by default
   for new runs.

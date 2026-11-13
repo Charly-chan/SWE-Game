@@ -76,9 +76,9 @@ DIFFERENCE_BAND = 0.125
 DEFAULT_MAX_FRAMES = 6
 
 
-DEFAULT_RESPONSES_MODEL = "gpt-5.6-sol"
-DEFAULT_RESPONSES_BASE_URL = "https://www.micuapi.ai/v1"
-DEFAULT_RESPONSES_KEY_ENV = "MICU_API_KEY"
+DEFAULT_RESPONSES_MODEL = "gpt-6-astra"
+DEFAULT_RESPONSES_BASE_URL = "https://api.openai.com/v1"
+DEFAULT_RESPONSES_KEY_ENV = "OPENAI_API_KEY"
 
 
 class ProvenanceError(ValueError):
@@ -1079,7 +1079,7 @@ class AnthropicSCardJudge:
 
 
     api_key: str = ""
-    base_url: str = "https://vip.auto-code.net/v1"
+    base_url: str = "https://api.anthropic.com"
     model: str = "opus-4-7"
     requester: Callable[[dict, str, str], dict] = default_anthropic_requester
     max_tokens: int = 2048
@@ -1113,7 +1113,7 @@ class AnthropicSCardJudge:
             base_url=(os.environ.get("GAMEBENCH_VLM_BASE_URL")
                       or os.environ.get("ANTHROPIC_BASE_URL")
                       or os.environ.get("CLAUDE_BASE_URL")
-                      or "https://vip.auto-code.net/v1"),
+                      or "https://api.anthropic.com"),
             model=(os.environ.get("GAMEBENCH_VLM_MODEL")
                    or os.environ.get("ANTHROPIC_MODEL")
                    or os.environ.get("CLAUDE_MODEL") or "opus-4-7"),
@@ -1227,6 +1227,7 @@ class OpenAIResponsesSCardJudge:
                 or os.environ.get(DEFAULT_RESPONSES_KEY_ENV)
                 or os.environ.get("OPENAI_API_KEY")
                 or os.environ.get("AUTO_CODE_API_KEY")
+                or os.environ.get("MICU_API_KEY")
                 or ""
             ),
             base_url=(
