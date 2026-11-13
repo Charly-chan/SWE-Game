@@ -87,7 +87,7 @@ uses [Community Docker](reference/MODE5_RELEASE.md); setup and doctor prepare it
 defaults to `auto`: the key file decides the route (a filled `OPENAI_BASE_URL`
 / `ANTHROPIC_BASE_URL` selects that gateway, empty selects the official
 endpoint). `--provider openai` forces Codex's native OpenAI account (codex
-only); `--provider micu` keeps the historical MICU-gateway defaults. Add
+only). Add
 `--concurrency 3` to cap simultaneous cells and `--resume` to reuse generated
 packages or continue an interrupted run.
 
