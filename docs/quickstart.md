@@ -163,15 +163,14 @@ which reports a non-VLM evidence-adjusted score on a 0–100 scale.
 
 For paid visual assessment, configure the external file selected by
 `GB_API_ENV` (or `~/.config/gamebench/gb_api.env`). For example, to use the
-Fable rubric judge through Claude Code:
+Responses rubric judge with the official OpenAI endpoint:
 
 ```bash
-export GAMEBENCH_VLM_PROVIDER=claude_code
-export GAMEBENCH_VLM_MODEL=claude-fable-5-1
-export GAMEBENCH_VLM_BASE_URL=https://www.micuapi.ai
-export GAMEBENCH_VLM_KEY_ENV=MICU_API_KEY
-# Set MICU_API_KEY in this external file.
-# GAMEBENCH_CLAUDE_CODE_BIN=/path/to/claude  # optional executable override
+export GAMEBENCH_VLM_PROVIDER=responses
+export GAMEBENCH_VLM_MODEL=gpt-6-astra
+export GAMEBENCH_VLM_BASE_URL=https://api.openai.com/v1
+export GAMEBENCH_VLM_KEY_ENV=OPENAI_API_KEY
+# Set OPENAI_API_KEY in this external file.
 ```
 
 For a Responses-compatible model, set `GAMEBENCH_VLM_PROVIDER=responses`,
