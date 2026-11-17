@@ -7,11 +7,19 @@ reference-video switch. Each game also has a reference project and one recording
 
 ## Download a task
 
-The runner downloads the selected task automatically. To inspect a package:
+The runner downloads the selected task automatically. These commands install a
+construction task, a repair case and a porting task in separate directories.
 
 ```bash
 eval/evalsys/bin/bench gen-task --game wizard_chase --mode brief --out results/task
+eval/evalsys/bin/bench gen-task --game ballast_yard --mode bugfix \
+  --case-id ballast-yard-fixture-lifecycle-v2 --out results/ballast-repair
+eval/evalsys/bin/bench gen-task --game ballast_yard --mode port --out results/ballast-port
 ```
+
+All 82 repair cases include the faulty Godot project in `visible/game/`. Each of
+the 41 porting tasks includes the Godot source in `visible/source_godot/` and
+the Unity starter project in `visible/target_unity/`.
 
 `gen-task` installs existing release files. For video-conditioned construction and
 porting tasks, it then freezes the evaluator’s current visual rubric and response
@@ -37,6 +45,13 @@ It records each bundle and video's SHA-256 and byte size. Each bundle contains
 an index and content-addressed files shared by its task variants. The installer
 copies the selected fixed files after checking their hashes; it does not change
 the task requirements. Videos download separately when the chosen variant needs them.
+
+The restored release preserves the frozen faulty projects and the Godot and
+Unity starting projects byte for byte. Seven porting packages use the artwork
+ZIPs already distributed with the construction tasks. Those ZIPs omit embedded
+example projects. This affects the supplemental assets in `deepgrid`,
+`ninja_roguelite`, `pixel_platformer_v2`, `sprout_market`, `terraforge`,
+`toon_shooter` and `vaultline`.
 
 ## Storage and recovery
 
