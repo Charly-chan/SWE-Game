@@ -9245,6 +9245,210 @@
           },
           {
             "actions": [
+              "gb_jump"
+            ],
+            "frames": 3,
+            "op": "state"
+          },
+          {
+            "frames": 10,
+            "op": "wait"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_left"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_right"
+            ],
+            "frames": 20,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_jump"
+            ],
+            "frames": 3,
+            "op": "state"
+          },
+          {
+            "frames": 5,
+            "op": "wait"
+          },
+          {
+            "actions": [
               "gb_up"
             ],
             "frames": 8,

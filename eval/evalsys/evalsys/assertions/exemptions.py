@@ -100,6 +100,25 @@ def _reference_declares(task_id: str, group: str) -> bool | None:
     return any(lv.census.get(group, 0) for lv in snapshot.levels)
 
 
+@lru_cache(maxsize=None)
+def _reference_level_counts(task_id: str, group: str) -> dict[str, int] | None:
+    from ..tasks import snapshot_path
+
+    path = snapshot_path(task_id)
+    if not path.is_file():
+        return None
+    try:
+        snapshot = TruthSnapshot.from_dict(json.loads(path.read_text(encoding="utf-8")))
+    except (OSError, ValueError, TypeError):
+        return None
+    return {lv.scene: int(lv.census.get(group, 0) or 0) for lv in snapshot.levels}
+
+
+def _level_scene(item: Item) -> str:
+    head = (item.detail or "").split(" declares no ", 1)
+    return head[0].strip() if len(head) == 2 else ""
+
+
 def apply_reference_census_exemptions(
     task_id: str | None, items: Sequence[Item],
 ) -> list[Item]:
@@ -115,8 +134,26 @@ def apply_reference_census_exemptions(
                 or evidence.get("census_" + group) != 0):
             out.append(it)
             continue
-        if _reference_declares(task_id, group) is not False:
+        scene = _level_scene(it)
+        by_level = _reference_level_counts(task_id, group)
+        level_absent = bool(scene) and by_level is not None and by_level.get(scene) == 0
+        if _reference_declares(task_id, group) is not False and not level_absent:
             out.append(it)
+            continue
+        if level_absent and _reference_declares(task_id, group):
+            evidence["exemption"] = "reference_level_declares_no_" + group
+            evidence["task_id"] = task_id
+            evidence["original_verdict"] = it.verdict.value
+            out.append(exempt(
+                it.id,
+                weight=it.weight,
+                detail=(
+                    f"reference_level_inapplicable ({task_id}): the frozen reference's {scene} "
+                    f"declares no {group} either, so this level has none of this mechanic to "
+                    f"reproduce. measured: {it.detail}"
+                ),
+                evidence=evidence,
+            ))
             continue
         evidence["exemption"] = "reference_declares_no_" + group
         evidence["task_id"] = task_id

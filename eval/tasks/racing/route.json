@@ -72896,52 +72896,70 @@
             "actions": [
               "gb_up"
             ],
-            "frames": 11,
+            "frames": 5,
             "op": "state"
           },
           {
             "actions": [
-              "gb_right",
-              "gb_up"
+              "gb_up",
+              "gb_left"
+            ],
+            "frames": 6,
+            "op": "state"
+          },
+          {
+            "actions": [
+              "gb_up",
+              "gb_left"
             ],
             "frames": 5,
             "op": "state"
           },
           {
             "actions": [
-              "gb_up"
+              "gb_up",
+              "gb_left"
             ],
             "frames": 11,
             "op": "state"
           },
           {
             "actions": [
-              "gb_right",
-              "gb_up"
+              "gb_up",
+              "gb_left"
             ],
             "frames": 5,
             "op": "state"
           },
           {
             "actions": [
-              "gb_up"
+              "gb_up",
+              "gb_left"
             ],
             "frames": 11,
             "op": "state"
           },
           {
             "actions": [
-              "gb_right",
-              "gb_up"
+              "gb_up",
+              "gb_left"
             ],
             "frames": 5,
             "op": "state"
           },
           {
             "actions": [
+              "gb_up",
+              "gb_left"
+            ],
+            "frames": 9,
+            "op": "state"
+          },
+          {
+            "actions": [
               "gb_up"
             ],
-            "frames": 11,
+            "frames": 2,
             "op": "state"
           },
           {

@@ -969,6 +969,52 @@ def _truth_inputs_missing(channel: str, snapshot: Any, expected: Any) -> str | N
     return None
 
 
+_STATIC_RESOURCE_SUFFIXES = (".gd", ".tscn", ".tres", ".gdshader")
+_PRELOAD_REF = re.compile(r'preload\(\s*"(res://[^"]+)"\s*\)')
+_EXTERNAL_RESOURCE_REF = re.compile(r'\[ext_resource[^\]]*?path="(res://[^"]+)"')
+
+
+def _without_failure_edges(expected: Any, task_id: str | None) -> Any:
+    """Declared failure endings are not progression edges."""
+    if expected is None or not task_id:
+        return expected
+    import dataclasses
+
+    from ..assertions.behavior_contracts import reference_failure_edges
+
+    stale = reference_failure_edges(task_id, expected)
+    if not stale:
+        return expected
+    return dataclasses.replace(expected, levels=tuple(
+        dataclasses.replace(level, goal_transition=None) if level.scene in stale else level
+        for level in expected.levels))
+
+
+def _close_static_dependencies(observed, digests, project: Path | None):
+    """Resources named by a loaded script or scene are loaded with that file."""
+    if project is None:
+        return observed, digests
+    seen, pending = set(observed), list(observed)
+    digests = dict(digests or {})
+    while pending:
+        resource = pending.pop()
+        if not str(resource).endswith(_STATIC_RESOURCE_SUFFIXES):
+            continue
+        local = project / str(resource)[len("res://"):]
+        if not str(resource).startswith("res://") or not local.is_file():
+            continue
+        text = local.read_text(encoding="utf-8", errors="replace")
+        for ref in _PRELOAD_REF.findall(text) + _EXTERNAL_RESOURCE_REF.findall(text):
+            if ref in seen:
+                continue
+            seen.add(ref)
+            pending.append(ref)
+            file = project / ref[len("res://"):]
+            if file.is_file():
+                digests[ref] = hashlib.sha256(file.read_bytes()).hexdigest()
+    return tuple(observed) + tuple(sorted(seen - set(observed))), digests
+
+
 def score_o4_level_topology(
     snapshot: Any = None, expected: Any = None, *, task_id: str | None = None
 ) -> ChannelResult:
@@ -980,16 +1026,8 @@ def score_o4_level_topology(
     from ..assertions.exemptions import apply_goal_probe_exemption_to_e4
     from ..assertions.extracted import level_topology
 
+    expected = _without_failure_edges(expected, task_id)
     items = apply_goal_probe_exemption_to_e4(task_id, level_topology(snapshot, expected))
-    from ..assertions.behavior_contracts import reference_failure_edges
-    stale_edges = reference_failure_edges(task_id, expected)
-    if stale_edges:
-        from ..verdict import inconclusive
-        items = [inconclusive(
-            item.id, weight=item.weight,
-            detail="the frozen reference incorrectly records declared failure endings as progression edges; reference re-freeze is required, not a submission failure",
-            evidence={"source": "frozen_reference_endings", "stale_edges": stale_edges},
-        ) if item.id.startswith("E4/") else item for item in items]
     return _truth_channel(
         "O4", items, snapshot, expected,
         "level count and inter-level digraph",
@@ -1307,7 +1345,7 @@ def score_o5_context(ctx: Any) -> ChannelResult:
             )],
             "submission level addresses missing",
         )
-    return score_o5_spatial_ordinal(ctx.truth, ctx.expectations)
+    return score_o5_spatial_ordinal(ctx.truth, _without_failure_edges(ctx.expectations, ctx.task_id))
 
 
 def score_o6_context(ctx: Any) -> ChannelResult:
@@ -1331,15 +1369,18 @@ def score_o6_context(ctx: Any) -> ChannelResult:
         observation.loaded_assets
         if observation is not None and observation.report_produced else None
     )
+    digests = (
+        dict(getattr(observation, "loaded_asset_digests", {}) or {})
+        if observed is not None else None
+    )
+    if observed is not None:
+        observed, digests = _close_static_dependencies(observed, digests, getattr(ctx, "project", None))
     return score_o6_asset_use(
         ctx.tier, supplied_assets=supplied, observed_assets=observed,
         supplied_digests=getattr(assignment, "supplied_digests", None),
         reference_observed=bool(getattr(assignment, "reference_observed", False)),
         probe_detail=str(getattr(observation, "detail", "") or "") if observed is None else "",
-        observed_digests=(
-            dict(getattr(observation, "loaded_asset_digests", {}) or {})
-            if observed is not None else None
-        ),
+        observed_digests=digests,
     )
 
 

@@ -163,6 +163,7 @@ def self_clear_route(
     frames: int,
     milestones: Sequence[Milestone] = (),
     feature_demo: bool = False,
+    success_scope: str = "declared_ending",
 ) -> Route:
     return Route(
         route_id=f"{task_id}/L5/self_clear",
@@ -173,6 +174,7 @@ def self_clear_route(
         authored_solution={"ops": [op.to_dict() for op in ops]},
         notes="taskgen self-clear; ops authored by the submission, not a gold tape",
         continue_after_failure=feature_demo,
+        success_scope=success_scope,
     )
 
 
@@ -429,6 +431,7 @@ def run_self_play(
     honest = flagged = None
     if needs_ops(mode) and ops:
         frames = sum(op.frames for op in ops) + 120
+        success_scope = "all_declared_levels" if mode.id == "gdd" and not feature_demo else "declared_ending"
         route = self_clear_route(
             task_id=project.name,
             ops=ops,
@@ -436,7 +439,9 @@ def run_self_play(
             frames=frames,
             milestones=milestones,
             feature_demo=feature_demo,
+            success_scope=success_scope,
         )
+        out["success_scope"] = success_scope
         budget = derive(
             5, 21.6, declared_steps=len(ops), declared_frames=frames
         )
@@ -471,6 +476,14 @@ def run_self_play(
         )
         out["matched_null"] = _reading_dict(matched_null)
         out["matched_null_ops"] = [op.to_dict() for op in null_ops]
+        if mode.id in {"brief", "gdd", "skeleton"}:
+            from .numeric_replay import read_numeric_replay
+
+            out["numeric_replay"] = read_numeric_replay(
+                session.io_root / "taskgen_ops_env" / "route_report.json",
+                usable=not reading_unmeasured(out["ops_env"])
+                and out["ops_env"].get("segment_clean") is not False,
+            )
     elif needs_ops(mode):
 
 

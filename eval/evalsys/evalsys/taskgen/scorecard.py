@@ -13,6 +13,7 @@ commit when comparing or reproducing scores.
 from __future__ import annotations
 
 import json
+import os
 import re
 from dataclasses import dataclass, fields, replace
 from pathlib import Path
@@ -97,6 +98,8 @@ MODE4_REDESIGN_REGISTRY_VERSION = "2026-09-15.mode4-redesign1"
 MODE4_F2P_P2P_REGISTRY_VERSION = "2026-09-15.mode4-f2p-p2p1"
 REGISTRY_VERSION = EVIDENCE_REGISTRY_VERSION
 from .mode5.score import REGISTRY_VERSION as MODE5_RELEASE_REGISTRY_VERSION
+
+
 REGISTRY_VERSIONS = (
     PILOT_REGISTRY_VERSION,
     CALIB_REGISTRY_VERSION,
@@ -1999,6 +2002,18 @@ def _mode1_evidence_context(result: Any, items: Mapping[str, Item]) -> dict[str,
         engine = getattr(result, "engine", None)
         demonstrations = engine.get("demonstration_summary") if isinstance(engine, Mapping) else None
     context["demonstrations"] = demonstrations
+    engine = getattr(result, "engine", None) or stored.get("engine") or {}
+    if isinstance(engine.get("census_lifecycle"), Mapping):
+        context["census_lifecycle"] = engine["census_lifecycle"]
+    if "numeric_replay" in engine:
+        context["numeric_replays"] = [(engine["numeric_replay"], None)]
+    else:
+        plays = [row["play"] for row in engine.get("demonstrations", [])
+                 if "numeric_replay" in row.get("play", {})]
+        if plays:
+            context["numeric_replays"] = [
+                (play["numeric_replay"], play) for play in plays
+            ]
 
     if "feature_demos" not in context:
         protocol = str(stored.get("witness_protocol") or "")
@@ -2044,6 +2059,21 @@ def _mode1_item_credit(items: Mapping[str, Item], item_id: str) -> float | None:
     if item.verdict in {Verdict.PASSED, Verdict.FAILED}:
         return float(item.credit)
     return 0.0
+
+
+def _mechanic_checkpoint_credit(items: Mapping[str, Item]) -> float | None:
+    credit = _mode1_item_credit(items, "mechanic_trace")
+    item = items.get("mechanic_trace")
+    if credit is None or item is None or item.verdict is not Verdict.PASSED:
+        return credit
+    evidence = item.evidence if isinstance(item.evidence, Mapping) else {}
+    optional = set(evidence.get("optional_missing") or [])
+    graded = [name for name in evidence.get("expected") or [] if name not in optional]
+    # A checkpoint marked required_on_witness=false is a failure path a clean
+    # whole-game witness cannot show without ending the run.
+    if optional and graded and not evidence.get("missing"):
+        return 1.0
+    return credit
 
 
 def _mode1_rubric_group_credit(
@@ -2114,6 +2144,14 @@ def _mode1_content_census_credit(
             continue
         actual = max(0, raw_candidate - given)
         target = max(1, remaining) if scaffold is not None else max(1, int(reference.get(group, 0)))
+        lifecycle = context.get("census_lifecycle")
+        if scaffold is None and isinstance(lifecycle, Mapping) and int(reference.get(group, 0)) == 0:
+            # The reference snapshot saw none of a role the rubric requires, so the
+            # floor of one would be judged on a single frame. Use the most of that
+            # role present at any frame of the scored run, on both sides.
+            actual = int((lifecycle.get("candidate") or {}).get(group, 0))
+            target = max(1, int((lifecycle.get("reference") or {}).get(group, 0)))
+            row["lifecycle"] = True
         credit = min(actual, target) / max(actual, target) if max(actual, target) else 1.0
         credits.append(credit)
         row.update({"candidate": actual, "target": target, "credit": round(credit, 6)})
@@ -2291,6 +2329,12 @@ def _name_unreadable_axes(
     """
     named: list[dict[str, Any]] = []
     for row in axes.values():
+        if row["status"] == "partial_evidence":
+            named.append({
+                "category": "partial_axis", "criterion": row["id"], "source": row["id"],
+                "step": (row.get("evidence") or {}).get("detail") or row["detail"],
+            })
+            continue
         if row["credit"] is not None and row["status"] not in INCOMPLETE_AXIS_STATUSES:
             continue
         reason = (
@@ -2462,7 +2506,7 @@ def _score_mode1_redesign(
     assets = o6_interval.point if o6_source.get("point") is not None else None
     rubric_credit, rubric_evidence = _mode1_rubric_group_credit(context, items)
     census_credit, census_evidence = _mode1_content_census_credit(context)
-    checkpoint = _mode1_item_credit(items, "mechanic_trace")
+    checkpoint = _mechanic_checkpoint_credit(items)
     causal = _mode1_item_credit(items, "causal_witness")
     milestone, milestone_evidence, milestone_status = _gt_milestone_credit(
         context, items, game_id,
@@ -2508,13 +2552,13 @@ def _score_mode1_redesign(
         # nothing ever asked for it.
         "numeric_contract": _mode1_axis_row(
             "numeric_contract",
-            numeric if numeric_status == "measured" else 0.0,
+            numeric if numeric_status in {"measured", "partial_evidence"} else 0.0,
             status=("candidate_failure" if numeric_status in INCOMPLETE_AXIS_STATUSES and candidate_ops_failure
                     else numeric_status),
             detail=(
                 "required slots the candidate's own frames move, gated on separation "
                 "from the matched null"
-                if numeric_status == "measured"
+                if numeric_status in {"measured", "partial_evidence"}
                 else "declared/resolvable slots do not prove candidate-caused delta against matched null"
             ),
             evidence=numeric_evidence,
@@ -2763,9 +2807,14 @@ def _content_structure_credit(
     census_applicable = not (
         scaffold is not None and census is None and census_evidence.get("graded_roles") == 0
     )
-    parts = [(5.0, census), (3.0, topology), (2.0, spatial)] if census_applicable else [
-        (3.0, topology), (2.0, spatial)
-    ]
+    # A component whose every expectation is unobservable has nothing to read;
+    # drop it like the per-check unobservable verdicts inside each card.
+    void = {name for name, value, source in (("topology", topology, topology_source),
+                                             ("spatial", spatial, spatial_source))
+            if value is None and source.get("applicable") is False}
+    named = ([("census", 5.0, census)] if census_applicable else []) + [
+        ("topology", 3.0, topology), ("spatial", 2.0, spatial)]
+    parts = [(weight, value) for name, weight, value in named if name not in void]
     credit = None if any(value is None for _weight, value in parts) else (
         sum(weight * float(value) for weight, value in parts)
         / sum(weight for weight, _value in parts)
@@ -3089,10 +3138,12 @@ def _numeric_series_movement(truth: Mapping[str, Any]) -> dict[str, dict[str, An
     return moved
 
 
-def _numeric_null_separation(items: Mapping[str, Item]) -> dict[str, Any]:
-    """How far the scored run diverged from its matched null."""
+def _numeric_null_separation(
+    items: Mapping[str, Item], *, replay: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Legacy global state-delta gate, using the anti-grant idle probe."""
     item = items.get("anti_grant_diff")
-    evidence = dict(item.evidence or {}) if item is not None else {}
+    evidence = replay if replay is not None else (item.evidence or {} if item else {})
     segments = evidence.get("segments")
     if not isinstance(segments, list):
         segments = [{"evidence": evidence}]
@@ -3141,6 +3192,55 @@ def _numeric_contract_credit(
     required = [str(slot) for slot in (context.get("rubric") or {}).get("required_numeric_slots") or []]
     if not required:
         return 0.0, {"detail": "the rubric requires no numeric slot"}, "empty_denominator"
+    replays = context.get("numeric_replays")
+    if replays is not None:
+        movement: dict[str, dict[str, Any]] = {}
+        controls = []
+        for trace, play in replays:
+            causal = _mode1_item_credit(items, "causal_witness")
+            gate = {"available": causal is not None, "source": "item:causal_witness",
+                    "separated": causal == 1.0,
+                    "meaning": "input-dependent completion; slot movement is checked per level"}
+            controls.append({**gate, "trace_sha256": trace.get("sha256"),
+                             "trace_status": trace.get("status")})
+            for sample in trace.get("slots", []):
+                if sample["valid_frames"] < 2:
+                    continue
+                slot = movement.setdefault(sample["slot"], {
+                    "levels_seen": 0, "levels_moved": 0, "max_span": 0.0, "credited": False,
+                })
+                span = sample["max"] - sample["min"]
+                slot["levels_seen"] += 1
+                slot["levels_moved"] += int(span > 1e-9)
+                slot["max_span"] = max(slot["max_span"], span)
+                slot["credited"] |= span > 1e-9 and bool(gate.get("separated"))
+                slot.setdefault("_levels", []).append((sample["min"], sample["max"]))
+            for slot in movement.values():
+                levels = slot.get("_levels", [])
+                across = slot["levels_moved"] == 0 and len(set(levels)) > 1
+                if across:
+                    slot["moved_across_levels"] = True
+                    slot["credited"] |= bool(gate.get("separated"))
+        for slot in movement.values():
+            slot.pop("_levels", None)
+        rows = [{"slot": name, **movement.get(name, {
+            "levels_seen": 0, "levels_moved": 0, "max_span": 0.0, "credited": False,
+        })} for name in required]
+        missing = [row["slot"] for row in rows if not row["levels_seen"]]
+        partial = bool(missing) or any(
+            not gate["available"] or gate["trace_status"] != "recorded" for gate in controls
+        )
+        evidence = {
+            "required": required, "slots": rows, "missing_slots": missing,
+            "source": "engine.numeric_replay: submitted input, unflagged",
+            "controls": controls,
+            "formula": "required slots that move and clear the legacy gate in the same replay / required slots",
+            "detail": "missing numeric samples or controls retain their original weight" if partial else "",
+        }
+        return sum(row["credited"] for row in rows) / len(required), evidence, (
+            "partial_evidence" if partial else "measured"
+        )
+    # Historical reports have no retained replay telemetry. Preserve their score.
     truth = context.get("candidate_truth") or {}
     movement = _numeric_series_movement(truth)
     if not movement:
@@ -3615,7 +3715,7 @@ def _score_progressive_additive(
         **mechanics_source,
     }
     assets, assets_source = _ocard_credit("O6", items, card, policy)
-    checkpoint = _mode1_item_credit(items, "mechanic_trace")
+    checkpoint = _mechanic_checkpoint_credit(items)
     causal = _mode1_item_credit(items, "causal_witness")
     milestone, milestone_evidence, milestone_status = _gt_milestone_credit(
         context, items, game_id,
@@ -3672,7 +3772,7 @@ def _score_progressive_additive(
             ),
             "numeric_contract": _fixed_axis_row(
                 weights, "numeric_contract",
-                numeric if numeric_status == "measured" else 0.0,
+                numeric if numeric_status in {"measured", "partial_evidence"} else 0.0,
                 status=("candidate_failure" if numeric_status in INCOMPLETE_AXIS_STATUSES
                         and candidate_ops_failure else numeric_status),
                 detail=(
@@ -3680,7 +3780,7 @@ def _score_progressive_additive(
                     if numeric_status in INCOMPLETE_AXIS_STATUSES and candidate_ops_failure else
                     "required slots the candidate's own frames move, gated on separation "
                     "from the matched null"
-                    if numeric_status == "measured"
+                    if numeric_status in {"measured", "partial_evidence"}
                     else "declared/resolvable slots do not prove candidate-caused delta against matched null"
                 ),
                 evidence=numeric_evidence,
@@ -3799,7 +3899,7 @@ def _score_progressive_additive(
             ),
             "numeric_contract": _fixed_axis_row(
                 weights, "numeric_contract",
-                numeric if numeric_status == "measured" else 0.0,
+                numeric if numeric_status in {"measured", "partial_evidence"} else 0.0,
                 status=("candidate_failure" if numeric_status in INCOMPLETE_AXIS_STATUSES
                         and candidate_ops_failure else numeric_status),
                 detail=(
@@ -3807,7 +3907,7 @@ def _score_progressive_additive(
                     if numeric_status in INCOMPLETE_AXIS_STATUSES and candidate_ops_failure else
                     "required slots the candidate's own frames move, gated on separation "
                     "from the matched null"
-                    if numeric_status == "measured"
+                    if numeric_status in {"measured", "partial_evidence"}
                     else "candidate-caused numeric delta and matched-null evidence not yet emitted"
                 ),
                 evidence=numeric_evidence,

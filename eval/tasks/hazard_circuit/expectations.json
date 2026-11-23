@@ -11,7 +11,7 @@
     "gb_reset"
   ],
   "engine": "4.5.1",
-  "generated_at": "2026-08-28T03:01:39+00:00",
+  "generated_at": "2026-11-20T16:14:46+00:00",
   "interface_requirements": {},
   "levels": [
     {
@@ -103,7 +103,7 @@
       },
       "goal_transition": null,
       "scene": "res://levels/act03.tscn",
-      "spawn_goal_distance": 0.8908485343261846
+      "spawn_goal_distance": 0.8694427308890588
     },
     {
       "census": {
@@ -123,7 +123,7 @@
         ],
         "gb_collectible": [
           "x",
-          5
+          4
         ],
         "gb_hazard": [
           "x",
@@ -132,7 +132,7 @@
       },
       "goal_transition": null,
       "scene": "res://levels/act04.tscn",
-      "spawn_goal_distance": 0.7537855083856564
+      "spawn_goal_distance": 0.6581930206814963
     },
     {
       "census": {
@@ -165,7 +165,7 @@
       },
       "goal_transition": null,
       "scene": "res://levels/act05.tscn",
-      "spawn_goal_distance": 0.9207676122814854
+      "spawn_goal_distance": 0.9078923842619435
     },
     {
       "census": {
@@ -193,16 +193,16 @@
         ],
         "gb_hazard": [
           "y",
-          4
+          5
         ],
         "gb_interactive": [
-          "y",
+          "x",
           5
         ]
       },
       "goal_transition": null,
       "scene": "res://levels/act06.tscn",
-      "spawn_goal_distance": 1.0302110429570848
+      "spawn_goal_distance": 0.9576847531358615
     },
     {
       "census": {
@@ -218,11 +218,11 @@
       "dispersion": {
         "gb_checkpoint": [
           "y",
-          3
+          4
         ],
         "gb_collectible": [
           "y",
-          2
+          3
         ],
         "gb_hazard": [
           "y",
@@ -231,7 +231,7 @@
       },
       "goal_transition": null,
       "scene": "res://levels/act07.tscn",
-      "spawn_goal_distance": 1.0192367615155729
+      "spawn_goal_distance": 0.9193641644715305
     },
     {
       "census": {
@@ -246,12 +246,12 @@
       },
       "dispersion": {
         "gb_checkpoint": [
-          "y",
-          5
+          "x",
+          4
         ],
         "gb_collectible": [
           "y",
-          3
+          2
         ],
         "gb_door": [
           "y",
@@ -268,10 +268,10 @@
       },
       "goal_transition": null,
       "scene": "res://levels/act08.tscn",
-      "spawn_goal_distance": 0.9708455047772683
+      "spawn_goal_distance": 0.7767587488131066
     }
   ],
-  "probe_sha256": "39609c49a433ca5f7a05f2c3cc583693be12614dbe33b80cb5d115da290931c3",
+  "probe_sha256": "c60f806151c14f8ce99e2c0ee5e7092adeb1109b7626de5d3cc5323b03a48d79",
   "project": "hazard_circuit",
   "runtime_assets": {
     "res://assets/audio/music/circuit_a.wav": "24c5c3678b46faaf4f09399655428353e5adc7611572bc5a09cba372bd350cef",
